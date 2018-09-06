@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="160px" height="160px" viewBox="0 0 160 160" style="enable-background:new 0 0 160 160;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:none;}
+	.st2{fill:none;stroke:#707070;stroke-linecap:round;stroke-linejoin:round;}
+	.st3{fill:none;stroke:#2D2D2D;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+	.st4{fill:none;stroke:#2D2D2D;stroke-width:2;stroke-miterlimit:10;}
+	.st5{fill:#3C3C3C;}
+</style>
+<g>
+	<polygon class="st3" points="106,11 14,11 11,21 103,21 	"/>
+	<polygon class="st3" points="106,21 14,21 11,31 103,31 	"/>
+	<polygon class="st3" points="106,31 14,31 11,41 103,41 	"/>
+	<polygon class="st3" points="106,41 14,41 11,51 103,51 	"/>
+	<polygon class="st3" points="106,51 14,51 11,61 103,61 	"/>
+	<polygon class="st3" points="106,61 14,61 11,71 103,71 	"/>
+	<polygon class="st3" points="106,71 14,71 11,81 103,81 	"/>
+	<polygon class="st3" points="106,81 14,81 11,91 103,91 	"/>
+	<rect x="25" y="91" class="st3" width="65" height="48"/>
+	<polyline class="st3" points="100,98.2 100,91 15,91 15,149 100,149 100,116.8 	"/>
+	<path class="st3" d="M100,99L100,99c1.7,0,3,1.3,3,3v11c0,1.7-1.3,3-3,3l0,0c-1.7,0-3-1.3-3-3v-11C97,100.3,98.3,99,100,99z"/>
+	<polyline class="st3" points="106,149 149,149 149,85 	"/>
+	<polyline class="st3" points="112,11 149,11 149,33 	"/>
+	<polyline class="st4" points="136,50 143,50 143,77 149,77 149,42 135,42 	"/>
+	<path class="st4" d="M131.2,35h1.3c1.4,0,2.5,1.1,2.5,2.5v19c0,1.4-1.1,2.5-2.5,2.5h-1.8c-0.4,0-0.8-0.3-0.8-0.8V36.2
+		C130,35.5,130.5,35,131.2,35L131.2,35z"/>
+	<rect x="121" y="43" class="st4" width="9" height="6"/>
+</g>
+</svg>

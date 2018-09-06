@@ -1,0 +1,83 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        title= title
+        if env.NODE_ENV == 'development'
+            link(rel="stylesheet", href="/src/css/bootstrap.css")
+            link(rel="stylesheet", href="/src/css/jquery.fullpage.min.css")
+            link(rel="stylesheet", href="/src/css/owl.carousel.min.css")
+            link(rel="stylesheet", href="/src/css/owl.theme.default.min.css")
+            link(rel="stylesheet", href="/src/css/animate.css")
+            link(rel="stylesheet", href="/src/css/hamburglar.css")
+            link(rel="stylesheet", href="/src/css/app.css")
+            link(rel="stylesheet", href="/src/css/index.css")
+        else
+            link(rel="stylesheet", href="/app.min.css")
+    body
+        #top
+            .logo
+                a(href='/')
+            .search
+                a(href='#').mbutton.grey.small Найти
+                .bginput
+                    input(type='text',placeholder='Введите поисковый запрос...').form-control.form-control-pokna.small.grey
+            .phone
+                a(href='tel:+74993912221').tel +7 499 391 22 21
+                a(href='#').callme Перезвоните мне
+            .l
+                .handle
+                    #hamburger.hamburglar
+                        .burger-icon
+                            span.burger-bun-top
+                            span.burger-filling
+                            span.burger-bun-bot
+                        .burger-ring
+                            svg.svg-ring
+                                path.path(fill='none', stroke='#232323', stroke-miterlimit='10', stroke-width='4', d='M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2')
+                        svg(width='0', height='0')
+                            mask#mask
+                                path(xmlns='http://www.w3.org/2000/svg', fill='none', stroke='#ff0000', stroke-miterlimit='10', stroke-width='4', d='M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4')
+                        .path-burger
+                            .animate-path
+                                .path-rotation
+                .menu
+                    ul
+                        li.item0.active
+                            a(href='/') Главная
+                        li.item1
+                            a(href='/') Главная
+                        li.item2
+                            a(href='/') Главная
+                        li.item3
+                            a(href='/') Главная
+                        li.item4
+                            a(href='/') Главная
+                        li.item5
+                            a(href='/') Главная
+                        li.item6
+                            a(href='/') Главная
+                        li.item7
+                            a(href='/') Главная
+            .cal
+        #main
+            block content
+        if env.NODE_ENV == 'development'
+            script(src='/src/js/jquery-3.3.1.js')
+            script(src='/src/js/popper.js')
+            script(src='/src/js/bootstrap.js')
+            script(src='/src/js/jquery.fullpage.min.js')
+            script(src='/src/js/owl.carousel.min.js')
+            script(src='/src/js/app/app.js')
+            script(src='/src/js/app/index.js')
+        else
+            script(src='/app.min.js')
+
+        
+
+            
+            
+            
+            
+            

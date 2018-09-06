@@ -1,0 +1,477 @@
+extends layouts/app
+
+block content
+    #fullpage_welcome
+        .section.active.s1
+            .l
+                .bg_flex
+                    ul
+                        li.el1 Сложные задачи решаем просто
+                        li.el2 Изготовление окон <br /> и остекление <br /> балконов
+                        li.el3
+                            a(href='/').mbutton.white Заказать окно
+            .r
+                .bg_flex
+                    ul
+                        li
+                            span.title От 6 990 руб.
+                            span.desc За окно с доставкой и установкой. Экономия до 40%
+                        li
+                            span.title 5 лет гарантии
+                            span.desc Даже при условии, что окна вы устанавливаете сами
+        .section.s2
+            ul
+                mixin section_2_item(title, i)
+                    li(class='item'+i)
+                        .i
+                            .img
+                            .title= title
+                            ul
+                                li
+                                    a(href='#') Шторы
+                                li
+                                    a(href='#') Жалюзи
+                                li
+                                    a(href='#') Подоконники
+                                li
+                                    a(href='#') Ручки
+                                li
+                                    a(href='#') Клапаны
+                                li
+                                    a(href='#') Маскитные сетки
+                +section_2_item('Окна', 0)
+                +section_2_item('Услуги', 1)
+                +section_2_item('Комплектующие', 2)
+                +section_2_item('Цены', 3)
+                +section_2_item('Wiki Окна', 4)
+                +section_2_item('Корпоративным клиентам', 5)
+                +section_2_item('Акции/новое', 6)
+                +section_2_item('Компания', 7)
+        .section.s3
+            .l
+                .play
+                    .button
+                    .info Смотреть видео<br />8:42
+            .r
+                .vopros ?
+                .desc
+                    .title Как просто выбрать окна<span>?</span>
+                    .text Данное видео подробно расскажет вам о том, на что обращать внимание при выборе материалов окон под различные помещения и условия. Вы сможете самостоятельно разобраться без помощи консультанта.
+        .section.s4
+            .l
+                .bg_flex
+                    .line1 У нас вы можете
+                    .line2 Заказать окна 
+                        span просто
+                    .line3
+                        p Мы не занимаемся накруткой цены, вы точно знаете за что платите.
+                        p По запросу к вам приезжает специалист для замеров и консультации и берет фиксированную цену за свою услугу. Однако точный расчет и сам договор заключается в офисе.
+                        p Это означает, что специалист не заинтересован в обмане и не станет заниматься накруткой для личного обогащения.
+                    .line4
+                        a(href='#').mbutton.blue Вызвать замерщика
+                        a(href='#').mbutton.white_blue_border Отправить свои замеры
+            .r
+                ul
+                    li.item0
+                        div
+                            img(src='/images/index/s4/11.svg', alt='Первый этап')
+                            | Предоставляете свои предварительные замеры или используете <a href="#">наш калькулятор</a>
+                    li.item1
+                        div
+                            img(src='/images/index/s4/22.svg', alt='Второй этап')
+                            | <a href="#">Вызываете специалиста</a> для замеров и консультации
+                    li.item2
+                        div
+                            img(src='/images/index/s4/33.svg', alt='Третий этап')
+                            | После расчета итоговой стоимости заключаете договор в офисе
+                    li.item3
+                        div
+                            img(src='/images/index/s4/44.svg', alt='Четвертый этап')
+                            | Ожидаете установки в течении 7 рабочих дней после заключения договора
+        .section.s5
+            .empty
+                .up
+                    .bg_flex
+                        .l1 У вас пока нет добавленных к сравнению оконных профилей или балконных конструкций
+                        .l2 Пожалуйста, Выберите 2 или более модели, чтобы перейти к сравнению
+                .down
+                    .l
+                        .bg_flex
+                            .custom-control.custom-radio
+                                input(type="radio", id="customRadio1", name="customRadio", checked).custom-control-input
+                                label(for="customRadio1").custom-control-label
+                                    img(src='/images/index/s5/select_0.svg', alt='Выбрать окно')
+                            .custom-control.custom-radio
+                                input(type="radio", id="customRadio2", name="customRadio").custom-control-input
+                                label(for="customRadio2").custom-control-label
+                                    img(src='/images/index/s5/select_1.svg', alt='Выбрать балкон')
+                    .c
+                        .list
+                            .items
+                                .item.selected
+                                    .bg REHAU BLITZ
+                                        i.material-icons add
+                                .item.selected
+                                    .bg MONTBLANC ECO
+                                        i.material-icons add
+                                .item.selected
+                                    .bg REHAU BRILLIANT-DESIGN
+                                        i.material-icons add
+                                .item
+                                    .bg Выбрать окна 4
+                                        i.material-icons add
+                                .item
+                                    .bg Выбрать окна 5
+                                        i.material-icons add
+                                .item
+                                    .bg Выбрать окна 6
+                                        i.material-icons add
+                        .button
+                            a(href='#').mbutton.blue.mbutton-block Сравнить
+            .sravnenie
+                table
+                    thead
+                        tr
+                            th.zag
+                                img(src='/images/index/s5/o_white.svg', alt='Выбрать окно')
+                                img.active(src='/images/index/s5/b_white.svg', alt='Выбрать балкон')
+                            th
+                                .l
+                                    img(src='/images/index/s5/test.png', alt='test okno')
+                                .r
+                                    .remove
+                                        i.material-icons clear
+                                    .title
+                                        i.material-icons expand_more
+                                        span.brand Montblanc
+                                        span.model Eco
+                                    .link
+                                        i.material-icons remove_red_eye
+                                    .button_select
+                                        .name Выбрать
+                                        img(src='/images/index/s5/add.svg', alt='add')
+                            th
+                                .l
+                                    img(src='/images/index/s5/test.png', alt='test okno')
+                                .r
+                                    .remove
+                                        i.material-icons clear
+                                    .title
+                                        i.material-icons expand_more
+                                        span.brand Montblanc
+                                        span.model Eco
+                                    .link
+                                        i.material-icons remove_red_eye
+                                    .button_select
+                                        .name Выбрать
+                                        img(src='/images/index/s5/add.svg', alt='add')
+                            th
+                                .l
+                                    img(src='/images/index/s5/test.png', alt='test okno')
+                                .r
+                                    .remove
+                                        i.material-icons clear
+                                    .title
+                                        i.material-icons expand_more
+                                        span.brand Montblanc
+                                        span.model Eco
+                                    .link
+                                        i.material-icons remove_red_eye
+                                    .button_select
+                                        .name Выбрать
+                                        img(src='/images/index/s5/add.svg', alt='add')
+                    tbody
+                        tr.basic
+                            td Монтажная глубина
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td 70мм
+                            td 70мм
+                            td 70мм
+                        tr.basic
+                            td Профиль
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td 3-камерный
+                            td 3-камерный
+                            td 3-камерный
+                        tr.basic
+                            td Класс проф
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td «A»
+                            td «B»
+                            td «C»
+                        tr.basic
+                            td Стеклопакет
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td до 32 мм
+                            td до 32 мм
+                            td до 32 мм
+                        tr.basic
+                            td Сопротивление теплоперед
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td 0,58 м2°С/Вт
+                            td 0,58 м2°С/Вт
+                            td 0,58 м2°С/Вт
+                        tr.basic
+                            td Родина бренд
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td
+                                span.flag-rus Швейцария
+                            td
+                                span.flag-rus Швейцария
+                            td
+                                span.flag-rus Швейцария
+                        tr.more
+                            td Варианты фо
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td прямой, скруглённый
+                            td прямой, скруглённый
+                            td прямой, скруглённый
+                        tr.more
+                            td Варианты декорирова
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td покраска, ламинация двухсторонняя без окраски в массе
+                            td покраска
+                            td ламинация двухсторонняя
+                        tr.more
+                            td Особенность
+                                .info
+                                    .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+                            td скруглённая рама и створка
+                            td скруглённая рама
+                            td скруглённая рама
+                    tfoot
+                        tr
+                            th
+                                a.linkmore(href='#')
+                                    i.material-icons chevron_right
+                                    span.basic Дополнительные характеристики
+                                    span.more Вернуться к основных характеристикам
+                            th(colspan=3)
+                                a.mbutton.grey.linkoriginal(href="#")
+                                    span.all Скрыть одинаковые значения
+                                    span.original Показать все
+        .section.s6
+            .l
+                .bg
+                    .title Калькулятор
+                    .select_type
+                        ul
+                            li.active
+                                a(href="#") Оконные конструции
+                            li
+                                a(href="#") Остекление балконов
+                    .selected_type
+                        .empty Еще не добавлено
+                    a(href="#").add_selected Добавить окно
+                    .cost
+                        .value
+                            span.val 0
+                            span.rub  Р
+                        .desc Общая стоимость:
+                    a(href="#").mbutton.blue.mbutton-block.link1 Отправить на точный расчет
+                    a(href="#").mbutton.blue_border.mbutton-block.link2 Отправить свой чертеж на расчет
+            .r
+                .bg
+                    .title
+                        a(href="").left
+                            i.material-icons keyboard_arrow_left
+                        a(href="").right
+                            i.material-icons keyboard_arrow_right
+                        .desc Производитель и модель
+                    ul
+                        li
+                            a(href="#") Производитель и модель
+                        li
+                            a(href="#") Тип и размер окна
+                        li
+                            a(href="#") Дополнительно
+                        li
+                            a(href="#") Цвет материала
+                    .data
+                        .empty
+                            .t У вас еще нет просчитанных окон и балконов
+                            .d Хотите создать новое?
+                            .additem
+                                a(href="#").item0
+                                    .bg_link
+                                        .img
+                                        .name Добавить окно
+                                a(href="#").item1
+                                    .bg_link
+                                        .img
+                                        .name Добавить балкон
+        .section.s7
+            .data
+                .info
+                    .l Наши клиенты
+                    .r Наша компания ведет все заказы от начала до самого конца, оказывает постоянную поддержку и никогда не отказывается от принятых на себя обязательств. Мы тепло встречаем всех наших клиентов и трепетно о них заботимся.
+                .owl-carousel.owl-theme
+                    .item
+                        mixin section_7_item(title, i)
+                            .bg_flex
+                                img(src='/images/welcome/logo.svg', alt=title+' '+i)
+                                .title
+                                    div
+                                        span= title
+                                        | Premium Electric Cars and SUVs
+                        +section_7_item('Tesla', 1)
+                        +section_7_item('Tesla', 2)
+                        +section_7_item('Tesla', 3)
+                        +section_7_item('Tesla', 4)
+                        +section_7_item('Tesla', 5)
+                        +section_7_item('Tesla', 6)
+                        +section_7_item('Tesla', 7)
+                        +section_7_item('Tesla', 8)
+                        +section_7_item('Tesla', 9)
+                        +section_7_item('Tesla', 10)
+                        +section_7_item('Tesla', 11)
+                        +section_7_item('Tesla', 12)
+                    .item
+                        +section_7_item('Tesla', 13)
+                        +section_7_item('Tesla', 14)
+                        +section_7_item('Tesla', 15)
+                        +section_7_item('Tesla', 16)
+                        +section_7_item('Tesla', 17)
+                        +section_7_item('Tesla', 18)
+                        +section_7_item('Tesla', 19)
+                        +section_7_item('Tesla', 20)
+                        +section_7_item('Tesla', 21)
+                        +section_7_item('Tesla', 22)
+                        +section_7_item('Tesla', 23)
+                        +section_7_item('Tesla', 24)
+                    .item
+                        +section_7_item('Tesla', 25)
+                        +section_7_item('Tesla', 26)
+                        +section_7_item('Tesla', 27)
+                        +section_7_item('Tesla', 28)
+                        +section_7_item('Tesla', 29)
+                        +section_7_item('Tesla', 30)
+                        +section_7_item('Tesla', 31)
+                        +section_7_item('Tesla', 32)
+                        +section_7_item('Tesla', 33)
+                        +section_7_item('Tesla', 34)
+                        +section_7_item('Tesla', 35)
+                        +section_7_item('Tesla', 36)
+        .section.s8
+            .l
+                .bg_flex
+                    .title Напишите нам
+                    ul
+                        li.active Вы клиент<i class="material-icons">keyboard_arrow_right</i>
+                        li Вы монтажная бригада<i class="material-icons">keyboard_arrow_right</i>
+                        li Вы оптовик<i class="material-icons">keyboard_arrow_right</i>
+            .r
+                .bg_flex
+                    .desc Вы можете отправить нам сообщение на любую интересующую вас тему, или документ со своими замерами для расчета стоимости окна.
+                    .bgform
+                        form
+                            .row
+                                .col
+                                    .form-group
+                                        input(type='text', placeholder='Ваше имя').form-control.form-control-pokna.white
+                                .col
+                                    .form-group
+                                        input(type='text', placeholder='Ваш телефон').form-control.form-control-pokna.white
+                            .row
+                                .col
+                                    .form-group
+                                        textarea(placeholder='Введите сообщение').form-control.form-control-pokna.white
+                            .row
+                                .col
+                                    a(href='#').mbutton.mbutton-block.trans-white Прикрепить файл
+                                .col
+                                    a(href='#').mbutton.mbutton-block.white Отправить
+        .section.s9
+            .l
+                .bg_flex
+                    .title Карта сайта
+                    .line
+                        .item.item0
+                            .name Главное
+                            ul
+                                li
+                                    a(href='#') Список монтажных бригад
+                                li
+                                    a(href='#') Монтаж
+                                li
+                                    a(href='#') Гарантии
+                                li
+                                    a(href='#') Лучшая цена
+                                li
+                                    a(href='#') АКЦИЯ!
+                                li
+                                    a(href='#') О компании
+                        .item.item1
+                            .name Сотрудничество
+                            ul
+                                li
+                                    a(href='#') Заработайте с нами
+                                li
+                                    a(href='#') Работа монтажным
+                                li
+                                    a(href='#') Бригадам
+                                li
+                                    a(href='#') Оптовикам
+                                li
+                                    a(href='#') Реквизиты
+                    .line
+                        .item.item2
+                            .name Своими руками
+                            ul
+                                li
+                                    a(href='#') Обучение монтажу
+                                li
+                                    a(href='#') Регулировка окон
+                                li
+                                    a(href='#') Инструкция по замеру
+                                li
+                                    a(href='#') Купить монтажный набор
+                                li
+                                    a(href='#') Вместе еще дешевле
+            .r
+                .map
+                ul.info
+                    li.title Контакты
+                    li.tel <a href="tel:+74993912221">+7(499) 391-22-21</a>
+                    li.time с 10:00 до 19:00 Пн. - Пт.
+                    li.mail <a href="mailto:prosto@prostokna.ru">prosto@prostokna.ru</a>
+                    li.address Москва, ул. Спартаковская площадь 14
+                    li.soc
+                        ul
+                            li
+                                a(href="#", target='_blank')
+                                    img(src="/images/index/s9/soc1.svg", alt="Мы в ВКонтакте")
+                            li
+                                a(href="#", target='_blank')
+                                    img(src="/images/index/s9/soc2.svg", alt="Мы в Twitter")
+                            li
+                                a(href="#", target='_blank')
+                                    img(src="/images/index/s9/soc3.svg", alt="Написать или повонить в Skype")
+                            li
+                                a(href="#", target='_blank')
+                                    img(src="/images/index/s9/soc4.svg", alt="Написать или повонить в Whatsapp")
+            .bottom
+                span © «Просто окна» Все права защищены. 2018
+                a(href="#") Условия
+                a(href="#") Правила конфиденциальности
+    #fullpage_nav
+        .lineprogress
+            .line
+        ul
+            li.active Заказать окно
+            li Основное меню
+            li Как заказать окно
+            li Алгоритм заказа
+            li Сравнение профилей
+            li Калькулятор
+            li Наши клиенты
+            li Связаться с нами
+            li Контакты
