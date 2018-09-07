@@ -9,7 +9,7 @@
 Для этого запускаем Git bash (ранее установленный), определяем папку где будет распологаться проект (к примеру на `C:/Project`)<br>
 Выполняем:<br>
 `cd C:/Project`<br>
-`git clone https://github.com/ **[ Ваш аккаунт ]** /prostokna.git`
+`git clone https://github.com/ [ Ваш аккаунт ] /prostokna.git`
 В выбранной папке появляется папка с названием `prostokna`<br>
 `cd prostokna`
 7. **Установка зависимостей**<br>
