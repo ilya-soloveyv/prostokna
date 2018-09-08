@@ -1,0 +1,428 @@
+#fullpage_welcome {
+    .section {
+        &.s5 {
+            .empty {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                .up {
+                    position: relative;
+                    width: 100%;
+                    height: 35%;
+                    background-color: #2d70e4;
+                    color: white;
+                    text-align: center;
+                    font-family: 'MontserratSemiBold';
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    .bg_flex {
+                        .l1 {
+                            font-size: 26px;
+                            padding: 0 30% 30px;
+                        }
+                        .l2 {
+                            font-size: 20px;
+                            padding: 0 30%;
+                        }
+                    }
+                }
+                .down {
+                    position: relative;
+                    width: 100%;
+                    height: 65%;
+                    background-color: #FFF;
+                    .l {
+                        position: relative;
+                        float: left;
+                        width: 25%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        .bg_flex {
+                            padding-bottom: 100px;
+                            width: 100%;
+                            .custom-control {
+                                padding: 0 0 20px 0;
+                                .custom-control-label {
+                                    text-align: center;
+                                    width: 100%;
+                                    padding: 0 0 34px;
+                                    &::before {
+                                        top: auto;
+                                        left: 50%;
+                                        bottom: 0px;
+                                        margin-left: -8px;
+                                        width: 16px;
+                                        height: 16px;
+                                        background-color: #2D70E4;
+                                    }
+                                    &::after {
+                                        top: auto;
+                                        left: 50%;
+                                        bottom: 0;
+                                        margin-left: -8px;
+                                        width: 16px;
+                                        height: 16px;
+                                    }
+                                    img {
+                                    
+                                    }
+                                }
+                                &:last-child {
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                    .c {
+                        position: relative;
+                        float: left;
+                        width: 50%;
+                        height: 100%;
+                        .list {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            bottom: 100px;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            .items {
+                                position: relative;
+                                .item {
+                                    float: left;
+                                    width: 50%;
+                                    cursor: default;
+                                    .bg {
+                                        position: relative;
+                                        border: 1px solid #9b9b9b;
+                                        border-radius: 10px;
+                                        margin: 7px 30px 7px 0;
+                                        padding: 29px 40px 29px 20px;
+                                        font-family: 'MontserratSemiBold';
+                                        text-transform: uppercase;
+                                        font-size: 16px;
+                                        line-height: 20px;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        i {
+                                            position: absolute;
+                                            right: 15px;
+                                            top: 50%;
+                                            font-size: 24px;
+                                            transform: translate(0, -50%);
+                                            background-color: white;
+                                            cursor: pointer;
+                                        }
+                                        &:hover {
+                                            color: #2d70e4;
+                                            border: 1px solid #96b7f1;
+                                        }
+                                    }
+                                    &.selected {
+                                        .bg {
+                                            i {
+                                                transform: translate(0, -50%) rotate(45deg);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .button {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            width: 50%;
+                            height: 100px;
+                            padding: 0 30px 0 0;
+                        }
+                    }
+                }
+            }
+            .sravnenie {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: none;
+                table {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    table-layout: fixed;
+                    font-family: 'MontserratMedium';
+                    font-size: 14px;
+                    line-height: 20px;
+                    thead {
+                        tr {
+                            th {
+                                position: relative;
+                                padding: 0;
+                                border-right: 1px solid #ededed;
+                                .l {
+                                    position: absolute;
+                                    left: 20px;
+                                    top: 20px;
+                                    bottom: 20px;
+                                    right: 51%;
+                                    overflow: hidden;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: contain;
+                                    }
+                                }
+                                .r {
+                                    position: absolute;
+                                    right: 20px;
+                                    top: 20px;
+                                    bottom: 20px;
+                                    left: 51%;
+                                    .remove {
+                                        position: absolute;
+                                        right: 0;
+                                        top: 0;
+                                        width: 24px;
+                                        height: 24px;
+                                        i {
+                                            display: block;
+                                            font-size: 24px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                    .title {
+                                        position: absolute;
+                                        left: 0;
+                                        top: 30px;
+                                        width: 100%;
+                                        height: 38px;
+                                        padding: 2px 24px 2px 0;
+                                        font-family: 'MontserratBold';
+                                        text-transform: uppercase;
+                                        cursor: pointer;
+                                        i {
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                            font-size: 24px;
+                                        }
+                                        .brand {
+                                            font-size: 16px;
+                                            line-height: 20px;
+                                            display: block;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                        }
+                                        .model {
+                                            font-size: 13px;
+                                            line-height: 14px;
+                                            display: block;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                        }
+                                    }
+                                    .link {
+                                        position: absolute;
+                                        left: 0;
+                                        top: 78px;
+                                        height: 24px;
+                                        width: 100%;
+                                        i {
+                                            font-size: 24px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                    .button_select {
+                                        position: absolute;
+                                        right: 0;
+                                        bottom: 0;
+                                        height: 38px;
+                                        width: 38px;
+                                        line-height: 38px;
+                                        padding: 0 0 0 20px;
+                                        background-color: #2d70e4;
+                                        border-radius: 10px;
+                                        color: white;
+                                        font-size: 11px;
+                                        font-family: 'Montserrat';
+                                        cursor: pointer;
+                                        div.name {
+                                            display: none;
+                                        }
+                                        img {
+                                            position: absolute;
+                                            top: 10px;
+                                            right: 10px;
+                                            width: 18px;
+                                            height: 18px;
+                                        }
+                                    }
+                                }
+                                &:first-child {
+                                    background-color: #2d70e4;
+                                    border-right: none;
+                                    width: 400px;
+                                    text-align: center;
+                                    img {
+                                        height: 60px;
+                                        margin: 80px 10px;
+                                        opacity: 0.5;
+                                        cursor: pointer;
+                                        &.active {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                                &:last-child {
+                                    border-right: none;
+                                }
+                            }
+                        }
+                    }
+                    tbody {
+                        tr {
+                            td {
+                                position: relative;
+                                border-top: 1px solid #ededed;
+                                border-right: 1px solid #ededed;
+                                padding: 0 30px;
+                                text-align: center;
+                                &:first-child {
+                                    border-top: 1px solid #6d9ae7;
+                                    border-right: none;
+                                    background-color: #2d70e4;
+                                    color: white;
+                                    text-align: left;
+                                }
+                                &:last-child {
+                                    border-right: none;
+                                }
+                                span.flag-rus {
+                                    background-image: url('/images/index/s5/flag/rus.png');
+                                    background-repeat: no-repeat;
+                                    background-position: left;
+                                    line-height: 21px;
+                                    display: inline-block;
+                                    padding-left: 31px;
+                                }
+                                .info {
+                                    position: absolute;
+                                    right: 20px;
+                                    top: 50%;
+                                    width: 18px;
+                                    height: 18px;
+                                    margin-top: -9px;
+                                    background-image: url('/images/index/s5/i.png');
+                                    cursor: pointer;
+                                    display: none;
+                                    .desc {
+                                        position: absolute;
+                                        width: 400px;
+                                        line-height: 30px;
+                                        top: 50%;
+                                        left: 38px;
+                                        transform: translate(0, -50%);
+                                        padding: 40px 50px;
+                                        background-color: rgba(0,0,0,.75);
+                                        display: none;
+                                        z-index: 1;
+                                        text-decoration: none;
+                                    }
+                                    &:hover {
+                                        .desc {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                                &:hover {
+                                    .info {
+                                        display: block;
+                                    }
+                                }
+                            }
+                            &.basic {
+
+                            }
+                            &.more {
+                                display: none;
+                            }
+                        }
+                    }
+                    tfoot {
+                        tr {
+                            height: 100px;
+                            th {
+                                padding: 0;
+                                border-top: 1px solid #ededed;
+                                text-align: center;
+                                font-weight: normal;
+                                a.linkoriginal {
+                                    font-size: 12px;
+                                    span.all {
+                                        display: block;
+                                    }
+                                    span.original {
+                                        display: none;
+                                    }
+                                    &.active {
+                                        span.all {
+                                            display: none;
+                                        }
+                                        span.original {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                                a.linkmore {
+                                    display: inline-block;
+                                    position: relative;
+                                    color: white;
+                                    line-height: 20px;
+                                    text-decoration: none;
+                                    padding: 0 70px 0 0;
+                                    i {
+                                        content: '';
+                                        position: absolute;
+                                        right: 30px;
+                                        top: 0;
+                                        font-size: 20px;
+                                    }
+                                    span.basic {
+                                        display: block;
+                                    }
+                                    span.more {
+                                        display: none;
+                                    }
+                                    &.active {
+                                        span.basic {
+                                            display: none;
+                                        }
+                                        span.more {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                                &:first-child {
+                                    border-right: none;
+                                    border-top: 1px solid #6d9ae7;
+                                    background-color: #2d70e4;
+                                    color: white;
+                                    text-align: right;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
