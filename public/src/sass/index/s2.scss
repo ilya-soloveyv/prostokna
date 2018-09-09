@@ -1,7 +1,9 @@
 #fullpage_welcome {
-    .section {
-        &.s2 {
+	.section {
+		&.s2 {
             ul {
+                display: flex;
+                flex-wrap: wrap;
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -11,7 +13,6 @@
                 bottom: 0;
                 left: 0;
                 li {
-                    float: left;
                     position: relative;
                     width: 25%;
                     height: 50%;
@@ -20,7 +21,11 @@
                     text-align: center;
                     border-right: 1px solid #9f9f9f;
                     border-bottom: 1px solid #9f9f9f;
-                    @media (max-width: 575px) {
+                    @media (max-width: 993px){
+                        
+                    }
+                    @media (max-width: 768px) {
+                        position: static;
                         display: block;
                         width: 50%;
                         height: 25%;
@@ -95,21 +100,24 @@
                         }
                     }
                     .i {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
                         width: 180px;
-                        height: 200px;
+                        height: 100%;
                         margin: auto;
-                        @media (max-width: 575px) {
+                        @media (max-width: 768px) {
                             width: 100%;
                             height: 100%;
                         }
                         .img {
-                            width: 160px;
-                            height: 160px;
-                            margin: 0 auto 20px;
+                            width: 150px;
+                            height: 130px;
+                            margin: 0 auto;
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: contain;
-                            @media (max-width: 575px) {
+                            @media (max-width: 768px) {
                                 width: 80px;
                                 height: 70%;
                                 margin: 0 auto;
@@ -120,36 +128,52 @@
                             font-size: 16px;
                             line-height: 20px;
                             text-transform: uppercase;
-                            @media (max-width: 575px) {
+                            @media (max-width: 993px) {
                                 padding: 0 10px;
                                 width: 100%;
                                 justify-content: center;
                                 display: flex;
                                 align-items: center;
                                 height: 30%;
-                                font-size: 12px;
+                                font-size: 13px;
                                 line-height: 15px;
                             }
+                            @media (max-width: 768px) {
+
+                            }
+                        }
+                        .img__hover {
+                            display: none;
+                            background-image: url("/images/index/s2/logotransparent.svg");
+                            background-size: cover;
+                            height: 120px;
+                            width: 100px;
+                            position: absolute;
+                            bottom: -30px;
+                            right: 0;
                         }
                     }
                     ul {
                         display: none;
                         position: relative;
-                        li {
-                            a {
-
-                            }
+                        @media (max-width: 768px) {
+                            position: static;
                         }
                     }
                     &:hover,
                     &.active {
                         background-color: #165ed4;
+                        @media (max-width: 768px) {
+                            height: 100%;
+                            width: 100%;
+                            position: absolute;
+                        }
                         .i {
                             width: 100%;
                             height: auto;
                             margin: 0;
-                            padding: 0 50px;
-                            @media (max-width: 575px) {
+                            padding: 0 30px;
+                            @media (max-width: 576px) {
                                 padding: 0;
                             }
                             .img {
@@ -158,91 +182,111 @@
                             .title {
                                 color: #FFFFFF;
                                 text-align: left;
-                                padding-bottom: 30px;
-                                @media (max-width: 575px) {
+                                padding-bottom: 20px;
+                                @media (max-width: 768px) {
                                     display: none;
                                 }
                             }
-                        }
-                        ul {
-                            display: block;
-                            width: 100%;
-                            top: auto;
-                            right: auto;
-                            bottom: auto;
-                            left: auto;
-                            li {
-                                display: block;
-                                float: none;
-                                width: auto;
-                                height: auto;
-                                text-align: left;
-                                border: none;
-                                opacity: 0.65;
-                                @media (max-width: 575px) {
-                                    float: left;
-                                    width: 100%;
-                                    border: none !important;
-                                    padding: 1px 2px;
+                            ul {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-evenly;
+                                width: 100%;
+                                top: auto;
+                                right: auto;
+                                bottom: auto;
+                                left: auto;
+                                @media (max-width: 768px) {
+                                    height: 300px;
+                                    margin-top: 60px;
                                 }
-                                a {
-                                    font-family: 'Montserrat';
-                                    color: white;
-                                    font-size: 14px;
-                                    line-height: 29px;
-                                    text-decoration: none;
-                                    white-space: nowrap;
+                                li {
                                     display: block;
-                                    float: left;
-                                    clear: both;
-                                    @media (max-width: 575px) {
-                                        font-size: 14px;
-                                        line-height: 15px;
+                                    float: none;
+                                    width: auto;
+                                    height: auto;
+                                    text-align: left;
+                                    border: none;
+                                    opacity: 0.65;
+                                    @media (max-width: 768px) {
+                                        float: left;
+                                        margin: 0 auto;
+                                        border: none !important;
+                                        padding: 1px 2px;
                                     }
-                                }
-                                &:hover,
-                                &.active {
-                                    opacity: 1;
                                     a {
-                                        padding-left: 20px;
-                                        position: relative;
-                                        padding-right: 55px;
-                                        @media (max-width: 575px) {
-                                            padding: 0;
+                                        font-family: 'Montserrat';
+                                        color: white;
+                                        font-size: 14px;
+                                        text-decoration: none;
+                                        white-space: nowrap;
+                                        display: block;
+                                        float: left;
+                                        clear: both;
+                                        @media (max-width: 993px) {
+                                            font-size: 14px;
                                         }
-                                        &::before {
-                                            content: '';
-                                            position: absolute;
-                                            right: 0;
-                                            top: 14px;
-                                            width: 40px;
-                                            height: 1px;
-                                            background-color: white;
-                                            @media (max-width: 575px) {
-                                                display: none;
+                                        @media (max-width: 768px) {
+                                            font-size: 18px;
+                                        }
+                                    }
+                                    &:hover,
+                                    &.active {
+                                        opacity: 1;
+                                        a {
+                                            padding-left: 20px;
+                                            position: relative;
+                                            padding-right: 55px;
+                                            @media (max-width: 768px) {
+                                                padding: 0;
+                                                position: static;
+                                            }
+                                            &::before {
+                                                content: '';
+                                                position: absolute;
+                                                right: 0;
+                                                top: 14px;
+                                                width: 40px;
+                                                height: 1px;
+                                                background-color: white;
+                                                @media (max-width: 993px) {
+                                                    top: 11px;
+                                                }
+                                                @media (max-width: 768px) {
+                                                    display: none;
+                                                }
+                                            }
+                                            &::after {
+                                                content: '';
+                                                position: absolute;
+                                                right: -3px;
+                                                top: 11px;
+                                                width: 0;
+                                                height: 0;
+                                                border-top: 3.5px solid transparent;
+                                                border-left: 7px solid white;
+                                                border-bottom: 3.5px solid transparent;
+                                                @media (max-width: 993px) {
+                                                    top: 8px;
+                                                }
+                                                @media (max-width: 768px) {
+                                                    display: none;
+                                                }
                                             }
                                         }
-                                        &::after {
-                                            content: '';
-                                            position: absolute;
-                                            right: -3px;
-                                            top: 11px;
-                                            width: 0;
-                                            height: 0;
-                                            border-top: 3.5px solid transparent;
-                                            border-left: 7px solid white;
-                                            border-bottom: 3.5px solid transparent;
-                                            @media (max-width: 575px) {
-                                                display: none;
-                                            }
+                                        @media (max-width: 768px) {
+                                            position: static;
                                         }
                                     }
                                 }
                             }
-                        }
+                            .img__hover {
+                                display: block;
+                            }
+                        }  
                     }
                 }
             }
         }
-    }
+	}
 }
