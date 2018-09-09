@@ -1,0 +1,29 @@
+.section.s2
+    ul
+        mixin section_2_item(title, i)
+            li(class='item'+i)
+                .i
+                    .img
+                    .title= title
+                    ul
+                        li
+                            a(href='#') Шторы
+                        li
+                            a(href='#') Жалюзи
+                        li
+                            a(href='#') Подоконники
+                        li
+                            a(href='#') Ручки
+                        li
+                            a(href='#') Клапаны
+                        li
+                            a(href='#') Маскитные сетки
+                    .img__hover
+        +section_2_item('Окна', 0)
+        +section_2_item('Услуги', 1)
+        +section_2_item('Комплектующие', 2)
+        +section_2_item('Цены', 3)
+        +section_2_item('Wiki Окна', 4)
+        +section_2_item('Корпоративным клиентам', 5)
+        +section_2_item('Акции/новое', 6)
+        +section_2_item('Компания', 7)
