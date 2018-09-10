@@ -123,6 +123,15 @@
                                 margin: 0 auto;
                             }
                         }
+                        a
+                            i {
+                            display: none;
+                            color: #fff;
+                            font-size: 25px;
+                            text-align: right;
+                            margin-right: 30px;
+                            margin-top: 15px;
+                        }
                         .title {
                             font-family: "MontserratBold";
                             font-size: 16px;
@@ -178,6 +187,17 @@
                             }
                             .img {
                                 display: none;
+                            }
+                            a {
+                                text-decoration: none;
+                                color: #fff;
+                                i {
+                                color: #fff;
+                                text-decoration: none;
+                                @media (max-width: 768px){
+                                    display: block;
+                                    }
+                                }
                             }
                             .title {
                                 color: #FFFFFF;
@@ -245,7 +265,7 @@
                                                 content: '';
                                                 position: absolute;
                                                 right: 0;
-                                                top: 14px;
+                                                top: 12px;
                                                 width: 40px;
                                                 height: 1px;
                                                 background-color: white;
@@ -260,7 +280,7 @@
                                                 content: '';
                                                 position: absolute;
                                                 right: -3px;
-                                                top: 11px;
+                                                top: 9px;
                                                 width: 0;
                                                 height: 0;
                                                 border-top: 3.5px solid transparent;
