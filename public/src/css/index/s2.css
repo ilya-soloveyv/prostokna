@@ -72,6 +72,13 @@
             width: 80px;
             height: 70%;
             margin: 0 auto; } }
+      #fullpage_welcome .section.s2 ul li .i i {
+        display: none;
+        color: #fff;
+        font-size: 25px;
+        text-align: right;
+        margin-right: 30px;
+        margin-top: 15px; }
       #fullpage_welcome .section.s2 ul li .i .title {
         font-family: "MontserratBold";
         font-size: 16px;
@@ -102,31 +109,37 @@
       @media (max-width: 768px) {
         #fullpage_welcome .section.s2 ul li ul {
           position: static; } }
-    #fullpage_welcome .section.s2 ul li:hover, #fullpage_welcome .section.s2 ul li.active {
+    #fullpage_welcome .section.s2 ul li.active {
       background-color: #165ed4; }
       @media (max-width: 768px) {
-        #fullpage_welcome .section.s2 ul li:hover, #fullpage_welcome .section.s2 ul li.active {
+        #fullpage_welcome .section.s2 ul li.active {
           height: 100%;
           width: 100%;
           position: absolute; } }
-      #fullpage_welcome .section.s2 ul li:hover .i, #fullpage_welcome .section.s2 ul li.active .i {
+      #fullpage_welcome .section.s2 ul li.active .i {
         width: 100%;
         height: auto;
         margin: 0;
         padding: 0 30px; }
         @media (max-width: 576px) {
-          #fullpage_welcome .section.s2 ul li:hover .i, #fullpage_welcome .section.s2 ul li.active .i {
+          #fullpage_welcome .section.s2 ul li.active .i {
             padding: 0; } }
-        #fullpage_welcome .section.s2 ul li:hover .i .img, #fullpage_welcome .section.s2 ul li.active .i .img {
+        #fullpage_welcome .section.s2 ul li.active .i .img {
           display: none; }
-        #fullpage_welcome .section.s2 ul li:hover .i .title, #fullpage_welcome .section.s2 ul li.active .i .title {
+        #fullpage_welcome .section.s2 ul li.active .i i {
+          color: #fff;
+          text-decoration: none; }
+          @media (max-width: 768px) {
+            #fullpage_welcome .section.s2 ul li.active .i i {
+              display: block; } }
+        #fullpage_welcome .section.s2 ul li.active .i .title {
           color: #FFFFFF;
           text-align: left;
           padding-bottom: 20px; }
           @media (max-width: 768px) {
-            #fullpage_welcome .section.s2 ul li:hover .i .title, #fullpage_welcome .section.s2 ul li.active .i .title {
+            #fullpage_welcome .section.s2 ul li.active .i .title {
               display: none; } }
-        #fullpage_welcome .section.s2 ul li:hover .i ul, #fullpage_welcome .section.s2 ul li.active .i ul {
+        #fullpage_welcome .section.s2 ul li.active .i ul {
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
@@ -136,10 +149,10 @@
           bottom: auto;
           left: auto; }
           @media (max-width: 768px) {
-            #fullpage_welcome .section.s2 ul li:hover .i ul, #fullpage_welcome .section.s2 ul li.active .i ul {
+            #fullpage_welcome .section.s2 ul li.active .i ul {
               height: 300px;
               margin-top: 60px; } }
-          #fullpage_welcome .section.s2 ul li:hover .i ul li, #fullpage_welcome .section.s2 ul li.active .i ul li {
+          #fullpage_welcome .section.s2 ul li.active .i ul li {
             display: block;
             float: none;
             width: auto;
@@ -148,12 +161,12 @@
             border: none;
             opacity: 0.65; }
             @media (max-width: 768px) {
-              #fullpage_welcome .section.s2 ul li:hover .i ul li, #fullpage_welcome .section.s2 ul li.active .i ul li {
+              #fullpage_welcome .section.s2 ul li.active .i ul li {
                 float: left;
                 margin: 0 auto;
                 border: none !important;
                 padding: 1px 2px; } }
-            #fullpage_welcome .section.s2 ul li:hover .i ul li a, #fullpage_welcome .section.s2 ul li.active .i ul li a {
+            #fullpage_welcome .section.s2 ul li.active .i ul li a {
               font-family: 'Montserrat';
               color: white;
               font-size: 14px;
@@ -163,53 +176,53 @@
               float: left;
               clear: both; }
               @media (max-width: 993px) {
-                #fullpage_welcome .section.s2 ul li:hover .i ul li a, #fullpage_welcome .section.s2 ul li.active .i ul li a {
+                #fullpage_welcome .section.s2 ul li.active .i ul li a {
                   font-size: 14px; } }
               @media (max-width: 768px) {
-                #fullpage_welcome .section.s2 ul li:hover .i ul li a, #fullpage_welcome .section.s2 ul li.active .i ul li a {
+                #fullpage_welcome .section.s2 ul li.active .i ul li a {
                   font-size: 18px; } }
-            #fullpage_welcome .section.s2 ul li:hover .i ul li:hover, #fullpage_welcome .section.s2 ul li:hover .i ul li.active, #fullpage_welcome .section.s2 ul li.active .i ul li:hover, #fullpage_welcome .section.s2 ul li.active .i ul li.active {
+            #fullpage_welcome .section.s2 ul li.active .i ul li:hover {
               opacity: 1; }
-              #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a, #fullpage_welcome .section.s2 ul li.active .i ul li.active a {
+              #fullpage_welcome .section.s2 ul li.active .i ul li:hover a {
                 padding-left: 20px;
                 position: relative;
                 padding-right: 55px; }
                 @media (max-width: 768px) {
-                  #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a, #fullpage_welcome .section.s2 ul li.active .i ul li.active a {
+                  #fullpage_welcome .section.s2 ul li.active .i ul li:hover a {
                     padding: 0;
                     position: static; } }
-                #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a::before, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a::before, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::before, #fullpage_welcome .section.s2 ul li.active .i ul li.active a::before {
+                #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::before {
                   content: '';
                   position: absolute;
                   right: 0;
-                  top: 14px;
+                  top: 12px;
                   width: 40px;
                   height: 1px;
                   background-color: white; }
                   @media (max-width: 993px) {
-                    #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a::before, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a::before, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::before, #fullpage_welcome .section.s2 ul li.active .i ul li.active a::before {
+                    #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::before {
                       top: 11px; } }
                   @media (max-width: 768px) {
-                    #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a::before, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a::before, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::before, #fullpage_welcome .section.s2 ul li.active .i ul li.active a::before {
+                    #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::before {
                       display: none; } }
-                #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a::after, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a::after, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::after, #fullpage_welcome .section.s2 ul li.active .i ul li.active a::after {
+                #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::after {
                   content: '';
                   position: absolute;
                   right: -3px;
-                  top: 11px;
+                  top: 9px;
                   width: 0;
                   height: 0;
                   border-top: 3.5px solid transparent;
                   border-left: 7px solid white;
                   border-bottom: 3.5px solid transparent; }
                   @media (max-width: 993px) {
-                    #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a::after, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a::after, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::after, #fullpage_welcome .section.s2 ul li.active .i ul li.active a::after {
+                    #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::after {
                       top: 8px; } }
                   @media (max-width: 768px) {
-                    #fullpage_welcome .section.s2 ul li:hover .i ul li:hover a::after, #fullpage_welcome .section.s2 ul li:hover .i ul li.active a::after, #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::after, #fullpage_welcome .section.s2 ul li.active .i ul li.active a::after {
+                    #fullpage_welcome .section.s2 ul li.active .i ul li:hover a::after {
                       display: none; } }
               @media (max-width: 768px) {
-                #fullpage_welcome .section.s2 ul li:hover .i ul li:hover, #fullpage_welcome .section.s2 ul li:hover .i ul li.active, #fullpage_welcome .section.s2 ul li.active .i ul li:hover, #fullpage_welcome .section.s2 ul li.active .i ul li.active {
+                #fullpage_welcome .section.s2 ul li.active .i ul li:hover {
                   position: static; } }
-        #fullpage_welcome .section.s2 ul li:hover .i .img__hover, #fullpage_welcome .section.s2 ul li.active .i .img__hover {
+        #fullpage_welcome .section.s2 ul li.active .i .img__hover {
           display: block; }
