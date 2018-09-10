@@ -97,7 +97,7 @@ gulp.task('watch', () => {
     // gulp.watch('./src/js/**/*.js', ['js'])
 })
 
-gulp.task('browser-sync', /* ['nodemon'], */ function() {
+gulp.task('bs', /* ['nodemon'], */ function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
         files: [
