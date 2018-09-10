@@ -21,9 +21,6 @@
                     text-align: center;
                     border-right: 1px solid #9f9f9f;
                     border-bottom: 1px solid #9f9f9f;
-                    @media (max-width: 993px){
-                        
-                    }
                     @media (max-width: 768px) {
                         position: static;
                         display: block;
@@ -123,8 +120,7 @@
                                 margin: 0 auto;
                             }
                         }
-                        a
-                            i {
+                        i {
                             display: none;
                             color: #fff;
                             font-size: 25px;
@@ -169,7 +165,6 @@
                             position: static;
                         }
                     }
-                    &:hover,
                     &.active {
                         background-color: #165ed4;
                         @media (max-width: 768px) {
@@ -188,15 +183,11 @@
                             .img {
                                 display: none;
                             }
-                            a {
-                                text-decoration: none;
-                                color: #fff;
-                                i {
+                            i {
                                 color: #fff;
                                 text-decoration: none;
-                                @media (max-width: 768px){
+                                @media (max-width: 768px) {
                                     display: block;
-                                    }
                                 }
                             }
                             .title {
@@ -250,8 +241,7 @@
                                             font-size: 18px;
                                         }
                                     }
-                                    &:hover,
-                                    &.active {
+                                    &:hover {
                                         opacity: 1;
                                         a {
                                             padding-left: 20px;
@@ -303,7 +293,7 @@
                             .img__hover {
                                 display: block;
                             }
-                        }  
+                        }
                     }
                 }
             }
