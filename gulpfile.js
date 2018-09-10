@@ -16,7 +16,8 @@ gulp.task('js_min', () => {
             'public/src/js/jquery.fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
             'public/src/js/app/app.js',
-            'public/src/js/app/index.js'
+            'public/src/js/app/index.js',
+            'public/src/js/index/s2.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -96,7 +97,7 @@ gulp.task('watch', () => {
     // gulp.watch('./src/js/**/*.js', ['js'])
 })
 
-gulp.task('browser-sync', /* ['nodemon'], */ function() {
+gulp.task('bs', /* ['nodemon'], */ function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
         files: [

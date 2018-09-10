@@ -21,4 +21,4 @@
 Выполняем в Git bash в 3-х разных окнах<br>
 `npm run start`<br>
 `gulp watch`<br>
-`gulp browser-sync`
+`gulp bs`
