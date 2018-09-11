@@ -5,7 +5,16 @@ function fullpage_welcome_color(i) {
         var fullpage_color_class = "black";
     }
     $("#fullpage_nav").removeClass("white").removeClass("black").addClass(fullpage_color_class);
-    $("#fullpage_nav .lineprogress .line").stop().animate({height:(100/($("#fullpage_nav li").length)*i)+"%"}, 750);
+    if ($(window).width() > 1200) {
+        $("#fullpage_nav .lineprogress .line")
+            .stop()
+            .animate({width: '100%', height:(100/($("#fullpage_nav li").length)*i)+"%"}, 750);
+    }
+    else {
+        $("#fullpage_nav .lineprogress .line")
+            .stop()
+            .animate({height: '100%', width:(100/($("#fullpage_nav li").length)*i)+"%"}, 750);
+    }
 }
 
 $('#fullpage_welcome').fullpage({
