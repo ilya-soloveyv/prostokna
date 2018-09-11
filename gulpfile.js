@@ -16,7 +16,8 @@ gulp.task('js_min', () => {
             'public/src/js/jquery.fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
             'public/src/js/app/app.js',
-            'public/src/js/app/index.js'
+            'public/src/js/app/index.js',
+            'public/src/js/index/s2.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -54,7 +55,16 @@ gulp.task('css_min', () => {
             'public/src/css/animate.css',
             'public/src/css/hamburglar.css',
             'public/src/css/app.css',
-            'public/src/css/index.css'
+            'public/src/css/index/index.css',
+            'public/src/css/index/s1.css',
+            'public/src/css/index/s2.css',
+            'public/src/css/index/s3.css',
+            'public/src/css/index/s4.css',
+            'public/src/css/index/s5.css',
+            'public/src/css/index/s6.css',
+            'public/src/css/index/s7.css',
+            'public/src/css/index/s8.css',
+            'public/src/css/index/s9.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
@@ -74,7 +84,7 @@ gulp.task('production', ['js_min', 'css_min'], () => {
 gulp.task('sass', function () {
     gulp
         .src([
-            'public/src/sass/*.scss'
+            'public/src/sass/**/*.scss'
         ])
         .pipe(sass())
         .pipe(gulp.dest('public/src/css'))
@@ -87,7 +97,7 @@ gulp.task('watch', () => {
     // gulp.watch('./src/js/**/*.js', ['js'])
 })
 
-gulp.task('browser-sync', /* ['nodemon'], */ function() {
+gulp.task('bs', /* ['nodemon'], */ function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
         files: [
