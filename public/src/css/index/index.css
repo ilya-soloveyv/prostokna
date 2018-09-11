@@ -7,6 +7,9 @@
   height: auto !important;
   width: auto !important;
   overflow: hidden; }
+  @media (max-width: 1279px) {
+    #fullpage_welcome .section .fp-tableCell {
+      right: 0; } }
   @media (max-width: 575px) {
     #fullpage_welcome .section .fp-tableCell {
       top: 50px;
