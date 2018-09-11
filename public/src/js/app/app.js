@@ -21,7 +21,12 @@ $('document').ready(function () {
 });
 
 $(document).on('mouseenter', '#fullpage_nav ul', function(){
-    $(this).addClass('open');
+    if ($(window).width() > 1200) {
+        $(this).addClass('open');
+    }    
 }).on('mouseleave', '#fullpage_nav ul', function(){
-    $(this).removeClass('open');
+    if ($(window).width() > 1200) {
+        $(this).removeClass('open');
+    }    
+    
 });
