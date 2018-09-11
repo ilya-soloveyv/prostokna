@@ -7,10 +7,11 @@
   height: auto !important;
   width: auto !important;
   overflow: hidden; }
-  @media (max-width: 1279px) {
+  @media (max-width: 1200px) {
     #fullpage_welcome .section .fp-tableCell {
-      right: 0; } }
+      right: 0;
+      bottom: 60px; } }
   @media (max-width: 575px) {
     #fullpage_welcome .section .fp-tableCell {
       top: 50px;
-      right: 0; } }
+      bottom: 40px; } }
