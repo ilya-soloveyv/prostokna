@@ -48,11 +48,11 @@ gulp.task('js_min', () => {
 gulp.task('css_min', () => {
     gulp
         .src([
-            'public/src/css/bootstrap.css',
-            'public/src/css/jquery.fullpage.min.css',
-            'public/src/css/owl.carousel.min.css',
-            'public/src/css/owl.theme.default.min.css',
-            'public/src/css/animate.css',
+            'public/src/css_static/bootstrap.css',
+            'public/src/css_static/jquery.fullpage.min.css',
+            'public/src/css_static/owl.carousel.min.css',
+            'public/src/css_static/owl.theme.default.min.css',
+            'public/src/css_static/animate.css',
             'public/src/css/hamburglar.css',
             'public/src/css/app.css',
             'public/src/css/index/index.css',
@@ -64,7 +64,10 @@ gulp.task('css_min', () => {
             'public/src/css/index/s6.css',
             'public/src/css/index/s7.css',
             'public/src/css/index/s8.css',
-            'public/src/css/index/s9.css'
+            'public/src/css/index/s9.css',
+            'public/src/css/contact/contact.css',
+            'public/src/css/gager/gager.css',
+            'public/src/css/product/product.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())

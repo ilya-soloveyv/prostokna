@@ -9,9 +9,13 @@
             height: auto !important;
             width: auto !important;
             overflow: hidden;
+            @media (max-width: 1200px) {
+                right: 0;
+                bottom: 60px;
+            }
             @media (max-width: 575px) {
                 top: 50px;
-                right: 0;
+                bottom: 40px;
             }
         }
     }
