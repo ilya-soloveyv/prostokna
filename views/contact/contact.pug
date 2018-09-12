@@ -1,2 +1,38 @@
 #contact
-    | contact
+	main
+		section.map
+		section.contacts
+
+			.contacts__info
+				.contacts__data
+					.container
+						p.number +7 (499) 391-22-21
+						p.week с 10:00 до 19:00 с Пн. по Пт.
+						p On-line заявки – круглосуточно
+						p.email PROSTO@PROSTOKNA.RU
+					.social-icon
+						a(href='#')
+							img(src='/images/contact/Twitter.svg', alt='Твиттер').twit
+						a(href='#')
+							img(src='/images/contact/VK.svg', alt='вконтакте').vk
+						a(href='#')
+							img(src='/images/contact/VK Followers.svg').vk-folow
+				.contacts__reqvizits
+					.container
+						p ОГРН 1157746588449
+						p ИНН 7722332230
+						p Р/с 40702810038000143570
+						p ПАО СБЕРБАНК
+						p Кор/с 30101810400000000225
+						p БИК 044525205
+
+			.contacts__form
+				img(src='/images/contact/Keyboard.svg')
+				form.form
+					.left-block
+						input(placeholder='ИМЯ (ОБЯЗАТЕЛЬНО)')
+						input(placeholder='EMAIL (ОБЯЗАТЕЛЬНО)')
+						input(placeholder='ТЕЛЕФОН')
+					.right-block
+						textarea(placeholder='СООБЩЕНИЕ')
+						button отправить
