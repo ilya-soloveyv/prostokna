@@ -28,10 +28,6 @@ $('#fullpage_welcome').fullpage({
     },
     afterLoad: function (origin, destination, direction) {
         fullpage_welcome_color(destination);
-    },
-    afterResize: function () {
-        var ww = $(window).width();
-        console.log(ww);
     }
 });
 

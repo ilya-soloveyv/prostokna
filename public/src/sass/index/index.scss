@@ -1,21 +1,21 @@
 #fullpage_welcome {
     .section {
         .fp-tableCell {
-            position: absolute;
-            top: 80px;
-            right: 80px;
-            bottom: 0;
-            left: 0;
-            height: auto !important;
-            width: auto !important;
-            overflow: hidden;
-            @media (max-width: 1200px) {
-                right: 0;
-                bottom: 60px;
-            }
-            @media (max-width: 575px) {
-                top: 50px;
-                bottom: 40px;
+            .fp_bg {
+                position: absolute;
+                top: 80px;
+                right: 80px;
+                bottom: 0;
+                left: 80px;
+                overflow: hidden;
+                @media (max-width: 1200px) {
+                    left: 0;
+                    right: 0;
+                    bottom: 40px;
+                }
+                @media (max-width: 575px) {
+                    top: 50px;
+                }
             }
         }
     }
