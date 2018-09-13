@@ -540,6 +540,14 @@
     #contact{
         main{
             .contacts{
+                &__reqvizits{
+                    .container{
+                        p{
+                            font-family: 'Montserrat';
+                            font-size: 10px;
+                        }
+                    }
+                }
                 &__form{
                     .left-block{
                         input{
