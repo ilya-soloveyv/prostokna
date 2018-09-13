@@ -23,7 +23,7 @@
         top: 80px;
         height: calc(100vh - 80px);
         background-color: #353535;
-        animation-name: gagerPreloaderHide;
+        //animation-name: gagerPreloaderHide;
         animation-duration: .25s;
         animation-delay: 6s;
         animation-fill-mode: forwards;
@@ -55,7 +55,7 @@
                 height: 100%;
                 background: blue;
                 overflow: hidden;
-                animation-name: gagerPreloader;
+                //animation-name: gagerPreloader;
                 animation-duration: 5s;
                 animation-delay: 1s;
                 animation-fill-mode: forwards;
