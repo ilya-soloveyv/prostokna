@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 24">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-XD_degree_W);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-XD_degree_W">
+      <rect width="26" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="XD_degree_W" data-name="XD degree W" class="cls-1">
+    <g id="Group_225" data-name="Group 225" transform="translate(-292 -455)">
+      <rect id="Rectangle_147" data-name="Rectangle 147" class="cls-2" width="3" height="17" rx="1.5" transform="translate(292 462)"/>
+      <rect id="Rectangle_148" data-name="Rectangle 148" class="cls-2" width="3" height="24" rx="1.5" transform="translate(305 455)"/>
+    </g>
+  </g>
+</svg>
