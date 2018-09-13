@@ -74,11 +74,14 @@
             }
             &__reqvizits{
                 width: 374px;
+                height: 100%;
+                min-height: 479px;
                 padding: 8.5% 0 0 40px;
                 background-color: #353535;
                 opacity: .95;
                 .container{
                     height: 34.56vh;
+                    min-height: 290px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -95,6 +98,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                max-height: 389px;
                 img{
                     width: 41.5px;
                     height: 33px;
@@ -183,11 +187,13 @@
             .map{
                 width: 67%;
                 height: 93.12vh;
+                max-height: 744px;
             }
             .contacts{
                 max-height: 744px;
                 width: 500px;
                 &__info{
+                    max-height: 285px;
                     height: 35.62vh;
                     min-height: 285px;
                 }
@@ -228,9 +234,11 @@
                 }
                 &__reqvizits{
                     width: 250px;
+                    min-height: 284px;
                     padding: 55px 0 0 20px;
                     .container{
                         height: 25vh;
+                        min-height: 180px;
                         p{
                             font-size: 12px;
                         }
@@ -238,11 +246,13 @@
                 }
                 &__form{
                     height: 57.5vh;
+                    max-height: 460px;
                     img{
                         display: none;
                     }
                     .form{
                         height: 48.75vh;
+                        max-height: 390px;
                         width: 100%;
                         flex-direction: column;
                         justify-content: space-between;
@@ -250,6 +260,7 @@
                     }
                     .left-block{
                         height: 19.25vh;
+                        max-height: 155px;
                         width: 100%;
                         input{
                             font-size: 11px;
@@ -259,6 +270,7 @@
                     }
                     .right-block{
                         height: 27.5vh;
+                        max-height: 220px;
                         width: 430px;
                         align-items: flex-end;
                         textarea{
@@ -289,7 +301,7 @@
         }
     }
 }
-@media (max-width: 768px){
+@media (max-width: 992px){
     #contact{
         main{
             width: 100%;
@@ -347,10 +359,12 @@
                     }
                 }
                 &__reqvizits{
+                    min-height: 202px;
                     width: 50%;
                     padding: 35px 0 0 30px;
                     .container{
                         height: 130px;
+                        min-height: 132px;
                         display: flex;
                         justify-content: space-between;
                         p{
@@ -523,6 +537,7 @@
         main{
             .contacts{
                 &__reqvizits{
+                    min-height: 242px;
                     padding: 30px 0 0 0;
                 }
             }
