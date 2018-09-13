@@ -67,7 +67,8 @@ gulp.task('css_min', () => {
             'public/src/css/index/s9.css',
             'public/src/css/contact/contact.css',
             'public/src/css/gager/gager.css',
-            'public/src/css/product/product.css'
+            'public/src/css/product/product.css',
+            'public/src/css/company/company.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
