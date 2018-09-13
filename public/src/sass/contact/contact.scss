@@ -4,17 +4,21 @@
     main{
         display: flex;
         .map{
-            width: 60%;
+            width: 63%;
             height: 100vh;
+            max-height: 868px;
             background-color: grey;
         }
         .contacts{
             width: 748px;
             height: 91.36vh;
+            max-height: 868px;
             color: white;
             &__info{
                 display: flex;
                 height: 55.2vh;
+                min-height: 479px;
+                max-height: 479px;
             }
             &__data{
                 width: 374px;
@@ -177,13 +181,15 @@
     #contact{
         main{
             .map{
-                width: 63vw;
+                width: 67%;
                 height: 93.12vh;
             }
             .contacts{
+                max-height: 744px;
                 width: 500px;
                 &__info{
                     height: 35.62vh;
+                    min-height: 285px;
                 }
                 &__data{
                     padding: 55px 0 0 30px;
@@ -200,7 +206,7 @@
                         margin-bottom: 25px;
                     }
                     .email{
-                        margin-top: 70px;
+                        margin-top: 50px;
                     }
                     .social-icon{
                         width: 90px;
@@ -236,14 +242,14 @@
                         display: none;
                     }
                     .form{
-                        height: 80%;
+                        height: 48.75vh;
                         width: 100%;
                         flex-direction: column;
                         justify-content: space-between;
                         align-items: center;
                     }
                     .left-block{
-                        height: 180px;
+                        height: 19.25vh;
                         width: 100%;
                         input{
                             font-size: 11px;
@@ -252,7 +258,7 @@
                         }
                     }
                     .right-block{
-                        height: 220px;
+                        height: 27.5vh;
                         width: 430px;
                         align-items: flex-end;
                         textarea{
@@ -274,25 +280,11 @@
 @media (max-width: 1280px){
     #contact{
         main{
+            .map{
+                height: 93vh;
+            }
             .contacts{
                 height: 93vh;
-                &__data{
-                    .email{
-                        margin-top: 50px;
-                    }
-                }
-                &__form{
-                    height: 57.5vh;
-                    .form{
-                        height: 48.75vh;
-                    }
-                    .left-block{
-                        height: 19.25vh;
-                    }
-                    .right-block{
-                        height: 27.5vh;
-                    }
-                }
             }
         }
     }
@@ -300,18 +292,19 @@
 @media (max-width: 768px){
     #contact{
         main{
-            width: 100vw;
+            width: 100%;
             flex-direction: column;
             height: 960px;
             .map{
-                width: 100vw;
+                width: 100%;
                 height: 475px;
             }
             .contacts{
-                width: 100vw;
+                width: 100%;
                 height: 485px;
                 &__info{
                     height: 202px;
+                    min-height: 202px;
                 }
                 &__data{
                     padding: 35px 0 0 40px;
@@ -540,6 +533,14 @@
     #contact{
         main{
             .contacts{
+                &__reqvizits{
+                    .container{
+                        p{
+                            font-family: 'Montserrat';
+                            font-size: 10px;
+                        }
+                    }
+                }
                 &__form{
                     .left-block{
                         input{
