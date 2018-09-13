@@ -25,6 +25,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/contact/contact.css")
             link(rel="stylesheet", href="/src/css/gager/gager.css")
             link(rel="stylesheet", href="/src/css/product/product.css")
+            link(rel="stylesheet", href="/src/css/company/company.css")
         else
             link(rel="stylesheet", href="/app.min.css")
     body
@@ -73,8 +74,8 @@ html(lang="ru")
                         li.item7
                             a(href='/') Главная
             .cal
-        #main
-            block content
+        //- #main
+        block content
         if env.NODE_ENV == 'development'
             script(src='/src/js/jquery-3.3.1.js')
             script(src='/src/js/popper.js')
@@ -84,6 +85,7 @@ html(lang="ru")
             script(src='/src/js/app/app.js')
             script(src='/src/js/app/index.js')
             script(src='/src/js/index/s2.js')
+            script(src='/src/js/index/s7.js')
         else
             script(src='/app.min.js')
 

@@ -1,50 +1,51 @@
 .section.s6
-    .l
-        .bg
-            .title Калькулятор
-            .select_type
+    .fp_bg
+        .l
+            .bg
+                .title Калькулятор
+                .select_type
+                    ul
+                        li.active
+                            a(href="#") Оконные конструции
+                        li
+                            a(href="#") Остекление балконов
+                .selected_type
+                    .empty Еще не добавлено
+                a(href="#").add_selected Добавить окно
+                .cost
+                    .value
+                        span.val 0
+                        span.rub  Р
+                    .desc Общая стоимость:
+                a(href="#").mbutton.blue.mbutton-block.link1 Отправить на точный расчет
+                a(href="#").mbutton.blue_border.mbutton-block.link2 Отправить свой чертеж на расчет
+        .r
+            .bg
+                .title
+                    a(href="").left
+                        i.material-icons keyboard_arrow_left
+                    a(href="").right
+                        i.material-icons keyboard_arrow_right
+                    .desc Производитель и модель
                 ul
-                    li.active
-                        a(href="#") Оконные конструции
                     li
-                        a(href="#") Остекление балконов
-            .selected_type
-                .empty Еще не добавлено
-            a(href="#").add_selected Добавить окно
-            .cost
-                .value
-                    span.val 0
-                    span.rub  Р
-                .desc Общая стоимость:
-            a(href="#").mbutton.blue.mbutton-block.link1 Отправить на точный расчет
-            a(href="#").mbutton.blue_border.mbutton-block.link2 Отправить свой чертеж на расчет
-    .r
-        .bg
-            .title
-                a(href="").left
-                    i.material-icons keyboard_arrow_left
-                a(href="").right
-                    i.material-icons keyboard_arrow_right
-                .desc Производитель и модель
-            ul
-                li
-                    a(href="#") Производитель и модель
-                li
-                    a(href="#") Тип и размер окна
-                li
-                    a(href="#") Дополнительно
-                li
-                    a(href="#") Цвет материала
-            .data
-                .empty
-                    .t У вас еще нет просчитанных окон и балконов
-                    .d Хотите создать новое?
-                    .additem
-                        a(href="#").item0
-                            .bg_link
-                                .img
-                                .name Добавить окно
-                        a(href="#").item1
-                            .bg_link
-                                .img
-                                .name Добавить балкон
+                        a(href="#") Производитель и модель
+                    li
+                        a(href="#") Тип и размер окна
+                    li
+                        a(href="#") Дополнительно
+                    li
+                        a(href="#") Цвет материала
+                .data
+                    .empty
+                        .t У вас еще нет просчитанных окон и балконов
+                        .d Хотите создать новое?
+                        .additem
+                            a(href="#").item0
+                                .bg_link
+                                    .img
+                                    .name Добавить окно
+                            a(href="#").item1
+                                .bg_link
+                                    .img
+                                    .name Добавить балкон

@@ -28,10 +28,6 @@ $('#fullpage_welcome').fullpage({
     },
     afterLoad: function (origin, destination, direction) {
         fullpage_welcome_color(destination);
-    },
-    afterResize: function () {
-        var ww = $(window).width();
-        console.log(ww);
     }
 });
 
@@ -39,12 +35,6 @@ $("#fullpage_nav li").click(function(){
     var i = $(this).index();
     $.fn.fullpage.moveTo(i+1);
 });
-
-$('.owl-carousel').owlCarousel({
-    loop:true,
-    nav:false,
-    items:1
-})
 
 $(document).on('click', '#fullpage_welcome .section.s5 .empty .down .c .button a', function(){
     $('#fullpage_welcome .section.s5 .empty, #fullpage_welcome .section.s5 .sravnenie').toggle();
