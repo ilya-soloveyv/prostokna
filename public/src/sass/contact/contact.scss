@@ -1,20 +1,22 @@
 #contact {
-    padding-top: 80px;
-    //background: red;
     main{
         display: flex;
         .map{
-            width: 60%;
+            width: 63%;
             height: 100vh;
+            max-height: 868px;
             background-color: grey;
         }
         .contacts{
             width: 748px;
             height: 91.36vh;
+            max-height: 868px;
             color: white;
             &__info{
                 display: flex;
                 height: 55.2vh;
+                min-height: 479px;
+                max-height: 479px;
             }
             &__data{
                 width: 374px;
@@ -70,11 +72,14 @@
             }
             &__reqvizits{
                 width: 374px;
+                height: 100%;
+                min-height: 479px;
                 padding: 8.5% 0 0 40px;
                 background-color: #353535;
                 opacity: .95;
                 .container{
                     height: 34.56vh;
+                    min-height: 290px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -91,6 +96,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                max-height: 389px;
                 img{
                     width: 41.5px;
                     height: 33px;
@@ -177,13 +183,17 @@
     #contact{
         main{
             .map{
-                width: 63vw;
+                width: 67%;
                 height: 93.12vh;
+                max-height: 744px;
             }
             .contacts{
+                max-height: 744px;
                 width: 500px;
                 &__info{
+                    max-height: 285px;
                     height: 35.62vh;
+                    min-height: 285px;
                 }
                 &__data{
                     padding: 55px 0 0 30px;
@@ -200,7 +210,7 @@
                         margin-bottom: 25px;
                     }
                     .email{
-                        margin-top: 70px;
+                        margin-top: 50px;
                     }
                     .social-icon{
                         width: 90px;
@@ -222,9 +232,12 @@
                 }
                 &__reqvizits{
                     width: 250px;
+                    min-height: 284px;
                     padding: 55px 0 0 20px;
                     .container{
                         height: 25vh;
+                        max-height: 180px;
+                        min-height: 180px;
                         p{
                             font-size: 12px;
                         }
@@ -232,18 +245,21 @@
                 }
                 &__form{
                     height: 57.5vh;
+                    max-height: 460px;
                     img{
                         display: none;
                     }
                     .form{
-                        height: 80%;
+                        height: 48.75vh;
+                        max-height: 390px;
                         width: 100%;
                         flex-direction: column;
                         justify-content: space-between;
                         align-items: center;
                     }
                     .left-block{
-                        height: 180px;
+                        height: 19.25vh;
+                        max-height: 155px;
                         width: 100%;
                         input{
                             font-size: 11px;
@@ -252,7 +268,8 @@
                         }
                     }
                     .right-block{
-                        height: 220px;
+                        height: 27.5vh;
+                        max-height: 220px;
                         width: 430px;
                         align-items: flex-end;
                         textarea{
@@ -274,44 +291,31 @@
 @media (max-width: 1280px){
     #contact{
         main{
+            .map{
+                height: 93vh;
+            }
             .contacts{
                 height: 93vh;
-                &__data{
-                    .email{
-                        margin-top: 50px;
-                    }
-                }
-                &__form{
-                    height: 57.5vh;
-                    .form{
-                        height: 48.75vh;
-                    }
-                    .left-block{
-                        height: 19.25vh;
-                    }
-                    .right-block{
-                        height: 27.5vh;
-                    }
-                }
             }
         }
     }
 }
-@media (max-width: 768px){
+@media (max-width: 992px){
     #contact{
         main{
-            width: 100vw;
+            width: 100%;
             flex-direction: column;
             height: 960px;
             .map{
-                width: 100vw;
+                width: 100%;
                 height: 475px;
             }
             .contacts{
-                width: 100vw;
+                width: 100%;
                 height: 485px;
                 &__info{
                     height: 202px;
+                    min-height: 202px;
                 }
                 &__data{
                     padding: 35px 0 0 40px;
@@ -354,10 +358,12 @@
                     }
                 }
                 &__reqvizits{
+                    min-height: 202px;
                     width: 50%;
                     padding: 35px 0 0 30px;
                     .container{
                         height: 130px;
+                        min-height: 132px;
                         display: flex;
                         justify-content: space-between;
                         p{
@@ -530,6 +536,7 @@
         main{
             .contacts{
                 &__reqvizits{
+                    min-height: 242px;
                     padding: 30px 0 0 0;
                 }
             }
@@ -540,6 +547,14 @@
     #contact{
         main{
             .contacts{
+                &__reqvizits{
+                    .container{
+                        p{
+                            font-family: 'Montserrat';
+                            font-size: 10px;
+                        }
+                    }
+                }
                 &__form{
                     .left-block{
                         input{

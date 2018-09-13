@@ -17,7 +17,8 @@ gulp.task('js_min', () => {
             'public/src/js/owl.carousel.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
-            'public/src/js/index/s2.js'
+            'public/src/js/index/s2.js',
+            'public/src/js/index/s7.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
