@@ -5,11 +5,11 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
         title= title
         if env.NODE_ENV == 'development'
-            link(rel="stylesheet", href="/src/css/bootstrap.css")
-            link(rel="stylesheet", href="/src/css/jquery.fullpage.min.css")
-            link(rel="stylesheet", href="/src/css/owl.carousel.min.css")
-            link(rel="stylesheet", href="/src/css/owl.theme.default.min.css")
-            link(rel="stylesheet", href="/src/css/animate.css")
+            link(rel="stylesheet", href="/src/css_static/bootstrap.css")
+            link(rel="stylesheet", href="/src/css_static/jquery.fullpage.min.css")
+            link(rel="stylesheet", href="/src/css_static/owl.carousel.min.css")
+            link(rel="stylesheet", href="/src/css_static/owl.theme.default.min.css")
+            link(rel="stylesheet", href="/src/css_static/animate.css")
             link(rel="stylesheet", href="/src/css/hamburglar.css")
             link(rel="stylesheet", href="/src/css/app.css")
             link(rel="stylesheet", href="/src/css/index/index.css")
@@ -24,6 +24,8 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/index/s9.css")
             link(rel="stylesheet", href="/src/css/contact/contact.css")
             link(rel="stylesheet", href="/src/css/gager/gager.css")
+            link(rel="stylesheet", href="/src/css/product/product.css")
+            link(rel="stylesheet", href="/src/css/company/company.css")
         else
             link(rel="stylesheet", href="/app.min.css")
     body
@@ -72,8 +74,8 @@ html(lang="ru")
                         li.item7
                             a(href='/') Главная
             .cal
-        #main
-            block content
+        //- #main
+        block content
         if env.NODE_ENV == 'development'
             script(src='/src/js/jquery-3.3.1.js')
             script(src='/src/js/popper.js')

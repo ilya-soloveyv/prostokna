@@ -18,5 +18,11 @@ app.get('/contact', (req, res) => {
 app.get('/gager', (req, res) => {
     res.render('gager.pug', { title: 'Замерщик' })
 })
+app.get('/product', (req, res) => {
+    res.render('product.pug', { title: 'Каталог' })
+})
+app.get('/company', (req, res) => {
+    res.render('company.pug', { title: 'О компании' })
+})
 
 http.listen(process.env.PORT)
