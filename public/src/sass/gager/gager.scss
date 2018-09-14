@@ -190,7 +190,7 @@
     }
 }
 
-@media (max-width: 1600px){
+@media (max-width: 1650px){
     #gager{
         .data {
             .content{
@@ -252,8 +252,10 @@
                 height: 100%;
                 flex-direction: column;
                 justify-content: flex-start;
+                align-items: center;
                 margin-top: 0;
                 &__text{
+                    max-width: 644px;
                     order: 2;
                     padding: 40px;
                     height: auto;
@@ -326,7 +328,7 @@
         }
     }
 }
-@media (max-width: 375px) {
+@media (max-width: 420px) {
     #gager{
         .preloader{
             .empty{
@@ -373,6 +375,19 @@
                             height: 38px;
 
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 325px) {
+    #gager {
+        .data {
+            .content {
+                &__text {
+                    .title {
+                        font-size: 14px;
                     }
                 }
             }
