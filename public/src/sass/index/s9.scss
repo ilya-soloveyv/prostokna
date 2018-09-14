@@ -10,10 +10,13 @@
 					top: 0;
 					left: 0;
 					width: 45%;
-					bottom: 80px;
+					bottom: 40px;
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					@media (max-width: 1200px) {
+						bottom: 30px;
+					}
 					@media (max-width: 768px) {
 						width: 100%;
 						height: 37%;
@@ -21,7 +24,8 @@
 						top: inherit;
 					}
 					@media (max-width: 576px) {
-						height: 35%;
+						height: 40%;
+						bottom: 20px;
 					}
 					&::before {
 						content: '';
@@ -104,7 +108,7 @@
 								@media (max-width: 576px) {
 									width: 70%;
 									padding: 15px 0 15px;
-									margin-top: 20px;
+									margin-top: 30px;
 								}
 								&:last-child {
 									.item {
@@ -127,8 +131,8 @@
 										font-size: 14px;
 									}
 									@media (max-width: 576px) {
-										font-size: 10px;
-										padding: 25px 0 30px 25px;
+										font-size: 8px;
+										padding: 10px 0 30px 25px;
 										width: 40%;
 									}
 									&::before {
@@ -151,8 +155,8 @@
 											height: 45px;
 										}
 										@media (max-width: 576px) {
-											width: 35px;
-											height: 35px;
+											width: 25px;
+											height: 25px;
 										}
 									}
 									&.item0 {
@@ -207,7 +211,7 @@
 											}
 											@media (max-width: 576px) {
 												padding: 0;
-												line-height: 16px;
+												line-height: 12px;
 											}
 											a {
 												color: black;
@@ -241,13 +245,16 @@
 					top: 0;
 					right: 0;
 					width: 55%;
-					bottom: 80px;
+					bottom: 40px;
+					@media (max-width: 1200px) {
+						bottom: 30px;
+					}
 					@media (max-width: 768px) {
 							width: 100%;
-							height: 55%;
+							height: 60%;
 						}
 					@media (max-width: 576px) {
-						height: 55%;
+						height: 56%;
 					}
 					.map {
 						position: absolute;
@@ -277,8 +284,9 @@
 							width: 40%;
 						}
 						@media (max-width: 576px) {
-							width: 55%;
-							left: 42%;
+							width: 45%;
+							left: 50%;
+							padding: 20px 20px 10px;
 						}
 						&::before {
 							content: '';
@@ -287,6 +295,9 @@
 							left: 0;
 							width: 100%;
 							height: 20px;
+						@media (max-width: 576px) {
+							height: 15px;
+						}
 						}
 						&::after {
 							content: '';
@@ -315,7 +326,7 @@
 									padding-bottom: 5px;
 								}
 								@media (max-width: 576px) {
-									font-size: 13px;
+									font-size: 11px;
 									padding-bottom: 0;
 								}
 							}
@@ -329,7 +340,7 @@
 									padding-bottom: 5px;
 								}
 								@media (max-width: 576px) {
-									font-size: 13px;
+									font-size: 11px;
 									padding-bottom: 0;
 								}
 								a {
@@ -360,7 +371,7 @@
 									padding-bottom: 5px;
 								}
 								@media (max-width: 576px) {
-									font-size: 11px;
+									font-size: 9px;
 									padding-bottom: 0;
 								}
 								a {
@@ -377,7 +388,7 @@
 									padding-bottom: 15px;
 								}
 								@media (max-width: 576px) {
-									font-size: 11px;
+									font-size: 9px;
 									padding-bottom: 5px;
 								}
 							}
@@ -419,8 +430,8 @@
 												left: 50%;
 												transform: translate(-50%, -50%);
 												@media (max-width: 1200px) {
-													width: 15px;
-													height: 15px;
+													width: 10px;
+													height: 10px;
 												}
 											}
 										}
@@ -452,9 +463,9 @@
 					height: 30px;
 				}
 				@media (max-width: 576px) {
-					padding: 10px 15px;
+					padding: 5px 15px;
 					font-size: 5px;
-					height: 30px;
+					height: 20px;
 				}
                 span {
                     line-height: 10px;
