@@ -69,6 +69,10 @@
                 li{
                     margin-top: -70px;
                 }
+                .li-5,
+                .li-11{
+                    display: none;
+                }
             }
             .load {
                 position: absolute;
@@ -95,16 +99,16 @@
                         width: 100vw;
                     }
                     .title{
-                        color: blue;
+                        color: #0585FA;
                         padding-bottom: 250px;
                     }
                     ul{
-                        height: 24px;
-                        color: blue;
+                        color: #0585FA;
                         background: url("/images/gager/XDdegreeB.svg") repeat-x left bottom;
                         li{
                             margin-top: -70px;
                         }
+
                     }
                 }
             }
@@ -112,18 +116,19 @@
     }
     .data {
         width: 100%;
-        height: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px;
+        background-color: #353535;
         .content{
             width: 100%;
             max-width: 1615px;
-            height: 100%;
-            max-height: 664px;
+            height: auto;
             display: flex;
             justify-content: space-between;
+            margin-top: 100px;
             &__text{
                 max-width: 897px;
                 width: 100%;
@@ -147,12 +152,14 @@
                 background-color: #414141;
                 display: flex;
                 justify-content: center;
+                padding: 40px;
                 .form{
                     width: 100%;
                     max-width: 500px;
                     height: 100%;
                     max-height: 500px;
-                    margin-top: 60px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
                     p{
                         font-family: "MontserratSemiBold";
                         font-size: 14px;
@@ -176,6 +183,144 @@
                         border: none;
                         cursor: pointer;
                         margin-top: 90px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #gager{
+        height: 100%;
+        .data{
+            justify-content: flex-start;
+            padding: 0;
+            .content{
+                height: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin-top: 0;
+                &__text{
+                    order: 2;
+                    padding: 40px;
+                    height: auto;
+                    p{
+                        font-size: 12px;
+                        line-height: 25px;
+                    }
+                    .title{
+                        margin-top: 50px;
+                        font-size: 25px;
+                    }
+                }
+                &__form{
+                    width: 100%;
+                    max-width: 992px;
+                    order: 1;
+                    min-height: 442px;
+                    padding: 40px;
+                    .form{
+                        max-width: 576px;
+                        width: 100%;
+                        max-height: 342px;
+                        margin-top: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        p{
+                            font-size: 11px;
+                            width: 100%;
+                            max-width: 576px;
+                            display: block;
+                            margin-top: 10px;
+                        }
+                        input{
+                            width: 100%;
+                            height: 43px;
+                        }
+                        button{
+                            font-size: 11px;
+                            width: 100%;
+                            max-width: 368px;
+                            height: 44px;
+                            margin-top: 40px;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    #gager{
+        .preloader{
+            .empty{
+                .title{
+                    font-size: 27px;
+                }
+                ul{
+                    height: 29px;
+                    font-size: 18px;
+                    li{
+                        display: none;
+                    }
+                    .li-1, .li-5, .li-8, .li-11, .li-14{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 375px) {
+    #gager{
+        .preloader{
+            .empty{
+                .title{
+                    font-size: 18px;
+                }
+                ul{
+                    height: 26px;
+                    font-size: 16px;
+                    .li-5, .li-11{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .data{
+            justify-content: flex-start;
+            padding: 0;
+            .content{
+                height: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                &__text{
+                    p{
+                        font-size: 9px;
+                        line-height: 20px;
+                    }
+                    .title{
+                        margin-top: 30px;
+                        font-size: 18px;
+                    }
+                }
+                &__form{
+                    min-height: 404px;
+                    .form{
+                        p{
+                            font-size: 8px;
+                        }
+                        input{
+                            height: 38px;
+                        }
+                        button{
+                            font-size: 8px;
+                            height: 38px;
+
+                        }
                     }
                 }
             }
