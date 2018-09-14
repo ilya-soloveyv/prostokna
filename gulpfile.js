@@ -18,7 +18,9 @@ gulp.task('js_min', () => {
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
             'public/src/js/index/s2.js',
-            'public/src/js/index/s7.js'
+            'public/src/js/index/s7.js',
+            'public/src/js/contact/contact.js',
+            'public/src/js/pay/pay.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -69,7 +71,8 @@ gulp.task('css_min', () => {
             'public/src/css/contact/contact.css',
             'public/src/css/gager/gager.css',
             'public/src/css/product/product.css',
-            'public/src/css/company/company.css'
+            'public/src/css/company/company.css',
+            'public/src/css/pay/pay.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
