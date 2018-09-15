@@ -10,10 +10,13 @@
 					top: 0;
 					left: 0;
 					width: 45%;
-					bottom: 80px;
+					bottom: 40px;
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					@media (max-width: 1200px) {
+						bottom: 30px;
+					}
 					@media (max-width: 768px) {
 						width: 100%;
 						height: 37%;
@@ -21,7 +24,8 @@
 						top: inherit;
 					}
 					@media (max-width: 576px) {
-						height: 35%;
+						height: 40%;
+						bottom: 20px;
 					}
 					&::before {
 						content: '';
@@ -37,6 +41,8 @@
 						}
 					}
 					.bg_flex {
+						display: flex;
+						flex-wrap: wrap;
 						position: relative;
 						top: 0;
 						left: 0;
@@ -56,6 +62,9 @@
 							@media (max-width: 768px) {
 								left: 34%;
 							}
+							@media (max-width: 576px) {
+								left: 30%;
+							}
 						}
 						.title {
 							font-family: 'MontserratBold';
@@ -64,12 +73,10 @@
 							justify-content: center;
 							line-height: 54px;
 							text-transform: uppercase;
-							height: 120px;
+							width: 100%;
 							align-items: center;
 							@media (max-width: 1200px) {
 								font-size: 32px;
-								height: 90px;
-								margin-top: 150px;
 							}
 							@media (max-width: 768px) {
 								justify-content: left;
@@ -79,141 +86,156 @@
 								display: none;
 							}
 						}
-						.line {
+						.line__df {
 							display: flex;
-							margin-top: 25px;
-							border-top: 1px solid #e0e0e0;
-							padding: 0 50px;
-							@media (max-width: 1200px) {
-								margin-top: 70px;
-								padding: 0 30px;
-							}
-							@media (max-width: 768px) {
-								width: 70%;
-								padding: 15px 0 0 15px;
-							}
-							@media (max-width: 576px) {
-								width: 70%;
-								padding: 15px 0 15px;
-								margin-top: 70px;
-							}
-							&:last-child {
-								.item {
-									padding-bottom: 0;
-								}
-							}
-							.item {
-								position: relative;
-								padding: 20px 0 40px 30px;
-								vertical-align: top;
-								display: inline-block;
-								width: 50%;
-								font-size: 10px;
+							flex-wrap: wrap;
+							width: 100%;
+							.line {
+								display: flex;
+								margin-top: 25px;
+								border-top: 1px solid #e0e0e0;
+								padding: 0 50px;
+								width: 100%;
 								@media (max-width: 1200px) {
-									padding: 10px 0 30px 25px;
-									font-size: 18px;
+									margin-top: 20px;
+									padding: 0 30px;
 								}
 								@media (max-width: 768px) {
-									padding: 40px 0 30px 25px;
-									font-size: 14px;
+									width: 70%;
+									padding: 15px 0 0 15px;
+									margin-top: 50px;
 								}
-								&::before {
-									content: '';
-									position: absolute;
-									top: -21px;
-									left: 30px;
-									width: 35px;
-									height: 35px;
-									background-color: #2d70e4;
-									background-repeat: no-repeat;
-									background-position: center;
-									border-radius: 50%;
+								@media (max-width: 576px) {
+									width: 70%;
+									padding: 15px 0 15px;
+									margin-top: 30px;
+								}
+								&:last-child {
+									.item {
+										padding-bottom: 0;
+									}
+								}
+								.item {
+									position: relative;
+									padding: 15px 0 20px 30px;
+									vertical-align: top;
+									display: inline-block;
+									width: 50%;
+									font-size: 12px;
 									@media (max-width: 1200px) {
-										width: 50px;
-										height: 50px;
+										padding: 10px 0 30px 25px;
+										font-size: 14px;
 									}
 									@media (max-width: 768px) {
-										width: 45px;
-										height: 45px;
-									}
-								}
-								&.item0 {
-									&::before {
-										background-image: url("/images/index/s9/1.svg")
-									}
-								}
-								&.item1 {
-									&::before {
-										background-image: url("/images/index/s9/2.svg")
-									}
-								}
-								&.item2 {
-									&::before {
-										background-image: url("/images/index/s9/3.svg")
-									}
-								}
-								.name {
-									font-family: 'MontserratBold';
-									line-height: 15px;
-									text-transform: uppercase;
-									padding: 20px 0 15px;
-									@media (max-width: 1200px) {
-										padding: 0;
-										padding-bottom: 22px;
-										padding-top: 50px;
-									}
-									@media (max-width: 768px) {
-										padding: 0;
-										padding-bottom: 5px;
+										padding: 40px 0 30px 25px;
+										font-size: 14px;
 									}
 									@media (max-width: 576px) {
-										padding-bottom: 5px;
+										font-size: 8px;
+										padding: 10px 0 30px 25px;
+										width: 40%;
 									}
-								}
-								ul {
-									display: flex;
-									flex-direction: column;
-									justify-content: space-between;
-									margin: 0;
-									padding: 0;
-									list-style: none;
-									li {
-										padding: 5px 0;
-										font-family: 'MontserratMedium';
-										line-height: 10px;
+									&::before {
+										content: '';
+										position: absolute;
+										top: -21px;
+										left: 30px;
+										width: 35px;
+										height: 35px;
+										background-color: #2d70e4;
+										background-repeat: no-repeat;
+										background-position: center;
+										border-radius: 50%;
 										@media (max-width: 1200px) {
-											padding: 4px 0;
-											line-height: 30px;
+											width: 50px;
+											height: 50px;
 										}
 										@media (max-width: 768px) {
-											padding: 2px 0;
-											line-height: 22px;
+											width: 45px;
+											height: 45px;
 										}
 										@media (max-width: 576px) {
-											padding: 5px 0;
+											width: 25px;
+											height: 25px;
 										}
-										a {
-											color: black;
-											text-transform: none;
+									}
+									&.item0 {
+										&::before {
+											background-image: url("/images/index/s9/1.svg")
+										}
+									}
+									&.item1 {
+										&::before {
+											background-image: url("/images/index/s9/2.svg")
+										}
+									}
+									&.item2 {
+										&::before {
+											background-image: url("/images/index/s9/3.svg")
+										}
+									}
+									.name {
+										font-family: 'MontserratBold';
+										line-height: 15px;
+										text-transform: uppercase;
+										padding: 5px 0 15px;
+										@media (max-width: 1200px) {
+											padding: 0;
+											padding-bottom: 5px;
+											padding-top: 40px;
+										}
+										@media (max-width: 768px) {
+											padding: 0;
+											padding-bottom: 5px;
+										}
+										@media (max-width: 576px) {
+											padding-bottom: 5px;
+										}
+									}
+									ul {
+										display: flex;
+										flex-direction: column;
+										justify-content: space-between;
+										margin: 0;
+										padding: 0;
+										list-style: none;
+										li {
+											padding: 2px 0;
+											font-family: 'MontserratMedium';
+											line-height: 20px;
+											@media (max-width: 1200px) {
+												line-height: 22px;
+											}
+											@media (max-width: 768px) {
+												line-height: 22px;
+											}
+											@media (max-width: 576px) {
+												padding: 0;
+												line-height: 12px;
+											}
+											a {
+												color: black;
+												text-transform: none;
+											}
 										}
 									}
 								}
-							}
-							.item2 {
-								@media (max-width: 1200px) {
-								width: 100%;
+								.item2 {
+									@media (max-width: 1200px) {
+									width: 100%;
+									}
 								}
 							}
-						}
-						.line2 {
-							@media (max-width: 768px) {
-								width: 33%;
-								position: absolute;
-								top: 0;
-								right: 0;
-							}
-							@media (max-width: 576px) {
-								top: 0;
+							.line2 {
+								@media (max-width: 768px) {
+									width: 33%;
+									position: absolute;
+									top: 0;
+									right: 0;
+								}
+								@media (max-width: 576px) {
+									top: 0;
+								}
 							}
 						}
 					}
@@ -223,13 +245,16 @@
 					top: 0;
 					right: 0;
 					width: 55%;
-					bottom: 80px;
+					bottom: 40px;
+					@media (max-width: 1200px) {
+						bottom: 30px;
+					}
 					@media (max-width: 768px) {
 							width: 100%;
-							height: 55%;
+							height: 60%;
 						}
 					@media (max-width: 576px) {
-						height: 55%;
+						height: 56%;
 					}
 					.map {
 						position: absolute;
@@ -250,11 +275,18 @@
 						box-shadow: 0px 20px 20px 0px rgba(14, 17, 29, 0.15);
 						padding: 30px 20px 20px;
 						@media (max-width: 1200px) {
-							padding: 70px 50px 20px;
-							left: 42%;
+							padding: 40px 30px 10px;
+							left: 44%;
+							width: 50%;
 						}
 						@media (max-width: 768px) {
-							left: 55%;
+							left: 42%;
+							width: 40%;
+						}
+						@media (max-width: 576px) {
+							width: 45%;
+							left: 50%;
+							padding: 20px 20px 10px;
 						}
 						&::before {
 							content: '';
@@ -263,6 +295,9 @@
 							left: 0;
 							width: 100%;
 							height: 20px;
+						@media (max-width: 576px) {
+							height: 15px;
+						}
 						}
 						&::after {
 							content: '';
@@ -287,8 +322,12 @@
 								text-transform: uppercase;
 								padding-bottom: 15px;
 								@media (max-width: 1200px) {
-									font-size: 20px;
-									padding-bottom: 14px;
+									font-size: 16px;
+									padding-bottom: 5px;
+								}
+								@media (max-width: 576px) {
+									font-size: 11px;
+									padding-bottom: 0;
 								}
 							}
 							&.tel {
@@ -297,8 +336,12 @@
 								line-height: 24px;
 								padding-bottom: 5px;
 								@media (max-width: 1200px) {
-									font-size: 20px;
-									padding-bottom: 15px;
+									font-size: 16px;
+									padding-bottom: 5px;
+								}
+								@media (max-width: 576px) {
+									font-size: 11px;
+									padding-bottom: 0;
 								}
 								a {
 									color: black;
@@ -310,8 +353,12 @@
 								line-height: 17px;
 								padding-bottom: 7px;
 								@media (max-width: 1200px) {
-									font-size: 14px;
-									padding-bottom: 15px;
+									font-size: 10px;
+									padding-bottom: 5px;
+								}
+								@media (max-width: 576px) {
+									font-size: 8px;
+									padding-bottom: 0;
 								}
 							}
 							&.mail {
@@ -320,8 +367,12 @@
 								line-height: 17px;
 								padding-bottom: 7px;
 								@media (max-width: 1200px) {
-									font-size: 18px;
-									padding-bottom: 15px;
+									font-size: 14px;
+									padding-bottom: 5px;
+								}
+								@media (max-width: 576px) {
+									font-size: 9px;
+									padding-bottom: 0;
 								}
 								a {
 									color: black;
@@ -333,8 +384,12 @@
 								line-height: 17px;
 								padding-bottom: 27px;
 								@media (max-width: 1200px) {
-									font-size: 18px;
-									padding-bottom: 25px;
+									font-size: 14px;
+									padding-bottom: 15px;
+								}
+								@media (max-width: 576px) {
+									font-size: 9px;
+									padding-bottom: 5px;
 								}
 							}
 							&.soc {
@@ -343,6 +398,9 @@
 									margin: 0;
 									height: 40px;
 									list-style: none;
+									@media (max-width: 576px) {
+										height: 25px;
+									}
 									li {
 										width: 37px;
 										height: 37px;
@@ -352,9 +410,14 @@
 										margin: 0 20px 0 0;
 										border-radius: 50%;
 										@media (max-width: 1200px) {
-											width: 40px;
-											height: 40px;
+											width: 30px;
+											height: 30px;
 											margin: 0 15px 0 0;
+										}
+										@media (max-width: 576px) {
+											width: 20px;
+											height: 20px;
+											margin: 0 5px 0 0;
 										}
 										a {
 											display: block;
@@ -367,8 +430,8 @@
 												left: 50%;
 												transform: translate(-50%, -50%);
 												@media (max-width: 1200px) {
-													width: 25px;
-													height: 25px;
+													width: 10px;
+													height: 10px;
 												}
 											}
 										}
@@ -384,24 +447,28 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                height: 80px;
+                height: 40px;
                 background: #232323;
-                padding: 30px 80px;
+                padding: 15px 80px;
                 font-family: 'Montserrat';
                 font-size: 12px;
                 color: #FFF;
+				@media (max-width: 1200px) {
+					height: 30px;
+					padding: 6px 80px;
+				}
 				@media (max-width: 768px) {
-					padding: 17px 20px;
+					padding: 6px 20px;
 					font-size: 12px;
-					height: 50px;
+					height: 30px;
 				}
 				@media (max-width: 576px) {
-					padding: 30px 15px;
-					font-size: 7px;
-					height: 50px;
+					padding: 5px 15px;
+					font-size: 5px;
+					height: 20px;
 				}
                 span {
-                    line-height: 20px;
+                    line-height: 10px;
                 }
                 a {
                     color: #FFF;
