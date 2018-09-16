@@ -41,7 +41,8 @@ gulp.task('js_min', () => {
             'public/src/js/index/s2.js',
             'public/src/js/index/s7.js',
             'public/src/js/contact/contact.js',
-            'public/src/js/pay/pay.js'
+            'public/src/js/pay/pay.js',
+            'public/src/js/gager/gager.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
