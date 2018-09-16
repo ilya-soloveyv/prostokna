@@ -18,6 +18,9 @@
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: $xl) {
+      justify-content: space-around;
+    }
     @media (max-width: $md) {
       flex-direction: column-reverse;
       align-items: center;
@@ -80,6 +83,7 @@
       @include size($color-size_xl);
       padding-bottom: 5px;
       padding-left: 3px;
+      border-radius: 4px;
     }
 
     @media (max-width: $md) {
@@ -142,6 +146,7 @@
   }
 
   &__tooltip {
+    display: none;
     font-family: 'Montserrat';
     position: absolute;
     top: 65%;
@@ -158,11 +163,15 @@
     @media (max-width: $xl) {
       padding: 10px;
       left: -80px;
+      border-radius: 5px;
     }
 
     @media (max-width: $sm) {
       left: 60px;
       top: 80%;
+    }
+    &_show {
+      display: block;
     }
 
     &-info {
@@ -182,6 +191,7 @@
         padding: 10px;
         height: 60px;
         width: 95px;
+        border-radius: 5px;
       }
     }
   }
