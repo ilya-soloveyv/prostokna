@@ -1,11 +1,31 @@
-const gulp = require('gulp')
-const sass = require('gulp-sass')
-const cleanCSS = require('gulp-clean-css')
-const concat = require('gulp-concat')
-const minify_js = require('gulp-minify')
-const del = require('del')
-const browserSync = require('browser-sync')
-const nodemon = require('gulp-nodemon')
+const gulp          = require('gulp')
+const sass          = require('gulp-sass')
+const cleanCSS      = require('gulp-clean-css')
+const concat        = require('gulp-concat')
+const minify_js     = require('gulp-minify')
+const del           = require('del')
+const browserSync   = require('browser-sync')
+const nodemon       = require('gulp-nodemon')
+const rev           = require('gulp-rev')
+const revCollector  = require('gulp-rev-collector')
+const gutil         = require('gulp-util')
+const rimraf        = require('rimraf')
+const revOutdated   = require('gulp-rev-outdated')
+const path          = require('path')
+const through       = require('through2')
+const runSequence   = require('run-sequence')
+
+function cleaner() {
+    return through.obj(function(file, enc, cb){
+        rimraf( path.resolve( (file.cwd || process.cwd()), file.path), function (err) {
+            if (err) {
+                this.emit('error', new gutil.PluginError('Cleanup old files', err));
+            }
+            this.push(file);
+            cb();
+        }.bind(this));
+    });
+}
 
 gulp.task('js_min', () => {
     gulp
@@ -36,18 +56,6 @@ gulp.task('js_min', () => {
             ]);
         })
 })
-
-// gulp.task('test3', () => {
-//     gulp
-//         .src([
-//             'public/src/sass/*.scss'
-//         ])
-//         .pipe(sass())
-//         .pipe(gulp.dest('public/src/css'))
-//         .on('end', () => {
-//             gulp.start('test4');
-//         })
-// })
 
 gulp.task('css_min', () => {
     gulp
@@ -80,8 +88,37 @@ gulp.task('css_min', () => {
         .pipe(gulp.dest('public/'))
 })
 
-gulp.task('production', ['js_min', 'css_min'], () => {
+gulp.task('rev', () => {
+    gulp.src(['public/app.min.css', 'public/app.min.js'])
+        .pipe(rev())
+        .pipe(gulp.dest('public/'))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('public/manifest/'))
+})
 
+gulp.task('rev_collector', () => {
+    return gulp.src(['public/manifest/**/*.json', 'views/layouts/app.pug'])
+        .pipe( revCollector({
+            replaceReved: true
+        }))
+        .pipe( gulp.dest('views/layouts/') )
+})
+
+gulp.task('rev_clean', function() {
+    gulp.src( ['public/*.*'], {read: false})
+        .pipe( revOutdated(1) )
+        .pipe( cleaner() );
+    return;
+});
+
+gulp.task('production', (callback) => {
+    runSequence(
+        ['js_min', 'css_min'],
+        'rev',
+        'rev_collector',
+        'rev_clean',
+        callback
+    )
 })
 
 
@@ -101,9 +138,6 @@ gulp.task('sass', function () {
 
 gulp.task('watch', () => {
     gulp.watch('public/src/sass/**/*.scss', ['sass'])
-    // gulp.watch('./src/sass/**/*.scss', ['test3'])
-    // gulp.watch('./src/css/**/*.css', ['test3'])
-    // gulp.watch('./src/js/**/*.js', ['js'])
 })
 
 gulp.task('bs', /* ['nodemon'], */ function() {
