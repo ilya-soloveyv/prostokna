@@ -43,7 +43,8 @@ gulp.task('js_min', () => {
             'public/src/js/contact/contact.js',
             'public/src/js/pay/pay.js',
             'public/src/js/gager/gager.js',
-            'public/src/js/product/product.js'
+            'public/src/js/product/product.js',
+            'public/src/js/palette/palette.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -84,7 +85,8 @@ gulp.task('css_min', () => {
             'public/src/css/gager/gager.css',
             'public/src/css/product/product.css',
             'public/src/css/company/company.css',
-            'public/src/css/pay/pay.css'
+            'public/src/css/pay/pay.css',
+            'public/src/css/palette/palette.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
