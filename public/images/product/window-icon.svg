@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 37 37">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-XD_Window);
+      }
+
+      .cls-2 {
+        fill: url(#pattern);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 85 90">
+      <image width="85" height="90" xlink:href="data:image/png;base64,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"/>
+    </pattern>
+    <clipPath id="clip-XD_Window">
+      <rect width="37" height="37"/>
+    </clipPath>
+  </defs>
+  <g id="XD_Window" data-name="XD Window" class="cls-1">
+    <rect class="cls-3" width="37" height="37"/>
+    <rect id="window_1_" class="cls-2" width="25.231" height="27.077" transform="translate(6 5)"/>
+  </g>
+</svg>

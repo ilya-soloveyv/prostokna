@@ -1,7 +1,146 @@
-#product {
-    background: red;
-    padding-top: 80px;
-    @media (max-width: 575px) {
-        padding-top: 50px;
+
+@import 'vars';
+@import 'colors';
+@import 'sidebar';
+@import 'statistic';
+@import 'submenu';
+
+.product {
+  font-family: 'Montserrat';
+  background: #353535;
+  color: #FFFFFF;
+  padding-top: 80px;
+  display: flex;
+
+  &__main {
+
+    &_blur {
+      filter: blur(10px);
     }
+  }
+
+  &__window {
+    &_static {
+      max-width: 560px;
+      max-height: 750px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+      top: 110px;
+      left: -300px;
+
+      @media (max-width: $xl) {
+        max-width: 350px;
+        max-height: 450px;
+        top: 250px;
+        left: -170px;
+      }
+      @media(max-width: $md) {
+        display: none;
+      }
+    }
+  }
+
+  &__block {
+    border-bottom: 1px solid #FFFFFF;
+    &:last-child {
+      border-bottom: 0 none;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+  &__content {
+    padding-left: 480px;
+    overflow: hidden;
+    @media (max-width: $xxl) {
+      padding-left: 280px;
+    }
+    @media (max-width: $xl) {
+      padding-left: 200px;
+    }
+    @media(max-width: $md) {
+      padding-left: 50px;
+    }
+  }
+  &__phone {
+    background: linear-gradient(90deg, #f36e61, #fd568d);
+    width: $phone-size;
+    height: $phone-size;
+    min-width: $phone-size;
+    max-width: $phone-size;
+    border-radius: 15px;
+    display: block;
+    &_hide-md {
+      @media (max-width: $md) {
+        position: absolute;
+        left: 30px;
+        width: 44px;
+        height: 44px;
+        display: block;
+        min-width: 0;
+        min-height: 0;
+        top: 70%;
+      }
+    }
+  }
+
+  &__info {
+    padding: 130px 175px 90px 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    font-family: 'Montserrat';
+
+    @media (max-width: $xxl) {
+      padding-left: 200px;
+
+    }
+    @media (max-width: $xl) {
+      font-size: 11px;
+      line-height: 24px;
+      padding: 50px 45px 80px 130px;
+    }
+    @media(max-width: $md) {
+      padding: 50px;
+      font-size: 10px;
+      line-height: 18px;
+    }
+  }
+  &__submit {
+    font-family: 'Montserrat';
+    background-color: #414141;
+    align-self: flex-end;
+    margin-top: 132px;
+    max-width: 400px;
+    width: 100%;
+    height: 70px;
+    color: #FFFFFF;
+    border: 0 none;
+    outline: 0;
+    border-radius: 70px;
+    &:hover, &:focus, &:active {
+      cursor: pointer;
+      transition: all 0.3s ease 0s;
+      background: linear-gradient(90deg, #0585FA, #0167E0, #005ED9);
+      outline: 0;
+    }
+
+    @media (max-width: $xl) {
+      height: 38px;
+      max-width: 200px;
+      font-size: 9px;
+    }
+    @media (max-width: $md) {
+      margin-top: 40px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    padding-top: 50px;
+  }
 }
+

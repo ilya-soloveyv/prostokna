@@ -1,0 +1,53 @@
+-
+    var statistic_list = [
+        {percent: 50, title: "Теплоизоляция"},
+        {percent: 70, title: "Шупоизоляция"},
+        {percent: 80, title: "Безопасность"},
+        {percent: 95, title: "Эстетичность"},
+        {percent: 50, title: "Надежность"},
+        {percent: 50, title: "Экологичность"}
+    ]
+.statistic
+    .statistic__head
+        .statistic__icons
+            a.statistic__icon.statistic__icon_window(href="javascript:void(0)")
+                img(src='/images/product/window-icon-white.png', alt='window-icon')
+            .statistic__icon.statistic__icon_hamburger.submenu-open
+                img(src='/images/product/hamburger-white.svg', alt='hamburger')
+        .statistic__title REHAU
+        .statistic__subtitle BLITZ/NEW
+
+    .statistic__shade
+        .statistic__photos_1
+            .statistic__img
+                img(src='/images/product/window-empty.png', alt='window')
+                ul.statistic__tooltips
+                    each i in [1,2,3]
+                        li.statistic__tooltip(class="statistic__tooltip_"+i)
+                            .statistic__dot
+                                .dot_middle
+                                    .dot_inside
+                            .statistic__tooltip-text
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .statistic__photos_2
+            .statistic__gallery-overflow
+                .statistic__gallery
+                        ul.statistic__gallery-items
+                            each i in [1,2,3,4]
+                                li.statistic__gallery-item(class="statistic__gallery-item_"+i)
+                                    img.statistic__gallery-window(src="/images/product/window_" + i + ".png", alt="WIndow " + i)
+                        .statistic__gallery-window_base
+                            img(src="/images/product/window_2.png", alt="WIndow 2")
+            .statistic__arm
+    .statistic__main
+        ul.statistic__items
+            each statistic in statistic_list
+                li.statistic__item
+                    .statistic__circle.c100(class="p"+statistic.percent)
+                        span #{statistic.percent}
+                        .slice
+                            .bar
+                            .fill
+                    .statistic__note #{statistic.title}
+
+        button.statistic__submit.product__submit ДОБАВИТЬ В КАЛЬКУЛЯТОР

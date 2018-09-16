@@ -42,7 +42,8 @@ gulp.task('js_min', () => {
             'public/src/js/index/s7.js',
             'public/src/js/contact/contact.js',
             'public/src/js/pay/pay.js',
-            'public/src/js/gager/gager.js'
+            'public/src/js/gager/gager.js',
+            'public/src/js/product/product.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -66,6 +67,7 @@ gulp.task('css_min', () => {
             'public/src/css_static/owl.carousel.min.css',
             'public/src/css_static/owl.theme.default.min.css',
             'public/src/css_static/animate.css',
+            'public/src/css_static/circle.css',
             'public/src/css/hamburglar.css',
             'public/src/css/app.css',
             'public/src/css/index/index.css',
