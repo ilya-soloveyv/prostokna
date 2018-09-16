@@ -43,30 +43,32 @@
                 }
                 .email{
                     margin-top: 150px;
+                    a {
+                        color: white;
+                        text-decoration: underline;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
                 }
                 .social-icon{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 132.62px;
-                    height: 25.25px;
-                    margin-top: 50px;
-                    .twit{
-                        width: 32px;
-                    }
-                    .vk{
-                        width: 39.02px;
-                    }
-                    .vk-folow{
-                        background: url("/images/contact/VK Followers.svg") no-repeat center center;
-                        height: 25.25px;
-                        width: 27.62px;
+                    width: 174px;
+                    height: 36px;
+                    margin-top: 20px;
+                    a {
+                        display: block;
+                        float: left;
+                        background: #2D70E4;
+                        width: 36px;
+                        height: 36px;
                         display: flex;
-                        justify-content: center;
                         align-items: center;
-                        color: #fff;
-                        font-family: "MontserratMedium";
-                        font-size: 16px;
+                        justify-content: center;
+                        margin-right: 10px;
+                        border-radius: 50%;
+                        &:last-child {
+                            margin-right: 0;
+                        }
                     }
                 }
             }
@@ -213,23 +215,6 @@
                     .email{
                         margin-top: 50px;
                     }
-                    .social-icon{
-                        width: 90px;
-                        height: 16.80px;
-                        margin-top: 30px;
-                        .twit{
-                            width: 18px;
-                        }
-                        .vk{
-                            width: 22px;
-                            margin-left: -20px;
-                        }
-                        .vk-folow{
-                            width: 18.37px;
-                            height: 16.79px;
-                            font-size: 8px;
-                        }
-                    }
                 }
                 &__reqvizits{
                     width: 250px;
@@ -340,21 +325,14 @@
                         margin-top: 35px;
                     }
                     .social-icon{
-                        width: 95px;
-                        height: 20px;
                         margin-top: 115px;
-                        margin-left: 20px;
-                        .twit{
-                            width: 22.38px;
-                        }
-                        .vk{
-                            width: 27.32px;
-                            margin-left: 0;
-                        }
-                        .vk-folow{
-                            width: 22.69px;
-                            font-size: 10px;
-                            height: 23.74px;
+                        a {
+                            width: 28px;
+                            height: 28px;
+                            margin-right: 5px;
+                            img {
+                                transform: scale(0.75)
+                            }
                         }
                     }
                 }
@@ -450,24 +428,12 @@
                     }
                     .email{
                         font-size: 7px;
-                        margin-top: 70px;
+                        margin-top: 40px;
                     }
                     .social-icon{
-                        width: 72px;
-                        height: 17.08px;
-                        margin-top: 30px;
-                        margin-left: 0;
-                        .twit{
-                            width: 14.39px;
-                        }
-                        .vk{
-                            width: 17.56px;
-                            margin-left: -15px;
-                        }
-                        .vk-folow{
-                            width: 18.68px;
-                            font-size: 8px;
-                            height: 17.08px;
+                        margin-top: 0px;
+                        a {
+
                         }
                     }
                 }

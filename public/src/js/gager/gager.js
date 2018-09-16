@@ -1,1 +1,1 @@
-$('#gager input[name=phone]').mask('+7 (000) 000-00-00');
+Inputmask({"mask": "+7 (999) 999-99-99"}).mask("#gager input[name=phone]")
