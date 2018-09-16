@@ -1,0 +1,211 @@
+@import "vars";
+
+/* COLORS */
+.colors {
+  padding: 80px 80px 100px 80px;
+
+  @media (max-width: $xxl) {
+    padding: 50px 80px;
+  }
+
+  @media (max-width: $xl) {
+    padding: 95px 50px;
+  }
+  @media (max-width: $md) {
+    padding: 50px 13px;
+  }
+  &__main {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $md) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+  &__blocks {
+    display: flex;
+    max-width: 600px;
+    flex-wrap: wrap;
+
+    @media (max-width: $xxl) {
+      max-width: 440px;
+    }
+
+    @media (max-width: $xl) {
+      max-width: 230px;
+    }
+
+    @media (max-width: $md) {
+      justify-content: space-between;
+      max-width: 220px;
+    }
+  }
+
+  &__block {
+    margin-right: 22px;
+    margin-bottom: 22px;
+    &:nth-child(6n) {
+      margin-right: 0;
+    }
+    @media (max-width: $xl) {
+      margin-right: 9px;
+      margin-bottom: 9px;
+    }
+    @media (max-width: $md) {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+  &__label {
+    @include size($color-size);
+    background-color: #fff;
+    border-radius: 9px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    padding-left: 3px;
+    margin-bottom: 0;
+    img {
+      display: none;
+    }
+
+    @media (max-width: $xxl) {
+      @include size($color-size_xxl);
+    }
+
+    @media (max-width: $xl) {
+      @include size($color-size_xl);
+      padding-bottom: 5px;
+      padding-left: 3px;
+    }
+
+    @media (max-width: $md) {
+      @include size($color-size_md);
+    }
+
+  }
+  &__input:checked + label > img {
+    display: block;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__checked {
+    width: 45px;
+    height: 30px;
+
+    @media (max-width: $xl) {
+      width: 15px;
+      height: 12px;
+    }
+  }
+
+  &__side {
+    &_left {
+      padding-top: 50px;
+      @media (max-width: $md) {
+        padding: 30px 0;
+        text-align: center;
+      }
+    }
+    &_right {
+      max-width: 500px;
+      position: relative;
+    }
+  }
+  &__submit {
+    margin-top: 225px;
+
+    @media (max-width: $md) {
+      margin-top: 40px;
+    }
+  }
+
+  &__img {
+    max-height: 700px;
+    max-width: 500px;
+
+    @media (max-width: $xxl) {
+      max-height: 500px;
+      max-width: 380px;
+    }
+
+    @media (max-width: $xl) {
+      max-height: 355px;
+      max-width: 265px;
+    }
+  }
+
+  &__tooltip {
+    font-family: 'Montserrat';
+    position: absolute;
+    top: 65%;
+    left: -200px;
+    background: grey;
+    background: linear-gradient(90deg, #3d3d3d, #707070);
+    padding: 20px;
+    border-radius: 10px;
+    @media (max-width: $xxl) {
+      padding: 15px;
+      left: -130px;
+      top: 62%;
+    }
+    @media (max-width: $xl) {
+      padding: 10px;
+      left: -80px;
+    }
+
+    @media (max-width: $sm) {
+      left: 60px;
+      top: 80%;
+    }
+
+    &-info {
+      background-color: #A44487;
+      padding: 21px;
+      border-radius: 10px;
+      height: 135px;
+      width: 220px;
+
+      @media (max-width: $xxl) {
+        padding: 10px;
+        height: 80px;
+        width: 135px;
+      }
+
+      @media (max-width: $xl) {
+        padding: 10px;
+        height: 60px;
+        width: 95px;
+      }
+    }
+  }
+  &__number {
+    font-size: 13px;
+
+    @media (max-width: $xxl) {
+      font-size: 9px;
+    }
+
+    @media (max-width: $xl) {
+      font-size: 6px;
+    }
+  }
+  &__name {
+    font-size: 21px;
+
+    @media (max-width: $xxl) {
+      font-size: 15px;
+    }
+
+    @media (max-width: $xl) {
+      font-size: 10px;
+    }
+  }
+
+}

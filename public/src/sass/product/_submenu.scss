@@ -1,0 +1,156 @@
+
+@import "vars";
+
+  .submenu {
+  display: none;
+  font-family: 'MontserratSemiBold';
+
+  align-items: flex-start;
+  width: calc(100% - 80px);
+  height: 100vh;
+  position: fixed;
+  top: 80px;
+  left: 80px;
+  background: rgba(15,15,15,0.7);
+  z-index: 11;
+  padding: 100px 30px;
+  @media (max-width: $xl) {
+    padding: 70px 30px;
+    left: 0;
+    width: 100%;
+  }
+  @media (max-width: $lg) {
+    padding: 50px 20px;
+  }
+  @media (max-width: 575px) {
+    top: 50px;
+  }
+
+  &_show {
+    display: flex;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    @media (max-width: $xl) {
+      width: 30px;
+      height: 30px;
+    }
+    @media (max-width: $md) {
+      width: 20px;
+      height: 20px;
+    }
+
+    &_cross {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__content {
+    margin-left: 90px;
+    @media (max-width: $xl) {
+      margin-left: 70px;
+    }
+    @media (max-width: $md) {
+      margin-left: 50px;
+    }
+  }
+  &__materials {
+    margin: 0 0 140px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    @media (max-width: $xl) {
+      margin-bottom: 80px;
+    }
+  }
+  &__material {
+    font-size: 25px;
+    line-height: 53px;
+    text-transform: uppercase;
+    margin-right: 75px;
+    list-style: none;
+    @media (max-width: $xl) {
+      font-size: 19px;
+      line-height: 32px;
+      margin-right: 40px;
+    }
+    @media (max-width: $md) {
+      font-size: 13px;
+      margin-right: 15px;
+      line-height: 22px;
+    }
+    @include link-color(#fff);
+    &_selected {
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+  &__brands {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 0 100px;
+    padding: 0;
+    @media (max-width: $xl) {
+      margin-bottom: 60px;
+    }
+    @media (max-width: $md) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__brand {
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-right: 40px;
+    @media (max-width: $xl) {
+      font-size: 22px;
+      line-height: 30px;
+      margin-right: 30px;
+    }
+    @media (max-width: $md) {
+      font-size: 15px;
+      line-height: 25px;
+      margin-right: 20px;
+    }
+    @include link-color(#fff);
+  }
+
+  &__types {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    @include link-color(#fff);
+  }
+  &__type {
+    text-transform: uppercase;
+    margin-top: 12px;
+    font-size: 48px;
+    @media (max-width: $xl) {
+      font-size: 32px;
+    }
+    @media (max-width: $md) {
+      font-size: 24px;
+    }
+
+  }
+}
