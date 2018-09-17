@@ -3,6 +3,7 @@ html(lang="ru")
     head
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no")
+        meta(name="format-detection", content="telephone=no")
         title= title
         if env.NODE_ENV == 'development'
             link(rel="stylesheet", href="/src/css_static/bootstrap.css")
@@ -10,6 +11,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css_static/owl.carousel.min.css")
             link(rel="stylesheet", href="/src/css_static/owl.theme.default.min.css")
             link(rel="stylesheet", href="/src/css_static/animate.css")
+            link(rel="stylesheet", href="/src/css_static/circle.css")
             link(rel="stylesheet", href="/src/css/hamburglar.css")
             link(rel="stylesheet", href="/src/css/app.css")
             link(rel="stylesheet", href="/src/css/index/index.css")
@@ -27,8 +29,9 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/product/product.css")
             link(rel="stylesheet", href="/src/css/company/company.css")
             link(rel="stylesheet", href="/src/css/pay/pay.css")
+            link(rel="stylesheet", href="/src/css/palette/palette.css")
         else
-            link(rel="stylesheet", href="/app.min.css")
+            link(rel="stylesheet", href="/app-10ce05612d.min.css")
     body
         #top
             .logo
@@ -83,15 +86,19 @@ html(lang="ru")
             script(src='/src/js/bootstrap.js')
             script(src='/src/js/jquery.fullpage.min.js')
             script(src='/src/js/owl.carousel.min.js')
-            script(src='/src/js/jquery.mask.min.js')
+            script(src='/src/js/jquery.inputmask.bundle.js')            
             script(src='/src/js/app/app.js')
             script(src='/src/js/app/index.js')
             script(src='/src/js/contact/contact.js')
             script(src='/src/js/pay/pay.js')
             script(src='/src/js/index/s2.js')
             script(src='/src/js/index/s7.js')
+            script(src='/src/js/index/s8.js')
+            script(src='/src/js/gager/gager.js')
+            script(src='/src/js/product/product.js')            
+            script(src='/src/js/palette/palette.js')
         else
-            script(src='/app.min.js')
+            script(src='/app-3bfae3609c.min.js')
 
         
 

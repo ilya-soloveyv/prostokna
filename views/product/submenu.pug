@@ -1,0 +1,25 @@
+.submenu
+    .submenu__icons
+        .submenu__icon.submenu___iconwindow
+            img(src='/images/product/window-icon-white.png', alt='window')
+        .submenu__icon.submenu__icon_cross(id="submenu-cross")
+            img(src='/images/product/cross.png', alt='cross')
+    .submenu__content
+        ul.submenu__materials
+            li.submenu__material.submenu__material_selected
+                a(href="javascript:void(0)") Пластик
+            li.submenu__material
+                a(href="javascript:void(0)") Дерево
+            li.submenu__material
+                a(href="javascript:void(0)") Дерево
+
+        ul.submenu__brands
+            each brand in ["Rehau", "Montblanc", "Wintech", "Gutwerk", "Novotex/Krauss", "RBL", "SLiDORS"]
+                li.submenu__brand
+                    a.submenu__brand-link(href="javascript:void(0)") #{brand}
+
+        ul.submenu__types
+            each type in ["Sib", "Delight", "Brilliant", "Geneo"]
+                li.submenu__type
+                    a.submenu__type-link(href="javascript:void(0)") #{type}
+
