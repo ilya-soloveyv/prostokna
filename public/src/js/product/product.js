@@ -4,8 +4,16 @@ $(document).ready(function() {
         $('.statistic__photos_2').width(left);
     }
 
+    function shadeOnTouch(event) {
+        var pageX = event.originalEvent.touches[0].pageX,
+            left = pageX - $('.statistic__shade').offset().left;
+        $('.statistic__photos_2').width(left);
+    }
+
     $('.statistic__arm').mousedown(function (e) {
         $('.statistic__shade').mousemove(shadeOn);
+    }).on("touchstart", function (e) {
+        $('.statistic__shade').on("touchmove", shadeOnTouch)
     });
 
     $(document).mouseup(function() {
@@ -23,4 +31,9 @@ $(document).ready(function() {
         $(".product__main").removeClass("product__main_blur");
     });
 
+    $('.colors__block').mousemove(function () {
+        $('.colors__tooltip').addClass("colors__tooltip_show");
+    }).mouseleave(function () {
+        $('.colors__tooltip').removeClass("colors__tooltip_show");
+    });
 });
