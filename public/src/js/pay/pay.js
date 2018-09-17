@@ -1,0 +1,1 @@
+inputmask({"mask": "9999 9999 9999 9999"}).mask("#pay input[name='cardnumber']")
