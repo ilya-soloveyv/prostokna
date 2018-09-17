@@ -1,0 +1,23 @@
+.colors
+    .colors__main
+        .colors__side.colors__side_left
+            .colors__blocks
+                - for (var i = 0; i < 24; i++)
+                    .colors__block
+                        if i == 13
+                            input.colors__input(type="radio", name="color", id=i, checked)
+                            label.colors__label(for=i)
+                                img.colors__checked(src='/images/product/checked.svg', alt='checked')
+
+                        else
+                            input.colors__input(type="radio", name="color", id=i)
+                            label.colors__label(for=i)
+                                img.colors__checked(src='/images/product/checked.svg', alt='checked')
+
+            button.colors__submit.product__submit ДОБАВИТЬ В КАЛЬКУЛЯТОР
+        .colors__side.colors__side_right
+            .colors__tooltip
+                .colors__tooltip-info
+                    .colors__number 3702
+                    .colors__name SUPER WHITE
+            img.colors__img(src='/images/product/window-color.png', alt='window-color')
