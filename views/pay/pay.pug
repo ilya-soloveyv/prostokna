@@ -1,2 +1,32 @@
 #pay.ppage
-    h1 Pay
+	.l
+		.summ
+			.title Введите сумму оплаты
+			form(action="#").to_pay
+				input(type="text", name="payment")
+		.credit_card
+			img(src="/images/pay/visa.svg", alt="Виза").card_type
+			.card_info
+				.card_number 4254 6578 9706 4365
+				.bg_flex
+					.name IVAN BELOV
+					.date 08/22
+	.r
+		form(action="#").card_form
+			.item
+				.title Номер карты
+				input(type="text", name="cardnumber", required)
+			.bg_flex
+				.item
+					.title Год
+					input(type="text", name="year", required)
+				.item
+					.title Месяц
+					input(type="text", name="month", required)
+				.item
+					.title Cvc/cvv*
+					input(type="password", name="code", required)
+			.item
+				.title Имя держателя карты
+				input(type="text", name="name", required)
+			button.btn.btn_pay Оплатить
