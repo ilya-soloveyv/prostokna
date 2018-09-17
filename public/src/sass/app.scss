@@ -391,7 +391,7 @@ $speed: .25s;
     left: 0;
     height: 80px;
     border-bottom: 1px solid #999;
-    z-index: 2;
+    z-index: 20;
     background-color: #FFF;
     @media (max-width: 575px) {
         height: 50px;
@@ -615,13 +615,12 @@ $speed: .25s;
 
 
 
-.ppage { // Стиль для страниц со скроллом с учетом фиксированного хидера и левого меню
+.ppage {
     position: relative;
     margin-top: 80px;
     margin-left: 80px;
     min-height: calc(100vh - 80px);
     box-sizing: border-box;
-    clear: both;
     @media (max-width: 1200px) {
         margin-left: 0;
     }

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 37 37">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-XD_humburger_button);
+      }
+
+      .cls-2 {
+        fill: #353535;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-XD_humburger_button">
+      <rect width="37" height="37"/>
+    </clipPath>
+  </defs>
+  <g id="XD_humburger_button" data-name="XD humburger button" class="cls-1">
+    <rect class="cls-3" width="37" height="37"/>
+    <g id="Group_1" data-name="Group 1" transform="translate(190.385 -620)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" width="26.279" height="4.308" rx="2.154" transform="translate(-185.385 625)"/>
+      <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" width="26.279" height="4.308" rx="2.154" transform="translate(-185.385 636.692)"/>
+      <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-2" width="26.279" height="4.308" rx="2.154" transform="translate(-185.385 647.769)"/>
+    </g>
+  </g>
+</svg>

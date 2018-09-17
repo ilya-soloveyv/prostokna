@@ -2,3 +2,4 @@
 /public/src/css
 .env
 .idea
+package-lock.json
