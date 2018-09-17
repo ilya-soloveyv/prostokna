@@ -1,6 +1,4 @@
-jQuery(function($){
-   $("#pay input[name='cardnumber']").mask("9999 9999 9999 9999");
-   $("#pay input[name='year']").mask("99");
-   $("#pay input[name='month']").mask("99");
-   $("#pay input[name='code']").mask("999");
-});
+Inputmask({"mask": "9999 9999 9999 9999"}).mask("#pay input[name=cardnumber]")
+Inputmask({"mask": "99"}).mask("#pay input[name=year]")
+Inputmask({"mask": "99"}).mask("#pay input[name=month]")
+Inputmask({"mask": "999"}).mask("#pay input[name=code]")
