@@ -292,6 +292,9 @@
 					&[name="name"] {
 						text-transform: uppercase;
 					}
+					&[name="cardnumber"] {
+						text-align: center;
+					}
 					@media (max-width: 1400px) {
 						font-size: 24px;
 					}
