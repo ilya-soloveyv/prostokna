@@ -23,6 +23,9 @@
                     }
                     @media screen and (max-width: 992px){                                
                         height: 30%;
+                    }
+                    @media screen and (max-width: 576px){
+                        height: 15%;                                            
                     }                   
                     .bg_flex {
                         .l1 {
@@ -34,8 +37,7 @@
                                 font-size: 18px;
                             }
                             @media screen and (max-width: 576px){
-                                padding: 0 15px 30px;
-                                font-size: 14px;
+                                display: none;
                             }                            
                         }
                         .l2 {
@@ -51,6 +53,7 @@
                             @media screen and (max-width: 576px) {                                
                                 font-size: 12px;
                                 padding: 0;
+                                text-align: center;
                             }                           
                         }
                     }
@@ -79,7 +82,6 @@
                         }
                         @media screen and (max-width: 576px){
                                 width: 90%;
-
                             }
                         .bg_flex {                            
                             width: 100%;
@@ -95,10 +97,20 @@
                             }
                             .custom-control {
                                 padding: 0 0 20px 0;
+                                &-input:checked {
+                                    .custom-control-label {
+                                        img {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
                                 .custom-control-label {
                                     text-align: center;
                                     width: 100%;
                                     padding: 0 0 34px;
+                                    img {
+                                        opacity: 0.5;
+                                    }
                                     &::before {
                                         top: auto;
                                         left: 50%;
@@ -106,7 +118,7 @@
                                         margin-left: -8px;
                                         width: 16px;
                                         height: 16px;
-                                        background-color: #2D70E4;
+                                        background-color: #343a40;
                                     }
                                     &::after {
                                         top: auto;
@@ -184,6 +196,9 @@
                                         @media screen and (max-width: 992px){
                                             margin: 7px 0;                                        
                                         }
+                                        @media screen and (max-width: 576px){
+                                            padding: 17px 40px 17px 20px;                                     
+                                        }
                                         i {
                                             position: absolute;
                                             right: 15px;
@@ -221,7 +236,9 @@
                                             padding: 23px 30px;
                                             border-radius: 50px;
                                         }
-
+                                        @media screen and (max-width: 576px){
+                                            padding: 17px 30px;                                            
+                                        }
                                     }
                                     @media screen and (max-height: 870px) {
                                         bottom: -70px;
@@ -355,6 +372,12 @@
                                                 opacity: 1;
                                             }
                                         }
+                                        @media screen and (max-width: 992px) {
+                                            bottom: -438px;
+                                            width: 120px;
+                                            border-radius: 60px;
+                                            right: 20%;                                            
+                                        }
                                         div.name {
                                             opacity: 0;
                                             transition: all .7s ease;
@@ -365,6 +388,12 @@
                                             right: 10px;
                                             width: 18px;
                                             height: 18px;
+                                            @media screen and (max-width: 992px) {
+                                                top: 7px;
+                                                right: 44px;
+                                                width: 25px;
+                                                height: 25px;
+                                            }
                                         }
                                     }
                                 }
@@ -373,6 +402,9 @@
                                     border-right: none;
                                     width: 400px;
                                     text-align: center;
+                                    @media screen and (max-width: 992px) {
+                                        width: 250px;                                                                                
+                                    }
                                     img {
                                         height: 60px;
                                         margin: 80px 10px;
@@ -403,6 +435,21 @@
                                     background-color: #2d70e4;
                                     color: white;
                                     text-align: left;
+                                    img {
+                                        display: none;
+                                        @media screen and (max-width: 992px) {
+                                            display: inline-block;
+                                            margin-right: 15px;                                       
+                                        }
+                                    }
+                                    @media screen and (max-width: 992px) {
+                                        border-top: 1px solid #f1f1f1;
+                                        color: #232323;
+                                        background-color: #fff;
+                                        display: flex;
+                                        align-items: center;
+                                        height: 100%;                                        
+                                    }
                                 }
                                 &:last-child {
                                     border-right: none;
@@ -461,6 +508,9 @@
                     tfoot {
                         tr {
                             height: 100px;
+                            @media screen and (max-width: 992px) {
+                                height: 70px;
+                            }
                             th {
                                 padding: 0;
                                 border-top: 1px solid #ededed;                                
@@ -470,6 +520,14 @@
                                     background: #ededed;
                                     color: #383838;
                                     margin-left: 50px;
+                                    @media screen and (max-width: 992px) {
+                                        background-color: #fff;
+                                        text-decoration: underline;
+                                        text-transform: none;
+                                        font-size: 15px;
+                                        margin-left: -250px;
+                                        width: 225px;
+                                    }
                                     span.all {
                                         display: block;
                                     }
@@ -492,6 +550,9 @@
                                     line-height: 20px;
                                     text-decoration: none;
                                     padding: 0 70px 0 0;
+                                    @media screen and (max-width: 992px) {
+                                        display: none;
+                                    }
                                     i {
                                         content: '';
                                         position: absolute;
@@ -520,6 +581,10 @@
                                     background-color: #2d70e4;
                                     color: white;
                                     text-align: right;
+                                    @media screen and (max-width: 992px) {
+                                        background-color: #fff;
+                                        border-top: 1px solid #f1f1f1;
+                                    }
                                 }
                             }
                         }
