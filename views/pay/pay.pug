@@ -7,9 +7,9 @@
 		.credit_card
 			img(src="/images/pay/visa.svg", alt="Виза").card_type
 			.card_info
-				.card_number#card_number Номер карты
+				.card_number#card_number 0000 0000 0000 0000
 				.bg_flex
-					.name#name Имя держателя
+					.name#name Имя держателя карты/ Cardholder name
 					.date 
 						span.month#month MM
 						span.year#year YY
@@ -31,4 +31,4 @@
 			.item
 				.title Имя держателя карты
 				input(type="text", name="name", required, onKeyUp="javascript:document.getElementById('name').innerHTML = this.value;")
-			button.btn.btn_pay.animated Оплатить
+			button.btn.btn_pay Оплатить
