@@ -25,7 +25,7 @@
     		position: absolute;
 		    left: 30%;
 		    width: 60%;
-		    top: 12%;
+		    top: 10%;
     		@media (max-width: 1024px) {
 			    position: absolute;
 			    left: 6%;
@@ -54,7 +54,7 @@
     			padding-left: 3%;
     			width: 90%;
     			font-size: 23px;
-    			padding-bottom: 30%;
+    			padding-bottom: 20%;
     			@media (max-width: 1024px) {
 	    			font-size: 16px;
 	    			line-height: 19px;
@@ -111,11 +111,10 @@
     	.credit_card {
     		position: absolute;
     		left: 30%;
-    		top: 54%;
-    		padding: 48px;
-    		padding-left: 60px;
-    		width: 548px;
-    		min-height: 345px;
+    		top: 44%;
+    		padding: 40px;
+    		width: 538px;
+    		min-height: 335px;
     		background: rgba(45,0,170,1);
 			background: -moz-linear-gradient(top, rgba(45,0,170,1) 0%, rgba(5,132,250,1) 100%);
 			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(45,0,170,1)), color-stop(100%, rgba(5,132,250,1)));
@@ -209,6 +208,15 @@
 					    font-size: 14px;
     					line-height: 18px;
 					}
+					.name {
+						text-transform: uppercase;
+					}
+					.date {
+						display: flex;
+						.month:after {
+							content: '/';
+						}
+					}
 				}
 			}
     	}
@@ -282,10 +290,11 @@
 					font-family: 'Montserrat';
 					font-size: 26px;
 					letter-spacing: 0.176em;
-					padding: 19px 29px;
+					padding: 15px 20px;
 					background-color: #EEEEEE;
 					border: none;
 					border-radius: 38px;
+					line-height: 30px;
 					&:focus {
 						outline: none;
 					}
@@ -300,7 +309,7 @@
 					}
 					@media (max-width: 1320px) {
 						font-size: 23px;
-						padding: 15px 20px;
+						padding: 14px 20px;
 					}
 					@media (max-width: 1024px) {
 						font-size: 16px;
@@ -329,7 +338,7 @@
 					}
 					input {
 						text-align: center;
-						padding: 19px 5%;
+						padding: 15px 5%;
 						@media (max-width: 1320px) {
 							padding: 15px 5%;
 						}
@@ -346,11 +355,12 @@
 				display: block;
 				margin-left: auto;
 				font-size: 20px;
+				margin-top: 10px;
 				letter-spacing: 0.02em;
 				color: #707070;
 				text-transform: uppercase;
 				width: 268px;
-				height: 76px;
+				height: 60px;
 				background-color: #F7F7F7;
 				border: none;
 				border-radius: 38px;
