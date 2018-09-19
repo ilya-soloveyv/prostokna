@@ -25,7 +25,7 @@
     		position: absolute;
 		    left: 30%;
 		    width: 60%;
-		    top: 12%;
+		    top: 10%;
     		@media (max-width: 1024px) {
 			    position: absolute;
 			    left: 6%;
@@ -54,7 +54,7 @@
     			padding-left: 3%;
     			width: 90%;
     			font-size: 23px;
-    			padding-bottom: 30%;
+    			padding-bottom: 20%;
     			@media (max-width: 1024px) {
 	    			font-size: 16px;
 	    			line-height: 19px;
@@ -84,11 +84,11 @@
 					border: 1px solid #fff;
 					border-radius: 38px;
 					background-color: transparent;
-					height: 76px;
+					height: 50px;
 					text-align: center;
 					width: 100%;
 					font-family: 'Montserrat';
-					font-size: 32px;
+					font-size: 26px;
 					color: #fff;
 					&:focus {
 						outline: none;
@@ -96,7 +96,7 @@
 					@media (max-width: 1024px) {
 		    			font-size: 16px;
 		    			line-height: 19px;
-		    			height: 56px;
+		    			height: 36px;
 		    		}
 		    		@media (max-width: 576px) {
 		    			height: 36px;
@@ -109,13 +109,13 @@
 			}
     	}
     	.credit_card {
+    		font-family: 'Montserrat';
     		position: absolute;
     		left: 30%;
-    		top: 54%;
-    		padding: 48px;
-    		padding-left: 60px;
-    		width: 548px;
-    		min-height: 345px;
+    		top: 44%;
+    		padding: 40px;
+    		width: 538px;
+    		min-height: 335px;
     		background: rgba(45,0,170,1);
 			background: -moz-linear-gradient(top, rgba(45,0,170,1) 0%, rgba(5,132,250,1) 100%);
 			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(45,0,170,1)), color-stop(100%, rgba(5,132,250,1)));
@@ -145,19 +145,22 @@
 			@media (max-height: 768px) and (max-width: 1024px) {
 			    left: 45%;
 			    min-height: 240px;
-			    top: 25%;
+			    top: 12%;
 			    max-width: 406px;
 		    }
-		    @media (max-width: 700px) {
+		    @media (min-height: 1024px) and (max-width: 768px) {
+			    top: 25%;
+		    }
+		    @media (max-width: 750px) {
 		    	width: 58%;
 			    left: 38%;
 			    padding: 5%;
 		    }
 		    @media (max-width: 576px) {
-		    	top: 60%;
+		    	top: 43%;
 			    width: 90%;
 			    left: 5%;
-			    min-height: 188px;
+			    min-height: 168px;
 			    max-width: 300px;
 		    }
 		    @media (max-width: 823px) and (max-height: 414px) {
@@ -184,30 +187,39 @@
 				letter-spacing: 0.176em;
 				width: 100%;
 				.card_number {
-					font-size: 32px;
+					font-size: 22px;
 					padding-bottom: 32px;
 					@media (max-width: 1024px) {
-					    font-size: 20px;
-	    				line-height: 24px;
+					    font-size: 16px;
+	    				line-height: 20px;
 					}
 					@media (max-width: 576px) {
-						font-size: 17px;
-					    line-height: 20px;
+						font-size: 14px;
+					    line-height: 18px;
 					    padding-bottom: 5%;
 					}
 				}
 				.bg_flex {
-					font-size: 28px;
+					font-size: 16px;
 					color: #D0DBF8;
 					display: flex;
 					justify-content: space-between; 
 					@media (max-width: 1024px) {
-					    font-size: 17px;
-	    				line-height: 20px;
+					    font-size: 11px;
+	    				line-height: 15px;
 					}
 					@media (max-width: 576px) {
-					    font-size: 14px;
-    					line-height: 18px;
+					    font-size: 10px;
+    					line-height: 14px;
+					}
+					.name {
+						text-transform: uppercase;
+					}
+					.date {
+						display: flex;
+						.month:after {
+							content: '/';
+						}
 					}
 				}
 			}
@@ -282,22 +294,26 @@
 					font-family: 'Montserrat';
 					font-size: 26px;
 					letter-spacing: 0.176em;
-					padding: 19px 29px;
+					padding: 10px 20px;
 					background-color: #EEEEEE;
 					border: none;
 					border-radius: 38px;
+					line-height: 30px;
 					&:focus {
 						outline: none;
 					}
 					&[name="name"] {
 						text-transform: uppercase;
 					}
+					&[name="cardnumber"] {
+						text-align: center;
+					}
 					@media (max-width: 1400px) {
 						font-size: 24px;
 					}
 					@media (max-width: 1320px) {
-						font-size: 23px;
-						padding: 15px 20px;
+						font-size: 20px;
+						padding: 10px 20px;
 					}
 					@media (max-width: 1024px) {
 						font-size: 16px;
@@ -306,7 +322,7 @@
 					@media (max-width: 576px) {
 					    font-size: 13px;
 					    line-height: 16px;
-					    padding: 12px 26px;
+					    padding: 10px 26px;
 					}
 					@media (max-width: 823px) and (max-height: 414px) {
 			    		font-size: 13px;
@@ -326,12 +342,12 @@
 					}
 					input {
 						text-align: center;
-						padding: 19px 5%;
+						padding: 10px 5%;
 						@media (max-width: 1320px) {
-							padding: 15px 5%;
+							padding: 10px 5%;
 						}
 						@media (max-width: 576px) {
-							padding: 12px 5%;
+							padding: 10px 5%;
 						}
 						@media (max-width: 823px) and (max-height: 414px) {
 				    		padding: 6px 5%;;
@@ -339,41 +355,45 @@
 					}
 				}
 			}
-			.btn_pay {
-				display: block;
-				margin-left: auto;
-				font-size: 20px;
-				letter-spacing: 0.02em;
-				color: #707070;
-				text-transform: uppercase;
-				width: 268px;
-				height: 76px;
-				background-color: #F7F7F7;
-				border: none;
-				border-radius: 38px;
-				&:hover {
-					background-color: #005ED9;
-					color: #fff;
-				}
-				&:focus {
-					box-shadow: none;
-				}
-				@media (max-width: 1024px) {
-					font-size: 12px;
-					line-height: 15px;
-					height: 53px;
-					width: 258px;
-				}
-				@media (max-width: 576px) {
-				    width: 140px;
-				    height: 40px;
-				    font-size: 9px;
-				    line-height: 11px;
-				}
-				@media (max-width: 823px) and (max-height: 414px) {
-		    		height: 30px;
-		    		width: 200px;
-		    	}
+		.btn_pay {
+			display: block;
+			font-size: 20px;
+			letter-spacing: 0.02em;
+			color: #707070;
+			text-transform: uppercase;
+			width: 268px;
+			height: 60px;
+			margin-left: auto;
+			margin-top: 10px;
+			background-color: #F7F7F7;
+			border: none;
+			border-radius: 38px;
+			&:hover {
+				background-color: #005ED9;
+				color: #fff;
+			}
+			&:focus {
+				box-shadow: none;
+			}
+			@media (max-width: 1024px) {
+				height: 53px;
+				width: 248px;
+				font-size: 12px;
+				line-height: 15px;
+			}
+			@media (max-width: 768px) {
+				width: 190px;
+			}
+			@media (max-width: 576px) {
+				width: 140px;
+		    	height: 40px;
+			    font-size: 9px;
+			    line-height: 11px;
+			}
+			@media (max-width: 823px) and (max-height: 414px) {
+	    		height: 30px;
+	    		width: 200px;
+	    	}
 			}
 		}
     }
