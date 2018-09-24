@@ -27,7 +27,7 @@
 				img(src="/images/palette/Group 451.svg").book__img.book__img_right
 			.tab-menu
 				.tab
-					button(onclick="openCity(event, 'renolit')").tablinks RENOLIT
+					button(onclick="openCity(event, 'renolit')").tablinks.ren RENOLIT
 					button(onclick="openCity(event, 'ral')").tablinks#defaultOpen RAL
 				#ral.tabcontent
 					.ral
@@ -420,12 +420,12 @@
 									+text
 								.card-pal.card-pal94
 									+text
-								.card-pal.card-pal95
-									+text
 				#renolit.tabcontent
 					.ral
-						.ral__block.ral__block_left
-						.ral__block.ral__block_right
+						.ral__block
+							.ral__block_left
+						.ral__block
+							.ral__block_right
 		.palette__sidebar
 			.search
 				img()

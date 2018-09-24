@@ -1091,3 +1091,344 @@
     }
   }
 }
+@media (max-width: 1260px){
+  #palette{
+    .palette{
+      .book{
+        left: 90px;
+      }
+      &__sidebar{
+        .search{
+          left: 90px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1140px){
+  #palette {
+    .palette{
+      min-height: 577px;
+      &__book{
+        top: 100px;
+        max-height: 432px;
+        max-width: 796px;
+      }
+      .book {
+        left: 11%;
+        &__in{
+          .book__img {
+            margin: 17px 2px 17px;
+          }
+          .book__img_right{
+            margin-top: 398px;
+          }
+          .book__center{
+            width: 62px;
+            padding: 8px 0;
+            .pereplet{
+              width: 44px;
+              max-height: 415px;
+              padding: 5px 0;
+              .gaika{
+                width: 31px;
+                img{
+                  width: 9px;
+                  height: 9px;
+                }
+              }
+              .center-block{
+                width: 53px;
+                height: 149px;
+                top: calc(50% - 74px);
+                .shov{
+                  .krug{
+                    width: 10px;
+                    height: 10px;
+                  }
+                  .left-krug{
+                    margin-right: -5px;
+                  }
+                  .right-krug{
+                    margin-left: -5px;
+                  }
+                  .line{
+                    width: 43px;
+                    height: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tab-menu{
+          max-height: 377px;
+          margin-left: -103px;
+          margin-top: -12px;
+          .tab {
+            width: 206px;
+            min-width: 206px;
+            height: 32px;
+            margin-top: 70px;
+            button {
+              height: 32px;
+              width: 101px;
+              font-size: 8px;
+              padding: 0 11px;
+              border-radius: 8px 8px 0 0;
+              text-align: left;
+              background-color: #353535;
+            }
+          }
+          .tabcontent{
+            margin-left: -88px;
+            height: 377px;
+            width: 764px;
+            .ral{
+              &__block{
+                max-width: 373px;
+                height: 370px;
+                .card-pal{
+                  width: 36px;
+                  height: 27px;
+                  margin-right: 2px;
+                  margin-top: 2px;
+                  padding-left: 4px;
+                  .text{
+                    height: 14px;
+                    p{
+                      font-size: 5px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 8px 48px 8px 12px;
+                }
+                &_right {
+                  padding: 8px 10px 8px 50px;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        height: 0;
+        width: 0;
+        .search{
+          width: 168px;
+          height: 30px;
+          position: absolute;
+          top: 40px;
+          left: 11%;
+          background-size: 26px 23px;
+        }
+        .ral{
+          display: none;
+        }
+        .call{
+          position: absolute;
+          left: 20px;
+          bottom: 44px;
+          img{
+            width: 39px;
+            height: 39px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 920px){
+  .ppage{
+    min-height: 100px;
+  }
+  #palette {
+    min-height: 2700px;
+    height: auto;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    .palette{
+      min-height: 2700px;
+      max-height: none;
+      height: auto;
+      position: relative;
+      padding-top: 0;
+      padding-bottom: 20px;
+      margin-bottom: 0;
+      &__book{
+        max-height: none;
+        max-width: 628px;
+        border: none;
+        height: auto;
+      }
+      .book {
+        top: 149px;
+        left: calc(50% - 314px);
+        &__in{
+          display: none;
+        }
+        .tab-menu{
+          height: auto;
+          width: 100%;
+          max-height: none;
+          margin-left: 0;
+          margin-top: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          .tab {
+            width: 358px;
+            min-width: 358px;
+            height: 44px;
+            margin-top: 0;
+            margin-left: 23px;
+            transform: rotate(0deg);
+            #defaultOpen{
+              order: 1;
+            }
+            .ren{
+              order: 2;
+            }
+            button {
+              height: 44px;
+              width: 176px;
+              font-size: 22px;
+              padding: 0 16px;
+              border-radius: 8px 8px 0 0;
+              text-align: left;
+              background-color: #353535;
+            }
+          }
+          .tabcontent{
+            margin-left: 0px;
+            height: auto;
+            width: 100%;
+            max-width: 628px;
+            margin-top: 0;
+            .ral{
+              flex-direction: column;
+              &__block{
+                max-width: none;
+                height: auto;
+                border-radius: 0;
+                max-height: none;
+                .card-pal{
+                  width: 92px;
+                  height: 69px;
+                  margin-right: 5px;
+                  margin-top: 6px;
+                  padding-left: 9px;
+                  .text{
+                    height: 28px;
+                    p{
+                      font-size: 12px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 30px 17px 20px 25px;
+                  max-height: none;
+                }
+                &_right {
+                  padding: 30px 17px 20px 25px;
+                  max-height: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        margin-left: 23px;
+        height: 39px;
+        width: 100%;
+        max-width: 628px;
+        position: absolute;
+        top: 60px;
+        left: calc(50% - 314px);
+        .search{
+          width: 205px;
+          height: 39px;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .call{
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 626px){
+  #palette {
+    min-height: 2750px;
+    .palette{
+      min-height: 2750px;
+      &__book{
+        max-width: 307px;
+        height: auto;
+      }
+      .book {
+        top: 102px;
+        left: calc(50% - 153px);
+        .tab-menu{
+          .tab {
+            width: 175px;
+            min-width: 175px;
+            height: 22px;
+            margin-left: 12px;
+            button {
+              height: 22px;
+              width: 85px;
+              font-size: 10px;
+              padding: 0 8px;
+            }
+          }
+          .tabcontent{
+            max-width: 307px;
+            .ral{
+              &__block{
+                .card-pal{
+                  width: 65px;
+                  height: 49px;
+                  margin-right: 4px;
+                  margin-top: 4px;
+                  padding-left: 6px;
+                  .text{
+                    height: 20px;
+                    p{
+                      font-size: 8px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 18px 10px 20px 17px;
+                  max-height: none;
+                }
+                &_right {
+                  padding: 18px 10px 20px 17px;
+                  max-height: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        margin-left: 12px;
+        height: 19px;
+        width: 100%;
+        max-width: 306px;
+        top: 52px;
+        left: calc(50% - 153px);
+        .search{
+          width: 100px;
+          height: 19px;
+          background-size: 17px 14px;
+        }
+      }
+    }
+  }
+}
