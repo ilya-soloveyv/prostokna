@@ -13,8 +13,9 @@ function openCity(evt, cityName) {
 }
 
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-
-
-//nicescroll
-$(".ral__block_left").niceScroll();
+if(document.getElementById("defaultOpen")!==null){
+  document.getElementById("defaultOpen").click();
+}
+else{ //те таких блоков нет надо добавить
+  document.getElementById("defaultOpen")
+};
