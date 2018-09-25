@@ -39,6 +39,7 @@ gulp.task('js_min', () => {
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
             'public/src/js/index/s2.js',
+            'public/src/js/index/s5.js',
             'public/src/js/index/s7.js',
             'public/src/js/index/s8.js',
             'public/src/js/contact/contact.js',
