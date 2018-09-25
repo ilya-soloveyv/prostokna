@@ -62,14 +62,15 @@
   }
   &__icon {
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     @media (max-width: $md) {
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
     }
 
     img {
+      margin-left: -5px;
       max-width: 100%;
       max-height: 100%;
     }

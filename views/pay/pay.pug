@@ -7,26 +7,28 @@
 		.credit_card
 			img(src="/images/pay/visa.svg", alt="Виза").card_type
 			.card_info
-				.card_number 4254 6578 9706 4365
+				.card_number#card_number 0000 0000 0000 0000
 				.bg_flex
-					.name IVAN BELOV
-					.date 08/22
+					.name#name Имя держателя карты
+					.date 
+						span.month#month MM
+						span.year#year YY
 	.r
 		form(action="#").card_form
 			.item
 				.title Номер карты
-				input(type="text", name="cardnumber", required)
+				input(type="text", name="cardnumber", required, onKeyUp="javascript:document.getElementById('card_number').innerHTML = this.value;")
 			.bg_flex
 				.item
 					.title Год
-					input(type="text", name="year", required)
+					input(type="text", name="year", required, onKeyUp="javascript:document.getElementById('year').innerHTML = this.value;")
 				.item
 					.title Месяц
-					input(type="text", name="month", required)
+					input(type="text", name="month", required, onKeyUp="javascript:document.getElementById('month').innerHTML = this.value;")
 				.item
 					.title Cvc/cvv*
-					input(type="password", name="code", required)
+					input(type="text", maxlength="3", name="code", required, id="password")
 			.item
 				.title Имя держателя карты
-				input(type="text", name="name", required)
+				input(type="text", name="name", required, onKeyUp="javascript:document.getElementById('name').innerHTML = this.value;")
 			button.btn.btn_pay Оплатить

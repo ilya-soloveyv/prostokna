@@ -36,4 +36,10 @@ $(document).ready(function() {
     }).mouseleave(function () {
         $('.colors__tooltip').removeClass("colors__tooltip_show");
     });
+
+    /* GALLERY */
+    $('.statistic__gallery-item img').click(function () {
+       var src = $(this).attr("src");
+       $('.statistic__gallery-window_base img').attr("src", src);
+    });
 });
