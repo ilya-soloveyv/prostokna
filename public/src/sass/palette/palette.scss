@@ -1,5 +1,1434 @@
 #palette {
-    h1 {
-        color: red;
+  height: 1px;
+  background-color: #353535;
+  .palette{
+    height: 100%;
+    max-height: 864px;
+    min-height: 864px;
+    width: 100%;
+    background-color: #353535;
+    position: relative;
+    padding-top: 73px;
+    padding-right: 20px;
+    display: flex;
+    &__book{
+      height: 100%;
+      width: 100%;
+      max-width: 1383px;
+      max-height: 751px;
+      border: 1px solid #707070;
+      position: absolute;
+      top: 73px;
+      left: 299px;
+      margin-right: 20px;
     }
+    .book{
+      &__in{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        .book__img{
+          width: 26px;
+          height: 21px;
+          margin: 30px 6px 30px;
+        }
+        .book__img_right{
+          margin-top: 700px;
+        }
+        .book__center{
+          width: 108px;
+          height: 100%;
+          border: 1px solid #4F4F4F;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 15px 0;
+          .pereplet{
+            width: 76px;
+            height: 100%;
+            max-height: 723px;
+            border: 1px solid #4F4F4F;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            position: relative;
+            .gaika{
+              width: 57px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              img{
+                width: 15px;
+                height: 13px;
+              }
+            }
+            .center-block{
+              width: 94px;
+              height: 258px;
+              position: absolute;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-direction: column;
+              top: calc(50% - 129px);
+              z-index: 20;
+              .shov{
+                display: flex;
+                align-items: center;
+                .krug{
+                  width: 18px;
+                  height: 18px;
+                  border-radius: 50%;
+                  border: 1px solid #707070;
+                }
+                .left-krug{
+                  margin-right: -9px;
+                }
+                .right-krug{
+                  margin-left: -9px;
+                }
+                .line{
+                  width: 76px;
+                  height: 6px;
+                  border: 1px solid #707070;
+                }
+              }
+            }
+          }
+        }
+      }
+      .tab-menu{
+        height: 100%;
+        max-height: 665px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-left: -183px;
+        z-index: 10;
+        .tab {
+          width: 360px;
+          min-width: 360px;
+          height: 55px;
+          display: flex;
+          justify-content: space-between;
+          transform: rotate(-90deg);
+          margin-top: 40px;
+          button {
+            height: 55px;
+            width: 176px;
+            border: 1px solid #707070;
+            color: #fff;
+            font-size: 22px;
+            padding: 0 15px;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 10px 10px 0 0;
+            text-align: left;
+            background-color: #353535;
+          }
+          button:hover {
+            color: #0071E8;
+          }
+          button.active {
+            color: #0071E8;
+          }
+        }
+        .tabcontent{
+          width: 1333px;
+          height: 655px;
+          margin-left: -152px;
+          margin-top: 85px;
+          .ral{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            &__block{
+              width: 100%;
+              max-width: 660px;
+              height: auto;
+              max-height: 655px;
+              border: 1px solid #707070;
+              background-color: #353535;
+              border-radius: 7px;
+              display: flex;
+              flex-wrap: wrap;
+              align-items: flex-start;
+              .card-pal{
+                width: 64px;
+                height: 48px;
+                border-radius: 3px;
+                display: flex;
+                align-items: center;
+                background-color: #fff;
+                padding-left: 6px;
+                margin-right: 4px;
+                margin-top: 3px;
+                cursor: pointer;
+                .text{
+                  height: 24px;
+                  p{
+                    font-family: "MontserratSemiBold";
+                    font-size: 8px;
+                    margin: 0;
+                  }
+                }
+              }
+              &_left{
+                padding: 18px 85px 22px 25px;
+                display: flex;
+                flex-wrap: wrap;
+                max-height: 645px;
+                .card-pal1{
+                  background-color: #D6C794;
+                }
+                .card-pal2{
+                  background-color: #D9BA8C;
+                }
+                .card-pal3{
+                  background-color: #D7B075;
+                }
+                .card-pal4{
+                  background-color: #F3A902;
+                }
+                .card-pal5{
+                  background-color: #DDA103;
+                }
+                .card-pal6{
+                  background-color: #C89402;
+                }
+                .card-pal7{
+                  background-color: #E49402;
+                }
+                .card-pal8{
+                  background-color: #EB8B03;
+                }
+                .card-pal9{
+                  background-color: #C88720;
+                }
+                .card-pal10{
+                  background-color: #DDBB01;
+                }
+                .card-pal11{
+                  background-color: #F3E7D1;
+                }
+                .card-pal12{
+                  background-color: #E0CF99;
+                }
+                .card-pal13{
+                  background-color: #F0E6CB;
+                }
+                .card-pal14{
+                  background-color: #E4E700;
+                }
+                .card-pal15{
+                  background-color: #F1A73B;
+                }
+                .card-pal16{
+                  background-color: #F2D300;
+                }
+                .card-pal17{
+                  background-color: #A8967E;
+                }
+                .card-pal18{
+                  background-color: #A1985F;
+                }
+                .card-pal19{
+                  background-color: #EABF01;
+                }
+                .card-pal20{
+                  background-color: #F2C103;
+                }
+                .card-pal21{
+                  background-color: #B89338;
+                }
+                .card-pal22{
+                  background-color: #9B8204;
+                }
+                .card-pal23{
+                  background-color: #FE9B00;
+                }
+                .card-pal24{
+                  background-color: #D2A500;
+                }
+                .card-pal25{
+                  background-color: #F89901;
+                }
+                .card-pal26{
+                  background-color: #ED9F38;
+                }
+                .card-pal27{
+                  background-color: #FF9F02;
+                }
+                .card-pal28{
+                  background-color: #E56501;
+                }
+                .card-pal29{
+                  background-color: #CC3406;
+                }
+                .card-pal30{
+                  background-color: #D41502;
+                }
+                .card-pal31{
+                  background-color: #FA5708;
+                }
+                .card-pal32{
+                  background-color: #F81D01;
+                }
+                .card-pal33{
+                  background-color: #FC4B03;
+                }
+                .card-pal34{
+                  background-color: #F13700;
+                }
+                .card-pal35{
+                  background-color: #DF4302;
+                }
+                .card-pal36{
+                  background-color: #F26600;
+                }
+                .card-pal37{
+                  background-color: #EC5133;
+                }
+                .card-pal38{
+                  background-color: #BB0200;
+                  color: #fff;
+                }
+                .card-pal39{
+                  background-color: #C30100;
+                  color: #fff;
+                }
+                .card-pal40{
+                  background-color: #BB0301;
+                  color: #fff;
+                }
+                .card-pal41{
+                  background-color: #A20000;
+                  color: #fff;
+                }
+                .card-pal42{
+                  background-color: #7B0304;
+                  color: #fff;
+                }
+                .card-pal43{
+                  background-color: #690502;
+                  color: #fff;
+                }
+                .card-pal44{
+                  background-color: #310506;
+                  color: #fff;
+                }
+                .card-pal45{
+                  background-color: #771610;
+                  color: #fff;
+                }
+                .card-pal46{
+                  background-color: #930303;
+                  color: #fff;
+                }
+                .card-pal47{
+                  background-color: #D78A70;
+                }
+                .card-pal48{
+                  background-color: #B00D03;
+                  color: #fff;
+                }
+                .card-pal49{
+                  background-color: #DF6D79;
+                }
+                .card-pal50{
+                  background-color: #F1A1AF;
+                }
+                .card-pal51{
+                  background-color: #B91903;
+                  color: #fff;
+                }
+                .card-pal52{
+                  background-color: #E73E59;
+                  color: #fff;
+                }
+                .card-pal53{
+                  background-color: #EB2135;
+                  color: #fff;
+                }
+                .card-pal54{
+                  background-color: #B00D03;
+                  color: #fff;
+                }
+                .card-pal55{
+                  background-color: #DD6143;
+                  color: #fff;
+                }
+                .card-pal56{
+                  background-color: #D20121;
+                  color: #fff;
+                }
+                .card-pal57{
+                  background-color: #C11024;
+                  color: #fff;
+                }
+                .card-pal58{
+                  background-color: #A15988;
+                  color: #fff;
+                }
+                .card-pal59{
+                  background-color: #A3263E;
+                  color: #fff;
+                }
+                .card-pal60{
+                  background-color: #E84C97;
+                }
+                .card-pal61{
+                  background-color: #890F28;
+                  color: #fff;
+                }
+                .card-pal62{
+                  background-color: #9B5EA4;
+                }
+                .card-pal63{
+                  background-color: #B30479;
+                  color: #fff;
+                }
+                .card-pal64{
+                  background-color: #4E0929;
+                  color: #fff;
+                }
+                .card-pal65{
+                  background-color: #A72685;
+                  color: #fff;
+                }
+                .card-pal66{
+                  background-color: #A9889B;
+                  color: #fff;
+                }
+                .card-pal67{
+                  background-color: #8B3457;
+                  color: #fff;
+                }
+                .card-pal68{
+                  background-color: #223D75;
+                  color: #fff;
+                }
+                .card-pal69{
+                  background-color: #0E3964;
+                  color: #fff;
+                }
+                .card-pal70{
+                  background-color: #171B7F;
+                  color: #fff;
+                }
+                .card-pal71{
+                  background-color: #091954;
+                  color: #fff;
+                }
+                .card-pal72{
+                  background-color: #00020F;
+                  color: #fff;
+                }
+                .card-pal73{
+                  background-color: #06398C;
+                  color: #fff;
+                }
+                .card-pal74{
+                  background-color: #3A6993;
+                  color: #fff;
+                }
+                .card-pal75{
+                  background-color: #212B35;
+                  color: #fff;
+                }
+                .card-pal76{
+                  background-color: #1A577B;
+                  color: #fff;
+                }
+                .card-pal77{
+                  background-color: #0A3882;
+                  color: #fff;
+                }
+                .card-pal78{
+                  background-color: #040E2A;
+                  color: #fff;
+                }
+                .card-pal79{
+                  background-color: #3587BE;
+                  color: #fff;
+                }
+                .card-pal80{
+                  background-color: #101451;
+                  color: #fff;
+                }
+                .card-pal81{
+                  background-color: #6F7D9D;
+                  color: #fff;
+                }
+                .card-pal82{
+                  background-color: #1E7BB6;
+                  color: #fff;
+                }
+                .card-pal83{
+                  background-color: #014B8B;
+                  color: #fff;
+                }
+                .card-pal84{
+                  background-color: #1F9A8F;
+                  color: #fff;
+                }.card-pal85{
+                   background-color: #0E5988;
+                   color: #fff;
+                 }
+                .card-pal86{
+                  background-color: #012F2D;
+                  color: #fff;
+                }
+                .card-pal87{
+                  background-color: #038374;
+                  color: #fff;
+                }
+                .card-pal88{
+                  background-color: #018373;
+                  color: #fff;
+                }.card-pal89{
+                   background-color: #456A96;
+                   color: #fff;
+                 }
+                .card-pal90{
+                  background-color: #6E9AB3;
+                  color: #fff;
+                }
+                .card-pal91{
+                  background-color: #1D7F58;
+                  color: #fff;
+                }
+                .card-pal92{
+                  background-color: #017415;
+                  color: #fff;
+                }
+                .card-pal93{
+                  background-color: #076702;
+                  color: #fff;
+                }
+                .card-pal94{
+                  background-color: #3E4F22;
+                  color: #fff;
+                }
+                .card-pal95{
+                  background-color: #013E2E;
+                  color: #fff;
+                }
+                .card-pal96{
+                  background-color: #043517;
+                  color: #fff;
+                }
+              }
+              &_right{
+                padding: 18px 23px 22px 88px;
+                display: flex;
+                flex-wrap: wrap;
+                max-height: 645px;
+                .card-pal1{
+                  background-color: #1E2216;
+                  color: #fff;
+                }
+                .card-pal2{
+                  background-color: #14240A;
+                  color: #fff;
+                }
+                .card-pal3{
+                  background-color: #191708;
+                  color: #fff;
+                }
+                .card-pal4{
+                  background-color: #081E0A;
+                  color: #fff;
+                }
+                .card-pal5{
+                  background-color: #13680E;
+                  color: #fff;
+                }
+                .card-pal6{
+                  background-color: #577E49;
+                  color: #fff;
+                }
+                .card-pal7{
+                  background-color: #152A24;
+                  color: #fff;
+                }
+                .card-pal8{
+                  background-color: #676C4C;
+                  color: #fff;
+                }
+                .card-pal9{
+                  background-color: #2E2911;
+                  color: #fff;
+                }
+                .card-pal10{
+                  background-color: #1C2417;
+                  color: #fff;
+                }
+                .card-pal11{
+                  background-color: #03672D;
+                }
+                .card-pal12{
+                  background-color: #25811C;
+                }
+                .card-pal13{
+                  background-color: #1FA002;
+                }
+                .card-pal14{
+                  background-color: #A5D5A1;
+                }
+                .card-pal15{
+                  background-color: #1D3619;
+                  color: #fff;
+                }
+                .card-pal16{
+                  background-color: #759C6D;
+                }
+                .card-pal17{
+                  background-color: #2B2610;
+                  color: #fff;
+                }
+                .card-pal18{
+                  background-color: #038631;
+                }
+                .card-pal19{
+                  background-color: #436C1C;
+                  color: #fff;
+                }
+                .card-pal20{
+                  background-color: #015926;
+                  color: #fff;
+                }
+                .card-pal21{
+                  background-color: #72BFAD;
+                }
+                .card-pal22{
+                  background-color: #164B2D;
+                  color: #fff;
+                }
+                .card-pal23{
+                  background-color: #00750D;
+                  color: #fff;
+                }
+                .card-pal24{
+                  background-color: #008429;
+                  color: #fff;
+                }
+                .card-pal25{
+                  background-color: #35846F;
+                }
+                .card-pal26{
+                  background-color: #6DACA3;
+                }
+                .card-pal27{
+                  background-color: #6A7D84;
+                }
+                .card-pal28{
+                  background-color: #868F96;
+                }
+                .card-pal29{
+                  background-color: #787356;
+                }
+                .card-pal30{
+                  background-color: #6D705B;
+                }
+                .card-pal31{
+                  background-color: #919096;
+                }
+                .card-pal32{
+                  background-color: #626961;
+                }
+                .card-pal33{
+                  background-color: #6B5F47;
+                  color: #fff;
+                }
+                .card-pal34{
+                  background-color: #6E581D;
+                  color: #fff;
+                }
+                .card-pal35{
+                  background-color: #47503C;
+                  color: #fff;
+                }
+                .card-pal36{
+                  background-color: #454C44;
+                  color: #fff;
+                }
+                .card-pal37{
+                  background-color: #414C50;
+                  color: #fff;
+                }
+                .card-pal38{
+                  background-color: #455054;
+                  color: #fff;
+                }
+                .card-pal39{
+                  background-color: #464029;
+                  color: #fff;
+                }
+                .card-pal40{
+                  background-color: #3A3E47;
+                  color: #fff;
+                }
+                .card-pal41{
+                  background-color: #1E292D;
+                  color: #fff;
+                }
+                .card-pal42{
+                  background-color: #1A1B1C;
+                  color: #fff;
+                }
+                .card-pal43{
+                  background-color: #31302B;
+                  color: #fff;
+                }
+                .card-pal44{
+                  background-color: #777569;
+                }
+                .card-pal45{
+                  background-color: #38373F;
+                  color: #fff;
+                }
+                .card-pal46{
+                  background-color: #1C292F;
+                  color: #fff;
+                }
+                .card-pal47{
+                  background-color: #838379;
+                }
+                .card-pal48{
+                  background-color: #536265;
+                  color: #fff;
+                }
+                .card-pal49{
+                  background-color: #B4B49C;
+                }
+                .card-pal50{
+                  background-color: #6C7968;
+                }
+                .card-pal51{
+                  background-color: #818262;
+                }
+                .card-pal52{
+                  background-color: #C1C6C0;
+                }
+                .card-pal53{
+                  background-color: #8B8A88;
+                }
+                .card-pal54{
+                  background-color: #6F7372;
+                }
+                .card-pal55{
+                  background-color: #AEB1A8;
+                }
+                .card-pal56{
+                  background-color: #5F5E5A;
+                  color: #fff;
+                }
+                .card-pal57{
+                  background-color: #94999F;
+                }
+                .card-pal58{
+                  background-color: #858A8E;
+                }
+                .card-pal59{
+                  background-color: #374140;
+                  color: #fff;
+                }
+                .card-pal60{
+                  background-color: #B9B5A9;
+                }
+                .card-pal61{
+                  background-color: #858C92;
+                }
+                .card-pal62{
+                  background-color: #6F7372;
+                }
+                .card-pal63{
+                  background-color: #AEB1A8;
+                }
+                .card-pal64{
+                  background-color: #5F5E5A;
+                  color: #fff;
+                }
+                .card-pal65{
+                  background-color: #925908;
+                  color: #fff;
+                }
+                .card-pal66{
+                  background-color: #70331E;
+                  color: #fff;
+                }
+                .card-pal67{
+                  background-color: #75380B;
+                  color: #fff;
+                }
+                .card-pal68{
+                  background-color: #84301C;
+                  color: #fff;
+                }
+                .card-pal69{
+                  background-color: #652E07;
+                  color: #fff;
+                }
+                .card-pal70{
+                  background-color: #652E07;
+                  color: #fff;
+                }
+                .card-pal71{
+                  background-color: #4A1B09;
+                  color: #fff;
+                }
+                .card-pal72{
+                  background-color: #61170E;
+                  color: #fff;
+                }
+                .card-pal73{
+                  background-color: #35200A;
+                  color: #fff;
+                }
+                .card-pal74{
+                  background-color: #54140B;
+                  color: #fff;
+                }
+                .card-pal75{
+                  background-color: #3D150C;
+                  color: #fff;
+                }
+                .card-pal76{
+                  background-color: #2C120A;
+                  color: #fff;
+                }
+                .card-pal77{
+                  background-color: #241B19;
+                  color: #fff;
+                }
+                .card-pal78{
+                  background-color: #0A0502;
+                  color: #fff;
+                }
+                .card-pal79{
+                  background-color: #A5440D;
+                  color: #fff;
+                }
+                .card-pal80{
+                  background-color: #703E23;
+                  color: #fff;
+                }
+                .card-pal81{
+                  background-color: #66462F;
+                  color: #fff;
+                }
+                .card-pal82{
+                  background-color: #3C210C;
+                  color: #fff;
+                }
+                .card-pal83{
+                  background-color: #F3E8D5;
+                }
+                .card-pal84{
+                  background-color: #DBDCCC;
+                }
+                .card-pal85{
+                   background-color: #F6F1EB;
+                }
+                .card-pal86{
+                  background-color: #0B0A09;
+                  color: #fff;
+                }
+                .card-pal87{
+                  background-color: #050503;
+                  color: #fff;
+                }
+                .card-pal88{
+                  background-color: #FDF5E4;
+                }
+                .card-pal89{
+                   background-color: #070707;
+                   color: #fff;
+                }
+                .card-pal90{
+                  background-color: #F9F7EB;
+                }
+                .card-pal91{
+                  background-color: #040301;
+                  color: #fff;
+                }
+                .card-pal92{
+                  background-color: #C7D3C7;
+                }
+                .card-pal93{
+                  background-color: #8F9392;
+                }
+                .card-pal94{
+                  background-color: #677173;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__sidebar{
+      height: 100%;
+      max-height: 751px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-left: 39px;
+      padding: 9px 0 24px;
+      z-index: 10;
+      .search{
+        width: 217px;
+        height: 39px;
+        border: 1px solid #707070;
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: url("/images/palette/Group 695.svg") no-repeat 8px center;
+        background-size: 32px 27px;
+        input{
+          width: 100%;
+          height: 100%;
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-radius: 100px;
+          font-family: "MontserratMedium";
+          font-size: 20px;
+          color: #fff;
+          padding: 0 15px;
+        }
+        input:focus{
+          outline: none;
+          background-color: #353535;
+        }
+      }
+      .ral{
+        width: 216px;
+        height: 359px;
+        border-radius: 10px;
+        background-color: #C88720;
+      }
+      .call{
+        cursor: pointer;
+        img{
+          width: 75px;
+          height: 75px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1780px){
+  #palette {
+    .palette{
+      padding-top: 163px;
+      min-height: 744px;
+      &__book{
+        top: 129px;
+        max-height: 557px;
+        max-width: 1025px;
+      }
+      .book {
+        left: 20%;
+        &__in{
+          .book__img {
+            width: 19px;
+            height: 16px;
+            margin: 22px 5px 22px;
+          }
+          .book__img_right{
+            margin-top: 520px;
+          }
+          .book__center{
+            width: 80px;
+            padding: 15px 0;
+            .pereplet{
+              width: 56px;
+              max-height: 536px;
+              padding: 5px 0;
+              .gaika{
+                width: 43px;
+                img{
+                  width: 12px;
+                  height: 10px;
+                }
+              }
+              .center-block{
+                width: 70px;
+                height: 189px;
+                top: calc(50% - 95px);
+                .shov{
+                  .krug{
+                    width: 14px;
+                    height: 14px;
+                  }
+                  .left-krug{
+                    margin-right: -7px;
+                  }
+                  .right-krug{
+                    margin-left: -7px;
+                  }
+                  .line{
+                    width: 56px;
+                    height: 5px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tab-menu{
+          max-height: 485px;
+          margin-left: -136px;
+          margin-top: -8px;
+          .tab {
+            width: 266px;
+            min-width: 266px;
+            height: 40px;
+            button {
+              height: 40px;
+              width: 130px;
+              font-size: 13px;
+              padding: 0 11px;
+              border-radius: 8px 8px 0 0;
+              text-align: left;
+              background-color: #353535;
+            }
+          }
+          .tabcontent{
+            margin-left: -113px;
+            height: 485px;
+            width: 989px;
+            .ral{
+              &__block{
+                max-width: 489px;
+                height: 485px;
+                .card-pal{
+                  width: 47px;
+                  height: 36px;
+                  margin-right: 3px;
+                  margin-top: 2px;
+                  padding-left: 4px;
+                  .text{
+                    height: 22px;
+                    p{
+                      font-family: "MontserratBold";
+                      font-size: 7px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 14px 65px 0 18px;
+                }
+                &_right {
+                  padding: 14px 16px 0 68px;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        height: 0;
+        width: 0;
+        .search{
+          position: absolute;
+          top: 52px;
+          left: 20%;
+        }
+        .ral{
+          display: none;
+        }
+        .call{
+          position: absolute;
+          left: 27px;
+          bottom: 58px;
+          img{
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1500px){
+  #palette{
+    .palette{
+      .book{
+        left: 150px;
+      }
+      &__sidebar{
+        .search{
+          left: 150px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1280px){
+  #palette{
+    .palette{
+      .book{
+        left: 130px;
+      }
+      &__sidebar{
+        .search{
+          left: 130px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1260px){
+  #palette{
+    .palette{
+      .book{
+        left: 90px;
+      }
+      &__sidebar{
+        .search{
+          left: 90px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1140px){
+  #palette {
+    .palette{
+      min-height: 577px;
+      &__book{
+        top: 100px;
+        max-height: 432px;
+        max-width: 796px;
+      }
+      .book {
+        left: 11%;
+        &__in{
+          .book__img {
+            margin: 17px 2px 17px;
+          }
+          .book__img_right{
+            margin-top: 398px;
+          }
+          .book__center{
+            width: 62px;
+            padding: 8px 0;
+            .pereplet{
+              width: 44px;
+              max-height: 415px;
+              padding: 5px 0;
+              .gaika{
+                width: 31px;
+                img{
+                  width: 9px;
+                  height: 9px;
+                }
+              }
+              .center-block{
+                width: 53px;
+                height: 149px;
+                top: calc(50% - 74px);
+                .shov{
+                  .krug{
+                    width: 10px;
+                    height: 10px;
+                  }
+                  .left-krug{
+                    margin-right: -5px;
+                  }
+                  .right-krug{
+                    margin-left: -5px;
+                  }
+                  .line{
+                    width: 43px;
+                    height: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tab-menu{
+          max-height: 377px;
+          margin-left: -103px;
+          margin-top: -12px;
+          .tab {
+            width: 206px;
+            min-width: 206px;
+            height: 32px;
+            margin-top: 70px;
+            button {
+              height: 32px;
+              width: 101px;
+              font-size: 8px;
+              padding: 0 11px;
+              border-radius: 8px 8px 0 0;
+              text-align: left;
+              background-color: #353535;
+            }
+          }
+          .tabcontent{
+            margin-left: -88px;
+            height: 377px;
+            width: 764px;
+            .ral{
+              &__block{
+                max-width: 373px;
+                height: 370px;
+                .card-pal{
+                  width: 36px;
+                  height: 27px;
+                  margin-right: 2px;
+                  margin-top: 2px;
+                  padding-left: 4px;
+                  .text{
+                    height: 14px;
+                    p{
+                      font-size: 5px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 8px 48px 8px 12px;
+                }
+                &_right {
+                  padding: 8px 10px 8px 50px;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        height: 0;
+        width: 0;
+        .search{
+          width: 168px;
+          height: 30px;
+          position: absolute;
+          top: 40px;
+          left: 11%;
+          background-size: 26px 23px;
+        }
+        .ral{
+          display: none;
+        }
+        .call{
+          position: absolute;
+          left: 20px;
+          bottom: 44px;
+          img{
+            width: 39px;
+            height: 39px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 920px){
+  .ppage{
+    min-height: 100px;
+  }
+  #palette {
+    min-height: 2700px;
+    height: auto;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    .palette{
+      min-height: 2700px;
+      max-height: none;
+      height: auto;
+      position: relative;
+      padding-top: 0;
+      padding-bottom: 20px;
+      margin-bottom: 0;
+      &__book{
+        max-height: none;
+        max-width: 628px;
+        border: none;
+        height: auto;
+      }
+      .book {
+        top: 149px;
+        left: calc(50% - 314px);
+        &__in{
+          display: none;
+        }
+        .tab-menu{
+          height: auto;
+          width: 100%;
+          max-height: none;
+          margin-left: 0;
+          margin-top: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          .tab {
+            width: 358px;
+            min-width: 358px;
+            height: 44px;
+            margin-top: 0;
+            margin-left: 23px;
+            transform: rotate(0deg);
+            #defaultOpen{
+              order: 1;
+            }
+            .ren{
+              order: 2;
+            }
+            button {
+              height: 44px;
+              width: 176px;
+              font-size: 22px;
+              padding: 0 16px;
+              border-radius: 8px 8px 0 0;
+              text-align: left;
+              background-color: #353535;
+            }
+          }
+          .tabcontent{
+            margin-left: 0px;
+            height: auto;
+            width: 100%;
+            max-width: 628px;
+            margin-top: 0;
+            .ral{
+              flex-direction: column;
+              &__block{
+                max-width: none;
+                height: auto;
+                border-radius: 0;
+                max-height: none;
+                .card-pal{
+                  width: 92px;
+                  height: 69px;
+                  margin-right: 5px;
+                  margin-top: 6px;
+                  padding-left: 9px;
+                  .text{
+                    height: 28px;
+                    p{
+                      font-size: 12px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 30px 17px 20px 25px;
+                  max-height: none;
+                }
+                &_right {
+                  padding: 30px 17px 20px 25px;
+                  max-height: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        margin-left: 23px;
+        height: 39px;
+        width: 100%;
+        max-width: 628px;
+        position: absolute;
+        top: 60px;
+        left: calc(50% - 314px);
+        .search{
+          width: 205px;
+          height: 39px;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .call{
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 626px){
+  #palette {
+    min-height: 2750px;
+    .palette{
+      min-height: 2750px;
+      &__book{
+        max-width: 307px;
+        height: auto;
+      }
+      .book {
+        top: 102px;
+        left: calc(50% - 153px);
+        .tab-menu{
+          .tab {
+            width: 175px;
+            min-width: 175px;
+            height: 22px;
+            margin-left: 12px;
+            button {
+              height: 22px;
+              width: 85px;
+              font-size: 10px;
+              padding: 0 8px;
+            }
+          }
+          .tabcontent{
+            max-width: 307px;
+            .ral{
+              &__block{
+                .card-pal{
+                  width: 65px;
+                  height: 49px;
+                  margin-right: 4px;
+                  margin-top: 4px;
+                  padding-left: 6px;
+                  .text{
+                    height: 20px;
+                    p{
+                      font-size: 8px;
+                    }
+                  }
+                }
+                &_left {
+                  padding: 18px 10px 20px 17px;
+                  max-height: none;
+                }
+                &_right {
+                  padding: 18px 10px 20px 17px;
+                  max-height: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__sidebar{
+        margin-left: 12px;
+        height: 19px;
+        width: 100%;
+        max-width: 306px;
+        top: 52px;
+        left: calc(50% - 153px);
+        .search{
+          width: 100px;
+          height: 19px;
+          background-size: 17px 14px;
+        }
+      }
+    }
+  }
 }
