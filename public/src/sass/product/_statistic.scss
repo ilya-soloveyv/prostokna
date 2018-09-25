@@ -253,7 +253,7 @@
       }
     }
     &_2, &_3 {
-      left: 225px;
+      left: 232px;
       @media (max-width: $xl) {
         left: 150px;
       }
@@ -301,8 +301,8 @@
     display: block;
   }
   &__dot {
-    width: 39px;
-    height: 39px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.2);
     display: flex;
@@ -310,8 +310,8 @@
     align-items: center;
 
     .dot_middle {
-      width: 26px;
-      height: 26px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.6);
       display: flex;
@@ -323,8 +323,8 @@
         height: 10px;
       }
       .dot_inside {
-        width: 13px;
-        height: 13px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 1);
 
