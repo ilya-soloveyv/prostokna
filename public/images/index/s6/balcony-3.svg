@@ -1,0 +1,22 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90.968" height="25.469" viewBox="0 0 90.968 25.469">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+    <image id="image" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMhHyBhdBAAAARUlEQVQY02P4z4AFTvx/9D8/hM2AVYHD/2//T0KUYFfA8N8JpgSXArgSxv9LGGQYsAM1BkmGE0wMhAAhK8h0JEFvIgUUAKvJkXDlugcpAAAAAElFTkSuQmCC"/>
+    <image id="image-2" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMhHyBhdBAAAASUlEQVQY02P4z/Cf4T/Df/7/R/9PhLJRIEz65P9v/x1wKYBIO2GT/s9AQPo/A+P/4wwWDM8ZbjFgB0+YGAgBQlYQ4UgivIk3oAAklpNNqWPcQwAAAABJRU5ErkJggg=="/>
+  </defs>
+  <path id="Фигура_4748" data-name="Фигура 4748" class="cls-1" d="M452.95,418.025v-1.476h89.968v1.476H452.95Z" transform="translate(-452.438 -396)"/>
+  <path id="Фигура_4749" data-name="Фигура 4749" class="cls-1" d="M475.073,413.6h1.475v7.376h-1.475V413.6Z" transform="translate(-452.438 -396)"/>
+  <path id="Фигура_4749_копия" data-name="Фигура 4749 копия" class="cls-1" d="M497.2,413.6h1.474v7.376H497.2V413.6Z" transform="translate(-452.438 -396)"/>
+  <path id="Фигура_4749_копия_2" data-name="Фигура 4749 копия 2" class="cls-1" d="M519.32,413.6h1.475v7.376H519.32V413.6Z" transform="translate(-452.438 -396)"/>
+  <use id="left-arrow_копия_5" data-name="left-arrow копия 5" x="2.562" xlink:href="#image"/>
+  <use id="left-arrow_копия_6" data-name="left-arrow копия 6" x="28.562" xlink:href="#image-2"/>
+  <use id="left-arrow_копия_7" data-name="left-arrow копия 7" x="47.562" xlink:href="#image"/>
+  <use id="left-arrow_копия_8" data-name="left-arrow копия 8" x="72.562" xlink:href="#image-2"/>
+</svg>

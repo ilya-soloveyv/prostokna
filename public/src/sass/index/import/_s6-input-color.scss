@@ -1,0 +1,27 @@
+
+label[data-El="input-color"] {
+    position: relative;
+    display: inline-block;
+    padding: 3px 10px;
+    width: auto;
+    width: 130px;
+    border: 1px solid #fff;
+    -webkit-border-radius: 15px;
+            border-radius: 15px;
+    font-size: 18px;
+    input {
+        position: absolute;
+        // z-index: -1;
+        // opacity: 0;
+        background: none;
+        border-width: 0;
+        outline: none;
+        -webkit-box-shadow: 0 0 0;
+                box-shadow: 0 0 0;
+    }
+    &:before {
+        content: "#";
+        color: lighten(#000, 50%);
+        padding: 0 5px;
+    }
+}

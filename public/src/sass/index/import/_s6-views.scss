@@ -1,0 +1,62 @@
+[data-Module="group-models"] {}
+
+ul.view {
+    list-style: none;
+    padding: 0;
+    margin-left: -6px;
+    text-align: left;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    li {
+        float: left;
+        width: calc(33.33% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 0;
+        padding-top: calc(33% - 20px);
+        margin-bottom: 20px;
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        background: #454545;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid #454545;
+        img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            max-height: 50%;
+            max-width: 80%;
+        }
+        &.active {
+            background: #2D70E4;
+        }
+        &[role="button"] {
+            padding: 0;
+            padding-top: calc(33.33% - 20px);
+            border-color: #4b84f5;
+            img {
+                bottom: 15%;
+            }
+            span {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 10%;
+                margin: auto;
+                text-transform: uppercase;
+                font-size: 11px;
+                @media (max-width: 575px) {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}

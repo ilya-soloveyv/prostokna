@@ -1,0 +1,26 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="89.563" height="67.156" viewBox="0 0 89.563 67.156">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        opacity: 0.3;
+      }
+    </style>
+  </defs>
+  <path id="Фигура_4748" data-name="Фигура 4748" class="cls-1" d="M350.383,576.535V575.06H284.012v1.475h66.371Z" transform="translate(-283.5 -557)"/>
+  <path id="Фигура_4748_копия" data-name="Фигура 4748 копия" class="cls-1" d="M348.908,601.615h1.475V575.06h-1.475v26.555Z" transform="translate(-283.5 -557)"/>
+  <path id="Фигура_4748_копия_2" data-name="Фигура 4748 копия 2" class="cls-2" d="M325.31,600.14v1.475h25.073V600.14H325.31Z" transform="translate(-283.5 -557)"/>
+  <circle id="Эллипс_4760" data-name="Эллипс 4760" class="cls-3" cx="65.469" cy="43.093" r="23.594"/>
+  <path id="Фигура_4749" data-name="Фигура 4749" class="cls-1" d="M317.935,572.109H316.46v7.377h1.475v-7.377Z" transform="translate(-283.5 -557)"/>
+  <image id="left-arrow_копия_11" data-name="left-arrow копия 11" x="13.5" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMinaBK/fAAAARUlEQVQY02P4z4AFTvx/9D8/hM2AVYHD/2//T0KUYFfA8N8JpgSXArgSxv9LGGQYsAM1BkmGE0wMhAAhK8h0JEFvIgUUAKvJkXDlugcpAAAAAElFTkSuQmCC"/>
+  <image id="left-arrow_копия_12" data-name="left-arrow копия 12" x="36.5" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMinaBK/fAAAASUlEQVQY02P4z/Cf4T/Df/7/R/9PhLJRIEz65P9v/x1wKYBIO2GT/s9AQPo/A+P/4wwWDM8ZbjFgB0+YGAgBQlYQ4UgivIk3oAAklpNNqWPcQwAAAABJRU5ErkJggg=="/>
+</svg>

@@ -1,0 +1,17 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="94.875" height="73.125" viewBox="0 0 94.875 73.125">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Прямоугольник_730" data-name="Прямоугольник 730" class="cls-1" d="M272.959,725.053H297.43v50.613H272.959V725.053Z" transform="translate(-272.469 -724.563)"/>
+  <path id="Прямоугольник_730_копия" data-name="Прямоугольник 730 копия" class="cls-1" d="M296.043,725.053h24.534v50.613H296.043V725.053Z" transform="translate(-272.469 -724.563)"/>
+  <path id="Прямоугольник_730_копия_2" data-name="Прямоугольник 730 копия 2" class="cls-1" d="M319.063,725.053h24.66v50.613h-24.66V725.053Z" transform="translate(-272.469 -724.563)"/>
+  <path id="Прямоугольник_730_копия_3" data-name="Прямоугольник 730 копия 3" class="cls-1" d="M342.21,725.053h24.628v50.613H342.21V725.053Z" transform="translate(-272.469 -724.563)"/>
+  <path id="Прямоугольник_730_копия_4" data-name="Прямоугольник 730 копия 4" class="cls-1" d="M342.21,774.215h24.628v22.957H342.21V774.215Z" transform="translate(-272.469 -724.563)"/>
+</svg>
