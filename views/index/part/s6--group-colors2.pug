@@ -1,0 +1,67 @@
+
+//- group-options
+.group-options(data-Module="group-colors")
+    h3 Цвет материала
+    p.normal Цвет покраски
+    figure
+        .scrollbar-outer.top
+            ul(data-El="list-colors")
+                li(data-color="#af8a54")
+                li(data-color="#a4957d")
+                li(data-color="#f0ca00")
+                li(data-color="#be4e23")
+                li(data-color="#e37c25")
+                li(data-color="#c2121d")
+                li(data-color="#83639d")
+                li(data-color="#904684")
+                li(data-color="#154889")
+                li(data-color="#af8a54")
+                li(data-color="#a4957d")
+                li(data-color="#f0ca00")
+                li(data-color="#be4e23")
+                li(data-color="#e37c25")
+                li(data-color="#c2121d")
+                li(data-color="#83639d")
+                li(data-color="#904684")
+                li(data-color="#154889")
+                li(data-color="#af8a54")
+                li(data-color="#a4957d")
+                li(data-color="#f0ca00")
+                li(data-color="#be4e23")
+                li(data-color="#e37c25")
+                li(data-color="#c2121d")
+                li(data-color="#83639d")
+                li(data-color="#904684")
+                li(data-color="#154889")
+
+    p.normal.m-0.t-right.no-tablet
+        | Цвет уплотнителя
+    div(data-grid="inner-colors-1")
+        .grid-col-2.tablet-w100
+            p.normal.v-center
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Цветные откосы
+                br
+                br
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Цветной подоконник
+            p.normal.t-right.align-middle
+                a(data-El="single-color", name="target-color").mt20.mb20
+        table
+            tr
+                td.pt10
+                    small.f-regular Не нашли нужного цвета? Введите код цвета по 
+                        a(href="#").link RAL
+
+                td(width="200")
+                    label(data-El="input-color").fl-r
+                        input(type="text", size="6", maxlength="6")
+    
+    .grid-col-2.mt50.grid-buttons
+        a(role="button").v2.bg-btn Добавить еще окно
+        a(role="button").v2 Смотреть выбранное
+

@@ -1,0 +1,16 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45.25" height="26" viewBox="0 0 45.25 26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Фигура_4748" data-name="Фигура 4748" class="cls-1" d="M118.6,417.549v-1.475h44.247v1.475H118.6Z" transform="translate(-118.094 -395)"/>
+  <path id="Фигура_4749" data-name="Фигура 4749" class="cls-1" d="M140.724,413.123H142.2V420.5h-1.474v-7.377Z" transform="translate(-118.094 -395)"/>
+  <image id="left-arrow" x="2.906" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMRJAIhU4AAAARUlEQVQY02P4z4AFTvx/9D8/hM2AVYHD/2//T0KUYFfA8N8JpgSXArgSxv9LGGQYsAM1BkmGE0wMhAAhK8h0JEFvIgUUAKvJkXDlugcpAAAAAElFTkSuQmCC"/>
+  <image id="left-arrow_копия" data-name="left-arrow копия" x="25.906" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMRJAIhU4AAAASUlEQVQY02P4z/Cf4T/Df/7/R/9PhLJRIEz65P9v/x1wKYBIO2GT/s9AQPo/A+P/4wwWDM8ZbjFgB0+YGAgBQlYQ4UgivIk3oAAklpNNqWPcQwAAAABJRU5ErkJggg=="/>
+</svg>

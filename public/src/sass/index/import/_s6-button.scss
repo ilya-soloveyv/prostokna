@@ -1,0 +1,38 @@
+
+[role="button"] {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #fff;
+    -webkit-border-radius: 32px;
+            border-radius: 32px;
+    color: #FFF;
+    font-size: 17px;
+    line-height: 20px;
+    text-align: center;
+    padding: .95em .5em;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    @media (max-width: 575px) {
+                    font-size: 15px;
+                }
+    &.bg-btn {
+        background: #2E64C0;
+        border-color: #2E64C0;
+    }
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+    &.v2 {
+        padding-top: 13px;
+        padding-bottom: 13px;
+        font-size: 15px;
+        text-transform: uppercase;
+        border-color: #2E64C0;
+        &:hover {
+        }
+    }
+}
