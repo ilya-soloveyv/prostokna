@@ -1,51 +1,45 @@
 .section.s6
     .fp_bg
-        .l
-            .bg
-                .title Калькулятор
-                .select_type
-                    ul
-                        li.active
-                            a(href="#") Оконные конструции
-                        li
-                            a(href="#") Остекление балконов
-                .selected_type
-                    .empty Еще не добавлено
-                a(href="#").add_selected Добавить окно
-                .cost
-                    .value
-                        span.val 0
-                        span.rub  Р
-                    .desc Общая стоимость:
-                a(href="#").mbutton.blue.mbutton-block.link1 Отправить на точный расчет
-                a(href="#").mbutton.blue_border.mbutton-block.link2 Отправить свой чертеж на расчет
-        .r
-            .bg
-                .title
-                    a(href="").left
-                        i.material-icons keyboard_arrow_left
-                    a(href="").right
-                        i.material-icons keyboard_arrow_right
-                    .desc Производитель и модель
-                ul
-                    li
-                        a(href="#") Производитель и модель
-                    li
-                        a(href="#") Тип и размер окна
-                    li
-                        a(href="#") Дополнительно
-                    li
-                        a(href="#") Цвет материала
-                .data
-                    .empty
-                        .t У вас еще нет просчитанных окон и балконов
-                        .d Хотите создать новое?
-                        .additem
-                            a(href="#").item0
-                                .bg_link
-                                    .img
-                                    .name Добавить окно
-                            a(href="#").item1
-                                .bg_link
-                                    .img
-                                    .name Добавить балкон
+        include part/s6--modal-form.pug
+
+        .child-fullpage
+            include part/s6--module-result.pug
+
+            .wrap-container
+                include part/s6--nav-panel.pug
+
+                div(data-Module="body-tabs")
+                    include part/s6--nav-tabs.pug
+                    //- include part/s6--body-welcome.pug
+                                
+                    div(data-El="container-tabs")#nav-tabContent.tab-content
+                        #tab1.tab-pane.fade.show.active(role='tabpanel')
+                            .multi-group
+                                h2 Производитель и модель
+                                //- include part/s6--group-models.pug
+                                include part/s6--group-models2.pug
+                        #tab2.tab-pane.fade.show(role='tabpanel')
+                            .multi-group
+                                h2 Тип и размер окна
+                                div(data-grid="sizes-and-views")
+                                    //- include part/s6--group-view.pug
+                                    //- include part/s6--group-sizes.pug
+                                    include part/s6--group-view2.pug
+                                    include part/s6--group-sizes2.pug
+                        #tab3.tab-pane.fade.show(role='tabpanel')
+                            .multi-group
+                                h2 Дополнительно
+                                div(data-grid="extra")
+                                    //- include part/s6--group-extra.pug
+                                    include part/s6--group-extra2.pug
+                        #tab4.tab-pane.fade.show(role='tabpanel')
+                            .multi-group
+                                h2 Цвет материала
+                                div(data-grid="colors")
+                                        include part/s6--group-colors.pug
+                                        //- include part/s6--group-colors--x2_.pug
+                                        //- include part/s6--group-colors--x3.pug
+                                        //- include part/s6--group-colors--x4.pug
+                                        //- include part/s6--group-colors--x5.pug
+                                        //- include part/s6--group-colors2.pug
+                                        //- include part/s6--group-colors2--x2.pug
