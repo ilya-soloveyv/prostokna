@@ -1,0 +1,29 @@
+/* VARIABLES */
+$xs: 320px;
+$sm: 465px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1500px;
+$xxxl: 1800px; // yeap :D
+
+$phone-size: 75px;
+
+$color-size: 71px;
+$color-size_xxl: 50px;
+$color-size_xl: 29px;
+$color-size_md: 26px;
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+  min-width: $size;
+  max-width: $size;
+}
+
+@mixin link-color($color) {
+  a, a:hover, a:focus, a:active {
+    color: $color;
+    text-decoration: none;
+  }
+}

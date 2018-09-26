@@ -9,10 +9,13 @@
 @keyframes gagerPreloaderHide {
     0% {
         opacity: 1;
+        display: block;
+        z-index: 1;
     }
     100% {
         opacity: 0;
         display: none;
+        z-index: -1;
     }
 }
 #gager {
@@ -27,7 +30,7 @@
         background-color: #353535;
         animation-name: gagerPreloaderHide;
         animation-duration: .25s;
-        animation-delay: 6s;
+        animation-delay: 2s;
         animation-fill-mode: forwards;
         animation-timing-function: linear;
         @media (max-width: 1200px) {
@@ -82,7 +85,7 @@
                 height: 100%;
                 overflow: hidden;
                 animation-name: gagerPreloader;
-                animation-duration: 5s;
+                animation-duration: 1s;
                 animation-delay: 1s;
                 animation-fill-mode: forwards;
                 animation-timing-function: linear;
@@ -171,6 +174,8 @@
                         height: 49px;
                         background-color: #4d4d4d;
                         border: none;
+                        color: white;
+                        padding: 0 15px;
                     }
                     button{
                         width: 100%;

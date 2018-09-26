@@ -1,2 +1,34 @@
 #pay.ppage
-    h1 Pay
+	.l
+		.summ
+			.title Введите сумму оплаты
+			form(action="#").to_pay
+				input(type="text", name="payment")
+		.credit_card
+			img(src="/images/pay/visa.svg", alt="Виза").card_type
+			.card_info
+				.card_number#card_number 0000 0000 0000 0000
+				.bg_flex
+					.name#name Имя держателя карты
+					.date 
+						span.month#month MM
+						span.year#year YY
+	.r
+		form(action="#").card_form
+			.item
+				.title Номер карты
+				input(type="text", name="cardnumber", required, onKeyUp="javascript:document.getElementById('card_number').innerHTML = this.value;")
+			.bg_flex
+				.item
+					.title Год
+					input(type="text", name="year", required, onKeyUp="javascript:document.getElementById('year').innerHTML = this.value;")
+				.item
+					.title Месяц
+					input(type="text", name="month", required, onKeyUp="javascript:document.getElementById('month').innerHTML = this.value;")
+				.item
+					.title Cvc/cvv*
+					input(type="text", maxlength="3", name="code", required, id="password")
+			.item
+				.title Имя держателя карты
+				input(type="text", name="name", required, onKeyUp="javascript:document.getElementById('name').innerHTML = this.value;")
+			button.btn.btn_pay Оплатить
