@@ -16,6 +16,10 @@
                 width: 60%;
                 height: 100%;
                 color: #FFF;
+                @media (max-width: 767px) {
+                    width: 100%;
+                    height: 60%;
+                }
                 .bg_flex {
                     height: 100%;
                     display: flex;
@@ -24,6 +28,9 @@
                         margin: 0 100px;
                         padding: 0;
                         list-style: none;
+                        @media (max-width: 1023px) {
+                            margin: 0 50px;
+                        }
                         .el1 {
                             font-family: 'MontserratMedium';
                             font-size: 20px;
@@ -31,6 +38,13 @@
                             text-transform: uppercase;
                             position: relative;
                             padding: 0 0 50px 0;
+                            @media (max-width: 1023px) {
+                                font-size: 12px;
+                                line-height: 16px;
+                            }
+                            @media (max-width: 767px) {
+                                padding-bottom: 30px;
+                            }
                             &::before {
                                 content: '';
                                 position: absolute;
@@ -76,6 +90,13 @@
                                 font-size: 40px;
                                 line-height: 55px;
                             }
+                            @media (max-width: 1023px) {
+                                font-size: 37px;
+                                line-height: 48px;
+                            }
+                            @media (max-width: 767px) {
+                                padding: 20px 0 50px;
+                            }
                             @media (max-width: 575px) {
                                 padding: 20px 0;
                                 font-size: 20px;
@@ -84,6 +105,10 @@
                         }
                         .el3 {
                             a {
+                                @media (max-width: 1023px) {
+                                    width: 240px;
+                                    text-align: center;
+                                }
                                 @media (max-width: 575px) {
                                     padding: 8px 30px;
                                     font-size: 12px;
@@ -122,6 +147,12 @@
                 background: -ms-linear-gradient(270deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 100%); /* ie10+ */
                 background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 100%); /* w3c */
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFFFFF',GradientType=0 ); /* ie6-9 */
+                @media (max-width: 767px) {
+                    width: 100%;
+                    height: 40%;
+                    top: 60%;
+                    left: 0;
+                }
                 .bg_flex {
                     height: 100%;
                     margin: 0 150px;
@@ -130,6 +161,9 @@
                     border-left: 1px solid rgba(255,255,255,.2);
                     @media(max-width: 1720px) {
                         margin: 0 100px;
+                    }
+                    @media (max-width: 1023px) {
+                        margin: 0 30px;
                     }
                     @media (max-width: 575px) {
                         margin: 0 40px;
@@ -143,6 +177,9 @@
                             padding-bottom: 30px;
                             @media(max-width: 1720px) {
                                 padding-left: 50px;
+                            }
+                            @media (max-width: 1023px) {
+                                padding-left: 40px;
                             }
                             @media(max-width: 575px) {
                                 padding-bottom: 10px;
@@ -163,6 +200,10 @@
                                         line-height: 35px;
                                         padding: 15px 0;
                                     }
+                                    @media (max-width: 1023px) {
+                                        font-size: 25px;
+                                        line-height: 22px;
+                                    }
                                     @media (max-width: 575px) {
                                         font-size: 20px;
                                         padding: 0;
@@ -181,6 +222,9 @@
                                         @media(max-width: 1720px) {
                                             margin-left: -58px;
                                         }
+                                        @media (max-width: 1023px) {
+                                            margin-left: -48px;
+                                        }
                                     }
                                     &::after {
                                         content: '';
@@ -195,12 +239,19 @@
                                         @media(max-width: 1720px) {
                                             margin-left: -53px;
                                         }
+                                        @media (max-width: 1023px) {
+                                            margin-left: -43px;
+                                        }
                                     }
                                 }
                                 &.desc {
                                     display: block;
                                     font-family: 'MontserratMedium';
                                     font-size: 16px;
+                                    @media (max-width: 1023px) {
+                                        font-size: 12px;
+                                        line-height: 22px;
+                                    }
                                     @media (max-width: 575px) {
                                         font-size: 12px;
                                     }
