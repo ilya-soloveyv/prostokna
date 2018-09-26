@@ -1,0 +1,91 @@
+
+//- 
+nav.panel {
+	color: #FFF;
+	padding: 10px;
+	margin-bottom: 10px;
+	@extend .clear-fix;
+	background-color: #232323;
+	
+	a {
+		position: relative;
+		text-decoration: none;
+		margin: 10px 15px;
+		cursor: pointer;
+		img {
+			height: 40px;
+		}
+		i {
+			font-size: 25px;
+			font-family: 'MontserratSemiBold';
+			color: #fff;
+			font-style: normal;
+			text-align: center;
+			line-height: 30px;
+			height: 30px;
+			width: 30px;
+			display: inline-block;
+			-webkit-border-radius: 50%;
+			        border-radius: 50%;
+			background-color: #2D70E4;
+			position: absolute;
+			bottom: -12px;
+			right: -12px;
+			@media (max-width: 575px) {
+                    font-size: 20px;
+                    line-height: 27px;
+                    height: 27px;
+                    width: 27px;
+                }
+		}
+	}
+	a.filter {
+		float: left;
+		i {
+			background-color: #EDEDED;
+			color: #000;
+		}
+		@media (max-width: 575px) {
+                    width: 40px;
+                    position: absolute;
+                }
+	}
+
+	a.control[data-El="control-1"] {
+		float: right;
+		img {opacity: 0.5;}
+		&[data-active="true"] {
+			img {opacity: 1;}
+		}
+		@media (max-width: 575px) {
+                    width: 47px;
+                    -webkit-transform: translateX(100%);
+                       -moz-transform: translateX(100%);
+                        -ms-transform: translateX(100%);
+                         -o-transform: translateX(100%);
+                            transform: translateX(100%);
+                    // margin-right: -15px;
+                    right: -15px;
+                }
+	}
+	a.control[data-El="control-2"] {
+		float: right;
+		img {opacity: 0.5;}
+		&[data-active="true"] {
+			img {opacity: 1;}
+		}
+		@media (max-width: 575px) {
+                    width: 40px;
+                    ebkit-transform: translateX(100%);
+                       -moz-transform: translateX(100%);
+                        -ms-transform: translateX(100%);
+                         -o-transform: translateX(100%);
+                            transform: translateX(100%);
+                    // margin-right: -15px;
+                    right: -15px;
+                }
+	}
+	@media (max-width: 575px) {
+            padding-right: 50%;
+        }
+}

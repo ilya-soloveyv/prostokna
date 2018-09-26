@@ -1,0 +1,42 @@
+
+//- // begin: Modal
+//- #Modalform.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+//-   .modal-dialog(role='document')
+//-     .modal-content
+//-       .modal-header
+//-         h5#exampleModalLabel.modal-title Modal title
+//-         button.close(type='button', data-dismiss='modal', aria-label='Close')
+//-           span(aria-hidden='true') ×
+//-       .modal-body
+//-         | ...
+//-       .modal-footer
+//-         button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+//-         button.btn.btn-primary(type='button') Save changes
+//- // end: Modal
+
+
+.modal-form
+	.body-modal
+		i.material-icons(data-El="close") close
+		h3 Отправьте заявку на заказ окна
+		p Чтобы ускорить процесс,<br>вы можете приложить к заявке свой чертеж
+
+		form
+			p
+				input(type="text", required, placeholder="Ваше имя*")
+			p
+				input(type="tel", required, placeholder="Ваш номер телефона*")
+			p
+				input(type="email", required, placeholder="E-mail")
+
+			p
+				label.file
+					input(type="file", required)
+					span + &nbsp; прикрепить файл
+
+			p
+				button(type="submit") Отправить заявку
+
+		p.t-left
+			sup *
+			| &nbsp; &mdash; Обязательные к заполнению поля

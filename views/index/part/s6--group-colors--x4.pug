@@ -1,0 +1,101 @@
+
+//- group-options
+.group-options(data-Module="group-colors")
+    h3 Цвет материала
+    .grid-col-2
+        p.normal
+            label.radio
+                input(type="radio", name="radio")
+                i.el-radio
+                span Односторонняя покраска
+
+        p.normal
+            label.radio
+                input(type="radio", name="radio")
+                i.el-radio
+                span Двусторонняя покраска
+    figure
+        .scrollbar-outer.top
+            ul(data-El="list-colors").lines-2
+                li(data-color="")
+                    img(src="/images/index/s6/texture-1.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-2.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-3.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-4.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-1.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-2.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-3.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-4.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-1.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-2.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-3.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-4.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-1.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-2.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-3.png", alt="")
+                li(data-color="")
+                    img(src="/images/index/s6/texture-4.png", alt="")
+                li(data-color="#af8a54")
+                li(data-color="#a4957d")
+                li(data-color="#f0ca00")
+                li(data-color="#be4e23")
+                li(data-color="#e37c25")
+                li(data-color="#c2121d")
+                li(data-color="#83639d")
+                li(data-color="#904684")
+                li(data-color="#154889")
+                li(data-color="#af8a54")
+                li(data-color="#a4957d")
+
+    table.mb30
+        tr
+            td.pt10
+                small.f-regular Не нашли нужного цвета? Введите код цвета по 
+                    a(href="#").link RAL
+
+            td(width="200").no-tablet
+                label(data-El="input-color").fl-r
+                    input(type="text", size="6", maxlength="6")
+    
+    div(data-grid="inner-colors-2")
+        .grid-col-2
+            p.normal
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Цветные откосы
+            p.normal
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Цветной подоконник
+
+        p.normal 
+            | Цвет уплотнителя
+            span(data-El="list-single-colors")
+                a(data-El="item-color", data-color="#fff", name="target-color")
+                a(data-El="item-color", data-color="#9da3a6", name="target-color")
+                a(data-El="item-color", data-color="#211f20", name="target-color")
+                a(data-El="item-color", data-color="#fff", name="target-color")
+                a(data-El="item-color", data-color="#9da3a6", name="target-color")
+                a(data-El="item-color", data-color="#211f20", name="target-color")
+
+    .grid-col-2.mt50.grid-buttons
+        a(role="button").v2.bg-btn Добавить еще окно
+        a(role="button").v2 Смотреть выбранное
+    
+

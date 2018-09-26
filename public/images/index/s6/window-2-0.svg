@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34.812" height="36" viewBox="0 0 34.812 36">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#323232"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Иконка_копия_5" data-name="Иконка копия 5" class="cls-1">
+    <rect id="Прямоугольник_730_копия_3" data-name="Прямоугольник 730 копия 3" class="cls-2" x="0.5" y="0.5" width="17.469" height="35"/>
+    <rect id="Прямоугольник_730_копия_5" data-name="Прямоугольник 730 копия 5" class="cls-2" x="16.969" y="0.5" width="17.343" height="35"/>
+  </g>
+</svg>

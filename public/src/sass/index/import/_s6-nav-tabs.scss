@@ -1,0 +1,55 @@
+
+
+
+[data-El="nav-tabs"] {
+    // display: flex;
+    display: none;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    -webkit-flex-flow: row nowrap;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    background: #333;
+    border-width: 0;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    margin-bottom: 50px;
+    padding: 0 15px;
+    a {
+        padding: 1.0em 1em;
+        white-space: normal;
+        -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+        font-family: 'MontserratMedium';
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #9E9E9E;
+        text-decoration: none;
+        &.active {
+            color: #FFF;
+        }
+    }    
+}
+
+.control-nav-tabs {
+    // display: flex;
+    display: none;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    height: 50px;
+    i {
+        font-size: 32px;
+        color: #FFF;
+        cursor: pointer;
+        z-index: 10;
+    }
+}
+
+
+
+
+// tabs- container
+.tab-pane {
+    color: #FFF;
+}

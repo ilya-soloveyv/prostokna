@@ -1,0 +1,29 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111.594" height="67.156" viewBox="0 0 111.594 67.156">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        opacity: 0.3;
+      }
+    </style>
+  </defs>
+  <path id="Фигура_4748" data-name="Фигура 4748" class="cls-1" d="M529.119,574.535V573.06h-66.37v1.475h66.37Z" transform="translate(-440.156 -555)"/>
+  <path id="Фигура_4748_копия" data-name="Фигура 4748 копия" class="cls-1" d="M527.644,599.615h1.475V573.06h-1.475v26.555Z" transform="translate(-440.156 -555)"/>
+  <path id="Фигура_4748_копия_2" data-name="Фигура 4748 копия 2" class="cls-2" d="M504.046,598.14v1.475h25.073V598.14H504.046Z" transform="translate(-440.156 -555)"/>
+  <circle id="Эллипс_4760" data-name="Эллипс 4760" class="cls-3" cx="87.501" cy="43.093" r="23.594"/>
+  <path id="Фигура_4748_копия_3" data-name="Фигура 4748 копия 3" class="cls-1" d="M464.224,599.615h-1.475V573.06h1.475v26.555Z" transform="translate(-440.156 -555)"/>
+  <path id="Фигура_4748_копия_3-2" data-name="Фигура 4748 копия 3" class="cls-2" d="M487.822,598.14v1.475H462.749V598.14h25.073Z" transform="translate(-440.156 -555)"/>
+  <circle id="Эллипс_4760_копия" data-name="Эллипс 4760 копия" class="cls-3" cx="24.047" cy="43.093" r="23.547"/>
+  <path id="Фигура_4749" data-name="Фигура 4749" class="cls-1" d="M496.672,570.109H495.2v7.377h1.475v-7.377Z" transform="translate(-440.156 -555)"/>
+  <image id="left-arrow_копия_13" data-name="left-arrow копия 13" x="35.844" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMipDDf5lAAAARUlEQVQY02P4z4AFTvx/9D8/hM2AVYHD/2//T0KUYFfA8N8JpgSXArgSxv9LGGQYsAM1BkmGE0wMhAAhK8h0JEFvIgUUAKvJkXDlugcpAAAAAElFTkSuQmCC"/>
+  <image id="left-arrow_копия_14" data-name="left-arrow копия 14" x="60.844" width="16" height="10" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAQAAAAXtxYXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiCQ0RMipDDf5lAAAASUlEQVQY02P4z/Cf4T/Df/7/R/9PhLJRIEz65P9v/x1wKYBIO2GT/s9AQPo/A+P/4wwWDM8ZbjFgB0+YGAgBQlYQ4UgivIk3oAAklpNNqWPcQwAAAABJRU5ErkJggg=="/>
+</svg>

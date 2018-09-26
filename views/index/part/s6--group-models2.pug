@@ -1,0 +1,72 @@
+
+//- group-options
+.group-options(data-Module="group-models")
+    h3 Производитель и модель
+
+    div(data-grid="inner-models-1")
+        p.border-round
+            label материал
+                i.material-icons expand_more
+                select(name="")
+                    option(value="дерево") Дерево
+                    option(value="пластик") Пластик
+                    option(value="металл") Металл
+        p
+            label производитель
+                    i.material-icons expand_more
+                    select(name="")
+                        option(value="значение") SLIDORS
+                        option(value="значение") SLIDORS.V2
+                        option(value="значение") SLIDORS.V3
+        .grid-col-2.mt50
+            a(href="", role="button", data-El="open-tabs-entry").bg-btn Смотреть подробнее
+            a(href="", role="button") Добавить в сравнение
+
+
+    div(data-Module="tabs-entry")
+        i.material-icons(data-El="close-tabs-entry") close
+        nav(data-El="navtabs-entry", role='tablist')#nav-tab2.nav.nav-tabs
+            a.active(href='#tabcontainer-1', data-toggle='tab', role='tab') Описание
+            a(href='#tabcontainer-2', data-toggle='tab', role='tab') Характеристики
+        div(data-El="navcontainer-entry")#nav-tabContent2.tab-content
+          #tabcontainer-1.tab-pane.fade.show.active(role='tabpanel')
+            h4 Описание
+            p
+                | Отменнное качество по приемлемой цене. Эстетичный профиль с закругленным штапиком.
+            p
+                |- Монтажная глубина 60 мм; <br>
+                |- Трехкамерный профиль; <br>
+                |- Сопротивление теплопередаче 0,58 м2×°С/Вт; <br>
+                |- Класс профиля «В»; <br>
+                |- Звукоизоляция класса «С»; <br>
+                |- Защита от холода, осадков и ветра группы «С»; <br>
+                |- Фурнитура Roto (Германия).
+                
+          #tabcontainer-2.tab-pane.fade(role='tabpanel')
+            h4 Характеристики
+            
+            .container-circle
+                .c100.p70.small
+                    span 70%
+                    .slice
+                      .bar
+                      .fill
+                    .text Тишина
+                .c100.p75.small
+                    span 75%
+                    .slice
+                      .bar
+                      .fill
+                    .text Тепло
+                .c100.p95.small
+                    span 95%
+                    .slice
+                      .bar
+                      .fill
+                    .text Дизайн
+                .c100.p65.small
+                    span 65%
+                    .slice
+                      .bar
+                      .fill
+                    .text Цена

@@ -1,0 +1,15 @@
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="71.938" height="51.688" viewBox="0 0 71.938 51.688">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Прямоугольник_730_копия_3" data-name="Прямоугольник 730 копия 3" class="cls-1" d="M485.662,383.032H510.29v50.675H485.662V383.032Z" transform="translate(-461.875 -382.531)"/>
+  <path id="Прямоугольник_730_копия_5" data-name="Прямоугольник 730 копия 5" class="cls-1" d="M508.808,383.032h24.5v50.675h-24.5V383.032Z" transform="translate(-461.875 -382.531)"/>
+  <path id="Прямоугольник_730_копия_6" data-name="Прямоугольник 730 копия 6" class="cls-1" d="M462.389,383.032h24.692v50.675H462.389V383.032Z" transform="translate(-461.875 -382.531)"/>
+</svg>

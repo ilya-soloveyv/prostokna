@@ -1,0 +1,33 @@
+
+//- group-options
+.group-options(data-Module="group-sizes")
+    h3 Размер окна
+    div(data-grid="inner-sizes-1")
+        .grid-col-2
+            p
+                label(for="") ширина окна
+                output 1000
+                span мм
+                input(type='range', value='1000', step='1', min='1', max='1500')
+            p
+                label(for="") высота окна
+                input.edit(type="number", value="", placeholder="Введите значение")
+                span мм
+                input(type='range', value='0', step='1', min='1', max='5000')
+
+    p.mt40
+        label.number 
+            span количество передних створок
+            input(type="number", step="1", min="1", max="10", value="2")
+            output 2
+            i(data-El="inc") +
+            i(data-El="dec") -
+    p
+        label открывание боковых створок
+                i.material-icons expand_more
+                select(name="")
+                    option(value="значение") Глухое
+                    option(value="значение") Вариант2
+                    option(value="значение") Вариант3
+
+    
