@@ -396,6 +396,7 @@
                                             white-space: nowrap;
                                             text-overflow: ellipsis;
                                             overflow: hidden;
+                                            color: #383838;
                                         }
                                         .model {
                                             font-size: 13px;
@@ -418,6 +419,7 @@
                                         i {
                                             font-size: 24px;
                                             cursor: pointer;
+                                            color: #383838;
                                         }
                                     }
                                     .button_select {
@@ -437,6 +439,7 @@
                                         transition: all .2s ease;
                                         &:hover {
                                             width: 110px;
+                                            border-radius: 25px;
                                             div.name {
                                                 opacity: 1;
                                             }
@@ -877,6 +880,30 @@
                         }
                     }
                 }
+            }
+            .call_back {
+                position: absolute;
+                bottom: 4%;
+                right: 5%;
+                z-index: 2000;
+                width: 54px;
+                height: 54px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;                
+                background: rgba(253,86,142,1);
+                background: -moz-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(253,86,142,1)), color-stop(100%, rgba(243,110,98,1)));
+                background: -webkit-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+                background: -o-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+                background: -ms-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+                background: linear-gradient(to bottom, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fd568e', endColorstr='#f36e62', GradientType=0 );
+                img {
+                    width: 25px;
+                    height: 25px;
+                }                
             }
         }
     }
