@@ -93,6 +93,29 @@
 	}
 }
 
+@media (min-width: 768px) and (max-width: 1500px) {
+	[data-Module="group-models"] {
+		[data-grid="inner-models-1"].v2 {
+			display: flex;
+			width: 100%;
+			-webkit-justify-content: space-between;
+			        justify-content: space-between;
+			-webkit-flex-flow: row wrap;
+			    -ms-flex-flow: row wrap;
+			        flex-flow: row wrap;
+			> p {
+				width: calc(50% - 15px);
+			}
+			> .grid-col-2 {
+				width: 100%;
+				-webkit-flex: 0 0 100%;
+				    -ms-flex: 0 0 100%;
+				        flex: 0 0 100%;
+			}
+		}
+	}
+}
+
 // group-colors (destop grid)
 .on-desktop {
 	display: none;
