@@ -30,5 +30,8 @@ app.get('/pay', (req, res) => {
 app.get('/palette', (req, res) => {
     res.render('palette.pug', { title: 'Palette' })
 })
+app.get('/options', (req, res) => {
+    res.render('options.pug', { title: 'Options' })
+})
 
 http.listen(process.env.PORT)

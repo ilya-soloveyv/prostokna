@@ -1,0 +1,87 @@
+
+//- group-options
+.group-options(data-Module="group-extra")
+    h3 Дополнительно
+
+    div(data-grid="inner-extra-b1")
+        p.normal
+            label.checkbox
+                input(type="checkbox")
+                i.material-icons done
+                span Подоконник
+        .grid-col-2
+            p
+                label(for="") ширина (глубина)
+                output 350
+                span мм
+                input(type='range', value='1000', step='1', min='1', max='500')
+            p
+                label(for="") длина
+                input.edit(type="number", value="", placeholder="Введите")
+                span мм
+                input(type='range', value='3500', step='1', min='1', max='3000')
+
+    div(data-grid="inner-extra-b2")
+        .grid-col-2
+            p.normal
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Обшивка парапета снаружи
+            p.normal
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Обшивка парапета изнутри
+        .grid-col-2
+            p
+                label(for="") обшивка сайдингом
+                input.edit(type="number", value="2", placeholder="Введите")
+                span м
+                    sup 2 
+                //- input(type='range', value='2', step='1', min='1', max='20')
+            p
+                label(for="") обшивка пвх панелями
+                input.edit(type="number", value="", placeholder="Введите значение")
+                span м
+                    sup 2
+                //- input(type='range', value='0', step='1', min='1', max='3000')
+
+    div(data-grid="inner-extra-b3")
+        .grid-col-2
+            p.normal.v-around
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span 
+                        small Отлив стандартный 12 мм
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span 
+                        small Козырек стандартный 450 мм
+            p
+                label(for="") количество москитных сеток
+                output 4
+                span 
+                    small шт
+                input(type='range', value='4', step='1', min='1', max='10')
+    
+    div(data-grid="inner-extra-b4")
+        .grid-col-2
+            p.normal.v-around
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Подъем на этаж
+                label.checkbox
+                    input(type="checkbox")
+                    i.material-icons done
+                    span Монтаж
+            p
+                label этаж
+                    i.material-icons expand_more
+                    select(name="")
+                        option(value="значение") Первый
+                        option(value="значение") Второй
+                        option(value="значение") Третий

@@ -1,0 +1,75 @@
+
+label.number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    // height: 100%;
+    height: 95px;
+    // background: green;
+    @media (max-width: 575px) {
+        height: 82px;
+                }
+    input {
+        z-index: -1;
+        position: absolute;
+        opacity: 0;
+    }
+    output {
+        @extend .align-middle;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60%;
+        height: 100%;
+        line-height: 100%;
+        text-align: center;
+        display: inline-block;
+        margin: 0;
+    }
+    span {
+        position: absolute;
+        top: -35px;
+        left: 0;
+        color: darken(#FFFFFF,40%);
+        font-size: 12px;
+        text-transform: uppercase;
+        vertical-align: top;
+        max-width: 55%;
+        display: inline-block;
+    }
+    i {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20%;
+        height: 100%;
+        border-left: 1px solid grey;
+        font-style: normal;
+        @extend .align-middle;
+        text-align: center;
+        font-weight: 300;
+        cursor: pointer;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        &[data-El="inc"] {}
+        &[data-El="dec"] {right: 20%;}
+    }
+}
+
+
+// default input number reset
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]
+{
+  -moz-appearance: textfield;
+}

@@ -35,18 +35,22 @@ gulp.task('js_min', () => {
             'public/src/js/bootstrap.js',
             'public/src/js/jquery.fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
+            'public/src/js/jquery.scrollbar.min.js',
+            'public/src/js/rangeslider.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
             'public/src/js/index/s2.js',
             'public/src/js/index/s5.js',
+            'public/src/js/index/s6.js',
             'public/src/js/index/s7.js',
             'public/src/js/index/s8.js',
             'public/src/js/contact/contact.js',
             'public/src/js/pay/pay.js',
             'public/src/js/gager/gager.js',
             'public/src/js/product/product.js',
-            'public/src/js/palette/palette.js'
+            'public/src/js/palette/palette.js',
+            'public/src/js/options/options.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -71,6 +75,8 @@ gulp.task('css_min', () => {
             'public/src/css_static/owl.theme.default.min.css',
             'public/src/css_static/animate.css',
             'public/src/css_static/circle.css',
+            'public/src/css_static/jquery.scrollbar.css',
+            'public/src/css_static/rangeslider.css',
             'public/src/css/hamburglar.css',
             'public/src/css/app.css',
             'public/src/css/index/index.css',
@@ -88,7 +94,8 @@ gulp.task('css_min', () => {
             'public/src/css/product/product.css',
             'public/src/css/company/company.css',
             'public/src/css/pay/pay.css',
-            'public/src/css/palette/palette.css'
+            'public/src/css/palette/palette.css',
+            'public/src/css/options/options.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
