@@ -1,3 +1,320 @@
 #options {
-    background: red;
+	section {
+		height: calc(100vh - 80px);
+		border-bottom: 1px solid #707070;
+		display: flex;
+		position: relative;
+		overflow: hidden;
+		.fittings  {			   	
+	    	&__main {
+	    		width: 100%;
+	    		display: flex;
+	    		overflow: hidden;
+	    	}
+	    	&__window {
+	    		width: 60%;
+	    		height: 100%;	    		
+	    		position: relative;
+	    		top: 0;
+	    		left: 0;
+	    		display: flex;
+	    		justify-content: flex-end;
+	    		align-items: flex-end;	    		
+	    	}
+	    	&__example {
+	    		width: 95%;
+	    		height: 100%;
+	    		position: relative;
+	    		img {	    			
+	    			&.window {
+	    				width: 100%;	
+		    			position: absolute;
+		    			bottom: 0;
+		    			right: 0;
+	    			}
+	    			&.handle {
+	    				width: 30%;
+	    				position: absolute;
+	    				bottom: 22%;
+	    				right: 2%;
+	    			}   			
+	    		}
+	    	}	    	
+	    	&__colors {
+	    		position: absolute;
+	    		bottom: 5%;
+	    		left: 0;
+	    		width: 20vh;
+	    		height: 20vh;
+	    		display: flex;
+	    		flex-wrap: wrap;
+	    		justify-content: space-between;	    		  		 
+	    	}
+	    	&__color {
+	    		width: 30%;
+	    		height: 30%;	    		
+	    		border-radius: 10px;	    		
+	    		&_1 {background-color: #BC8B4F;}
+	    		&_2 {background-color: #8D847C;}
+	    		&_3 {background-color: #D8A25C;}
+	    		&_4 {background-color: #554742;}
+	    		&_5 {background-color: #808589;}
+	    		&_6 {background-color: #ECECEC;}
+	    		&_7 {background-color: #D3D4C8;}
+	    		&_8 {background-color: #746457;}
+	    		&_9 {background-color: #E0CB92;}
+	    	}
+	    	&__choise {
+	    		width: 40%;
+	    		padding: 0 2%;
+	    		display: flex;	    		
+	    		align-items: center;
+	    		padding-left: 10%;	    		
+	    	}
+	    	&__circles {
+	    		position: absolute;
+	    		width: 130vh;
+	    		border-radius: 50%;
+	    		border: 1px solid #6B6B6B;
+	    		height: 130vh;	    		
+	    		.deg0 {
+	    			transform: translate(-65vh);
+	    			background: #fff url(../../../images/options/choise/handle-2.png) no-repeat center center / contain;
+	    		}
+	    		.deg45 {
+	    			transform: rotate(205deg) translate(65vh) rotate(-205deg);
+	    			background: #fff url(../../../images/options/choise/handle-1.png) no-repeat center center / contain;
+	    		}
+	    		.deg315 {
+	    			transform: rotate(155deg) translate(65vh) rotate(-155deg);
+	    			background: #fff url(../../../images/options/choise/handle-3.png) no-repeat center center / contain;
+	    		}	    		
+	    	}
+	    	&__circle {
+	    		display: block;
+				overflow: hidden;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 18vh;
+				height: 18vh;				
+				margin: -9vh;
+				border: 1px solid #6B6B6B;
+				border-radius: 50%;	    		
+	    	}
+	    }
+	    .curtains {
+	    	&__main {
+	    		width: 100%;
+	    		display: flex;
+	    	}
+			&__window {
+				width: 60%;
+				height: 100%;
+				padding: 10% 5% 5%;
+			}
+			&__example {
+				display: flex;
+				height: 100%;
+				position: relative;				
+				align-items: center;
+				img {
+					&.window {
+						width: 100%;
+   	 					height: 90%;
+					}
+					&.curtain {
+						position: absolute;
+						right: 3%;
+						height: 100%;
+					}
+				}
+			}
+			&__choise {
+	    		width: 40%;
+	    		padding: 0 2%;
+	    		display: flex;	    		
+	    		align-items: center;
+	    		padding-left: 10%;	    		
+	    	}
+	    	&__circles {
+	    		position: absolute;
+	    		width: 130vh;
+	    		border-radius: 50%;
+	    		border: 1px solid #6B6B6B;
+	    		height: 130vh;	    		
+	    		.deg0 {
+	    			transform: translate(-65vh);
+	    			background: #fff url(../../../images/options/choise/texture-3.png) no-repeat center center / cover;
+	    		}
+	    		.deg20 {
+	    			transform: rotate(200deg) translate(65vh) rotate(-200deg);
+	    			background: #fff url(../../../images/options/choise/texture-2.png) no-repeat center center / cover;
+	    		}
+	    		.deg40 {
+	    			transform: rotate(215deg) translate(65vh) rotate(-215deg);
+	    			background: #fff url(../../../images/options/choise/texture-1.png) no-repeat center center / cover;
+	    		}
+	    		.deg340 {
+	    			transform: rotate(160deg) translate(65vh) rotate(-160deg);
+	    			background: #fff url(../../../images/options/choise/texture-4.png) no-repeat center center / cover;
+	    		}
+	    		.deg320 {
+	    			transform: rotate(145deg) translate(65vh) rotate(-145deg);
+	    			background: #fff url(../../../images/options/choise/texture-5.png) no-repeat center center / cover;
+	    		}
+	    		.active {
+	    			width: 18vh;
+	    			height: 18vh;
+	    			margin: -9vh;
+	    		}	    		
+	    	}
+	    	&__circle {
+	    		display: block;
+				overflow: hidden;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 10vh;
+				height: 10vh;
+				background-color: #fff;
+				margin: -5vh;				
+				border-radius: 50%;	    		
+	    	}
+	    }
+	    .jalousie {
+	    	&__main {
+	    		width: 100%;
+	    		display: flex;
+	    	}
+	    	&__window {
+	    		width: 60%;
+	    		height: 100%;
+	    		position: relative;
+	    	}
+	    	&__textures {
+	    		position: absolute;
+	    		bottom: 5%;
+	    		left: 0;
+	    		width: 20vh;
+	    		height: 20vh;
+	    		display: flex;
+	    		flex-wrap: wrap;
+	    		justify-content: space-between;	    		  		 
+	    	}
+	    	&__texture {
+	    		width: 30%;
+	    		height: 30%;	    		
+	    		border-radius: 10px;	    		
+	    		&_1 {background: url(../../../images/options/texture-1.svg) no-repeat center center / cover;}
+	    		&_2 {background: url(../../../images/options/texture-2.svg) no-repeat center center / cover;}
+	    		&_3 {background: url(../../../images/options/texture-3.svg) no-repeat center center / cover;}
+	    		&_4 {background: url(../../../images/options/texture-4.svg) no-repeat center center / cover;}
+	    		&_5 {background: url(../../../images/options/texture-5.svg) no-repeat center center / cover;}
+	    		&_6 {background: url(../../../images/options/texture-6.svg) no-repeat center center / cover;}
+	    		&_7 {background: url(../../../images/options/texture-7.svg) no-repeat center center / cover;}
+	    		&_8 {background: url(../../../images/options/texture-8.svg) no-repeat center center / cover;}
+	    		&_9 {background: url(../../../images/options/texture-9.svg) no-repeat center center / cover;}
+	    	}
+	    	&__example {
+	    		display: flex;
+	    		align-items: center;
+	    		justify-content: flex-end;
+	    		height: 100%;
+	    		padding: 5% 5% 5% 0;
+	    		.window {
+	    			height: 100%;
+	    		}
+	    		.jalousie {
+	    			position: absolute;
+				    height: 76%;
+				    top: 0;    			
+	    		}
+	    	}
+	    	&__choise {
+	    		width: 40%;
+	    		padding: 0 2%;
+	    		display: flex;	    		
+	    		align-items: center;
+	    		padding-left: 10%;	    		
+	    	}
+	    	&__circles {
+	    		position: absolute;
+	    		width: 130vh;
+	    		border-radius: 50%;
+	    		border: 1px solid #6B6B6B;
+	    		height: 130vh;	    		
+	    		.deg0 {
+	    			transform: translate(-65vh);
+	    			background: #fff url(../../../images/options/choise/jalousie-2.png) no-repeat center center / contain;
+	    		}
+	    		.deg45 {
+	    			transform: rotate(205deg) translate(65vh) rotate(-205deg);
+	    			background: #fff url(../../../images/options/choise/jalousie-1.png) no-repeat center center / contain;
+	    		}
+	    		.deg315 {
+	    			transform: rotate(155deg) translate(65vh) rotate(-155deg);
+	    			background: #fff url(../../../images/options/choise/jalousie-3.png) no-repeat center center / contain;
+	    		}	    		
+	    	}
+	    	&__circle {
+	    		display: block;
+				overflow: hidden;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 18vh;
+				height: 18vh;				
+				margin: -9vh;
+				border: 1px solid #6B6B6B;
+				border-radius: 50%;	    		
+	    	}
+	    }    
+	    .menu {			
+			width: 200px;
+			min-width: 200px;
+			height: 100%;
+			position: relative;
+			padding: 35px 30px;
+			&__icons {
+				display: flex;				
+				a {
+					margin-right: 7px;
+					img {
+						width: 30px;
+					}
+				}
+			}
+			&__title {
+				font-size: 16px;
+				text-transform: uppercase;
+				font-family: 'Montserrat';
+				font-weight: 700;
+				margin-top: 12px;
+			}
+		}
+		.call_back {
+			position: absolute;
+			bottom: 5%;
+			left: 30px;
+			width: 54px;
+            height: 54px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;                
+            background: rgba(253,86,142,1);
+            background: -moz-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(253,86,142,1)), color-stop(100%, rgba(243,110,98,1)));
+            background: -webkit-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+            background: -o-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+            background: -ms-linear-gradient(top, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+            background: linear-gradient(to bottom, rgba(253,86,142,1) 0%, rgba(243,110,98,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fd568e', endColorstr='#f36e62', GradientType=0 );
+            img {
+                width: 60px;
+                height: 60px;
+            }
+		}
+	}	    
 }
