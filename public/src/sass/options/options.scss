@@ -1,15 +1,18 @@
-#options {
+#options {	
 	section {
 		height: calc(100vh - 80px);
 		border-bottom: 1px solid #707070;
 		display: flex;
 		position: relative;
-		overflow: hidden;
+		overflow: hidden;				
 		.fittings  {			   	
 	    	&__main {
 	    		width: 100%;
 	    		display: flex;
-	    		overflow: hidden;
+	    		overflow: hidden;	    		
+	    		@media screen and (max-width: 992px) {
+	    			flex-direction: column;
+	    		}
 	    	}
 	    	&__window {
 	    		width: 60%;
@@ -19,12 +22,26 @@
 	    		left: 0;
 	    		display: flex;
 	    		justify-content: flex-end;
-	    		align-items: flex-end;	    		
+	    		align-items: flex-end;
+	    		@media screen and (max-width: 1200px) {
+	    			width: 70%;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 100%;
+	    			height: 60%;
+	    			justify-content: center;
+	    		}	    		
 	    	}
 	    	&__example {
 	    		width: 95%;
 	    		height: 100%;
 	    		position: relative;
+	    		@media screen and (max-width: 992px) {
+	    			width: 75%;	    			
+	    		}
+	    		@media screen and (max-width: 576px) {
+	    			width: 45vh;	    			
+	    		}	    		
 	    		img {	    			
 	    			&.window {
 	    				width: 100%;	
@@ -48,12 +65,20 @@
 	    		height: 20vh;
 	    		display: flex;
 	    		flex-wrap: wrap;
-	    		justify-content: space-between;	    		  		 
+	    		justify-content: space-between;
+	    		@media screen and (max-width: 992px) {
+	    			left: 5%;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 25vw;
+	    			height: 25vw;
+	    		}    		  		 
 	    	}
 	    	&__color {
 	    		width: 30%;
 	    		height: 30%;	    		
-	    		border-radius: 10px;	    		
+	    		border-radius: 10px;
+	    		position: relative;	    		
 	    		&_1 {background-color: #BC8B4F;}
 	    		&_2 {background-color: #8D847C;}
 	    		&_3 {background-color: #D8A25C;}
@@ -63,36 +88,72 @@
 	    		&_7 {background-color: #D3D4C8;}
 	    		&_8 {background-color: #746457;}
 	    		&_9 {background-color: #E0CB92;}
-	    	}
+	    		&:hover {
+	    			cursor: pointer;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			border-radius: 6px;
+	    		}	    		
+	    	}	    	
 	    	&__choise {
 	    		width: 40%;
 	    		padding: 0 2%;
 	    		display: flex;	    		
 	    		align-items: center;
-	    		padding-left: 10%;	    		
+	    		padding-left: 10%;
+	    		@media screen and (max-width: 1200px) {
+	    			width: 30%;
+	    			padding-left: 0;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 100%;
+	    			height: 40%;
+	    			position: relative;
+	    		}	    		
 	    	}
 	    	&__circles {
 	    		position: absolute;
 	    		width: 130vh;
 	    		border-radius: 50%;
 	    		border: 1px solid #6B6B6B;
-	    		height: 130vh;	    		
+	    		height: 130vh;
+	    		@media screen and (max-width: 992px) {
+	    			top: 30%;
+	    			left: calc(50% - 65vh);
+	    		}	    		
 	    		.deg0 {
 	    			transform: translate(-65vh);
 	    			background: #fff url(../../../images/options/choise/handle-2.png) no-repeat center center / contain;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(270deg) translate(65vh) rotate(-270deg);
+		    		}
+		    		@media screen and (max-width: 576px) {
+		    			transform: rotate(270deg) translate(65vh) rotate(-270deg);
+		    		}
 	    		}
 	    		.deg45 {
 	    			transform: rotate(205deg) translate(65vh) rotate(-205deg);
 	    			background: #fff url(../../../images/options/choise/handle-1.png) no-repeat center center / contain;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(245deg) translate(65vh) rotate(-245deg);
+		    		}
+		    		@media screen and (max-width: 576px) {
+		    			transform: rotate(252deg) translate(65vh) rotate(-252deg);
+		    		}
 	    		}
 	    		.deg315 {
 	    			transform: rotate(155deg) translate(65vh) rotate(-155deg);
 	    			background: #fff url(../../../images/options/choise/handle-3.png) no-repeat center center / contain;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(295deg) translate(65vh) rotate(-295deg);
+		    		}
+		    		@media screen and (max-width: 576px) {
+		    			transform: rotate(288deg) translate(65vh) rotate(-288deg);
+		    		}
 	    		}	    		
 	    	}
 	    	&__circle {
-	    		display: block;
-				overflow: hidden;
+	    		display: block;				
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -100,24 +161,88 @@
 				height: 18vh;				
 				margin: -9vh;
 				border: 1px solid #6B6B6B;
-				border-radius: 50%;	    		
+				border-radius: 50%;
+				@media screen and (max-width: 576px) {
+	    			width: 24vw;
+					height: 24vw;				
+					margin: -12vw;
+	    		}	    		
+	    	}
+	    	&__desc {
+	    		position: absolute;
+	    		top: 20%;
+	    		left: 110%;
+	    		width: 120%;
+	    		font-family: 'MontserratSemiBold';
+	    		color: #EDEDED;
+	    		@media screen and (max-width: 992px) {
+	    			top: 110%;
+	    			left: 10%;
+	    		}
+	    		.name {
+	    			font-size: 20px;	    			
+	    			display: block;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 16px;
+		    		}
+	    		}
+	    		.price {
+	    			font-size: 14px;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 12px;
+		    		}
+	    		}
+	    		.active {
+	    			font-size: 22px;
+	    			color: #353535;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 16px;
+		    		}
+	    		}	    		
 	    	}
 	    }
+	    .check {	    			
+			display: block;
+			position: absolute;
+			bottom: 5%;
+			left: 20%;
+			background: url(../../../images/options/check.png) no-repeat center center / contain;
+			width: 35%;
+			height: 35%;
+		}
 	    .curtains {
 	    	&__main {
 	    		width: 100%;
 	    		display: flex;
+	    		@media screen and (max-width: 992px) {
+	    			flex-direction: column;
+	    		}
 	    	}
 			&__window {
 				width: 60%;
 				height: 100%;
 				padding: 10% 5% 5%;
+				@media screen and (max-width: 1200px) {
+	    			width: 70%;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 100%;
+	    			height: 60%;
+	    			padding: 3% 5% 0;	    				    			
+	    		}
+	    		@media screen and (max-width: 576px) {
+	    			padding: 25% 5% 0;
+	    		}				
 			}
 			&__example {
 				display: flex;
 				height: 100%;
 				position: relative;				
 				align-items: center;
+				@media screen and (max-width: 992px) {
+	    			width: 65%;
+	    			margin: 0 auto;   			
+	    		}
 				img {
 					&.window {
 						width: 100%;
@@ -135,62 +260,162 @@
 	    		padding: 0 2%;
 	    		display: flex;	    		
 	    		align-items: center;
-	    		padding-left: 10%;	    		
+	    		padding-left: 10%;
+	    		@media screen and (max-width: 1200px) {
+	    			width: 30%;
+	    			padding-left: 5%;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 100%;
+	    			height: 40%;
+	    			position: relative;
+	    		}	    			    		
 	    	}
 	    	&__circles {
 	    		position: absolute;
 	    		width: 130vh;
 	    		border-radius: 50%;
 	    		border: 1px solid #6B6B6B;
-	    		height: 130vh;	    		
+	    		height: 130vh;
+	    		@media screen and (max-width: 992px) {
+	    			top: 30%;
+	    			left: calc(50% - 65vh);
+	    		}	    		
 	    		.deg0 {
 	    			transform: translate(-65vh);
 	    			background: #fff url(../../../images/options/choise/texture-3.png) no-repeat center center / cover;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(270deg) translate(65vh) rotate(-270deg);
+		    		}
+					@media screen and (max-width: 576px) {
+		    			transform: rotate(270deg) translate(65vh) rotate(-270deg);
+		    		}
 	    		}
 	    		.deg20 {
 	    			transform: rotate(200deg) translate(65vh) rotate(-200deg);
 	    			background: #fff url(../../../images/options/choise/texture-2.png) no-repeat center center / cover;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(290deg) translate(65vh) rotate(-290deg);
+		    		}
+					@media screen and (max-width: 576px) {
+		    			transform: rotate(280deg) translate(65vh) rotate(-280deg);
+		    		}
 	    		}
 	    		.deg40 {
 	    			transform: rotate(215deg) translate(65vh) rotate(-215deg);
 	    			background: #fff url(../../../images/options/choise/texture-1.png) no-repeat center center / cover;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(305deg) translate(65vh) rotate(-305deg);
+		    		}
+		    		@media screen and (max-width: 576px) {
+		    			transform: rotate(290deg) translate(65vh) rotate(-290deg);
+		    		}
 	    		}
 	    		.deg340 {
 	    			transform: rotate(160deg) translate(65vh) rotate(-160deg);
 	    			background: #fff url(../../../images/options/choise/texture-4.png) no-repeat center center / cover;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(250deg) translate(65vh) rotate(-250deg);
+		    		}
+					@media screen and (max-width: 576px) {
+		    			transform: rotate(260deg) translate(65vh) rotate(-260deg);
+		    		}
 	    		}
 	    		.deg320 {
 	    			transform: rotate(145deg) translate(65vh) rotate(-145deg);
 	    			background: #fff url(../../../images/options/choise/texture-5.png) no-repeat center center / cover;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(235deg) translate(65vh) rotate(-235deg);
+		    		}
+		    		@media screen and (max-width: 576px) {
+		    			transform: rotate(250deg) translate(65vh) rotate(-250deg);
+		    		}
 	    		}
-	    		.active {
-	    			width: 18vh;
-	    			height: 18vh;
-	    			margin: -9vh;
+	    		.main {
+	    			width: 22vh;
+	    			height: 22vh;
+	    			margin: -11vh;
+	    			@media screen and (max-width: 576px) {
+		    			width: 18vw;
+						height: 18vw;				
+						margin: -9vw;
+		    		}
 	    		}	    		
 	    	}
 	    	&__circle {
-	    		display: block;
-				overflow: hidden;
+	    		display: block;				
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				width: 10vh;
-				height: 10vh;
+				width: 12vh;
+				height: 12vh;
 				background-color: #fff;
-				margin: -5vh;				
-				border-radius: 50%;	    		
+				margin: -6vh;				
+				border-radius: 50%;
+				@media screen and (max-width: 576px) {
+	    			width: 12vw;
+					height: 12vw;				
+					margin: -6vw;
+	    		}	    		
+	    	}
+	    	&__desc {
+	    		position: absolute;
+	    		top: 20%;
+	    		left: 110%;
+	    		width: 200%;
+	    		font-family: 'MontserratSemiBold';
+	    		color: #EDEDED;
+	    		@media screen and (max-width: 992px) {
+	    			top: 110%;
+	    			left: 10%;
+	    		}
+	    		@media screen and (max-width: 576px) {
+		    		width: 130%;	
+		    	}
+	    		.name {
+	    			font-size: 16px;	    			
+	    			display: block;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 13px;
+		    		}
+	    		}
+	    		.price {
+	    			font-size: 14px;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 11px;
+		    		}
+	    		}
+	    		.active {
+	    			font-size: 22px;
+	    			color: #353535;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 13px;
+		    		}
+	    		}
 	    	}
 	    }
 	    .jalousie {
 	    	&__main {
 	    		width: 100%;
 	    		display: flex;
+	    		@media screen and (max-width: 992px) {
+	    			flex-direction: column;
+	    		}
 	    	}
 	    	&__window {
 	    		width: 60%;
 	    		height: 100%;
 	    		position: relative;
+	    		@media screen and (max-width: 1200px) {
+	    			width: 60%;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 100%;
+	    			height: 60%;	    			
+	    		}
+	    		@media screen and (max-width: 576px) {
+	    			padding-top: 20%;   			
+	    		}
 	    	}
 	    	&__textures {
 	    		position: absolute;
@@ -200,7 +425,14 @@
 	    		height: 20vh;
 	    		display: flex;
 	    		flex-wrap: wrap;
-	    		justify-content: space-between;	    		  		 
+	    		justify-content: space-between;
+	    		@media screen and (max-width: 992px) {
+	    			left: 5%;	    			
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 25vw;
+	    			height: 25vw;
+	    		}	    		  		 
 	    	}
 	    	&__texture {
 	    		width: 30%;
@@ -215,6 +447,9 @@
 	    		&_7 {background: url(../../../images/options/texture-7.svg) no-repeat center center / cover;}
 	    		&_8 {background: url(../../../images/options/texture-8.svg) no-repeat center center / cover;}
 	    		&_9 {background: url(../../../images/options/texture-9.svg) no-repeat center center / cover;}
+	    		@media screen and (max-width: 992px) {
+	    			border-radius: 6px;
+	    		}
 	    	}
 	    	&__example {
 	    		display: flex;
@@ -222,6 +457,14 @@
 	    		justify-content: flex-end;
 	    		height: 100%;
 	    		padding: 5% 5% 5% 0;
+	    		@media screen and (max-width: 992px) {
+	    			justify-content: center;
+	    			padding: 5% 15% 0 25%;    			
+	    		}
+	    		@media screen and (max-width: 576px) {
+	    			position: relative;
+	    			padding: 5% 5% 0 25%;  			
+	    		}
 	    		.window {
 	    			height: 100%;
 	    		}
@@ -236,30 +479,60 @@
 	    		padding: 0 2%;
 	    		display: flex;	    		
 	    		align-items: center;
-	    		padding-left: 10%;	    		
+	    		padding-left: 10%;
+	    		@media screen and (max-width: 1200px) {
+	    			width: 40%;
+	    			padding-left: 5%;
+	    		}
+	    		@media screen and (max-width: 992px) {
+	    			width: 100%;
+	    			height: 40%;
+	    			position: relative;
+	    		}	    		
 	    	}
 	    	&__circles {
 	    		position: absolute;
 	    		width: 130vh;
 	    		border-radius: 50%;
 	    		border: 1px solid #6B6B6B;
-	    		height: 130vh;	    		
+	    		height: 130vh;
+	    		@media screen and (max-width: 992px) {
+	    			top: 30%;
+	    			left: calc(50% - 65vh);
+	    		}	    		
 	    		.deg0 {
 	    			transform: translate(-65vh);
 	    			background: #fff url(../../../images/options/choise/jalousie-2.png) no-repeat center center / contain;
+	    			@media screen and (max-width: 992px) {
+		    			transform: rotate(270deg) translate(65vh) rotate(-270deg);
+		    		}
+					@media screen and (max-width: 576px) {
+		    			transform: rotate(270deg) translate(65vh) rotate(-270deg);
+		    		}
 	    		}
 	    		.deg45 {
 	    			transform: rotate(205deg) translate(65vh) rotate(-205deg);
 	    			background: #fff url(../../../images/options/choise/jalousie-1.png) no-repeat center center / contain;
+					@media screen and (max-width: 992px) {
+		    			transform: rotate(245deg) translate(65vh) rotate(-245deg);
+		    		}
+					@media screen and (max-width: 576px) {
+		    			transform: rotate(252deg) translate(65vh) rotate(-252deg);
+		    		}
 	    		}
 	    		.deg315 {
 	    			transform: rotate(155deg) translate(65vh) rotate(-155deg);
 	    			background: #fff url(../../../images/options/choise/jalousie-3.png) no-repeat center center / contain;
+					@media screen and (max-width: 992px) {
+		    			transform: rotate(295deg) translate(65vh) rotate(-295deg);
+		    		}
+					@media screen and (max-width: 576px) {
+		    			transform: rotate(288deg) translate(65vh) rotate(-288deg);
+		    		}
 	    		}	    		
 	    	}
 	    	&__circle {
-	    		display: block;
-				overflow: hidden;
+	    		display: block;				
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -267,7 +540,44 @@
 				height: 18vh;				
 				margin: -9vh;
 				border: 1px solid #6B6B6B;
-				border-radius: 50%;	    		
+				border-radius: 50%;
+				@media screen and (max-width: 576px) {
+	    			width: 24vw;
+					height: 24vw;				
+					margin: -12vw;
+	    		}	    		
+	    	}
+	    	&__desc {
+	    		position: absolute;
+	    		top: 20%;
+	    		left: 110%;
+	    		width: 200%;
+	    		font-family: 'MontserratSemiBold';
+	    		color: #EDEDED;
+	    		@media screen and (max-width: 992px) {
+	    			top: 110%;
+	    			left: 10%;
+	    		}
+	    		.name {
+	    			font-size: 16px;	    			
+	    			display: block;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 11px;
+		    		}
+	    		}
+	    		.price {
+	    			font-size: 14px;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 11px;
+		    		}
+	    		}
+	    		.active {
+	    			font-size: 22px;
+	    			color: #353535;
+	    			@media screen and (max-width: 576px) {
+		    			font-size: 13px;
+		    		}
+	    		}
 	    	}
 	    }    
 	    .menu {			
@@ -276,12 +586,37 @@
 			height: 100%;
 			position: relative;
 			padding: 35px 30px;
+			z-index: 15;
+			@media screen and (max-width: 1200px) {
+    			width: 100px;
+    			min-width: 100px;
+    		}
+    		@media screen and (max-width: 992px) {
+    			    position: absolute;
+				    top: 0;
+				    left: 0;
+				    padding: 20px;
+				    height: auto;
+				    width: auto;
+    		}
+    		@media screen and (max-width: 576px) {
+				    width: 100%;
+    		}
+    		&__head {
+    			@media screen and (max-width: 576px) {
+				    width: 20%;
+				    margin: 0 auto;
+    			}
+    		}
 			&__icons {
 				display: flex;				
 				a {
 					margin-right: 7px;
 					img {
 						width: 30px;
+						@media screen and (max-width: 576px) {
+						    width: 20px;
+		    			}
 					}
 				}
 			}
@@ -291,6 +626,9 @@
 				font-family: 'Montserrat';
 				font-weight: 700;
 				margin-top: 12px;
+				@media screen and (max-width: 576px) {
+				    font-size: 14px;
+    			}
 			}
 		}
 		.call_back {
@@ -315,6 +653,80 @@
                 width: 60px;
                 height: 60px;
             }
+            @media screen and (max-width: 992px) {
+    			display: none;
+    		}
+		}
+	}
+	.blur {
+		filter: blur(7px);
+	}
+	.upmenu {
+		position: fixed;
+		width: calc(100% - 80px); 
+		height: 100vh;
+		background: rgba(53,53,53,0.65);
+		display: none;
+		align-items: flex-start;
+		z-index: 100;
+		padding: 1% 40px;
+		@media screen and (max-width: 1200px) {
+			width: 100%;
+		}
+		@media screen and (max-width: 576px) {
+			flex-direction: column;			
+			align-items: center;
+		}
+		&__active {
+			display: flex;
+		}		
+		&__icons{
+			width: 4vw;
+			display: flex;
+			justify-content: space-between;
+			@media screen and (max-width: 1200px) {
+    			width: 7vw;
+    		}
+    		@media screen and (max-width: 576px) {
+				width: 70px;
+			}
+			img {
+				width: 45%;
+			}
+		}
+		&__categories {
+			display: flex;
+			justify-content: space-between;
+			list-style: none;
+			color: #fff;
+			font-family: 'MontserratSemiBold';
+			font-size: 3vh;
+			text-transform: uppercase;
+			width: 75vw;
+			margin-top: 23vh;
+			@media screen and (max-width: 1200px) {
+    			font-size: 2vh;
+    		}
+    		@media screen and (max-width: 992px) {
+    			font-size: 3vh;
+    			flex-direction: column;
+    		}
+    		@media screen and (max-width: 576px) {
+    			text-align: center;
+    			padding: 0;
+    			margin-top: 10vh;
+    		}			
+		}
+		&__brands {
+			list-style: none;
+			color: #fff;
+			text-transform: uppercase;
+			font-family: 'MontserratSemiBold';
+			font-size: 5vh;
+			margin-top: 10vh;
+			@media screen and (max-width: 992px) {
+    			display: none;
+    		}
 		}
 	}	    
 }

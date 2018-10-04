@@ -1,4 +1,21 @@
 #options.ppage
+	.upmenu
+		.upmenu__icons
+			img(src='/images/options/sub/handle.svg')
+			img.upmenu__close(src='/images/options/sub/close.svg')
+		.upmenu__content
+			ul.upmenu__categories
+				li.upmenu__category Ручки
+				li.upmenu__category Шторы
+				li.upmenu__category Жалюзи
+				li.upmenu__category Подоконники
+				li.upmenu__category Клапаны
+				li.upmenu__category Москитные сетки
+			ul.upmenu__brands
+				li.upmenu__brand SIB
+				li.upmenu__brand DELIGHT
+				li.upmenu__brand BRILLIANT
+				li.upmenu__brand GENEO
 	section.fittings
 		.menu_fittings.menu
 			.menu__head
@@ -29,16 +46,20 @@
 			.fittings__choise
 				.fittings__circles
 					span.fittings__circle.deg0
+						.fittings__desc
+							span.name.active Rehau
+							span.price.active 375 рублей
 					span.fittings__circle.deg45
-					span.fittings__circle.deg90
-					span.fittings__circle.deg135
-					span.fittings__circle.deg180
-					span.fittings__circle.deg225
-					span.fittings__circle.deg270
+						.fittings__desc
+							span.name Rehau
+							span.price 375 рублей					
 					span.fittings__circle.deg315
+						.fittings__desc
+							span.name Montblan
+							span.price 285 рублей
 	section.curtains
 		.menu_curtains.menu
-			.menu_head
+			.menu__head
 				.menu__icons
 					a.menu__icon.menu__icon_handle(href="#")
 						img(src='/images/options/curtains.svg', alt='icon')
@@ -54,14 +75,29 @@
 					img.curtain(src='/images/options/curtain.png', alt='curtain')
 			.curtains__choise
 				.curtains__circles
-					span.curtains__circle.deg0.active
+					span.curtains__circle.deg0.main
+						.curtains__desc
+							span.name.active SILK
+							span.price.active 3375 рублей
 					span.curtains__circle.deg20
+						.curtains__desc
+							span.name SILK CURTAINS
+							span.price 3375 рублей
 					span.curtains__circle.deg40
+						.curtains__desc
+							span.name SILK CURTAINS
+							span.price 2375 рублей
 					span.curtains__circle.deg340
+						.curtains__desc
+							span.name SILK CURTAINS
+							span.price 1375 рублей
 					span.curtains__circle.deg320
+						.curtains__desc
+							span.name SILK CURTAINS
+							span.price 3375 рублей
 	section.jalousie
 		.menu_jalousie.menu
-			.menu_head
+			.menu__head
 				.menu__icons
 					a.menu__icon.menu__icon_handle(href="#")
 						img(src='/images/options/jalousie.svg', alt='icon')
@@ -87,6 +123,15 @@
 					.jalousie__texture.jalousie__texture_9
 			.jalousie__choise
 				.jalousie__circles
-					span.jalousie__circle.deg0.active
+					span.jalousie__circle.deg0
+						.jalousie__desc
+							span.name.active Вертикальные
+							span.price.active от 12 375 рублей
 					span.jalousie__circle.deg45.active
+						.jalousie__desc
+							span.name Горизонтальные
+							span.price от 10 375 рублей
 					span.jalousie__circle.deg315.active
+						.jalousie__desc
+							span.name Тканевые
+							span.price от 8 375 рублей
