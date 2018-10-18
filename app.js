@@ -34,4 +34,6 @@ app.get('/options', (req, res) => {
     res.render('options.pug', { title: 'Options' })
 })
 
-http.listen(process.env.PORT)
+http.listen(process.env.PORT, () => {
+    console.log('Server is running...')
+})

@@ -3,15 +3,15 @@
         .fp-tableCell {
             .fp_bg {
                 position: absolute;
-                top: 80px;
-                right: 80px;
+                top: 60px;
+                right: 60px;
                 bottom: 0;
-                left: 80px;
+                left: 60px;
                 overflow: hidden;
                 @media (max-width: 1200px) {
                     left: 0;
                     right: 0;
-                    bottom: 40px;
+                    bottom: 10px;
                 }
                 @media (max-width: 575px) {
                     top: 50px;

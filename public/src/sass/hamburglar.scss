@@ -9,12 +9,16 @@ $scale: 1;
   display: block;
   width: 68px;
   height: 68px;
-  margin: 5px;
+  margin: 0;
   -webkit-touch-callout:  none;
   user-select: none;
+  transform: scale(.75);
+  top: -4px;
+  left: -4px;
   @media (max-width: 575px) {
-    top: -29px;
-    left: 10px;
+    top: -9px;
+    left: -9px;
+    transform: scale(.5);
   }
 }
 
