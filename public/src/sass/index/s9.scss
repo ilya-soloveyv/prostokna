@@ -270,27 +270,42 @@
 					}
 					ul.info {
 						position: absolute;
-						top: 50%;
-						left: 50%;
+						top: 100px;
+						right: 100px;
 						background-color: white;
-						transform: translate(0, -50%);
+						// transform: translate(0, -50%);
 						margin: 0;
 						list-style: none;
 						box-shadow: 0px 20px 20px 0px rgba(14, 17, 29, 0.15);
 						padding: 30px 20px 20px;
+						
+						@media (max-width: 1500px) {
+							right: 70px;
+						}
 						@media (max-width: 1200px) {
-							padding: 40px 30px 10px;
-							left: 44%;
-							width: 50%;
+							top: 50px;
+							right: 50px;
 						}
 						@media (max-width: 768px) {
-							left: 42%;
+							top: 30px;
+							right: 60px;
 							width: 40%;
 						}
 						@media (max-width: 576px) {
-							width: 45%;
-							left: 50%;
-							padding: 20px 20px 10px;
+							display: none;
+							width: 100%;
+							height: 100%;
+							left: 0;
+							top: 0;
+							right: 0;
+							bottom: 0;
+							// width: 45%;
+							// top: 50px;
+							// right: 50px;
+							// padding: 20px 20px 10px;
+							&.open {
+								display: block;
+							}
 						}
 						&::before {
 							content: '';
@@ -299,9 +314,9 @@
 							left: 0;
 							width: 100%;
 							height: 20px;
-						@media (max-width: 576px) {
-							height: 15px;
-						}
+							@media (max-width: 576px) {
+								height: 15px;
+							}
 						}
 						&::after {
 							content: '';
@@ -439,6 +454,39 @@
 												}
 											}
 										}
+									}
+								}
+							}
+							&.closeMore {
+								display: none;
+								@media (max-width: 576px) {
+									display: block;
+									position: absolute;
+									right: 10px;
+									top: 25px;
+									width: 30px;
+									height: 30px;
+									opacity: 0.75;
+									text-indent: -9999px;
+									&::before {
+										content: '';
+										width: 30px;
+										height: 2px;
+										position: absolute;
+										top: 14px;
+										left: 0;
+										background: black;
+										transform: rotate(45deg)
+									}
+									&::after {
+										content: '';
+										width: 30px;
+										height: 2px;
+										position: absolute;
+										top: 14px;
+										left: 0;
+										background: black;
+										transform: rotate(-45deg)
 									}
 								}
 							}
