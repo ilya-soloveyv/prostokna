@@ -1,8 +1,24 @@
 function initMap() {
+
+	var lat = 55.7755;
+	var lng = 37.682;
+	var zoom = 16;
+	var window_width = $(window).width();
+	if (window_width <= 576) {
+		var lat = 55.7760;
+		var lng = 37.680;
+		var zoom = 15;
+	}
+	if (window_width <= 350) {
+		var lat = 55.7765;
+		var lng = 37.680;
+		var zoom = 14;
+	}
+
     // Styles a map in night mode.
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 55.7755, lng: 37.682},
-      zoom: 16,
+      center: {lat: lat, lng: lng },
+      zoom: zoom,
       styles: [
 		  {
 		    "elementType": "geometry",

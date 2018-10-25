@@ -52,7 +52,7 @@
                     }
                 }
                 .social-icon{
-                    width: 174px;
+                    width: 100%;
                     height: 36px;
                     margin-top: 20px;
                     a {
@@ -68,6 +68,9 @@
                         border-radius: 50%;
                         &:last-child {
                             margin-right: 0;
+                        }
+                        img {
+                            max-width: 24px;
                         }
                     }
                 }
@@ -214,6 +217,15 @@
                     }
                     .email{
                         margin-top: 50px;
+                    }
+                    .social-icon {
+                        a {
+                            width: 24px;
+                            height: 24px;
+                            img {
+                                max-width: 16px;
+                            }
+                        }
                     }
                 }
                 &__reqvizits{
