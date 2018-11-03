@@ -1,6 +1,6 @@
 #contact.ppage
 	main
-		section.map
+		section#map.map
 		section.contacts
 			.contacts__info
 				.contacts__data
@@ -10,15 +10,8 @@
 						p On-line заявки – круглосуточно
 						p.email
 							a(href="mailto:prosto@prostokna.ru") PROSTO@PROSTOKNA.RU
-					.social-icon
-						a(href='#')
-							img(src='/images/contact/soc1.svg', alt='1')
-						a(href='#')
-							img(src='/images/contact/soc2.svg', alt='2')
-						a(href='#')
-							img(src='/images/contact/soc3.svg', alt='3')
-						a(href='#')
-							img(src='/images/contact/soc4.svg', alt='4')
+					ul.social_icons.blue
+						include ../include/social_icons.pug
 				.contacts__reqvizits
 					.container
 						p ОГРН 1157746588449

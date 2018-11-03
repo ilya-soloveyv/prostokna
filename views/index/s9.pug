@@ -49,27 +49,18 @@
 									li
 										a(href='#') Вместе еще дешевле
 			.r
-				.map
+				#map.map
 				ul.info
+					li.closeMore закрыть
 					li.title Контакты
 					li.tel <a href="tel:+74993912221">+7(499) 391-22-21</a>
 					li.time с 10:00 до 19:00 Пн. - Пт.
 					li.mail <a href="mailto:prosto@prostokna.ru">prosto@prostokna.ru</a>
 					li.address Москва, ул. Спартаковская площадь 14
 					li.soc
-						ul
-							li
-								a(href="#", target='_blank')
-									img(src="/images/index/s9/soc1.svg", alt="Мы в ВКонтакте")
-							li
-								a(href="#", target='_blank')
-									img(src="/images/index/s9/soc2.svg", alt="Мы в Twitter")
-							li
-								a(href="#", target='_blank')
-									img(src="/images/index/s9/soc3.svg", alt="Написать или повонить в Skype")
-							li
-								a(href="#", target='_blank')
-									img(src="/images/index/s9/soc4.svg", alt="Написать или повонить в Whatsapp")
+						ul.social_icons.black
+							include ../include/social_icons.pug
+															
 		.bottom
 			span © «Просто окна» Все права защищены. 2018
 			a(href="#") Правила конфиденциальности

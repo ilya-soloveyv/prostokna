@@ -213,10 +213,10 @@ input, textarea {
 $speed: .25s;
 #fullpage_nav {
     position: absolute;
-    top: 80px;
+    top: 60px;
     right: 0;
     bottom: 0;
-    width: 80px;
+    width: 60px;
     .lineprogress {
         position: absolute;
         top: 0;
@@ -231,9 +231,9 @@ $speed: .25s;
             top: auto;
             left: 0;
             right: 0;
-            bottom: 5px;
+            bottom: 0px;
             width: 100%;
-            height: 5px;
+            height: 10px;
         }
         .line {
             width: 100%;
@@ -251,7 +251,7 @@ $speed: .25s;
         top: 50%;
         margin: -160px 0 0;
         padding: 25px 0;
-        width: 79px;
+        width: 59px;
         background-color: rgba(0,0,0,0);
         -webkit-transition: all $speed linear;
         -moz-transition: all $speed linear;
@@ -281,7 +281,7 @@ $speed: .25s;
                 position: absolute;
                 top: 50%;
                 margin: -5px 0 0;
-                left: 35px;
+                left: 24.5px;
                 width: 10px;
                 height: 10px;
                 background-color: none;
@@ -332,6 +332,9 @@ $speed: .25s;
         .lineprogress {
             .line {
                 background-color: rgba(153,153,153,1);
+                @media (max-width: 1200px) {
+                    background: red;
+                }
             }
         }
         li {
@@ -345,7 +348,7 @@ $speed: .25s;
             }
         }
         @media (max-width: 1200px) {
-            background: rgba(0,0,0,.5);
+            background: rgba(255,255,255,1);
         }
     }
     &.white {
@@ -353,6 +356,9 @@ $speed: .25s;
         .lineprogress {
             .line {
                 background-color: rgba(255,255,255,1);
+                @media (max-width: 1200px) {
+                    background: red;
+                }
             }
         }
         li {
@@ -366,7 +372,7 @@ $speed: .25s;
             }
         }        
         @media (max-width: 1200px) {
-            background: rgba(255,255,255,.5);
+            background: rgba(255,255,255,1);
         }
     }
     @media (max-width: 1200px) {
@@ -375,7 +381,7 @@ $speed: .25s;
         right: 0;
         bottom: 0;
         width: 100%;
-        height: 40px;
+        height: 10px;
     }
 }
 
@@ -389,7 +395,7 @@ $speed: .25s;
     top: 0;
     right: 0;
     left: 0;
-    height: 80px;
+    height: 60px;
     border-bottom: 1px solid #999;
     z-index: 20;
     background-color: #FFF;
@@ -400,7 +406,7 @@ $speed: .25s;
         position: absolute;
         top: 0;
         left: 0;
-        width: 80px;
+        width: 60px;
         height: 100vh;
         border-right: 1px solid #999;
         @media (max-width: 1200px) {
@@ -412,7 +418,7 @@ $speed: .25s;
             top: 0;
             right: 0;
             left: 0;
-            height: 80px;
+            height: 60px;
             background: #ededed;
             z-index: 4;
             border-bottom: 1px solid #999;
@@ -420,23 +426,20 @@ $speed: .25s;
             -o-transition: all .5s linear;
             -webkit-transition: all .5s linear;
             cursor: pointer;
-            @media (max-width: 575px) {
-                transform: scale(.5);
-            }
         }
         .menu {
             position: absolute;
-            top: 80px;
+            top: 60px;
             bottom: 0;
             left: 0;
             z-index: 2;
-            width: 79px;
+            width: 59px;
             background-color: #FFF;
             -moz-transition: all .25s linear;
             -o-transition: all .25s linear;
             -webkit-transition: all .25s linear;
-            @media (max-width: 1200px) {
-                top: 50px;
+            @media (max-width: 1199px) {
+                top: 60px;
                 width: 0vw;
             }
             ul {
@@ -514,10 +517,10 @@ $speed: .25s;
     }
     .logo {
         position: absolute;
-        left: 80px;
+        left: 60px;
         top: 0;
         width: 220px;
-        height: 79px;
+        height: 59px;
         z-index: 3;
         background-image: url("/images/logo.svg");
         background-position: 23px center;
@@ -541,12 +544,12 @@ $speed: .25s;
     }
     .phone {
         position: absolute;
-        right: 80px;
+        right: 60px;
         top: 0;
-        width: 220px;
-        height: 79px;
+        width: 210px;
+        height: 59px;
         z-index: 3;
-        padding: 19px 0;
+        padding: 9px 0;
         // background-color: red;
         a.tel {
             float: left;
@@ -567,19 +570,49 @@ $speed: .25s;
             text-decoration: none;
             border-bottom: 1px dashed #2d70e4b2;
         }
+        a.whatsapp {
+            position: absolute;
+            top: 14px;
+            right: 15px;
+            display: block;
+            height: 30px;
+            width: 30px;
+            opacity: .75;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
         @media (max-width: 575px) {
-            display: none;
+            height: 49px;
+            width: 49px;
+            padding: 0;
+            right: 0;
+            a.tel {
+                display: none;
+            }
+            a.callme {
+                display: none;
+            }
+            a.whatsapp {
+                top: 9px;
+                right: 10px;
+            }
         }
     }
     .search {
         position: absolute;
         top: 0;
-        left: 300px;
-        right: 380px;
-        height: 79px;
+        left: 280px;
+        right: 360px;
+        height: 59px;
         z-index: 3;
         background-color: #FFF;
-        padding: 19px 0 20px 0;
+        padding: 9px 0 10px 0;
         max-width: 1000px;
         .bginput {
             margin-right: 180px;
@@ -591,11 +624,8 @@ $speed: .25s;
             width: 150px;
             text-align: center;
             float: right;
-            // position: absolute;
-            // top: 0;
-            // right: 0;
         }
-        @media (max-width: 575px) {
+        @media (max-width: 1199px) {
            display: none;
         }
     }
@@ -603,11 +633,20 @@ $speed: .25s;
         position: absolute;
         top: 0;
         right: 0;
-        width: 80px;
+        width: 60px;
         height: 100%;
         border-left: 1px solid #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
         @media (max-width: 575px) {
             display: none;
+        }
+        div.img {
+            width: 25px;
+            height: 25px;
+            background: url('/images/top/calc.png');
         }
     }
 }
@@ -617,9 +656,9 @@ $speed: .25s;
 
 .ppage {
     position: relative;
-    margin-top: 80px;
-    margin-left: 80px;
-    min-height: calc(100vh - 80px);
+    margin-top: 60px;
+    margin-left: 60px;
+    min-height: calc(100vh - 60px);
     box-sizing: border-box;
     @media (max-width: 1200px) {
         margin-left: 0;
@@ -627,5 +666,57 @@ $speed: .25s;
     @media (max-width: 575px) {
         margin-top: 50px;
         min-height: calc(100vh - 50px);
+    }
+}
+
+
+
+
+
+
+ul.social_icons {
+    background: red;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    display: none;
+    li {
+        display: block;
+        width: 32px;
+        height: 32px;
+        margin: 0 5px 0 0;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 5px;
+        background-color: yellow;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: cover;            
+        }
+    }
+    &.black {
+        li {
+            background-color: #161616;
+        }
+    }
+    &.blue {
+        li {
+            background-color: #2D70E4;
+        }
+    }
+    &.black, &.blue {
+        li {
+            a {
+                &.whatsapp {
+                    background-image: url('/images/social_icons/whatsapp.svg')
+                }
+                &.telegram {
+                    background-image: url('/images/social_icons/telegram.svg')
+                }
+            }
+        }
     }
 }

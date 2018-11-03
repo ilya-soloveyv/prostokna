@@ -114,6 +114,7 @@
         position: relative;
         width: 100%;
         display: inline-block;
+        padding-right: 3.5em;
         &::placeholder {}
         ~ span {
             font-family: 'MontserratSemiBold';
