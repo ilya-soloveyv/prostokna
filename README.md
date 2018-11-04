@@ -19,6 +19,6 @@
 Переименовываем файл `.env_default` в `.env`
 9. **Запуск**
 Выполняем в Git bash в 3-х разных окнах<br>
-`npm run start`<br>
+`gulp nodemon`<br>
 `gulp watch`<br>
 `gulp bs`
