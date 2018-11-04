@@ -106,7 +106,9 @@ gulp.task('css_min', () => {
             'public/src/css/wiki/catalog.css',
             'public/src/css/wiki/article.css',
             'public/src/css/instruction/instruction.css',
-            'public/src/css/instruction/video.css'
+            'public/src/css/instruction/video.css',
+            'public/src/css/corporate/corporate.css'
+            
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
