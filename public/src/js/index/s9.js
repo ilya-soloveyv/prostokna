@@ -342,10 +342,12 @@ function initMap() {
   	// position: myLatlng,
   	// title:"Hello World!"
   // });
-  // marker.setMap(map);
-  var script = document.createElement('script');
-  script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCt8zCnAdWM57-hf6vndvzWZ0UKDPc2yxE&callback=initMap";  
-	document.body.appendChild(script);
+	// marker.setMap(map);
+	if ($('#map').length) {
+		var script = document.createElement('script');
+		script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCt8zCnAdWM57-hf6vndvzWZ0UKDPc2yxE&callback=initMap";  
+		document.body.appendChild(script);
+	}
 	
 	$('#fullpage_welcome .section.s9 .full .r ul.info .closeMore').click(function(){
 		$('#fullpage_welcome .section.s9 .full .r ul.info').removeClass('open')
