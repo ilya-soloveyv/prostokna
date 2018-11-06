@@ -1,3 +1,179 @@
 #company {
-    background: red;
+	font-family: 'Montserrat', sans-serif;
+}
+header {
+	background: #353535;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 100px 6% 83px;
+	@media screen and (max-width: 992px) {
+		padding: 60px 6% 30px;
+	}
+}
+
+.offer {
+	position: relative;
+	width: 50%;
+	@media screen and (max-width: 992px) {
+		width: 100%;
+	}
+	&__title {
+		font-size: 94px;
+		color: #fff;
+		text-align: center;
+		@media screen and (max-width: 992px) {
+			font-size: 54px;
+		}
+	}
+	&__desc {
+		font-size: 18px;
+		color: #0071E8;
+		text-align: center;
+		margin-top: -10px;
+		@media screen and (max-width: 992px) {
+			font-size: 11px;
+		}
+	}
+	&__text {
+		margin-top: 75px;
+		max-width: 772px;
+		@media screen and (max-width: 992px) {
+			margin-top: 30px;
+		}
+		p {
+			color: #fff;
+			font-size: 14px;
+			text-align: center;
+			letter-spacing: 0.02em;
+			margin-bottom: 25px;
+			@media screen and (max-width: 992px) {
+				font-size: 9px;
+			}
+		}	
+	}	
+}
+
+.main-picture {
+	width: 40%;
+}
+
+.tablet {
+	display: none;
+	@media screen and (max-width: 992px) {
+		display: block;
+		width: 60%;
+		margin: 0 23%;
+	}
+}
+
+.desktop {
+	width: 40%;
+	@media screen and (max-width: 992px) {
+		display: none;
+	}
+}
+
+.arrow {
+	display: none;
+	@media screen and (max-width: 992px) {
+		display: block;
+		margin: 30px auto 0;
+	}
+}
+
+.advantages {
+	padding: 130px 3% 80px;
+	@media screen and (max-width: 992px) {
+		padding: 60px 3% 50px;
+	}
+	&__title {
+		text-align: center;
+		font-size: 28px;
+		font-family: 'MontserratSemiBold';
+		@media screen and (max-width: 992px) {
+			font-size: 15px;
+		}
+	}
+	&__list {
+		display: flex;
+		justify-content: flex-start;		
+		list-style: none;		
+		margin: 165px 0 0;
+		padding: 0;
+		@media screen and (max-width: 992px) {
+			display: block;
+			margin: 26px 0 0;
+		}
+	}
+	&__item {
+		width: 25%;
+		margin-left: 8%;
+		font-size: 14px;
+		position: relative;
+		@media screen and (max-width: 992px) {
+			width: 60%;
+			text-align: center;
+			margin: 0 auto;
+			font-size: 9px;
+		}
+		@media screen and (max-width: 576px) {
+			width: 80%;
+		}
+		p {
+			margin-bottom: 10px;
+		}
+		.main-text {
+			font-size: 18px;
+			font-family: 'MontserratSemiBold';
+			&:first-child {
+				margin-bottom: 35px;
+			}
+			&:last-child {
+				margin-top: 35px;
+			}
+			@media screen and (max-width: 992px) {
+				font-size: 12px;
+			}
+		}
+		&_1 {
+			&:before {
+				content: '01';
+				left: -6vw;
+			}			
+		}
+		&_2 {
+			&:before {
+				content: '02';
+				left: -7vw;
+			}
+		}
+		&_3 {
+			&:before {
+				content: '03';
+				left: -7vw;
+			}
+		}
+		&:before {			
+			display: block;
+			font-size: 5vw;
+			color: #0071E8;
+			position: absolute;
+			top: -3vw;
+			@media screen and (max-width: 992px) {
+				position: static;
+				text-align: center;
+				font-size: 70px;
+			}
+		}
+	}
+	&__last-title {
+		font-size: 22px;
+		font-family: 'MontserratSemiBold';
+		text-align: center;
+		margin-top: 90px;
+		@media screen and (max-width: 992px) {
+			font-size: 10px;
+		}
+	}
 }
