@@ -31,9 +31,19 @@ app.get('/options', (req, res) => {
     res.render('options.pug', { title: 'Options' })
 })
 
-
+var catalog = []
+var catalog_item = {
+    title: "Особые стекла для пластиковых окон ПВХ",
+    desc: "Стеклопакет – важнейший элемент ПВХ окна. От его качества зависят ведущие свойства окна из пластика в целом – шумоизоляция, параметры сохранения тепла в жилище и даже безопасность проживающих в помещении. Чтобы пластиковые окна ПВХ"
+}
+for (let index = 0; index < 10; index++) {
+    catalog.push(catalog_item);
+}
 app.get('/wiki', (req, res) => {
-    res.render('wiki/catalog.pug', { title: 'Wiki' })
+    res.render('wiki/catalog.pug', { title: 'Wiki', catalog: catalog })
+})
+app.get('/wiki/get', (req, res) => {
+    res.render('wiki/catalog_list.pug', { catalog: catalog })
 })
 app.get('/wiki/article', (req, res) => {
     res.render('wiki/article.pug', { title: 'Wiki article' })
