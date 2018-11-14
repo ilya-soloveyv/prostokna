@@ -84,7 +84,7 @@ gulp.task('css_min', () => {
             'public/src/css_static/circle.css',
             'public/src/css_static/jquery.scrollbar.css',
             'public/src/css_static/rangeslider.css',
-            'public/src/css_static/hamburgers.css',
+            // 'public/src/css_static/hamburgers.css',
             'public/src/css/hamburglar.css',            
             'public/src/css/app.css',
             'public/src/css/index/index.css',
