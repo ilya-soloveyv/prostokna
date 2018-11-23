@@ -3,3 +3,4 @@
 .env
 .idea
 package-lock.json
+/config/default.json
