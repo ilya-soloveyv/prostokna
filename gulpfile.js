@@ -31,12 +31,15 @@ gulp.task('js_min', () => {
     gulp
         .src([
             'public/src/js/jquery-3.3.1.js',
+            'public/src/js/jquery-ui.min.js',
+            'public/src/js/jquery.ui.touch-punch.min.js',
             'public/src/js/popper.js',
+            'public/src/js/tooltip.min.js',
             'public/src/js/bootstrap.js',
             'public/src/js/jquery.fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
-            'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/rangeslider.min.js',
+            'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
