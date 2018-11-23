@@ -1,12 +1,3 @@
--
-    var statistic_list = [
-        {percent: 50, title: "Теплоизоляция"},
-        {percent: 70, title: "Шупоизоляция"},
-        {percent: 80, title: "Безопасность"},
-        {percent: 95, title: "Эстетичность"},
-        {percent: 50, title: "Надежность"},
-        {percent: 50, title: "Экологичность"}
-    ]
 .statistic
     .statistic__head
         .statistic__icons
@@ -16,7 +7,6 @@
                 img(src='/images/product/hamburger-white.svg', alt='hamburger')
         .statistic__title REHAU
         .statistic__subtitle BLITZ/NEW
-
     .statistic__shade
         .statistic__photos_1
             .statistic__img
@@ -35,19 +25,52 @@
                         ul.statistic__gallery-items
                             each i in [1,2,3,4]
                                 li.statistic__gallery-item(class="statistic__gallery-item_"+i)
-                                    img(class="statistic__gallery-window" src="/images/product/window_" + i + ".png", alt="WIndow " + i)
+                                    //- img(class="statistic__gallery-window" src="/images/product/window_" + i + ".png", alt="WIndow " + i)
                         .statistic__gallery-window_base
                             img(src="/images/product/window_1.png", alt="WIndow 2")
             .statistic__arm
     .statistic__main
         ul.statistic__items
-            each statistic in statistic_list
-                li.statistic__item
-                    .statistic__circle.c100(class="p"+statistic.percent)
-                        span #{statistic.percent}%
-                        .slice
-                            .bar
-                            .fill
-                    .statistic__note #{statistic.title}
-
+            li.statistic__item
+                .statistic__circle.c100(class="p23")
+                    span 23%
+                    .slice
+                        .bar
+                        .fill
+                .statistic__note Теплоизоляция
+            li.statistic__item
+                .statistic__circle.c100(class="p10")
+                    span 10%
+                    .slice
+                        .bar
+                        .fill
+                .statistic__note Шумоизоляция
+            li.statistic__item
+                .statistic__circle.c100(class="p10")
+                    span 10%
+                    .slice
+                        .bar
+                        .fill
+                .statistic__note Безопасность
+            li.statistic__item
+                .statistic__circle.c100(class="p10")
+                    span 10%
+                    .slice
+                        .bar
+                        .fill
+                .statistic__note Эстетичность
+            li.statistic__item
+                .statistic__circle.c100(class="p10")
+                    span 10%
+                    .slice
+                        .bar
+                        .fill
+                .statistic__note Надежность
+            li.statistic__item
+                .statistic__circle.c100(class="p10")
+                    span 10%
+                    .slice
+                        .bar
+                        .fill
+                .statistic__note Экологичность
         button.statistic__submit.product__submit ДОБАВИТЬ В КАЛЬКУЛЯТОР

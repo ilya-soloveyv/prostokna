@@ -3,6 +3,14 @@ const app = express()
 const http = require('http').createServer(app)
 const pug = require('pug')
 require('dotenv').config()
+const mysql = require('mysql')
+const credentials = {
+    host: "localhost",
+    user: "root",
+    database: "prostokna"
+}
+const async = require('async')
+
 
 app.locals.env = process.env;
 
@@ -18,9 +26,83 @@ app.get('/contact', (req, res) => {
 app.get('/gager', (req, res) => {
     res.render('gager.pug', { title: 'Замерщик' })
 })
+
 app.get('/product', (req, res) => {
-    res.render('product.pug', { title: 'Каталог' })
+    let connection = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        database: "prostokna"
+    })
+    let query = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
+    connection.query(query, (err, rows, fields) => {
+        if (err) {
+            console.log('Error query: ' + err)
+            res.sendStatus(500)
+            return
+        }
+        let products = rows;
+        res.render('product/products.pug', { products: products })
+    })
+    connection.end()
 })
+
+app.get('/product/:sProductURI', (req, res) => {
+    var connection = mysql.createConnection(credentials);
+    var query_1 = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID WHERE t1.sProductURI = ? LIMIT 1";
+    var query_2 = "SELECT * FROM product_images WHERE iProductID = ? ORDER BY iOrder ASC";
+    var query_3 = "SELECT * FROM product_images_point WHERE iProductID = ?";
+    var query_4 = "SELECT * FROM colors WHERE iMaterialID = ?";
+    var query_5 = "SELECT * FROM product_images WHERE iPhotoInDescOnPage = 1 && iProductID = ? LIMIT 1";
+    var data = {};
+    async.parallel([
+       function(parallel_done) {
+           connection.query(query_1, [ req.params.sProductURI ], function(err, product) {
+               if (err) return parallel_done(err);
+               data.product = product[0]
+               data.title = data.product.sProductTitle
+               parallel_done()
+           });
+       }
+    ], function(err) {
+        if (err) console.log(err);
+        async.parallel([
+            function(parallel_done) {
+                connection.query(query_2, [ data.product.iProductID ], function(err, product_images) {
+                    if (err) return parallel_done(err)
+                    data.product_images = product_images
+                    parallel_done()
+                });
+            },
+            function(parallel_done) {
+                connection.query(query_3, [ data.product.iProductID ], function(err, product_images_point) {
+                    if (err) return parallel_done(err)
+                    data.product_images_point = product_images_point
+                    parallel_done()
+                });
+            },
+            function(parallel_done) {
+                connection.query(query_4, [ data.product.iMaterialID ], function(err, colors) {
+                    if (err) return parallel_done(err)
+                    data.colors = colors
+                    parallel_done()
+                });
+            },
+            function(parallel_done) {
+                connection.query(query_5, [ data.product.iProductID ], function(err, image_product_text) {
+                    if (err) return parallel_done(err)
+                    data.image_product_text = image_product_text[0]
+                    parallel_done()
+                });
+            }
+        ], function(err) {
+            if (err) return parallel_done(err)
+            connection.end()
+            // res.send(data)
+            res.render('product.pug', data)
+        })
+    });
+})
+
 app.get('/pay', (req, res) => {
     res.render('pay.pug', { title: 'Оплата' })
 })

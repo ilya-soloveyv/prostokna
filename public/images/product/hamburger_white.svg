@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45 44">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-XD_Window_Cross_2);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-XD_Window_Cross_2">
+      <rect width="45" height="44"/>
+    </clipPath>
+  </defs>
+  <g id="XD_Window_Cross_2" data-name="XD Window Cross – 2" class="cls-1">
+    <g id="Group_333" data-name="Group 333" transform="translate(-978 -517)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" width="45.243" height="4.799" rx="2.4" transform="translate(978 517)"/>
+      <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" width="45.243" height="4.799" rx="2.4" transform="translate(978 537.13)"/>
+      <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-2" width="45.243" height="4.799" rx="2.4" transform="translate(978 556.201)"/>
+    </g>
+  </g>
+</svg>
