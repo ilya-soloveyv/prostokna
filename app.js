@@ -1,14 +1,10 @@
 const express = require('express')
 const app = express()
 const http = require('http').createServer(app)
+const config = require('config')
 const pug = require('pug')
 require('dotenv').config()
 const mysql = require('mysql')
-const credentials = {
-    host: "localhost",
-    user: "root",
-    database: "prostokna"
-}
 const async = require('async')
 
 
@@ -28,11 +24,7 @@ app.get('/gager', (req, res) => {
 })
 
 app.get('/product', (req, res) => {
-    let connection = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        database: "prostokna"
-    })
+    let connection = mysql.createConnection(config.get('db'))
     let query = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
     connection.query(query, (err, rows, fields) => {
         if (err) {
@@ -47,7 +39,7 @@ app.get('/product', (req, res) => {
 })
 
 app.get('/product/:sProductURI', (req, res) => {
-    var connection = mysql.createConnection(credentials);
+    var connection = mysql.createConnection(config.get('db'));
     var query_1 = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID WHERE t1.sProductURI = ? LIMIT 1";
     var query_2 = "SELECT * FROM product_images WHERE iProductID = ? ORDER BY iOrder ASC";
     var query_3 = "SELECT * FROM product_images_point WHERE iProductID = ?";
