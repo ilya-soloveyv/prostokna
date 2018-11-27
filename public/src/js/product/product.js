@@ -70,7 +70,9 @@ $(document).ready(function(){
             $('#product .data .colors .list ul li').removeClass('active')
             $(this).addClass('active')
         })
-        // <i class="material-icons">done</i>
+        $("#product .toggle_submenu").click(function(){
+            $('#product').toggleClass('openSubmenu')
+        })
     }
 });
 

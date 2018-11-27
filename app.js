@@ -45,13 +45,14 @@ app.get('/product/:sProductURI', (req, res) => {
     var query_3 = "SELECT * FROM product_images_point WHERE iProductID = ?";
     var query_4 = "SELECT * FROM colors WHERE iMaterialID = ?";
     var query_5 = "SELECT * FROM product_images WHERE iPhotoInDescOnPage = 1 && iProductID = ? LIMIT 1";
+    var query_6 = "SELECT t1.sProductURI, t1.sProductTitle, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
     var data = {};
     async.parallel([
        function(parallel_done) {
            connection.query(query_1, [ req.params.sProductURI ], function(err, product) {
                if (err) return parallel_done(err);
                data.product = product[0]
-               data.title = data.product.sProductTitle
+               data.title = data.product.sBrandTitle + " " + data.product.sProductTitle
                parallel_done()
            });
        }
@@ -83,6 +84,13 @@ app.get('/product/:sProductURI', (req, res) => {
                 connection.query(query_5, [ data.product.iProductID ], function(err, image_product_text) {
                     if (err) return parallel_done(err)
                     data.image_product_text = image_product_text[0]
+                    parallel_done()
+                });
+            },
+            function(parallel_done) {
+                connection.query(query_6, [ data.product.iProductID ], function(err, products) {
+                    if (err) return parallel_done(err)
+                    data.products = products
                     parallel_done()
                 });
             }
