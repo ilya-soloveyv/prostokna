@@ -1,5 +1,5 @@
 #product.ppage
-    .submenu
+    .toggle_submenu
         .bg
             .icons
                 .type
@@ -7,6 +7,11 @@
             .title
                 .brand #{product.sBrandTitle}
                 .model #{product.sProductTitle}
+    .submenu
+        ul
+            each item in products
+                li
+                    a(href="/product/"+item.sProductURI) #{item.sBrandTitle} #{item.sProductTitle}
     .callme
         img(src="/images/product/phone.svg", alt="call me")
     .data

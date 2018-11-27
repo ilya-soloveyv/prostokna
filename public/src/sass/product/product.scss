@@ -1,9 +1,26 @@
 #product {
     .submenu {
         position: fixed;
+        background-color: rgba(0,0,0,.75);
+        left: 60px;
+        top: 60px;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+        display: none;
+        padding: 25px 100px;
+        @media (max-width: 1199px) {
+            left: 0;
+        }
+        @media (max-width: 576px) {
+            top: 50px;
+        }
+    }
+    .toggle_submenu {
+        position: fixed;
         left: 90px;
         top: 90px;
-        z-index: 1;
+        z-index: 99;
         @media (max-width: 1200px) {
             left: 30px;
         }
@@ -28,24 +45,26 @@
                 display: flex;
                 flex-direction: row;
                 .type {
-                    width: 30px;
-                    height: 30px;
+                    width: 29px;
+                    height: 28px;
                     margin: 5px;
                     margin-left: 0;
-                    background-image: url("/images/product/window_black.svg");
+                    background-image: url("/images/product/window_black.png");
+                    background-repeat: no-repeat;
                     background-size: contain;
                     @media (max-width: 800px) {
-                        background-image: url("/images/product/window_white.svg");
+                        background-image: url("/images/product/window_white.png");
                     }
                 }
                 .hamburger {
-                    width: 30px;
-                    height: 30px;
+                    width: 29px;
+                    height: 28px;
                     margin: 5px;
-                    background-image: url("/images/product/hamburger_black.svg");
-                    background-size: contain;
+                    background-image: url("/images/product/hamburger_black.png");
+                    background-repeat: no-repeat;
+                    // background-size: contain;
                     @media (max-width: 800px) {
-                        background-image: url("/images/product/hamburger_white.svg");
+                        background-image: url("/images/product/hamburger_white.png");
                     }
                 }
             }
@@ -78,7 +97,7 @@
         background-image: linear-gradient(90deg,#f36e61,#fd568d);
         border-radius: 10px;
         cursor: pointer;
-        z-index: 100;
+        z-index: 97;
         @media (max-width: 1200px) {
             left: 30px;
         }
@@ -748,6 +767,31 @@
                     margin-top: 25px;
                 }
             }
+        }
+    }
+    &.openSubmenu {
+        .submenu {
+            display: block;
+        }
+        .toggle_submenu {
+            .bg {
+                .icons {
+                    .type {
+                        background-image: url("/images/product/window_white.png");
+                    }
+                    .hamburger {
+                        background-image: url("/images/product/close_white.png");
+                    }
+                }
+                .title {
+                    color: white;
+                    display: none;
+                }
+            }
+        }
+        .data {
+            -webkit-filter: blur(5px);
+            filter: blur(5px);
         }
     }
 }
