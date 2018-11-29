@@ -2,10 +2,30 @@ extends ../layouts/app
 
 block content
     #wiki_catalog.ppage
-        .hamburger
+        .hamburger.hamburger--spin
             .hamburger-box
                 .hamburger-inner
-        ul
+        .sidebar
+            ul
+                li
+                    a(href="/wiki") Словать оконных терминов
+                li
+                    a(href="/wiki") Сравнительные характеристики профилей
+                li
+                    a(href="/wiki") Монтаж
+                li
+                    a(href="/wiki") История
+                li
+                    a(href="/wiki") Фурнитура
+                li
+                    a(href="/wiki") Балконы
+                li
+                    a(href="/wiki") Профили
+                li
+                    a(href="/wiki") Стекло и стеклопакеты
+                li
+                    a(href="/wiki") Двери    
+        ul.catalog_list
             include catalog_list.pug
         .more
             a.load(href="#") Загрузить еще

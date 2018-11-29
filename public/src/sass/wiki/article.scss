@@ -1,3 +1,193 @@
 #wiki_article {
-    background: red;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 100px;
+    @media (max-width: 1350px) {
+        padding: 50px;
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+    @media (max-width: 575px) {
+        padding: 15px;
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 400px;
+        flex-shrink: 0;
+        padding-right: 50px;
+        @media (max-width: 1350px) {
+            padding-right: 25px;
+        }
+        @media (max-width: 1100px) {
+            flex-basis: 300px;
+        }
+        @media (max-width: 800px) {
+            flex-basis: auto;
+            padding-right: 0;
+            margin-bottom: 25px;
+        }
+        a.back {
+            display: flex;
+            justify-content: center;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            text-transform: uppercase;
+            line-height: 24px;
+            padding: 22px 0;
+            border:  1px solid #353535;
+            border-radius: 35px;
+            color: #353535;
+            text-decoration: none;
+            margin-bottom: 100px;
+            background: none;
+            transition: all .15s;
+            @media (max-width: 1100px) {
+                font-size: 14px;
+                padding: 14px 0;
+                margin-bottom: 75px;
+            }
+            @media (max-width: 800px) {
+                display: none;
+            }
+            &:hover {
+                background-color: #0071E8;
+                border: 1px solid #0071E8;
+                color: white;
+            }
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            @media (max-width: 800px) {
+                flex-direction: row;
+                overflow: auto;
+                flex-wrap: nowrap;
+            }
+            li {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                margin-bottom: 100px;
+                @media (max-width: 1100px) {
+                    margin-bottom: 75px;
+                }
+                @media (max-width: 800px) {
+                    margin-bottom: 0;
+                    flex-shrink: 0;
+                    flex-grow: 1;
+                    flex-basis: 230px;
+                }
+                .num {
+                    flex-basis: 150px;
+                    flex-shrink: 0;
+                    font-family: 'Montserrat';
+                    font-size: 100px;
+                    line-height: 80px;
+                    color: #E4E4E4;
+                    @media (max-width: 1100px) {
+                        flex-basis: 100px;
+                        font-size: 80px;
+                        line-height: 68px;
+                    }
+                    @media (max-width: 800px) {
+                        flex-basis: 50px;
+                        font-size: 30px;
+                        line-height: 30px;
+                    }
+                }
+                .data {
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    @media (max-width: 800px) {
+                        flex-shrink: 0;
+                        flex-grow: 0;
+                        flex-basis: 150px;
+                    }
+                    .title {
+                        font-family: 'MontserratSemiBold';
+                        font-size: 14px;
+                        color: #353535;
+                        line-height: 22px;
+                        margin-bottom: 15px;
+                    }
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        font-family: 'Montserrat';
+                        font-size: 10px;
+                        text-transform: uppercase;
+                        line-height: 14px;
+                        padding: 8px 0;
+                        border:  1px solid #353535;
+                        border-radius: 16px;
+                        color: #353535;
+                        text-decoration: none;
+                        max-width: 150px;
+                        transition: all .15s;
+                        @media (max-width: 800px) {
+                            line-height: 12px;
+                            padding: 6px 0;
+                        }
+                        &:hover {
+                            background-color: #0071E8;
+                            border: 1px solid #0071E8;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .article {
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding-left: 50px;
+        font-family: 'MontserratMedium';
+        font-size: 14px;
+        line-height: 24px;
+        @media (max-width: 1350px) {
+            padding-left: 25px;
+        }
+        @media (max-width: 800px) {
+            padding-left: 0;
+        }
+        @media (max-width: 575px) {
+            font-size: 12px;
+            line-height: 20px;
+        }
+        h1 {
+            font-family: 'MontserratBold';
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 50px;
+            @media (max-width: 800px) {
+                margin-bottom: 25px;
+            }
+            @media (max-width: 575px) {
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 15px;
+            }
+        }
+        p {
+            margin-bottom: 25px;
+            @media (max-width: 575px) {
+                margin-bottom: 15px;
+            }
+        }
+        img {
+            width: 100%;
+            margin-bottom: 25px;
+            @media (max-width: 575px) {
+                margin-bottom: 15px;
+            }
+        }
+    }
 }
