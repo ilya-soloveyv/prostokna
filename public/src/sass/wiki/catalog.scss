@@ -56,7 +56,7 @@
         z-index: 1;
         visibility: hidden;
         opacity: 0;
-        transition: all 250ms;
+        // transition: all 250ms;
         &.open {
             visibility: visible;
             opacity: 1;
@@ -126,7 +126,7 @@
         justify-content: space-around;
         border-bottom: 1px solid rgba(255,255,255,.15);
         position: relative;
-        transition: .25s -webkit-filter linear;
+        // transition: .25s -webkit-filter linear;
         &.disabled {
             -webkit-filter: blur(6px);
             filter: blur(6px);
