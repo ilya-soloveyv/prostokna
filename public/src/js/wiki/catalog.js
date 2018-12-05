@@ -22,23 +22,39 @@ if ($('#wiki_catalog').length) {
 
     $('#wiki_catalog .hamburger').click(function(){
         if ($(this).hasClass('is-active')) {
-            $(this).removeClass('is-active')
-            $('#wiki_catalog .sidebar').removeClass('open')
-            $('#wiki_catalog ul').removeClass('disabled')
+            $('#wiki_catalog_modal').modal('hide')
+            // $(this)
+            // $('#wiki_catalog .sidebar').removeClass('open')
+            
             // $('html, body').css({overflow: 'auto'})
         } else {
-            $(this).addClass('is-active')
-            $('#wiki_catalog .sidebar').addClass('open')
-            $('#wiki_catalog ul').addClass('disabled')
+            $('#wiki_catalog_modal').modal()
+            // $(this).addClass('is-active')
+            // $('#wiki_catalog .sidebar').addClass('open')
+            // $('#wiki_catalog ul').addClass('disabled')
             // $('html, body').css({overflow: 'hidden'})
         } 
     })
 
-    $('#wiki_catalog .sidebar ul li a').mouseenter(function(){
-        $('#wiki_catalog .sidebar ul li a').not(this).css('opacity', 0.5);
-    }).mouseleave(function(){
-        $('#wiki_catalog .sidebar ul li a').css('opacity', 1);
+    $('#wiki_catalog_modal').on('show.bs.modal', function (event) {
+        $('.modal-backdrop').css({top: 80+'px'})
+        $('body').addClass('modal-backdrop-wiki').css({background: '#353535'})
+        $('#wiki_catalog .hamburger').addClass('is-active')
+        $('#wiki_catalog ul').addClass('disabled')
+        $('#wiki_catalog a.load').addClass('disabled')
+    }).on('hide.bs.modal', function (event) {
+        $('body').removeClass('modal-backdrop-wiki').css({background: '#FFF'})
+        $('#wiki_catalog .hamburger').removeClass('is-active')
+        $('#wiki_catalog ul').removeClass('disabled')
+        $('#wiki_catalog a.load').removeClass('disabled')
     })
+
+    $('#wiki_catalog_modal ul li a').mouseenter(function(){
+        $('#wiki_catalog_modal ul li a').not(this).css('opacity', 0.5);
+    }).mouseleave(function(){
+        $('#wiki_catalog_modal ul li a').css('opacity', 1);
+    })
+
 
 
 }
