@@ -650,7 +650,22 @@ $speed: .25s;
         }
     }
 }
-
+.modal-backdrop-wiki {
+    #top {
+        .phone {
+            right: 77px;
+            @media (max-width: 575px) {
+                right: 0;
+            }
+        }
+        .search {
+            right: 377px;
+        }
+        .cal {
+            right: 17px;
+        }
+    }
+}
 
 
 

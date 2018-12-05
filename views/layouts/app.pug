@@ -94,6 +94,30 @@ html(lang="ru")
                 .img
         //- #main
         block content
+
+        .modal#wiki_catalog_modal(tabindex="-1", role="dialog")
+            .modal-dialog(role="document")
+                .modal-content
+                    ul
+                        li
+                            a(href="/wiki") Словать оконных терминов
+                        li
+                            a(href="/wiki") Сравнительные характеристики профилей
+                        li
+                            a(href="/wiki") Монтаж
+                        li
+                            a(href="/wiki") История
+                        li
+                            a(href="/wiki") Фурнитура
+                        li
+                            a(href="/wiki") Балконы
+                        li
+                            a(href="/wiki") Профили
+                        li
+                            a(href="/wiki") Стекло и стеклопакеты
+                        li
+                            a(href="/wiki") Двери 
+
         if env.NODE_ENV == 'development'
             script(src='/src/js/jquery-3.3.1.js')
             script(src='/src/js/jquery-ui.min.js')
