@@ -39,14 +39,18 @@ if ($('#wiki_catalog').length) {
     $('#wiki_catalog_modal').on('show.bs.modal', function (event) {
         $('.modal-backdrop').css({top: 80+'px'})
         $('body').addClass('modal-backdrop-wiki').css({background: '#353535'})
-        $('#wiki_catalog .hamburger').addClass('is-active')
+        // $('#wiki_catalog .hamburger').addClass('is-active')
         $('#wiki_catalog ul').addClass('disabled')
         $('#wiki_catalog a.load').addClass('disabled')
+        setTimeout("$('#wiki_catalog .hamburger').addClass('is-active')", 100)
+    }).on('shown.bs.modal', function (event) {
+        // alert(1)
     }).on('hide.bs.modal', function (event) {
         $('body').removeClass('modal-backdrop-wiki').css({background: '#FFF'})
-        $('#wiki_catalog .hamburger').removeClass('is-active')
+        // $('#wiki_catalog .hamburger').removeClass('is-active')
         $('#wiki_catalog ul').removeClass('disabled')
         $('#wiki_catalog a.load').removeClass('disabled')
+        setTimeout("$('#wiki_catalog .hamburger').removeClass('is-active')", 100)
     })
 
     $('#wiki_catalog_modal ul li a').mouseenter(function(){
