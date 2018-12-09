@@ -21,28 +21,28 @@ div(data-Module="module-result")
                     ins
                         i.material-icons close
                         span(data-El="num") Окно 1
-                            big(data-El="cost") 8600
-                    ins.active 
-                        i.material-icons close
-                        span(data-El="num") Окно 2
-                            big(data-El="cost") 10000
-                        ul
-                            li 
-                                img(src="/images/index/s6/window-2-0.svg", alt="")
-                            li 
-                                span Monblanc Eco 60
-                            li 
-                                img(src="/images/index/s6/texture-1.png", alt="")
-                            li 
-                                img(src="/images/index/s6/texture-2.png", alt="")
-                    ins
-                        i.material-icons close
-                        span(data-El="num") Окно 3
-                            big(data-El="cost") 8600
-                    ins
-                        i.material-icons close
-                        span(data-El="num") Окно 4
-                            big(data-El="cost") 8600
+                            big.calc_result(data-El="cost") 0
+                    //- ins.active 
+                    //-     i.material-icons close
+                    //-     span(data-El="num") Окно 2
+                    //-         big(data-El="cost") 10000
+                    //-     ul
+                    //-         li 
+                    //-             img(src="/images/index/s6/window-2-0.svg", alt="")
+                    //-         li 
+                    //-             span Monblanc Eco 60
+                    //-         li 
+                    //-             img(src="/images/index/s6/texture-1.png", alt="")
+                    //-         li 
+                    //-             img(src="/images/index/s6/texture-2.png", alt="")
+                    //- ins
+                    //-     i.material-icons close
+                    //-     span(data-El="num") Окно 3
+                    //-         big(data-El="cost") 8600
+                    //- ins
+                    //-     i.material-icons close
+                    //-     span(data-El="num") Окно 4
+                    //-         big(data-El="cost") 8600
 
                 figure(data-El="tabpanel-1")
                     ins(hidden="true").empty Еще не добавлено
@@ -63,7 +63,7 @@ div(data-Module="module-result")
         div(data-grid="inner-result-2")
             p
                 small Общая стоимость:
-                big(data-El="cost") 18600
+                big.calc_result(data-El="cost") 0
             
             .grid-buttons
                 a(href="", role="button").v2.bg-btn Отправить на точный расчет

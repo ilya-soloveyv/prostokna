@@ -7,12 +7,12 @@
             label(for="") ширина окна
             output 1000
             span мм
-            input(type='range', value='1000', step='1', min='1', max='1500')
+            input#calc_user_x(type='range', value='855', step='1', min='450', max='1600')
         p
             label(for="") высота окна
-            input.edit(type="number", value="", placeholder="Введите")
+            input.edit(type="number", value="1470", placeholder="Введите")
             span мм
-            input(type='range', value='0', step='1', min='1', max='5000')
+            input#calc_user_y(type='range', value='1470', step='1', min='500', max='2000')
     .grid-col-2
         p
             label(for="") ширина двери

@@ -6,15 +6,37 @@ const pug = require('pug')
 require('dotenv').config()
 const mysql = require('mysql')
 const async = require('async')
-
+const cookieParser = require('cookie-parser')
+const fs = require('fs')
+app.use(cookieParser())
 
 app.locals.env = process.env;
 
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
+
+
+app.use(function (req, res, next) {
+    var cookie = req.cookies.cookieName;
+    if (cookie === undefined) {
+        var randomNumber = Math.random().toString()
+        randomNumber = randomNumber.substring(2,randomNumber.length)
+        res.cookie('cookieName', randomNumber, { maxAge: 900000, httpOnly: true })
+    } else {
+        console.log('cookie exists', cookie)
+    }
+    next()
+});
+
 app.get('/', (req, res) => {
     res.render('index.pug', { title: 'Просто окна' })
+})
+app.get('/calc_data', (req, res) => {
+    fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
+        if (err) throw err
+        res.json(JSON.parse(data))
+    })    
 })
 app.get('/contact', (req, res) => {
     res.render('contact.pug', { title: 'Контакты' })

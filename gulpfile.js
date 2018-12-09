@@ -168,7 +168,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('public/src/sass/**/*.scss', ['sass'])
+    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
 })
 
 gulp.task('bs', /* ['nodemon'], */ function() {

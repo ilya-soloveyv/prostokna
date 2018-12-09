@@ -9,47 +9,47 @@
                 i.material-icons expand_more
                 select(name="")
                     option(value="дерево") Дерево
-                    option(value="пластик") Пластик
-                    option(value="металл") Металл
+                    //- option(value="пластик") Пластик
+                    //- option(value="металл") Металл
         .grid-col-2
             p
                 label производитель
                     i.material-icons expand_more
                     select(name="")
                         option(value="значение") MONTBLANC
-                        option(value="значение") MONTBLANC2
-                        option(value="значение") MONTBLANC3
+                        //- option(value="значение") MONTBLANC2
+                        //- option(value="значение") MONTBLANC3
             p
                 label модель
                     i.material-icons expand_more
                     select(name="")
                         option(value="значение") Eco 60
-                        option(value="значение") Eco 601
-                        option(value="значение") Eco 602
+                        //- option(value="значение") Eco 601
+                        //- option(value="значение") Eco 602
         .grid-col-2
             p
                 label камерность профиля
                     i.material-icons expand_more
-                    select(name="")
+                    select(name="", disabled)
                         option(value="значение") 3-х камерный
-                        option(value="значение") 3-х камерный
-                        option(value="значение") 3-х камерный
+                        //- option(value="значение") 3-х камерный
+                        //- option(value="значение") 3-х камерный
             p
                 label монтажная глубина
                     i.material-icons expand_more
-                    select(name="")
-                        option(value="значение") 20 мм
-                        option(value="значение") 40 мм
+                    select(name="", disabled)
+                        //- option(value="значение") 20 мм
+                        //- option(value="значение") 40 мм
                         option(value="значение") 60 мм
-                        option(value="значение") 80 мм
-                        option(value="значение") 100 мм
+                        //- option(value="значение") 80 мм
+                        //- option(value="значение") 100 мм
         p
             label стеклопакет
                     i.material-icons expand_more
-                    select(name="")
-                        option(value="значение") Однокамерный
-                        option(value="значение") Двухкамерный
-                        option(value="значение") Трехкамерный
+                    select#calc_camera(name="")
+                        option(value=0) Однокамерный
+                        option(value=1) Двухкамерный
+                        //- option(value="значение") Трехкамерный
         .grid-col-2.mt50
             a(href="", role="button", data-El="open-tabs-entry").bg-btn Смотреть подробнее
             a(href="", role="button") Добавить в сравнение
