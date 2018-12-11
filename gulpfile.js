@@ -28,8 +28,9 @@ function cleaner() {
 }
 
 gulp.task('js_min', () => {
-    gulp
+    return gulp
         .src([
+            'node_modules/vue/dist/vue.min.js',
             'public/src/js/jquery-3.3.1.js',
             'public/src/js/jquery-ui.min.js',
             'public/src/js/jquery.ui.touch-punch.min.js',
@@ -78,9 +79,8 @@ gulp.task('js_min', () => {
 })
 
 gulp.task('css_min', () => {
-    gulp
+    return gulp
         .src([
-            'node_modules/vue/dist/vue.min.js',
             'public/src/css_static/bootstrap.css',
             'public/src/css_static/jquery.fullpage.min.css',
             'public/src/css_static/owl.carousel.min.css',
@@ -122,7 +122,7 @@ gulp.task('css_min', () => {
 })
 
 gulp.task('rev', () => {
-    gulp.src(['public/app.min.css', 'public/app.min.js'])
+    return gulp.src(['public/app.min.css', 'public/app.min.js'])
         .pipe(rev())
         .pipe(gulp.dest('public/'))
         .pipe(rev.manifest())
@@ -138,10 +138,9 @@ gulp.task('rev_collector', () => {
 })
 
 gulp.task('rev_clean', function() {
-    gulp.src( ['public/*.*'], {read: false})
+    return gulp.src( ['public/*.*'], {read: false})
         .pipe( revOutdated(1) )
         .pipe( cleaner() );
-    return;
 });
 
 gulp.task('production', (callback) => {
