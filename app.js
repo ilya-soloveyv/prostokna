@@ -15,6 +15,7 @@ app.locals.env = process.env;
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
+app.use('/vue', express.static(__dirname + '/node_modules/vue/dist'))
 
 
 app.use(function (req, res, next) {

@@ -169,21 +169,17 @@ $('[data-toggle="modal-form"]').click(function() {
 
 
 
-var calc_data = {}
-if ($('.section.s6').length) {
-	$.ajax({
-		url: "/calc_data",
-		type: "GET"
-	}).done(function(json) {
-		calc_data = json
-		// console.log(json)
-		// $(json.material).each(function(i, v){
-			
-			
-		// });
-		calculator ()
-	});
-}
+// var calc_data = {}
+// if ($('.section.s6').length) {
+// 	$.ajax({
+// 		url: "/calc_data",
+// 		type: "GET"
+// 	}).done(function(json) {
+// 		calc_data = json
+// 		console.log(calc_data)
+// 		calculator ()
+// 	});
+// }
 
 $("#calc_user_x").change(function(){
 	calculator ()
@@ -196,13 +192,12 @@ $("#calc_camera").change(function(){
 })
 
 function calculator () {
+	return true
 	// console.log(json)
 
 	var user_x = $("#calc_user_x").val()
 	var user_y = $("#calc_user_y").val()
 	var user_camera = $("#calc_camera").val()
-	console.log(user_camera);
-
 
 	var shape = calc_data[user_camera]
 	
@@ -213,12 +208,10 @@ function calculator () {
 		resp.maxY = (shape[2][1] > shape[3][1] ? shape[2][1] : shape[3][1])
 
 	var tri = getTriangle(shape, [user_x, user_y])
-		resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1.2305)
+		resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1)
+		// resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1.2305)
 	
-		$('.calc_result').html(resp.price)
-	console.log(resp);
-
-
+	$('.calc_result').html(resp.price)
 }
 
 function getTriangle (shape, point) {

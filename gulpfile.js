@@ -46,6 +46,7 @@ gulp.task('js_min', () => {
             'public/src/js/index/s2.js',
             'public/src/js/index/s5.js',
             'public/src/js/index/s6.js',
+            'public/src/js/app/calc.js',
             'public/src/js/index/s7.js',
             'public/src/js/index/s8.js',
             'public/src/js/index/s9.js',
@@ -79,6 +80,7 @@ gulp.task('js_min', () => {
 gulp.task('css_min', () => {
     gulp
         .src([
+            'node_modules/vue/dist/vue.min.js',
             'public/src/css_static/bootstrap.css',
             'public/src/css_static/jquery.fullpage.min.css',
             'public/src/css_static/owl.carousel.min.css',
@@ -159,7 +161,7 @@ gulp.task('production', (callback) => {
 
 
 gulp.task('sass', function () {
-    gulp
+    return gulp
         .src([
             'public/src/sass/**/*.scss'
         ])
