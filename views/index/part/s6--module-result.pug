@@ -3,25 +3,30 @@
 div(data-Module="module-result")
     i.material-icons(data-El="close") close
     
-    h2 Калькулятор
+    calc-title(v-bind:title="title")
     
     nav.tabs-result
-        span(data-El="tab-1")
-            img(src="/images/index/s6/i-balcony.png", alt="")
-            a(href="#") Остекление балконов
         span(data-El="tab-2", data-active="true")
             img(src="/images/index/s6/i-window.png", alt="")
             a(href="#") Оконные конструкции
+        span(data-El="tab-1")
+            img(src="/images/index/s6/i-balcony.png", alt="")
+            a(href="#") Остекление балконов
     
     div(data-grid="inner-result-1")
         div(data-grid="inner-result-2")
             .scrollbar-outer.vertical
                 figure(data-El="tabpanel-2", data-showed="true")
                     ins(hidden="true").empty Еще не добавлено
-                    ins
-                        i.material-icons close
-                        span(data-El="num") Окно 1
-                            big.calc_result(data-El="cost") 0
+                    calc-selected-window(
+                        v-for="(item, index) in selectedWindow",
+                        v-bind:class="{ active: item.active }",
+                        :key="index",
+                        :index="index",
+                        :id="item.id",
+                        :title="item.title",
+                        :price="item.price"                        
+                    )
                     //- ins.active 
                     //-     i.material-icons close
                     //-     span(data-El="num") Окно 2
@@ -35,17 +40,8 @@ div(data-Module="module-result")
                     //-             img(src="/images/index/s6/texture-1.png", alt="")
                     //-         li 
                     //-             img(src="/images/index/s6/texture-2.png", alt="")
-                    //- ins
-                    //-     i.material-icons close
-                    //-     span(data-El="num") Окно 3
-                    //-         big(data-El="cost") 8600
-                    //- ins
-                    //-     i.material-icons close
-                    //-     span(data-El="num") Окно 4
-                    //-         big(data-El="cost") 8600
-
                 figure(data-El="tabpanel-1")
-                    ins(hidden="true").empty Еще не добавлено
+                    ins(hidden="false").empty Еще не добавлено
                     ins
                         i.material-icons close
                         span(data-El="num") Окно 1
@@ -58,12 +54,12 @@ div(data-Module="module-result")
                         i.material-icons close
                         span(data-El="num") Окно 3
                             big(data-El="cost") 8600
-            a(data-El="add", href="#") Добавить окно
+            a(data-El="add", href="#", v-on:click.prevent="addNewWindow") Добавить окно
     
         div(data-grid="inner-result-2")
             p
                 small Общая стоимость:
-                big.calc_result(data-El="cost") 0
+                big.calc_result(data-El="cost") {{ calcSumma }}
             
             .grid-buttons
                 a(href="", role="button").v2.bg-btn Отправить на точный расчет

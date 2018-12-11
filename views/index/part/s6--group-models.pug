@@ -7,34 +7,33 @@
         p.border-round
             label материал
                 i.material-icons expand_more
+                //- select(name="", v-model="selectedWindow[activeWindow].material")
                 select(name="")
-                    option(value="дерево") Дерево
-                    //- option(value="пластик") Пластик
-                    //- option(value="металл") Металл
+                    option(v-for="(material, index) in materials", v-bind:value="index") {{ material.title }}
         .grid-col-2
             p
+                //- | {{ materials[activeWindow.material].brands }}
                 label производитель
                     i.material-icons expand_more
-                    select(name="")
-                        option(value="значение") MONTBLANC
-                        //- option(value="значение") MONTBLANC2
-                        //- option(value="значение") MONTBLANC3
+                    //- select(name="", v-model="activeWindow.brand")
+                        option(v-for="(brand, index) in materials[activeWindow.material].brands", v-bind:value="index") {{ brand.title }}
             p
                 label модель
                     i.material-icons expand_more
-                    select(name="")
-                        option(value="значение") Eco 60
+                    //- select(name="", v-model="activeWindow.model")
+                        option(v-for="(model, index) in materials[activeWindow.material].brands[activeWindow.brand].models", v-bind:value="index") {{ model.title }}
+                        //- option(value="значение") Eco 60
                         //- option(value="значение") Eco 601
                         //- option(value="значение") Eco 602
         .grid-col-2
-            p
+            //- p
                 label камерность профиля
                     i.material-icons expand_more
                     select(name="", disabled)
                         option(value="значение") 3-х камерный
                         //- option(value="значение") 3-х камерный
                         //- option(value="значение") 3-х камерный
-            p
+            //- p
                 label монтажная глубина
                     i.material-icons expand_more
                     select(name="", disabled)
@@ -43,7 +42,7 @@
                         option(value="значение") 60 мм
                         //- option(value="значение") 80 мм
                         //- option(value="значение") 100 мм
-        p
+        //- p
             label стеклопакет
                     i.material-icons expand_more
                     select#calc_camera(name="")

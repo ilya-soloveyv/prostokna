@@ -1,6 +1,9 @@
 
 [data-el="container-tabs"] {
     position: relative;
+    &.hide {
+        display: none;
+    }
 }
 // =========================
 

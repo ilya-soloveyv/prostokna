@@ -1,5 +1,5 @@
 .section.s6
-    .fp_bg
+    .fp_bg#calc
         include part/s6--modal-form.pug
 
         .child-fullpage
@@ -12,7 +12,7 @@
                     include part/s6--nav-tabs.pug
                     //- include part/s6--body-welcome.pug
                                 
-                    div(data-El="container-tabs")#nav-tabContent.tab-content
+                    div(data-El="container-tabs", v-bind:class="{ hide: !selectedWindow.length }")#nav-tabContent.tab-content
                         #tab1.tab-pane.fade.show.active(role='tabpanel')
                             .multi-group
                                 h2 Производитель и модель
