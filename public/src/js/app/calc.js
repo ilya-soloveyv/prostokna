@@ -11,7 +11,10 @@ if($('#calc').length) {
                 windows: [],
                 current_window: null,
                 calcSumma: 0,
-                materials: json.materials
+                materials: json.materials,
+                collections: json.collections,
+                elements: json.elements,
+                opening: json.opening
             },
             methods: {
                 addNewWindow: function () {
@@ -22,9 +25,11 @@ if($('#calc').length) {
                         brand: 0,
                         model: 0,
                         glazing: 0,
-                        type: 0,
-                        x: 1000,
-                        y: 1000
+                        collection: 0,
+                        window_x: 1000,
+                        window_y: 1000,
+                        door_x: 1000,
+                        door_y: 600
                     })
                     Vue.set(this, 'current_window', this.windows.length-1)
                     Vue.nextTick(function () {
@@ -69,11 +74,16 @@ if($('#calc').length) {
                     Vue.set(this.windows[this.current_window], 'type', 0)
                     this.calc()
                 },
+                useCollection: function (index) {
+                    Vue.set(this.windows[this.current_window], 'collection', index)
+                    this.calc()
+                },
                 useType: function (index) {
                     Vue.set(this.windows[this.current_window], 'type', index)
                     this.calc()
                 },
                 calc: function () {
+                    return false
                     var materials = this.materials[this.windows[this.current_window].material]
                     var brands = (materials.brands && materials.brands[this.windows[this.current_window].brand]) ? materials.brands[this.windows[this.current_window].brand] : false
                     var models = (brands.models && brands.models[this.windows[this.current_window].model]) ? brands.models[this.windows[this.current_window].model] : false
@@ -93,7 +103,6 @@ if($('#calc').length) {
 }
 
 function calculator (user_x, user_y, shape) {
-
 	var resp = {}
 		resp.minX = (shape[1][0] < shape[2][0] ? shape[1][0] : shape[2][0])
 		resp.maxX = (shape[3][0] > shape[4][0] ? shape[3][0] : shape[4][0])
@@ -102,10 +111,8 @@ function calculator (user_x, user_y, shape) {
 
 	var tri = getTriangle(shape, [user_x, user_y])
 		resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1)
-        // resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1.2305)
+
     return resp;
-	
-	// $('.calc_result').html(resp.price)
 }
 
 function getTriangle (shape, point) {
