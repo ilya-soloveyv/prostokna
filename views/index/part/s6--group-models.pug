@@ -7,24 +7,34 @@
         p.border-round
             label материал
                 i.material-icons expand_more
-                //- select(name="", v-model="selectedWindow[activeWindow].material")
-                select(name="")
-                    option(v-for="(material, index) in materials", v-bind:value="index") {{ material.title }}
+                select(
+                    v-if="windows[current_window] && materials"
+                    v-model="windows[current_window].material"
+                    v-on:change="resetBrand" )
+                    option(
+                        v-for="(material, index) in materials",
+                        v-bind:value="index") {{ material.title }}
         .grid-col-2
             p
-                //- | {{ materials[activeWindow.material].brands }}
                 label производитель
                     i.material-icons expand_more
-                    //- select(name="", v-model="activeWindow.brand")
-                        option(v-for="(brand, index) in materials[activeWindow.material].brands", v-bind:value="index") {{ brand.title }}
+                    select(
+                        v-if="windows[current_window] && materials[windows[current_window].material].brands"
+                        v-model="windows[current_window].brand"
+                        v-on:change="resetModel" )
+                        option(
+                            v-for="(brand, index) in materials[windows[current_window].material].brands"
+                            v-bind:value="index" ) {{ brand.title }}
             p
                 label модель
                     i.material-icons expand_more
-                    //- select(name="", v-model="activeWindow.model")
-                        option(v-for="(model, index) in materials[activeWindow.material].brands[activeWindow.brand].models", v-bind:value="index") {{ model.title }}
-                        //- option(value="значение") Eco 60
-                        //- option(value="значение") Eco 601
-                        //- option(value="значение") Eco 602
+                    select(
+                        v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models"
+                        v-model="windows[current_window].model"
+                        v-on:change="resetGlazing" )
+                        option(
+                            v-for="(model, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models"
+                            v-bind:value="index" ) {{ model.title }}
         .grid-col-2
             //- p
                 label камерность профиля
@@ -42,13 +52,16 @@
                         option(value="значение") 60 мм
                         //- option(value="значение") 80 мм
                         //- option(value="значение") 100 мм
-        //- p
+        p
             label стеклопакет
                     i.material-icons expand_more
-                    select#calc_camera(name="")
-                        option(value=0) Однокамерный
-                        option(value=1) Двухкамерный
-                        //- option(value="значение") Трехкамерный
+                    select(
+                        v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings"
+                        v-model="windows[current_window].glazing"
+                        v-on:change="resetType" )
+                        option(
+                            v-for="(glazing, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings"
+                            v-bind:value="index" ) {{ glazing.title }}
         .grid-col-2.mt50
             a(href="", role="button", data-El="open-tabs-entry").bg-btn Смотреть подробнее
             a(href="", role="button") Добавить в сравнение

@@ -3,7 +3,7 @@
 div(data-Module="module-result")
     i.material-icons(data-El="close") close
     
-    calc-title(v-bind:title="title")
+    h2 {{ title }}
     
     nav.tabs-result
         span(data-El="tab-2", data-active="true")
@@ -17,29 +17,30 @@ div(data-Module="module-result")
         div(data-grid="inner-result-2")
             .scrollbar-outer.vertical
                 figure(data-El="tabpanel-2", data-showed="true")
-                    ins(hidden="true").empty Еще не добавлено
-                    calc-selected-window(
-                        v-for="(item, index) in selectedWindow",
-                        v-bind:class="{ active: item.active }",
-                        :key="index",
-                        :index="index",
-                        :id="item.id",
-                        :title="item.title",
-                        :price="item.price"                        
-                    )
-                    //- ins.active 
-                    //-     i.material-icons close
-                    //-     span(data-El="num") Окно 2
-                    //-         big(data-El="cost") 10000
-                    //-     ul
-                    //-         li 
-                    //-             img(src="/images/index/s6/window-2-0.svg", alt="")
-                    //-         li 
-                    //-             span Monblanc Eco 60
-                    //-         li 
-                    //-             img(src="/images/index/s6/texture-1.png", alt="")
-                    //-         li 
-                    //-             img(src="/images/index/s6/texture-2.png", alt="")
+                    //- ins(hidden="true").empty Еще не добавлено
+
+                    ins(
+                        v-for="(item, index) in windows"
+                        v-bind:class="{ active: index == current_window }"
+                        v-on:click.self.capture="useWindow(index)"
+                        )
+                        i.material-icons( v-on:click="removeWindow(index)" ) close
+                        span( data-El="num", v-on:click="useWindow(index)" ) {{ item.title }} {{ index }}
+                            big.calc_result( data-El="cost" ) {{ item.price }}
+
+                            //- ins.active 
+                            //-     i.material-icons close
+                            //-     span(data-El="num") Окно 2
+                            //-         big(data-El="cost") 10000
+                            //-     ul
+                            //-         li 
+                            //-             img(src="/images/index/s6/window-2-0.svg", alt="")
+                            //-         li 
+                            //-             span Monblanc Eco 60
+                            //-         li 
+                            //-             img(src="/images/index/s6/texture-1.png", alt="")
+                            //-         li 
+                            //-             img(src="/images/index/s6/texture-2.png", alt="")
                 figure(data-El="tabpanel-1")
                     ins(hidden="false").empty Еще не добавлено
                     ins
