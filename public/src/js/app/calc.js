@@ -29,9 +29,8 @@ if($('#calc').length) {
                     Vue.set(this, 'current_window', this.windows.length-1)
                     Vue.nextTick(function () {
                         $('.scrollbar-outer').scrollTop(9999)
-                        
-                    })
-                    this.calc()
+                        vm.calc()
+                    })                    
                 },
                 useWindow: function (index) {
                     Vue.set(this, 'current_window', index)
@@ -68,24 +67,25 @@ if($('#calc').length) {
                 },
                 resetType: function () {
                     Vue.set(this.windows[this.current_window], 'type', 0)
+                    this.calc()
                 },
                 useType: function (index) {
                     Vue.set(this.windows[this.current_window], 'type', index)
+                    this.calc()
                 },
                 calc: function () {
-                    if (
-                        this.materials[this.current_window] &&
-                        this.materials[this.current_window].brands[this.windows[this.current_window].brand] &&
-                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model] &&
-                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing] &&
-                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].types[this.windows[this.current_window].type] &&
-                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].types[this.windows[this.current_window].type].price
-                    ) {
-                        var res = calculator (this.windows[this.current_window].x, this.windows[this.current_window].y, this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].types[this.windows[this.current_window].type].price)
-                        console.log(res)
+                    var materials = this.materials[this.windows[this.current_window].material]
+                    var brands = (materials.brands && materials.brands[this.windows[this.current_window].brand]) ? materials.brands[this.windows[this.current_window].brand] : false
+                    var models = (brands.models && brands.models[this.windows[this.current_window].model]) ? brands.models[this.windows[this.current_window].model] : false
+                    var glazings = (models.glazings && models.glazings[this.windows[this.current_window].glazing]) ? models.glazings[this.windows[this.current_window].glazing] : false
+                    var types = (glazings.types && glazings.types[this.windows[this.current_window].type]) ? glazings.types[this.windows[this.current_window].type] : false
+                    var price = (types.price) ? types.price : false
+                    if (price) {
+                        var res = calculator (this.windows[this.current_window].x, this.windows[this.current_window].y, price)
                         Vue.set(this.windows[this.current_window], 'price', res.price)
+                    } else {
+                        Vue.set(this.windows[this.current_window], 'price', 0)
                     }
-                    
                 }
             }
         })
