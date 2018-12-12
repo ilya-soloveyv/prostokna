@@ -2,48 +2,100 @@
 //- group-options
 .group-options(data-Module="group-sizes")
     h3 Размер окна
-    .grid-col-2(v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types[windows[current_window].type].price")
-        p
-            label(for="") ширина окна
-            input.edit(
-                type="number",
-                placeholder="Введите"
-                v-model="windows[current_window].x"
-                v-on:change="calc")
-            span мм
-            input#calc_user_x(
-                type='range',
-                step='1',
-                min='450',
-                max='1600',
-                v-model="windows[current_window].x"
-                v-on:change="calc")
-        p
-            label(for="") высота окна
-            input.edit(
-                type="number",
-                placeholder="Введите"
-                v-model="windows[current_window].y"
-                v-on:change="calc")
-            span мм
-            input#calc_user_y(
-                type='range',
-                step='1',
-                min='500',
-                max='2000',
-                v-model="windows[current_window].y"
-                v-on:change="calc")
+    .grid-col-2(v-if="current_window != null")
+        template(v-for="(item, index) in collections[windows[current_window].collection].elements_list")
+            template(v-if="index == 'window'")
+                p
+                    label(for="") ширина окна
+                    input.edit(
+                        type="number",
+                        placeholder="Введите"
+                        v-model="windows[current_window].window_x"
+                        v-on:change="calc")
+                    span мм
+                    input(
+                        type='range',
+                        step='1',
+                        min='450',
+                        max='1600',
+                        v-model="windows[current_window].window_x"
+                        v-on:change="calc")
+                p
+                    label(for="") высота окна
+                    input.edit(
+                        type="number",
+                        placeholder="Введите"
+                        v-model="windows[current_window].window_y"
+                        v-on:change="calc")
+                    span мм
+                    input(
+                        type='range',
+                        step='1',
+                        min='500',
+                        max='2000',
+                        v-model="windows[current_window].window_y"
+                        v-on:change="calc")
+    .grid-col-2(v-if="current_window != null")
+        template(v-for="(item, index) in collections[windows[current_window].collection].elements_list")
+            template(v-if="index == 'door'")
+                p
+                    label(for="") ширина двери
+                    input.edit(
+                        type="number",
+                        placeholder="Введите"
+                        v-model="windows[current_window].door_x"
+                        v-on:change="calc")
+                    span мм
+                    input(
+                        type='range',
+                        step='1',
+                        min='450',
+                        max='1600',
+                        v-model="windows[current_window].door_x"
+                        v-on:change="calc")
+                p
+                    label(for="") высота двери
+                    input.edit(
+                        type="number",
+                        placeholder="Введите"
+                        v-model="windows[current_window].door_y"
+                        v-on:change="calc")
+                    span мм
+                    input(
+                        type='range',
+                        step='1',
+                        min='450',
+                        max='1600',
+                        v-model="windows[current_window].door_y"
+                        v-on:change="calc")
+
+
+
+     
+        //- div(v-for="(element, index) in collections[windows[current_window].collection].elements") {{ element }}
     //- .grid-col-2
-        p
-            label(for="") ширина двери
-            output 400
-            span мм
-            input(type='range', value='400', step='1', min='1', max='1200')
-        p
-            label(for="") высота двери
-            output 2000
-            span мм
-            input(type='range', value='200', step='1', min='1', max='3000')
+
+    ul(v-if="current_window != null")
+        li(v-for="(item, index) in collections[windows[current_window].collection].elements_list") {{ index }}
+            ul(v-if="index == 'window'")
+                li(v-for="(item2, index2) in item") {{ elements[item2].title }}
+                    ul
+                        li(v-for="(item3, index3) in elements[item2].opening_list") {{ item3 }}
+                            ul
+                                li(v-for="(item4, index4) in item3") {{ opening[item4].title }}
+            ul(v-if="index == 'door'")
+                li(v-for="(item2, index2) in item") {{ elements[item2].title }}
+                    ul
+                        li(v-for="(item3, index3) in elements[item2].opening_list") {{ item3 }}
+                            ul
+                                li(v-for="(item4, index4) in item3") {{ opening[item4].title }}
+
+    //- div(v-if="current_window != null") 
+        p(v-for="(element, index) in collections[windows[current_window].collection].elements")
+            label открытие створки {{ element }}
+                    i.material-icons expand_more
+                    select()
+                        option()
     //- div(v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types[windows[current_window].type].doors")
         p(v-for="(door, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types[windows[current_window].type].doors")
             label открытие створки

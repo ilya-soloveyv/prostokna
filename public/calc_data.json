@@ -134,5 +134,99 @@
                 }
             ]
         }
+    ],
+    "collections": [
+        {
+            "img": "/images/index/s6/window-1.svg",
+            "elements_list": {
+                "window": [0]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-2.svg",
+            "elements_list": {
+                "window": [1]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-3.svg",
+            "elements_list": {
+                "window": [2]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-4.svg",
+            "elements_list": {
+                "door": [3]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-5.svg",
+            "elements_list": {
+                "window": [0],
+                "door": [3]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-6.svg",
+            "elements_list": {
+                "window": [1],
+                "door": [3]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-7.svg",
+            "elements_list": {
+                "window": [0, 0],
+                "door": [3]
+            }
+        },
+        {
+            "img": "/images/index/s6/window-8.svg",
+            "elements_list": {
+                "window": [2],
+                "door": [3]
+            }
+        }
+    ],
+    "elements": [
+        {
+            "title": "Одностворчатое",
+            "opening_list": [
+                [0,1,2]
+            ]
+        },
+        {
+            "title": "Двухстрорчатое",
+            "opening_list": [
+                [0,1,2],
+                [0,1,2]
+            ]
+        },
+        {
+            "title": "Трехстворчатое",
+            "opening_list": [
+                [0,1,2],
+                [0,1,2],
+                [0,1,2]
+            ]
+        },
+        {
+            "title": "Дверь",
+            "opening_list": [
+                [1,2]
+            ]
+        }
+    ],
+    "opening": [
+        {
+            "title": "Глухое"
+        },
+        {
+            "title": "Поворотное"
+        },
+        {
+            "title": "Поворотно-откидное"
+        }
     ]
 }
