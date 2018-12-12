@@ -1,115 +1,173 @@
-Vue.component('calc-title', {
-    props: {
-        title: String
-    },
-    template: '<h2>{{ title }}</h2>'
-})
-
-Vue.component('calc-selected-window', {
-    props: {
-        index: Number,
-        id: Number,
-        title: String,
-        price: Number,
-        material: Number,
-        brand: Number,
-        model: Number
-    },
-    template:
-        '<ins v-on:click.self.capture="selectWindow(index, $event)">' +
-            '<i class="material-icons" v-on:click="removeWindow(index, $event)">close</i>' +
-            '<span data-El="num" v-on:click="selectWindow(index, $event)">' +
-                '{{ title }}' +
-                '<big class="calc_result" data-El="cost">{{ price }}</big>' +
-            '</span>' +
-        '</ins>',
-    methods: {
-        selectWindow: function (index, event) {
-            Vue.set(vm, 'activeWindow', index)
-            vm.selectedWindow.map(function (item, i) {
-                if (i == index) {
-                    return item.active = true
-                } else {
-                    return item.active = false
-                }                
-            })
-        },
-        removeWindow: function (index, event) {
-            Vue.delete(vm.selectedWindow, index)
-            
-            if (index == vm.activeWindow) {
-                if (vm.selectedWindow.length) {
-                    Vue.set(vm, 'activeWindow', vm.selectedWindow.length-1)
-                    Vue.set(vm.selectedWindow[vm.selectedWindow.length-1], 'active', true)
-                } else {
-                    Vue.set(vm, 'activeWindow', 0)
-                }
-            }
-            
-            // vm.selectedWindow.map(function (item, i) {
-            //     if (i == 0) {
-            //         return item.active = true
-            //     }                
-            // })
-        }
-    }
-})
-
 if($('#calc').length) {
     var vm;
     $.ajax({
         url: "/calc_data",
         type: "GET"
     }).done(function(json) {
-        // $(json.materials).each(function(i, v){
-        //     vm.materials.push(v)
-        // })
         vm = new Vue({
             el: '#calc',
             data: {
                 title: "Калькулятор",
-                selectedWindow: [],
-                activeWindow: 0,
-                // activeWindow: {
-                //     material: 0,
-                //     brand: 0,
-                //     model: 0
-                // },
-                nextSelectedWindowID: 1,
+                windows: [],
+                current_window: null,
                 calcSumma: 0,
                 materials: json.materials
             },
-            // mounted: function() {
-                // this.$nextTick(function () {
-                    // var _this = this
-                    // this.materials.push({title:'1111'})
-                    
-                // })
-            // },
             methods: {
                 addNewWindow: function () {
-                    this.selectedWindow.map(function (item) {
-                        return item.active = false
-                    })
-                    this.selectedWindow.push({
-                        index: this.nextSelectedWindowID++,
+                    this.windows.push({
                         title: 'Новое окна',
                         price: 0,
-                        active: true,
                         material: 0,
                         brand: 0,
-                        model: 0
+                        model: 0,
+                        glazing: 0,
+                        type: 0,
+                        x: 1000,
+                        y: 1000
                     })
-                    
+                    Vue.set(this, 'current_window', this.windows.length-1)
                     Vue.nextTick(function () {
-                        Vue.set(vm, 'activeWindow', vm.selectedWindow.length-1)
                         $('.scrollbar-outer').scrollTop(9999)
+                        
                     })
+                    this.calc()
                 },
-                selectedMaterial: function (index) {
-                    console.log(index)
+                useWindow: function (index) {
+                    Vue.set(this, 'current_window', index)
+                },
+                removeWindow: function (index) {
+                    if (index < this.current_window) {
+                        Vue.set(this, 'current_window', (this.current_window-1))
+                        Vue.delete(this.windows, index)
+                    } else if (index == this.current_window) {
+                        if (this.windows[(this.current_window-1)]) {
+                            Vue.set(this, 'current_window', (this.current_window-1))
+                            Vue.delete(this.windows, index)
+                        } else if (this.windows[(this.current_window+1)]) {
+                            Vue.delete(this.windows, index)
+                        } else {
+                            Vue.set(this, 'current_window', null)
+                            Vue.delete(this.windows, index)
+                        }
+                    } else if (index > this.current_window) {
+                        Vue.delete(this.windows, index)
+                    }
+                },
+                resetBrand: function () {
+                    Vue.set(this.windows[this.current_window], 'brand', 0)
+                    this.resetModel()
+                },
+                resetModel: function () {
+                    Vue.set(this.windows[this.current_window], 'model', 0)
+                    this.resetGlazing()
+                },
+                resetGlazing: function () {
+                    Vue.set(this.windows[this.current_window], 'glazing', 0)
+                    this.resetType()
+                },
+                resetType: function () {
+                    Vue.set(this.windows[this.current_window], 'type', 0)
+                },
+                useType: function (index) {
+                    Vue.set(this.windows[this.current_window], 'type', index)
+                },
+                calc: function () {
+                    if (
+                        this.materials[this.current_window] &&
+                        this.materials[this.current_window].brands[this.windows[this.current_window].brand] &&
+                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model] &&
+                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing] &&
+                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].types[this.windows[this.current_window].type] &&
+                        this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].types[this.windows[this.current_window].type].price
+                    ) {
+                        var res = calculator (this.windows[this.current_window].x, this.windows[this.current_window].y, this.materials[this.current_window].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].types[this.windows[this.current_window].type].price)
+                        console.log(res)
+                        Vue.set(this.windows[this.current_window], 'price', res.price)
+                    }
+                    
                 }
             }
         })
     })
 }
+
+function calculator (user_x, user_y, shape) {
+
+	var resp = {}
+		resp.minX = (shape[1][0] < shape[2][0] ? shape[1][0] : shape[2][0])
+		resp.maxX = (shape[3][0] > shape[4][0] ? shape[3][0] : shape[4][0])
+		resp.minY = (shape[1][1] < shape[4][1] ? shape[1][1] : shape[4][1])
+		resp.maxY = (shape[2][1] > shape[3][1] ? shape[2][1] : shape[3][1])
+
+	var tri = getTriangle(shape, [user_x, user_y])
+		resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1)
+        // resp.price = Math.ceil(TriangleIterpolate(tri, [user_x, user_y]) * 1.2305)
+    return resp;
+	
+	// $('.calc_result').html(resp.price)
+}
+
+function getTriangle (shape, point) {
+    var max = shape.length - 1;
+    for (var i = 1; i < max; i++) {
+        if (isInTriangle([shape[0], shape[i+1], shape[i]], point)) {
+            return [shape[0], shape[i+1],shape[i]]
+        }
+    }
+    if (isInTriangle([shape[0], shape[1], shape[4]], point)) {
+        return [shape[0], shape[1], shape[4]]
+    }
+}
+
+function isInTriangle(triangle, point) {
+    var x1 = triangle[0][0]
+    var y1 = triangle[0][1]
+    var x2 = triangle[1][0]
+    var y2 = triangle[1][1]
+    var x3 = triangle[2][0]
+    var y3 = triangle[2][1]
+    var tx = point[0]
+    var ty = point[1]
+
+    var a = (tx-x1)*(y1-y2)-(ty-y1)*(x1-x2);
+    var b = (tx-x2)*(y2-y3)-(ty-y2)*(x2-x3);
+    var c = (tx-x3)*(y3-y1)-(ty-y3)*(x3-x1);
+
+    if (a >=0 && b >=0 && c >= 0)
+        return true
+    return false
+}
+
+function TriangleIterpolate (triangle, point) {
+    var x1 = triangle[0][0]
+    var y1 = triangle[0][1]
+    var z1 = triangle[0][2]
+    var x2 = triangle[1][0]
+    var y2 = triangle[1][1]
+    var z2 = triangle[1][2]
+    var x3 = triangle[2][0]
+    var y3 = triangle[2][1]
+    var z3 = triangle[2][2]
+    var x = point[0]
+    var y = point[1]
+
+    var d  = Math.abs (getDet3( [[x1, x2, x3], [y1, y2, y3]] ))
+    var d1 = Math.abs (getDet3( [[x, x2, x3], [y, y2, y3]] ))
+    var d2 = Math.abs (getDet3( [[x1, x, x3], [y1, y, y3]] ))
+    var a = d1/d;
+    var b = d2/d;
+    var g = 1-a-b;
+    
+    return ( a*z1 + b*z2 + g*z3 );
+}
+
+function getDet3(matrix){
+    var a21 = matrix[0][0]
+    var a22 = matrix[0][1]
+    var a23 = matrix[0][2]
+    var a31 = matrix[1][0]
+    var a32 = matrix[1][1]
+    var a33 = matrix[1][2]
+    return ( (a22*a33-a23*a32)-(a21*a33-a23*a31)+(a21*a32-a22*a31) )
+} 

@@ -12,7 +12,8 @@
                     include part/s6--nav-tabs.pug
                     //- include part/s6--body-welcome.pug
                                 
-                    div(data-El="container-tabs", v-bind:class="{ hide: !selectedWindow.length }")#nav-tabContent.tab-content
+                    //- div(data-El="container-tabs", v-bind:class="{ hide: !selectedWindow.length }")#nav-tabContent.tab-content
+                    div(data-El="container-tabs")#nav-tabContent.tab-content
                         #tab1.tab-pane.fade.show.active(role='tabpanel')
                             .multi-group
                                 h2 Производитель и модель
@@ -30,13 +31,13 @@
                             .multi-group
                                 h2 Дополнительно
                                 div(data-grid="extra")
-                                    include part/s6--group-extra.pug
+                                    //- include part/s6--group-extra.pug
                                     //- include part/s6--group-extra2.pug
                         #tab4.tab-pane.fade.show(role='tabpanel')
                             .multi-group
                                 h2 Цвет материала
                                 div(data-grid="colors")
-                                        include part/s6--group-colors.pug
+                                        //- include part/s6--group-colors.pug
                                         //- include part/s6--group-colors--x2_.pug
                                         //- include part/s6--group-colors--x3.pug
                                         //- include part/s6--group-colors--x4.pug

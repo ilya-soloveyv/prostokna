@@ -4,24 +4,61 @@
             "title": "Пластик",
             "brands": [
                 {
-                    "title": "Alutech",
-                    "models": [
-                        {
-                            "title": "F50"
-                        },
-                        {
-                            "title": "Alt C48"
-                        },
-                        {
-                            "title": "ALT W62"
-                        }
-                    ]
-                },
-                {
                     "title": "KBE",
                     "models": [
                         {
-                            "title": "58"
+                            "title": "58",
+                            "glazings": [
+                                {
+                                    "title": "Однокамерный стеклопакет",
+                                    "types": [
+                                        {
+                                            "img": "/images/index/s6/window-1.svg",
+                                            "price": [
+                                                [
+                                                    1025,
+                                                    1250,
+                                                    3743
+                                                ],
+                                                [
+                                                    450,
+                                                    500,
+                                                    1293
+                                                ],
+                                                [
+                                                    450,
+                                                    2000,
+                                                    3318
+                                                ],
+                                                [
+                                                    1600,
+                                                    2000,
+                                                    15767
+                                                ],
+                                                [
+                                                    1600,
+                                                    500,
+                                                    2887
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "img": "/images/index/s6/window-2.svg"
+                                        },
+                                        {
+                                            "img": "/images/index/s6/window-3.svg"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Двухкамерный стеклопакет",
+                                    "types": [
+                                        {
+                                            "img": "/images/index/s6/window-1.svg"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "title": "76"
@@ -49,19 +86,26 @@
             ]
         },
         {
-            "title": "Дерево",
-            "brands": [
-                {
-                    "title": "SEAL"
-                },
-                {
-                    "title": "Wintech"
-                }
-            ]
+            "title": "Дерево"
         },
         {
             "title": "Алюминий",
-            "brands": []
+            "brands": [
+                {
+                    "title": "Alutech",
+                    "models": [
+                        {
+                            "title": "F50"
+                        },
+                        {
+                            "title": "Alt C48"
+                        },
+                        {
+                            "title": "ALT W62"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

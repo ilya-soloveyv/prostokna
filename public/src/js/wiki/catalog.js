@@ -44,7 +44,7 @@ if ($('#wiki_catalog').length) {
         $('#wiki_catalog a.load').addClass('disabled')
         setTimeout("$('#wiki_catalog .hamburger').addClass('is-active')", 100)
     }).on('shown.bs.modal', function (event) {
-        $('html, body').css({overflow: "hidden", position: "relative"})
+        $('html, body').css({overflow: "hidden", position: "fixed"})
         $('.modal-backdrop').css({"z-index":97})
     }).on('hide.bs.modal', function (event) {
         $('html, body').css({overflow: "auto", position: "static"})

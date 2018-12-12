@@ -1,24 +1,29 @@
 
 .group-options(data-Module="group-view")
 	h3 Тип окна
-	ul.view
-		li.active
+	ul.view(v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types")
+		li(
+			v-for="(type, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types"
+			v-bind:class="{ active: index == windows[current_window].type }"
+			v-on:click="useType(index)" )
+			img( v-bind:src="type.img", alt="" )
+		//- li
 			img(src="/images/index/s6/window-1.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-2.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-3.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-4.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-5.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-6.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-7.svg", alt="")
-		li
+		//- li
 			img(src="/images/index/s6/window-8.svg", alt="")
-		li(role="button")
+		//- li(role="button")
 			img(src="/images/index/s6/i-flip.png", alt="")
 			span повернуть
 

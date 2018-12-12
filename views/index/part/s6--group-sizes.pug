@@ -2,18 +2,38 @@
 //- group-options
 .group-options(data-Module="group-sizes")
     h3 Размер окна
-    .grid-col-2
+    .grid-col-2(v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types[windows[current_window].type].price")
         p
             label(for="") ширина окна
-            output 1025
+            input.edit(
+                type="number",
+                placeholder="Введите"
+                v-model="windows[current_window].x"
+                v-on:change="calc")
             span мм
-            input#calc_user_x(type='range', value='1025', step='1', min='450', max='1600')
+            input#calc_user_x(
+                type='range',
+                step='1',
+                min='450',
+                max='1600',
+                v-model="windows[current_window].x"
+                v-on:change="calc")
         p
             label(for="") высота окна
-            input.edit(type="number", value="1250", placeholder="Введите")
+            input.edit(
+                type="number",
+                placeholder="Введите"
+                v-model="windows[current_window].y"
+                v-on:change="calc")
             span мм
-            input#calc_user_y(type='range', value='1250', step='1', min='500', max='2000')
-    .grid-col-2
+            input#calc_user_y(
+                type='range',
+                step='1',
+                min='500',
+                max='2000',
+                v-model="windows[current_window].y"
+                v-on:change="calc")
+    //- .grid-col-2
         p
             label(for="") ширина двери
             output 400
@@ -24,14 +44,16 @@
             output 2000
             span мм
             input(type='range', value='200', step='1', min='1', max='3000')
-    p
-        label открывание створки
-                i.material-icons expand_more
-                select(name="")
-                    option(value="значение") Поворотно-откидное по центру
-                    option(value="значение") Вариант2
-                    option(value="значение") Вариант3
-    .grid-col-2.no-gutters
+    //- div(v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types[windows[current_window].type].doors")
+        p(v-for="(door, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types[windows[current_window].type].doors")
+            label открытие створки
+                    i.material-icons expand_more
+                    select(
+                        v-model="windows[current_window].doors[index]" )
+                        option(
+                            v-for="(item, index2) in door"
+                            v-bind:value="index2" ) {{ item.title }}
+    //- .grid-col-2.no-gutters
         p
             label открывание створки1
                 i.material-icons expand_more
