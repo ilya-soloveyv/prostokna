@@ -139,7 +139,8 @@
             span[data-El="num"] {
             	display: inline-block;
             	@extend .clear-fix;
-            	width: 100%;
+				width: 100%;
+				cursor: default;
             	
             	[data-El="cost"] {
             		float: right;

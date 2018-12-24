@@ -35,6 +35,12 @@
                         max='2000',
                         v-model="windows[current_window].window_y"
                         v-on:change="calc")
+    template(v-if="current_window != null && windows[current_window].opening.window")
+        p(v-for="(item, index) in windows[current_window].opening.window")
+            label открытие створки
+                i.material-icons expand_more
+                select
+                    option
     .grid-col-2(v-if="current_window != null")
         template(v-for="(item, index) in collections[windows[current_window].collection].elements_list")
             template(v-if="index == 'door'")
@@ -68,6 +74,15 @@
                         max='1600',
                         v-model="windows[current_window].door_y"
                         v-on:change="calc")
+    template(v-if="current_window != null")
+        template(v-for="(item, index) in collections[windows[current_window].collection].elements_list")
+            template(v-if="index == 'door'")
+                template(v-for="(item2, index2) in item")
+                    p(v-for="(item3, index3) in elements[item2].opening_list")
+                        label открытие створки
+                            i.material-icons expand_more
+                            select(v-model="windows[current_window].opening.door[index3]")
+                                option(v-for="(item4, index4) in item3" v-bind:value="index4") {{ opening[item4].title }}
 
 
 

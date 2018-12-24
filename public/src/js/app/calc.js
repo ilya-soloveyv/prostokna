@@ -1,3 +1,12 @@
+Vue.component('button-counter', {
+    data: function () {
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
+})
+
 if($('#calc').length) {
     var vm;
     $.ajax({
@@ -29,13 +38,64 @@ if($('#calc').length) {
                         window_x: 1000,
                         window_y: 1000,
                         door_x: 1000,
-                        door_y: 600
+                        door_y: 600,
+                        opening: {
+                            window: [],
+                            door: []
+                        }
                     })
                     Vue.set(this, 'current_window', this.windows.length-1)
                     Vue.nextTick(function () {
+                        vm.insertOpening()
                         $('.scrollbar-outer').scrollTop(9999)
                         vm.calc()
                     })                    
+                },
+                insertOpening: function () {
+                    console.clear()
+                    var current_collection = this.windows[this.current_window].collection;
+                    var collecton_elements_list = this.collections[current_collection].elements_list
+                    console.log(collecton_elements_list)
+
+                    
+
+                    // var elements_list_window = collecton_elements_list.window;
+                    // var elements_list_door = collecton_elements_list.door;
+                    // var opening = this.windows[this.current_window].opening;
+
+                    // this.windows[this.current_window].opening.window = []
+                    // this.windows[this.current_window].opening.door = []
+
+                    // if (elements_list_window) {
+                    //     elements_list_window.forEach((element, index) => {
+                    //         var window_elements = this.elements[element].opening_list;
+                    //         window_elements.forEach(item => {
+                    //             this.windows[this.current_window].opening.window.push(0)
+                    //         });
+                    //     })
+                    // }
+
+                    // if (elements_list_door) {
+                    //     elements_list_door.forEach((element, index) => {
+                    //         var door_elements = this.elements[element].opening_list;
+                    //         door_elements.forEach(item => {
+                    //             this.windows[this.current_window].opening.door.push(0)
+                    //         });
+                    //     })
+                    // }
+                    
+                    // if (elements_list_door) {
+                    //     elements_list_door.forEach(element => {
+                    //         elements_list.door.push(this.elements[element].opening_list)
+                    //     })
+                    // }
+
+                    // console.log(elements_list)
+
+                    // var elements
+                    // console.log(elements_list_window)
+                    // console.log(elements_list_door)
+                    // остановился тут
                 },
                 useWindow: function (index) {
                     Vue.set(this, 'current_window', index)
@@ -76,7 +136,9 @@ if($('#calc').length) {
                 },
                 useCollection: function (index) {
                     Vue.set(this.windows[this.current_window], 'collection', index)
+                    vm.insertOpening()
                     this.calc()
+                    
                 },
                 useType: function (index) {
                     Vue.set(this.windows[this.current_window], 'type', index)
@@ -97,6 +159,13 @@ if($('#calc').length) {
                         Vue.set(this.windows[this.current_window], 'price', 0)
                     }
                 }
+            },
+            mounted: function () {
+                this.addNewWindow()
+                Vue.nextTick(function () {
+                    $("#nav-tab a").eq(1).click()
+                })   
+                
             }
         })
     })

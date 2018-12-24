@@ -1,5 +1,5 @@
 function fullpage_welcome_color(i) {
-    if (i == 1 || i == 3 || i == 8) {
+    if (i == 1 || i == 3 || i == 6 || i == 8) {
         var fullpage_color_class = "white";
     } else {
         var fullpage_color_class = "black";
@@ -20,7 +20,7 @@ function fullpage_welcome_color(i) {
 $('#fullpage_welcome').fullpage({
     anchors: ['s1','s2','s3','s4','s5','s6','s7','s8','s9'],
     scrollingSpeed: 700,
-    normalScrollElements: '#top, #fullpage_nav, #map',
+    normalScrollElements: '#top, #fullpage_nav, #map, .s6 .scroll-wrapper',
     onLeave: function (origin, destination, direction) {
         fullpage_welcome_color(destination);
         $("#fullpage_nav li").removeClass('active');

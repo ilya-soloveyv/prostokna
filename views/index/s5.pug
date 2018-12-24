@@ -19,24 +19,12 @@
                 .c
                     .list
                         .items
-                            .item.selected
-                                .bg REHAU BLITZ
+                            .item.selected(v-for="(n, index) in maxItems" :key="index" @class="selected: list[index]")
+                                .bg(v-if="list[index]") {{ list[index].title }}
                                     i.material-icons add
-                            .item.selected
-                                .bg MONTBLANC ECO
+                                .bg(v-else) Добавить окно
                                     i.material-icons add
-                            .item.selected
-                                .bg REHAU BRILLIANT-DESIGN
-                                    i.material-icons add
-                            .item
-                                .bg Выбрать окна 4
-                                    i.material-icons add
-                            .item
-                                .bg Выбрать окна 5
-                                    i.material-icons add
-                            .item
-                                .bg Выбрать окна 6
-                                    i.material-icons add
+                                    
                             .button
                                 a(href='#').mbutton.blue.mbutton-block Сравнить     
         .sravnenie
@@ -102,7 +90,7 @@
                 tbody
                     tr.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-1.svg', alt='add') 
                             span Монтажная глубина
@@ -117,7 +105,7 @@
                         td 70мм
                     tr.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-2.svg', alt='add') 
                             span Профиль
@@ -132,7 +120,7 @@
                         td 3-камерный
                     tr.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-3.svg', alt='add') 
                             span Класс профиля
@@ -147,7 +135,7 @@
                         td «C»
                     tr.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-4.svg', alt='add') 
                             span Стеклопакет
@@ -162,7 +150,7 @@
                         td до 32 мм
                     tr.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-5.svg', alt='add') 
                             span Сопротивление теплопередаче
@@ -177,7 +165,7 @@
                         td 0,58 м2°С/Вт
                     tr.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-6.svg', alt='add') 
                             span Родина бренд
@@ -202,7 +190,7 @@
                                 span.more Вернуться к основных характеристикам
                     tr.more.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-7.svg', alt='add') 
                             span Варианты формы штапика
@@ -215,7 +203,7 @@
                         td прямой, скруглённый
                     tr.more.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-8.svg', alt='add') 
                             span Варианты декорирования
@@ -228,7 +216,7 @@
                         td ламинация двухсторонняя
                     tr.more.phone
                         td
-                            asdasdasd
+                            
                         td(colspan=3)
                             img(src='/images/index/s5/icon-6.svg', alt='add') 
                             span Особенность рамы
@@ -265,17 +253,17 @@
                             a.add(href="#")
                                 img(src='/images/index/s5/add.svg', alt='add')
         .pop_choice
-                    .menu
-                        span.item-title Окно 4
-                        span.item MONTBLANC ECO
-                        span.item RAHAU BLITZ
-                        span.item REHAU BRILLANT-DESIGN
-                        span.item NOVOTEX
-                        span.item MONTBLANC ECO
-                        span.item RAHAU BLITZ
-                        span.item REHAU BRILLANT-DESIGN
-                        span.item NOVOTEX
-                        span.item MONTBLANC ECO
-                        span.item RAHAU BLITZ
+            .menu
+                span.item-title Окно 4
+                span.item MONTBLANC ECO
+                span.item RAHAU BLITZ
+                span.item REHAU BRILLANT-DESIGN
+                span.item NOVOTEX
+                span.item MONTBLANC ECO
+                span.item RAHAU BLITZ
+                span.item REHAU BRILLANT-DESIGN
+                span.item NOVOTEX
+                span.item MONTBLANC ECO
+                span.item RAHAU BLITZ
         .call_back
             img(src='/images/index/s5/call-back.png', alt='call-back')        
