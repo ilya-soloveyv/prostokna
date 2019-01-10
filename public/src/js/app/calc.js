@@ -25,6 +25,15 @@ if($('#calc').length) {
                 elements: json.elements,
                 opening: json.opening
             },
+            computed: {
+                currentCollections: function () {
+                    if (this.current_window !== null) {
+                        // return this.windows[this.current_window].material
+                        return this.materials[this.windows[this.current_window].material].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].collection
+                    }
+                    return null
+                }
+            },
             methods: {
                 addNewWindow: function () {
                     this.windows.push({
@@ -52,50 +61,28 @@ if($('#calc').length) {
                     })                    
                 },
                 insertOpening: function () {
-                    console.clear()
-                    var current_collection = this.windows[this.current_window].collection;
-                    var collecton_elements_list = this.collections[current_collection].elements_list
-                    console.log(collecton_elements_list)
 
-                    
+                    // console.clear()
 
-                    // var elements_list_window = collecton_elements_list.window;
-                    // var elements_list_door = collecton_elements_list.door;
-                    // var opening = this.windows[this.current_window].opening;
+                    var window_opening = this.collections[this.windows[this.current_window].collection].window_opening
+                    Vue.set(this.windows[this.current_window].opening, 'window', [])
+                    var temp = []
+                    if (window_opening) {
+                        for (let index = 0; index < window_opening.length; index++) {
+                            temp.push(0)
+                        }
+                        Vue.set(this.windows[this.current_window].opening, 'window', temp)
+                    }
 
-                    // this.windows[this.current_window].opening.window = []
-                    // this.windows[this.current_window].opening.door = []
-
-                    // if (elements_list_window) {
-                    //     elements_list_window.forEach((element, index) => {
-                    //         var window_elements = this.elements[element].opening_list;
-                    //         window_elements.forEach(item => {
-                    //             this.windows[this.current_window].opening.window.push(0)
-                    //         });
-                    //     })
-                    // }
-
-                    // if (elements_list_door) {
-                    //     elements_list_door.forEach((element, index) => {
-                    //         var door_elements = this.elements[element].opening_list;
-                    //         door_elements.forEach(item => {
-                    //             this.windows[this.current_window].opening.door.push(0)
-                    //         });
-                    //     })
-                    // }
-                    
-                    // if (elements_list_door) {
-                    //     elements_list_door.forEach(element => {
-                    //         elements_list.door.push(this.elements[element].opening_list)
-                    //     })
-                    // }
-
-                    // console.log(elements_list)
-
-                    // var elements
-                    // console.log(elements_list_window)
-                    // console.log(elements_list_door)
-                    // остановился тут
+                    var door_opening = this.collections[this.windows[this.current_window].collection].door_opening
+                    Vue.set(this.windows[this.current_window].opening, 'door', [])
+                    var temp = []
+                    if (door_opening) {
+                        for (let index = 0; index < door_opening.length; index++) {
+                            temp.push(0)
+                        }
+                        Vue.set(this.windows[this.current_window].opening, 'door', temp)
+                    }
                 },
                 useWindow: function (index) {
                     Vue.set(this, 'current_window', index)
@@ -137,8 +124,7 @@ if($('#calc').length) {
                 useCollection: function (index) {
                     Vue.set(this.windows[this.current_window], 'collection', index)
                     vm.insertOpening()
-                    this.calc()
-                    
+                    this.calc()                    
                 },
                 useType: function (index) {
                     Vue.set(this.windows[this.current_window], 'type', index)
@@ -162,9 +148,9 @@ if($('#calc').length) {
             },
             mounted: function () {
                 this.addNewWindow()
-                Vue.nextTick(function () {
-                    $("#nav-tab a").eq(1).click()
-                })   
+                // Vue.nextTick(function () {
+                    // $("#nav-tab a").eq(1).click()
+                // })   
                 
             }
         })

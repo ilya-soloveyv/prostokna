@@ -2,14 +2,26 @@
 .group-options(data-Module="group-view")
 	h3 Тип окна
 
-	ul.view(v-if="collections && windows[current_window]")
+	ul.view(v-if="currentCollections")
 		li(
-			v-for="(collection, index) in collections"
+			v-for="(collection, index) in currentCollections"
 			v-bind:class="{ active: index == windows[current_window].collection }"
 			v-on:click="useCollection(index)" )
 			img( v-bind:src="collection.img", alt="" )
 
-	template(v-if="windows[current_window]") {{ windows[current_window].opening }}
+	//- ul.view(v-if="collections && windows[current_window]")
+	//- 	li(
+	//- 		v-for="(collection, index) in collections"
+	//- 		v-bind:class="{ active: index == windows[current_window].collection }"
+	//- 		v-on:click="useCollection(index)" )
+	//- 		img( v-bind:src="collection.img", alt="" )
+
+	//- template(v-if="windows[current_window]") {{ windows[current_window].opening }}
+
+
+
+
+
 	//- ul.view(v-if="windows[current_window] && materials[windows[current_window].material].brands && materials[windows[current_window].material].brands[windows[current_window].brand].models && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings && materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types")
 	//- 	li(
 	//- 		v-for="(type, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models[windows[current_window].model].glazings[windows[current_window].glazing].types"

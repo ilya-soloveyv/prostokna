@@ -1,0 +1,1 @@
+console.log('regulation_window')
