@@ -62,7 +62,10 @@ gulp.task('js_min', () => {
             'public/src/js/instruction/instruction.js',
             'public/src/js/instruction/video.js',
             'public/src/js/company/company.js',
-            'public/src/js/corporate/corporate.js'
+            'public/src/js/corporate/corporate.js',
+            'public/src/js/regulation_window/regulation_window.js',
+            'public/src/js/optional_service/optional_service.js',
+            'public/src/js/intuitive/intuitive.js'
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -113,8 +116,10 @@ gulp.task('css_min', () => {
             'public/src/css/wiki/article.css',
             'public/src/css/instruction/instruction.css',
             'public/src/css/instruction/video.css',
-            'public/src/css/corporate/corporate.css'
-            
+            'public/src/css/corporate/corporate.css',
+            'public/src/css/regulation_window/regulation_window.css',
+            'public/src/css/optional_service/optional_service.css',
+            'public/src/css/intuitive/intuitive.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())

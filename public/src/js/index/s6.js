@@ -1,23 +1,23 @@
 
 
-$(document).ready(function() {
-	//custom slider javascript
-	$(function() {
-	  $(document).on('input', 'input[type="range"]', function(e) {
-	  	var range_val = $(this).val();
-	  	var output_target = $(this).closest('p').find('output');
-	  	var input_target = $(this).closest('p').find('input.edit');
+// $(document).ready(function() {
+// 	//custom slider javascript
+// 	$(function() {
+// 	  $(document).on('input', 'input[type="range"]', function(e) {
+// 	  	var range_val = $(this).val();
+// 	  	var output_target = $(this).closest('p').find('output');
+// 	  	var input_target = $(this).closest('p').find('input.edit');
 
-	  	output_target.val(range_val);
-	  	input_target.val(range_val);
-	    // output_target.innerHTML = e.currentTarget.value;
-	  });
+// 	  	output_target.val(range_val);
+// 	  	input_target.val(range_val);
+// 	    // output_target.innerHTML = e.currentTarget.value;
+// 	  });
 
-	  $('input[type=range]').rangeslider({
-	    polyfill: false
-	  });
-	});
-});
+// 	  $('input[type=range]').rangeslider({
+// 	    polyfill: false
+// 	  });
+// 	});
+// });
 
 
 // js-input type="number" (increment/decrement)

@@ -1,3 +1,42 @@
 #corporate {
-    background: yellow;
+    background: red;
+    .bg {
+        background: yellow;
+        @media (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+        .title {
+            background: green;
+            margin: 0 0 0 50%;
+            @media (max-width: 600px) {
+                margin: 0;
+                order: 0;
+            }
+        }
+        .img {
+            float: left;
+            width: 50%;
+            background: brown;
+            min-height: 200px;
+            @media (max-width: 600px) {
+                float: none;
+                width: auto;
+                order: 1;
+            }
+        }
+        .desc {
+            background: orange;
+            margin: 0 0 0 50%;
+            @media (max-width: 600px) {
+                margin-left: auto;
+                order: 2;
+                margin: 0;
+            }
+        }
+    }
+    .clear {
+        clear: both;
+    }
 }

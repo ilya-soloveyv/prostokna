@@ -166,6 +166,25 @@ app.get('/corporate', (req, res) => {
     res.render('corporate/corporate.pug', { title: 'Corporate' })
 })
 
+
+
+app.get('/regulation_window', (req, res) => {
+    res.render('regulation_window/regulation_window.pug', { title: 'Регулировка окон' })
+})
+app.get('/optional_service', (req, res) => {
+    res.render('optional_service/optional_service.pug', { title: 'Дополнительные услуги' })
+})
+app.get('/intuitive', (req, res) => {
+    res.render('intuitive/intuitive.pug', { title: 'Интуйтивный подбор окон' })
+})
+
+
+
+
+
+
+
+
 http.listen(process.env.PORT, () => {
     console.log('Server is running...')
 })

@@ -1,3 +1,12 @@
+Vue.component('button-counter', {
+    data: function () {
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
+})
+
 if($('#calc').length) {
     var vm;
     $.ajax({
@@ -16,6 +25,15 @@ if($('#calc').length) {
                 elements: json.elements,
                 opening: json.opening
             },
+            computed: {
+                currentCollections: function () {
+                    if (this.current_window !== null) {
+                        // return this.windows[this.current_window].material
+                        return this.materials[this.windows[this.current_window].material].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].collection
+                    }
+                    return null
+                }
+            },
             methods: {
                 addNewWindow: function () {
                     this.windows.push({
@@ -29,13 +47,42 @@ if($('#calc').length) {
                         window_x: 1000,
                         window_y: 1000,
                         door_x: 1000,
-                        door_y: 600
+                        door_y: 600,
+                        opening: {
+                            window: [],
+                            door: []
+                        }
                     })
                     Vue.set(this, 'current_window', this.windows.length-1)
                     Vue.nextTick(function () {
+                        vm.insertOpening()
                         $('.scrollbar-outer').scrollTop(9999)
                         vm.calc()
                     })                    
+                },
+                insertOpening: function () {
+
+                    // console.clear()
+
+                    var window_opening = this.collections[this.windows[this.current_window].collection].window_opening
+                    Vue.set(this.windows[this.current_window].opening, 'window', [])
+                    var temp = []
+                    if (window_opening) {
+                        for (let index = 0; index < window_opening.length; index++) {
+                            temp.push(0)
+                        }
+                        Vue.set(this.windows[this.current_window].opening, 'window', temp)
+                    }
+
+                    var door_opening = this.collections[this.windows[this.current_window].collection].door_opening
+                    Vue.set(this.windows[this.current_window].opening, 'door', [])
+                    var temp = []
+                    if (door_opening) {
+                        for (let index = 0; index < door_opening.length; index++) {
+                            temp.push(0)
+                        }
+                        Vue.set(this.windows[this.current_window].opening, 'door', temp)
+                    }
                 },
                 useWindow: function (index) {
                     Vue.set(this, 'current_window', index)
@@ -76,7 +123,8 @@ if($('#calc').length) {
                 },
                 useCollection: function (index) {
                     Vue.set(this.windows[this.current_window], 'collection', index)
-                    this.calc()
+                    vm.insertOpening()
+                    this.calc()                    
                 },
                 useType: function (index) {
                     Vue.set(this.windows[this.current_window], 'type', index)
@@ -97,6 +145,13 @@ if($('#calc').length) {
                         Vue.set(this.windows[this.current_window], 'price', 0)
                     }
                 }
+            },
+            mounted: function () {
+                this.addNewWindow()
+                // Vue.nextTick(function () {
+                    // $("#nav-tab a").eq(1).click()
+                // })   
+                
             }
         })
     })
