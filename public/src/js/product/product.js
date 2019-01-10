@@ -1,5 +1,8 @@
 $(document).ready(function(){
     if ($('#product').length) {
+        $(document).ready(function(){
+            useProductColorImage()
+        })
         $("#product .data .basic .gallery .list").width(0).resizable({
             containment: "#product .data .basic .gallery",
             minWidth: 0
@@ -69,6 +72,7 @@ $(document).ready(function(){
         $('#product .data .colors .list ul li').click(function(){
             $('#product .data .colors .list ul li').removeClass('active')
             $(this).addClass('active')
+            useProductColorImage()
         })
         $("#product .toggle_submenu").click(function(){
             $('#product').toggleClass('openSubmenu')
@@ -76,6 +80,13 @@ $(document).ready(function(){
     }
 });
 
+function useProductColorImage () {
+    var activeImg = $('#product .data .colors .list ul li.active')
+    var code = activeImg.attr('attr-sColorTitleCode')
+    var iProductID = activeImg.attr('attr-iProductID')
+    $('#product .data .colors .view').html('<img src="/images/product/' + iProductID + '/colors/' + code + '.png">')
+    // img(src="/images/product/" + product.iProductID + "/" + image_product_text.sProductImageFrontName, alt="")
+}
 
 
 
