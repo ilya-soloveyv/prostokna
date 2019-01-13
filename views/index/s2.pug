@@ -1,31 +1,34 @@
 .section.s2
     .fp_bg
-        ul
-            mixin section_2_item(title, i)
-                li(class='item'+i)
-                    .i
+        ul.level1
+            each item in data.s2_menu
+                li(class='level1')
+                    .front
                         .img
-                        i.material-icons close
-                        .title= title
-                        ul
-                            li
-                                a(href='#') Шторы
-                            li
-                                a(href='#') Жалюзи
-                            li
-                                a(href='#') Подоконники
-                            li
-                                a(href='#') Ручки
-                            li
-                                a(href='#') Клапаны
-                            li
-                                a(href='#') Москитные сетки
-                        .img__hover        
-            +section_2_item('Окна', 0)
-            +section_2_item('Услуги', 1)
-            +section_2_item('Комплектующие', 2)
-            +section_2_item('Цены', 3)
-            +section_2_item('Wiki Окна', 4)
-            +section_2_item('Корпоративным клиентам', 5)
-            +section_2_item('Акции/новое', 6)
-            +section_2_item('Компания', 7)
+                            img(src="/images/index/s2/"+item.img, alt= item.title)
+                        .title= item.title
+                    .back
+                        .bg
+                        .title= item.title
+                        i.material-icons.material-icons-clear clear
+                        i.material-icons.material-icons-arrow_left arrow_left
+                        if item.list
+                            .list
+                                ul
+                                    each item2 in item.list
+                                        li
+                                            if !item2.list
+                                                a(href="#")= item2.title
+                                            else
+                                                a.more(href="#")= item2.title
+                                                ul
+                                                    each item3 in item2.list
+                                                        li
+                                                            if !item3.list
+                                                                a(href="#")= item3.title
+                                                            else
+                                                                a.more(href="#")= item3.title
+                                                                ul
+                                                                    each item4 in item3.list
+                                                                        li
+                                                                            a(href="#")= item4.title

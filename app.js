@@ -31,7 +31,146 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req, res) => {
-    res.render('index.pug', { title: 'Просто окна' })
+    var data = {}
+        data.s2_menu = [
+        {
+            title: 'Окна',
+            img: '1.svg'
+        },
+        {
+            title: 'Услуги',
+            img: '2.svg',
+            list: [
+                {
+                    title: 'Вызов замерщика',
+                    url: '#'
+                },
+                {
+                    title: 'Установка окон',
+                    url: '#',
+                    list: [
+                        {
+                            title: 'Установка от Просто Окна',
+                            url: '#',
+                            list: [
+                                {
+                                    title: 'Премиум монтаж',
+                                    url: '#'
+                                },
+                                {
+                                    title: '10 плюсов монтажа от Просто Окна',
+                                    url: '#'
+                                },
+                                {
+                                    title: 'Гарантия',
+                                    url: '#'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Своими руками',
+                            url: '#',
+                            list: [
+                                {
+                                    title: 'Обучение монтажу',
+                                    url: '#'
+                                },
+                                {
+                                    title: 'Регулировка',
+                                    url: '#'
+                                },
+                                {
+                                    title: 'Инструкция по предварительному замеру',
+                                    url: '#'
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: 'Установка откосов',
+                    url: '#'
+                },
+                {
+                    title: 'Установка подоконников',
+                    url: '#',
+                    list: [
+                        {
+                            title: 'Заделка шва под подоконником',
+                            url: '#'
+                        }
+                    ]
+                },
+                {
+                    title: 'Отделка балконов',
+                    url: '#',
+                    list: [
+                        {
+                            title: 'Построение крыши',
+                            url: '#'
+                        },
+                        {
+                            title: 'Построение выноса',
+                            url: '#'
+                        },
+                        {
+                            title: 'Обшивка балконов',
+                            url: '#'
+                        },
+                        {
+                            title: 'Материалы для отделки',
+                            url: '#'
+                        },
+                    ]
+                },
+                {
+                    title: 'Окосячка',
+                    url: '#'
+                },
+                {
+                    title: 'Вывоз мусора',
+                    url: '#'
+                },
+                {
+                    title: 'Клининг после установки',
+                    url: '#'
+                },
+                {
+                    title: 'Доставка',
+                    url: '#'
+                },
+                {
+                    title: 'Сервисное обслуживание',
+                    url: '#'
+                },
+            ]
+        },
+        {
+            title: 'Комплектующие',
+            img: '3.svg',
+        },
+        {
+            title: 'Цены',
+            img: '4.svg',
+        },
+        {
+            title: 'Wiki окна',
+            img: '5.svg',
+        },
+        {
+            title: 'Корпоративным клиентам',
+            img: '6.svg',
+        },
+        {
+            title: 'Акции/новое',
+            img: '7.svg',
+        },
+        {
+            title: 'Компания',
+            img: '8.svg',
+        },
+    ]
+    res.render('index.pug', { title: 'Просто окна', data: data })
 })
 app.get('/calc_data', (req, res) => {
     fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
