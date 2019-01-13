@@ -1,5 +1,73 @@
 extends ../layouts/app
 
 block content
-    #regulation_window.ppage Регулировка окон
+    #regulation_windowall.ppage
+        .regulation_windowall
+            .regulation_windowall__desc
+                .regulation_windowall-title Регулировка окон с фурнитурой Roto
+                p.regulation_windowall-text Какими бы качественными ни были пластиковые окна, время от времени они нуждаются в регулировке.Причин для этого может быть несколько: провисание створок, некорректное открытие окна, в результате которого заклинило поворотную ручку, перевод работы окна на «зимний режим».
+                p.regulation_windowall-text Вызов мастера для устранения мелких неполадок связан с дополнительными расходами и потерей времени, хотя, на самом деле, отрегулировать окно и произвести мелкий ремонт под силу каждому. Для этого необходимо всего лишь знать принцип работы деталей и узлов оконной конструкции.
+                p.regulation_windowall-text Для регулировки окон ПВХ вам понадобится шестигранный ключ на 4 мм, проникающая смазка WD-40 или машинное масло..
+            ul.regulation_windowall__list
+                li.regulation_windowall__item
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/down.png", alt="Свап")
+                        h3.regulation-problem-title Створка провисла, ее низ задевает раму
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/wind.png", alt="Свап")
+                        h3.regulation-problem-title Из окна дует
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/notopen.png", alt="Свап")
+                        h3.regulation-problem-title Ручку заклинило, окно не открывается
+                li.regulation_windowall__item
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/petli.png", alt="Свап")
+                        h3.regulation-problem-title Окно плохо закрывается из-за провисания средней части рамы
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/bolt.png", alt="Свап")
+                        h3.regulation-problem-title Недостаточный прижим петель
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/new.png", alt="Свап")
+                        h3.regulation-problem-title Требуется установить ручку или установить "гребенки"
+                li.regulation_windowall__item
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/pokosak.png", alt="Свап")
+                        h3.regulation-problem-title Рама перекосилась
+                    .regulation-problem
+                        img.regulation-problem_img(src="/images/regulation_window/first-page/rovno.png", alt="Свап")
+                        h3.regulation-problem-title Ручка разболталась     
+    #regulation_window.ppage
+        .pop-up
+            button.pop-up_close
+            p.pop-up_text Какими бы качественными ни были пластиковые окна, время от времени они нуждаются в регулировке. Причин для этого может быть несколько: провисание створок, некорректное открытие окна, в результате которого заклинило поворотную ручку, перевод работы окна на «зимний режим».
+
+            p.pop-up_text Вызов мастера для устранения мелких неполадок связан с дополнительными расходами и потерей времени, хотя, на самом деле, отрегулировать окно и произвести мелкий ремонт под силу каждому. Для этого необходимо всего лишь знать принцип работы деталей и узлов оконной конструкции.
+
+            p.pop-up_text Для регулировки окон ПВХ вам понадобится шестигранный ключ на 4 мм,проникающая смазка WD-40 или машинное масло..       
+        .regulation_window-header
+                img.swap-d(src="/images/regulation_window/swap_d.png", alt="Свап")
+                img.swap-m(src="/images/regulation_window/swap_m.png", alt="Свап")
+                h1.regulation_window-title Регулировка окон с фурнитурой Roto
+                button.btn-desc <span>Описание</span>
+
+        .regulation_window-main
+            ul.regulation_window-chekclist
+                li.regulation_window-checkitem
+                    span
+                    img.swap-d(src="/images/regulation_window/petli.png", alt="Свап")
+                li.regulation_window-checkitem.active
+                    span
+                    img.swap-d(src="/images/regulation_window/bolt.png", alt="Свап")
+                li.regulation_window-checkitem
+                    span
+                    img.swap-d(src="/images/regulation_window/okosak.png", alt="Свап")
+            ul.regulation_window-infolist
+                li.regulation_window-infoitem.active
+                    h2.info-title Недостаточный режим петель
+                    p.info-text Регулировка прижима нижней петли осуществляется с помощью болта, расположенного перпендикулярно плоскости окна. Для этого необходимо снять с петли защитный колпачок и завернуть болт. Для того, чтобы подтянуть прижим на верхней петле, вам потребуется открыть окно и перевести поворотную ручку в режим проветривания. При этом рама будет удерживаться лишь на нижней петле, а вы получите доступ к регулировочному шестиграннику. Обязательно придерживайте створку во время работы, иначе вы рискуете получить более серьёзное повреждение окна, чем слабый прижим.
+                    .info-picture
+                li.regulation_window-infoitem
+                    h2.info-title Рама перекосилась
+                    p.info-text Устранить перекос рамы можно при помощи горизонтальных и вертикальных регуляторов, расположенных на нижней и верхней петле. Для того, чтобы регуляторы верхней петли стали доступны – откройте окно. Регуляторы на нижней петле доступны как при закрытом, так и при открытом окне. Поочерёдно подтягивайте или ослабляйте прижим створки к раме на нижней и верхней петле, тем самым устраняя перекос.
+                    .info-picture
             

@@ -1,5 +1,63 @@
 extends ../layouts/app
 
 block content
-    #optional_service.ppage Дополнительные услуги
-            
+    #optional_service.ppage
+        .pop-up
+            .pop-up_wrapp
+                button.pop-up_close
+                .desc
+                    p.desc-text Установке новых окон неизбежно предшествует демонтаж старых – достаточно хлопотная процедура, оставляющая после себя много крупного строительного мусора. Например, при установке в кирпичном доме одного окна с откосами может набраться до четырех мешков мусора весом от 20 до 30 кг каждый!
+                    p.desc-text Чтобы Вам не пришлось ломать голову, как избавиться от такого «богатства», в нашей компании организована процедура вывоза мусора на специализированную свалку.
+                    p.desc-text Обратите внимание, не в мусорные контейнеры, стоящие в Вашем дворе, а именно на специализированную свалку. Потому как выбрасывать крупный строительный мусор в контейнеры нельзя! Это штрафуется!
+                    p.desc-text Мы вывезем весь мусор сами. Вам только останется наслаждаться новым окном и чистотой, которую мы оставим после его установки.
+                .feature
+                    h3.feature-title Характеристики
+                    table
+                        tr
+                            td Контейнер 6м3:
+                            td.price 5 500 руб
+                        tr
+                            td Контейнер 10м3:
+                            td.price 10 000 руб
+                        tr
+                            td Контейнер 14м3:
+                            td.price 12 000 руб
+                        tr
+                            td Контейнер 20м3:
+                            td.price 16 000 руб
+                        tr
+                            td Контейнер 27м3:
+                            td.price 16 000 руб
+        .optional_service-header                
+                h1.optional_service-title Дополнительные услуги
+                img.swap-m(src="/images/optional_service/swap_m.png", alt="Свап")
+        .optional_service-main
+            ul.optional_service-chekclist
+                li.optional_service-checkitem
+                    span.line
+                    .img_wrap
+                        img(src="/images/optional_service/optional1.png", alt="optional")
+                    .optional_wrapp
+                        h2.optional-title Клининг после установки
+                        .optional-desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                        button.btn-desc <span class="more">Смотреть подробнее</span>
+                li.optional_service-checkitem.active
+                    span.line
+                    .img_wrap
+                        img(src="/images/optional_service/optional2.png", alt="optional")
+                    .optional_wrapp
+                        h2.optional-title Клининг после установки
+                        .optional-desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                        button.btn-desc <span class="more">Смотреть подробнее</span>
+                li.optional_service-checkitem
+                    span.line
+                    .img_wrap
+                        img(src="/images/optional_service/optional3.png", alt="optional")
+                    .optional_wrapp
+                        h2.optional-title Клининг после установки
+                        .optional-desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                        button.btn-desc <span class="more">Смотреть подробнее</span>
+            img.swap-d(src="/images/optional_service/swap_d.png", alt="Свап") 
