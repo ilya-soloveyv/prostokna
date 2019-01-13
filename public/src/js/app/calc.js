@@ -1,12 +1,3 @@
-Vue.component('button-counter', {
-    data: function () {
-        return {
-            count: 0
-        }
-    },
-    template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
-})
-
 if($('#calc').length) {
     var vm;
     $.ajax({
@@ -20,16 +11,16 @@ if($('#calc').length) {
                 windows: [],
                 current_window: null,
                 calcSumma: 0,
-                materials: json.materials,
-                collections: json.collections,
-                elements: json.elements,
-                opening: json.opening
+                materials: json.materials
             },
             computed: {
                 currentCollections: function () {
                     if (this.current_window !== null) {
-                        // return this.windows[this.current_window].material
-                        return this.materials[this.windows[this.current_window].material].brands[this.windows[this.current_window].brand].models[this.windows[this.current_window].model].glazings[this.windows[this.current_window].glazing].collection
+                        return this.materials[this.windows[this.current_window].material]
+                            .brands[this.windows[this.current_window].brand]
+                            .models[this.windows[this.current_window].model]
+                            .glazings[this.windows[this.current_window].glazing]
+                            .collection
                     }
                     return null
                 }
@@ -61,10 +52,8 @@ if($('#calc').length) {
                     })                    
                 },
                 insertOpening: function () {
-
-                    // console.clear()
-
-                    var window_opening = this.collections[this.windows[this.current_window].collection].window_opening
+                    // окна
+                    var window_opening = this.currentCollections[this.windows[this.current_window].collection].window_opening
                     Vue.set(this.windows[this.current_window].opening, 'window', [])
                     var temp = []
                     if (window_opening) {
@@ -73,8 +62,8 @@ if($('#calc').length) {
                         }
                         Vue.set(this.windows[this.current_window].opening, 'window', temp)
                     }
-
-                    var door_opening = this.collections[this.windows[this.current_window].collection].door_opening
+                    // двери
+                    var door_opening = this.currentCollections[this.windows[this.current_window].collection].door_opening
                     Vue.set(this.windows[this.current_window].opening, 'door', [])
                     var temp = []
                     if (door_opening) {
@@ -147,11 +136,12 @@ if($('#calc').length) {
                 }
             },
             mounted: function () {
+                // Тесты
                 this.addNewWindow()
-                // Vue.nextTick(function () {
-                    // $("#nav-tab a").eq(1).click()
-                // })   
-                
+                Vue.nextTick(function () {
+                    $("#nav-tab a").eq(1).click()
+                })
+                // *** //
             }
         })
     })
