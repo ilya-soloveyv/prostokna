@@ -35,7 +35,259 @@ app.get('/', (req, res) => {
         data.s2_menu = [
         {
             title: 'Окна',
-            img: '1.svg'
+            img: '1.svg',
+            list: [
+                {
+                    title: 'Пластик',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Rehau',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Euro',
+                                    uri: '#'
+                                },
+                                {
+                                    title: 'Blitz New',
+                                    uri: '/product/rehau_blitz_new'
+                                },
+                                {
+                                    title: 'Grazio',
+                                    uri: '/product/rehau_grazio'
+                                },
+                                {
+                                    title: 'Delight',
+                                    uri: '/product/rehau_delight'
+                                },
+                                {
+                                    title: 'Brillant',
+                                    uri: '/product/rehau_brillant'
+                                },
+                                {
+                                    title: 'Intelio',
+                                    uri: '/product/rehau_intelio'
+                                },
+                                {
+                                    title: 'Geneo',
+                                    uri: '/product/rehau_geneo'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'KBE',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'KBE 58',
+                                    uri: '/product/kbe_58'
+                                },
+                                {
+                                    title: 'KBE 70 Expert',
+                                    uri: '/product/kbe_expert'
+                                },
+                                {
+                                    title: 'KBE 76',
+                                    uri: '/product/kbe_76'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Montblanc',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Eco',
+                                    uri: '/product/montblanc_eco'
+                                },
+                                {
+                                    title: 'Nord',
+                                    uri: '/product/montblanc_nord'
+                                },
+                                {
+                                    title: 'Thermo',
+                                    uri: '#'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Novotex',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Techno 58',
+                                    uri: '/product/novotex_techno_58'
+                                },
+                                {
+                                    title: 'Techno 70',
+                                    uri: '/product/novotex_techno_70'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Wintech',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Isotech 530',
+                                    uri: '/product/wintech_isotek_530'
+                                },
+                                {
+                                    title: 'Thermotech 742',
+                                    uri: '/product/wintech_thermotek_742'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Gutwerk',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Gutwerk 58',
+                                    uri: '/product/kbe_gut_gutwerk_58'
+                                },
+                                {
+                                    title: 'Gutwerk 70',
+                                    uri: '/product/kbe_master_gutwerk'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Slidors',
+                            uri: '#'
+                        },
+                    ]
+                },
+                {
+                    title: 'Алюминий',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Seal',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'КПТ 45',
+                                    uri: '/product/seal_45'
+                                },
+                                {
+                                    title: 'КПТ 74',
+                                    uri: '/product/seal_74'
+                                },
+                                {
+                                    title: 'КП 50',
+                                    uri: '/product/seal_kp50'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Alutech',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'ALT C48',
+                                    uri: '/product/alutech_alt_c48'
+                                },
+                                {
+                                    title: 'ALT W62',
+                                    uri: '/product/alutech_alt_w62'
+                                },
+                                {
+                                    title: 'F50',
+                                    uri: '/product/alutech_f50'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Provedal',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'p480',
+                                    uri: '#'
+                                },
+                                {
+                                    title: 'c640',
+                                    uri: '#'
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: 'Дерево евробрус',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Сосна',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Эконом',
+                                    uri: '#'
+                                },
+                                {
+                                    title: 'Сращенный евробрус',
+                                    uri: '#'
+                                },
+                                {
+                                    title: 'Цельный евробрус',
+                                    uri: '#'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Лиственница',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Сращенный евробрус',
+                                    uri: '#'
+                                },
+                                {
+                                    title: 'Цельный евробрус',
+                                    uri: '#'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Дуб',
+                            uri: '#',
+                            list: [
+                                {
+                                    title: 'Сращенный евробрус',
+                                    uri: '#'
+                                },
+                                {
+                                    title: 'Цельный евробрус',
+                                    uri: '#'
+                                },
+                            ]
+                        },
+                        {
+                            title: 'Меранти',
+                            uri: '#'
+                        },
+                    ]
+                },
+                {
+                    title: 'Дизайн окна',
+                    uri: '#'
+                },
+                {
+                    title: 'Опции',
+                    uri: '/options'
+                },
+                {
+                    title: 'Видео "Как просто выбрать окно"',
+                    uri: '#s3'
+                },
+                {
+                    title: 'Интуйтивный выбор окон',
+                    uri: '/intuitive'
+                },
+            ]
         },
         {
             title: 'Услуги',
@@ -43,45 +295,45 @@ app.get('/', (req, res) => {
             list: [
                 {
                     title: 'Вызов замерщика',
-                    url: '#'
+                    uri: '/gager'
                 },
                 {
                     title: 'Установка окон',
-                    url: '#',
+                    uri: '#',
                     list: [
                         {
                             title: 'Установка от Просто Окна',
-                            url: '#',
+                            uri: '#',
                             list: [
                                 {
                                     title: 'Премиум монтаж',
-                                    url: '#'
+                                    uri: '#'
                                 },
                                 {
                                     title: '10 плюсов монтажа от Просто Окна',
-                                    url: '#'
+                                    uri: '#'
                                 },
                                 {
                                     title: 'Гарантия',
-                                    url: '#'
+                                    uri: '#'
                                 },
                             ]
                         },
                         {
                             title: 'Своими руками',
-                            url: '#',
+                            uri: '#',
                             list: [
                                 {
                                     title: 'Обучение монтажу',
-                                    url: '#'
+                                    uri: '#'
                                 },
                                 {
                                     title: 'Регулировка',
-                                    url: '#'
+                                    uri: '/regulation_window'
                                 },
                                 {
                                     title: 'Инструкция по предварительному замеру',
-                                    url: '#'
+                                    uri: '/optional_service'
                                 },
                             ]
                         },
@@ -89,98 +341,295 @@ app.get('/', (req, res) => {
                 },
                 {
                     title: 'Установка откосов',
-                    url: '#'
+                    uri: '#'
                 },
                 {
                     title: 'Установка подоконников',
-                    url: '#',
+                    uri: '#',
                     list: [
                         {
                             title: 'Заделка шва под подоконником',
-                            url: '#'
+                            uri: '#'
                         }
                     ]
                 },
                 {
                     title: 'Отделка балконов',
-                    url: '#',
+                    uri: '#',
                     list: [
                         {
                             title: 'Построение крыши',
-                            url: '#'
+                            uri: '#'
                         },
                         {
                             title: 'Построение выноса',
-                            url: '#'
+                            uri: '#'
                         },
                         {
                             title: 'Обшивка балконов',
-                            url: '#'
+                            uri: '#'
                         },
                         {
                             title: 'Материалы для отделки',
-                            url: '#'
+                            uri: '#'
                         },
                     ]
                 },
                 {
                     title: 'Окосячка',
-                    url: '#'
+                    uri: '#'
                 },
                 {
                     title: 'Вывоз мусора',
-                    url: '#'
+                    uri: '#'
                 },
                 {
                     title: 'Клининг после установки',
-                    url: '#'
+                    uri: '#'
                 },
                 {
                     title: 'Доставка',
-                    url: '#'
+                    uri: '#'
                 },
                 {
                     title: 'Сервисное обслуживание',
-                    url: '#'
+                    uri: '#'
                 },
             ]
         },
         {
             title: 'Комплектующие',
             img: '3.svg',
+            list: [
+                {
+                    title: 'Подоконники',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог с ценами',
+                            uri: '/options'
+                        }
+                    ]
+                },
+                {
+                    title: 'Ручки',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог с ценами',
+                            uri: '/options'
+                        }
+                    ]
+                },
+                {
+                    title: 'Шторы',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог с ценами',
+                            uri: '/options'
+                        }
+                    ]
+                },
+                {
+                    title: 'Жалюзи',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог с ценами',
+                            uri: '/options'
+                        }
+                    ]
+                },
+                {
+                    title: 'Клапаны',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог с ценами',
+                            uri: '/options'
+                        }
+                    ]
+                },
+                {
+                    title: 'Москитные сетки',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог с ценами',
+                            uri: '/options'
+                        }
+                    ]
+                },
+            ]
         },
         {
             title: 'Цены',
             img: '4.svg',
+            list: [
+                {
+                    title: 'Калькулятор',
+                    uri: '#s6'
+                },
+                {
+                    title: 'Заказать расчет',
+                    uri: '#'
+                },
+                {
+                    title: 'Лучшая цена',
+                    uri: '#'
+                },
+                {
+                    title: 'Оплата',
+                    uri: '/pay'
+                },
+                {
+                    title: 'Цены по типу дома',
+                    uri: '#'
+                },
+                {
+                    title: 'Рассрочка',
+                    uri: '#'
+                },
+            ]
         },
         {
             title: 'Wiki окна',
             img: '5.svg',
+            list: [
+                {
+                    title: 'Словать оконных терминов',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'История',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Профили',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Сравнительные характеристики профильных систем',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Фурнитура',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Стекло и стеклопакеты',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Монтаж',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Балконы',
+                    uri: '/wiki'
+                },
+                {
+                    title: 'Двери',
+                    uri: '/wiki'
+                },
+            ]
         },
         {
             title: 'Корпоративным клиентам',
             img: '6.svg',
+            list: [
+                {
+                    title: 'Страница с описанием',
+                    uri: '/corporate'
+                },
+                {
+                    title: 'PDF презентация для скачивания',
+                    uri: '#'
+                },
+                {
+                    title: 'Услуги корпоративного монтажа',
+                    uri: '#'
+                },
+                {
+                    title: 'Личный кабинет',
+                    uri: '#'
+                },
+            ]
         },
         {
             title: 'Акции/новое',
             img: '7.svg',
+            list: [
+                {
+                    title: 'Акция "Найдите дешевле"',
+                    uri: '#'
+                }
+            ]
         },
         {
             title: 'Компания',
             img: '8.svg',
+            list: [
+                {
+                    title: 'Контакты',
+                    uri: '/contact'
+                },
+                {
+                    title: 'О компании',
+                    uri: '#'
+                },
+                {
+                    title: 'Как мы работаем',
+                    uri: '#'
+                },
+                {
+                    title: 'Гарантия',
+                    uri: '#'
+                },
+                {
+                    title: 'Новости',
+                    uri: '#'
+                },
+                {
+                    title: 'Инновации',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Заработайте с нами',
+                            uri: '#'
+                        },
+                        {
+                            title: 'Вместе еще дешевле',
+                            uri: '#'
+                        },
+                        {
+                            title: 'Освященные окна',
+                            uri: '#'
+                        },
+                        {
+                            title: 'Благотворительность',
+                            uri: '#'
+                        },
+                    ]
+                },
+            ]
         },
     ]
     res.render('index.pug', { title: 'Просто окна', data: data })
 })
+
 app.get('/calc_data', (req, res) => {
     fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
         if (err) throw err
         res.json(JSON.parse(data))
     })    
 })
+
 app.get('/contact', (req, res) => {
     res.render('contact.pug', { title: 'Контакты' })
 })
+
 app.get('/gager', (req, res) => {
     res.render('gager.pug', { title: 'Замерщик' })
 })
@@ -276,9 +725,11 @@ app.get('/product/:sProductURI', (req, res) => {
 app.get('/pay', (req, res) => {
     res.render('pay.pug', { title: 'Оплата' })
 })
+
 app.get('/palette', (req, res) => {
     res.render('palette.pug', { title: 'Palette' })
 })
+
 app.get('/options', (req, res) => {
     res.render('options.pug', { title: 'Options' })
 })
@@ -291,24 +742,31 @@ var catalog_item = {
 for (let index = 0; index < 10; index++) {
     catalog.push(catalog_item);
 }
+
 app.get('/wiki', (req, res) => {
     res.render('wiki/catalog.pug', { title: 'Wiki', catalog: catalog })
 })
+
 app.get('/wiki/get', (req, res) => {
     res.render('wiki/catalog_list.pug', { catalog: catalog })
 })
+
 app.get('/wiki/article', (req, res) => {
     res.render('wiki/article.pug', { title: 'Wiki article' })
 })
+
 app.get('/instruction', (req, res) => {
     res.render('instruction/instruction.pug', { title: 'Instruction' })
 })
+
 app.get('/instruction/video', (req, res) => {
     res.render('instruction/video.pug', { title: 'Instruction Video' })
 })
+
 app.get('/company', (req, res) => {
     res.render('company/company.pug', { title: 'О компании' })
 })
+
 app.get('/corporate', (req, res) => {
     res.render('corporate/corporate.pug', { title: 'Corporate' })
 })
@@ -318,9 +776,11 @@ app.get('/corporate', (req, res) => {
 app.get('/regulation_window', (req, res) => {
     res.render('regulation_window/regulation_window.pug', { title: 'Регулировка окон' })
 })
+
 app.get('/optional_service', (req, res) => {
     res.render('optional_service/optional_service.pug', { title: 'Дополнительные услуги' })
 })
+
 app.get('/intuitive', (req, res) => {
     res.render('intuitive/intuitive.pug', { title: 'Интуйтивный подбор окон' })
 })

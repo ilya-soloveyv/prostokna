@@ -18,17 +18,17 @@
                                     each item2 in item.list
                                         li
                                             if !item2.list
-                                                a(href="#")= item2.title
+                                                a(href= item2.uri)= item2.title
                                             else
-                                                a.more(href="#")= item2.title
+                                                a.more(href= item2.uri)= item2.title
                                                 ul
                                                     each item3 in item2.list
                                                         li
                                                             if !item3.list
-                                                                a(href="#")= item3.title
+                                                                a(href= item3.uri)= item3.title
                                                             else
-                                                                a.more(href="#")= item3.title
+                                                                a.more(href= item3.uri)= item3.title
                                                                 ul
                                                                     each item4 in item3.list
                                                                         li
-                                                                            a(href="#")= item4.title
+                                                                            a(href= item4.uri)= item4.title
