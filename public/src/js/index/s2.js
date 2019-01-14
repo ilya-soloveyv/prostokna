@@ -9,9 +9,10 @@ $(document).on("mouseenter", "#fullpage_welcome .section.s2 ul.level1 li.level1"
     s2_menu_close($(this).parent().parent())
 }).on("click", "#fullpage_welcome .section.s2 ul.level1 li.level1 i.material-icons.material-icons-arrow_left", function(){
     $(this).parent().find('.list').animate({left: 0}, s2_speed)
-    $(this).parents('.back').find('i.material-icons.material-icons-arrow_left').animate({left: "100%"}, s2_speed)
+    $(this).parents('.back').find('i.material-icons.material-icons-arrow_left').animate({left: "100%"}, s2_speed, function () {
+        $("#fullpage_welcome .section.s2 ul.level1 li.level1 ul li ul").hide()
+    })    
 }).on("click", "#fullpage_welcome .section.s2 ul.level1 li.level1 ul li a.more", function(){
-    // $('#fullpage_welcome .section.s2 ul.level1 li.level1 ul').hide()
     $(this).next().show()
     $(this).parents('.list').animate({left: "-=100%"}, s2_speed)
     $(this).parents('.back').find('i.material-icons.material-icons-arrow_left').animate({left: "14px"}, s2_speed)
