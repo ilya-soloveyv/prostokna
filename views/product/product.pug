@@ -96,7 +96,6 @@
                 button Добавить в калькулятор
         .colors
             .list
-                //- - console.log(product_color)
                 ul
                     each color, index in product_color
                         - var active = '';
@@ -108,7 +107,6 @@
                             .title= color.sColorTitle
                 button Добавить в калькулятор
             .view
-                //- img(src="/images/product/" + product.iProductID + "/colors/" + colors[0].iColorID + ".png", alt="")
         .desc
             if image_product_text !== undefined
                 img(src="/images/product/" + product.iProductID + "/" + image_product_text.sProductImageFrontName, alt="")
