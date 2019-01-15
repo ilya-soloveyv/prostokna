@@ -17,7 +17,40 @@
     .data
         .basic
             .gallery
-                .view
+                .list2
+                    ul
+                        each image in product_images
+                            li(
+                                data-iProductID= product.iProductID,
+                                data-iProductImageID= image.iProductImageID,
+                                data-sProductImageFrontName=image.sProductImageFrontName,
+                                data-sProductImageBackName=image.sProductImageBackName
+                            )
+                                img(src="/images/product/" + product.iProductID + "/" + image.sProductImageFrontName, alt="")
+                .view2
+                    .back
+                        if product_images[0] !== undefined
+                            .bg
+                                img(
+                                    src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageBackName,
+                                    data-iProductImageID= product_images[0].iProductImageID,
+                                    alt="")
+                    .front
+                        .front_bg
+                            if product_images[0] !== undefined
+                                .bg
+                                    img(
+                                        src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageFrontName,
+                                        data-iProductImageID= product_images[0].iProductImageID,
+                                        alt="")
+                    ul.point
+                        each point in product_images_point
+                            li.point_item(
+                                data-iProductImageID= point.iProductImageID,
+                                data-fProductImagePointPosX= point.fProductImagePointPosX,
+                                data-fProductImagePointPosY= point.fProductImagePointPosY)= point.tProductImagePointMess
+
+                //- .view
                     if product_images[0] !== undefined
                         img(
                             src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageBackName,
@@ -29,7 +62,7 @@
                                     data-iProductImageID= point.iProductImageID,
                                     data-fProductImagePointPosX= point.fProductImagePointPosX,
                                     data-fProductImagePointPosY= point.fProductImagePointPosY)= point.tProductImagePointMess
-                .list
+                //- .list
                     .back
                         ul
                             each image in product_images
