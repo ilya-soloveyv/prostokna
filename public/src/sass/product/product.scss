@@ -445,7 +445,7 @@
                             top: 0;
                             height: 100%;
                             width: 1px;
-                            background: #43A22C;
+                            // background: #43A22C;
                             border-radius: 0;
                             cursor: pointer;                            
                             &::before {
@@ -460,11 +460,26 @@
                                 background: #43A22C;
                                 transition: height 0.05s ease-in;
                             }
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                height: 0;
+                                width: 1px;
+                                background: #43A22C;
+                                // transform: translate(0, -50%);
+                                transition: all 0.5s ease-in;
+                            }
                             &:hover, &:active, &:focus {
                                 &::before {
                                     height: 30px;
                                 }
-                                // height: 160px;
+                                &::after {
+                                    top: 0;
+                                    // transform: translate(0, 0);
+                                    height: 100%;
+                                }
                             }
                         }    
                     }
