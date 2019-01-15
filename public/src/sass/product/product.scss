@@ -143,6 +143,8 @@
                 background: #353535;
                 position: relative;
                 padding: 0;
+                display: flex;
+                flex-direction: row;
                 @media (max-width: 1350px) {
                     height: 600px;
                 }
@@ -344,6 +346,199 @@
                             height: 160px;
                         }
                     }
+                }
+                .list2 {
+                    margin: 50px 0;
+                    flex-basis: 120px;
+                    flex-grow: 0;
+                    @media (max-width: 1350px) {
+                        flex-basis: 100px;
+                    }
+                    @media (max-width: 800px) {
+                        flex-basis: 80px;
+                        margin: 0;
+                    }
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+                        flex-shrink: 0;
+                        li {
+                            flex-grow: 1;
+                            cursor: pointer;
+                            img {
+                                width: 100%;
+                                height: 155px;
+                                margin: 10px 0;
+                                object-fit: contain;
+                                @media (max-width: 1350px) {
+                                    height: 100px;
+                                }
+                                @media (max-width: 1350px) {
+                                    height: 75px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .view2 {
+                    position: relative;
+                    flex-grow: 1;
+                    .back {
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        bottom: 0;
+                        left: 0;
+                        .bg {
+                            position: absolute;
+                            top: 50px;
+                            right: 0;
+                            bottom: 50px;
+                            left: 0;
+                            width: 100%;
+                            text-align: center;
+                            img {
+                                // display: block;
+                                max-width: 100%;
+                                max-height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                    .front {
+                        position: absolute;
+                        top: 0;
+                        width: 0;
+                        bottom: 0;
+                        left: 0;
+                        .front_bg {
+                            overflow: hidden;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            .bg {
+                                position: absolute;
+                                top: 50px;
+                                right: 0;
+                                bottom: 50px;
+                                left: 0;
+                                width: 100%;
+                                text-align: center;
+                                img {
+                                    // display: block;
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+                        }
+                        .ui-resizable-e {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            height: 100%;
+                            width: 1px;
+                            background: #43A22C;
+                            border-radius: 0;
+                            cursor: pointer;                            
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                transform: translate(0, -50%);
+                                top: 50%;
+                                left: -7px;
+                                width: 14px;
+                                height: 20px;
+                                border-radius: 7px;
+                                background: #43A22C;
+                                transition: height 0.05s ease-in;
+                            }
+                            &:hover, &:active, &:focus {
+                                &::before {
+                                    height: 30px;
+                                }
+                                // height: 160px;
+                            }
+                        }    
+                    }
+                    ul.point {
+                        z-index: 1;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        li {
+                            position: absolute;
+                            top: -5px;
+                            left: -5px;
+                            width: 10px;
+                            height: 10px;
+                            background: rgba(255,255,255,0.5);
+                            border-radius: 50%;
+                            animation: point-pulse 2s infinite;
+                            text-indent: -9999px;
+                            box-shadow: 0 0 5px rgba(0,0,0,.5);
+                            display: none;
+                            @media (max-width: 800px) {
+                                width: 6px;
+                                height: 6px;
+                            }
+                            &::before, &::after {
+                                content: '';
+                                position: absolute;
+                                border-radius: 50%;
+                            }
+                            &::before {
+                                width: 18px;
+                                height: 18px;
+                                left: -4px;
+                                top: -4px;
+                                background: rgba(255,255,255,0.25);
+                                animation: point-pulse 2s infinite;
+                                @media (max-width: 800px) {
+                                    width: 10px;
+                                    height: 10px;
+                                    left: -2px;
+                                    top: -2px;
+                                }
+                            }
+                            &::after {
+                                width: 26px;
+                                height: 26px;
+                                left: -8px;
+                                top: -8px;
+                                background: rgba(255,255,255,0.25);
+                                animation: point-pulse 2s infinite;
+                                @media (max-width: 800px) {
+                                    width: 14px;
+                                    height: 14px;
+                                    left: -4px;
+                                    top: -4px;
+                                }
+                            }
+                        }
+                        .tooltip {
+                            opacity: 1;
+                            z-index: 991;
+                        }
+                        @keyframes point-pulse {
+                            0% {
+                                box-shadow: 0 0 0 0px rgba(255,255,255,0.15);
+                            }
+                            100% {
+                                box-shadow: 0 0 0 16px rgba(255,255,255,0);
+                            }
+                        }
+                    }    
                 }
             }
             .stat {
