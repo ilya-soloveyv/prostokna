@@ -29,7 +29,7 @@ $(document).ready(function(){
             $('#product .data .basic .gallery .view2 .front .bg img')
                 .attr('src', '/images/product/' + iProductID + '/' + sProductImageFrontName)
                 .attr('data-iProductImageID', iProductImageID);
-            $('#product .data .basic .gallery .view2 .back .bg img').attr('src', '/images/product/' + iProductID + '/' + sProductImageBackName)
+            // $('#product .data .basic .gallery .view2 .back .bg img').attr('src', '/images/product/' + iProductID + '/' + sProductImageBackName)
 
             if (typeof sProductImageBackName !== 'undefined') {
                 $("#product .data .basic .gallery .view2 .back .bg img").attr('src', '/images/product/' + iProductID + '/' + sProductImageBackName).show()

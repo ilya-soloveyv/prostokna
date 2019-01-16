@@ -255,8 +255,8 @@
                             top: 0;
                             height: 100%;
                             width: 1px;
+                            background: #43A22C;
                             border-radius: 0;
-                            background-color: rgba(255, 255, 255, .5);
                             cursor: pointer;                            
                             &::before {
                                 content: '';
@@ -270,23 +270,9 @@
                                 background: #43A22C;
                                 transition: height 0.05s ease-in;
                             }
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                top: 50%;
-                                left: 0;
-                                height: 0;
-                                width: 1px;
-                                background: #43A22C;
-                                transition: all 0.5s ease-in;
-                            }
                             &:hover, &:active, &:focus {
                                 &::before {
                                     height: 30px;
-                                }
-                                &::after {
-                                    top: 0;
-                                    height: 100%;
                                 }
                             }
                         }    
@@ -720,10 +706,11 @@
             img {
                 position: absolute;
                 left: 0;
-                top: 50%;
-                transform: translate(-50%, -50%);
+                top: 150px;
+                transform: translate(-50%, 0);
                 max-width: 250px;
                 @media (max-width: 1300px) {
+                    top: 125px;
                     max-width: 200px;
                 }
                 @media (max-width: 800px) {
@@ -734,6 +721,7 @@
                 font-family: "MontserratSemiBold";
                 font-size: 24px;
                 margin-bottom: 20px;
+                color: white;
                 @media (max-width: 800px) {
                     font-size: 14px;
                     margin-bottom: 10px;
@@ -743,6 +731,7 @@
                 font-family: "MontserratSemiBold";
                 font-size: 16px;
                 margin-bottom: 10px;
+                color: white;
                 @media (max-width: 800px) {
                     font-size: 10px;
                     margin-bottom: 10px;
