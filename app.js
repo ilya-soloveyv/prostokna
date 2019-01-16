@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
                             list: [
                                 {
                                     title: 'Euro',
-                                    uri: '#'
+                                    uri: '/product/rehau_euro'
                                 },
                                 {
                                     title: 'Blitz New',
