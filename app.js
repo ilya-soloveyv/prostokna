@@ -674,7 +674,6 @@ app.get('/product/:sProductURI', (req, res) => {
            connection.query(query_1, [ req.params.sProductURI ], function(err, product) {
                if (err) return parallel_done(err);
                data.product = product[0]
-               console.log(data.product)
                data.title = data.product.sBrandTitle + " " + data.product.sProductTitle
                parallel_done()
            });
