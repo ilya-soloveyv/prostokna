@@ -229,11 +229,11 @@ app.get('/', (req, res) => {
                                 },
                                 {
                                     title: 'Сращенный евробрус',
-                                    uri: '#'
+                                    uri: '/product/sosna_srashchennaya'
                                 },
                                 {
                                     title: 'Цельный евробрус',
-                                    uri: '#'
+                                    uri: '/product/sosna_tselnolamelnaya'
                                 },
                             ]
                         },
@@ -243,11 +243,11 @@ app.get('/', (req, res) => {
                             list: [
                                 {
                                     title: 'Сращенный евробрус',
-                                    uri: '#'
+                                    uri: '/product/listvennitsa_srashchennaya'
                                 },
                                 {
                                     title: 'Цельный евробрус',
-                                    uri: '#'
+                                    uri: '/product/listvennitsa_tselnolamelnaya'
                                 },
                             ]
                         },
@@ -257,11 +257,11 @@ app.get('/', (req, res) => {
                             list: [
                                 {
                                     title: 'Сращенный евробрус',
-                                    uri: '#'
+                                    uri: '/product/dub_srashchennaya'
                                 },
                                 {
                                     title: 'Цельный евробрус',
-                                    uri: '#'
+                                    uri: '/product/dub_tselnolamelnaya'
                                 },
                             ]
                         },
