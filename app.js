@@ -273,7 +273,17 @@ app.get('/', (req, res) => {
                 },
                 {
                     title: 'Дизайн окна',
-                    uri: '#'
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Каталог ламинации',
+                            uri: '/palette'
+                        },
+                        {
+                            title: 'Каталог RAL',
+                            uri: '/palette'
+                        }
+                    ]
                 },
                 {
                     title: 'Опции',
@@ -498,7 +508,7 @@ app.get('/', (req, res) => {
             img: '5.svg',
             list: [
                 {
-                    title: 'Словать оконных терминов',
+                    title: 'Словарь оконных терминов',
                     uri: '/wiki'
                 },
                 {
@@ -657,13 +667,14 @@ app.get('/product/:sProductURI', (req, res) => {
     var query_4 = "SELECT * FROM colors WHERE iMaterialID = ?";
     var query_5 = "SELECT * FROM product_images WHERE iPhotoInDescOnPage = 1 && iProductID = ? LIMIT 1";
     var query_6 = "SELECT t1.sProductURI, t1.sProductTitle, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
-    var query_7 = "SELECT t1.iProductID, t2.sColorCode, t2.sColorTitle, t2.sColorTitleCode FROM product_color t1 LEFT JOIN colors t2 ON t2.iColorID = t1.iColorID WHERE t1.iProductID = ?";
+    var query_7 = "SELECT t1.iProductID, t2.sColorCode, t2.sColorTitle, t2.sColorTitleCode, t2.sColorTitle, t2.sColorTextureFileName FROM product_color t1 LEFT JOIN colors t2 ON t2.iColorID = t1.iColorID WHERE t1.iProductID = ?";
     var data = {};
     async.parallel([
        function(parallel_done) {
            connection.query(query_1, [ req.params.sProductURI ], function(err, product) {
                if (err) return parallel_done(err);
                data.product = product[0]
+               console.log(data.product)
                data.title = data.product.sBrandTitle + " " + data.product.sProductTitle
                parallel_done()
            });

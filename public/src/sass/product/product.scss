@@ -743,6 +743,37 @@
                     margin-bottom: 10px;
                 }
             }
+            ul {
+                margin: 0 0 20px 0;
+                padding: 0;
+                list-style: none;
+                @media (max-width: 800px) {
+                    margin: 0 0 10px 0;
+                }
+                li {
+                    position: relative;
+                    padding-left: 20px;
+                    line-height: 22px;
+                    @media (max-width: 800px) {
+                        line-height: 14px;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 6px;
+                        left: 0;
+                        width: 10px;
+                        height: 10px;
+                        background: linear-gradient(45deg, #0585FA, #0167E0, #005ED9);
+                        border-radius: 50%;
+                        @media (max-width: 800px) {
+                            top: 4px;
+                            width: 6px;
+                            height: 6px;
+                        }
+                    }
+                }
+            }
             button {
                 font-family: 'Montserrat';
                 background: linear-gradient(90deg, #0585FA, #0167E0, #005ED9);

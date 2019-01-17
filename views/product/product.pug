@@ -49,33 +49,6 @@
                                 data-iProductImageID= point.iProductImageID,
                                 data-fProductImagePointPosX= point.fProductImagePointPosX,
                                 data-fProductImagePointPosY= point.fProductImagePointPosY)= point.tProductImagePointMess
-
-                //- .view
-                    if product_images[0] !== undefined
-                        img(
-                            src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageBackName,
-                            data-iProductImageID= product_images[0].iProductImageID,
-                            alt="")
-                        ul.point
-                            each point in product_images_point
-                                li.point_item(
-                                    data-iProductImageID= point.iProductImageID,
-                                    data-fProductImagePointPosX= point.fProductImagePointPosX,
-                                    data-fProductImagePointPosY= point.fProductImagePointPosY)= point.tProductImagePointMess
-                //- .list
-                    .back
-                        ul
-                            each image in product_images
-                                li(
-                                    data-iProductID= product.iProductID,
-                                    data-iProductImageID= image.iProductImageID,
-                                    data-sProductImageFrontName=image.sProductImageFrontName,
-                                    data-sProductImageBackName=image.sProductImageBackName
-                                )
-                                    img(src="/images/product/" + product.iProductID + "/" + image.sProductImageFrontName, alt="")
-                        .preview
-                            if product_images[0] !== undefined
-                                img(src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageFrontName, alt="")
             .stat
                 ul
                     li
@@ -127,19 +100,30 @@
                                 path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
                         .title Экологичность
                 button Добавить в калькулятор
-        .colors
-            .list
-                ul
-                    each color, index in product_color
-                        - var active = '';
-                        if index == 0
-                            - var active = 'active';
-                        
-                        li(class= active, style="background: #" + color.sColorCode + ";", attr-sColorTitleCode= color.sColorTitleCode, attr-iProductID= color.iProductID)
-                            .code= color.sColorTitleCode
-                            .title= color.sColorTitle
-                button Добавить в калькулятор
-            .view
+        if product_color.length
+            .colors
+                .list
+                    ul
+                        each color, index in product_color
+                            //- - console.log(color)
+                            if color.sColorTextureFileName
+                                - var bg = 'background-image: url("/images/colors/70_70/' + color.sColorTextureFileName + '")';
+                            else
+                                - var bg = 'background-color: #' + color.sColorCode
+                            //- if index == 0
+                            //-     - var active = 'active';
+                            
+                            li(
+                                style= bg
+                                attr-iProductID= color.iProductID
+                                attr-sColorTitleCode= color.sColorTitleCode
+                                attr-sColorTextureFileName= color.sColorTextureFileName
+                                title= color.sColorTitle
+                                )
+                                .code= color.sColorTitleCode
+                                .title= color.sColorTitle
+                    button Добавить в калькулятор
+                .view
         .desc
             if image_product_text !== undefined
                 img(src="/images/product/" + product.iProductID + "/" + image_product_text.sProductImageFrontName, alt="")

@@ -522,7 +522,7 @@ $speed: .25s;
         width: 220px;
         height: 59px;
         z-index: 3;
-        background-image: url("/images/logo_black.png");
+        background-image: url("/images/logo1.svg");
         background-position: 23px center;
         background-repeat: no-repeat;
         background-color: #FFF;
@@ -535,7 +535,7 @@ $speed: .25s;
         }
         &:hover {
             // opacity: 0.8;
-            background-image: url("/images/logo_rgb.png");
+            background-image: url("/images/logo2.svg");
         }
         a {
             position: absolute;
