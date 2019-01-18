@@ -17,6 +17,49 @@ app.set('view engine', 'pug');
 
 app.use('/vue', express.static(__dirname + '/node_modules/vue/dist'))
 
+var left_menu = [
+    {
+        title: 'Главная',
+        uri: '/',
+        ico: [ '1.svg', '1a.svg' ]
+    },
+    {
+        title: 'Окна',
+        uri: '/product',
+        ico: [ '2.svg', '2a.svg' ]
+    },
+    {
+        title: 'Без имени',
+        uri: '/',
+        ico: [ '3.svg', '3a.svg' ]
+    },
+    {
+        title: 'Без имени',
+        uri: '/',
+        ico: [ '4.svg', '4a.svg' ]
+    },
+    {
+        title: 'Без имени',
+        uri: '/',
+        ico: [ '5.svg', '5a.svg' ]
+    },
+    {
+        title: 'Без имени',
+        uri: '/',
+        ico: [ '6.svg', '6a.svg' ]
+    },
+    {
+        title: 'Wiki',
+        uri: '/wiki',
+        ico: [ '7.svg', '7a.svg' ]
+    },
+    {
+        title: 'Без имени',
+        uri: '/',
+        ico: [ '8.svg', '8a.svg' ]
+    },
+]
+var left_menu_active = false;
 
 app.use(function (req, res, next) {
     var cookie = req.cookies.cookieName;
@@ -31,6 +74,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req, res) => {
+    left_menu_active = 0
     var data = {}
         data.s2_menu = [
         {
@@ -626,7 +670,7 @@ app.get('/', (req, res) => {
             ]
         },
     ]
-    res.render('index.pug', { title: 'Просто окна', data: data })
+    res.render('index.pug', { title: 'Просто окна', data: data, left_menu: left_menu })
 })
 
 app.get('/calc_data', (req, res) => {
@@ -645,6 +689,7 @@ app.get('/gager', (req, res) => {
 })
 
 app.get('/product', (req, res) => {
+    left_menu_active = 1
     let connection = mysql.createConnection(config.get('db'))
     let query = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
     connection.query(query, (err, rows, fields) => {
@@ -654,12 +699,13 @@ app.get('/product', (req, res) => {
             return
         }
         let products = rows;
-        res.render('product/products.pug', { products: products })
+        res.render('product/products.pug', { products: products, left_menu_active: left_menu_active })
     })
     connection.end()
 })
 
 app.get('/product/:sProductURI', (req, res) => {
+    left_menu_active = 1
     var connection = mysql.createConnection(config.get('db'));
     var query_1 = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID WHERE t1.sProductURI = ? LIMIT 1";
     var query_2 = "SELECT * FROM product_images WHERE iProductID = ? ORDER BY iOrder ASC";
