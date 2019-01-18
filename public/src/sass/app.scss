@@ -519,17 +519,19 @@ $speed: .25s;
         position: absolute;
         left: 60px;
         top: 0;
-        width: 220px;
+        width: 155px;
         height: 59px;
         z-index: 3;
+        // background-color: red;
         background-image: url("/images/logo1.svg");
-        background-position: 23px center;
+        background-position: left;
         background-repeat: no-repeat;
         background-color: #FFF;
+        background-size: contain;
         @media (max-width: 575px) {
             height: 49px;
             left: 50px;
-            width: 120px;
+            width: 139px;
             background-position: left center;
             
         }
