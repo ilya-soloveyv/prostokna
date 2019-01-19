@@ -592,6 +592,7 @@
     padding-top: 4vw;    
     height: calc(100vh - 60px);
     background: #353535;
+    display: none;
     @media screen and (max-width: 576px) {
       height: calc(100vh - 50px);
       padding-top: 25px;
