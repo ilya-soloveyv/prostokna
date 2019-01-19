@@ -1,1 +1,3 @@
-console.log('intuitive')
+if ($("#intuitive").length) {
+    console.log('intuitive')
+}
