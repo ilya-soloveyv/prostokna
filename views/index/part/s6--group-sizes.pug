@@ -2,7 +2,9 @@
 //- group-options
 .group-options(data-Module="group-sizes")
     h3 Размер окна
-    .grid-col-2(v-if="current_window != null && windows[current_window] && collections[windows[current_window].collection].window_opening")
+    //- template(v-if="current_window !== null") {{ windows[current_window].collection }}
+    //- template(v-if="current_window !== null") {{ currentCollections[windows[current_window].collection] }}
+    .grid-col-2(v-if="current_window != null && currentCollections[windows[current_window].collection].window_opening")
         p
             label(for="") ширина окна
             input.edit(
@@ -33,13 +35,13 @@
                 max='2000',
                 v-model.number="windows[current_window].window_y"
                 v-on:change="calc")
-    template(v-if="current_window != null && windows[current_window] && collections[windows[current_window].collection].window_opening")
-        p(v-for="(window_opening_item, index) in collections[windows[current_window].collection].window_opening")
+    template(v-if="current_window != null && currentCollections[windows[current_window].collection].window_opening")
+        p(v-for="(window_opening_item, index) in currentCollections[windows[current_window].collection].window_opening")
             label открытие створки окна
                 i.material-icons expand_more
                 select(v-model="windows[current_window].opening.window[index]")
                     option(v-for="(item_opening, index2) in window_opening_item" v-bind:value="index2") {{ item_opening.title }}
-    .grid-col-2(v-if="current_window != null && windows[current_window] && collections[windows[current_window].collection].door_opening")
+    .grid-col-2(v-if="current_window != null && currentCollections[windows[current_window].collection].door_opening")
         p
             label(for="") ширина двери
             input.edit(
@@ -70,8 +72,8 @@
                 max='1600',
                 v-model.number="windows[current_window].door_y"
                 v-on:change="calc")
-    template(v-if="current_window != null && windows[current_window] && collections[windows[current_window].collection].door_opening")
-        p(v-for="(door_opening_item, index) in collections[windows[current_window].collection].door_opening")
+    template(v-if="current_window != null && currentCollections[windows[current_window].collection].door_opening")
+        p(v-for="(door_opening_item, index) in currentCollections[windows[current_window].collection].door_opening")
             label открытие створки двери
                 i.material-icons expand_more
                 select(v-model="windows[current_window].opening.door[index]")

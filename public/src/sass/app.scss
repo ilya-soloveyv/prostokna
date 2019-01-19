@@ -30,8 +30,6 @@
     src: url('/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
 }
 
-
-
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -439,63 +437,68 @@ $speed: .25s;
             -o-transition: all .25s linear;
             -webkit-transition: all .25s linear;
             @media (max-width: 1199px) {
-                top: 60px;
+                top: 50px;
                 width: 0vw;
             }
             ul {
                 position: absolute;
-                left: 0;
-                top: 50%;
+                top: 0;
                 right: 0;
-                margin: -244px 0 0 0;
+                bottom: 0;
+                left: 0;
+                margin: 0;
                 padding: 0;
                 list-style: none;
-                @media (max-height: 568px) {
-                    margin: -204px 0 0 0;
-                }
-                @media (max-height: 488px) {
-                    margin: -164px 0 0 0;
-                }
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                overflow: hidden;
                 @media (max-width: 575px) {
                     top: 0;
-                    margin: 0;
-                }
-                @media (max-width: 575px) {
+                    transform: none;
                     height: 100%;
                 }
                 li {
                     position: relative;
+                    flex-basis: 60px;
                     a {
                         display: block;
-                        height: 61px;
-                        font-size: 0;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        @media (max-height: 568px) {
-                            height: 51px;
+                        height: 100%;
+                        .b {
+                            height: 100%;
+                            img {
+                                height: 30px;
+                                width: 30px;
+                                margin: 15px;
+                            }
                         }
-                        @media (max-height: 488px) {
-                            height: 41px;
-                        }
-                    }
-                    &.active {
-                        a {
-                            background-color: #ededed;
-                        }
-                    }
-                    &:hover {
-                        a {
-                            background-color: #ededed;
+                        .h {
+                            height: 100%;
+                            display: none;
+                            img {
+                                height: 30px;
+                                width: 30px;
+                                margin: 15px;
+                            }
                         }
                     }
-                    &.item0 { a { background-image: url("/images/top/1.svg"); } &.item0.active { a { background-image: url("/images/top/1a.svg"); } } }
-                    &.item1 { a { background-image: url("/images/top/2.svg"); } &.item1.active { a { background-image: url("/images/top/2a.svg"); } } }
-                    &.item2 { a { background-image: url("/images/top/3.svg"); } &.item2.active { a { background-image: url("/images/top/3a.svg"); } } }
-                    &.item3 { a { background-image: url("/images/top/4.svg"); } &.item3.active { a { background-image: url("/images/top/4a.svg"); } } }
-                    &.item4 { a { background-image: url("/images/top/5.svg"); } &.item4.active { a { background-image: url("/images/top/5a.svg"); } } }
-                    &.item5 { a { background-image: url("/images/top/6.svg"); } &.item5.active { a { background-image: url("/images/top/6a.svg"); } } }
-                    &.item6 { a { background-image: url("/images/top/7.svg"); } &.item6.active { a { background-image: url("/images/top/7a.svg"); } } }
-                    &.item7 { a { background-image: url("/images/top/8.svg"); } &.item7.active { a { background-image: url("/images/top/8a.svg"); } } }
+                    &.active, &:hover {
+                        background-color: #ededed;
+                        .b {
+                            display: none;
+                        }
+                        .h {
+                            display: block;
+                        }
+                    }
+                    // &.item0 { a { background-image: url("/images/top/1.svg"); } &.item0.active { a { background-image: url("/images/top/1a.svg"); } } }
+                    // &.item1 { a { background-image: url("/images/top/2.svg"); } &.item1.active { a { background-image: url("/images/top/2a.svg"); } } }
+                    // &.item2 { a { background-image: url("/images/top/3.svg"); } &.item2.active { a { background-image: url("/images/top/3a.svg"); } } }
+                    // &.item3 { a { background-image: url("/images/top/4.svg"); } &.item3.active { a { background-image: url("/images/top/4a.svg"); } } }
+                    // &.item4 { a { background-image: url("/images/top/5.svg"); } &.item4.active { a { background-image: url("/images/top/5a.svg"); } } }
+                    // &.item5 { a { background-image: url("/images/top/6.svg"); } &.item5.active { a { background-image: url("/images/top/6a.svg"); } } }
+                    // &.item6 { a { background-image: url("/images/top/7.svg"); } &.item6.active { a { background-image: url("/images/top/7a.svg"); } } }
+                    // &.item7 { a { background-image: url("/images/top/8.svg"); } &.item7.active { a { background-image: url("/images/top/8a.svg"); } } }
                 }
             }
             &.opened {
@@ -519,23 +522,25 @@ $speed: .25s;
         position: absolute;
         left: 60px;
         top: 0;
-        width: 220px;
+        width: 155px;
         height: 59px;
         z-index: 3;
-        background-image: url("/images/logo_black.png");
-        background-position: 23px center;
+        // background-color: red;
+        background-image: url("/images/logo1.svg");
+        background-position: left;
         background-repeat: no-repeat;
         background-color: #FFF;
+        background-size: contain;
         @media (max-width: 575px) {
             height: 49px;
             left: 50px;
-            width: 120px;
+            width: 139px;
             background-position: left center;
             
         }
         &:hover {
             // opacity: 0.8;
-            background-image: url("/images/logo_rgb.png");
+            background-image: url("/images/logo2.svg");
         }
         a {
             position: absolute;

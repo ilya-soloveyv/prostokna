@@ -45,7 +45,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/optional_service/optional_service.css")
             link(rel="stylesheet", href="/src/css/intuitive/intuitive.css")
         else
-            link(rel="stylesheet", href="/app-7977e2d52e.min.css")
+            link(rel="stylesheet", href="/app-99f81e7880.min.css")
     body
         #top
             .logo
@@ -77,22 +77,14 @@ html(lang="ru")
                                 .path-rotation
                 .menu
                     ul
-                        li.item0.active
-                            a(href='/') Главная
-                        li.item1
-                            a(href='/product') Окна
-                        li.item2
-                            a(href='/') Главная
-                        li.item3
-                            a(href='/') Главная
-                        li.item4
-                            a(href='/') Главная
-                        li.item5
-                            a(href='/') Главная
-                        li.item6
-                            a(href='/wiki') Wiki
-                        li.item7
-                            a(href='/') Главная
+                        if left_menu
+                            each item in left_menu
+                                li
+                                    a(href= item.uri)
+                                        .b
+                                            img(src="/images/top/" + item.ico[0], alt="")
+                                        .h
+                                            img(src="/images/top/" + item.ico[1], alt="")
             .cal
                 .img
         block content
@@ -160,5 +152,5 @@ html(lang="ru")
             script(src='/src/js/optional_service/optional_service.js')
             script(src='/src/js/intuitive/intuitive.js')
         else
-            script(src='/app-844433d0ad.min.js')
+            script(src='/app-382ca04562.min.js')
 
