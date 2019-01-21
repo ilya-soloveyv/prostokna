@@ -49,57 +49,93 @@
                                 data-iProductImageID= point.iProductImageID,
                                 data-fProductImagePointPosX= point.fProductImagePointPosX,
                                 data-fProductImagePointPosY= point.fProductImagePointPosY)= point.tProductImagePointMess
-            .stat
-                ul
-                    li
-                        .percent
-                            .value= product.iProductParam1+"%"
-                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                path.circle(stroke-dasharray=product.iProductParam1+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                        .title Теплоизоляция
-                    li
-                        .percent
-                            .value= product.iProductParam2+"%"
-                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                path.circle(stroke-dasharray=product.iProductParam2+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                        .title Эстетичность
-                    li
-                        .percent
-                            .value= product.iProductParam3+"%"
-                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                path.circle(stroke-dasharray=product.iProductParam3+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                        .title Шумоизоляция
-                    li
-                        .percent
-                            .value= product.iProductParam4+"%"
-                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                path.circle(stroke-dasharray=product.iProductParam4+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                        .title Надежность
-                    li
-                        .percent
-                            .value= product.iProductParam5+"%"
-                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                path.circle(stroke-dasharray=product.iProductParam5+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                        .title Безопасность
-                    li
-                        .percent
-                            .value= product.iProductParam6+"%"
-                            svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                            svg(viewBox="0 0 36 36", class="circular-chart")
-                                path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                        .title Экологичность
-                button Добавить в калькулятор
+            .info
+                .tabs
+                    .tab-content
+                        #home1.tab-pane.fade.show.active
+                            ul.circle
+                                li
+                                    .percent
+                                        .value= product.iProductParam1+"%"
+                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        svg(viewBox="0 0 36 36", class="circular-chart")
+                                            path.circle(stroke-dasharray=product.iProductParam1+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                    .title Теплоизоляция
+                                li
+                                    .percent
+                                        .value= product.iProductParam2+"%"
+                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        svg(viewBox="0 0 36 36", class="circular-chart")
+                                            path.circle(stroke-dasharray=product.iProductParam2+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                    .title Эстетичность
+                                li
+                                    .percent
+                                        .value= product.iProductParam3+"%"
+                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        svg(viewBox="0 0 36 36", class="circular-chart")
+                                            path.circle(stroke-dasharray=product.iProductParam3+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                    .title Шумоизоляция
+                                li
+                                    .percent
+                                        .value= product.iProductParam4+"%"
+                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        svg(viewBox="0 0 36 36", class="circular-chart")
+                                            path.circle(stroke-dasharray=product.iProductParam4+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                    .title Надежность
+                                li
+                                    .percent
+                                        .value= product.iProductParam5+"%"
+                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        svg(viewBox="0 0 36 36", class="circular-chart")
+                                            path.circle(stroke-dasharray=product.iProductParam5+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                    .title Безопасность
+                                li
+                                    .percent
+                                        .value= product.iProductParam6+"%"
+                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        svg(viewBox="0 0 36 36", class="circular-chart")
+                                            path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                    .title Экологичность
+                        #home2.tab-pane.fade
+                            p Отменнное качество по приемлемой цене. Эстетичный профиль с закругленным штапиком.
+                            ul
+                                li
+                                    span Монтажная глубина: 
+                                    | 60 мм;
+                                li
+                                    span Профиль: 
+                                    | Трехкамерный профиль;
+                                li
+                                    span Сопротивление теплопередаче: 
+                                    | 0,58 м2×°С/Вт;
+                                li
+                                    span Класс профиля: 
+                                    | «В»;
+                                li
+                                    span Звукоизоляция класса: 
+                                    | «С»;
+                                li
+                                    span Защита от холода, осадков и ветра:
+                                    | группы «С»;
+                                li
+                                    span Фурнитура: 
+                                    | Roto (Германия).
+                ul.nav.nav-tabs
+                    li.nav-item
+                        a#home1-tab.nav-link.active(data-toggle="tab" href="#home1" aria-selected="true") Характристики
+                    li.nav-item
+                        a#home2-tab.nav-link(data-toggle="tab" href="#home2" aria-selected="true") Описание
+                .buttons
+                    button.calculate Добавить в калькулятор
+                    button.favorite
+                        i.material-icons star_border
+                //- button Добавить в калькулятор
         if product_color.length
             .colors
                 .list

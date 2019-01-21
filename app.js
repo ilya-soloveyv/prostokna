@@ -712,7 +712,7 @@ app.get('/product/:sProductURI', (req, res) => {
     var query_4 = "SELECT * FROM colors WHERE iMaterialID = ?";
     var query_5 = "SELECT * FROM product_images WHERE iPhotoInDescOnPage = 1 && iProductID = ? LIMIT 1";
     var query_6 = "SELECT t1.sProductURI, t1.sProductTitle, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
-    var query_7 = "SELECT t1.iProductID, t2.sColorCode, t2.sColorTitle, t2.sColorTitleCode, t2.sColorTitle, t2.sColorTextureFileName FROM product_color t1 LEFT JOIN colors t2 ON t2.iColorID = t1.iColorID WHERE t1.iProductID = ?";
+    var query_7 = "SELECT t1.iProductID, t2.sColorCode, t2.sColorTitle, t2.sColorTitleCode, t2.sColorTitle, t2.sColorTextureFileName FROM product_color t1 LEFT JOIN colors t2 ON t2.iColorID = t1.iColorID WHERE t1.iProductID = ? ORDER BY t2.iOrder ASC";
     async.parallel([
        function(parallel_done) {
            connection.query(query_1, [ req.params.sProductURI ], function(err, product) {
