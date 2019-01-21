@@ -74,6 +74,7 @@ data.left_menu = [
 
 app.get('/', (req, res) => {
     data.title = 'Просто окна'
+    data.left_menu_active = 0
     data.s2_menu = [
         {
             title: 'Окна',
@@ -680,16 +681,19 @@ app.get('/calc_data', (req, res) => {
 
 app.get('/contact', (req, res) => {
     data.title = 'Контакты'
+    data.left_menu_active = null
     res.render('contact.pug', data)
 })
 
 app.get('/gager', (req, res) => {
     data.title = 'Замерщик'
+    data.left_menu_active = null
     res.render('gager.pug', data)
 })
 
 app.get('/product', (req, res) => {
     data.title = 'Окна'
+    data.left_menu_active = 1
     let connection = mysql.createConnection(config.get('db'))
     let query = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
     connection.query(query, (err, rows, fields) => {
@@ -719,6 +723,7 @@ app.get('/product/:sProductURI', (req, res) => {
                if (err) return parallel_done(err);
                data.product = product[0]
                data.title = data.product.sBrandTitle + " " + data.product.sProductTitle
+               data.left_menu_active = 1
                parallel_done()
            });
        }
@@ -778,16 +783,19 @@ app.get('/product/:sProductURI', (req, res) => {
 
 app.get('/pay', (req, res) => {
     data.title = 'Оплата'
+    data.left_menu_active = null
     res.render('pay.pug', data)
 })
 
 app.get('/palette', (req, res) => {
     data.title = 'Палитра'
+    data.left_menu_active = null
     res.render('palette.pug', data)
 })
 
 app.get('/options', (req, res) => {
     data.title = 'Опции'
+    data.left_menu_active = null
     res.render('options.pug', data)
 })
 
@@ -804,6 +812,7 @@ for (let index = 0; index < 10; index++) {
 
 app.get('/wiki', (req, res) => {
     data.title = 'Вики'
+    data.left_menu_active = 6
     res.render('wiki/catalog.pug', data)
 })
 
@@ -813,26 +822,31 @@ app.get('/wiki/get', (req, res) => {
 
 app.get('/wiki/article', (req, res) => {
     data.title = 'Wiki article'
+    data.left_menu_active = 6
     res.render('wiki/article.pug', data)
 })
 
 app.get('/instruction', (req, res) => {
     data.title = 'Instruction'
+    data.left_menu_active = null
     res.render('instruction/instruction.pug', data)
 })
 
 app.get('/instruction/video', (req, res) => {
     data.title = 'Instruction Video'
+    data.left_menu_active = null
     res.render('instruction/video.pug', data)
 })
 
 app.get('/company', (req, res) => {
     data.title = 'О компании'
+    data.left_menu_active = null
     res.render('company/company.pug', data)
 })
 
 app.get('/corporate', (req, res) => {
     data.title = 'Corporate'
+    data.left_menu_active = null
     res.render('corporate/corporate.pug', data)
 })
 
@@ -840,16 +854,19 @@ app.get('/corporate', (req, res) => {
 
 app.get('/regulation_window', (req, res) => {
     data.title = 'Регулировка окон'
+    data.left_menu_active = null
     res.render('regulation_window/regulation_window.pug', data)
 })
 
 app.get('/optional_service', (req, res) => {
     data.title = 'Дополнительные услуги'
+    data.left_menu_active = null
     res.render('optional_service/optional_service.pug', data)
 })
 
 app.get('/intuitive', (req, res) => {
     data.title = 'Интуйтивный подбор окон'
+    data.left_menu_active = null
     res.render('intuitive/intuitive.pug', data)
 })
 

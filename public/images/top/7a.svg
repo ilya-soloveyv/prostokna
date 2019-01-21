@@ -2,18 +2,18 @@
   <defs>
     <style>
       .cls-1 {
-        clip-path: url(#clip-XD_07_1);
+        clip-path: url(#clip-XD_07a);
       }
 
       .cls-2 {
-        fill: #fff;
+        fill: #0585fa;
       }
     </style>
-    <clipPath id="clip-XD_07_1">
+    <clipPath id="clip-XD_07a">
       <rect width="30" height="30"/>
     </clipPath>
   </defs>
-  <g id="XD_07_1" data-name="XD 07 – 1" class="cls-1">
+  <g id="XD_07a" data-name="XD 07a" class="cls-1">
     <g id="Group_801" data-name="Group 801" transform="translate(1 5.041)">
       <path id="Path_530" data-name="Path 530" class="cls-2" d="M4.665,6.051h.078l6.438-1.439c.233-.072.388-.288.31-.432-.078-.216-.233-.36-.465-.288L4.588,5.332c-.31,0-.388.216-.388.432a.426.426,0,0,0,.465.288Zm0,0" transform="translate(-0.942 -1.098)"/>
       <path id="Path_531" data-name="Path 531" class="cls-2" d="M29.5,5.332,23.06,3.893a.34.34,0,0,0-.465.288.32.32,0,0,0,.31.432l6.438,1.439h.078c.155,0,.388-.144.388-.288,0-.216-.078-.432-.31-.432Zm0,0" transform="translate(-5.065 -1.098)"/>
