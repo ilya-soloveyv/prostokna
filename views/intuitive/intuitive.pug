@@ -2,42 +2,6 @@ extends ../layouts/app
 
 block content
     #intuitive.ppage
-        img.slide(src="/images/intuitive/slide.png", alt="Слайд")
-        img.slide-2(src="/images/intuitive/slide-2.png", alt="Слайд")
-        button.repeat.hvr Начать заново
-        .center_window                           
-            button.more_btn.more_btn-left
-                span.more_txt Смотреть подробнее
-                img(src="/images/intuitive/eye.png", alt="Картинка")
-            button.more_btn.more_btn-second
-                span.more_txt Добавить в калькулятор
-                img(src="/images/intuitive/equal.png", alt="Картинка")
-            button.more_btn.more_btn-third
-                span.more_txt Добавить в калькулятор
-                img(src="/images/intuitive/dop.png", alt="Картинка")
-            span.prev
-            span.next
-            .main_window
-                .window-title
-                    span 01
-                    p MONTBLANC Nord 70
-                img(src="/images/intuitive/main-window.png", alt="Окно")
-        .prev_window-last
-            .window-title
-                span 03
-                p REHAU Blitz
-            img(src="/images/intuitive/prev-window.png", alt="Окно")
-        .prev_window
-            .window-title
-                span 03
-                p REHAU Blitz
-            img(src="/images/intuitive/prev-window.png", alt="Окно")
-        .next_window
-            .window-title
-                span 03
-                p REHAU Blitz
-            img(src="/images/intuitive/next-window.png", alt="Окно")
-    #intuitive-bref.ppage
         .intuitive-bref
             h1.bref-title Интуитивный подбор окон
             ul.category-list.nav.nav-tabs#myTab(role="tablist")
@@ -56,7 +20,7 @@ block content
                 li.category-item.nav-item
                     a.nav-link.disabled#home-tab(data-toggle="tab" href="#fifth")
                         span 05
-            .tab-content#myTabContent
+            .tab-content.tab-content_choise#myTabContent
                 .choise.tab-pane.fade.show.active#first
                     .choise-title
                         span.num 04
@@ -92,3 +56,40 @@ block content
                 .choise.tab-pane.fade#third 3        
                 .choise.tab-pane.fade#fourth 4
                 .choise.tab-pane.fade#fifth 5
+        .intuitive-wrap
+            img.slide(src="/images/intuitive/slide.png", alt="Слайд")
+            img.slide-2(src="/images/intuitive/slide-2.png", alt="Слайд")
+            button.repeat.hvr Начать заново
+            .center_window                           
+                button.more_btn.more_btn-left
+                    span.more_txt Смотреть подробнее
+                    img(src="/images/intuitive/eye.png", alt="Картинка")
+                button.more_btn.more_btn-second
+                    span.more_txt Добавить в калькулятор
+                    img(src="/images/intuitive/equal.png", alt="Картинка")
+                button.more_btn.more_btn-third
+                    span.more_txt Добавить в калькулятор
+                    img(src="/images/intuitive/dop.png", alt="Картинка")
+                span.prev
+                span.next
+                .main_window
+                    .window-title
+                        span 01
+                        p MONTBLANC Nord 70
+                    img(src="/images/intuitive/main-window.png", alt="Окно")
+            .prev_window-last
+                .window-title
+                    span 03
+                    p REHAU Blitz
+                img(src="/images/intuitive/prev-window.png", alt="Окно")
+            .prev_window
+                .window-title
+                    span 03
+                    p REHAU Blitz
+                img(src="/images/intuitive/prev-window.png", alt="Окно")
+            .next_window
+                .window-title
+                    span 03
+                    p REHAU Blitz
+                img(src="/images/intuitive/next-window.png", alt="Окно")    
+        
