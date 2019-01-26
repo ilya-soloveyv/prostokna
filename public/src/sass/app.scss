@@ -30,6 +30,13 @@
     src: url('/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
 }
 
+html {
+    min-height: 100%;
+}
+body {
+    height: 100%;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -667,17 +674,13 @@ $speed: .25s;
 
 
 .ppage {
-    position: relative;
-    margin-top: 60px;
-    margin-left: 60px;
-    min-height: calc(100vh - 60px);
-    box-sizing: border-box;
+    min-height: 100vh;
+    padding: 60px 0 0 60px;
     @media (max-width: 1200px) {
-        margin-left: 0;
+        padding-left: 0;
     }
     @media (max-width: 575px) {
-        margin-top: 50px;
-        min-height: calc(100vh - 50px);
+        padding-top: 50px;
     }
 }
 

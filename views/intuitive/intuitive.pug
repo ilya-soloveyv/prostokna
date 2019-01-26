@@ -2,93 +2,82 @@ extends ../layouts/app
 
 block content
     #intuitive.ppage
-        img.slide(src="/images/intuitive/slide.png", alt="Слайд")
-        img.slide-2(src="/images/intuitive/slide-2.png", alt="Слайд")
-        button.repeat.hvr Начать заново
-        .center_window                           
-            button.more_btn.more_btn-left
-                span.more_txt Смотреть подробнее
-                img(src="/images/intuitive/eye.png", alt="Картинка")
-            button.more_btn.more_btn-second
-                span.more_txt Добавить в калькулятор
-                img(src="/images/intuitive/equal.png", alt="Картинка")
-            button.more_btn.more_btn-third
-                span.more_txt Добавить в калькулятор
-                img(src="/images/intuitive/dop.png", alt="Картинка")
-            span.prev
-            span.next
-            .main_window
-                .window-title
-                    span 01
-                    p MONTBLANC Nord 70
-                img(src="/images/intuitive/main-window.png", alt="Окно")
-        .prev_window-last
-            .window-title
-                span 03
-                p REHAU Blitz
-            img(src="/images/intuitive/prev-window.png", alt="Окно")
-        .prev_window
-            .window-title
-                span 03
-                p REHAU Blitz
-            img(src="/images/intuitive/prev-window.png", alt="Окно")
-        .next_window
-            .window-title
-                span 03
-                p REHAU Blitz
-            img(src="/images/intuitive/next-window.png", alt="Окно")
-    #intuitive-bref.ppage
-        .intuitive-bref
-            h1.bref-title Интуитивный подбор окон
-            ul.category-list.nav.nav-tabs#myTab(role="tablist")
-                li.category-item.nav-item
-                    a.nav-link.active#home-tab(data-toggle="tab" href="#first")
-                        img(src="/images/intuitive/home.svg", alt="Дом")
-                li.category-item.nav-item
-                    a.nav-link#home-tab(data-toggle="tab" href="#second")
-                        img(src="/images/intuitive/wall.svg", alt="Стена")
-                li.category-item.nav-item
-                    a.nav-link#home-tab(data-toggle="tab" href="#third")
-                        span -10°
-                li.category-item.nav-item
-                    a.nav-link#home-tab(data-toggle="tab" href="#fourth")
-                        span 04
-                li.category-item.nav-item
-                    a.nav-link.disabled#home-tab(data-toggle="tab" href="#fifth")
-                        span 05
-            .tab-content#myTabContent
-                .choise.tab-pane.fade.show.active#first
-                    .choise-title
-                        span.num 04
-                        span.text Беспокоят?
-                    .choise-items
-                        .choise-item
-                            input(type="radio" name="fourth" id="cold" checked)
-                            label(for="cold")
-                                img(src="/images/intuitive/snow.svg", alt="Дом")
-                                span Холод                           
-                        .choise-item
-                            input(type="radio" name="fourth" id="noise")
-                            label(for="noise")
-                                img(src="/images/intuitive/noise.svg", alt="Дом")
-                                span Шум                           
-                        .choise-item
-                            input(type="radio" name="fourth" id="wind")
-                            label(for="wind")
-                                img(src="/images/intuitive/wind.svg", alt="Дом")
-                                span Ветер                           
-                        .choise-item
-                            input(type="radio" name="fourth" id="sun")
-                            label(for="sun")
-                                img(src="/images/intuitive/sun.svg", alt="Дом")
-                                span Солнце                           
-                        .choise-item
-                            input(type="radio" name="fourth" id="nothing")
-                            label(for="nothing")
-                                img(src="/images/intuitive/nothing.svg", alt="Дом")
-                                span Ничего, просто нужны новые окна
-                        a.choise-btn(href="#") Далее
-                .choise.tab-pane.fade#second 2        
-                .choise.tab-pane.fade#third 3        
-                .choise.tab-pane.fade#fourth 4
-                .choise.tab-pane.fade#fifth 5
+        .intuitive-bref(v-if="!showResult")
+            h1 Интуйтивный подбор окон
+            .subject(v-if="currentSubject == null")
+                .desc Куда вы хотите поставить окна?
+                ul
+                    li(v-for="(subject, index) in subjects" v-on:click="useSubject(index)")
+                        img(v-bind:src="subject.ico", alt="subject.title")
+                        span {{ subject.title }}
+            .question(v-if="currentSubject != null")
+                ul.questions
+                    li(
+                        v-for="(question, index) in questions[currentSubject]"
+                        v-bind:class="{ disabled: currentQuestion < index, active: currentQuestion == index }"
+                        v-on:click="useQuestion(index)")
+                        //- img(
+                            v-bind:src="question.ico"
+                            v-bind:alt="question.title")
+                        .num {{ question.num }}
+                h2
+                    .num {{ questions[currentSubject][currentQuestion].num }}
+                    .title {{ questions[currentSubject][currentQuestion].title }}
+                ul.answers
+                    li(
+                        v-for="(answer, index) in questions[currentSubject][currentQuestion].answers"
+                        v-bind:class="{ active: answer.status}")
+                        label
+                            input(
+                                type="checkbox"
+                                v-model="answer.status"
+                                v-on:change="useAnswer(index)")
+                            .img
+                                img(
+                                    v-bind:src="answer.ico"
+                                    v-bind:alt="answer.title")
+                            .title {{ answer.title }}
+                .nextButton
+                    template(v-if="currentQuestion != (questions[currentSubject].length-1)")
+                        button(
+                            v-bind:class="{disabled: questions[currentSubject][currentQuestion].next}"
+                            v-on:click="nextQuestion") Далее
+                    template(v-else)
+                        button(
+                            v-bind:class="{disabled: questions[currentSubject][currentQuestion].next}"
+                            v-on:click="nextQuestion") Показать результаты
+        .intuitive-wrap(v-if="showResult")
+            .center
+                .circle
+            .buttons
+                .button_1
+                    .img
+                        img(src="/images/intuitive/snow.svg", alt="")
+                    .title Смотреть подробнее
+                .button_2
+                    .img
+                        img(src="/images/intuitive/snow.svg", alt="")
+                    .title Добавить в сравнение
+                .button_3
+                    .img
+                        img(src="/images/intuitive/snow.svg", alt="")
+                    .title Добавить в калькулятор
+            .window(
+                v-for="(window, index) in windows"
+                v-bind:class="{ l: window.position == 'l', m: window.position == 'm', r: window.position == 'r' }"
+                v-on:click="moveWindow(null, window.position)")
+                .title
+                    .num {{ window.num }}
+                    .name {{ window.title }}
+                .img_l
+                    img(src="/images/intuitive/temp/11.png", alt="")
+                .img_m
+                    img(src="/images/intuitive/temp/2.png", alt="")
+                .img_r
+                    img(src="/images/intuitive/temp/33.png", alt="")
+            .repeat(v-on:click="repeat") Начать заново
+            .control
+                .prev(v-on:click="moveWindow('prev')")
+                    i.material-icons chevron_left
+                .next(v-on:click="moveWindow('next')")
+                    i.material-icons chevron_right

@@ -630,7 +630,7 @@ app.get('/', (req, res) => {
                 },
                 {
                     title: 'О компании',
-                    uri: '#'
+                    uri: '/company'
                 },
                 {
                     title: 'Как мы работаем',
