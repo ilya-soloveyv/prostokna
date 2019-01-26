@@ -2,6 +2,8 @@ if ($("#intuitive").length) {
 
     function positionButtons () {
         var buttons_width = $('#intuitive .intuitive-wrap .buttons').width()
+        if (buttons_width == undefined) return false
+        console.log(buttons_width)
         $('#intuitive .intuitive-wrap .buttons').height(buttons_width).css({'margin-top':-(buttons_width/2)+"px"})
         var num = 10;
         var wrap = buttons_width/2;
@@ -22,9 +24,11 @@ if ($("#intuitive").length) {
             }
         }
     }
+
     $(window).resize(function(){
         positionButtons()
     })
+
     $(document).ready(function(){
         positionButtons()
     })
@@ -445,7 +449,7 @@ if ($("#intuitive").length) {
             ],
             currentQuestion: 0,
             currentSubject: null,
-            showResult: true,
+            showResult: false,
             windows: [
                 {
                     title: 'Первое окно',
@@ -504,6 +508,18 @@ if ($("#intuitive").length) {
                 Vue.set(vmIntuitive, 'currentQuestion', 0)
                 Vue.set(vmIntuitive, 'currentSubject', null)
                 Vue.set(vmIntuitive, 'showResult', false)
+                this.questions.forEach(function(item, i){
+                    item.forEach(function(item2, i2){
+                        if (item2.next === false) {
+                            Vue.set(vmIntuitive.questions[i][i2], 'next', true)
+                        }
+                        item2.answers.forEach(function(item3, i3){
+                            if (item3.status === true) {
+                                Vue.set(vmIntuitive.questions[i][i2].answers[i3], 'status', false)
+                            }
+                        })
+                    })
+                })
             },
             findInArray: function (array, value) {
                 for (var i = 0; i < array.length; i++) {
@@ -540,9 +556,12 @@ if ($("#intuitive").length) {
                 if (!this.questions[this.currentSubject][this.currentQuestion].next) {
                     if (this.questions[this.currentSubject].length == this.currentQuestion+1) {
                         Vue.set(vmIntuitive, 'showResult', true)
-                        this.windows.forEach(function(item, i){
-                            console.log(item)
-                        })
+                        Vue.nextTick(function() {
+                            positionButtons()
+                        })                        
+                        // this.windows.forEach(function(item, i){
+                        //     console.log(item)
+                        // })
                         // Vue.set(vmIntuitive.windows[0], 'position', 'l')
                         // Vue.set(vmIntuitive.windows[1], 'position', 'm')
                         // Vue.set(vmIntuitive.windows[2], 'position', 'r')
