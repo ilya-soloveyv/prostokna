@@ -11,8 +11,8 @@
 	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
 ]>
 <svg version="1.0" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1311.2 3342.1"
-	 enable-background="new 0 0 1311.2 3342.1" xml:space="preserve">
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1311.3 3342.1"
+	 enable-background="new 0 0 1311.3 3342.1" xml:space="preserve">
 <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c145 79.163499, 2018/08/13-16:40:22        ">
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -24,7 +24,7 @@
             xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/"
             xmlns:dc="http://purl.org/dc/elements/1.1/">
          <xmp:CreatorTool>Adobe Illustrator CC 23.0 (Windows)</xmp:CreatorTool>
-         <xmp:CreateDate>2019-01-25T17:14:50+01:00</xmp:CreateDate>
+         <xmp:CreateDate>2019-01-28T15:03:38+01:00</xmp:CreateDate>
          <xmp:Thumbnails>
             <rdf:Alt>
                <rdf:li rdf:parseType="Resource">
@@ -36,7 +36,7 @@
             </rdf:Alt>
          </xmp:Thumbnails>
          <xmpTPg:MaxPageSize rdf:parseType="Resource">
-            <stDim:w>1311.178162</stDim:w>
+            <stDim:w>1311.295349</stDim:w>
             <stDim:h>3342.148437</stDim:h>
             <stDim:unit>Pixels</stDim:unit>
          </xmpTPg:MaxPageSize>
