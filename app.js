@@ -8,12 +8,14 @@ const mysql = require('mysql')
 const async = require('async')
 const cookieParser = require('cookie-parser')
 const fs = require('fs')
+const db = config.get('db') 
 app.use(cookieParser())
 app.locals.env = process.env;
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
 app.use('/vue', express.static(__dirname + '/node_modules/vue/dist'))
+
 
 var data = {}
 data.left_menu = [
@@ -871,6 +873,26 @@ app.get('/intuitive', (req, res) => {
 })
 
 
+//API
+app.get('/all_windows', (req, res) => {
+    let connection = mysql.createConnection(config.get('db'))
+    let query = "SELECT t1.sProductTitle, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
+
+    connection.query(query, (err, rows, fields) => {
+        if (err) {
+            console.log('Error query: ' + err)
+            res.sendStatus(500)
+            return
+        }
+        res.json(rows)
+    })
+    connection.end()
+})
+
+    //fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
+        //if (err) throw err
+        //res.json(JSON.parse(data))
+    //})    
 
 
 http.listen(process.env.PORT || 8080, () => {

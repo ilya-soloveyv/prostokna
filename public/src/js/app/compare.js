@@ -8,28 +8,48 @@ if ($('#compare').length) {
           title: "Rehau Blitz"
         },
         {
-          title: "Montblanc"
-        },
-        {
           title: "Default Windows"
         },
       ]
     },
+    computed: {
+      titleFromApi: function() {
+        let products;
+        $.ajax({
+          url: "/all_windows",
+          type: "GET",
+          async: false,
+        }).done((json) => {
+          products = json;
+        })
+        
+        products.forEach(function(item) {
+          item["title"] = `${item.sBrandTitle} ${item.sProductTitle}` 
+        }) 
+
+        return products
+      }
+    },
     methods: {
       deleteWindow: function(index, e) {
-        console.log(index);
         this.list.splice(index, 1);
-        console.log(this.list[index]);
-        console.log(e);
       },
+      openMenu: function() {
+        $(".add-window-menu").addClass("active")
+        console.log("open menu")
+      },
+      closeMenu: function() {
+        $(".add-window-menu").removeClass("active")
+        console.log("close menu")
+      },
+      addWindow: function(i) {
+        this.closeMenu();
+        this.list.push(this.titleFromApi[i])
+        console.log(i, "Add Block");
+      }
     },
     mounted() {
-      $.ajax({
-        url: "/calc_data",
-        type: "GET"
-      }).done((json) => {
-        console.log(json)
-      })
+      console.log(this.titleFromApi[1])
     },
   })
 }
