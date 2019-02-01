@@ -873,10 +873,7 @@ app.get('/intuitive', (req, res) => {
 
 
 
-
-
-
-
-http.listen(process.env.PORT, () => {
+http.listen(process.env.PORT || 8080, () => {
+    console.log(process.env.PORT || 8080)
     console.log('Server is running...')
 })

@@ -9,8 +9,14 @@ if ($('#compare').length) {
                 },
                 {
                     title: "Montblanc"
-                }
+                },
+                {
+                    title: "Default Windows"
+                },
             ]
-        }
+        },
+        mounted() {
+          //console.log("hello from compare")
+        },
     })
 }

@@ -1,5 +1,5 @@
 .section.s5
-    .fp_bg
+    .fp_bg#compare
         .empty
             .up
                 .bg_flex
@@ -19,7 +19,7 @@
                 .c
                     .list
                         .items
-                            .item.selected(v-for="(n, index) in maxItems" :key="index" @class="selected: list[index]")
+                            .item.selected(v-for="(n, index) in maxItems" :key="index" :class="{selected: list[index]}")
                                 .bg(v-if="list[index]") {{ list[index].title }}
                                     i.material-icons add
                                 .bg(v-else) Добавить окно

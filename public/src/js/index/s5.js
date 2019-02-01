@@ -10,6 +10,7 @@ $(document).on('click', '#fullpage_welcome .section.s5 .sravnenie table thead tr
     $("#fullpage_welcome .section.s5 .sravnenie table thead tr th:first-child img").removeClass('active')
     $(this).addClass('active')
 })
+
 $(document).on('click', '#fullpage_welcome .section.s5 .sravnenie table tfoot tr th:first-child a.linkmore', function(){
     $(this).toggleClass('active')
     
