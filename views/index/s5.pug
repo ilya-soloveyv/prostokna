@@ -22,8 +22,8 @@
                             .item.selected(v-for="(n, index) in maxItems" :key="index" :class="{selected: list[index]}")
                                 .bg(v-if="list[index]") {{ list[index].title }}
                                   i.material-icons(@click="deleteWindow(index, $event)") add
-                                .bg(v-else) Добавить окно
-                                    i.material-icons add
+                                .bg(v-else ) Добавить окно
+                                    i.material-icons(class="button-windows_add") add
                                     
                             .button
                                 a(href='#').mbutton.blue.mbutton-block Сравнить     

@@ -218,6 +218,9 @@
                                             i {
                                                 transform: translate(0, -50%) rotate(45deg);
                                             }
+                                            i.button-windows_add {
+                                                transform: translate(0, -50%) rotate(0);
+                                            }
                                         }
                                     }
                                 }                                

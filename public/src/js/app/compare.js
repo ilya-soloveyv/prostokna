@@ -18,7 +18,7 @@ if ($('#compare').length) {
     methods: {
       deleteWindow: function(index, e) {
         console.log(index);
-        //this.list.splice(index, 1);
+        this.list.splice(index, 1);
         console.log(this.list[index]);
         console.log(e);
       },
