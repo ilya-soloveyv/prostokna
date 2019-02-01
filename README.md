@@ -1,7 +1,7 @@
 # Установка и запуск проекта
-1. Необходимые зависимости:
-  1.1 [**Node JS**](https://nodejs.org/en/download/)
-  1.2 [**GIT**](https://git-scm.com/downloads)
+1. Необходимые зависимости:<br>
+  1.1 [**Node JS**](https://nodejs.org/en/download/)<br>
+  1.2 [**GIT**](https://git-scm.com/downloads)<br>
 2. **Задаем переменную среды**<br>
 В поиске Windows вводите "изменение переменных среды" и добавляете: `NODE_ENV = development` [Скрин](http://joxi.ru/krDgMojfEXZQqA)
 3. **Форкаем текущий репозиторий** [Скрин](http://joxi.ru/l2ZKkoltwQNK4A)<br>
@@ -20,9 +20,9 @@
 Переименовываем файл `.env_default` в `.env`
 7. **Запуск**
 Выполняем в Git bash в 3-х разных окнах<br>
-Gulp nodemon для запуска nodejs сервера
+Gulp nodemon для запуска nodejs сервера <br>
 `gulp nodemon`<br>
-Gulp watch для запуска наблюдения за изменениями
+Gulp watch для запуска наблюдения за изменениями <br>
 `gulp watch`<br>
-Gulp bs для запуска BrowserSync (необязателен, можно заменить nodemon)
+Gulp bs для запуска BrowserSync (необязателен, можно заменить nodemon) <br>
 `gulp bs`

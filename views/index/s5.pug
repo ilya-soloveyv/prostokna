@@ -21,7 +21,7 @@
                         .items
                             .item.selected(v-for="(n, index) in maxItems" :key="index" :class="{selected: list[index]}")
                                 .bg(v-if="list[index]") {{ list[index].title }}
-                                    i.material-icons add
+                                  i.material-icons(@click="deleteWindow(index, $event)") add
                                 .bg(v-else) Добавить окно
                                     i.material-icons add
                                     
