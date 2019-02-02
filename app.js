@@ -876,7 +876,7 @@ app.get('/intuitive', (req, res) => {
 //API
 app.get('/all_windows', (req, res) => {
     let connection = mysql.createConnection(config.get('db'))
-    let query = "SELECT t1.sProductTitle, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
+    let query = "SELECT t1.sProductTitle, t1.MountingDepth, t1.Profile, t1.ProfileClass, t1.DoubleGlazing, t1.HeatTransferResistance, t1.ShapikShapeOptions, t1.DecorationOptions, t1.FrameFeature, t2.BrandНomeland, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
 
     connection.query(query, (err, rows, fields) => {
         if (err) {
@@ -888,11 +888,6 @@ app.get('/all_windows', (req, res) => {
     })
     connection.end()
 })
-
-    //fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
-        //if (err) throw err
-        //res.json(JSON.parse(data))
-    //})    
 
 
 http.listen(process.env.PORT || 8080, () => {

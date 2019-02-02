@@ -1,6 +1,12 @@
 #fullpage_welcome {
   .section {
     &.s5 {
+      tr.basic > td, tr.more > td {
+				transition: .5s;
+			}
+			.table-separete-hide > td:not(:first-child) {
+				opacity: .4;	
+			}
       ul.add-window-menu {
         height: 50vh;
         width: 110%;
@@ -849,13 +855,16 @@
         position: absolute;
         top: 5%;
         right: 5%;
-        z-index: 1000;
+        z-index: 10;
         width: 25%;
         height: 80%;
         background-color: #fff;
         border: 3px solid #2d70e4;
-        padding: 40px;
-        display: none;
+        padding: 30px;
+				display: none;
+        &.active {
+					display: block;
+				}
         @media screen and (max-width: 992px) {
           height: 90%;
           border-radius: 50px;
