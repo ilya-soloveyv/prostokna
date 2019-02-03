@@ -1,16 +1,115 @@
 if ($('#compare').length) {
-    vm = new Vue({
-        el: '#compare',
-        data: {
-            maxItems: 6,
-            list: [
-                {
-                    title: "Rehau Blitz"
-                },
-                {
-                    title: "Montblanc"
-                }
-            ]
+  vm = new Vue({
+    el: '#compare',
+    data: {
+      maxItems: 6,
+      list: [],
+      menuList: [],
+      IdenticalValues: {},
+      showOrHide: "Скрыть одинаковые значения",
+    },
+    computed: {
+      titleFromApi: function() {
+        let products;
+        $.ajax({
+          url: "/all_windows",
+          type: "GET",
+          async: false,
+        }).done((json) => {
+          products = json;
+        })
+        
+        products.forEach(function(item) {
+          item["title"] = `${item.sBrandTitle} ${item.sProductTitle}` 
+          item["DoubleGlazing"] = `до ${item["DoubleGlazing"]} мм` 
+          item["HeatTransferResistance"] = `до ${item["HeatTransferResistance"]} м2°С/Вт` 
+          item["ProfileClass"] = `«${item["ProfileClass"]}»` 
+        }) 
+
+        return products
+      },
+      opacityClasses: function() {
+        var obj = {};
+        for (key in this.titleFromApi[0]) {
+          obj[key] = false;  
         }
-    })
+        return obj
+      }
+    },
+    methods: {
+      deleteWindow: function(index, e) {
+        this.list.splice(index, 1);
+        this.updateMenuList();
+        this.updateIdenticalValues();
+      },
+      openMenu: function() {
+        $(".pop_choice").addClass("active")
+      },
+      closeMenu: function() {
+        $(".pop_choice").removeClass("active")
+      },
+      addWindow: function(i) {
+        this.closeMenu();
+        this.list.push(this.menuList[i])
+        this.updateMenuList();
+        this.updateIdenticalValues();
+      },
+      updateMenuList: function() {
+        var titleMap = this.list.slice().map(item => item['title'])
+
+        this.menuList = this.titleFromApi.slice().filter((item) => {
+          if (titleMap.indexOf(item.title) == -1) {return item;}
+        });
+      },
+      detectValues: function(soh) {
+        if (soh == "Скрыть одинаковые значения") {
+          this.showOrHide = "Показать все";
+          this.opacityActive();
+        } else {
+          this.showOrHide = "Скрыть одинаковые значения";
+          this.opacityHide(); 
+        }
+      },
+      opacityActive: function() {
+        this.updateIdenticalValues();
+        for (key in this.opacityClasses) {
+          if (this.IdenticalValues.indexOf(key) != -1) {
+            this.opacityClasses[key] = true;
+          }
+        }
+      },
+      opacityHide: function() {
+        for (key in this.opacityClasses) {
+          this.opacityClasses[key] = false;
+        }
+      },
+      updateIdenticalValues: function() {
+        obj = Object.assign({}, this.titleFromApi[0]);
+
+        var uselessKeys = ["title", "sBrandTitle", "sProductTitle"];
+        ////Удаление свойств, которые не нужно сравнивать
+        uselessKeys.forEach((item) => {
+          delete obj[item];
+        })
+
+        this.IdenticalValues = [];
+        for (key in obj) {
+          var col = this.list.slice().map(item => item[key])
+            .reduce((word, nextword) => {
+              return (word == nextword) ? word : undefined
+              });
+          if (col != undefined) {this.IdenticalValues.push(key)}
+        }
+        console.log(this.IdenticalValues)
+        
+      },
+    },
+    mounted() {
+      this.list.push(this.titleFromApi[0])
+      this.list.push(this.titleFromApi[2])
+
+      this.updateMenuList();
+      this.updateIdenticalValues();
+    },
+  })
 }

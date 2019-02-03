@@ -1,269 +1,271 @@
 .section.s5
-    .fp_bg
-        .empty
-            .up
-                .bg_flex
-                    .l1 У вас пока нет добавленных к сравнению оконных профилей или балконных конструкций
-                    .l2 Пожалуйста, Выберите 2 или более модели, чтобы перейти к сравнению
-            .down
-                .l
-                    .bg_flex
-                        .custom-control.custom-radio
-                            input(type="radio", id="customRadio1", name="customRadio", checked).custom-control-input
-                            label(for="customRadio1").custom-control-label
-                                img(src='/images/index/s5/select_0_active.svg', alt='Выбрать окно')
-                        .custom-control.custom-radio
-                            input(type="radio", id="customRadio2", name="customRadio").custom-control-input
-                            label(for="customRadio2").custom-control-label
-                                img(src='/images/index/s5/select_1_active.svg', alt='Выбрать балкон')
-                .c
-                    .list
-                        .items
-                            .item.selected(v-for="(n, index) in maxItems" :key="index" @class="selected: list[index]")
-                                .bg(v-if="list[index]") {{ list[index].title }}
-                                    i.material-icons add
-                                .bg(v-else) Добавить окно
-                                    i.material-icons add
-                                    
-                            .button
-                                a(href='#').mbutton.blue.mbutton-block Сравнить     
-        .sravnenie
-            .back
-                .l
-                    img.big(src='/images/index/s5/back_arrow.png', alt='Выбрать окно')
-                .r
-                    img.big(src='/images/index/s5/o_white.svg', alt='Выбрать окно')
-                    img.big.active(src='/images/index/s5/b_white.svg', alt='Выбрать балкон')
-            table
-                thead
-                    tr
-                        th.zag
-                            img.big(src='/images/index/s5/o_white.svg', alt='Выбрать окно')
-                            img.big.active(src='/images/index/s5/b_white.svg', alt='Выбрать балкон')
-                            img.small(src='/images/index/s5/o_black.svg', alt='Выбрать балкон')
-                            img.small.active(src='/images/index/s5/b_black.svg', alt='Выбрать балкон')
-                        th
-                            .l
-                                img(src='/images/index/s5/test.png', alt='test okno')
-                            .r
-                                .remove
-                                    i.material-icons clear
-                                .title
-                                    i.material-icons expand_more
-                                    span.brand Montblanc
-                                    span.model Eco
-                                .link
-                                    i.material-icons remove_red_eye
-                                .button_select
-                                    .name Выбрать
-                                    img(src='/images/index/s5/add.svg', alt='add')
-                        th
-                            .l
-                                img(src='/images/index/s5/test.png', alt='test okno')
-                            .r
-                                .remove
-                                    i.material-icons clear
-                                .title
-                                    i.material-icons expand_more
-                                    span.brand Montblanc
-                                    span.model Eco
-                                .link
-                                    i.material-icons remove_red_eye
-                                .button_select
-                                    .name Выбрать
-                                    img(src='/images/index/s5/add.svg', alt='add')
-                        th
-                            .l
-                                img(src='/images/index/s5/test.png', alt='test okno')
-                            .r
-                                .remove
-                                    i.material-icons clear
-                                .title
-                                    i.material-icons expand_more
-                                    span.brand Montblanc
-                                    span.model Eco
-                                .link
-                                    i.material-icons remove_red_eye
-                                .button_select
-                                    .name Выбрать
-                                    img(src='/images/index/s5/add.svg', alt='add')
-                tbody
-                    tr.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-1.svg', alt='add') 
-                            span Монтажная глубина
-                    tr.basic
-                        td 
-                            img(src='/images/index/s5/icon-1.svg', alt='add') 
-                            span Монтажная глубина
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td 70мм
-                        td 70мм
-                        td 70мм
-                    tr.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-2.svg', alt='add') 
-                            span Профиль
-                    tr.basic
-                        td 
-                            img(src='/images/index/s5/icon-2.svg', alt='add') 
-                            span Профиль
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td 3-камерный
-                        td 3-камерный
-                        td 3-камерный
-                    tr.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-3.svg', alt='add') 
-                            span Класс профиля
-                    tr.basic
-                        td 
-                            img(src='/images/index/s5/icon-3.svg', alt='add') 
-                            span Класс профиля
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td «A»
-                        td «B»
-                        td «C»
-                    tr.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-4.svg', alt='add') 
-                            span Стеклопакет
-                    tr.basic
-                        td 
-                            img(src='/images/index/s5/icon-4.svg', alt='add') 
-                            span Стеклопакет
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td до 32 мм
-                        td до 32 мм
-                        td до 32 мм
-                    tr.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-5.svg', alt='add') 
-                            span Сопротивление теплопередаче
-                    tr.basic
-                        td 
-                            img(src='/images/index/s5/icon-5.svg', alt='add') 
-                            span Сопротивление теплопередаче
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td 0,58 м2°С/Вт
-                        td 0,58 м2°С/Вт
-                        td 0,58 м2°С/Вт
-                    tr.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-6.svg', alt='add') 
-                            span Родина бренд
-                    tr.basic
-                        td 
-                            img(src='/images/index/s5/icon-6.svg', alt='add') 
-                            span Родина бренда
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td
-                            span.flag-rus Швейцария
-                        td
-                            span.flag-rus Швейцария
-                        td
-                            span.flag-rus Швейцария
-                    tr.more_add
-                        td
-                        td(colspan=3)
-                            a.linkmore(href='#')
-                                span.dots ...
-                                span.basic Дополнительные характеристики
-                                span.more Вернуться к основных характеристикам
-                    tr.more.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-7.svg', alt='add') 
-                            span Варианты формы штапика
-                    tr.more
-                        td Варианты формы штапика
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td прямой, скруглённый
-                        td прямой, скруглённый
-                        td прямой, скруглённый
-                    tr.more.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-8.svg', alt='add') 
-                            span Варианты декорирования
-                    tr.more
-                        td Варианты декорирования
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td покраска, ламинация двухсторонняя без окраски в массе
-                        td покраска
-                        td ламинация двухсторонняя
-                    tr.more.phone
-                        td
-                            
-                        td(colspan=3)
-                            img(src='/images/index/s5/icon-6.svg', alt='add') 
-                            span Особенность рамы
-                    tr.more
-                        td Особенность рамы
-                            .info
-                                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
-                        td скруглённая рама и створка
-                        td скруглённая рама
-                        td скруглённая рама
-                tfoot
-                    tr.big
-                        th
-                            a.linkmore(href='#')
-                                i.material-icons chevron_right
-                                span.basic Дополнительные характеристики
-                                span.more Вернуться к основных характеристикам
-                        th(colspan=3)
-                            a.mbutton.linkoriginal(href="#")
-                                span.all Скрыть одинаковые значения
-                                span.original Показать все
-                    tr.small
-                        th
-                            a.mbutton.linkoriginal(href="#")
-                                span.all Скрыть одинаковые значения
-                                span.original Показать все
-                        th
-                            a.add(href="#")
-                                img(src='/images/index/s5/add.svg', alt='add')
-                        th
-                            a.add(href="#")
-                                img(src='/images/index/s5/add.svg', alt='add')
-                        th
-                            a.add(href="#")
-                                img(src='/images/index/s5/add.svg', alt='add')
-        .pop_choice
-            .menu
-                span.item-title Окно 4
-                span.item MONTBLANC ECO
-                span.item RAHAU BLITZ
-                span.item REHAU BRILLANT-DESIGN
-                span.item NOVOTEX
-                span.item MONTBLANC ECO
-                span.item RAHAU BLITZ
-                span.item REHAU BRILLANT-DESIGN
-                span.item NOVOTEX
-                span.item MONTBLANC ECO
-                span.item RAHAU BLITZ
-        .call_back
-            img(src='/images/index/s5/call-back.png', alt='call-back')        
+  .fp_bg#compare
+    .empty
+      .up
+        .bg_flex
+          .l1 У вас пока нет добавленных к сравнению оконных профилей или балконных конструкций
+          .l2 Пожалуйста, Выберите 2 или более модели, чтобы перейти к сравнению
+      .down
+        .l
+          .bg_flex
+            .custom-control.custom-radio
+              input(type="radio", id="customRadio1", name="customRadio", checked).custom-control-input
+              label(for="customRadio1").custom-control-label
+                img(src='/images/index/s5/select_0_active.svg', alt='Выбрать окно')
+            .custom-control.custom-radio
+              input(type="radio", id="customRadio2", name="customRadio").custom-control-input
+              label(for="customRadio2").custom-control-label
+                img(src='/images/index/s5/select_1_active.svg', alt='Выбрать балкон')
+        .c
+          .list
+            .items
+              .item.selected(v-for="(n, index) in maxItems" :key="index" :class="{selected: list[index]}")
+                .bg(v-if="list[index]") {{ list[index].title }}
+                  i.material-icons(@click="deleteWindow(index, $event)") add
+                .bg(v-else @click="openMenu") Добавить окно
+                  i.material-icons(class="button-windows_add") add
+                  
+              .button
+                a(href='#').mbutton.blue.mbutton-block Сравнить   
+    .sravnenie
+      .back
+        .l
+          img.big(src='/images/index/s5/back_arrow.png', alt='Выбрать окно')
+        .r
+          img.big(src='/images/index/s5/o_white.svg', alt='Выбрать окно')
+          img.big.active(src='/images/index/s5/b_white.svg', alt='Выбрать балкон')
+      table
+        thead
+          tr
+            th.zag
+              img.big(src='/images/index/s5/o_white.svg', alt='Выбрать окно')
+              img.big.active(src='/images/index/s5/b_white.svg', alt='Выбрать балкон')
+              img.small(src='/images/index/s5/o_black.svg', alt='Выбрать балкон')
+              img.small.active(src='/images/index/s5/b_black.svg', alt='Выбрать балкон')
+            th(v-if="list[0]")
+              .l
+                img(src='/images/index/s5/test.png', alt='test okno')
+              .r
+                .remove
+                  i.material-icons clear
+                .title
+                  i.material-icons expand_more
+                  span.brand {{list[0].sBrandTitle}}
+                  span.model {{list[0].sProductTitle}}
+                .link
+                  i.material-icons remove_red_eye
+                .button_select
+                  .name Выбрать
+                  img(src='/images/index/s5/add.svg', alt='add')
+            th(v-if="list[1]")
+              .l
+                img(src='/images/index/s5/test.png', alt='test okno')
+              .r
+                .remove
+                  i.material-icons clear
+                .title
+                  i.material-icons expand_more
+                  span.brand {{list[1].sBrandTitle}}
+                  span.model {{list[1].sProductTitle}}
+                .link
+                  i.material-icons remove_red_eye
+                .button_select
+                  .name Выбрать
+                  img(src='/images/index/s5/add.svg', alt='add')
+            th(v-if="list[2]")
+              .l
+                img(src='/images/index/s5/test.png', alt='test okno')
+              .r
+                .remove
+                  i.material-icons clear
+                .title
+                  i.material-icons expand_more
+                  span.brand {{list[2].sBrandTitle}}
+                  span.model {{list[2].sProductTitle}}
+                .link
+                  i.material-icons remove_red_eye
+                .button_select
+                  .name Выбрать
+                  img(src='/images/index/s5/add.svg', alt='add')
+        tbody
+          tr.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-1.svg', alt='add') 
+              span Монтажная глубина
+          tr.basic(:class="{ 'table-separete-hide': opacityClasses['MountingDepth']}")
+            td 
+              img(src='/images/index/s5/icon-1.svg', alt='add') 
+              span Монтажная глубина
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].MountingDepth}}
+            td(v-if="list[1]") {{list[1].MountingDepth}}
+            td(v-if="list[2]") {{list[2].MountingDepth}}
+          tr.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-2.svg', alt='add') 
+              span Профиль
+          tr.basic(:class="{ 'table-separete-hide': opacityClasses['Profile']}")
+            td 
+              img(src='/images/index/s5/icon-2.svg', alt='add') 
+              span Профиль
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].Profile}}
+            td(v-if="list[1]") {{list[1].Profile}}
+            td(v-if="list[2]") {{list[2].Profile}}
+          tr.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-3.svg', alt='add') 
+              span Класс профиля
+          tr.basic(:class="{ 'table-separete-hide': opacityClasses['ProfileClass']}")
+            td 
+              img(src='/images/index/s5/icon-3.svg', alt='add') 
+              span Класс профиля
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].ProfileClass}}
+            td(v-if="list[1]") {{list[1].ProfileClass}}
+            td(v-if="list[2]") {{list[2].ProfileClass}}
+          tr.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-4.svg', alt='add') 
+              span Стеклопакет
+          tr.basic(:class="{ 'table-separete-hide': opacityClasses['DoubleGlazing']}")
+            td 
+              img(src='/images/index/s5/icon-4.svg', alt='add') 
+              span Стеклопакет
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].DoubleGlazing}}
+            td(v-if="list[1]") {{list[1].DoubleGlazing}}
+            td(v-if="list[2]") {{list[2].DoubleGlazing}}
+          tr.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-5.svg', alt='add') 
+              span Сопротивление теплопередаче
+          tr.basic(:class="{ 'table-separete-hide': opacityClasses['HeatTransferResistance']}")
+            td 
+              img(src='/images/index/s5/icon-5.svg', alt='add') 
+              span Сопротивление теплопередаче
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].HeatTransferResistance}}
+            td(v-if="list[1]") {{list[1].HeatTransferResistance}}
+            td(v-if="list[2]") {{list[2].HeatTransferResistance}}
+          tr.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-6.svg', alt='add') 
+              span Родина бренд
+          tr.basic(:class="{ 'table-separete-hide': opacityClasses['BrandНomeland']}")
+            td 
+              img(src='/images/index/s5/icon-6.svg', alt='add') 
+              span Родина бренда
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+
+            td(v-if="list[0]")
+              span.flag-rus {{list[0].BrandНomeland}}
+            td(v-if="list[1]")
+              span.flag-rus {{list[1].BrandНomeland}}
+            td(v-if="list[2]")
+              span.flag-rus {{list[2].BrandНomeland}}
+          tr.more_add
+            td
+            td(colspan=3)
+              a.linkmore(href='#')
+                span.dots ...
+                span.basic Дополнительные характеристики
+                span.more Вернуться к основных характеристикам
+          tr.more.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-7.svg', alt='add') 
+              span Варианты формы штапика
+          tr.more(:class="{ 'table-separete-hide': opacityClasses['ShapikShapeOptions']}")
+            td Варианты формы штапика
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].ShapikShapeOptions}}
+            td(v-if="list[1]") {{list[1].ShapikShapeOptions}}
+            td(v-if="list[2]") {{list[2].ShapikShapeOptions}}
+          tr.more.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-8.svg', alt='add') 
+              span Варианты декорирования
+          tr.more(:class="{ 'table-separete-hide': opacityClasses['DecorationOptions']}")
+            td Варианты декорирования
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].DecorationOptions}}
+            td(v-if="list[1]") {{list[1].DecorationOptions}}
+            td(v-if="list[2]") {{list[2].DecorationOptions}}
+          tr.more.phone
+            td
+              
+            td(colspan=3)
+              img(src='/images/index/s5/icon-6.svg', alt='add') 
+              span Особенность рамы
+          tr.more(:class="{ 'table-separete-hide': opacityClasses['FrameFeature']}")
+            td Особенность рамы
+              .info
+                .desc Ма́рке́тинг (от англ. marketing — в буквальном переводе с английского означает «действие на рынке», «рыночную деятельность») — это ...
+            td(v-if="list[0]") {{list[0].FrameFeature}}
+            td(v-if="list[1]") {{list[1].FrameFeature}}
+            td(v-if="list[2]") {{list[2].FrameFeature}}
+        tfoot
+          tr.big
+            th
+              a.linkmore(href='#')
+                i.material-icons chevron_right
+                span.basic Дополнительные характеристики
+                span.more Вернуться к основных характеристикам
+            th(colspan=3)
+              a.mbutton.linkoriginal(@click="detectValues(showOrHide)" href="#") {{showOrHide}}
+                //-span.all(@click="hideIdenticalValues") Скрыть одинаковые значения
+                //-span.original(@click="showAllValues") Показать все
+          tr.small
+            th
+              a.mbutton.linkoriginal(@click="detectValues(showOrHide)" href="#") {{showOrHide}}
+                //-span.all Скрыть одинаковые значения
+                //-span.original Показать все
+            th
+              a.add(href="#")
+                img(src='/images/index/s5/add.svg', alt='add')
+            th
+              a.add(href="#")
+                img(src='/images/index/s5/add.svg', alt='add')
+            th
+              a.add(href="#")
+                img(src='/images/index/s5/add.svg', alt='add')
+            //-li(v-for="(list, i) in titleFromApi" @click="addWindow(i)") {{list.title}}
+    .pop_choice
+      .menu
+        span.item-title Окно 4
+        span.item(v-for="(list, i) in menuList" @click="addWindow(i)") {{list.title}}
+        //-span.item RAHAU BLITZ
+        //-span.item REHAU BRILLANT-DESIGN
+        //-span.item NOVOTEX
+        //-span.item MONTBLANC ECO
+        //-span.item RAHAU BLITZ
+        //-span.item REHAU BRILLANT-DESIGN
+        //-span.item NOVOTEX
+        //-span.item MONTBLANC ECO
+        //-span.item RAHAU BLITZ
+    .call_back
+      img(src='/images/index/s5/call-back.png', alt='call-back')    

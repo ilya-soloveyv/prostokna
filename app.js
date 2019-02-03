@@ -8,12 +8,14 @@ const mysql = require('mysql')
 const async = require('async')
 const cookieParser = require('cookie-parser')
 const fs = require('fs')
+const db = config.get('db') 
 app.use(cookieParser())
 app.locals.env = process.env;
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
 app.use('/vue', express.static(__dirname + '/node_modules/vue/dist'))
+
 
 var data = {}
 data.left_menu = [
@@ -871,12 +873,24 @@ app.get('/intuitive', (req, res) => {
 })
 
 
+//API
+app.get('/all_windows', (req, res) => {
+    let connection = mysql.createConnection(config.get('db'))
+    let query = "SELECT t1.sProductTitle, t1.MountingDepth, t1.Profile, t1.ProfileClass, t1.DoubleGlazing, t1.HeatTransferResistance, t1.ShapikShapeOptions, t1.DecorationOptions, t1.FrameFeature, t2.BrandНomeland, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
+
+    connection.query(query, (err, rows, fields) => {
+        if (err) {
+            console.log('Error query: ' + err)
+            res.sendStatus(500)
+            return
+        }
+        res.json(rows)
+    })
+    connection.end()
+})
 
 
-
-
-
-
-http.listen(process.env.PORT, () => {
+http.listen(process.env.PORT || 8080, () => {
+    console.log(process.env.PORT || 8080)
     console.log('Server is running...')
 })
