@@ -1,20 +1,18 @@
 #corporate {
   position: relative;
   display: flex;
-  padding: calc(8vmin + 60px) 0 8vmin 0;
   justify-content: space-around;
   align-items: center;
   background-color: #353535;
   color: white;
-  @media (min-width: 1200px) {
-    padding-left: 60px;
-  }
+  font-family: Montserrat;
+  overflow: hidden;
   .material-icons {
     opacity: 0;
     cursor: pointer;
   }
   & > * {
-    width: calc(45vw - 10px);
+    width: 40vw;
     height: calc(100vh - 60px - 16vmin);
   }
 }
@@ -23,19 +21,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media screen and (max-width: 1000px) {
-    order: 2;
-  }
 }
 
 .corporate-text_description {
   h3 {
     color: white;
     font-size: 1.7rem;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-bottom: 3vmin;
   }
   p.under-title {
     font-size: 1.2rem;
+    font-weight: 600;
   }
   p {
     font-size: .8rem;
@@ -46,10 +43,11 @@
   h5 {
     color: white;
     font-size: 1.2rem;
-    margin-bottom: 4vmin;
+    margin-bottom: 6vmin;
   }
   li {
     font-size: .9rem;
+    font-weight: 600;
   }
   ul {
     display: flex;
@@ -59,7 +57,7 @@
     li {
       display: block;
       width: 20vw;
-      margin-bottom: 4vmin;
+      margin-bottom: 5vmin;
       &:before {
         counter-increment: list; /* Указываем идентификатор счетчика */
         content: "0"counter(list)". ";
@@ -67,7 +65,7 @@
         height: 100%;
         margin-right: 7px;
         float: left;
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 600;
         color: white;
       }
@@ -76,14 +74,12 @@
 }
 
 .corporate-text_button {
-  padding: 10px 10px;
+  padding: 10px 30px;
   background-image: linear-gradient(to right, #0585fa 0%, #0167e0 57%, #005ed9 100%);
   color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  //display: inline-block;
-  //width: initial;
 }
 
 .corporate-diagram {
@@ -92,6 +88,7 @@
   justify-content: space-between;
   .corporate-diagram_title {
     font-size: 1rem;
+    font-weight: 600;
   }
 }
 
@@ -112,13 +109,15 @@
 }
 
 .sum-title {
-  font-size: 1.1rem;
+  font-size: 2rem;
+  white-space: nowrap;
   span:first-child {
+    font-size: 2.1rem;
     font-weight: 600;
   }
   .span-rubls {
     display: inline-block;
-    text-indent: 10px;
+    text-indent: 2rem;
   }
 }
 
@@ -136,33 +135,38 @@
     z-index: 3;
     position: relative; 
   }
-  .block-discount {
-    position: absolute;
-    top: 50%;
-    left: 120%;
-    transform: translateY(-50%);
-    span {
-      margin-top: 10px;
-      display: inline-block;
-    }
-    h5 {
-      font-size: 2rem;
-      color: white;
-      position: relative;
-      padding: 0 5px 10px 0;
-      &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 150px;
-        height: 2px;
-        background-color: white;
-        bottom: 0;
-        right: 0;
-      }
+}
+
+
+.block-discount {
+  position: absolute;
+  top: 50%;
+  left: 110%;
+  transform: translateY(-50%);
+  span {
+    margin-top: 10px;
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+  }
+  h5 {
+    font-size: 3rem;
+    color: white;
+    position: relative;
+    padding: 0 5px 10px 0;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 150px;
+      height: 2px;
+      background-color: white;
+      bottom: 0;
+      right: 0;
     }
   }
 }
+
 
 .center {
   position: absolute;
@@ -176,7 +180,7 @@
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-aspect-ratio: 8/7) {
   #corporate {
     flex-wrap: wrap;
     i.material-icons {
@@ -201,6 +205,7 @@
   .corporate-diagram {
     align-items: center;
     height: 80vh!important;
+    margin-top: 10vh;
     .corporate-diagram_block {
       margin-bottom: 70px;
       width: 50vmin;
@@ -211,6 +216,7 @@
   .corporate-text {
     text-align: center;
     margin-top: 100px;
+    order: 2;
   }
 
   .corporate-text_description {
@@ -219,23 +225,29 @@
     }
   }
 
+  .under-title {
+    margin: 0 auto 3rem auto;
+  }
+
   .corporate-text_menu {
     ul {
       width: 60vw;
       margin: 0 auto;
       li {
+        line-height: 100%;
+        text-align: left;
         width: 30vw;
       }
     }
   }
 
   .corporate-text_button {
-    margin: 0 auto;
+    margin: 0 auto 120px auto;
     font-size: .9rem;
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-aspect-ratio: 16/17) {
 
   #corporate > * {
     height: inherit;
@@ -243,7 +255,6 @@
 
   .under-title, corporate-text_menu h5 {
     width: 60vw;
-    margin: 0 auto;
   }
 
   .corporate-text_menu {
@@ -258,21 +269,58 @@
       li {
         width: 50vw;
         margin-bottom: 30px;
+        display: inherit;
       }
     }
-  }
-
-  .corporate-text_button {
-    margin: 0 auto 120px auto;
-    font-size: .9rem;
-  }
-
-  .under-title {
-    margin-bottom: 3rem;
   }
 
   .corporate-description {
     margin-bottom: 30px;
     line-height: 2rem;
+  }
+
+  .block-discount {
+    h5 {
+      font-size: 1.5rem;
+      text-align: right;
+    }
+    span {
+      font-size: 1rem;
+      margin-top: 0px;
+    } 
+  }
+
+  .sum-title {
+    font-size: 1.1rem;
+    span:first-child {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .span-rubls {
+      display: inline-block;
+      text-indent: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 16/20) {
+  .corporate-diagram_title {
+    text-align: center;
+  }
+  .corporate-text_menu h5 {
+    width: 65vw;
+  }
+  .under-title {
+    width: 75vw;
+  }
+}
+
+
+@media screen and (min-aspect-ratio: 14/9) and (min-width: 1400px){
+  #corporate > * {
+    width: 30vw;
+  }
+  .corporate-text_menu ul li {
+    width: 15vw;
   }
 }
