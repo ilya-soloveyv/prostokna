@@ -1,10 +1,36 @@
 extends ../layouts/app
 
 block content
-    #corporate.ppage
-        .bg
-            .img img
-            .title title
-            .desc desc desc
-        .clear
-            
+  #corporate.ppage
+    .corporate-text
+      .corporate-text_description
+        h3 КОРПОРАТИВНЫМ КЛИЕНТАМ
+        p.under-title Уважаемые оптовики – эта страничка для вас!
+        p.corporate-description Наша компания открыта для сотрудничества с оптовыми покупателями, индивидуальными предпринимателями, дилерами. Оптовым заказчикам мы предоставляем квалифицированную помощь по всем вопросам, чуткое и внимательное отношение, подробный прайс-лист по оптовым ценам и скидкам. 
+      .corporate-text_menu
+        h5 Сотрудничая с нами, вы получаете:
+        ul
+          li Самые низкие цены
+          li Профессиональную консультацию
+          li Быстрое и своевременное изготовление оконных конструкций
+          li Аккуратную доставку  
+        button.corporate-text_button СКАЧАТЬ PDF С ОПТОВЫМИ ЦЕНАМИ
+        
+    .corporate-diagram
+      .corporate-diagram_title Вращайте эквалайзер, чтобы узнать размер скидки
+      .corporate-diagram_block
+        input(type="text" class="dial" 
+          value="30"
+          data-min="0" 
+          data-max="100" 
+          data-displayInput="false"
+          data-fgColor="#fff"
+          data-bgColor="#535353"
+          data-thickness=".05"
+          )
+        .circle-percent.center
+          .block-discount
+            h5 35%
+            span скидка
+        .sum-title.center от <span> 400000 </span> <br> <span class="span-rubls">рублей</span>
+      i.material-icons expand_more
