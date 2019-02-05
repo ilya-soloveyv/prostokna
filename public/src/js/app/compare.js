@@ -37,11 +37,35 @@ if ($('#compare').length) {
       }
     },
     methods: {
-      deleteWindow: function(index, e) {
+      deleteWindow: function(index) {
         this.list.splice(index, 1);
+				this.toggleCompare("left");
         this.updateMenuList();
         this.updateIdenticalValues();
+				this.changeButtonCompare();
       },
+			changeButtonCompare: function() {
+				console.log("Вызов");
+				console.log(this.list.length < 2, "disable");
+				if (this.list.length < 2) {
+					$(".section.s5 .mbutton.blue.mbutton-block").addClass("disable-compare-button");
+				}	else {
+					$(".section.s5 .mbutton.blue.mbutton-block").removeClass("disable-compare-button");
+				}
+			},
+			toggleCompare: function(option) {
+				if (option == "left" 
+				&& this.list.length == 1 
+				&& $("#fullpage_welcome .section.s5 .empty").css("display") == "none") {
+					console.log("==1");
+					console.log(this.list.length);
+					$('#fullpage_welcome .section.s5 .empty, #fullpage_welcome .section.s5 .sravnenie').toggle();
+				} else if (option == "right"
+				&& this.list.length > 1) {
+					console.log("right");
+					$('#fullpage_welcome .section.s5 .empty, #fullpage_welcome .section.s5 .sravnenie').toggle();
+				}	
+			},
       openMenu: function() {
         $(".pop_choice").addClass("active")
       },
@@ -51,6 +75,7 @@ if ($('#compare').length) {
       addWindow: function(i) {
         this.closeMenu();
         this.list.push(this.menuList[i])
+				this.changeButtonCompare();
         this.updateMenuList();
         this.updateIdenticalValues();
       },
@@ -100,7 +125,7 @@ if ($('#compare').length) {
               });
           if (col != undefined) {this.IdenticalValues.push(key)}
         }
-        console.log(this.IdenticalValues)
+        //console.log(this.IdenticalValues)
         
       },
     },
