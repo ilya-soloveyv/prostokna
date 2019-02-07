@@ -59,7 +59,7 @@
       width: 20vw;
       margin-bottom: 5vmin;
       &:before {
-        counter-increment: list; /* Указываем идентификатор счетчика */
+        counter-increment: list;
         content: "0"counter(list)". ";
         display: inline-block;
         height: 100%;

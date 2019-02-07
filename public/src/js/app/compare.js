@@ -130,11 +130,7 @@ if ($('#compare').length) {
       },
     },
     mounted() {
-      this.list.push(this.titleFromApi[0])
-      this.list.push(this.titleFromApi[2])
-
       this.updateMenuList();
-      this.updateIdenticalValues();
     },
   })
 }

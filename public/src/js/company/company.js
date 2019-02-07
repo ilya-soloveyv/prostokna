@@ -10,12 +10,20 @@ if ($('#company').length) {
         items:1,
       },
       600:{
-        items:3,
+        items:2,
       },
       1000:{
         items:5,
       }
     },
+  });
+
+  $(".owl-carousel.company-section-slider").owlCarousel({
+    dots: false,
+    loop: true,
+    items: 1,
+    nav: true,
+    navText: ["<img src='/images/company/left.png'>","<img src='/images/company/right.png'>"]
   });
 
   $(document).one("mouseleave", function(e) {
@@ -26,40 +34,81 @@ if ($('#company').length) {
 
   
   var blockScroll = false,
+      canBlockScroll = true,
       indexActiveOwl = 0,
       counterScroll = 0;
+      scrollSensitivity = 20;
 
-  $(document).on("scroll", function() {
-    var bottomScroll = Math.floor($(".company-prostokna-section").offset().top - $(window).height()) - 20;
-    if ($(window).scrollTop() > bottomScroll) {
-      if (!blockScroll) {
-        blockScroll = true;
-        $(document).disablescroll();
-      }
-      ++counterScroll;
-      if (counterScroll > 15) {
-        counterScroll = 0;
-        ++indexActiveOwl;
-        changeActiveOwl(indexActiveOwl);
-      }
-      if (indexActiveOwl > 4) {
-        $(document).disablescroll("undo");
-        blockScroll = false;
-      }
-    } else if ($(window).scrollTop() + 10 < bottomScroll && blockScroll) {
-      if (!indexActiveOwl) {
-        $(document).disablescroll("undo");
-        blockScroll = false;
-      } else {
-        --counterScroll;
-        if (counterScroll < -15) {
-          counterScroll = 0;
-          --indexActiveOwl;
-          changeActiveOwl(indexActiveOwl);
+
+  if ($(window).width() > 1000) {
+
+    changeActiveOwl(indexActiveOwl);
+
+    $(document).bind('mousewheel DOMMouseScroll', function(event) {
+      var bottomScroll = Math.floor($(".company-header_bottom_desc").offset().top - $(window).height());
+      var delta = event.originalEvent.wheelDelta || -event.detail;
+
+      if ($(window).scrollTop() > bottomScroll - 100 
+        && $(window).scrollTop() < bottomScroll + 100) {
+
+        console.log("block");
+
+        if (!blockScroll && canBlockScroll) {
+          $("HTML, BODY").animate({ scrollTop: bottomScroll - 50 }, 400); 
+          blockScroll = true;
+          setTimeout(() => {
+            $(document).disablescroll()
+            console.log("SCROLL DISABLED");
+          }, 407)
+          console.log("animated");
+        }
+
+        if (delta < 0 && blockScroll) {
+
+          ++counterScroll;
+
+          if (counterScroll > scrollSensitivity) {
+            counterScroll = 0;
+            ++indexActiveOwl;
+            if (indexActiveOwl > 4) {
+              indexActiveOwl = 4;
+              canBlockScroll = false;
+              setTimeout(function() {
+                canBlockScroll = true;
+                console.log("Can block Scroll");
+              }, 1000);
+              $(document).disablescroll("undo");
+              blockScroll = false;
+            }
+            changeActiveOwl(indexActiveOwl);
+          }
+
+        } else if (delta > 0  && blockScroll) {
+          //Scroll Top 
+          
+          --counterScroll;
+
+          if (counterScroll < -scrollSensitivity) {
+            counterScroll = 0;
+            --indexActiveOwl;
+            if (indexActiveOwl < 0) {
+              indexActiveOwl = 0;
+              canBlockScroll = false;
+              setTimeout(function() {
+                canBlockScroll = true;
+                console.log("Can block Scroll");
+              }, 1000);
+              $(document).disablescroll("undo");
+              blockScroll = false;
+            }
+            changeActiveOwl(indexActiveOwl);
+
+          }
         }
       }
-    }
-  })
+    }); 
+  }
+
 
 
   function changeActiveOwl(index) {
