@@ -20,7 +20,7 @@ function fullpage_welcome_color(i) {
 $('#fullpage_welcome').fullpage({
     anchors: ['s1','s2','s3','s4','s5','s6','s7','s8','s9'],
     scrollingSpeed: 700,
-    normalScrollElements: '#top, #fullpage_nav, #map, .s6 .scroll-wrapper',
+    normalScrollElements: '#top, #fullpage_nav, #map, .s6 .scroll-wrapper, .pop_choice',
     onLeave: function (origin, destination, direction) {
         fullpage_welcome_color(destination);
         $("#fullpage_nav li").removeClass('active');
