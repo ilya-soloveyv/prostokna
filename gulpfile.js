@@ -42,7 +42,7 @@ gulp.task('js_min', () => {
             'public/src/js/rangeslider.min.js',
             'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
-            // 'public/src/js/jquery.knob.min.js',
+            'public/src/js/jquery.knob.min.js',
             // 'public/src/js/jquery.disablescroll.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
