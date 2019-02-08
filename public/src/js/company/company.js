@@ -26,12 +26,32 @@ if ($('#company').length) {
     navText: ["<img src='/images/company/left.png'>","<img src='/images/company/right.png'>"]
   });
 
+  var seeNatifications = false;
+
   $(document).one("mouseleave", function(e) {
-    if (e.relatedTarget == null) {
-      //NATIFICATIONS;
+    if (e.relatedTarget == null
+    && !seeNatifications) {
+      seeNatifications = true;
+      $(document).disablescroll();
+      $("#company").addClass("company-natifications");//NATIFICATIONS;
     }
   });
 
+  $(document).scroll(function(e) {
+    if ($(window).scrollTop() + $(window).height() == $(document).height()
+      && !seeNatifications) {
+      seeNatifications = true;
+      setTimeout( function() {
+        $("#company").addClass("company-natifications");//NATIFICATIONS;
+        $(document).disablescroll();
+      }, 5000 )
+    }
+  })
+
+  $(".company-natification-input-icon").on("click", function() {
+    $("#company").removeClass("company-natifications");//NATIFICATIONS;
+    $(document).disablescroll("undo");
+  })   
   
   var blockScroll = false,
       canBlockScroll = true,
@@ -50,8 +70,6 @@ if ($('#company').length) {
 
       if ($(window).scrollTop() > bottomScroll - 100 
         && $(window).scrollTop() < bottomScroll + 100) {
-
-        console.log("block");
 
         if (!blockScroll && canBlockScroll) {
           $("HTML, BODY").animate({ scrollTop: bottomScroll - 50 }, 400); 
@@ -75,8 +93,9 @@ if ($('#company').length) {
               canBlockScroll = false;
               setTimeout(function() {
                 canBlockScroll = true;
-                console.log("Can block Scroll");
+                //console.log("Can block Scroll");
               }, 1000);
+              //console.log("Undo disablescroll");
               $(document).disablescroll("undo");
               blockScroll = false;
             }
@@ -96,8 +115,9 @@ if ($('#company').length) {
               canBlockScroll = false;
               setTimeout(function() {
                 canBlockScroll = true;
-                console.log("Can block Scroll");
+                //console.log("Can block Scroll");
               }, 1000);
+              //console.log("Undo disablescroll");
               $(document).disablescroll("undo");
               blockScroll = false;
             }
