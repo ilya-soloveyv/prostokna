@@ -68,7 +68,7 @@ gulp.task('js_min', () => {
             'public/src/js/regulation_window/regulation_window.js',
             'public/src/js/optional_service/optional_service.js',
             'public/src/js/intuitive/intuitive.js',
-            // 'public/src/js/app/compare.js',
+            'public/src/js/app/compare.js',
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
