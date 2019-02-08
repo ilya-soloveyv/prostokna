@@ -42,6 +42,8 @@ gulp.task('js_min', () => {
             'public/src/js/rangeslider.min.js',
             'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
+            'public/src/js/jquery.knob.min.js',
+            'public/src/js/jquery.disablescroll.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
             'public/src/js/index/s2.js',
@@ -65,7 +67,8 @@ gulp.task('js_min', () => {
             'public/src/js/corporate/corporate.js',
             'public/src/js/regulation_window/regulation_window.js',
             'public/src/js/optional_service/optional_service.js',
-            'public/src/js/intuitive/intuitive.js'
+            'public/src/js/intuitive/intuitive.js',
+            'public/src/js/app/compare.js',
         ])
         .pipe(concat('app.js'))
         .pipe(minify_js({
@@ -119,7 +122,9 @@ gulp.task('css_min', () => {
             'public/src/css/corporate/corporate.css',
             'public/src/css/regulation_window/regulation_window.css',
             'public/src/css/optional_service/optional_service.css',
-            'public/src/css/intuitive/intuitive.css'
+            'public/src/css/intuitive/intuitive.css',
+            'public/src/sass/corporate/corporate.scss',
+            'public/src/sass/company/company.scss'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
