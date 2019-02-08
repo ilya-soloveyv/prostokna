@@ -1,4 +1,4 @@
-$('.owl-carousel').owlCarousel({
+$(".owl-carousel.owl-gird-s7").owlCarousel({
     nav:false,
     responsiveClass:true,
     responsive:{

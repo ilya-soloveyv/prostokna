@@ -1,6 +1,9 @@
 #fullpage_welcome {
   .section {
     &.s5 {
+      .disable-compare-button {
+				filter: saturate(30%);
+			}
       tr.basic > td, tr.more > td {
 				transition: .5s;
 			}
@@ -474,6 +477,7 @@
                     padding: 0 0 0 20px;
                     background-color: #2d70e4;
                     border-radius: 10px;
+										transition: 1s;
                     color: white;
                     font-size: 11px;
                     font-family: 'Montserrat';
