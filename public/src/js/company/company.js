@@ -1,3 +1,61 @@
+(function(e) {
+    "use strict";
+
+    function r(t, n) {
+        this.opts = e.extend({
+            handleWheel: !0,
+            handleScrollbar: !0,
+            handleKeys: !0,
+            scrollEventKeys: [32, 33, 34, 35, 36, 37, 38, 39, 40]
+        }, n);
+        this.$container = t;
+        this.$document = e(document);
+        this.lockToScrollPos = [0, 0];
+        this.disable()
+    };
+    var t, n;
+    n = r.prototype;
+    n.disable = function() {
+        var e = this;
+        e.opts.handleWheel && e.$container.on("mousewheel.disablescroll DOMMouseScroll.disablescroll touchmove.disablescroll", e._handleWheel);
+        if (e.opts.handleScrollbar) {
+            e.lockToScrollPos = [e.$container.scrollLeft(), e.$container.scrollTop()];
+            e.$container.on("scroll.disablescroll", function() {
+                e._handleScrollbar.call(e)
+            })
+        }
+        e.opts.handleKeys && e.$document.on("keydown.disablescroll", function(t) {
+            e._handleKeydown.call(e, t)
+        })
+    };
+    n.undo = function() {
+        var e = this;
+        e.$container.off(".disablescroll");
+        e.opts.handleKeys && e.$document.off(".disablescroll")
+    };
+    n._handleWheel = function(e) {
+        e.preventDefault()
+    };
+    n._handleScrollbar = function() {
+        this.$container.scrollLeft(this.lockToScrollPos[0]);
+        this.$container.scrollTop(this.lockToScrollPos[1])
+    };
+    n._handleKeydown = function(e) {
+        for (var t = 0; t < this.opts.scrollEventKeys.length; t++)
+            if (e.keyCode === this.opts.scrollEventKeys[t]) {
+                e.preventDefault();
+                return
+            }
+    };
+    e.fn.disablescroll = function(e) {
+        !t && (typeof e == "object" || !e) && (t = new r(this, e));
+        t && typeof e == "undefined" ? t.disable() : t && t[e] && t[e].call(t);
+        return this
+    };
+    window.UserScrollDisabler = r;
+})(jQuery);
+
+
 if ($('#company').length) {
 
   $(".owl-carousel.company-header_slider").owlCarousel({
@@ -44,19 +102,19 @@ if ($('#company').length) {
       setTimeout( function() {
         $("#company").addClass("company-natifications");//NATIFICATIONS;
         $(document).disablescroll();
-      }, 5000 )
+      }, 5000 );
     }
-  })
+  });
 
   $(".company-natification-input-icon").on("click", function() {
     $("#company").removeClass("company-natifications");//NATIFICATIONS;
     $(document).disablescroll("undo");
-  })   
+  });
   
   var blockScroll = false,
       canBlockScroll = true,
       indexActiveOwl = 0,
-      counterScroll = 0;
+      counterScroll = 0,
       scrollSensitivity = 20;
 
 
@@ -75,10 +133,10 @@ if ($('#company').length) {
           $("HTML, BODY").animate({ scrollTop: bottomScroll - 50 }, 400); 
           blockScroll = true;
           setTimeout(() => {
-            $(document).disablescroll()
-            console.log("SCROLL DISABLED");
-          }, 407)
-          console.log("animated");
+            $(document).disablescroll();
+            //console.log("SCROLL DISABLED");
+          }, 407);
+          //console.log("animated");
         }
 
         if (delta < 0 && blockScroll) {
@@ -93,9 +151,7 @@ if ($('#company').length) {
               canBlockScroll = false;
               setTimeout(function() {
                 canBlockScroll = true;
-                //console.log("Can block Scroll");
               }, 1000);
-              //console.log("Undo disablescroll");
               $(document).disablescroll("undo");
               blockScroll = false;
             }
@@ -115,14 +171,11 @@ if ($('#company').length) {
               canBlockScroll = false;
               setTimeout(function() {
                 canBlockScroll = true;
-                //console.log("Can block Scroll");
               }, 1000);
-              //console.log("Undo disablescroll");
               $(document).disablescroll("undo");
               blockScroll = false;
             }
             changeActiveOwl(indexActiveOwl);
-
           }
         }
       }
