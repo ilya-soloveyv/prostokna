@@ -26,7 +26,7 @@
                   i.material-icons(class="button-windows_add") add
                   
               .button
-                a(href='#').mbutton.blue.mbutton-block Сравнить   
+                a(href='#' @click="toggleCompare('right')").mbutton.blue.mbutton-block Сравнить   
     .sravnenie
       .back
         .l
@@ -46,10 +46,10 @@
               .l
                 img(src='/images/index/s5/test.png', alt='test okno')
               .r
-                .remove
+                .remove(@click="deleteWindow(0)")
                   i.material-icons clear
                 .title
-                  i.material-icons expand_more
+                  i.material-icons(@click="openMenu") expand_more
                   span.brand {{list[0].sBrandTitle}}
                   span.model {{list[0].sProductTitle}}
                 .link
@@ -61,10 +61,10 @@
               .l
                 img(src='/images/index/s5/test.png', alt='test okno')
               .r
-                .remove
+                .remove(@click="deleteWindow(1)")
                   i.material-icons clear
                 .title
-                  i.material-icons expand_more
+                  i.material-icons(@click="openMenu") expand_more
                   span.brand {{list[1].sBrandTitle}}
                   span.model {{list[1].sProductTitle}}
                 .link
@@ -76,10 +76,10 @@
               .l
                 img(src='/images/index/s5/test.png', alt='test okno')
               .r
-                .remove
+                .remove(@click="deleteWindow(2)")
                   i.material-icons clear
                 .title
-                  i.material-icons expand_more
+                  i.material-icons(@click="openMenu") expand_more
                   span.brand {{list[2].sBrandTitle}}
                   span.model {{list[2].sProductTitle}}
                 .link
@@ -237,13 +237,9 @@
                 span.more Вернуться к основных характеристикам
             th(colspan=3)
               a.mbutton.linkoriginal(@click="detectValues(showOrHide)" href="#") {{showOrHide}}
-                //-span.all(@click="hideIdenticalValues") Скрыть одинаковые значения
-                //-span.original(@click="showAllValues") Показать все
           tr.small
             th
               a.mbutton.linkoriginal(@click="detectValues(showOrHide)" href="#") {{showOrHide}}
-                //-span.all Скрыть одинаковые значения
-                //-span.original Показать все
             th
               a.add(href="#")
                 img(src='/images/index/s5/add.svg', alt='add')
@@ -253,19 +249,9 @@
             th
               a.add(href="#")
                 img(src='/images/index/s5/add.svg', alt='add')
-            //-li(v-for="(list, i) in titleFromApi" @click="addWindow(i)") {{list.title}}
     .pop_choice
       .menu
         span.item-title Окно 4
         span.item(v-for="(list, i) in menuList" @click="addWindow(i)") {{list.title}}
-        //-span.item RAHAU BLITZ
-        //-span.item REHAU BRILLANT-DESIGN
-        //-span.item NOVOTEX
-        //-span.item MONTBLANC ECO
-        //-span.item RAHAU BLITZ
-        //-span.item REHAU BRILLANT-DESIGN
-        //-span.item NOVOTEX
-        //-span.item MONTBLANC ECO
-        //-span.item RAHAU BLITZ
     .call_back
       img(src='/images/index/s5/call-back.png', alt='call-back')    
