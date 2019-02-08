@@ -43,7 +43,7 @@ gulp.task('js_min', () => {
             'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
             'public/src/js/jquery.knob.min.js',
-            // 'public/src/js/jquery.disablescroll.min.js',
+            'public/src/js/jquery.disablescroll.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
             'public/src/js/index/s2.js',
@@ -63,7 +63,7 @@ gulp.task('js_min', () => {
             'public/src/js/wiki/article.js',
             'public/src/js/instruction/instruction.js',
             'public/src/js/instruction/video.js',
-            // 'public/src/js/company/company.js',
+            'public/src/js/company/company.js',
             'public/src/js/corporate/corporate.js',
             'public/src/js/regulation_window/regulation_window.js',
             'public/src/js/optional_service/optional_service.js',
@@ -123,7 +123,6 @@ gulp.task('css_min', () => {
             'public/src/css/optional_service/optional_service.css',
             'public/src/css/intuitive/intuitive.css',
             'public/src/css/corporate/corporate.css',
-            'public/src/css/company/company.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
