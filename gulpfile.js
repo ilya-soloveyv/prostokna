@@ -123,8 +123,8 @@ gulp.task('css_min', () => {
             'public/src/css/regulation_window/regulation_window.css',
             'public/src/css/optional_service/optional_service.css',
             'public/src/css/intuitive/intuitive.css',
-            'public/src/sass/corporate/corporate.scss',
-            'public/src/sass/company/company.scss'
+            'public/src/css/corporate/corporate.css',
+            'public/src/css/company/company.css'
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
