@@ -34,7 +34,9 @@ if ($('#company').length) {
     navText: ["<img src='/images/company/left.png'>","<img src='/images/company/right.png'>"]
   });
 
+
   var seeNatifications = false;
+
 
   $(document).one("mouseleave", function(e) {
     if (e.relatedTarget == null
@@ -65,7 +67,7 @@ if ($('#company').length) {
       canBlockScroll = true,
       indexActiveOwl = 0,
       counterScroll = 0;
-      scrollSensitivity = 20;
+      scrollSensitivity = 15;
 
 
   if ($(window).width() > 1000) {
