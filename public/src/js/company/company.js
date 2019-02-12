@@ -35,26 +35,31 @@ if ($('#company').length) {
   });
 
 
+  //Natification
   var seeNatifications = false;
-
 
   $(document).one("mouseleave", function(e) {
     if (e.relatedTarget == null
     && !seeNatifications) {
       seeNatifications = true;
       $(document).disablescroll();
-      $("#company").addClass("company-natifications");//NATIFICATIONS;
+      $("#company").addClass("company-natifications");
     }
   });
 
   $(document).scroll(function(e) {
-    if ($(window).scrollTop() + $(window).height() == $(document).height()
-      && !seeNatifications) {
+    //if (Math.round($(window).scrollTop() + $(window).height()) >= $(document).height() - 10) {
+      //alert(Math.round($(window).scrollTop() + $(window).height()));
+      //alert($(document).height());
+      //setTimeout(()=> {
+        //alert(Math.round($(window).scrollTop() + $(window).height()));
+        //alert($(document).height());
+      //}, 3000)
+    //}
+    if (Math.round($(window).scrollTop() + $(window).height()) >= $(document).height()) {
       seeNatifications = true;
-      setTimeout( function() {
-        $("#company").addClass("company-natifications");//NATIFICATIONS;
-        $(document).disablescroll();
-      }, 5000 )
+      $("#company").addClass("company-natifications");
+      $(document).disablescroll();
     }
   })
 
@@ -63,12 +68,26 @@ if ($('#company').length) {
     $(document).disablescroll("undo");
   })   
   
+  $("#company").on("click", function() {
+    if (seeNatifications) {
+      $("#company").removeClass("company-natifications");//NATIFICATIONS;
+      $(document).disablescroll("undo");
+    }
+  })
+
+  //Scroll logic
   var blockScroll = false,
       canBlockScroll = true,
       indexActiveOwl = 0,
       counterScroll = 0;
       scrollSensitivity = 15;
 
+  $(".owl-item.active").on("click", function(e) {
+    canBlockScroll = true;
+    counterScroll = 0;
+    indexActiveOwl = this.querySelector("h5").dataset.index - 1;
+    changeActiveOwl(indexActiveOwl);
+  });
 
   if ($(window).width() > 1000) {
 
@@ -86,9 +105,9 @@ if ($('#company').length) {
           blockScroll = true;
           setTimeout(() => {
             $(document).disablescroll()
-            console.log("SCROLL DISABLED");
+            //console.log("SCROLL DISABLED");
           }, 407)
-          console.log("animated");
+          //console.log("animated");
         }
 
         if (delta < 0 && blockScroll) {
@@ -114,7 +133,6 @@ if ($('#company').length) {
 
         } else if (delta > 0  && blockScroll) {
           //Scroll Top 
-          
           --counterScroll;
 
           if (counterScroll < -scrollSensitivity) {

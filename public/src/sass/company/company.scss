@@ -1,5 +1,7 @@
 #company {
   font-family: 'Montserrat', sans-serif;
+  //overflow-y: hidden;
+  overflow-x: hidden;
   .line {
     width: 100%;
     border: 1px solid #707070;
@@ -69,7 +71,6 @@
 section.company-header-section {
   padding: 7vh 7vw 7vh;
   background: #353535;
-  overflow-x: hidden;
 }
 
 .company-header-section_text-block {
@@ -312,8 +313,6 @@ section.company-header-section {
   background-color: #535353;
 }
 
-//@media screen and (max-aspect-ratio: 16/20) {
-
 
 
 @media screen and (max-width: 800px){
@@ -330,21 +329,24 @@ section.company-header-section {
   }
 
   .company-natification.center {
-    padding: 25px 30px;
-    width: 70vw;
+    padding: 15px 20px;
+    width: 80vw;
     h4 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     p {
       font-size: .8rem;
-      margin: 30px auto 40px;
-      width: 70%;
+      margin: 15px auto 20px;
+      width: 80%;
+    }
+    input {
+      font-size: .9rem;
     }
   }
 
   .company-natification-input-icon {
-    width: 7vmax;
-    height: 7vmax;
+    width: 6vmax;
+    height: 6vmax;
   }
 
 	.company-header_slider {
