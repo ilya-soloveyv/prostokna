@@ -19,9 +19,18 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="3064.1" width="1660.6" x="1006.6" y="468"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="3064.1" width="1660.6" x="669.7" y="468"></sliceSourceBounds>
 	</sfw>
 </metadata>
+<line class="st0" x1="286.6" y1="294.3" x2="283.1" y2="290.8"/>
+<line class="st0" x1="286.6" y1="2769.8" x2="286.6" y2="294.3"/>
+<line class="st0" x1="283.1" y1="2773.2" x2="286.6" y2="2769.8"/>
+<line class="st0" x1="1377.5" y1="290.9" x2="1374" y2="294.3"/>
+<line class="st0" x1="1374" y1="2769.8" x2="1374" y2="294.3"/>
+<line class="st0" x1="1377.5" y1="2773.2" x2="1374" y2="2769.8"/>
+<line class="st0" x1="1374" y1="294.3" x2="286.6" y2="294.3"/>
+<line class="st0" x1="1374" y1="2769.8" x2="286.6" y2="2769.8"/>
+<line class="st0" x1="1" y1="3063.1" x2="1659.6" y2="3063.1"/>
 <line class="st0" x1="2.1" y1="2" x2="78.2" y2="78"/>
 <line class="st0" x1="1.9" y1="1.8" x2="2.1" y2="2"/>
 <line class="st0" x1="1.7" y1="1.6" x2="1.9" y2="1.8"/>
@@ -39,7 +48,6 @@
 <line class="st0" x1="1" y1="3063.1" x2="1" y2="3063.1"/>
 <line class="st0" x1="2.1" y1="3062" x2="78.2" y2="2986"/>
 <line class="st0" x1="2.1" y1="3062" x2="1.9" y2="3062.3"/>
-<line class="st0" x1="1" y1="3063.1" x2="1659.6" y2="3063.1"/>
 <line class="st0" x1="1584.1" y1="2955" x2="1584.1" y2="2955"/>
 <line class="st0" x1="1584.1" y1="2950.3" x2="1584.1" y2="2955"/>
 <line class="st0" x1="1584.7" y1="2956.6" x2="1584.7" y2="2956.7"/>
@@ -130,6 +138,7 @@
 <line class="st0" x1="1582.5" y1="2990" x2="1582.1" y2="2989.9"/>
 <line class="st0" x1="1573.3" y1="2981.7" x2="1440.2" y2="2848.6"/>
 <line class="st0" x1="1573.3" y1="2981.7" x2="1575.2" y2="2983.5"/>
+<line class="st0" x1="1374" y1="2769.3" x2="286.6" y2="2769.3"/>
 <line class="st0" x1="78.2" y1="2990" x2="1582.5" y2="2990"/>
 <line class="st0" x1="220.9" y1="215.9" x2="220.4" y2="215.4"/>
 <line class="st0" x1="221.4" y1="216.5" x2="220.9" y2="215.9"/>
@@ -166,6 +175,7 @@
 <line class="st0" x1="78.2" y1="2990" x2="78.5" y2="2989.9"/>
 <line class="st0" x1="87.3" y1="2981.7" x2="220.4" y2="2848.6"/>
 <line class="st0" x1="87.3" y1="2981.7" x2="85.5" y2="2983.5"/>
+<line class="st0" x1="1374" y1="294.8" x2="286.6" y2="294.8"/>
 <line class="st0" x1="78.2" y1="74" x2="1582.5" y2="74"/>
 <line class="st0" x1="1618" y1="265.6" x2="1618" y2="265.5"/>
 <line class="st0" x1="1618" y1="265.6" x2="1617.9" y2="266.1"/>
