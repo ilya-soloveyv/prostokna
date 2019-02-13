@@ -69,11 +69,19 @@ if ($('#company').length) {
   })   
   
   $("#company").on("click", function() {
+    closeNatification();
+  })
+
+  $(".company-natification i").on("click", function() {
+    closeNatification();
+  })
+
+  function closeNatification() {
     if (seeNatifications) {
       $("#company").removeClass("company-natifications");//NATIFICATIONS;
       $(document).disablescroll("undo");
     }
-  })
+  }
 
   //Scroll logic
   var blockScroll = false,
