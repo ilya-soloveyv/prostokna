@@ -656,7 +656,7 @@ app.get('/', (req, res) => {
                         },
                         {
                             title: 'Вместе еще дешевле',
-                            uri: '#'
+                            uri: '/cheaper-together'
                         },
                         {
                             title: 'Освященные окна',
@@ -846,13 +846,22 @@ app.get('/company', (req, res) => {
     res.render('company/company.pug', data)
 })
 
+app.get('/cheaper-together', (req, res) => {
+    console.log("Go to cheaper way")
+    data.title = 'Вместе еще дешевле'
+    data.left_menu_active = null
+    res.render('company/innovation/cheaper-together.pug', data)
+})
+
+//app.get('/cheaper-together', (req, res) => {
+    //res.render('company/company.pug', data)
+//})
+
 app.get('/corporate', (req, res) => {
     data.title = 'Corporate'
     data.left_menu_active = null
     res.render('corporate/corporate.pug', data)
 })
-
-
 
 app.get('/regulation_window', (req, res) => {
     data.title = 'Регулировка окон'
@@ -871,7 +880,6 @@ app.get('/intuitive', (req, res) => {
     data.left_menu_active = null
     res.render('intuitive/intuitive.pug', data)
 })
-
 
 //API
 app.get('/all_windows', (req, res) => {
