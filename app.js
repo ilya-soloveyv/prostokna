@@ -847,7 +847,6 @@ app.get('/company', (req, res) => {
 })
 
 app.get('/cheaper-together', (req, res) => {
-    console.log("Go to cheaper way")
     data.title = 'Вместе еще дешевле'
     data.left_menu_active = null
     res.render('company/innovation/cheaper-together.pug', data)
