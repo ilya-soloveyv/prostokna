@@ -58,19 +58,20 @@ if ($('#cheaper-together').length) {
 
   $(function() {
     // Owl Carousel
-    var owl = $(".owl-carousel");
+    
+    var owl = $("#cheaper");
 
     owl.owlCarousel({
       center: true,
-      items: 3
+      items: 3,
+      dots: false
     });
 
     owl.on('changed.owl.carousel', function(e) {
-      $('.counter').text(++e.page.index  + ' из ' + e.item.count)
-      console.log(++e.page.index);
-      plusSlides3(++e.page.index - 2);
-      plusnm(++e.page.index - 3);
-
+     // $('.counter').text(++e.page.index  + ' из ' + e.item.count)
+      console.log(++e.item.index);
+      plusSlides3(e.item.index); // - 2
+      plusnm(e.item.index ); // - 3
     });
     
   });

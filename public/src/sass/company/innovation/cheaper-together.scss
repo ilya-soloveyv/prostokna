@@ -149,7 +149,7 @@ section.more-low{
       content: ' ';
       background: #353535;
       top: 45%;
-      left: 135px;    
+      left: 60%;   
   }
  
     
@@ -423,3 +423,10 @@ div.owl-item:last-child{
 }
 
 
+#cheaper{
+  .center{
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+}
