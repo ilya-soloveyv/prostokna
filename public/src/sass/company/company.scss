@@ -1,5 +1,10 @@
 #company {
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  .line {
+    width: 100%;
+    border: 1px solid #707070;
+  }
 }
 
 .company-natifications {
@@ -19,6 +24,11 @@
   border-radius: 20px;
   font-family: Montserrat;
   color: white;
+  i {
+    cursor: pointer;
+    float: right;
+    transform: translate(20px, -15px);
+  }
   h4 {
     color: white;
     font-size: 1.6rem;
@@ -36,6 +46,7 @@
   width: 80%;
   margin: 0 auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   input {
     width: calc(100% - 8vmax);
@@ -49,20 +60,21 @@
       border-bottom: 1px solid white;
     }
   }
+}
 
-  .company-natification-input-icon {
-    width: 6vmax;
-    height: 6vmax;
-    border-radius: 5px;
-    background: #8f6598 url("/images/company/call.svg") center/50% 50% no-repeat;
-    border: 1px solid #ffffff;
-  }
+.company-natification-input-icon {
+  width: 6vmax;
+  height: 6vmax;
+  padding: 3px;
+  border-radius: 30%;
+  background: url("/images/company/call.svg") center/50% 50% no-repeat,linear-gradient(to right, #913fd2, #e953ef);
+  background-clip: content-box;
+  border: 1px solid #ffffff;
 }
 
 section.company-header-section {
   padding: 7vh 7vw 7vh;
   background: #353535;
-  overflow-x: hidden;
 }
 
 .company-header-section_text-block {
@@ -118,22 +130,30 @@ section.company-header-section {
     border-top: solid 1px #707070;
     border-bottom: solid 1px #707070;
   }
-  h5 {
-    height: 60px;
-    margin-top: 50px;
-    color: white;
-    font-size: .7rem;
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      transition: .3s;
-      border-radius: 20%;
-      background: #676767;
-      border: 1px solid #707070;
-      top: 0;
+  .owl-stage {
+    counter-reset: slider;
+    h5 {
+      height: 60px;
+      margin-top: 50px;
+      color: white;
+      font-size: .7rem;
+      &:before {
+        counter-increment: slider;
+        content: "0"counter(slider);
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 36px;
+        height: 36px;
+        transition: .3s;
+        line-height: 30px;
+        text-align: center;
+        padding: 3px;
+        border-radius: 30%;
+        background: #676767;
+        background-clip: content-box;
+        border: 1px solid #707070;
+      }
     }
   }
   p {
@@ -153,7 +173,8 @@ section.company-header-section {
       font-size: .8rem!important;
       font-weight: 600;
       &:before {
-        background: #7b6481;
+        background: linear-gradient(to right, #913fd2, #e953ef);
+        background-clip: content-box;
         border: 1px solid #707070;
       }
     }
@@ -272,10 +293,6 @@ section.company-header-section {
   }
 }
 
-.line {
-  width: 100%;
-  border: 1px solid #707070;
-}
 
 .owl-carousel.company-section-slider {
 	width: 80%;
@@ -297,10 +314,8 @@ section.company-header-section {
 .company-section-slider_item {
 	width: 100%;
 	height: 80vmin;
-  background-color: #535353;
+  background: #535353 url("/images/intuitive/temp/3.png") center/contain no-repeat;
 }
-
-//@media screen and (max-aspect-ratio: 16/20) {
 
 
 
@@ -315,6 +330,44 @@ section.company-header-section {
     .owl-nav button.owl-next {
       right: -30px;
     }
+  }
+
+  #company .owl-item {
+    .company-slider-item {
+      h5 {
+        &:before {
+          background: linear-gradient(to right, #913fd2, #e953ef);
+          background-clip: content-box;
+          border: 1px solid #707070;
+        }
+      }
+    }
+  }
+
+
+  .company-natification.center {
+    padding: 15px 20px;
+    width: 80vw;
+    i {
+      float: right;
+      transform: none;
+    }
+    h4 {
+      font-size: 1.1rem;
+    }
+    p {
+      font-size: .8rem;
+      margin: 15px auto 20px;
+      width: 80%;
+    }
+    input {
+      font-size: .9rem;
+    }
+  }
+
+  .company-natification-input-icon {
+    width: 6vmax;
+    height: 6vmax;
   }
 
 	.company-header_slider {
