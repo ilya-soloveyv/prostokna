@@ -112,6 +112,7 @@ gulp.task('css_min', () => {
             'public/src/css/gager/gager.css',
             'public/src/css/product/product.css',
             'public/src/css/company/company.css',
+            'public/src/css/company/innovation/cheaper-together.css',
             'public/src/css/pay/pay.css',
             'public/src/css/palette/palette.css',
             'public/src/css/options/options.css',
