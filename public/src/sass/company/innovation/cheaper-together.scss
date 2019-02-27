@@ -80,7 +80,6 @@ button { outline: none; }
 
 section.more-low{
   background-color: #ededed;
-  height: 100vh;
   min-height: 100vh;
   text-align: center;
   color: $fontColor;
@@ -133,9 +132,9 @@ section.more-low{
 }
 .number_items{
   width: 20%;
-  height: 320px;
- 
+  height: 100%;
 }
+
 .number_nm{
   font-size: 25px;
   font-weight: 800;
