@@ -80,7 +80,6 @@ button { outline: none; }
 
 section.more-low{
   background-color: #ededed;
-  height: 100vh;
   min-height: 100vh;
   text-align: center;
   color: $fontColor;
@@ -125,6 +124,16 @@ section.more-low{
   align-items: center;
 }
 
+.number-container:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 10%;
+  background: #353535;
+}
+
 .img_window_container{
   padding-top: 2vh;
   .img_window_item{
@@ -133,9 +142,9 @@ section.more-low{
 }
 .number_items{
   width: 20%;
-  height: 320px;
- 
+  height: 100%;
 }
+
 .number_nm{
   font-size: 25px;
   font-weight: 800;
@@ -147,7 +156,7 @@ section.more-low{
       width: 80%;
       height: 1px;
       content: ' ';
-      background: #353535;
+      //background: #353535;
       top: 45%;
       left: 60%;   
   }
