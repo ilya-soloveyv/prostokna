@@ -122,6 +122,15 @@ section.more-low{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 10%;
+    background: #353535;
+  }
 }
 
 .img_window_container{
@@ -146,7 +155,7 @@ section.more-low{
       width: 80%;
       height: 1px;
       content: ' ';
-      background: #353535;
+      //background: #353535;
       top: 45%;
       left: 135px;    
   }
