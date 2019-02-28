@@ -203,7 +203,6 @@ section.more-low{
 .sale_btn{
   background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
   border-radius: 23px; 
-
   border:none;
   color: white;
   text-transform: uppercase;
@@ -212,7 +211,7 @@ section.more-low{
   height: 26px;
   line-height: 4px;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
-  margin-top: calc(20px - 5vw);;
+  margin-top: 7vh;
   &:active{
       box-shadow: none; 
   }
@@ -230,7 +229,7 @@ section.more-low{
   .img_container{
       display: flex;
       align-items: flex-end;
-      padding: calc(5px - 1vw + 1vh) 0;
+      padding: 1vh 0;
       .image_peopl{
       img{
           max-width: 60%;
