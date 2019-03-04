@@ -48,14 +48,6 @@ if ($('#company').length) {
   });
 
   $(document).scroll(function(e) {
-    //if (Math.round($(window).scrollTop() + $(window).height()) >= $(document).height() - 10) {
-      //alert(Math.round($(window).scrollTop() + $(window).height()));
-      //alert($(document).height());
-      //setTimeout(()=> {
-        //alert(Math.round($(window).scrollTop() + $(window).height()));
-        //alert($(document).height());
-      //}, 3000)
-    //}
     if (Math.round($(window).scrollTop() + $(window).height()) >= $(document).height()) {
       seeNatifications = true;
       $("#company").addClass("company-natifications");
