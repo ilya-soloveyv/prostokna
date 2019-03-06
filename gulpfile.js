@@ -63,7 +63,7 @@ gulp.task('js_min', () => {
             'public/src/js/instruction/instruction.js',
             'public/src/js/instruction/video.js',
             'public/src/js/company/company.js',
-            'public/src/js/company/innovation/сheaper-together.js',
+            'public/src/js/company/innovation/cheaper-together.js',
             'public/src/js/corporate/corporate.js',
             'public/src/js/regulation_window/regulation_window.js',
             'public/src/js/optional_service/optional_service.js',
