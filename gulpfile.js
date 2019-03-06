@@ -69,7 +69,9 @@ gulp.task('js_min', () => {
             'public/src/js/optional_service/optional_service.js',
             'public/src/js/intuitive/intuitive.js',
             'public/src/js/app/compare.js',
-        ])
+        ],{
+            allowEmpty: true 
+        })
         .pipe(concat('app.js'))
         .pipe(minify_js({
             ext:{
