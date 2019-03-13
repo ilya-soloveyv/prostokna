@@ -148,7 +148,7 @@ section.more-low{
 
 .number_nm{
   font-size: 25px;
-  font-weight: 800;
+  font-weight: 300;
   padding-top: 2vh;
   padding-bottom: 3vh;
   position: relative;
@@ -184,6 +184,7 @@ section.more-low{
 .number_text{
   font-size: 11px; 
   font-weight: 500;
+  padding: 0 10px;
 
 }
 .img_container.tablet{
@@ -306,7 +307,7 @@ section.more-low{
 color: #353535;
 
 font-size: 14px;
-font-weight: 600;
+font-weight: 300;
           &::after{
               width: 0;
               height: 0;
@@ -450,4 +451,8 @@ div.owl-item:last-child{
     top:0;
     left: 0;
   }
+}
+
+section.more-low.more-low_bot#more_bot_id{
+  display: none;
 }
