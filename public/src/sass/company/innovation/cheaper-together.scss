@@ -1,3 +1,4 @@
+#cheaper-together.ppage{
 .title {
   font-size: 24px;
   text-transform: uppercase;
@@ -184,7 +185,7 @@ section.more-low{
 .number_text{
   font-size: 11px; 
   font-weight: 500;
-  padding: 0 10px;
+  padding: 0px 10px;
 
 }
 .img_container.tablet{
@@ -451,10 +452,8 @@ div.owl-item:last-child{
     left: 0;
   }
 }
-<<<<<<< HEAD
 
 section.more-low.more-low_bot#more_bot_id{
   display: none;
 }
-=======
->>>>>>> f7d4766fb3db57176964ddecc7a1f5876a60f3a6
+}
