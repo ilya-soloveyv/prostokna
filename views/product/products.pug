@@ -5,4 +5,4 @@ block content
         ul
             each product in products
                 li
-                    a(href="/product/"+product.sProductURI) #{product.sBrandTitle} #{product.sProductTitle}
+                    a(href="/product/"+product.sProductURI) #{product.sBrandTitle} #{product.brand.sBrandTitle} #{product.sProductTitle}

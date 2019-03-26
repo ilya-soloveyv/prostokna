@@ -179,8 +179,18 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('public/src/css'))
 });
 
+gulp.task('sass_admin', function () {
+    return gulp
+        .src([
+            'public/src/admin/sass/**/*.scss'
+        ])
+        .pipe(sass())
+        .pipe(gulp.dest('public/src/admin/css'))
+});
+
 gulp.task('watch', () => {
     gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
+    gulp.watch('public/src/admin/sass/**/*.scss', gulp.series('sass_admin'))
 })
 
 gulp.task('bs', /* ['nodemon'], */ function() {

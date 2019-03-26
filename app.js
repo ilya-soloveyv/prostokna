@@ -8,13 +8,148 @@ const mysql = require('mysql')
 const async = require('async')
 const cookieParser = require('cookie-parser')
 const fs = require('fs')
+const bodyParser = require('body-parser')
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 const db = config.get('db') 
 app.use(cookieParser())
 app.locals.env = process.env;
-app.use(express.static('public'));
-app.set('view engine', 'pug');
+app.use(express.static('public'))
+app.set('view engine', 'pug')
+const multer = require('multer')
+const cyrillicToTranslit = require('cyrillic-to-translit-js')
 
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'))
 app.use('/vue', express.static(__dirname + '/node_modules/vue/dist'))
+app.use('/vue-router', express.static(__dirname + '/node_modules/vue-router/dist'))
+app.use('/axios', express.static(__dirname + '/node_modules/axios/dist'))
+app.use('/vue-picture-input', express.static(__dirname + '/node_modules/vue-picture-input/umd'))
+app.use('/material-icons', express.static(__dirname + '/node_modules/material-icons/css'))
+
+
+
+const Country = require('./models').country
+const Brand = require('./models').brand
+const Glazing = require('./models').glazing
+const Material = require('./models').material
+const Color = require('./models').color
+const Product = require('./models').product
+const Product_color = require('./models').product_color
+const Product_image = require('./models').product_image
+const Product_image_point = require('./models').product_image_point
+
+
+
+app.post('/test', async (req, res) => {
+
+    // var product_image_point = await Product_image_point.findAll({
+    //     include: [
+    //         {
+    //             model: Product
+    //         },
+    //         {
+    //             model: Product_image
+    //         }
+    //     ]
+    // })
+    // res.json(product_image_point)
+
+    // var product_image = await Product_image.findAll({
+    //     include: [
+    //         {
+    //             model: Product
+    //         },
+    //         {
+    //             model: Product_image_point
+    //         }
+    //     ]
+    // })
+    // res.json(product_image)
+
+    // var product = await Product.findAll({
+    //     include: [
+    //         {
+    //             model: Material
+    //         },
+    //         {
+    //             model: Brand
+    //         },
+    //         {
+    //             model: Product_color
+    //         },
+    //         {
+    //             model: Product_image
+    //         },
+    //     ]
+    // })
+    // res.json(product)
+
+    // var product_color = await Product_color.findAll({
+    //     include: [
+    //         {
+    //             model: Product
+    //         },
+    //         {
+    //             model: Color
+    //         },
+    //     ]
+    // })
+    // res.json(product_color)
+
+    // var color = await Color.findAll({
+    //     include: [
+    //         {
+    //             model: Material
+    //         }
+    //     ]
+    // })
+    // res.json(color)
+
+    // var material = await Material.findAll({
+    //     include: [
+    //         {
+    //             model: Color
+    //         },
+    //         {
+    //             model: Product
+    //         }
+    //     ]
+    // })
+    // res.json(material)
+
+    // var brand = await Brand.findAll({
+    //     include: [
+    //         {
+    //             model: Country
+    //         },
+    //         {
+    //             model: Product
+    //         }
+    //     ]
+    // })
+    // res.json(brand)
+
+    // var country = await Country.findAll({
+    //     include: [
+    //         {
+    //             model: Brand
+    //         }
+    //     ]
+    // })
+    // res.json(country)
+
+})
+
+
+function randomString() {
+    var text = ""
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    for (var i = 0; i < 32; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return text
+}
 
 
 var data = {}
@@ -60,6 +195,246 @@ data.left_menu = [
         ico: [ '8.svg', '8a.svg' ]
     },
 ]
+
+app.get('/admin', (req, res) => {
+    res.render('admin.pug')
+})
+app.post('/admin/ProductList', async (req, res) => {
+    var responce = {}
+        responce.product = await Product.findAll({
+            include: [Brand]
+        })
+    res.json(responce)
+})
+app.post('/admin/ProductEdit', async (req, res) => {
+    var responce = {}
+        responce.brand = await Brand.findAll()
+        responce.material = await Material.findAll()
+        responce.color = await Color.findAll()
+        if (req.body.iProductID) {
+            responce.product = await Product.getProduct(req.body.iProductID)
+        }
+    res.json(responce)
+})
+app.post('/admin/ProductUpdate', async (req, res) => {
+    var iProductID = (req.body.product.iProductID) ? req.body.product.iProductID : false
+
+    req.body.product.iProductParam1 = (req.body.product.iProductParam1) ? req.body.product.iProductParam1 : null
+    req.body.product.iProductParam2 = (req.body.product.iProductParam2) ? req.body.product.iProductParam2 : null
+    req.body.product.iProductParam3 = (req.body.product.iProductParam3) ? req.body.product.iProductParam3 : null
+    req.body.product.iProductParam4 = (req.body.product.iProductParam4) ? req.body.product.iProductParam4 : null
+    req.body.product.iProductParam5 = (req.body.product.iProductParam5) ? req.body.product.iProductParam5 : null
+    req.body.product.iProductParam6 = (req.body.product.iProductParam6) ? req.body.product.iProductParam6 : null
+
+    brand = await Brand.findByPk(req.body.product.iBrandID, {
+        attributes: ['sBrandTitle']
+    })
+    req.body.product.sProductURI = cyrillicToTranslit().transform(brand.sBrandTitle + ' ' + req.body.product.sProductTitle, "_").toLowerCase()
+
+    if (iProductID) {
+        await Product.update(req.body.product, {
+            where: {
+                iProductID: iProductID
+            }
+        })
+    } else {
+        await Product.create(req.body.product).then((response) => {
+            iProductID = response.iProductID
+        })
+    }
+
+    const productImage = async () => {
+        if (req.body.product.product_images) {
+            for (const image of req.body.product.product_images) {
+                image.iPhotoInDescOnPage = (image.iPhotoInDescOnPage) ? 1 : 0
+                if (image.iProductImageID && image.del === true) {
+                    await Product_image.destroy({
+                        where: {
+                            iProductImageID: image.iProductImageID
+                        }
+                    })
+                } else if (image.iProductImageID) {
+                    await Product_image.update({
+                        sProductImageFrontName: image.sProductImageFrontName,
+                        sProductImageBackName: image.sProductImageBackName,
+                        iPhotoInDescOnPage: image.iPhotoInDescOnPage,
+                    }, {
+                        where: {
+                            iProductImageID: image.iProductImageID
+                        }                    
+                    })
+                } else if (image.del !== true) {
+                    await Product_image.create({
+                        iProductID: iProductID,
+                        sProductImageFrontName: image.sProductImageFrontName,
+                        sProductImageBackName: image.sProductImageBackName,
+                        iPhotoInDescOnPage: image.iPhotoInDescOnPage,
+                    })
+                }
+            }
+        }
+    }
+    await productImage()
+
+    const productImageColor = async () => {
+        if (req.body.product.product_colors) {
+            for (const image of req.body.product.product_colors) {
+                if (image.iProductColorID && image.del === true) {
+                    await Product_color.destroy({
+                        where: {
+                            iProductColorID: image.iProductColorID
+                        }
+                    })
+                } else if (image.iProductColorID) {
+                    await Product_color.update({
+                        iColorID: image.iColorID,
+                        sProductColorFilename: image.sProductColorFilename,
+                    }, {
+                        where: {
+                            iProductColorID: image.iProductColorID
+                        }                    
+                    })
+                } else if (image.del !== true) {
+                    await Product_color.create({
+                        iProductID: iProductID,
+                        iColorID: image.iColorID,
+                        sProductColorFilename: image.sProductColorFilename,
+                    })
+                }
+            }
+        }
+    }
+    await productImageColor()
+
+
+    var responce = {}
+        // responce.brand = await Brand.findAll()
+        // responce.material = await Material.findAll()
+        responce.product = await Product.getProduct(iProductID)
+    res.json(responce)
+})
+app.post('/admin/ProductDelete', async (req, res) => {
+    var iProductID = (req.body.product.iProductID) ? req.body.product.iProductID : false
+
+    if (iProductID) {
+        await Product.destroy({
+            where: {
+                iProductID: iProductID,
+            }
+        })
+    }
+
+    res.json(true)
+})
+app.post('/admin/upload', (req, res) => {
+
+    var filename = randomString() + '.' + req.headers.extension
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/product/gallery')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+
+    var upload = multer({ storage: storage }).single('file')
+
+    upload(req, res, function (err, responce) {
+        res.json(req.file)
+    })
+    
+})
+app.post('/admin/ProductUploadColor', (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/product/color')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, function (err, responce) {
+        res.json(req.file)
+    })
+})
+
+app.post('/admin/ColorList', async (req, res) => {
+    var data = {}
+        data.material = await Material.findAll()
+        data.color = await Color.findAll()
+    res.json(data)
+})
+app.post('/admin/ColorUpdate', async (req, res) => {
+
+    const colorUpdate = async () => {
+        if (req.body.color) {
+            for (const color of req.body.color) {
+                if (color.iColorID && color.del === true) {
+                    await Color.destroy({
+                        where: {
+                            iColorID: color.iColorID
+                        }
+                    })
+                } else if (color.iColorID) {
+                    await Color.update({
+                        iMaterialID: color.iMaterialID,
+                        sColorCode: color.sColorCode,
+                        sColorTitle: color.sColorTitle,
+                        sColorTitleCode: color.sColorTitleCode,
+                        sColorTextureFileName: color.sColorTextureFileName,
+                        iOrder: color.iOrder,
+                    }, {
+                        where: {
+                            iColorID: color.iColorID
+                        }                    
+                    })
+                } else if (color.del !== true) {
+                    await Color.create({
+                        iMaterialID: color.iMaterialID,
+                        sColorCode: color.sColorCode,
+                        sColorTitle: color.sColorTitle,
+                        sColorTitleCode: color.sColorTitleCode,
+                        sColorTextureFileName: color.sColorTextureFileName,
+                        iOrder: color.iOrder,
+                    })
+                }
+            }
+        }
+    }
+    await colorUpdate()
+
+    var data = {}
+        data.color = await Color.findAll()
+    res.json(data)
+})
+app.post('/admin/ColorUpload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/color')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, function (err, responce) {
+        res.json(req.file)
+    })
+})
+
+
+
+
+
+
+
+
+
 
 // cookie
 // app.use(function (req, res, next) {
@@ -693,94 +1068,62 @@ app.get('/gager', (req, res) => {
     res.render('gager.pug', data)
 })
 
-app.get('/product', (req, res) => {
+app.get('/product', async (req, res) => {
     data.title = 'Окна'
     data.left_menu_active = 1
-    let connection = mysql.createConnection(config.get('db'))
-    let query = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
-    connection.query(query, (err, rows, fields) => {
-        if (err) {
-            console.log('Error query: ' + err)
-            res.sendStatus(500)
-            return
-        }
-        data.products = rows;
-        res.render('product/products.pug', data)
+    data.products = await Product.findAll({
+        attributes: ['sProductTitle', 'sProductURI'],
+        include: [
+            {
+                model: Brand,
+                attributes: ['sBrandTitle']
+            }
+        ]
     })
-    connection.end()
+    res.render('product/products.pug', data)
 })
 
-app.get('/product/:sProductURI', (req, res) => {
-    var connection = mysql.createConnection(config.get('db'));
-    var query_1 = "SELECT * FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID WHERE t1.sProductURI = ? LIMIT 1";
-    var query_2 = "SELECT * FROM product_images WHERE iProductID = ? ORDER BY iOrder ASC";
-    var query_3 = "SELECT * FROM product_images_point WHERE iProductID = ?";
-    var query_4 = "SELECT * FROM colors WHERE iMaterialID = ?";
-    var query_5 = "SELECT * FROM product_images WHERE iPhotoInDescOnPage = 1 && iProductID = ? LIMIT 1";
-    var query_6 = "SELECT t1.sProductURI, t1.sProductTitle, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
-    var query_7 = "SELECT t1.iProductID, t2.sColorCode, t2.sColorTitle, t2.sColorTitleCode, t2.sColorTitle, t2.sColorTextureFileName FROM product_color t1 LEFT JOIN colors t2 ON t2.iColorID = t1.iColorID WHERE t1.iProductID = ? ORDER BY t2.iOrder ASC";
-    async.parallel([
-       function(parallel_done) {
-           connection.query(query_1, [ req.params.sProductURI ], function(err, product) {
-               if (err) return parallel_done(err);
-               data.product = product[0]
-               data.title = data.product.sBrandTitle + " " + data.product.sProductTitle
-               data.left_menu_active = 1
-               parallel_done()
-           });
-       }
-    ], function(err) {
-        if (err) console.log(err);
-        async.parallel([
-            function(parallel_done) {
-                connection.query(query_2, [ data.product.iProductID ], function(err, product_images) {
-                    if (err) return parallel_done(err)
-                    data.product_images = product_images
-                    parallel_done()
-                });
-            },
-            function(parallel_done) {
-                connection.query(query_3, [ data.product.iProductID ], function(err, product_images_point) {
-                    if (err) return parallel_done(err)
-                    data.product_images_point = product_images_point
-                    parallel_done()
-                });
-            },
-            function(parallel_done) {
-                connection.query(query_4, [ data.product.iMaterialID ], function(err, colors) {
-                    if (err) return parallel_done(err)
-                    data.colors = colors
-                    parallel_done()
-                });
-            },
-            function(parallel_done) {
-                connection.query(query_5, [ data.product.iProductID ], function(err, image_product_text) {
-                    if (err) return parallel_done(err)
-                    data.image_product_text = image_product_text[0]
-                    parallel_done()
-                });
-            },
-            function(parallel_done) {
-                connection.query(query_6, [ data.product.iProductID ], function(err, products) {
-                    if (err) return parallel_done(err)
-                    data.products = products
-                    parallel_done()
-                });
-            },
-            function(parallel_done) {
-                connection.query(query_7, [ data.product.iProductID ], function(err, product_color) {
-                    if (err) return parallel_done(err)
-                    data.product_color = product_color
-                    parallel_done()
-                });
+app.get('/product/:sProductURI', async (req, res) => {
+    data.title = 'Окна'
+    data.left_menu_active = 1
+    data.products = await Product.findAll({
+        attributes: ['sProductTitle', 'sProductURI'],
+        include: [
+            {
+                model: Brand,
+                attributes: ['sBrandTitle']
             }
-        ], function(err) {
-            if (err) return parallel_done(err)
-            connection.end()
-            // res.send(data)
-            res.render('product.pug', data)
-        })
-    });
+        ]
+    })
+    var product = await Product.findAll({
+        where: {
+            sProductURI: req.params.sProductURI
+        },
+        include: [
+            {
+                model: Brand
+            },
+            {
+                model: Product_image,
+                include: [
+                    {
+                        model: Product_image_point
+                    }
+                ]
+            },
+            {
+                model: Product_color,
+                include: [
+                    {
+                        model: Color
+                    }
+                ]
+            }
+        ]
+    })
+    data.product = product[0]
+    // res.json(data)
+    res.render('product.pug', data)
 })
 
 app.get('/pay', (req, res) => {
@@ -898,6 +1241,6 @@ app.get('/all_windows', (req, res) => {
 
 
 http.listen(process.env.PORT || 8080, () => {
-    console.log(process.env.PORT || 8080)
-    console.log('Server is running...')
+    // console.clear()
+    console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
 })
