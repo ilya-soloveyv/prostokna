@@ -13,7 +13,7 @@ const rimraf        = require('rimraf')
 const revOutdated   = require('gulp-rev-outdated')
 const path          = require('path')
 const through       = require('through2')
-const runSequence   = require('run-sequence')
+// const runSequence   = require('run-sequence')
 
 function cleaner() {
     return through.obj(function(file, enc, cb){
@@ -27,8 +27,8 @@ function cleaner() {
     });
 }
 
-gulp.task('js_min', () => {
-    return gulp
+gulp.task('js_min', (done) => {
+    gulp
         .src([
             'node_modules/vue/dist/vue.min.js',
             'public/src/js/jquery-3.3.1.js',
@@ -82,12 +82,12 @@ gulp.task('js_min', () => {
         .on('end', () => {
             del.sync([
                 'public/app.js',
-            ]);
+            ], done());
         })
 })
 
-gulp.task('css_min', () => {
-    return gulp
+gulp.task('css_min', (done) => {
+    gulp
         .src([
             'public/src/css_static/bootstrap.css',
             'public/src/css_static/jquery.fullpage.min.css',
@@ -130,39 +130,41 @@ gulp.task('css_min', () => {
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest('public/'))
+        .on('end', done)
 })
 
-gulp.task('rev', () => {
-    return gulp.src(['public/app.min.css', 'public/app.min.js'])
+gulp.task('rev', (done) => {
+    gulp.src(['public/app.min.css', 'public/app.min.js'])
         .pipe(rev())
         .pipe(gulp.dest('public/'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('public/manifest/'))
+        .on('end', done)
 })
 
-gulp.task('rev_collector', () => {
-    return gulp.src(['public/manifest/**/*.json', 'views/layouts/app.pug'])
+gulp.task('rev_collector', (done) => {
+    gulp.src(['public/manifest/**/*.json', 'views/layouts/app.pug'])
         .pipe( revCollector({
             replaceReved: true
         }))
         .pipe( gulp.dest('views/layouts/') )
+        .on('end', done)
 })
 
-gulp.task('rev_clean', function() {
+gulp.task('rev_clean', function(done) {
     return gulp.src( ['public/*.*'], {read: false})
         .pipe( revOutdated(1) )
-        .pipe( cleaner() );
+        .pipe( cleaner() )
+        .on('end', done)
 });
 
-gulp.task('production', (callback) => {
-    runSequence(
-        ['js_min', 'css_min'],
-        'rev',
-        'rev_collector',
-        'rev_clean',
-        callback
-    )
-})
+gulp.task('production', gulp.series(
+    'js_min',
+    'css_min',
+    'rev',
+    'rev_collector',
+    'rev_clean',
+))
 
 
 
