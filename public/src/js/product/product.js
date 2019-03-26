@@ -24,11 +24,11 @@ $(document).ready(function(){
             let sProductImageBackName = $(this).attr('data-sProductImageBackName')
 
             $('#product .data .basic .gallery .view2 .front .bg img')
-                .attr('src', '/images/product/' + iProductID + '/' + sProductImageFrontName)
+                .attr('src', '/images/product/gallery/' + sProductImageFrontName)
                 .attr('data-iProductImageID', iProductImageID);
 
             if (typeof sProductImageBackName !== 'undefined') {
-                $("#product .data .basic .gallery .view2 .back .bg img").attr('src', '/images/product/' + iProductID + '/' + sProductImageBackName).show()
+                $("#product .data .basic .gallery .view2 .back .bg img").attr('src', '/images/product/gallery/' + sProductImageBackName).show()
             } else {
                 $("#product .data .basic .gallery .view2 .back img").hide()
                 $("#product .data .basic .gallery .view2 .front").stop().animate({
@@ -70,7 +70,8 @@ function useProductColorImage (index) {
     if (activeImg.length) {
         var code = activeImg.attr('attr-sColorTitleCode')
         var iProductID = activeImg.attr('attr-iProductID')
-        $('#product .data .colors .view').html('<img src="/images/product/' + iProductID + '/colors/' + code + '.png">')
+        var sProductColorFilename = activeImg.attr('attr-sProductColorFilename')
+        $('#product .data .colors .view').html('<img src="/images/product/color/' + sProductColorFilename + '">')
     }
 }
 

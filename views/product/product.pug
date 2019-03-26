@@ -5,13 +5,13 @@
                 .type
                 .hamburger
             .title
-                .brand #{product.sBrandTitle}
+                .brand #{product.brand.sBrandTitle}
                 .model #{product.sProductTitle}
     .submenu
         ul
             each item in products
                 li
-                    a(href="/product/"+item.sProductURI) #{item.sBrandTitle} #{item.sProductTitle}
+                    a(href="/product/"+item.sProductURI) #{item.brand.sBrandTitle} #{item.sProductTitle}
     .callme
         img(src="/images/product/phone.svg", alt="call me")
     .data
@@ -19,32 +19,32 @@
             .gallery
                 .list2
                     ul
-                        each image in product_images
+                        each image in product.product_images
                             li(
                                 data-iProductID= product.iProductID,
                                 data-iProductImageID= image.iProductImageID,
                                 data-sProductImageFrontName=image.sProductImageFrontName,
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
-                                img(src="/images/product/" + product.iProductID + "/" + image.sProductImageFrontName, alt="")
+                                img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
                 .view2
                     .back
-                        if product_images[0] !== undefined
+                        if product.product_images[0] !== undefined
                             .bg
                                 img(
-                                    src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageBackName,
-                                    data-iProductImageID= product_images[0].iProductImageID,
+                                    src="/images/product/gallery/" + product.product_images[0].sProductImageBackName,
+                                    data-iProductImageID= product.product_images[0].iProductImageID,
                                     alt="")
                     .front
                         .front_bg
-                            if product_images[0] !== undefined
+                            if product.product_images[0] !== undefined
                                 .bg
                                     img(
-                                        src="/images/product/" + product.iProductID + "/" + product_images[0].sProductImageFrontName,
-                                        data-iProductImageID= product_images[0].iProductImageID,
+                                        src="/images/product/gallery/" + product.product_images[0].sProductImageFrontName,
+                                        data-iProductImageID= product.product_images[0].iProductImageID,
                                         alt="")
                     ul.point
-                        each point in product_images_point
+                        //- each point in product_images_point
                             li.point_item(
                                 data-iProductImageID= point.iProductImageID,
                                 data-fProductImagePointPosX= point.fProductImagePointPosX,
@@ -136,33 +136,34 @@
                     button.favorite
                         i.material-icons star_border
                 //- button Добавить в калькулятор
-        if product_color.length
+        if product.product_colors.length
             .colors
                 .list
                     ul
-                        each color, index in product_color
-                            //- - console.log(color)
-                            if color.sColorTextureFileName
-                                - var bg = 'background-image: url("/images/colors/70_70/' + color.sColorTextureFileName + '")';
+                        each color, index in product.product_colors
+                            if color.color.sColorTextureFileName
+                                - var bg = 'background-image: url("/images/color/' + color.color.sColorTextureFileName + '")';
                             else
-                                - var bg = 'background-color: #' + color.sColorCode
-                            //- if index == 0
-                            //-     - var active = 'active';
+                                - var bg = 'background-color: #' + color.color.sColorCode
+                            if index == 0
+                                - var active = 'active';
                             
                             li(
                                 style= bg
                                 attr-iProductID= color.iProductID
-                                attr-sColorTitleCode= color.sColorTitleCode
-                                attr-sColorTextureFileName= color.sColorTextureFileName
-                                title= color.sColorTitle
+                                attr-sProductColorFilename= color.sProductColorFilename
+                                attr-sColorTitleCode= color.color.sColorTitleCode
+                                attr-sColorTextureFileName= color.color.sColorTextureFileName
+                                title= color.color.sColorTitle
                                 )
-                                .code= color.sColorTitleCode
-                                .title= color.sColorTitle
+                                .code= color.color.sColorTitleCode
+                                .title= color.color.sColorTitle
                     button Добавить в калькулятор
                 .view
         .desc
-            if image_product_text !== undefined
-                img(src="/images/product/" + product.iProductID + "/" + image_product_text.sProductImageFrontName, alt="")
-            h1 #{product.sBrandTitle} #{product.sProductTitle}
+            each image in product.product_images
+                if image.iPhotoInDescOnPage == 1
+                    img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
+            h1 #{product.brand.sBrandTitle} #{product.sProductTitle}
             .text!= product.sProductText
             button Добавить в калькулятор

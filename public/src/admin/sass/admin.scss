@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'Museo Sans Cyrl 700';
+    src: url('../fonts/MuseoSansCyrl-700.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-700.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo Sans Cyrl 900';
+    src: url('../fonts/MuseoSansCyrl-900.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-900.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo Sans Cyrl 100';
+    src: url('../fonts/MuseoSansCyrl-100.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-100.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo Sans Cyrl 300';
+    src: url('../fonts/MuseoSansCyrl-300.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo Sans Cyrl 500';
+    src: url('../fonts/MuseoSansCyrl-500.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-500.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    font-family: 'Museo Sans Cyrl 300';
+    font-size: 14px;
+}
+#app {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    .sidebar {
+        flex-basis: 250px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background: white;
+        border-right: 1px solid #E3EBF6;
+        position: relative;
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            .logo {
+                flex-grow: 0;
+                flex-shrink: 0;
+                padding: 16px;
+                img {
+
+                }
+            }
+            ul.menu {
+                flex-grow: 1;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-size: 14px;
+                li {
+                    line-height: 20px;
+                    color: rgb(0, 255, 0);
+                    text-decoration: none;
+                    padding: 6px 16px;
+                    &.router-link-exact-active > a {
+                        font-family: 'Museo Sans Cyrl 700';
+                    }
+                }
+            }
+        }
+    }
+    .data {
+        padding: 2rem;
+        flex-grow: 1;
+        flex-shrink: 1;
+        background: #F9FBFD;
+    }
+}
+.ProductEdit {
+    label.file_upload {
+        width: 100%;
+        height: 150px;
+        background: #dddddd;
+        padding: .5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        overflow: hidden !important;
+        margin: 0;
+        display: block;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        input {
+            display: none;
+            position: absolute;
+        }
+    }
+    .custom-control {
+        height: 31px;
+        label {
+            height: 31px;
+            line-height: 31px;
+            &:before {
+                top: 7px;
+            }
+            &:after {
+                top: 9px;
+            }
+        }
+    }
+    .card {
+        margin-bottom: 2rem;
+    }
+    .card-color {
+        label.file_upload {
+            height: 150px;
+            margin-bottom: 0 !important;
+            overflow: hidden;
+            position: relative;
+            button {
+                position: absolute;
+                right: 3px;
+                top: 3px;
+            }
+        }
+    }
+    textarea {
+        height: 390px;
+    }
+}
+
+.ColorList {
+    td {
+        padding: 5px;
+    }
+    label.file_upload {
+        width: 100%;
+        height: 31px;
+        background: #dddddd;
+        padding: 0;
+        margin: 0 !important;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        border-radius: 4px;
+        &:before {
+            content: 'Выбрать';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+        }
+        img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+        }
+        input {
+            display: none;
+        }
+    }
+}
+
+.custom-switch {
+    label {
+        color: #ADB5BD;
+    }
+}
+.form-group {
+    label.label {
+        color: #ADB5BD;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+}
