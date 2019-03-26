@@ -7,6 +7,15 @@
   color: white;
   font-family: Montserrat;
   overflow: hidden;
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .clear {
+    clear: both;
+  }
   .material-icons {
     opacity: 0;
     cursor: pointer;
@@ -165,18 +174,6 @@
       right: 0;
     }
   }
-}
-
-
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.clear {
-  clear: both;
 }
 
 

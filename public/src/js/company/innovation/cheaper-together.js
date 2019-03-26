@@ -1,5 +1,19 @@
 if ($('#cheaper-together').length) {
 
+  $('.sale_btn').on('click', function(){
+    
+    $('.more-low').css('display', 'none');
+    $('.more-low_bot#more_bot_id').css('display', 'block');
+  })
+ 
+
+  $('.sale_btn_click').on('click', function(){
+    
+    
+    
+    $('.more-low').css('display', 'block');
+    $('.more-low_bot#more_bot_id').css('display', 'none');
+  })
   var slideIndex = 1;
   var nmIndex = 1;
   
