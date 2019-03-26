@@ -4,6 +4,7 @@
 .idea
 package-lock.json
 /config/default.json
+/config/config.json
 /public/images/product/gallery
 /public/images/product/color
 /public/images/color
