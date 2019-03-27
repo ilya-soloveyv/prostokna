@@ -26,6 +26,8 @@ app.use('/vue-router', express.static(__dirname + '/node_modules/vue-router/dist
 app.use('/axios', express.static(__dirname + '/node_modules/axios/dist'))
 app.use('/vue-picture-input', express.static(__dirname + '/node_modules/vue-picture-input/umd'))
 app.use('/material-icons', express.static(__dirname + '/node_modules/material-icons/css'))
+app.use('/bootstrap-select', express.static(__dirname + '/node_modules/bootstrap-select/dist'))
+app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
 
 
 
@@ -365,50 +367,67 @@ app.post('/admin/ProductUploadColor', (req, res) => {
 app.post('/admin/ColorList', async (req, res) => {
     var data = {}
         data.material = await Material.findAll()
-        data.color = await Color.findAll()
+        data.color = await Color.findAll({
+            include: [
+                {
+                    model: Material
+                }
+            ],
+            order: [
+                ['iMaterialID', 'ASC'],
+                ['iOrder', 'ASC'],
+                ['iColorID', 'ASC']
+            ]
+        })
     res.json(data)
 })
 app.post('/admin/ColorUpdate', async (req, res) => {
 
-    const colorUpdate = async () => {
-        if (req.body.color) {
-            for (const color of req.body.color) {
-                if (color.iColorID && color.del === true) {
-                    await Color.destroy({
-                        where: {
-                            iColorID: color.iColorID
-                        }
-                    })
-                } else if (color.iColorID) {
-                    await Color.update({
-                        iMaterialID: color.iMaterialID,
-                        sColorCode: color.sColorCode,
-                        sColorTitle: color.sColorTitle,
-                        sColorTitleCode: color.sColorTitleCode,
-                        sColorTextureFileName: color.sColorTextureFileName,
-                        iOrder: color.iOrder,
-                    }, {
-                        where: {
-                            iColorID: color.iColorID
-                        }                    
-                    })
-                } else if (color.del !== true) {
-                    await Color.create({
-                        iMaterialID: color.iMaterialID,
-                        sColorCode: color.sColorCode,
-                        sColorTitle: color.sColorTitle,
-                        sColorTitleCode: color.sColorTitleCode,
-                        sColorTextureFileName: color.sColorTextureFileName,
-                        iOrder: color.iOrder,
-                    })
-                }
+    var color = req.body.color
+
+    if (color.iColorID && color.del === true) {
+        await Color.destroy({
+            where: {
+                iColorID: color.iColorID
             }
-        }
+        })
+    } else if (color.iColorID) {
+        await Color.update({
+            iMaterialID: color.iMaterialID,
+            sColorCode: color.sColorCode,
+            sColorTitle: color.sColorTitle,
+            sColorTitleCode: color.sColorTitleCode,
+            sColorTextureFileName: color.sColorTextureFileName,
+            iOrder: color.iOrder,
+        }, {
+            where: {
+                iColorID: color.iColorID
+            }                    
+        })
+    } else if (color.del !== true) {
+        await Color.create({
+            iMaterialID: color.iMaterialID,
+            sColorCode: color.sColorCode,
+            sColorTitle: color.sColorTitle,
+            sColorTitleCode: color.sColorTitleCode,
+            sColorTextureFileName: color.sColorTextureFileName,
+            iOrder: color.iOrder,
+        })
     }
-    await colorUpdate()
 
     var data = {}
-        data.color = await Color.findAll()
+        data.color = await Color.findAll({
+            include: [
+                {
+                    model: Material
+                }
+            ],
+            order: [
+                ['iMaterialID', 'ASC'],
+                ['iOrder', 'ASC'],
+                ['iColorID', 'ASC']
+            ]
+        })
     res.json(data)
 })
 app.post('/admin/ColorUpload', async (req, res) => {

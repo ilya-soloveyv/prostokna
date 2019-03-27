@@ -159,6 +159,10 @@ body {
   .ColorList label.file_upload input {
     display: none; }
 
+.ColorList span.form-control {
+  overflow: hidden;
+  white-space: nowrap; }
+
 .custom-switch label {
   color: #ADB5BD; }
 
