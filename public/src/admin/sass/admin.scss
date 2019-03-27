@@ -194,6 +194,10 @@ body {
             display: none;
         }
     }
+    span.form-control {
+        overflow: hidden;
+        white-space: nowrap;
+    }
 }
 
 .custom-switch {
@@ -209,4 +213,8 @@ body {
         text-overflow: ellipsis;
         max-width: 100%;
     }
+}
+
+.bootstrap-select {
+
 }

@@ -7,16 +7,16 @@ export default {
                     title: 'Окна',
                     uri: '/product',
                 },
+                // {
+                //     title: 'Материалы',
+                //     uri: '/material',
+                // },
+                // {
+                //     title: 'Бренды',
+                //     uri: '/brand',
+                // },
                 {
-                    title: 'Материалы',
-                    uri: '/material',
-                },
-                {
-                    title: 'Бренды',
-                    uri: '/brand',
-                },
-                {
-                    title: 'Color',
+                    title: 'Цвета',
                     uri: '/color',
                 },
             ]
