@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     Profile: DataTypes.STRING,
     ProfileClass: DataTypes.STRING,
     DoubleGlazing: DataTypes.INTEGER,
-    HeatTransferResistance: DataTypes.INTEGER,
+    HeatTransferResistance: DataTypes.STRING,
     ShapikShapeOptions: DataTypes.STRING,
     DecorationOptions: DataTypes.STRING,
     FrameFeature: DataTypes.STRING,

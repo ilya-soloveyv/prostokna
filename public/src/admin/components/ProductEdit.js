@@ -229,7 +229,7 @@ export default {
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="label" for="">Сопротивление теплопередаче:</label>
-                                                    <input type="text" class="form-control" v-model.number="product.HeatTransferResistance">
+                                                    <input type="text" class="form-control" v-model="product.HeatTransferResistance">
                                                 </div>
                                             </div>
                                             <div class="col-3">
