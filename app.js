@@ -1,4 +1,11 @@
 const express = require('express')
+
+var auth = require('http-auth');
+var basic = auth.basic({
+    realm: "Admin",
+    file: __dirname + "/.htpasswd"
+});
+
 const app = express()
 const http = require('http').createServer(app)
 const config = require('config')
@@ -198,7 +205,7 @@ data.left_menu = [
     },
 ]
 
-app.get('/admin', (req, res) => {
+app.get('/admin', auth.connect(basic), (req, res) => {
     res.render('admin.pug')
 })
 app.post('/admin/ProductList', async (req, res) => {

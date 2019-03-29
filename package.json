@@ -27,6 +27,7 @@
         "cyrillic-to-translit-js": "^2.1.0",
         "dotenv": "^6.0.0",
         "express": "^4.16.3",
+        "http-auth": "^3.2.3",
         "jquery": "^3.3.1",
         "material-icons": "^0.3.0",
         "multer": "^1.4.1",
