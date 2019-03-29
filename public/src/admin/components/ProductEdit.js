@@ -284,7 +284,7 @@ export default {
                                             </div>
                                             <div class="col">
                                                 <select v-model="item.iColorID" class="form-control form-control-sm">
-                                                    <option v-for="(color, index) in color" :value="color.iColorID">{{ color.sColorTitle }}</option>
+                                                    <option v-for="(color, index) in color" :value="color.iColorID">{{ color.sColorTitleCode }} - {{ color.sColorTitle }}</option>
                                                 </select>
                                             </div>
                                         </div>
