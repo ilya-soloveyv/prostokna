@@ -8,3 +8,4 @@ package-lock.json
 /public/images/product/gallery
 /public/images/product/color
 /public/images/color
+.htpasswd
