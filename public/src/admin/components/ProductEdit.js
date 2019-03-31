@@ -284,7 +284,7 @@ export default {
                                             </div>
                                             <div class="col">
                                                 <select v-model="item.iColorID" class="form-control form-control-sm">
-                                                    <option v-for="(color, index) in color" :value="color.iColorID">{{ color.sColorTitleCode }} - {{ color.sColorTitle }}</option>
+                                                    <option v-for="(color, index) in color" :value="color.iColorID" v-show="product.iMaterialID == color.iMaterialID">{{ color.sColorTitleCode }} - {{ color.sColorTitle }}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -295,6 +295,8 @@ export default {
                         </div>
                     </div>
                 </div>
+                <pre>{{ product }}</pre>
+                <pre>{{ color }}</pre>
                 <button type="submit" class="btn btn-success">Сохранить</button>
                 <button type="button" class="btn btn-danger float-right" v-on:click.prevent="del">Удалить</button>
             </form>
