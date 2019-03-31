@@ -295,8 +295,6 @@ export default {
                         </div>
                     </div>
                 </div>
-                <pre>{{ product }}</pre>
-                <pre>{{ color }}</pre>
                 <button type="submit" class="btn btn-success">Сохранить</button>
                 <button type="button" class="btn btn-danger float-right" v-on:click.prevent="del">Удалить</button>
             </form>
