@@ -219,7 +219,12 @@ app.post('/admin/ProductEdit', async (req, res) => {
     var responce = {}
         responce.brand = await Brand.findAll()
         responce.material = await Material.findAll()
-        responce.color = await Color.findAll()
+        responce.color = await Color.findAll({
+            order: [
+                ['iOrder', 'ASC'],
+                ['iColorID', 'ASC']
+            ]
+        })
         if (req.body.iProductID) {
             responce.product = await Product.getProduct(req.body.iProductID)
         }
