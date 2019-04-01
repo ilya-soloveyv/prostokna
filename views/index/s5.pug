@@ -251,7 +251,6 @@
                 img(src='/images/index/s5/add.svg', alt='add')
     .pop_choice
       .menu
-        span.item-title Окно 4
         span.item(v-for="(list, i) in menuList" @click="addWindow(i)") {{list.title}}
     .call_back
       img(src='/images/index/s5/call-back.png', alt='call-back')    

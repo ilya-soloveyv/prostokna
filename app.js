@@ -185,7 +185,7 @@ data.left_menu = [
     },
     {
         title: 'О компании',
-        uri: '/',
+        uri: '/company',
         ico: [ '5.svg', '5a.svg' ]
     },
     {
@@ -200,7 +200,7 @@ data.left_menu = [
     },
     {
         title: 'Сравнение профильных систем',
-        uri: '/',
+        uri: '/#s5',
         ico: [ '8.svg', '8a.svg' ]
     },
 ]
@@ -1255,19 +1255,27 @@ app.get('/intuitive', (req, res) => {
 })
 
 //API
-app.get('/all_windows', (req, res) => {
-    let connection = mysql.createConnection(config.get('db'))
-    let query = "SELECT t1.sProductTitle, t1.MountingDepth, t1.Profile, t1.ProfileClass, t1.DoubleGlazing, t1.HeatTransferResistance, t1.ShapikShapeOptions, t1.DecorationOptions, t1.FrameFeature, t2.BrandНomeland, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
-
-    connection.query(query, (err, rows, fields) => {
-        if (err) {
-            console.log('Error query: ' + err)
-            res.sendStatus(500)
-            return
-        }
-        res.json(rows)
+app.get('/all_windows', async (req, res) => {
+    var result = await Product.findAll({
+        include: [
+            {
+                model: Brand
+            }
+        ]
     })
-    connection.end()
+    res.json(result)
+    // let connection = mysql.createConnection(config.get('db'))
+    // let query = "SELECT t1.sProductTitle, t1.MountingDepth, t1.Profile, t1.ProfileClass, t1.DoubleGlazing, t1.HeatTransferResistance, t1.ShapikShapeOptions, t1.DecorationOptions, t1.FrameFeature, t2.BrandНomeland, t2.sBrandTitle FROM product t1 LEFT JOIN brand t2 ON t2.iBrandID = t1.iBrandID";
+
+    // connection.query(query, (err, rows, fields) => {
+    //     if (err) {
+    //         console.log('Error query: ' + err)
+    //         res.sendStatus(500)
+    //         return
+    //     }
+    //     res.json(rows)
+    // })
+    // connection.end()
 })
 
 
