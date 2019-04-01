@@ -338,7 +338,7 @@ $speed: .25s;
             .line {
                 background-color: rgba(153,153,153,1);
                 @media (max-width: 1200px) {
-                    background: red;
+                    background-color: #2d70e4;
                 }
             }
         }
@@ -362,7 +362,7 @@ $speed: .25s;
             .line {
                 background-color: rgba(255,255,255,1);
                 @media (max-width: 1200px) {
-                    background: red;
+                    background-color: #2d70e4;
                 }
             }
         }
@@ -427,17 +427,78 @@ $speed: .25s;
             background: #ededed;
             z-index: 4;
             border-bottom: 1px solid #999;
-            -moz-transition: all .5s linear;
-            -o-transition: all .5s linear;
-            -webkit-transition: all .5s linear;
             cursor: pointer;
+            .hamburger {
+                height: 59px;
+                padding: 19px 15px;
+                @media (max-width: 575px) {
+                    height: 50px;
+                    padding: 15px 10px;
+                }
+                .hamburger-box {
+                    width: 30px;
+                    height: 24px;
+                    @media (max-width: 575px) {
+                        width: 25px;
+                        height: 17px;
+                    }
+                    .hamburger-inner {
+                        height: 4px;
+                        border-radius: 2px;
+                        background: #353535;
+                        width: inherit;
+                        @media (max-width: 575px) {
+                            height: 3px;
+                        }
+                        &::before {
+                            width: inherit;
+                            height: 4px;
+                            top: 9px;
+                            border-radius: 2px;
+                            background: #353535;
+                            @media (max-width: 575px) {
+                                height: 3px;
+                                top: 7px;
+                            }
+                        }
+                        &::after {
+                            width: inherit;
+                            height: 4px;
+                            top: 18px;
+                            border-radius: 2px;
+                            background: #353535;
+                            @media (max-width: 575px) {
+                                height: 3px;
+                                top: 14px;
+                            }
+                        }
+                    }
+                }
+                &.is-active {
+                    .hamburger-box {
+                        .hamburger-inner {
+                            @media (max-width: 575px) {
+                                top: -1px;
+                                left: -2px;
+                            }
+                            &::after {
+                                left: 0;
+                                top: 20px;
+                                @media (max-width: 575px) {
+                                    left: 0px;
+                                }
+                            }        
+                        }
+                    }
+                }
+            }
         }
         .menu {
             position: absolute;
             top: 60px;
             bottom: 0;
             left: 0;
-            z-index: 2;
+            z-index: 1;
             width: 59px;
             background-color: #FFF;
             -moz-transition: all .25s linear;
@@ -469,9 +530,26 @@ $speed: .25s;
                     position: relative;
                     flex-basis: 60px;
                     a {
-                        display: block;
+                        display: flex;
                         height: 100%;
+                        text-decoration: none;
+                        .title {
+                            flex-grow: 1;
+                            flex-shrink: 0;
+                            flex-basis: 240px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: left;
+                            flex-wrap: wrap;
+                            white-space: wrap;
+                            padding: 0 20px 0 10px;
+                            font-family: 'MontserratMedium';
+                            color: #353535;
+                            font-size: 14px;                            
+                        }
                         .b {
+                            flex-grow: 0;
+                            flex-shrink: 0;
                             height: 100%;
                             img {
                                 height: 30px;
@@ -480,6 +558,8 @@ $speed: .25s;
                             }
                         }
                         .h {
+                            flex-grow: 0;
+                            flex-shrink: 0;
                             height: 100%;
                             display: none;
                             img {
@@ -491,6 +571,9 @@ $speed: .25s;
                     }
                     &.active, &:hover {
                         background-color: #ededed;
+                        .title {
+                            color: #2d70e4;
+                        }                        
                         .b {
                             display: none;
                         }
@@ -521,30 +604,38 @@ $speed: .25s;
         position: absolute;
         left: 60px;
         top: 0;
-        width: 155px;
+        width: 220px;
         height: 59px;
         z-index: 3;
         // background-color: red;
-        background-image: url("/images/logo1.svg");
-        background-position: left;
-        background-repeat: no-repeat;
+        // background-image: url("/images/logo1.svg");
+        // background-position: left;
+        // background-repeat: no-repeat;
         background-color: #FFF;
-        background-size: contain;
+        // background-size: contain;
         @media (max-width: 575px) {
             height: 49px;
             left: 50px;
             width: 139px;
-            background-position: left center;
-            
+            // background-position: left center;
         }
         &:hover {
             // opacity: 0.8;
-            background-image: url("/images/logo2.svg");
+            // background-image: url("/images/logo2.svg");
         }
         a {
             position: absolute;
             width: 100%;
             height: 100%;
+            img {
+                display: block;
+                height: 37px;
+                margin: 11px 0;
+                @media (max-width: 575px) {
+                    height: 34px;
+                    margin: 8px 0;
+                }
+            }
         }
     }
     .phone {

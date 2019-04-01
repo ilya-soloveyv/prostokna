@@ -174,32 +174,32 @@ data.left_menu = [
         ico: [ '2.svg', '2a.svg' ]
     },
     {
-        title: 'Без имени',
+        title: 'Услуги',
         uri: '/',
         ico: [ '3.svg', '3a.svg' ]
     },
     {
-        title: 'Без имени',
+        title: 'Галерея работ',
         uri: '/',
         ico: [ '4.svg', '4a.svg' ]
     },
     {
-        title: 'Без имени',
+        title: 'О компании',
         uri: '/',
         ico: [ '5.svg', '5a.svg' ]
     },
     {
-        title: 'Без имени',
+        title: 'Как мы работаем',
         uri: '/',
         ico: [ '6.svg', '6a.svg' ]
     },
     {
-        title: 'Wiki',
+        title: 'Словарь оконных терминов',
         uri: '/wiki',
         ico: [ '7.svg', '7a.svg' ]
     },
     {
-        title: 'Без имени',
+        title: 'Сравнение профильных систем',
         uri: '/',
         ico: [ '8.svg', '8a.svg' ]
     },

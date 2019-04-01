@@ -1,4 +1,4 @@
-if ($('#compare').length) {
+if ($('#compare2').length) {
   vm = new Vue({
     el: '#compare',
     data: {
