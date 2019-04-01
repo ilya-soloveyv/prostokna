@@ -51,6 +51,7 @@ html(lang="ru")
         #top
             .logo
                 a(href='/')
+                    img(src="/images/logo1.svg", alt="")
             .search
                 a(href='#').mbutton.grey.small Найти
                 .bginput
@@ -62,7 +63,10 @@ html(lang="ru")
                     img(src='/images/top/whatsapp_top_bl.svg', alt='4')
             .l
                 .handle
-                    #hamburger.hamburglar
+                    .hamburger.hamburger--elastic
+                        .hamburger-box
+                            .hamburger-inner
+                    //- #hamburger.hamburglar
                         .burger-icon
                             span.burger-bun-top
                             span.burger-filling
@@ -90,6 +94,7 @@ html(lang="ru")
                                             img(src="/images/top/" + item.ico[0], alt="")
                                         .h
                                             img(src="/images/top/" + item.ico[1], alt="")
+                                        .title #{item.title}
             .cal
                 .img
         block content
