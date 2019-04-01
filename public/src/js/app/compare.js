@@ -1,4 +1,4 @@
-if ($('#compare2').length) {
+if ($('#compare').length) {
   vm = new Vue({
     el: '#compare',
     data: {
@@ -20,7 +20,7 @@ if ($('#compare2').length) {
         })
         
         products.forEach(function(item) {
-          item["title"] = `${item.sBrandTitle} ${item.sProductTitle}` 
+          item["title"] = `${item.brand.sBrandTitle} ${item.sProductTitle}` 
           item["DoubleGlazing"] = `до ${item["DoubleGlazing"]} мм` 
           item["HeatTransferResistance"] = `до ${item["HeatTransferResistance"]} м2°С/Вт` 
           item["ProfileClass"] = `«${item["ProfileClass"]}»` 
