@@ -2,7 +2,7 @@ function initMap() {
 
 	var lat = 55.7755;
 	var lng = 37.682;
-	var zoom = 16;
+	var zoom = 12;
 	var window_width = $(window).width();
 	if (window_width <= 576) {
 		var lat = 55.7760;
@@ -32,7 +32,7 @@ function initMap() {
 		    "elementType": "labels.icon",
 		    "stylers": [
 		      {
-		        "visibility": "off"
+		        "visibility": "on"
 		      }
 		    ]
 		  },
@@ -57,7 +57,7 @@ function initMap() {
 		    "elementType": "geometry",
 		    "stylers": [
 		      {
-		        "visibility": "off"
+		        "visibility": "on"
 		      }
 		    ]
 		  },
@@ -74,7 +74,7 @@ function initMap() {
 		    "featureType": "poi",
 		    "stylers": [
 		      {
-		        "visibility": "off"
+		        "visibility": "on"
 		      }
 		    ]
 		  },
@@ -128,7 +128,7 @@ function initMap() {
 		    "elementType": "labels.icon",
 		    "stylers": [
 		      {
-		        "visibility": "off"
+		        "visibility": "on"
 		      }
 		    ]
 		  },
@@ -239,7 +239,8 @@ function initMap() {
 
     var image = '/images/index/s9/Placeholder_dark_grey.png';
     var beachMarker = new google.maps.Marker({
-        position: {lat: 55.77688822, lng: 37.67967431},
+				// position: {lat: 55.77688822, lng: 37.67967431},
+				position: {lat: 55.70784412551903, lng: 37.68859863281251},				
         map: map,
         icon: image
 		});
