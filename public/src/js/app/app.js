@@ -29,8 +29,15 @@ $(document).on("click", "#top .hamburger", function () {
         $(this).removeClass('is-active')
         topmenu.removeClass('opened')
     }
-    
 })
+$(document).on('mouseenter', '#top .l .menu', function(){
+    $("#top .hamburger").addClass('is-active')
+    $(this).addClass('opened')
+}).on('mouseleave', '#top .l .menu', function(){
+    $("#top .hamburger").removeClass('is-active')
+    $(this).removeClass('opened')
+});
+
 
 $(document).on('mouseenter', '#fullpage_nav ul', function(){
     if ($(window).width() > 1200) {
