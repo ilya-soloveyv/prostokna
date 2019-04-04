@@ -16,11 +16,11 @@
         img(src="/images/product/phone.svg", alt="call me")
     .data
         .basic
-            .gallery
+            .gallery                
                 .list2
-                    ul
+                    .slick
                         each image in product.product_images
-                            li(
+                            div.slick-change(
                                 data-iProductID= product.iProductID,
                                 data-iProductImageID= image.iProductImageID,
                                 data-sProductImageFrontName=image.sProductImageFrontName,

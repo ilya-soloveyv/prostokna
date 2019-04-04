@@ -10,6 +10,15 @@ $(document).ready(function(){
             positionPoint2();
         })
 
+        $('#product .data .basic .gallery .list2 .slick').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            vertical: true,
+            verticalSwiping: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="material-icons">keyboard_arrow_up</i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="material-icons">keyboard_arrow_down</i></button>'
+        })
+
         $("#product .data .basic .gallery .view2 .front").resizable({
             containment: "#product .data .basic .gallery .view2",
             minWidth: 0
@@ -17,7 +26,7 @@ $(document).ready(function(){
         
         $("#product .data .basic .gallery .view2 .front").stop().animate({ width: '50%' }, 500)
 
-        $('#product .data .basic .gallery .list2 ul li').on("click", function(){
+        $('#product .data .basic .gallery .list2 .slick-change').on("click", function(){
             let iProductID = $(this).attr('data-iProductID')
             let iProductImageID = $(this).attr('data-iProductImageID')
             let sProductImageFrontName = $(this).attr('data-sProductImageFrontName')
