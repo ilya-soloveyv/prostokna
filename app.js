@@ -161,8 +161,21 @@ function randomString() {
     return text
 }
 
-
 var data = {}
+
+app.get('*', async (req, res, next) => {
+    data.productMenu = await Brand.findAll({
+        include: [
+            {
+                model: Product,
+                attributes: ['sProductTitle', 'sProductURI'],
+                required: true
+            }
+        ]
+    })
+    next()
+})
+
 data.left_menu = [
     {
         title: 'Главная',
@@ -204,7 +217,13 @@ data.left_menu = [
         uri: '/#s5',
         ico: [ '8.svg', '8a.svg' ]
     },
+    {
+        title: 'Контакты',
+        uri: '/contact',
+        ico: [ '9.svg', '9a.svg' ]
+    },
 ]
+
 
 app.get('/admin', auth.connect(basic), (req, res) => {
     res.render('admin.pug')
@@ -1103,15 +1122,16 @@ app.get('/gager', (req, res) => {
 app.get('/product', async (req, res) => {
     data.title = 'Окна'
     data.left_menu_active = 1
-    data.products = await Product.findAll({
-        attributes: ['sProductTitle', 'sProductURI'],
-        include: [
-            {
-                model: Brand,
-                attributes: ['sBrandTitle']
-            }
-        ]
-    })
+    // data.products = await Product.findAll({
+    //     attributes: ['sProductTitle', 'sProductURI'],
+    //     include: [
+    //         {
+    //             model: Brand,
+    //             attributes: ['sBrandTitle']
+    //         }
+    //     ]
+    // })
+    // res.json(data.productMenu)
     res.render('product/products.pug', data)
 })
 

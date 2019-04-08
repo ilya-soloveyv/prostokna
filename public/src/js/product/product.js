@@ -65,12 +65,49 @@ $(document).ready(function(){
             useProductColorImage($(this).index())
         })
 
-        $("#product .toggle_submenu").click(function(){
-            $('#product').toggleClass('openSubmenu')
+        $("#product .toggle_submenu .hamburger").click(function(){
+            toggleProductSubmenu()
+            // $('#product').toggleClass('openSubmenu')
         })
 
     }
 });
+
+var product_hamburger = $("#product .toggle_submenu .hamburger")
+var product_catalog_modal = $('#product_catalog_modal')
+
+function toggleProductSubmenu () {
+    if (product_hamburger.hasClass('is-active')) {
+        // product_hamburger.removeClass('is-active')
+        product_catalog_modal.modal('hide')
+    } else {
+        // product_hamburger.addClass('is-active')
+        product_catalog_modal.modal()
+    }
+}
+$('#product_catalog_modal').on('show.bs.modal', function (event) {
+    product_hamburger.addClass('is-active')
+    // $('.modal-backdrop').css({top: 80+'px'})
+    $('body').addClass('modal-backdrop-wiki').css({background: '#353535'})
+    // // $('#wiki_catalog .hamburger').addClass('is-active')
+    // $('#wiki_catalog ul').addClass('disabled')
+    // $('#wiki_catalog a.load').addClass('disabled')
+    // setTimeout("$('#wiki_catalog .hamburger').addClass('is-active')", 100)
+}).on('shown.bs.modal', function (event) {
+    $('html, body').css({overflow: "hidden", position: "fixed"})
+    // $('.modal-backdrop').css({"z-index":97})
+}).on('hide.bs.modal', function (event) {
+    product_hamburger.removeClass('is-active')
+    $('html, body').css({overflow: "auto", position: "static"})
+    $('body').removeClass('modal-backdrop-wiki').css({background: '#FFF'})
+    // // $('#wiki_catalog .hamburger').removeClass('is-active')
+    // $('#wiki_catalog ul').removeClass('disabled')
+    // $('#wiki_catalog a.load').removeClass('disabled')
+    // setTimeout("$('#wiki_catalog .hamburger').removeClass('is-active')", 100)
+})
+
+
+
 
 function useProductColorImage (index) {
     $('#product .data .colors .list ul li').removeClass('active')
