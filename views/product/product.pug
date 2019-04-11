@@ -2,25 +2,30 @@
     .toggle_submenu
         .bg
             .icons
-                .type
-                .hamburger
-            .title
-                .brand #{product.brand.sBrandTitle}
-                .model #{product.sProductTitle}
+                .hamburger.hamburger--spin
+                    .hamburger-box
+                        .hamburger-inner
+                //- .type
+            h1 #{product.brand.sBrandTitle}
+                span #{product.sProductTitle}
     .submenu
         ul
             each item in products
                 li
                     a(href="/product/"+item.sProductURI) #{item.brand.sBrandTitle} #{item.sProductTitle}
+    .modal#product_catalog_modal(tabindex="-1", role="dialog")
+        .modal-dialog(role="document")
+            .modal-content
+                include menu
     .callme
         img(src="/images/product/phone.svg", alt="call me")
     .data
         .basic
-            .gallery
+            .gallery                
                 .list2
-                    ul
+                    .slick
                         each image in product.product_images
-                            li(
+                            div.slick-change(
                                 data-iProductID= product.iProductID,
                                 data-iProductImageID= image.iProductImageID,
                                 data-sProductImageFrontName=image.sProductImageFrontName,
@@ -159,7 +164,6 @@
                                 - var bg = 'background-color: #' + color.color.sColorCode
                             if index == 0
                                 - var active = 'active';
-                            
                             li(
                                 style= bg
                                 attr-iProductID= color.iProductID

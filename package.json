@@ -36,6 +36,7 @@
         "popper.js": "^1.14.7",
         "pug": "^2.0.3",
         "sequelize": "^5.1.0",
+        "slick-carousel": "^1.8.1",
         "vue": "^2.5.19",
         "vue-picture-input": "^2.1.6",
         "vue-router": "^3.0.2"

@@ -1,0 +1,11 @@
+.productsMenu
+    .productsMenu__brands
+        each product, index in productMenu
+            .productsMenu__brands__brand(class= index == 0 ? "active" : "")
+                a(href="#") #{product.sBrandTitle}
+    .productsMenu__products
+        each list, index in productMenu
+            .productsMenu__products__list(class= index == 0 ? "active" : "")
+                each product, index2 in list.products
+                    .productsMenu__products__list__product
+                        a(href="/product/" + product.sProductURI) #{list.sBrandTitle} #{product.sProductTitle}
