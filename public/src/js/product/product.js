@@ -60,6 +60,11 @@ $(document).ready(function(){
             $('#product').toggleClass('openSubmenu')
         })
 
+        $("#product .selectOption .item").click(function(){
+            $("#product .selectOption .item").removeClass('active')
+            $(this).addClass('active')
+        })
+
     }
 });
 

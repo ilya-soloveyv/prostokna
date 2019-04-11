@@ -195,6 +195,49 @@
                             }
                         }
                     }
+                    .selectOption {
+                        position: absolute;
+                        right: 10%;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                        z-index: 100;
+                        font-family: 'Montserrat';
+                        text-transform: uppercase;
+                        text-align: center;
+                        .item {
+                            background: rgba(0,0,0,.5);
+                            border-radius: 4px;
+                            margin-bottom: 1rem;
+                            overflow: hidden;
+                            .title {
+                                padding: .5rem 3rem;
+                                font-size: 12px;
+                                cursor: pointer;
+                                background: rgba(0,0,0,.5);
+                            }
+                            .list {
+                                display: none;
+                                padding: .5rem 0;
+                                span {
+                                    display: block;
+                                    font-size: 10px;
+                                    padding: .35rem 0;
+                                    cursor: pointer;
+                                    &.active {
+                                        color: #43A22C;
+                                    }
+                                }
+                            }
+                            &:last-child {
+                                margin: 0;
+                            }
+                            &.active {
+                                .list {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
                 }
                 .view2 {
                     position: relative;

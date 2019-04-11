@@ -27,6 +27,18 @@
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
                                 img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
+                    .selectOption
+                        .item
+                            .title Материал
+                            .list
+                                span.active Сосна
+                                span Лиственница
+                                span Дуб
+                        .item
+                            .title Выбор бруса
+                            .list
+                                span.active Цельноламельный
+                                span Сращеный
                 .view2
                     .back
                         if product.product_images[0] !== undefined
