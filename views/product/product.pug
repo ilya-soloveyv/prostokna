@@ -2,31 +2,55 @@
     .toggle_submenu
         .bg
             .icons
-                .type
-                .hamburger
-            .title
-                .brand #{product.brand.sBrandTitle}
-                .model #{product.sProductTitle}
+                .hamburger.hamburger--spin
+                    .hamburger-box
+                        .hamburger-inner
+                //- .type
+            h1 #{product.brand.sBrandTitle}
+                span #{product.sProductTitle}
     .submenu
         ul
             each item in products
                 li
                     a(href="/product/"+item.sProductURI) #{item.brand.sBrandTitle} #{item.sProductTitle}
+    .modal#product_catalog_modal(tabindex="-1", role="dialog")
+        .modal-dialog(role="document")
+            .modal-content
+                include menu
     .callme
         img(src="/images/product/phone.svg", alt="call me")
     .data
+        //- pre !{product.product_links}
         .basic
-            .gallery
+            .gallery                
                 .list2
-                    ul
+                    .slick
                         each image in product.product_images
-                            li(
+                            div.slick-change(
                                 data-iProductID= product.iProductID,
                                 data-iProductImageID= image.iProductImageID,
                                 data-sProductImageFrontName=image.sProductImageFrontName,
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
                                 img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
+                    .selectOption
+                        .item
+                            .title Материал
+                            .list
+                                if product.product_links
+                                    each link in product.product_links
+                                        span !{link.material.sMaterialTitle}
+                                //- span.active Сосна
+                                //- span Лиственница
+                                //- span Дуб
+                        .item
+                            .title Выбор бруса
+                            .list
+                                if product.product_links
+                                    each link in product.product_links
+                                        span !{link.bru.sBrusTitle}
+                                //- span.active Цельноламельный
+                                //- span Сращеный
                 .view2
                     .back
                         if product.product_images[0] !== undefined
@@ -147,7 +171,6 @@
                                 - var bg = 'background-color: #' + color.color.sColorCode
                             if index == 0
                                 - var active = 'active';
-                            
                             li(
                                 style= bg
                                 attr-iProductID= color.iProductID

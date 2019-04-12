@@ -35,6 +35,7 @@ app.use('/vue-picture-input', express.static(__dirname + '/node_modules/vue-pict
 app.use('/material-icons', express.static(__dirname + '/node_modules/material-icons/css'))
 app.use('/bootstrap-select', express.static(__dirname + '/node_modules/bootstrap-select/dist'))
 app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
+app.use('/slick', express.static(__dirname + '/node_modules/slick-carousel/slick'))
 
 
 
@@ -47,6 +48,8 @@ const Product = require('./models').product
 const Product_color = require('./models').product_color
 const Product_image = require('./models').product_image
 const Product_image_point = require('./models').product_image_point
+const Brus = require('./models').brus
+const Product_link = require('./models').product_link
 
 
 
@@ -160,8 +163,21 @@ function randomString() {
     return text
 }
 
-
 var data = {}
+
+app.get('*', async (req, res, next) => {
+    data.productMenu = await Brand.findAll({
+        include: [
+            {
+                model: Product,
+                attributes: ['sProductTitle', 'sProductURI'],
+                required: true
+            }
+        ]
+    })
+    next()
+})
+
 data.left_menu = [
     {
         title: 'Главная',
@@ -203,7 +219,13 @@ data.left_menu = [
         uri: '/#s5',
         ico: [ '8.svg', '8a.svg' ]
     },
+    {
+        title: 'Контакты',
+        uri: '/contact',
+        ico: [ '9.svg', '9a.svg' ]
+    },
 ]
+
 
 app.get('/admin', auth.connect(basic), (req, res) => {
     res.render('admin.pug')
@@ -218,6 +240,7 @@ app.post('/admin/ProductList', async (req, res) => {
 app.post('/admin/ProductEdit', async (req, res) => {
     var responce = {}
         responce.brand = await Brand.findAll()
+        responce.brus = await Brus.findAll()
         responce.material = await Material.findAll()
         responce.color = await Color.findAll({
             order: [
@@ -226,7 +249,7 @@ app.post('/admin/ProductEdit', async (req, res) => {
             ]
         })
         if (req.body.iProductID) {
-            responce.product = await Product.getProduct(req.body.iProductID)
+            responce.product = await Product.getProduct(Number(req.body.iProductID))
         }
     res.json(responce)
 })
@@ -1102,19 +1125,21 @@ app.get('/gager', (req, res) => {
 app.get('/product', async (req, res) => {
     data.title = 'Окна'
     data.left_menu_active = 1
-    data.products = await Product.findAll({
-        attributes: ['sProductTitle', 'sProductURI'],
-        include: [
-            {
-                model: Brand,
-                attributes: ['sBrandTitle']
-            }
-        ]
-    })
+    // data.products = await Product.findAll({
+    //     attributes: ['sProductTitle', 'sProductURI'],
+    //     include: [
+    //         {
+    //             model: Brand,
+    //             attributes: ['sBrandTitle']
+    //         }
+    //     ]
+    // })
+    // res.json(data.productMenu)
     res.render('product/products.pug', data)
 })
 
 app.get('/product/:sProductURI', async (req, res) => {
+    console.log('product page', req.params.sProductURI)
     data.title = 'Окна'
     data.left_menu_active = 1
     data.products = await Product.findAll({
@@ -1126,34 +1151,10 @@ app.get('/product/:sProductURI', async (req, res) => {
             }
         ]
     })
-    var product = await Product.findAll({
-        where: {
-            sProductURI: req.params.sProductURI
-        },
-        include: [
-            {
-                model: Brand
-            },
-            {
-                model: Product_image,
-                include: [
-                    {
-                        model: Product_image_point
-                    }
-                ]
-            },
-            {
-                model: Product_color,
-                include: [
-                    {
-                        model: Color
-                    }
-                ]
-            }
-        ]
-    })
-    data.product = product[0]
-    // res.json(data)
+
+    data.product = await Product.getProduct(req.params.sProductURI)
+
+    // res.json(data.product)
     res.render('product.pug', data)
 })
 

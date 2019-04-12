@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     ShapikShapeOptions: DataTypes.STRING,
     DecorationOptions: DataTypes.STRING,
     FrameFeature: DataTypes.STRING,
+    iBrusID: DataTypes.INTEGER,
   }, {
     timestamps: false,
     freezeTableName: true,
@@ -40,9 +41,37 @@ module.exports = (sequelize, DataTypes) => {
     Product.hasMany(models.product_image, {
       foreignKey: 'iProductID'
     })
+    Product.belongsTo(models.brus, {
+      foreignKey: 'iBrusID'
+    })
+    Product.hasMany(models.product_link, {
+      foreignKey: 'iProductIDFrom'
+    })
   };
 
   Product.getProduct = async function (iProductID) {
+    console.log('--- 0')
+    console.log(iProductID)
+    console.log('---')
+    if (!Number.isInteger(iProductID)) {
+      var product = await Product.findAll({
+        attributes: ['iProductID'],
+        where: {
+          sProductURI: iProductID
+        }
+      })
+      if (product[0] && product[0].iProductID) {
+        console.log('--- 1')
+        console.log(product[0].iProductID)
+        console.log('---')
+        iProductID = product[0].iProductID
+      } else {
+        return {}
+      }      
+    }
+    console.log('--- 2')
+    console.log(iProductID)
+    console.log('---')
     return await Product.findByPk(iProductID, {
       include: [
         {
@@ -66,7 +95,25 @@ module.exports = (sequelize, DataTypes) => {
               model: sequelize.models.color
             }
           ]
-        }
+        },
+        // {
+        //   model: sequelize.models.product_link,
+        //   require: false,
+        //   where: {
+        //     iProductIDFrom: iProductID
+        //   },
+        //   include: [
+        //     {
+        //       model: sequelize.models.material
+        //     },
+        //     {
+        //       model: sequelize.models.brus
+        //     },
+        //     {
+        //       model: sequelize.models.product
+        //     }
+        //   ]
+        // },
       ]
     })
   }

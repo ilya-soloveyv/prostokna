@@ -1,8 +1,9 @@
 function initMap() {
 
-	var lat = 55.7755;
-	var lng = 37.682;
-	var zoom = 12;
+	var lat = 55.7067838;
+	var lng = 37.6888278;
+
+	var zoom = 17;
 	var window_width = $(window).width();
 	if (window_width <= 576) {
 		var lat = 55.7760;
@@ -24,15 +25,17 @@ function initMap() {
 		    "elementType": "geometry",
 		    "stylers": [
 		      {
-		        "color": "#f5f5f5"
+						"color": "#f5f5f5",
+						// "saturation": -1000
 		      }
-		    ]
+				],
+				// "lightness": -15
 		  },
 		  {
 		    "elementType": "labels.icon",
 		    "stylers": [
 		      {
-		        "visibility": "on"
+		        "visibility": "off"
 		      }
 		    ]
 		  },
@@ -40,7 +43,8 @@ function initMap() {
 		    "elementType": "labels.text.fill",
 		    "stylers": [
 		      {
-		        "color": "#616161"
+						"color": "#616161"
+						// "color": "#CC0000"
 		      }
 		    ]
 		  },
@@ -48,7 +52,8 @@ function initMap() {
 		    "elementType": "labels.text.stroke",
 		    "stylers": [
 		      {
-		        "color": "#f5f5f5"
+						"color": "#f5f5f5"
+						// "color": "#CC0000"
 		      }
 		    ]
 		  },
@@ -57,7 +62,9 @@ function initMap() {
 		    "elementType": "geometry",
 		    "stylers": [
 		      {
-		        "visibility": "on"
+						"visibility": "on",
+						// "color": "#CC0000"
+
 		      }
 		    ]
 		  },
@@ -66,24 +73,46 @@ function initMap() {
 		    "elementType": "labels.text.fill",
 		    "stylers": [
 		      {
-		        "color": "#bdbdbd"
+						"color": "#bdbdbd"
+						// "color": "#CC0000",
 		      }
 		    ]
-		  },
+			},
+		  {
+		    "featureType": "landscape.man_made",
+		    "elementType": "labels.text.fill",
+		    "stylers": [
+		      {
+						"color": "#CC0000"
+						// "color": "#CC0000",
+		      }
+		    ]
+			},
 		  {
 		    "featureType": "poi",
 		    "stylers": [
 		      {
-		        "visibility": "on"
+		        "visibility": "off"
 		      }
 		    ]
 		  },
+		  // {
+		  //   "featureType": "landscape.man_made",
+		  //   "elementType": "geometry",
+		  //   "stylers": [
+		  //     {
+			// 			// "color": "#eeeeee"
+			// 			"color": "#CC0000"
+		  //     }
+		  //   ]
+		  // },
 		  {
 		    "featureType": "poi",
 		    "elementType": "geometry",
 		    "stylers": [
 		      {
-		        "color": "#eeeeee"
+						// "color": "#eeeeee"
+						"color": "#CC0000"
 		      }
 		    ]
 		  },
@@ -101,7 +130,8 @@ function initMap() {
 		    "elementType": "geometry",
 		    "stylers": [
 		      {
-		        "color": "#e5e5e5"
+						// "color": "#e5e5e5"
+						"color": "#CC0000"
 		      }
 		    ]
 		  },
@@ -128,7 +158,7 @@ function initMap() {
 		    "elementType": "labels.icon",
 		    "stylers": [
 		      {
-		        "visibility": "on"
+		        "visibility": "off"
 		      }
 		    ]
 		  },
@@ -252,7 +282,10 @@ function initMap() {
 
     var image = '/images/index/s9/Parking_green.png';
     var beachMarker = new google.maps.Marker({
-        position: {lat: 55.7778778, lng: 37.67761437},
+			// position: {lat: 55.7778778, lng: 37.67761437},
+				// position: {lat: 55.7062838, lng: 37.6848278},
+				// 55.7070788,37.6865524
+				// 55.7062838,37.6848278
         map: map,
         icon: image
     });
@@ -265,7 +298,8 @@ function initMap() {
 
     var image = '/images/index/s9/Underground_grey.png';
     var beachMarker = new google.maps.Marker({
-        position: {lat: 55.77244769, lng: 37.67911909},
+				position: {lat: 55.7062038, lng: 37.6848278},
+				// position: {lat: 55.77244769, lng: 37.67911909},
         map: map,
         icon: image
     });
@@ -276,12 +310,23 @@ function initMap() {
         scale: 2
     };
     var line_subway = [
-        {lat: 55.77706989, lng: 37.68003063},
-				{lat: 55.77629752, lng: 37.68117861},
-				{lat: 55.77595961, lng: 37.68032567},
-				{lat: 55.77572126, lng: 37.68052415},
-				{lat: 55.77493076, lng: 37.67795996},
-				{lat: 55.77244602, lng: 37.67861978},
+
+			{lat: 55.7062838, lng: 37.6848278},
+			{lat: 55.706348, lng: 37.686384},
+			{lat: 55.706397, lng: 37.687535},
+			{lat: 55.706526, lng: 37.687610},
+			{lat: 55.706652, lng: 37.687851},
+			{lat: 55.707161, lng: 37.688701},
+			{lat: 55.707216, lng: 37.688758},
+			{lat: 55.707320, lng: 37.688648},
+			{lat: 55.707453, lng: 37.688717},
+			{lat: 55.707453, lng: 37.688717},
+			{lat: 55.70784412551903, lng: 37.68859863281251},
+				// {lat: 55.77629752, lng: 37.68117861},
+				// {lat: 55.77595961, lng: 37.68032567},
+				// {lat: 55.77572126, lng: 37.68052415},
+				// {lat: 55.77493076, lng: 37.67795996},
+				// {lat: 55.77244602, lng: 37.67861978},
     ];
     var line = new google.maps.Polyline({
         path: line_subway,
