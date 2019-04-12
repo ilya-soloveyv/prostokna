@@ -20,6 +20,7 @@
     .callme
         img(src="/images/product/phone.svg", alt="call me")
     .data
+        //- pre !{product.product_links}
         .basic
             .gallery                
                 .list2
@@ -36,14 +37,20 @@
                         .item
                             .title Материал
                             .list
-                                span.active Сосна
-                                span Лиственница
-                                span Дуб
+                                if product.product_links
+                                    each link in product.product_links
+                                        span !{link.material.sMaterialTitle}
+                                //- span.active Сосна
+                                //- span Лиственница
+                                //- span Дуб
                         .item
                             .title Выбор бруса
                             .list
-                                span.active Цельноламельный
-                                span Сращеный
+                                if product.product_links
+                                    each link in product.product_links
+                                        span !{link.bru.sBrusTitle}
+                                //- span.active Цельноламельный
+                                //- span Сращеный
                 .view2
                     .back
                         if product.product_images[0] !== undefined

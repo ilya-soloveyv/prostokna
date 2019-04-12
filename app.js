@@ -48,6 +48,8 @@ const Product = require('./models').product
 const Product_color = require('./models').product_color
 const Product_image = require('./models').product_image
 const Product_image_point = require('./models').product_image_point
+const Brus = require('./models').brus
+const Product_link = require('./models').product_link
 
 
 
@@ -238,6 +240,7 @@ app.post('/admin/ProductList', async (req, res) => {
 app.post('/admin/ProductEdit', async (req, res) => {
     var responce = {}
         responce.brand = await Brand.findAll()
+        responce.brus = await Brus.findAll()
         responce.material = await Material.findAll()
         responce.color = await Color.findAll({
             order: [
@@ -246,7 +249,7 @@ app.post('/admin/ProductEdit', async (req, res) => {
             ]
         })
         if (req.body.iProductID) {
-            responce.product = await Product.getProduct(req.body.iProductID)
+            responce.product = await Product.getProduct(Number(req.body.iProductID))
         }
     res.json(responce)
 })
@@ -1136,6 +1139,7 @@ app.get('/product', async (req, res) => {
 })
 
 app.get('/product/:sProductURI', async (req, res) => {
+    console.log('product page', req.params.sProductURI)
     data.title = 'Окна'
     data.left_menu_active = 1
     data.products = await Product.findAll({
@@ -1147,34 +1151,10 @@ app.get('/product/:sProductURI', async (req, res) => {
             }
         ]
     })
-    var product = await Product.findAll({
-        where: {
-            sProductURI: req.params.sProductURI
-        },
-        include: [
-            {
-                model: Brand
-            },
-            {
-                model: Product_image,
-                include: [
-                    {
-                        model: Product_image_point
-                    }
-                ]
-            },
-            {
-                model: Product_color,
-                include: [
-                    {
-                        model: Color
-                    }
-                ]
-            }
-        ]
-    })
-    data.product = product[0]
-    // res.json(data)
+
+    data.product = await Product.getProduct(req.params.sProductURI)
+
+    // res.json(data.product)
     res.render('product.pug', data)
 })
 

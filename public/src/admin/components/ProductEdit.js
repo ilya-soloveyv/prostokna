@@ -6,11 +6,13 @@ export default {
     data () {
         return {
             brand: [],
+            brus: [],
             material: [],
             color: [],
             product: {
                 product_images: []
             },
+            product_link: [],
             attachment: {}
         }
     },
@@ -23,6 +25,7 @@ export default {
                 iProductID: this.iProductID
             }).then((responce) => {
                 this.brand = responce.data.brand
+                this.brus = responce.data.brus
                 this.material = responce.data.material
                 this.color = responce.data.color
                 if (responce.data.product) {
@@ -166,6 +169,19 @@ export default {
                                                     </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Выбор бруса:</label>
+                                                    <select v-model.number="product.iBrusID" class="form-control">
+                                                        <option :value="null">...</option>
+                                                        <option v-for="(brus, index) in brus" :key="brus.iBrusID" :value="brus.iBrusID">{{ brus.sBrusTitle }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="label" for="">Теплоизоляция:</label>
@@ -265,6 +281,15 @@ export default {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card card-color">
+                            <div class="card-header">Перелинковка по опциям</div>
+                            <div class="card-body">
+                            <pre>{{ product }}</pre>
+                                <button type="button" class="btn btn-sm btn-primary" v-on:click="addImageColor">Добавить связку</button>
                             </div>
                         </div>
                     </div>
