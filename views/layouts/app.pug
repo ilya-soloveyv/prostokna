@@ -59,7 +59,7 @@ html(lang="ru")
                     input(type='text',placeholder='Введите поисковый запрос...').form-control.form-control-pokna.small.grey
             .phone
                 a.tel(href='tel:+74993912221') +7 499 391 22 21
-                a.callme(href='#') Перезвоните мне
+                a.callme(href='#' data-toggle="modal" data-target="#zay_modal") Перезвоните мне
                 a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5')
                     img(src='/images/top/whatsapp_top_bl.svg', alt='4')
             .l
@@ -122,6 +122,45 @@ html(lang="ru")
                             a(href="/wiki") Стекло и стеклопакеты
                         li
                             a(href="/wiki") Двери 
+
+        .modal#zay_modal(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    .title Закажите обратный звонок
+                    .desc Вам не придется долго ждать звонка, мы сразу вас проконсультируем
+                    form#zay_form(action="#" method="POST")
+                        .row
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    input(type="text" name="name" class="form-control" placeholder="Ваше имя *")
+                                    .invalid-feedback Необходимо указать Ваше имя
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    input(type="text" name="tel" class="form-control" placeholder="Ваш номер телефона *")
+                                    .invalid-feedback Необходимо указать контактный номер
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    select(name="from" class="form-control")
+                                        each val in times
+                                            option= val
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    select(name="to" class="form-control")
+                                        each val in times
+                                            option= val
+                        button.btn.btn-primary.btn-block.mb-4 Заказать обратный звонок
+                    .help * - Обязательные к заполнению поля
+
+        .modal#thanks_modal(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    .title Спасибо!
+                    .desc Ваша заявка отправлена
+                                
 
         if env.NODE_ENV == 'development'
             script(src='/vue/vue.js')

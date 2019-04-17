@@ -288,8 +288,6 @@ export default {
                         <div class="card card-color">
                             <div class="card-header">Перелинковка по опциям</div>
                             <div class="card-body">
-                            <pre>{{ product }}</pre>
-                                <button type="button" class="btn btn-sm btn-primary" v-on:click="addImageColor">Добавить связку</button>
                             </div>
                         </div>
                     </div>
