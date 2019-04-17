@@ -226,6 +226,32 @@ data.left_menu = [
     },
 ]
 
+data.times = [
+    '00:00',
+    '01:00',
+    '02:00',
+    '03:00',
+    '04:00',
+    '05:00',
+    '06:00',
+    '07:00',
+    '08:00',
+    '09:00',
+    '10:00',
+    '11:00',
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00',
+    '22:00',
+    '23:00',
+]
 
 app.get('/admin', auth.connect(basic), (req, res) => {
     res.render('admin.pug')
@@ -1253,6 +1279,37 @@ app.get('/intuitive', (req, res) => {
     data.title = 'Интуйтивный подбор окон'
     data.left_menu_active = null
     res.render('intuitive/intuitive.pug', data)
+})
+
+app.post('/send', (req, res) => {
+
+    res.send(200)
+
+    // var name = req.body.name
+    // var tel = req.body.tel
+    // var from = req.body.from
+    // var to = req.body.to
+
+    // if (name.length && tel.length) {
+    //     var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
+
+    //     var data = {
+    //         from: 'prostokna.ru <postmaster@mg.prostokna.ru>',
+    //         to: 'ilya.soloveyv@gmail.com',
+    //         subject: 'Заявка',
+    //         text: 'Testing some Mailgun awesomeness!',
+    //         html: message_html
+    //     };
+        
+    //     mailgun.messages().send(data, function (error, body) {
+    //         // console.log(body);
+    //     })
+    // }
+
+    // res.send(200)
+
+
+    
 })
 
 //API
