@@ -1283,30 +1283,52 @@ app.get('/intuitive', (req, res) => {
 
 app.post('/send', (req, res) => {
 
-    res.send(200)
-
-    // var name = req.body.name
-    // var tel = req.body.tel
-    // var from = req.body.from
-    // var to = req.body.to
-
-    // if (name.length && tel.length) {
-    //     var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
-
-    //     var data = {
-    //         from: 'prostokna.ru <postmaster@mg.prostokna.ru>',
-    //         to: 'ilya.soloveyv@gmail.com',
-    //         subject: 'Заявка',
-    //         text: 'Testing some Mailgun awesomeness!',
-    //         html: message_html
-    //     };
-        
-    //     mailgun.messages().send(data, function (error, body) {
-    //         // console.log(body);
-    //     })
-    // }
-
     // res.send(200)
+
+    var name = req.body.name
+    var tel = req.body.tel
+    var from = req.body.from
+    var to = req.body.to
+    var subject = req.body.subject
+    var message = req.body.message
+
+    if (name.length && tel.length) {
+        var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
+
+        var message_html = ""
+        if (name) {
+            message_html+= "<p>Имя: <b>" + name + "</b></p>"
+        }
+        if (tel) {
+            message_html+= "<p>Телефон: <b>" + tel + "</b></p>"
+        }
+        if (from) {
+            message_html+= "<p>Время звонка от: <b>" + from + "</b></p>"
+        }
+        if (to) {
+            message_html+= "<p>Время звонка до: <b>" + to + "</b></p>"
+        }
+        if (subject) {
+            message_html+= "<p>Тема обращения: <b>" + subject + "</b></p>"
+        }
+        if (message) {
+            message_html+= "<p>Сообщение: <b>" + message + "</b></p>"
+        }
+
+        var data = {
+            from: 'prostokna.ru <noreply@prostokna.ru>',
+            to: '<prosto.pochta2013@mail.ru>',
+            subject: 'Заявка',
+            text: message_html,
+            html: message_html
+        };
+        
+        mailgun.messages().send(data, function (error, body) {
+            // console.log(body);
+        })
+    }
+
+    res.send(200)
 
 
     
