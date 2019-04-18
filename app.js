@@ -1302,6 +1302,9 @@ app.post('/send', (req, res) => {
         if (tel) {
             message_html+= "<p>Телефон: <b>" + tel + "</b></p>"
         }
+        if (email) {
+            message_html+= "<p>Электронная почта: <b>" + email + "</b></p>"
+        }
         if (from) {
             message_html+= "<p>Время звонка от: <b>" + from + "</b></p>"
         }
