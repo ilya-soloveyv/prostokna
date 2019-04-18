@@ -9,3 +9,4 @@ package-lock.json
 /public/images/product/color
 /public/images/color
 .htpasswd
+/public/upload

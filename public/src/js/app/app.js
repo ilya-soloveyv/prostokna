@@ -50,22 +50,34 @@ $(document).on('mouseenter', '#fullpage_nav ul', function(){
     
 });
 
-// $("#zay_modal").modal()
-$("#zay_modal input[name=tel]").inputmask('+7 (999) 999-99-99')
 
-$("#zay_form").submit(function () {
-    var name = $(this).find('input[name="name"]');
+
+
+// $("#zay_modal").modal()
+$(".form_contact input[name=tel]").inputmask('+7 (999) 999-99-99')
+$(".form_contact").submit(function () {
+    var name = $(this).find('input[name="name"]')
     name.removeClass('is-invalid')
-    var tel = $(this).find('input[name="tel"]');
+    var tel = $(this).find('input[name="tel"]')
     tel.removeClass('is-invalid')
-    var from = $(this).find('select[name="from"]');
-    var to = $(this).find('select[name="to"]');
+    var email = $(this).find('input[name="email"]')
+    var from = $(this).find('select[name="from"]')
+    var to = $(this).find('select[name="to"]')
+    var subject = $(this).find('input[name="subject"]')
+    var message = $(this).find('textarea[name="message"]')
+
 
     var data = {}
         data.name = name.val()
         data.tel = tel.val()
+        data.email = email.val()
         data.from = from.val()
         data.to = to.val()
+        data.subject = subject.val()
+        data.message = message.val()
+    
+    console.log(data)
+
     if (data.name.length == 0) {
         name.addClass('is-invalid')
         return false
@@ -74,6 +86,8 @@ $("#zay_form").submit(function () {
         tel.addClass('is-invalid')
         return false
     }
+
+    // return false
 
     $.ajax({
         url: "/send",
@@ -85,5 +99,6 @@ $("#zay_form").submit(function () {
     
     $("#zay_modal").modal('hide')
     $("#thanks_modal").modal()
+
     return false;
 })
