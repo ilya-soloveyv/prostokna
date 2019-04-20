@@ -196,7 +196,7 @@ data.left_menu = [
     },
     {
         title: 'Галерея работ',
-        uri: '/',
+        uri: '/gallery',
         ico: [ '4.svg', '4a.svg' ]
     },
     {
@@ -1280,6 +1280,16 @@ app.get('/intuitive', (req, res) => {
     data.left_menu_active = null
     res.render('intuitive/intuitive.pug', data)
 })
+
+app.get('/gallery', (req, res) => {
+    data.title = 'Галлерея'
+    data.left_menu_active = 3
+    res.render('gallery', data)
+})
+
+
+
+
 
 app.post('/send', (req, res) => {
 

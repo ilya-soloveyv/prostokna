@@ -1,0 +1,36 @@
+extends ../layouts/app
+
+block content
+    #gallery.ppage
+        .head
+            .title Галлерея
+            ul
+                li
+                    a(href="#")
+                        img(src="/images/gallery/gallery.svg", alt="")
+                        span Квартиры
+                li
+                    a(href="#")
+                        img(src="/images/gallery/gallery.svg", alt="")
+                        span Загородный дом
+                li
+                    a(href="#")
+                        img(src="/images/gallery/gallery.svg", alt="")
+                        span Гараж
+                li.active
+                    a(href="#")
+                        img(src="/images/gallery/gallery.svg", alt="")
+                        span Коммерческая недвижимость
+                li
+                    a(href="#")
+                        img(src="/images/gallery/gallery.svg", alt="")
+                        span Все
+        .list
+            - var n = 0;
+            ul
+                while n < 35
+                    li
+                        .bg
+                            img(src="/images/gallery/test.jpg", alt="")
+                            .title ООО Технопарк "Сколково"
+                    - n++
