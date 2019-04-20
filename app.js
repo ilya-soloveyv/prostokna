@@ -24,6 +24,7 @@ app.locals.env = process.env;
 app.use(express.static('public'))
 app.set('view engine', 'pug')
 const multer = require('multer')
+const sharp = require('sharp')
 const cyrillicToTranslit = require('cyrillic-to-translit-js')
 
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
@@ -50,7 +51,9 @@ const Product_image = require('./models').product_image
 const Product_image_point = require('./models').product_image_point
 const Brus = require('./models').brus
 const Product_link = require('./models').product_link
-
+const Gallery_group = require('./models').gallery_group
+const Gallery = require('./models').gallery
+const Gallery_image = require('./models').gallery_image
 
 
 app.post('/test', async (req, res) => {
@@ -506,6 +509,146 @@ app.post('/admin/ColorUpload', async (req, res) => {
         res.json(req.file)
     })
 })
+
+app.post('/admin/GalleryList', async (req, res) => {
+    var data = {}
+        data.gallery_group = await Gallery_group.findAll()
+        data.gallery = await Gallery.findAll({
+            include: [
+                {
+                    model: Gallery_group
+                },
+                {
+                    model: Gallery_image
+                }
+            ],
+            order: [
+                ['iGalleryID', 'ASC']
+            ]
+        })
+    res.json(data)
+})
+app.post('/admin/GalleryUpload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/gallery')
+        },
+        filename: function (req, file, cb) {
+            cb(null, 'temp_' + filename)
+        }
+    })
+
+    var upload = multer({ storage: storage }).single('file')
+
+    upload(req, res, function (err, responce) {
+        sharp('./public/images/gallery/' + 'temp_' + filename)
+        .resize(900, 900)
+        .toFile('./public/images/gallery/' + filename, function(err, response) {
+            sharp.cache(false)
+            // fs.unlink('./public/images/building/' + 'temp_' + filename)
+            // req.file.filename = filename
+            // res.send({ file: req.file, body: req.body })
+            res.json(filename)
+        })
+       
+    })
+app.post('/admin/GalleryUpload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/gallery')
+        },
+        filename: function (req, file, cb) {
+            cb(null, 'temp_' + filename)
+        }
+    })
+
+    var upload = multer({ storage: storage }).single('file')
+
+    upload(req, res, function (err, responce) {
+        sharp('./public/images/gallery/' + 'temp_' + filename)
+        .resize(900, 900)
+        .toFile('./public/images/gallery/' + filename, function(err, response) {
+            sharp.cache(false)
+            // fs.unlink('./public/images/building/' + 'temp_' + filename)
+            // req.file.filename = filename
+            // res.send({ file: req.file, body: req.body })
+            res.json(filename)
+        })
+       
+    })
+})
+})
+app.post('/admin/GalleryUpdate', async (req, res) => {
+
+    var iGalleryID = req.body.gallery.iGalleryID
+
+    if (iGalleryID) {
+        await Gallery.update(req.body.gallery, {
+            where: {
+                iGalleryID: iGalleryID
+            }
+        })
+    } else {
+        await Gallery.create(req.body.gallery).then((response) => {
+            iGalleryID = iGalleryID
+        })
+    }
+
+
+
+    const galleryImage = async () => {
+        if (req.body.gallery.gallery_images) {
+            for (const image of req.body.gallery.gallery_images) {
+                if (image.iGalleryImageID && image.del === true) {
+                    await Gallery_image.destroy({
+                        where: {
+                            iGalleryImageID: image.iGalleryImageID
+                        }
+                    })
+                } else if (image.iGalleryImageID) {
+                    await Gallery_image.update({
+                        sGalleryImageName: image.sGalleryImageName
+                    }, {
+                        where: {
+                            iGalleryImageID: image.iGalleryImageID
+                        }                    
+                    })
+                } else if (image.del !== true) {
+                    await Gallery_image.create({
+                        iGalleryID: iGalleryID,
+                        sGalleryImageName: image.sGalleryImageName,
+                    })
+                }
+            }
+        }
+    }
+    await galleryImage()
+
+    
+
+
+    var data = {}
+        data.gallery = await Gallery.findAll({
+            include: [
+                {
+                    model: Gallery_group
+                },
+                {
+                    model: Gallery_image
+                }
+            ],
+            order: [
+                ['iGalleryID', 'ASC']
+            ]
+        })
+    res.json(data)
+})
+
+
 
 
 
@@ -1285,6 +1428,12 @@ app.get('/gallery', (req, res) => {
     data.title = 'Галлерея'
     data.left_menu_active = 3
     res.render('gallery', data)
+})
+
+app.get('/gallery/:iGalleryID', (req, res) => {
+    data.title = 'Галлерея' + req.params.iGalleryID
+    data.left_menu_active = 3
+    res.render('gallery/item', data)
 })
 
 

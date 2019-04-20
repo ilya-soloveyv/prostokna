@@ -19,6 +19,10 @@ export default {
                     title: 'Цвета',
                     uri: '/color',
                 },
+                {
+                    title: 'Галлерея',
+                    uri: '/gallery',
+                },
             ]
         }
     },

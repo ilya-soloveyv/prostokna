@@ -10,3 +10,4 @@ package-lock.json
 /public/images/color
 .htpasswd
 /public/upload
+/public/images/gallery

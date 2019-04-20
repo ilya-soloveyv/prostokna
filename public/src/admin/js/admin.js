@@ -5,6 +5,7 @@ import ProductEdit from '../components/ProductEdit.js'
 import Material from '../components/Material.js'
 import Brand from '../components/Brand.js'
 import Color from '../components/Color.js'
+import Gallery from '../components/Gallery.js'
 
 const routes = [
     {
@@ -41,6 +42,10 @@ const routes = [
     {
         path: '/color',
         component: Color
+    },
+    {
+        path: '/gallery',
+        component: Gallery
     },
 ]
 

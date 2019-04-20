@@ -1,0 +1,18 @@
+extends ../layouts/app
+
+block content
+    #gallery.ppage
+        include head
+        .item
+            .desc
+                h1 Nike
+                | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia odit, ratione culpa aliquam dolores magnam assumenda. Quidem totam cupiditate tempore a voluptatum, vel architecto alias eos culpa porro laudantium! Amet.
+            .zoom
+                img(src="/images/gallery/test.jpg", alt="")
+            .images
+                ul
+                    - var n = 0;
+                    while n < 55
+                        li
+                            img(src="/images/gallery/test.jpg", alt="")
+                        - n++
