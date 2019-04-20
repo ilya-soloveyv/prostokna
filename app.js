@@ -594,7 +594,8 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
         })
     } else {
         await Gallery.create(req.body.gallery).then((response) => {
-            iGalleryID = iGalleryID
+            console.log(response.dataValues.iGalleryID)
+            iGalleryID = response.dataValues.iGalleryID
         })
     }
 
