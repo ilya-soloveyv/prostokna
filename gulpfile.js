@@ -71,6 +71,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/optional_service/optional_service.js',
             'public/src/js/intuitive/intuitive.js',
             'public/src/js/app/compare.js',
+            'public/src/js/gallery.js',
         ],{
             allowEmpty: true 
         })
@@ -130,6 +131,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/optional_service/optional_service.css',
             'public/src/css/intuitive/intuitive.css',
             'public/src/css/corporate/corporate.css',
+            'public/src/css/gallery.css',
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
