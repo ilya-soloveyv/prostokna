@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   Gallery.getList = async function (req = []) {
     var where_gallery = {}
     if (req.iGalleryID) {
+      // console.log(req.iGalleryID)
       where_gallery = {
         iGalleryID: req.iGalleryID
       }
@@ -35,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
     return await Gallery.findAll({
-      where_gallery,
+      where: where_gallery,
       include: [
         {
           model: sequelize.models.gallery_group,
