@@ -122,9 +122,9 @@ export default {
                                     <span v-if="item.edit !== true" class="form-control form-control-sm border-1 border-white bg-transparent">{{ item.iOrder }}</span>
                                 </td>
                                 <td>
-                                    <button type="button" v-if="item.edit !== true" class="btn btn-sm btn-light" @click.prevent="edit(index)"><i class="material-icons">edit</i></button>
-                                    <button type="submit" v-if="item.edit === true" class="btn btn-sm btn-success"><i class="material-icons">update</i></button>                                    
-                                    <button type="button" v-if="item.edit === true" class="btn btn-sm btn-danger" @click.prevent="del(index)"><i class="material-icons">remove</i></button>
+                                    <button type="button" v-if="item.edit !== true" class="btn btn-sm btn-light" @click.prevent="edit(index)">edit</button>
+                                    <button type="submit" v-if="item.edit === true" class="btn btn-sm btn-success">update</button>                                    
+                                    <button type="button" v-if="item.edit === true" class="btn btn-sm btn-danger" @click.prevent="del(index)">remove</button>
                                 </td>
                             </tr>
                         </tbody>

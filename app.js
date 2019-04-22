@@ -37,6 +37,8 @@ app.use('/material-icons', express.static(__dirname + '/node_modules/material-ic
 app.use('/bootstrap-select', express.static(__dirname + '/node_modules/bootstrap-select/dist'))
 app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
 app.use('/slick', express.static(__dirname + '/node_modules/slick-carousel/slick'))
+// app.use('/sortablejs', express.static(__dirname + '/node_modules/sortablejs'))
+
 
 
 
@@ -513,74 +515,36 @@ app.post('/admin/ColorUpload', async (req, res) => {
 app.post('/admin/GalleryList', async (req, res) => {
     var data = {}
         data.gallery_group = await Gallery_group.findAll()
-        data.gallery = await Gallery.findAll({
-            include: [
-                {
-                    model: Gallery_group
-                },
-                {
-                    model: Gallery_image
-                }
-            ],
-            order: [
-                ['iGalleryID', 'ASC']
-            ]
-        })
+        data.gallery = await Gallery.getList()
     res.json(data)
 })
 app.post('/admin/GalleryUpload', async (req, res) => {
-    var filename = randomString() + '.' + req.headers.extension
-
+    var filesName = []
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
             cb(null, './public/images/gallery')
         },
         filename: function (req, file, cb) {
-            cb(null, 'temp_' + filename)
+            var name = randomString() + '.' + file.originalname.split('.').pop()
+            filesName.push(name)
+            cb(null, 'temp_' + name)
         }
     })
-
-    var upload = multer({ storage: storage }).single('file')
-
+    var upload = multer({ storage: storage }).array('file')
     upload(req, res, function (err, responce) {
-        sharp('./public/images/gallery/' + 'temp_' + filename)
-        .resize(900, 900)
-        .toFile('./public/images/gallery/' + filename, function(err, response) {
-            sharp.cache(false)
-            // fs.unlink('./public/images/building/' + 'temp_' + filename)
-            // req.file.filename = filename
-            // res.send({ file: req.file, body: req.body })
-            res.json(filename)
-        })
-       
+        var check = 0
+        filesName.forEach(name => {
+            sharp('./public/images/gallery/' + 'temp_' + name)
+            .resize(900, 900)
+            .toFile('./public/images/gallery/' + name, function(err, response) {
+                sharp.cache(false)
+                check++
+                if (check == filesName.length) {
+                    res.send(filesName)
+                }
+            })            
+        })        
     })
-app.post('/admin/GalleryUpload', async (req, res) => {
-    var filename = randomString() + '.' + req.headers.extension
-
-    var storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-            cb(null, './public/images/gallery')
-        },
-        filename: function (req, file, cb) {
-            cb(null, 'temp_' + filename)
-        }
-    })
-
-    var upload = multer({ storage: storage }).single('file')
-
-    upload(req, res, function (err, responce) {
-        sharp('./public/images/gallery/' + 'temp_' + filename)
-        .resize(900, 900)
-        .toFile('./public/images/gallery/' + filename, function(err, response) {
-            sharp.cache(false)
-            // fs.unlink('./public/images/building/' + 'temp_' + filename)
-            // req.file.filename = filename
-            // res.send({ file: req.file, body: req.body })
-            res.json(filename)
-        })
-       
-    })
-})
 })
 app.post('/admin/GalleryUpdate', async (req, res) => {
 
@@ -612,7 +576,8 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
                     })
                 } else if (image.iGalleryImageID) {
                     await Gallery_image.update({
-                        sGalleryImageName: image.sGalleryImageName
+                        sGalleryImageName: image.sGalleryImageName,
+                        iGalleryImageOrder: image.iGalleryImageOrder
                     }, {
                         where: {
                             iGalleryImageID: image.iGalleryImageID
@@ -622,6 +587,7 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
                     await Gallery_image.create({
                         iGalleryID: iGalleryID,
                         sGalleryImageName: image.sGalleryImageName,
+                        iGalleryImageOrder: image.iGalleryImageOrder
                     })
                 }
             }
@@ -631,21 +597,18 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
 
     
 
-
     var data = {}
-        data.gallery = await Gallery.findAll({
-            include: [
-                {
-                    model: Gallery_group
-                },
-                {
-                    model: Gallery_image
-                }
-            ],
-            order: [
-                ['iGalleryID', 'ASC']
-            ]
-        })
+        data.gallery = await Gallery.getList()
+    res.json(data)
+})
+app.post('/admin/GalleryRemove', async (req, res) => {
+    await Gallery.destroy({
+        where: {
+            iGalleryID: req.body.iGalleryID,
+        }
+    })
+    var data = {}
+        data.gallery = await Gallery.getList()
     res.json(data)
 })
 
@@ -1425,15 +1388,32 @@ app.get('/intuitive', (req, res) => {
     res.render('intuitive/intuitive.pug', data)
 })
 
-app.get('/gallery', (req, res) => {
+app.get('/gallery', async (req, res) => {
     data.title = 'Галлерея'
     data.left_menu_active = 3
+    data.gallery_group = await Gallery_group.findAll()
+    data.gallery_group_active = false
+    data.gallery = await Gallery.getList()
     res.render('gallery', data)
 })
-
-app.get('/gallery/:iGalleryID', (req, res) => {
+app.get('/gallery/:sGalleryGroupUri', async (req, res) => {
+    data.title = 'Галлерея'
+    data.left_menu_active = 3
+    data.gallery_group = await Gallery_group.findAll()
+    data.gallery_group_active = req.params.sGalleryGroupUri
+    data.gallery = await Gallery.getList({
+        sGalleryGroupUri: req.params.sGalleryGroupUri
+    })
+    res.render('gallery', data)
+})
+app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
     data.title = 'Галлерея' + req.params.iGalleryID
     data.left_menu_active = 3
+    data.gallery_group = await Gallery_group.findAll()
+    data.gallery_group_active = req.params.sGalleryGroupUri
+    data.gallery = await Gallery.getList({
+        iGalleryID: req.params.iGalleryID
+    })
     res.render('gallery/item', data)
 })
 
