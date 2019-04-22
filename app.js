@@ -1461,7 +1461,7 @@ app.post('/send', (req, res) => {
 
         var data = {
             from: 'prostokna.ru <noreply@prostokna.ru>',
-            to: '<prosto.pochta2013@mail.ru>',
+            to: '<prosto@prostokna.ru>',
             subject: 'Заявка',
             text: message_html,
             html: message_html
@@ -1472,7 +1472,7 @@ app.post('/send', (req, res) => {
         })
     }
 
-    res.send(200)
+    res.sendStatus(200)
 
 
     
