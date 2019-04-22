@@ -164,6 +164,7 @@ export default {
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="label" for="">Материал:</label>
+                                                    <label class="float-right text-muted">URI <input type="checkbox" v-model="product.iGenerateUriMaterial" :disabled="!product.iMaterialID"></label>
                                                     <select v-model.number="product.iMaterialID" class="form-control" required>
                                                         <option v-for="(material, index) in material" :key="material.iMaterialID" :value="material.iMaterialID">{{ material.sMaterialTitle }}</option>
                                                     </select>
@@ -174,6 +175,7 @@ export default {
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="label" for="">Выбор бруса:</label>
+                                                    <label class="float-right text-muted">URI <input type="checkbox" v-model="product.iGenerateUriBrus" :disabled="!product.iBrusID"></label>
                                                     <select v-model.number="product.iBrusID" class="form-control">
                                                         <option :value="null">...</option>
                                                         <option v-for="(brus, index) in brus" :key="brus.iBrusID" :value="brus.iBrusID">{{ brus.sBrusTitle }}</option>
