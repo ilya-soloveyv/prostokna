@@ -294,10 +294,31 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     req.body.product.iProductParam5 = (req.body.product.iProductParam5) ? req.body.product.iProductParam5 : null
     req.body.product.iProductParam6 = (req.body.product.iProductParam6) ? req.body.product.iProductParam6 : null
 
+    req.body.product.iGenerateUriMaterial = (req.body.product.iGenerateUriMaterial) ? 1 : 0
+    req.body.product.iGenerateUriBrus = (req.body.product.iGenerateUriBrus) ? 1 : 0
+
+    // Подготавливаем URI
     brand = await Brand.findByPk(req.body.product.iBrandID, {
         attributes: ['sBrandTitle']
     })
-    req.body.product.sProductURI = cyrillicToTranslit().transform(brand.sBrandTitle + ' ' + req.body.product.sProductTitle, "_").toLowerCase()
+    var uri_string = brand.sBrandTitle + ' ' + req.body.product.sProductTitle
+
+    if (req.body.product.iGenerateUriMaterial && req.body.product.iMaterialID) {
+        material = await Material.findByPk(req.body.product.iMaterialID, {
+            attributes: ['sMaterialTitle']
+        })
+        uri_string+= '_' + material.sMaterialTitle
+    }
+
+    if (req.body.product.iGenerateUriBrus && req.body.product.iBrusID) {
+        brus = await Brus.findByPk(req.body.product.iBrusID, {
+            attributes: ['sBrusTitle']
+        })
+        uri_string+= '_' + brus.sBrusTitle
+    }
+
+    req.body.product.sProductURI = cyrillicToTranslit().transform(uri_string, "_").toLowerCase()
+    // *** //
 
     if (iProductID) {
         await Product.update(req.body.product, {
