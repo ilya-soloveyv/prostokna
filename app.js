@@ -1427,6 +1427,7 @@ app.post('/send', (req, res) => {
 
     var name = req.body.name
     var tel = req.body.tel
+    var email = req.body.email
     var from = req.body.from
     var to = req.body.to
     var subject = req.body.subject
