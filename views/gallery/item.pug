@@ -5,14 +5,12 @@ block content
         include head
         .item
             .desc
-                h1 Nike
-                | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia odit, ratione culpa aliquam dolores magnam assumenda. Quidem totam cupiditate tempore a voluptatum, vel architecto alias eos culpa porro laudantium! Amet.
+                h1= gallery[0].sGalleryTitle
+                div= gallery[0].tGalleryText
             .zoom
-                img(src="/images/gallery/test.jpg", alt="")
+                img(src="/images/gallery/" + gallery[0].gallery_images[0].sGalleryImageName, alt="")
             .images
                 ul
-                    - var n = 0;
-                    while n < 55
+                    each image in gallery[0].gallery_images
                         li
-                            img(src="/images/gallery/test.jpg", alt="")
-                        - n++
+                            img(src="/images/gallery/" + image.sGalleryImageName, alt="")

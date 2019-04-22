@@ -218,3 +218,30 @@ body {
 .bootstrap-select {
 
 }
+
+.gallery .remove {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    color: white;
+    cursor: pointer;
+}
+.gallery {
+    .card-title {
+        height: 48px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .gallery_image_order_input {
+        position: absolute;
+        left: 12px;
+        bottom: 20px;
+        font-size: 12px;
+        border: none;
+        padding: 3px 5px;
+        height: 20px;
+        width: 103px;
+        text-align: center;
+        border-radius: 3px;
+    }
+}

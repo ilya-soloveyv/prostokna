@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     sGalleryTitle: { type: DataTypes.STRING, allowNull: false },
     sGalleryTitleMin: { type: DataTypes.STRING, allowNull: false },
     tGalleryText: { type: DataTypes.TEXT, allowNull: true },
+    iOrder: { allowNull: false, type: DataTypes.INTEGER },
   }, {
     timestamps: false,
     freezeTableName: true,
@@ -16,8 +17,41 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'iGalleryGroupID'
     })
     Gallery.hasMany(models.gallery_image, {
-        foreignKey: 'iGalleryID'
+      foreignKey: 'iGalleryID'
     })
   };
+
+  Gallery.getList = async function (req = []) {
+    var where_gallery = {}
+    if (req.iGalleryID) {
+      where_gallery = {
+        iGalleryID: req.iGalleryID
+      }
+    }
+    var where_gallery_group = {}
+    if (req.sGalleryGroupUri) {
+      where_gallery_group = {
+        sGalleryGroupUri: req.sGalleryGroupUri
+      }
+    }
+    return await Gallery.findAll({
+      where_gallery,
+      include: [
+        {
+          model: sequelize.models.gallery_group,
+          where: where_gallery_group
+        },
+        {
+          model: sequelize.models.gallery_image,
+        }
+      ],
+      order: [
+        ['iOrder', 'ASC'],
+        ['iGalleryID', 'ASC'],
+        [sequelize.models.gallery_image, 'iGalleryImageOrder', 'ASC'],
+      ]
+    })
+  }
+
   return Gallery;
 };

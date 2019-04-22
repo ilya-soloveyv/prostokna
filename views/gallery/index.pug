@@ -4,12 +4,11 @@ block content
     #gallery.ppage
         include head
         .list
-            - var n = 0;
             ul
-                while n < 55
+                each item in gallery
                     li
                         .bg
-                            a(href="/gallery/" + n)
-                                img(src="/images/gallery/test.jpg", alt="")
-                                .title ООО Технопарк "Сколково"
-                    - n++
+                            a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
+                                if item.gallery_images[0]
+                                    img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
+                                .title= item.sGalleryTitle
