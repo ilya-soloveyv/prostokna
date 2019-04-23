@@ -14,3 +14,10 @@ block content
                     each image in gallery[0].gallery_images
                         li
                             img(src="/images/gallery/" + image.sGalleryImageName, alt="")
+            .pagg
+                ul
+                    each item in gallery_list
+                        li(class={active: item.iGalleryID == gallery[0].iGalleryID })
+                            a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
+                                span.num= item.iGalleryID
+                                span.title= item.sGalleryTitleMin
