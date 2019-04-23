@@ -1432,6 +1432,9 @@ app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = req.params.sGalleryGroupUri
+    data.gallery_list = await Gallery.getList({
+        sGalleryGroupUri: req.params.sGalleryGroupUri
+    })
     data.gallery = await Gallery.getList({
         iGalleryID: req.params.iGalleryID
     })
