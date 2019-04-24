@@ -8,16 +8,16 @@ block content
                 h1= gallery[0].sGalleryTitle
                 div= gallery[0].tGalleryText
             .zoom
-                img(src="/images/gallery/" + gallery[0].gallery_images[0].sGalleryImageName, alt="")
+                if gallery[0].gallery_images[0]
+                    img(src="/images/gallery/" + gallery[0].gallery_images[0].sGalleryImageName, alt="")
             .images
                 ul
                     each image in gallery[0].gallery_images
                         li
                             img(src="/images/gallery/" + image.sGalleryImageName, alt="")
             .pagg
-                ul
-                    each item in gallery_list
-                        li(class={active: item.iGalleryID == gallery[0].iGalleryID })
-                            a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
-                                span.num= item.iGalleryID
-                                span.title= item.sGalleryTitleMin
+                div.slick
+                    each item, index in gallery_list
+                        a(class={active: item.iGalleryID == gallery[0].iGalleryID }, href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
+                            span.num= (index+1)
+                            span.titleDot= item.sGalleryTitleMin
