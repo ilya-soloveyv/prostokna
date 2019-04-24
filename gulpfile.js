@@ -39,6 +39,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/bootstrap.js',
             'public/src/js/jquery.fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
+            '/node_modules/jquery-mousewheel/jquery.mousewheel.js',
             'node_modules/slick-carousel/slick/slick.min.js',
             'public/src/js/rangeslider.min.js',
             'public/src/js/jquery.scrollbar.min.js',
