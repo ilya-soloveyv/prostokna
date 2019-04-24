@@ -37,7 +37,7 @@ app.use('/material-icons', express.static(__dirname + '/node_modules/material-ic
 app.use('/bootstrap-select', express.static(__dirname + '/node_modules/bootstrap-select/dist'))
 app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
 app.use('/slick', express.static(__dirname + '/node_modules/slick-carousel/slick'))
-// app.use('/sortablejs', express.static(__dirname + '/node_modules/sortablejs'))
+app.use('/jquery-mousewheel', express.static(__dirname + '/node_modules/jquery-mousewheel'))
 
 
 
