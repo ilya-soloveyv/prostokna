@@ -12,13 +12,21 @@
 `cd C:/Project`<br>
 `git clone https://github.com/ [ Ваш аккаунт ] /prostokna.git`
 В выбранной папке появляется папка с названием `prostokna`<br>
-`cd prostokna`
-5. **Установка зависимостей**<br>
+`cd prostokna`<br>
+5. **Установка Sequelize**<br>
+Запускаем:<br>
+`sequelize db:init`<br>
+`sequelize db:create`<br>
+`sequelize db:migrate`<br>
+6. **Установка зависимостей**<br>
 Выполняем<br>
 `npm i`
-6. **Создаем в корне файл `.env`**<br>
-Переименовываем файл `.env_default` в `.env`
-7. **Запуск**
+7. **Создаем в корне файл `.env`**<br>
+Создаем файл в `.env` и вставляем туда<br>
+`PORT = 3000`<br>
+`MAILGUN_KEY = null`<br>
+`MAILGUN_DOMAIN = null`<br>
+8. **Запуск**
 Выполняем в Git bash в 3-х разных окнах<br>
 Gulp nodemon для запуска nodejs сервера <br>
 `gulp nodemon`<br>
