@@ -15,7 +15,7 @@
 `cd prostokna`<br>
 5. **Установка Sequelize**<br>
 Запускаем:<br>
-`sequelize db:init`<br>
+`sequelize init`<br>
 `sequelize db:create`<br>
 `sequelize db:migrate`<br>
 6. **Установка зависимостей**<br>
