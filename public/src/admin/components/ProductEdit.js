@@ -58,7 +58,9 @@ export default {
             })
         },
         addImage: function () {
-            this.product.product_images.push({})
+            this.product.product_images.push({
+                iOrder: 99
+            })
         },
         addImageColor: function () {
             this.product.product_colors.push({})
@@ -124,7 +126,7 @@ export default {
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row pb-1">
                                                     <div class="col">
                                                         <div class="custom-control custom-switch">
                                                             <input type="checkbox" class="custom-control-input" :id="'iPhotoInDescOnPage' + index" v-model="image.iPhotoInDescOnPage" v-on:change="changeImageOnPage(index)">
@@ -133,6 +135,16 @@ export default {
                                                     </div>
                                                     <div class="col-auto">
                                                         <button type="button" class="btn btn-sm bg-light" v-on:click="removeImage(index)">del</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 label col-form-label col-form-label-sm">Сортировка</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control form-control-sm" v-model="image.iOrder">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

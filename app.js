@@ -347,6 +347,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         sProductImageFrontName: image.sProductImageFrontName,
                         sProductImageBackName: image.sProductImageBackName,
                         iPhotoInDescOnPage: image.iPhotoInDescOnPage,
+                        iOrder: image.iOrder,
                     }, {
                         where: {
                             iProductImageID: image.iProductImageID
@@ -358,6 +359,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         sProductImageFrontName: image.sProductImageFrontName,
                         sProductImageBackName: image.sProductImageBackName,
                         iPhotoInDescOnPage: image.iPhotoInDescOnPage,
+                        iOrder: image.iOrder,
                     })
                 }
             }

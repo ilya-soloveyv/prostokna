@@ -107,6 +107,10 @@ module.exports = (sequelize, DataTypes) => {
         //     }
         //   ]
         // },
+      ],
+      order: [
+        ['iProductID', 'ASC'],
+        [sequelize.models.product_image, 'iOrder', 'ASC']
       ]
     })
   }
