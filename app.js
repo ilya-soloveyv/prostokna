@@ -1227,7 +1227,7 @@ app.get('/', (req, res) => {
                 },
                 {
                     title: 'Новости',
-                    uri: '#'
+                    uri: '/news'
                 },
                 {
                     title: 'Инновации',
@@ -1379,6 +1379,12 @@ app.get('/cheaper-together', (req, res) => {
     data.title = 'Вместе еще дешевле'
     data.left_menu_active = null
     res.render('company/innovation/cheaper-together.pug', data)
+})
+
+app.get('/news', (req, res) => {
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('company/news/news.pug', data)
 })
 
 //app.get('/cheaper-together', (req, res) => {
