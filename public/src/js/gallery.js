@@ -41,7 +41,7 @@ if ($("#gallery").length) {
     } else {
         $('#gallery .item .pagg .slick').slick({
             slidesToShow: 5,
-            slidesToScroll: 1,
+            slidesToScroll: 5,
             vertical: false,
             verticalSwiping: false,
             arrows: false,
