@@ -13,30 +13,55 @@ if ($("#gallery").length) {
         resizeGalleryListItemBlock()
     })
     
-    var slick_height = $('#gallery .item .pagg .slick').height()/5
-    console.log(slick_height)
-    $('#gallery .item .pagg .slick a').height(slick_height)
+    if ($(window).width() > 1199) {
+        var slick_height = $('#gallery .item .pagg .slick').height()/15
+        $('#gallery .item .pagg .slick a').height(slick_height)
+        $('#gallery .item .pagg .slick').slick({
+            slidesToShow: 15,
+            slidesToScroll: 1,
+            vertical: true,
+            verticalSwiping: true,
+            arrows: false,
+            focusOnSelect: true,
+            infinite: false,
+            adaptiveHeight: true,
+            // accessibility: false,
+            // prevArrow: null,
+            // nextArrow: null
+        }).mousewheel(function(e) {
+            e.preventDefault();
+        
+            if (e.deltaY < 0) {
+                $(this).slick('slickNext');
+            }
+            else {
+                $(this).slick('slickPrev');
+            }
+        })
+    } else {
+        $('#gallery .item .pagg .slick').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            vertical: false,
+            verticalSwiping: false,
+            arrows: false,
+            focusOnSelect: true,
+            infinite: false,
+            // adaptiveHeight: true,
+            // accessibility: false,
+            // prevArrow: null,
+            // nextArrow: null
+        }).mousewheel(function(e) {
+            e.preventDefault();
+        
+            if (e.deltaY < 0) {
+                $(this).slick('slickNext');
+            }
+            else {
+                $(this).slick('slickPrev');
+            }
+        })
 
-    $('#gallery .item .pagg .slick').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        vertical: true,
-        verticalSwiping: true,
-        arrows: false,
-        focusOnSelect: true,
-        infinite: false,
-        adaptiveHeight: true,
-        // accessibility: false,
-        // prevArrow: null,
-        // nextArrow: null
-    }).mousewheel(function(e) {
-        e.preventDefault();
-    
-        if (e.deltaY < 0) {
-            $(this).slick('slickNext');
-        }
-        else {
-            $(this).slick('slickPrev');
-        }
-    })
+    }
+
 }
