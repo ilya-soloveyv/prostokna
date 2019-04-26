@@ -127,29 +127,32 @@
                                             path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
                                     .title Цена
                         #home2.tab-pane.fade
-                            p Отменнное качество по приемлемой цене. Эстетичный профиль с закругленным штапиком.
+                            p= product.sProductDesc
                             ul
                                 li
                                     span Монтажная глубина: 
-                                    | 60 мм;
+                                    | #{product.MountingDepth} мм;
                                 li
-                                    span Профиль: 
-                                    | Трехкамерный профиль;
-                                li
-                                    span Сопротивление теплопередаче: 
-                                    | 0,58 м2×°С/Вт;
+                                    span Стеклопакет: 
+                                    | #{product.Profile};
                                 li
                                     span Класс профиля: 
-                                    | «В»;
+                                    | #{product.ProfileClass};
                                 li
-                                    span Звукоизоляция класса: 
-                                    | «С»;
+                                    span Колличество камер: 
+                                    | #{product.DoubleGlazing};
                                 li
-                                    span Защита от холода, осадков и ветра:
-                                    | группы «С»;
+                                    span Сопротивление теплопередаче: 
+                                    | #{product.HeatTransferResistance};
                                 li
-                                    span Фурнитура: 
-                                    | Roto (Германия).
+                                    span Выбор формы штапика: 
+                                    | #{product.ShapikShapeOptions};
+                                li
+                                    span Варианты декорирования: 
+                                    | #{product.DecorationOptions};
+                                li
+                                    span Особенности профиля створки: 
+                                    | #{product.FrameFeature};
                 ul.nav.nav-tabs
                     li.nav-item
                         a#home1-tab.nav-link.active(data-toggle="tab" href="#home1" aria-selected="true") Характристики
