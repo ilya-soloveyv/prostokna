@@ -1,0 +1,266 @@
+#page-brand{
+html {
+  height: 100%;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+body { height: 100%; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a { text-decoration: none; }
+
+p { margin: 0; }
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea { vertical-align: middle; }
+
+textarea { resize: none; }
+
+section { position: relative; }
+
+input,
+select,
+button { outline: none; }
+
+*, *:before, *:after { box-sizing: border-box; }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content { flex: 1 0 auto; }
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.page{
+  background-color: #353535;
+  min-height: 100vh;
+}
+.page_all{
+  padding-top: 5vw;
+  text-align: center;
+}
+
+.pre_title{
+  margin-top: 3.5vw;
+  
+  span{
+    color: #ffffff;
+    
+font-family: 'Montserrat', 'sans-serif';
+font-size: 12px;
+font-weight: 500;
+line-height: 20px;
+  }
+}
+
+.row{
+  justify-content: center;
+}
+.container_slider{
+  margin-top: calc(15vw - 8vh);
+}
+.photo{
+  display: flex;
+  justify-content: center;
+}
+
+.owl-item.active.center{
+  
+  border-radius: 20px;
+  // padding: 20px 0;
+
+  background: #313131;
+  @media screen and (max-width: 768px){
+    background: transparent;
+    border-radius: none;
+  }
+}
+.slide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.slide_title{
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+}
+@media screen and (max-width: 768px){
+  .pre_title, .row .container_slider{
+    display:none;
+  }
+  
+}
+
+
+
+.row .slider-nav.carouselOne{
+  display: none;
+  @media screen and (max-width:768px){
+    display: block;
+    .owl-stage .owl-item{
+    .slide1{
+      
+      display: flex;
+      justify-content: center;
+      img{
+      //  width: 5vw;
+        
+        border-radius: 20px;
+        
+       // padding: 50px;
+      }
+    }
+  }
+  }
+  @media screen and (max-width:768px){
+    .owl-stage .owl-item{
+      .slide1{
+        align-items: center;
+        img{
+          width:60%;
+          
+        //  padding: 30px;
+        }
+      }
+    }
+  }
+}
+
+.owl-stage-outer{
+  position: inherit;
+  z-index: 999;
+  
+}
+.owl-carousel .owl-item img.img{
+  
+    width:55%;
+    height: 95%;
+    
+    @media screen and (max-width:768px){
+      width:30%;
+    height: 60%;
+    }
+  
+}
+.owl-nav,.navigation{
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+
+  @media screen and (max-width:768px){
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    left: -0.5%;
+  }
+}
+.owl-prev, .owl-next{
+ 
+  span{
+    font-size: 75px;
+    color: white;
+    @media screen and (max-width:400px){
+      font-size: 55px;
+      font-weight: 100;
+    }
+  }
+}
+
+.page_all{
+  .btn{
+    color: #ffffff;
+  font-family: "Montserrat";
+  font-size: 16px;
+    font-weight: 500;
+    display: none;
+    margin-top: 10vw;
+    border-radius: 20px;
+  background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
+  @media screen and (max-width:768px){
+    display: -webkit-inline-box;
+   
+  }
+  @media screen and (max-width:540px){
+    display: -webkit-inline-box;
+    font-size: 10px;
+  }
+  }
+}
+
+.container_slider,.slider-nav{
+ 
+  }
+  .slide,.slide1{
+    position: relative;
+    button.btn-look{
+      position: absolute;
+    left: 90%;
+    top: 40%;
+    height: 20%;
+    width: 25%;
+    border-radius: 12px;
+    border: 1px solid #ffffff;
+    background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    img{
+      height: 20px;
+      width: 20px;
+    }
+    }
+  }
+  .slide1{
+    button.btn-look{
+      height: 15%;
+      top:45%
+    }
+}
+
+.slider-nav .owl-item {
+  display: flex;
+  justify-content: center;
+
+.slide1{
+
+  height: 40vh;
+  width:40vw;
+  border-radius: 20px;
+  background: #313131;
+
+  @media screen and (min-width: 440px) and (min-height: 500px){
+    height: 30vh;
+    width: 20vw;
+  }
+
+
+}
+}
+
+.container.slider_two{
+  margin-top: -30px;
+}
+}
