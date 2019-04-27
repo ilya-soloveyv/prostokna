@@ -1382,11 +1382,19 @@ app.get('/cheaper-together', (req, res) => {
 })
 
 app.get('/news', (req, res) => {
+    data.title = 'news'
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('company/news/news.pug', data)
 })
 
+
+app.get('/page-brand', (req, res) => {
+    data.title = 'page-brand'
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('page-brand/page-brand.pug', data)
+})
 //app.get('/cheaper-together', (req, res) => {
     //res.render('company/company.pug', data)
 //})
