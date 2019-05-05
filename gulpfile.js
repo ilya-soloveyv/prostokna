@@ -66,6 +66,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/instruction/instruction.js',
             'public/src/js/instruction/video.js',
             'public/src/js/company/company.js',
+            'public/src/js/company/news/news.js',
             'public/src/js/company/innovation/cheaper-together.js',
             'public/src/js/corporate/corporate.js',
             'public/src/js/regulation_window/regulation_window.js',
@@ -73,6 +74,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/intuitive/intuitive.js',
             'public/src/js/app/compare.js',
             'public/src/js/gallery.js',
+            'public/src/js/page-brand/page-brand.js',
         ],{
             allowEmpty: true 
         })
@@ -120,6 +122,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/product/products.css',
             'public/src/css/product/product.css',
             'public/src/css/company/company.css',
+            'public/src/css/company/news/news.css',
             'public/src/css/company/innovation/cheaper-together.css',
             'public/src/css/pay/pay.css',
             'public/src/css/palette/palette.css',
@@ -133,6 +136,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/intuitive/intuitive.css',
             'public/src/css/corporate/corporate.css',
             'public/src/css/gallery.css',
+            'public/src/css/page-brand/page-brand.css',
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
