@@ -18,7 +18,7 @@ const fs = require('fs')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
-const db = config.get('db') 
+const db = config.get('db')
 app.use(cookieParser())
 app.locals.env = process.env;
 app.use(express.static('public'))
