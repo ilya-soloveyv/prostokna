@@ -14,7 +14,33 @@ if ($("#gallery").length) {
     })
 
     $(function () {
-        $('body').css({overflow: 'hidden'})
+
+        // html{
+        //     background-color: red;
+        //     overflow: hidden;
+        //     width:100%;
+        // }
+        // body{
+        //     height:100%;
+        //     position:fixed; /* prevent overscroll bounce*/
+        //     background-color: lightgreen;
+        //     overflow-y:scroll;
+        //     -webkit-overflow-scrolling: touch; /* iOS velocity scrolling */
+        //     width:50%;                    
+        //     margin-left:25%;
+        // } 
+        $('html').css({
+            overflow: 'hidden',
+            width: '100%'
+        })
+        $('body').css({
+            height: '100%',
+            position: 'fixed',
+            overflow: 'hidden',
+            '-webkit-overflow-scrolling': 'touch'
+        })
+
+
         $('[data-toggle="popover"]').popover({
           container: 'body'
         })
