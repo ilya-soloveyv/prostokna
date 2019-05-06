@@ -1,56 +1,11 @@
 #page-brand{
-html {
-  height: 100%;
-  overflow: hidden;
-  max-width: 100%;
-}
 
-body { height: 100%; }
-
-h1, h2, h3, h4, h5, h6 { margin: 0; }
-
-ul, li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-a { text-decoration: none; }
-
-p { margin: 0; }
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video,
-textarea { vertical-align: middle; }
-
-textarea { resize: none; }
-
-section { position: relative; }
-
-input,
-select,
-button { outline: none; }
-
-*, *:before, *:after { box-sizing: border-box; }
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.content { flex: 1 0 auto; }
-
-.container {
-  margin: 0 auto;
-  width: 100%;
-}
-
-
+  .owl-nav button.owl-prev:hover, .owl-nav button.owl-next:hover{
+    background: none;
+  }
+  .owl-carousel.owl-loaded{
+    display: block;
+  }
 .page{
   background-color: #353535;
   min-height: 100vh;
@@ -59,9 +14,12 @@ button { outline: none; }
   padding-top: 5vw;
   text-align: center;
 }
-
+.title{
+  margin-top: 5rem;
+}
 .pre_title{
   margin-top: 3.5vw;
+  
   
   span{
     color: #ffffff;
@@ -108,7 +66,7 @@ line-height: 20px;
   padding: 10px;
 }
 @media screen and (max-width: 768px){
-  .pre_title, .row .container_slider{
+  .pre_title{
     display:none;
   }
   
