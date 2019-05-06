@@ -5,6 +5,12 @@ block content
         include head
         .item
             .desc
+                button.title(
+                    data-toggle="popover"
+                    data-placement="bottom"
+                    data-trigger="focus"
+                    data-content= gallery[0].tGalleryText)= gallery[0].sGalleryTitle
+
                 h1= gallery[0].sGalleryTitle
                 div= gallery[0].tGalleryText
             .zoom
