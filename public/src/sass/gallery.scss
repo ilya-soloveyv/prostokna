@@ -444,12 +444,12 @@
                     a {
                         position: relative;
                         text-decoration: none;
-                        height: 150px;
+                        height: 50px;
                         border: none;
                         text-align: right;
                         @media (max-width: 1199px) {
                             height: 100%;
-                            width: 100px;
+                            width: 50px;
                             flex-basis: 100px;
                         }
                         &::before {
