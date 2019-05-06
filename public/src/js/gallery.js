@@ -13,6 +13,12 @@ if ($("#gallery").length) {
         resizeGalleryListItemBlock()
     })
 
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+          container: 'body'
+        })
+      })
+
     // $("#gallery .item .pagg .pagg_list").scrollTop(150)
     
     // if ($(window).width() > 1199) {
