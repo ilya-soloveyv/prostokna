@@ -14,6 +14,7 @@ if ($("#gallery").length) {
     })
 
     $(function () {
+        $('body').css({overflow: 'hidden'})
         $('[data-toggle="popover"]').popover({
           container: 'body'
         })
