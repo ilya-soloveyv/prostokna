@@ -74,8 +74,11 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    padding: .6rem;
                     img {
-
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                     span {
                         font-family: 'MontserratSemiBold';
@@ -357,16 +360,13 @@
             }
         }
         .pagg {
-            // background: linear-gradient(0deg, #E55AE9, #9C47E5);
             // background: red;
-            // border-radius: .25rem;
             position: absolute;
             top: 0;
             right: -150px;
             width: 150px;
             height: 100%;
-            display: flex;
-            flex-direction: column;
+            overflow: hidden;
             @media (max-width: 1199px) {
                 top: -80px;
                 right: auto;
@@ -375,156 +375,127 @@
                 height: 80px;
                 // background: red;
             }
-            .slick {
+            &::before {
+                content: '';
                 position: absolute;
                 top: 0;
-                left: 0;
+                bottom: 0;
+                right: 2rem;
+                width: .5rem;
+                height: 100%;
+                background: linear-gradient(0deg, #E55AE9, #9C47E5);
+                border-radius: .25rem;
+                @media (max-width: 1199px) {
+                    top: 2rem;
+                    height: .5rem;
+                    width: 100%;
+                    right: auto;
+                    left: 0;
+                }
+            }
+            .pagg_bg {
+                position: relative;
                 width: 100%;
                 height: 100%;
-                .slick-list {
+                overflow: auto;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .pagg_list {
+                    // background: green;
                     position: absolute;
+                    width: 100%;
+                    height: 100%;
                     top: 0;
                     left: 0;
-                    height: 100% !important;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: auto;
                     @media (max-width: 1199px) {
-                        width: 100%;
+                        display: inline-flex;
+                        width: auto;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
                     }
-                    // background: yellow;
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        right: 2rem;
-                        width: .5rem;
-                        height: 100%;
-                        background: linear-gradient(0deg, #E55AE9, #9C47E5);
-                        border-radius: .25rem;
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                    a {
+                        position: relative;
+                        text-decoration: none;
+                        height: 150px;
+                        border: none;
+                        text-align: right;
                         @media (max-width: 1199px) {
-                            top: 2rem;
-                            right: 0;
-                            width: 100%;
+                            height: 100%;
+                            width: 100px;
+                            flex-basis: 100px;
+                        }
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            right: 2rem;
+                            width: .5rem;
                             height: .5rem;
+                            margin-top: -.25rem;
+                            background: white;
+                            border-radius: .25rem;
+                            @media (max-width: 1199px) {
+                                top: 2rem;
+                                left: 50%;
+                                margin-top: 0;
+                                margin-left: -.25rem;
+                            }
                         }
-                    }
-                }
-                a, a.slick-slide {
-                    position: relative;
-                    text-decoration: none;
-                    // width: 100% !important;
-                    height: 100px;
-                    border: none;
-                    text-align: right;
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: 50%;
-                        right: 2rem;
-                        width: .5rem;
-                        height: .5rem;
-                        margin-top: -.25rem;
-                        background: white;
-                        border-radius: .25rem;
-                        @media (max-width: 1199px) {
-                            top: 2rem;
-                            left: 50%;
-                            margin-top: 0;
-                            margin-left: -.25rem;
+                        &.active, &:hover {
+                            // background: red;
+                            span.titleDot {
+                                visibility: visible;
+                            }
                         }
-                    }
-                    &.active, &:hover {
-                        // background: red;
-                        span.titleDot {
-                            visibility: visible;
-                        }
-                    }
-                    span.num {
-                        position: absolute;
-                        right: 0;
-                        top: 50%;
-                        width: 1.4rem;
-                        height: 1.4rem;
-                        margin-top: -.7rem;
-                        font-family: 'Montserrat';
-                        font-size: 12px;
-                        background: linear-gradient(135deg, #E55AE9, #9C47E5);
-                        border-radius: 1rem;
-                        color: white;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        @media (max-width: 1199px) {
-                            top: 0;
-                            right: auto;
-                            left: 50%;
-                            margin-top: 0;
-                            margin-left: -.7rem;
-                        }
-                    }
-                    span.titleDot {
-                        font-family: 'MontserratSemiBold';
-                        font-size: 12px;
-                        text-transform: uppercase;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
-                        padding: 0 3rem 0 1rem;
-                        color: #9C47E5;
-                        visibility: hidden;
-                        @media (max-width: 1199px) {
-                            padding: 3rem 0 0;
-                            align-items: flex-start;
+                        span.num {
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            width: 1.4rem;
+                            height: 1.4rem;
+                            margin-top: -.7rem;
+                            font-family: 'Montserrat';
+                            font-size: 12px;
+                            background: linear-gradient(135deg, #E55AE9, #9C47E5);
+                            border-radius: 1rem;
+                            color: white;
+                            display: flex;
+                            align-items: center;
                             justify-content: center;
+                            @media (max-width: 1199px) {
+                                top: 0;
+                                right: auto;
+                                left: 50%;
+                                margin-top: 0;
+                                margin-left: -.7rem;
+                            }
                         }
-                    }
-                }
-                // li {
-                //     flex-grow: 1;
-                //     flex-shrink: 0;
-                //     position: relative;
-                //     &.active, &:hover {
-                //         a {
-                //             span.title {
-                //                 visibility: visible;
-                //             }
-                //         }
-                //     }
-                //     a {
-                //         font-family: 'MontserratSemiBold';
-                //         font-size: 14px;
-                //         text-transform: uppercase;
-                //         line-height: .5rem;
-                //         position: absolute;
-                //         top: 50%;
-                //         right: 0;
-                //         margin-top: -.25rem;
-                //         width: .5rem;
-                //         height: .5rem;
-                //         color: #9C47E5;
-                //         text-decoration: none;
-                //         &::before {
-                //             content: '';
-                //             position: absolute;
-                //             top: 0;
-                //             right: 0;
-                //             width: .5rem;
-                //             height: .5rem;
-                //             border-radius: .25rem;
-                //             border-radius: .25rem;
-                //             background: white;
-                //         }
-                //         span.title {
-                //             position: absolute;
-                //             right: 1rem;
-                //             visibility: hidden;
-                //         }
-                //         span.num {
-                //             position: absolute;
-                //             left: 1rem;
-
-                //         }
-                //     }
-                // }
+                        span.titleDot {
+                            font-family: 'MontserratSemiBold';
+                            font-size: 12px;
+                            text-transform: uppercase;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            padding: 0 3rem 0 1rem;
+                            color: #9C47E5;
+                            visibility: hidden;
+                            @media (max-width: 1199px) {
+                                padding: 3rem 0 0;
+                                align-items: flex-start;
+                                justify-content: center;
+                            }
+                        }
+                    }    
+                }    
             }
         }
     }

@@ -16,8 +16,9 @@ block content
                         li
                             img(src="/images/gallery/" + image.sGalleryImageName, alt="")
             .pagg
-                div.slick
-                    each item, index in gallery_list
-                        a(class={active: item.iGalleryID == gallery[0].iGalleryID }, href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
-                            span.num= (index+1)
-                            span.titleDot= item.sGalleryTitleMin
+                .pagg_bg
+                    .pagg_list
+                        each item, index in gallery_list
+                            a(class={active: item.iGalleryID == gallery[0].iGalleryID }, href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
+                                span.num= (index+1)
+                                span.titleDot= item.sGalleryTitleMin

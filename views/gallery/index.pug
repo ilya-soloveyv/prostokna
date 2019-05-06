@@ -8,7 +8,7 @@ block content
                 each item in gallery
                     li
                         .bg
-                            a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
+                            a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID id='gallery_item_' + item.iGalleryID)
                                 if item.gallery_images[0]
                                     img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
                                 .title= item.sGalleryTitle
