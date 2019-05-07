@@ -1456,7 +1456,11 @@ app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
     })
     res.render('gallery/item', data)
 })
-
+app.get('/work', async (req, res) => {
+    data.title = 'Как мы работаем'
+    data.left_menu_active = 5
+    res.render('work', data)
+})
 
 
 
