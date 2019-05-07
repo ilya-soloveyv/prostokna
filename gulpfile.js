@@ -74,6 +74,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/intuitive/intuitive.js',
             'public/src/js/app/compare.js',
             'public/src/js/gallery.js',
+            'public/src/js/work/work.js',
             'public/src/js/page-brand/page-brand.js',
         ],{
             allowEmpty: true 
@@ -136,6 +137,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/intuitive/intuitive.css',
             'public/src/css/corporate/corporate.css',
             'public/src/css/gallery.css',
+            'public/src/css/work.css',
             'public/src/css/page-brand/page-brand.css',
         ])
         .pipe(concat('app.min.css'))
