@@ -2,7 +2,7 @@ body{
   overflow-x: hidden;
 }
 #page-brand{
-
+  transition: 1s all;
   .owl-nav button.owl-prev:hover, .owl-nav button.owl-next:hover{
     background: none;
   }
