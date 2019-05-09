@@ -29,4 +29,13 @@ if ($('#news').length) {
         })
         }
     });
+    if(window.innerWidth > 1000)
+    $(function(){
+        $('.card-news-container').slick({
+            vertical: true,
+            verticalSwiping: true,
+            slidesToShow: 5,
+            arrows: false
+        });
+    });
 }

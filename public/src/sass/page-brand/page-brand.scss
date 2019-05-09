@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 #page-brand{
 
   .owl-nav button.owl-prev:hover, .owl-nav button.owl-next:hover{
@@ -5,6 +8,7 @@
   }
   .owl-carousel.owl-loaded{
     display: block;
+    overflow: hidden;
   }
 .page{
   background-color: #353535;
@@ -126,7 +130,7 @@ line-height: 20px;
 .owl-nav,.navigation{
   display: flex;
   justify-content: space-between;
-  z-index: 999;
+  
 
   @media screen and (max-width:768px){
     position: absolute;
@@ -136,7 +140,7 @@ line-height: 20px;
   }
 }
 .owl-prev, .owl-next{
- 
+ z-index: 999;
   span{
     font-size: 75px;
     color: white;
@@ -173,7 +177,7 @@ line-height: 20px;
   }
   .slide,.slide1{
     position: relative;
-    button.btn-look{
+    a.btn-look{
       position: absolute;
     left: 90%;
     top: 40%;
@@ -183,7 +187,8 @@ line-height: 20px;
     border: 1px solid #ffffff;
     background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
     display: flex;
-    justify-content: center;
+      align-items: center;
+      justify-content: center;
     cursor: pointer;
     img{
       height: 20px;
@@ -192,9 +197,11 @@ line-height: 20px;
     }
   }
   .slide1{
-    button.btn-look{
+    a.btn-look{
       height: 15%;
-      top:45%
+      top:45%;
+      display: flex;
+      align-items: center;
     }
 }
 
