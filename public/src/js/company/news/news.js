@@ -35,8 +35,11 @@ if ($('#news').length) {
         $('.card-news-container').slick({
             vertical: true,
             verticalSwiping: true,
-            slidesToShow: 5,
-            arrows: false
+            slidesToShow: 7,
+            centerMode: true,
+            infinite: true,
+            arrows: false,
+
         });
     });
 
@@ -46,9 +49,9 @@ if ($('#news').length) {
       e.preventDefault();
     
       if (e.originalEvent.deltaY < 0) {
-        $(this).slick('slickNext');
-      } else {
         $(this).slick('slickPrev');
+      } else {
+        $(this).slick('slickNext');
       }
     }));
 }
