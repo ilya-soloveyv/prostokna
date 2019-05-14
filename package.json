@@ -37,7 +37,7 @@
         "mysql2": "^1.6.5",
         "popper.js": "^1.14.7",
         "pug": "^2.0.3",
-        "sequelize": "^5.1.0",
+        "sequelize": "^5.8.5",
         "sharp": "^0.22.0",
         "slick-carousel": "^1.8.1",
         "vue": "^2.5.19",
