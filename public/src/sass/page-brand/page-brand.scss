@@ -13,15 +13,17 @@ body{
 .page{
   background-color: #353535;
   min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .page_all{
   text-align: center;
 }
 .title{
-  margin-top: 5rem;
-}
+} 
 .pre_title{
-  margin-top: 3.5vw;
   
   
   span{
@@ -38,7 +40,7 @@ line-height: 20px;
   justify-content: center;
 }
 .container_slider{
-  margin-top: calc(15vw - 8vh);
+
 }
 .photo{
   display: flex;
@@ -117,7 +119,7 @@ line-height: 20px;
 }
 .owl-carousel .owl-item img.img{
   
-    width:55%;
+    width:90%;
     height: 95%;
     
     @media screen and (max-width:768px){
@@ -133,7 +135,7 @@ line-height: 20px;
 
   @media screen and (max-width:768px){
     position: absolute;
-    top: 5%;
+    top: 25%;
     width: 100%;
     left: -0.5%;
   }
@@ -180,7 +182,7 @@ line-height: 20px;
       position: absolute;
     left: 90%;
     top: 40%;
-    height: 20%;
+    height: 15%;
     width: 25%;
     border-radius: 12px;
     border: 1px solid #ffffff;

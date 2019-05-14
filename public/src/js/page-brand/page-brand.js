@@ -27,19 +27,22 @@ if ($('#page-brand').length) {
           autoplayHoverPause:true,
           startPosition: 'URLHash',
           responsiveClass:true,
+          
           responsive:{
               0:{
                   items:3,
                   nav:true,
                   loop: true,
                   dots: false,
-                  mouseDrag: true
+                  mouseDrag: true,
+                  navText: ["<img src='/images/page-brand/prev.png'>","<img src='/images/page-brand/next.png'>"]
               },
               600:{
                   items:3,
                   loop: true,
                   dots: false,
-                  mouseDrag: true
+                  mouseDrag: true,
+                  navText: ["<img src='/images/page-brand/prev.png'>","<img src='/images/page-brand/next.png'>"]
               },
               1000:{
                   items:5,
@@ -50,6 +53,8 @@ if ($('#page-brand').length) {
                   URLhashListener:true,
                   autoplayHoverPause:true,
                   startPosition: 'URLHash',
+                  navText: ["<img src='/images/page-brand/prev.png'>","<img src='/images/page-brand/next.png'>"]
+
               }
           }
         });
