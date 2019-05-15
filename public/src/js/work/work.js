@@ -45,5 +45,9 @@ if ($(".work").length) {
 				.closest('div.days-content').find('div.step-content').removeClass('active').eq($(this).index()).addClass('active');
 			
 		});	
+
+		$('.way__link').on('click', function(e){
+			e.preventDefault();
+		});		
 		
 }
