@@ -75,7 +75,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/app/compare.js',
             'public/src/js/gallery.js',
             'public/src/js/work/work.js',
-            'public/src/js/work/calculation.js',
+            'public/src/js/calculation.js',
             'public/src/js/page-brand/page-brand.js',
         ],{
             allowEmpty: true 
