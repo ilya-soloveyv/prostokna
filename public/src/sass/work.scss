@@ -16,19 +16,32 @@ p {
 		@media screen and (max-width: 576px) {
 			display: flex;
 			flex-direction: column;
+		}
+		@media screen and (max-width: 359px) {
 			justify-content: space-around;
 		}
 		&-title {
 			font-family: 'MontserratSemiBold';
 			color: #fff;
 			text-align: center;
-			font-size: 14px;
+			font-size: 18px;
 			text-transform: uppercase;
 			margin-top: 4%;
+			@media screen and (max-width: 992px) {
+				font-size: 16px;
+			}
+			@media screen and (max-width: 576px) {
+				font-size: 14px;
+				margin-top: 8%;
+			}
 		}
 		&-tabs {
 			@media screen and (max-width: 576px) {
 				height: 467px;
+				margin-top: 10%;
+			}
+			@media screen and (max-width: 359px) {
+				margin-top: 0;
 			}
 		}
 		&-users {
@@ -49,13 +62,19 @@ p {
 				position: relative;
 				width: 50%;
 				line-height: 38px;
-				font-size: 11px;
+				font-size: 14px;
 				font-family: 'MontserratSemiBold';
 				color: #fff;
 				text-transform: uppercase;
 				text-align: center;
 				z-index: 1;
 				cursor: pointer;
+				@media screen and (max-width: 1200px) {
+					font-size: 13px;
+				}
+				@media screen and (max-width: 576px) {
+					font-size: 12px;
+				}
 				&:before {
 					content: '';
 					display: block;
@@ -74,9 +93,12 @@ p {
 				}
 				&:after {
 					@media screen and (max-width: 576px) {
-						content: '+';
+						content: '';
+						background: url('../../images/work/down-arrow1.png') no-repeat center top / cover;
 						display: inline-block;
 						margin-left: 20px;
+						width: 11px;
+						height: 9px;
 					}					
 				}	
 				&.active:before {
@@ -96,16 +118,20 @@ p {
 				position: relative;
 				width: 50%;
 				line-height: 38px;
-				font-size: 11px;
+				font-size: 14px;
 				font-family: 'MontserratSemiBold';
 				color: #fff;
 				text-transform: uppercase;
 				text-align: center;
 				z-index: 1;
 				cursor: pointer;
+				@media screen and (max-width: 1200px) {
+					font-size: 13px;
+				}
 				@media screen and (max-width: 576px) {
 					display: none;
 					width: 100%;
+					font-size: 12px;
 				}
 				&.active {
 					@media screen and (max-width: 576px) {
@@ -114,9 +140,12 @@ p {
 				}
 				&:after {
 					@media screen and (max-width: 576px) {
-						content: '+';
+						content: '';
+						background: url('../../images/work/down-arrow1.png') no-repeat center top / cover;
 						display: inline-block;
 						margin-left: 20px;
+						width: 11px;
+						height: 9px;					
 					}					
 				}
 			}
@@ -185,11 +214,17 @@ p {
 		border-radius: 100px;
 		margin-top: 41px;
 		margin-bottom: 5%;
-		font-size: 13px;
+		font-size: 14px;
 		font-family: 'MontserratSemiBold';	
-			@media screen and (max-width: 576px) {
-				margin-top: 0;
-			}
+		@media screen and (max-width: 1200px) {
+			font-size: 13px;
+		}
+		@media screen and (max-width: 992px) {
+			font-size: 12px;
+		}
+		@media screen and (max-width: 576px) {
+			margin-top: 0;
+		}
 		&__list {
 			position: relative;
 			display: flex;
@@ -280,10 +315,15 @@ p {
 					width: 33.3%;
 					text-align: center;
 					text-transform: uppercase;
-					font-size: 13px;
+					font-size: 14px;
 					@media screen and (max-width: 992px) {
 						opacity: .4;
 						width: auto;
+						font-size: 13px;
+					}
+					@media screen and (max-width: 576px) {
+						
+						font-size: 12px;
 					}
 					&.active {
 						opacity: 1;
@@ -336,16 +376,20 @@ p {
 					padding-right: 3%;
 				}
 				.step__desc {
-					font-size: 11px;
+					font-size: 14px;
 					font-family: 'Montserrat';
-					margin-bottom: 36px;
+					margin-bottom: 26px;
+					@media screen and (max-width: 1200px) {
+						font-size: 13px;
+					}
 					@media screen and (max-width: 992px) {
 						width: 360px;
 					}
 					@media screen and (max-width: 576px) {
 						width: 90%;
 						margin: 0 auto;
-						margin-bottom: 7%;					
+						margin-bottom: 7%;
+						font-size: 12px;					
 					}
 				}
 				.way__list {
@@ -364,13 +408,20 @@ p {
 						.way__link {
 							display: flex;							
 							align-items: center;
-							width: 70%;
+							width: 75%;
 							text-decoration: none;
 							color: #fff;
 							background: transparent;
 							transition: .3s;
+							font-size: 14px;
 							@media screen and (max-width: 1460px) {
 								width: 95%;
+							}
+							@media screen and (max-width: 1200px) {
+								font-size: 13px;
+							}
+							@media screen and (max-width: 576px) {
+								font-size: 12px;
 							}
 							&:hover {
 								background-clip: content-box;
@@ -396,7 +447,7 @@ p {
 									}								
 								}
 								.way__text {
-									text-transform: uppercase;
+									
 								}
 							}
 							.way__icon {
@@ -420,8 +471,7 @@ p {
 									margin-right: 15px;					
 								}						
 							}
-							.way__text {
-								font-size: 11px;
+							.way__text {								
 								font-family: 'Montserrat';
 								transition: text-transform .3s;
 							}
@@ -433,8 +483,14 @@ p {
 					display: flex;
 					align-items: center;
 					margin-bottom: 29px;
+					@media screen and (max-width: 576px) {
+						margin-bottom: 20px;
+					}
 					&:last-child {
 						margin-bottom: 0;
+						@media screen and (max-width: 576px) {
+							margin-bottom: 0;
+						}
 					}
 					&:hover {
 						img {
@@ -449,8 +505,14 @@ p {
 						}
 					}
 					.todo__text {
-						font-size: 11px;
+						font-size: 14px;
 						font-family: 'Montserrat';
+						@media screen and (max-width: 1200px) {
+							font-size: 13px;
+						}
+						@media screen and (max-width: 576px) {
+							font-size: 12px;
+						}
 					}
 				}
 			}		
