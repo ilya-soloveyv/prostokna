@@ -29,4 +29,30 @@ if ($('#news').length) {
         })
         }
     });
+    if(window.innerWidth > 1000){
+      
+    $(function(){
+        $('.card-news-container').slick({
+            vertical: true,
+            verticalSwiping: true,
+            slidesToShow: 7,
+            centerMode: true,
+            infinite: true,
+            arrows: false,
+
+        });
+    });
+
+    const slider = $(".card-news-container");
+
+    slider.on('wheel', (function(e) {
+      e.preventDefault();
+    
+      if (e.originalEvent.deltaY < 0) {
+        $(this).slick('slickPrev');
+      } else {
+        $(this).slick('slickNext');
+      }
+    }));
+}
 }

@@ -1,67 +1,30 @@
+body{
+  overflow-x: hidden;
+}
 #page-brand{
-html {
-  height: 100%;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-body { height: 100%; }
-
-h1, h2, h3, h4, h5, h6 { margin: 0; }
-
-ul, li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-a { text-decoration: none; }
-
-p { margin: 0; }
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video,
-textarea { vertical-align: middle; }
-
-textarea { resize: none; }
-
-section { position: relative; }
-
-input,
-select,
-button { outline: none; }
-
-*, *:before, *:after { box-sizing: border-box; }
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.content { flex: 1 0 auto; }
-
-.container {
-  margin: 0 auto;
-  width: 100%;
-}
-
-
+  transition: 1s all;
+  .owl-nav button.owl-prev:hover, .owl-nav button.owl-next:hover{
+    background: none;
+  }
+  .owl-carousel.owl-loaded{
+    display: block;
+    overflow: hidden;
+  }
 .page{
   background-color: #353535;
   min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .page_all{
-  padding-top: 5vw;
   text-align: center;
 }
-
+.title{
+} 
 .pre_title{
-  margin-top: 3.5vw;
+  
   
   span{
     color: #ffffff;
@@ -77,7 +40,7 @@ line-height: 20px;
   justify-content: center;
 }
 .container_slider{
-  margin-top: calc(15vw - 8vh);
+
 }
 .photo{
   display: flex;
@@ -108,7 +71,7 @@ line-height: 20px;
   padding: 10px;
 }
 @media screen and (max-width: 768px){
-  .pre_title, .row .container_slider{
+  .pre_title{
     display:none;
   }
   
@@ -156,7 +119,7 @@ line-height: 20px;
 }
 .owl-carousel .owl-item img.img{
   
-    width:55%;
+    width:90%;
     height: 95%;
     
     @media screen and (max-width:768px){
@@ -168,17 +131,17 @@ line-height: 20px;
 .owl-nav,.navigation{
   display: flex;
   justify-content: space-between;
-  z-index: 999;
+  
 
   @media screen and (max-width:768px){
     position: absolute;
-    top: 5%;
+    top: 25%;
     width: 100%;
     left: -0.5%;
   }
 }
 .owl-prev, .owl-next{
- 
+ z-index: 999;
   span{
     font-size: 75px;
     color: white;
@@ -215,17 +178,18 @@ line-height: 20px;
   }
   .slide,.slide1{
     position: relative;
-    button.btn-look{
+    a.btn-look{
       position: absolute;
     left: 90%;
     top: 40%;
-    height: 20%;
+    height: 15%;
     width: 25%;
     border-radius: 12px;
     border: 1px solid #ffffff;
     background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
     display: flex;
-    justify-content: center;
+      align-items: center;
+      justify-content: center;
     cursor: pointer;
     img{
       height: 20px;
@@ -234,9 +198,11 @@ line-height: 20px;
     }
   }
   .slide1{
-    button.btn-look{
+    a.btn-look{
       height: 15%;
-      top:45%
+      top:45%;
+      display: flex;
+      align-items: center;
     }
 }
 

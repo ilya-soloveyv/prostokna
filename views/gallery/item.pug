@@ -28,3 +28,13 @@ block content
                             a(class={active: item.iGalleryID == gallery[0].iGalleryID }, href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID)
                                 span.num= (index+1)
                                 span.titleDot= item.sGalleryTitleMin
+        #imageZoom(data-i=0)
+            .nav_close
+                i.material-icons close
+            //- .nav_prev
+                img(src="/images/gallery/prev.png", alt="")
+            //- .nav_next
+                img(src="/images/gallery/next.png", alt="")
+            .owl-carousel.owl-theme
+                each image in gallery[0].gallery_images
+                    img(src="/images/gallery/" + image.sGalleryImageName, alt="")

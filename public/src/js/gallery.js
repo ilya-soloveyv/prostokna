@@ -13,7 +13,7 @@ if ($("#gallery").length) {
         resizeGalleryListItemBlock()
     })
 
-    $(function () {
+    // $(function () {
 
         // html{
         //     background-color: red;
@@ -29,22 +29,22 @@ if ($("#gallery").length) {
         //     width:50%;                    
         //     margin-left:25%;
         // } 
-        $('html').css({
-            overflow: 'hidden',
-            width: '100%'
-        })
-        $('body').css({
-            height: '100%',
-            position: 'fixed',
-            overflow: 'hidden',
-            '-webkit-overflow-scrolling': 'touch'
-        })
+        // $('html').css({
+        //     overflow: 'hidden',
+        //     width: '100%'
+        // })
+        // $('body').css({
+        //     height: '100%',
+        //     position: 'fixed',
+        //     overflow: 'hidden',
+        //     '-webkit-overflow-scrolling': 'touch'
+        // })
 
 
         $('[data-toggle="popover"]').popover({
           container: 'body'
         })
-      })
+    //   })
 
     // $("#gallery .item .pagg .pagg_list").scrollTop(150)
     
@@ -98,5 +98,41 @@ if ($("#gallery").length) {
     //     })
 
     // }
+
+
+    $("#gallery .item .images ul li img").click(function () {
+        var i = $(this).parent().index()
+        imageZoomOpen(i)
+    })
+    $("#imageZoom .nav_close").click(function () {
+        imageZoomClose()
+    })
+
+    var imageZoomOwl = $('#imageZoom .owl-carousel').owlCarousel({
+        loop:true,
+        dots: false,
+        margin:0,
+        nav: true,
+        items:1,
+        navText : ["<img src='/images/gallery/prev.png'>","<img src='/images/gallery/next.png'>"]
+    })
+
+
+    function imageZoomOpen (i) {
+        // $('.owl-carousel .item').remove()
+        // $("#gallery .item .images ul li").each(function (i, el) {
+        //     var src = $(el).find('img').attr('src')
+        //     $('.owl-carousel').append("<div class='item'><img src='" + src + "'></div>");
+        // })
+        // console.log(src);
+        imageZoomOwl.trigger('to.owl.carousel',i)
+        $("#imageZoom").attr('data-i', i).addClass('active')
+        $("html, body").css({overflow: 'hidden'})
+    }
+
+    function imageZoomClose () {
+        $("#imageZoom").removeClass('active')
+        $("html, body").css({overflow: 'auto'})
+    }
 
 }

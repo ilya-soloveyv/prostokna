@@ -1461,6 +1461,11 @@ app.get('/work', async (req, res) => {
     data.left_menu_active = 5
     res.render('work', data)
 })
+app.get('/calculation', async (req, res) => {
+    data.title = 'Заказать точный расчет'
+    data.left_menu_active = null
+    res.render('calculation', data)
+})
 
 
 

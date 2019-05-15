@@ -1,84 +1,87 @@
 extends ../layouts/app
 
 block content
-    section.page#page-brand
-        .container.page_all
-            .row
-                .col-lg-12.title
-                    img(src="/images/page-brand/title.png")
-                .col-lg-11.pre_title
-                    span On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. 
-                .col-lg-12
-                    button.btn ОПИСАНИЕ
-        .container
-            .row
-                .container_slider.col-lg-12.owl-theme.owl-carousel
-                    .slide
-                        .photo
-                            img(src="/images/page-brand/w1.png").img
-                            button.btn-look
+    #page-brand
+        section.page.ppage
+            .container.page_all
+                .row
+                    .col-lg-12.title
+                        img(src="/images/page-brand/title.png")
+                    .col-lg-12
+                        button.btn ОПИСАНИЕ
+            .container
+                .row
+                    .col-lg-11.pre_title.text-center
+                        span On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. 
+            .container
+                .row
+                    .container_slider.col-lg-12.owl-theme.owl-carousel
+                        .slide
+                            .photo
+                                img(src="/images/page-brand/w1.png").img
+                                a.btn-look
+                                    img(src="/images/page-brand/look.png")
+                            .slide_title
+                                span.slide_title_text Euro
+                        .slide
+                            .photo
+                                img(src="/images/page-brand/w2.png").img
+                                a.btn-look
+                                    img(src="/images/page-brand/look.png")
+                            .slide_title
+                                span.slide_title_text Blitz New
+                        .slide
+                            .photo
+                                img(src="/images/page-brand/w3.png").img
+                                a.btn-look
+                                    img(src="/images/page-brand/look.png")
+                            .slide_title
+                                span.slide_title_text Grazio
+                        .slide
+                            .photo
+                                img(src="/images/page-brand/w4.png").img
+                                a.btn-look
+                                    img(src="/images/page-brand/look.png")
+                            .slide_title
+                                span.slide_title_text Delight
+                        .slide
+                            .photo 
+                                img(src="/images/page-brand/w5.png").img
+                                a.btn-look
+                                    img(src="/images/page-brand/look.png")
+                            .slide_title
+                                span.slide_title_text Brilliant
+                        .slide
+                            .photo
+                                img(src="/images/page-brand/w5.png").img
+                                a.btn-look
+                                    img(src="/images/page-brand/look.png")
+                            .slide_title
+                                span.slide_title_text Super
+            .container.slider_two
+                .row
+                    .slider-nav.col-lg-12.owl-theme.owl-carousel.carouselOne
+                        .slide1
+                            img(src="/images/page-brand/w1.png")
+                            a.btn-look
                                 img(src="/images/page-brand/look.png")
-                        .slide_title
-                            span.slide_title_text Euro
-                    .slide
-                        .photo
-                            img(src="/images/page-brand/w2.png").img
-                            button.btn-look
+                        .slide1
+                            img(src="/images/page-brand/w2.png")
+                            a.btn-look
                                 img(src="/images/page-brand/look.png")
-                        .slide_title
-                            span.slide_title_text Blitz New
-                    .slide
-                        .photo
-                            img(src="/images/page-brand/w3.png").img
-                            button.btn-look
+                        .slide1
+                            img(src="/images/page-brand/w3.png")
+                            a.btn-look
                                 img(src="/images/page-brand/look.png")
-                        .slide_title
-                            span.slide_title_text Grazio
-                    .slide
-                        .photo
-                            img(src="/images/page-brand/w4.png").img
-                            button.btn-look
+                        .slide1
+                            img(src="/images/page-brand/w4.png")
+                            a.btn-look
                                 img(src="/images/page-brand/look.png")
-                        .slide_title
-                            span.slide_title_text Delight
-                    .slide
-                        .photo
-                            img(src="/images/page-brand/w5.png").img
-                            button.btn-look
+                        .slide1
+                            img(src="/images/page-brand/w5.png")
+                            a.btn-look
                                 img(src="/images/page-brand/look.png")
-                        .slide_title
-                            span.slide_title_text Brilliant
-                    .slide
-                        .photo
-                            img(src="/images/page-brand/w5.png").img
-                            button.btn-look
+                        .slide1
+                            img(src="/images/page-brand/w5.png")
+                            a.btn-look
                                 img(src="/images/page-brand/look.png")
-                        .slide_title
-                            span.slide_title_text Super
-        .container.slider_two
-            .row
-                .slider-nav.col-lg-12.owl-theme.owl-carousel.carouselOne
-                    .slide1
-                        img(src="/images/page-brand/w1.png")
-                        button.btn-look
-                            img(src="/images/page-brand/look.png")
-                    .slide1
-                        img(src="/images/page-brand/w2.png")
-                        button.btn-look
-                            img(src="/images/page-brand/look.png")
-                    .slide1
-                        img(src="/images/page-brand/w3.png")
-                        button.btn-look
-                            img(src="/images/page-brand/look.png")
-                    .slide1
-                        img(src="/images/page-brand/w4.png")
-                        button.btn-look
-                            img(src="/images/page-brand/look.png")
-                    .slide1
-                        img(src="/images/page-brand/w5.png")
-                        button.btn-look
-                            img(src="/images/page-brand/look.png")
-                    .slide1
-                        img(src="/images/page-brand/w5.png")
-                        button.btn-look
-                            img(src="/images/page-brand/look.png")
