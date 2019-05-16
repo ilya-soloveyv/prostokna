@@ -197,5 +197,7 @@
                         |  #{product.bru.sBrusTitle},
                     if product.iGenerateUriMaterial
                         |  #{product.material.sMaterialTitle}
+                    else
+                        span #{product.material.sMaterialTitle}
             .text!= product.sProductText
             button Добавить в калькулятор
