@@ -120,11 +120,17 @@ if ($("#gallery").length) {
 
     document.addEventListener('swiped-left', function(e) {
         console.log(e)
-        // console.log(e.target); // the element that was swiped
+        var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
+        console.log(href);
+        location = href
+        
     });
 
     document.addEventListener('swiped-right', function(e) {
-        console.log(e.target); // the element that was swiped
+        console.log(e)
+        var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
+        console.log(href);
+        location = href
     });
 
     function imageZoomOpen (i) {
