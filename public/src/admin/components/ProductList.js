@@ -37,7 +37,6 @@ export default {
                 </div>
             </div>
             <router-link class="btn btn-primary" to="/product/create">Добавить</router-link>
-            <pre>{{ product }}</pre>
         </div>
     `,
 }
