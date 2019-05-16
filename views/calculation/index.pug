@@ -2,6 +2,7 @@ extends ../layouts/app
 
 block content
 		.calculation.ppage
+			h1.calculation__title Заказать точный расчет
 			ul.calc__list
 				li.calc__item
 					span.num-wrapp 
@@ -59,7 +60,7 @@ block content
 					.payment__wrapp
 						p.payment__text Мы не навязываем вам наш продукт – мы даем Вам возможность получить конечную стоимость* окон до приезда замерщика, при условии того, что замер будет выполнен вами лично и корректно. Для этого мы приготовили подробную инструкцию как это сделать.
 
-						span.payment__desc Научиться самому
+						a.payment__desc(href="#") Научиться самому
 						p.payment__text Все просто! Заполните форму «Расчет стоимости», указав размеры ваших окон, либо просто прикрепите эскиз и нажмите кнопку «отправить»
 						span.payment__postscript *Максимальная погрешность не более 3%
 				.calc-content
@@ -74,9 +75,9 @@ block content
 							.file-wrap
 								input.calc-form__input#image(type="file", name="image")
 								button.browse-btn
-								span.file-info Эскиз (только jpeg)
+								span.file-info Прикрепить эскиз
 						.calc-form__wrapp
 							textarea.calc-form__text#message(name="message")
-							label.calc-form__label(for="message") Сообщение
+							label.calc-form__label(for="message") Описание
 						button.calc-form__btn Отправить
 
