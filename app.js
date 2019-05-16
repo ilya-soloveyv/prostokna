@@ -638,14 +638,6 @@ app.post('/admin/GalleryRemove', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 // cookie
 // app.use(function (req, res, next) {
 //     var cookie = req.cookies.cookieName;
