@@ -8,22 +8,26 @@ if ($('.calculation').length) {
 		
 	});
 
-	$('.calc-content').hover( function () {
+	$('.calc-content').hover( 
+		function () {
 		
-		$(this).closest('.calculation').find('.calc__item').removeClass('active')
-			.eq($(this).index()).addClass('active');
-	});
+			$(this).closest('.calculation').find('.calc__item').removeClass('active')
+				.eq($(this).index()).addClass('active');
+		},
+		function () {
+			$(this).closest('.calculation').find('.calc__item').removeClass('active');
+		});
 
 	var calc = $('.calc__list li'),
 			contents = $('.calc-content');	
 	
 
 	$('.calc-form__input').keyup(function (){
-		$(this).siblings('.calc-form__label').css('transform', 'translateY(-200%)');
+		$(this).siblings('.calc-form__label').css('transform', 'translateY(-150%)');
 	});
 
 	$('.calc-form__text').keyup(function (){
-		$(this).siblings('.calc-form__label').css('transform', 'translateY(-200%)');
+		$(this).siblings('.calc-form__label').css('transform', 'translateY(-150%)');
 	});
 	
 
