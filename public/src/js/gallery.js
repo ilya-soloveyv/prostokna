@@ -118,6 +118,15 @@ if ($("#gallery").length) {
     })
 
 
+    document.addEventListener('swiped-left', function(e) {
+        console.log(e)
+        // console.log(e.target); // the element that was swiped
+    });
+
+    document.addEventListener('swiped-right', function(e) {
+        console.log(e.target); // the element that was swiped
+    });
+
     function imageZoomOpen (i) {
         // $('.owl-carousel .item').remove()
         // $("#gallery .item .images ul li").each(function (i, el) {

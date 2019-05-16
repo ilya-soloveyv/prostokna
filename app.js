@@ -1390,6 +1390,13 @@ app.get('/news', (req, res) => {
     res.render('company/news/news.pug', data)
 })
 
+app.get('/news-tape', (req, res) => {
+    data.title = 'news-tape'
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('company/news/news-tape.pug', data)
+})
+
 
 app.get('/page-brand', (req, res) => {
     data.title = 'page-brand'
