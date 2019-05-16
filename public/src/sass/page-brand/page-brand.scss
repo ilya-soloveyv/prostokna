@@ -17,6 +17,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
 }
 .page_all{
   text-align: center;
@@ -128,6 +129,15 @@ line-height: 20px;
     }
   
 }
+.owl-nav{
+  @media screen and (min-width: 754px){
+    position: absolute;
+    width: 85vw;
+    z-index: 999;
+    top: 30%;
+    left: 10%;
+  }
+}
 .owl-nav,.navigation{
   display: flex;
   justify-content: space-between;
@@ -174,7 +184,10 @@ line-height: 20px;
 }
 
 .container_slider,.slider-nav{
- 
+ position: inherit;
+ @media screen and (max-width: 766px){
+   position: relative;
+ }
   }
   .slide,.slide1{
     position: relative;
