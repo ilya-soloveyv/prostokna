@@ -74,6 +74,9 @@ module.exports = (sequelize, DataTypes) => {
           model: sequelize.models.material
         },
         {
+          model: sequelize.models.brus
+        },
+        {
           model: sequelize.models.product_image,
           include: [
             {

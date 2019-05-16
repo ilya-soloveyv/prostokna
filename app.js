@@ -264,7 +264,7 @@ app.get('/admin', auth.connect(basic), (req, res) => {
 app.post('/admin/ProductList', async (req, res) => {
     var responce = {}
         responce.product = await Product.findAll({
-            include: [Brand]
+            include: [Brand, Material, Brus]
         })
     res.json(responce)
 })
@@ -1296,11 +1296,20 @@ app.get('/product/:sProductURI', async (req, res) => {
             {
                 model: Brand,
                 attributes: ['sBrandTitle']
+            },
+            {
+                model: Material,
+                attributes: ['sMaterialTitle']
+            },
+            {
+                model: Brus
             }
+
         ]
     })
 
     data.product = await Product.getProduct(req.params.sProductURI)
+    
 
     // res.json(data.product)
     res.render('product.pug', data)
