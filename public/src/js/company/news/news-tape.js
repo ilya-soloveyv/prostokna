@@ -1,5 +1,4 @@
 if ($('#news-tape').length) {
-
     const cards = document.querySelectorAll('.card-border')
     const leng = cards.length / 2;
     let colCount = '';
@@ -11,21 +10,28 @@ if ($('#news-tape').length) {
     const cardsContainer = document.querySelector('.cards-container');
     cardsContainer.style.gridTemplateColumns = colCount;
 
-    if(window.innerWidth > 768){
-        $(function() {
 
-            $(".cards-container").mousewheel(function(event, delta) {
-                var mult = 1;
-                var $this = $(this);
-                if (event.timeStamp - $this.data('oldtimeStamp') < 1000) {
-                    //calculate easing here
-                    mult = 1000 / (event.timeStamp - $this.data('oldtimeStamp'));
-                }
-                $this.data('oldtimeStamp', event.timeStamp);
-                this.scrollLeft -= (delta) * mult;
-                event.preventDefault();
-            });
-        })
+            
+ 
+
+    if(window.innerWidth > 768){
+  
+    
+
+        $(".cards-container").mousewheel(function(event, delta) {
+            var mult = 1;
+            var $this = $(this);
+            if (event.timeStamp - $this.data('oldtimeStamp') < 1000) {
+                //calculate easing here
+                mult = 1000 / (event.timeStamp - $this.data('oldtimeStamp'));
+            }
+            $this.data('oldtimeStamp', event.timeStamp);
+            this.scrollLeft -= (delta) * mult;
+             this.style.transition = '1s';
+            event.preventDefault();
+        });
+
+        
     }
 
     const slider = document.querySelector('.cards-container');
@@ -56,7 +62,6 @@ if ($('#news-tape').length) {
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) - 15; //scroll-fast
       slider.scrollLeft = scrollLeft - walk;
-      console.log(walk);
     });
 
     
