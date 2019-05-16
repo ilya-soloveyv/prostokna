@@ -192,11 +192,10 @@
                 if image.iPhotoInDescOnPage == 1
                     img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
             h1 #{product.brand.sBrandTitle} #{product.sProductTitle}
-                if product.iGenerateUriMaterial
-                    |  #{product.material.sMaterialTitle}
-                //- -- console.log(product)
-                if product.iGenerateUriBrus
-                
-                    |  #{product.bru.sBrusTitle}
+                .small
+                    if product.iGenerateUriMaterial
+                        |  #{product.material.sMaterialTitle}
+                    if product.iGenerateUriBrus
+                        |  #{product.bru.sBrusTitle}
             .text!= product.sProductText
             button Добавить в калькулятор
