@@ -131,28 +131,29 @@
                             ul
                                 li
                                     span Монтажная глубина: 
-                                    | #{product.MountingDepth} мм;
+                                    | #{product.MountingDepth} мм
                                 li
                                     span Стеклопакет: 
-                                    | #{product.Profile};
+                                    | #{product.Profile}
                                 li
                                     span Класс профиля: 
-                                    | #{product.ProfileClass};
-                                li
-                                    span Колличество камер: 
-                                    | #{product.DoubleGlazing};
+                                    | #{product.ProfileClass}
+                                if product.DoubleGlazing
+                                    li
+                                        span Колличество камер: 
+                                        | #{product.DoubleGlazing}
                                 li
                                     span Сопротивление теплопередаче: 
-                                    | #{product.HeatTransferResistance};
+                                    | #{product.HeatTransferResistance}
                                 li
                                     span Выбор формы штапика: 
-                                    | #{product.ShapikShapeOptions};
+                                    | #{product.ShapikShapeOptions}
                                 li
                                     span Варианты декорирования: 
-                                    | #{product.DecorationOptions};
+                                    | #{product.DecorationOptions}
                                 li
                                     span Особенности профиля створки: 
-                                    | #{product.FrameFeature};
+                                    | #{product.FrameFeature}
                 ul.nav.nav-tabs
                     li.nav-item
                         a#home1-tab.nav-link.active(data-toggle="tab" href="#home1" aria-selected="true") Характристики

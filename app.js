@@ -211,7 +211,7 @@ data.left_menu = [
     },
     {
         title: 'Как мы работаем',
-        uri: '/',
+        uri: '/work',
         ico: [ '6.svg', '6a.svg' ]
     },
     {

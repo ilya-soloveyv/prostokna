@@ -979,6 +979,41 @@ ul.social_icons {
             font-size: 12px;
         }
     }
+    &.zay_modal_white {
+        .modal-content {
+            background: white !important;
+            .title {
+                color: #212529;
+            }
+            .desc {
+                color: #212529;
+            }
+            .help {
+                color: #212529;
+            }
+        }
+    }
+    &.zay_modal_black {
+        .modal-content {
+            background: #111111 !important;
+            .title {
+                color: white;
+            }
+            .desc {
+                color: white;
+            }
+            input, select {
+                background: #dddddd;
+            }
+            button {
+                background: linear-gradient(to right, #9b47e5 0%, #e45ae9 100%);
+                border: 1px solid #9b47e5;
+            }
+            .help {
+                color: white;
+            }
+        }
+    }
 }
 
 #thanks_modal {

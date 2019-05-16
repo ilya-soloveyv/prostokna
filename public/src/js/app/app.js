@@ -54,6 +54,13 @@ $(document).on('mouseenter', '#fullpage_nav ul', function(){
 
 
 // $("#zay_modal").modal()
+$('#zay_modal').on('show.bs.modal', function (e) {
+    var classmodal = $(e.relatedTarget).attr('data-class')
+    $('#zay_modal').addClass(classmodal)
+}).on('hidden.bs.modal', function (e) {
+    $('#zay_modal').removeClass('zay_modal_black').removeClass('zay_modal_white')
+})
+
 $(".form_contact input[name=tel]").inputmask('+7 (999) 999-99-99')
 $(".form_contact").submit(function () {
     var name = $(this).find('input[name="name"]')
