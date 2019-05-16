@@ -673,14 +673,23 @@ $speed: .25s;
             display: block;
             height: 30px;
             width: 30px;
-            opacity: .75;
-            img {
-              width: 100%;
-              height: 100%;
+            // opacity: .75;
+            background-image: url('/images/whatsapp_grey.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all .25s;
+            &:hover {
+                background-image: url('/images/whatsapp.svg');
+                transition: all .25s;
             }
-            img:hover {
-                opacity: 0.8;
-            }
+            // img {
+            //   width: 100%;
+            //   height: 100%;
+            // }
+            // img:hover {
+            //     opacity: 0.8;
+            // }
         }
         @media (max-width: 575px) {
             height: 49px;
