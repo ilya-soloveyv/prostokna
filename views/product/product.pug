@@ -193,9 +193,9 @@
                     img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
             h1 #{product.brand.sBrandTitle} #{product.sProductTitle}
                 .small
+                    if product.iGenerateUriBrus
+                        |  #{product.bru.sBrusTitle},
                     if product.iGenerateUriMaterial
                         |  #{product.material.sMaterialTitle}
-                    if product.iGenerateUriBrus
-                        |  #{product.bru.sBrusTitle}
             .text!= product.sProductText
             button Добавить в калькулятор
