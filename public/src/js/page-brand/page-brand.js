@@ -51,8 +51,7 @@ if ($('#page-brand').length) {
                   loop: true,
                   dots: false,
                   URLhashListener:true,
-                  autoplayHoverPause:true,
-                  startPosition: 'URLHash',
+                  startPosition: '0',
                   navText: ["<img src='/images/page-brand/prev.png'>","<img src='/images/page-brand/next.png'>"]
 
               }
