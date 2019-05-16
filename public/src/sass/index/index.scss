@@ -1,5 +1,7 @@
 #fullpage_welcome {
     .section {
+        position: relative;
+        height: 100vh;
         .fp-tableCell {
             .fp_bg {
                 position: absolute;
