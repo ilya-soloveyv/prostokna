@@ -975,6 +975,9 @@
                 .small {
                     font-size: 16px;
                     padding-top: .25rem;
+                    span {
+                        text-transform: capitalize;
+                    }
                 }
             }
             h2 {
