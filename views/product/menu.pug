@@ -18,7 +18,7 @@
                 - var i2 = 0
             .productsMenu__products__list(class= i == i2 ? "active" : "")
                 each prod, index2 in brand.products
-                    .productsMenu__products__list__product(class= prod.iProductID == product.iProductID ? "active" : "")
+                    .productsMenu__products__list__product(class= (product && prod.iProductID == product.iProductID) ? "active" : "")
                         a(href="/product/" + prod.sProductURI) #{brand.sBrandTitle} #{prod.sProductTitle}
                             if prod.iGenerateUriBrus
                                 |  - #{prod.bru.sBrusTitle},
