@@ -350,6 +350,7 @@ p {
 				&.active {
 					@media screen and (max-width: 992px) {
 						display: block;
+						animation: op 0.3s;
 					}					
 				}			
 				&_middle {
