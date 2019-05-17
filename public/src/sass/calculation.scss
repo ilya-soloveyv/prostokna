@@ -20,13 +20,15 @@ p {
 			justify-content: center;			
 		}
 		&__title {
-			margin-top: 5%;
 			font-size: 17px;
 			font-family: 'MontserratSemiBold';
 			text-transform: uppercase;
 			color: #fff;
 			text-align: center;
 			margin-bottom: 5%;
+			@media screen and (max-width: 576px){
+				margin-top: 5%;		
+			}
 		}
 }
 
@@ -79,8 +81,15 @@ p {
 				background: linear-gradient(to right, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b47e5', endColorstr='#e45ae9', GradientType=1 );
 				transform: scale(1);
+				@media screen and (max-width: 992px) {
+					background: #707070;
+				}
 			}
-		}
+			@media screen and (max-width: 992px) {
+				box-shadow: 0 0 0 3px #424242,
+										0 0 0 4px #707070;
+			}
+		}			
 	}
 	.num-wrapp  {
 		position: absolute;
@@ -234,6 +243,9 @@ p {
 			padding-right: 10%;
 			@media screen and (max-width: 1200px) {
 				padding-right: 0;
+			}
+			@media screen and (max-width: 576px) {
+				padding-top: 18px;
 			}
 			&__wrapp {
 				position: relative;				
@@ -423,7 +435,7 @@ p {
 				}
 				@media screen and (max-width: 576px) {
 					margin-bottom: 15px;
-					font-size: 11px;
+					font-size: 12px;
 				}
 				@media screen and (max-width: 359px) {
 					margin-bottom: 10px;
@@ -432,7 +444,7 @@ p {
 		}
 		.payment__wrapp {
 			font-family: 'MontserratMedium';
-			padding: 40px;
+			padding: 30px;
 			border-radius: 11px;
 			background: #343434;
 			@media screen and (max-width: 1400px) {

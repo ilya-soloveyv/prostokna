@@ -7,16 +7,17 @@ if ($('.calculation').length) {
 			.eq($(this).index()).addClass('active');		
 		
 	});
+	if ($(window).width() >= '992') {
+		$('.calc-content').hover(
+			function () {
 
-	$('.calc-content').hover( 
-		function () {
-		
-			$(this).closest('.calculation').find('.calc__item').removeClass('active')
-				.eq($(this).index()).addClass('active');
-		},
-		function () {
-			$(this).closest('.calculation').find('.calc__item').removeClass('active');
-		});
+				$(this).closest('.calculation').find('.calc__item').removeClass('active')
+					.eq($(this).index()).addClass('active');
+			},
+			function () {
+				$(this).closest('.calculation').find('.calc__item').removeClass('active');
+			});
+	}	
 
 	var calc = $('.calc__list li'),
 			contents = $('.calc-content');	
@@ -42,29 +43,6 @@ if ($('.calculation').length) {
 
 		function leftSwipe(event) {
 
-			if ($(calc[2]).hasClass('active')) {
-				$(calc[2]).removeClass('active');
-				$(calc[1]).addClass('active');
-
-				$(contents[2]).removeClass('active');
-				$(contents[1]).addClass('active');
-			} else if ($(calc[1]).hasClass('active')) {
-				$(calc[1]).removeClass('active');
-				$(calc[0]).addClass('active');
-
-				$(contents[1]).removeClass('active');
-				$(contents[0]).addClass('active');
-			} else if ($(calc[0]).hasClass('active')) {
-				$(calc[0]).removeClass('active');
-				$(calc[2]).addClass('active');
-
-				$(contents[0]).removeClass('active');
-				$(contents[2]).addClass('active');
-			}
-		}
-
-		function rightSwipe(event) {
-
 			if ($(calc[0]).hasClass('active')) {
 				$(calc[0]).removeClass('active');
 				$(calc[1]).addClass('active');
@@ -83,6 +61,29 @@ if ($('.calculation').length) {
 
 				$(contents[2]).removeClass('active');
 				$(contents[0]).addClass('active');
+			}
+		}
+
+		function rightSwipe(event) {			
+
+			if ($(calc[2]).hasClass('active')) {
+				$(calc[2]).removeClass('active');
+				$(calc[1]).addClass('active');
+
+				$(contents[2]).removeClass('active');
+				$(contents[1]).addClass('active');
+			} else if ($(calc[1]).hasClass('active')) {
+				$(calc[1]).removeClass('active');
+				$(calc[0]).addClass('active');
+
+				$(contents[1]).removeClass('active');
+				$(contents[0]).addClass('active');
+			} else if ($(calc[0]).hasClass('active')) {
+				$(calc[0]).removeClass('active');
+				$(calc[2]).addClass('active');
+
+				$(contents[0]).removeClass('active');
+				$(contents[2]).addClass('active');
 			}
 		}
 	}
