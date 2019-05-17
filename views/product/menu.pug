@@ -21,7 +21,7 @@
                     .productsMenu__products__list__product(class= (product && prod.iProductID == product.iProductID) ? "active" : "")
                         a(href="/product/" + prod.sProductURI) #{brand.sBrandTitle} #{prod.sProductTitle}
                             if prod.iGenerateUriBrus
-                                |  - #{prod.bru.sBrusTitle},
+                                |  #{prod.bru.sBrusTitle},
                             if prod.iGenerateUriMaterial
                                 |  #{prod.material.sMaterialTitle}
 
