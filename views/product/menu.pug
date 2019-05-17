@@ -1,11 +1,27 @@
 .productsMenu
     .productsMenu__brands
-        each product, index in productMenu
-            .productsMenu__brands__brand(class= index == 0 ? "active" : "")
-                a(href="#") #{product.sBrandTitle}
+        each brand, index in productMenu
+            if product
+                .productsMenu__brands__brand(class= brand.iBrandID == product.iBrandID ? "active" : "")
+                    a(href="#") #{brand.sBrandTitle}
+            else
+                .productsMenu__brands__brand(class= index == 0 ? "active" : "")
+                    a(href="#") #{brand.sBrandTitle}
     .productsMenu__products
-        each list, index in productMenu
-            .productsMenu__products__list(class= index == 0 ? "active" : "")
-                each product, index2 in list.products
-                    .productsMenu__products__list__product
-                        a(href="/product/" + product.sProductURI) #{list.sBrandTitle} #{product.sProductTitle}
+        //- pre #{product.iBrandID}
+        each brand, index in productMenu
+            if product
+                - var i = brand.iBrandID
+                - var i2 = product.iBrandID
+            else
+                - var i = index
+                - var i2 = 0
+            .productsMenu__products__list(class= i == i2 ? "active" : "")
+                each prod, index2 in brand.products
+                    .productsMenu__products__list__product(class= (product && prod.iProductID == product.iProductID) ? "active" : "")
+                        a(href="/product/" + prod.sProductURI) #{brand.sBrandTitle} #{prod.sProductTitle}
+                            if prod.iGenerateUriBrus
+                                |  #{prod.bru.sBrusTitle},
+                            if prod.iGenerateUriMaterial
+                                |  #{prod.material.sMaterialTitle}
+

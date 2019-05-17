@@ -235,7 +235,7 @@
                             .slick-track {
                                 .slick-slide {
                                     height: 175px;
-                                    padding: 5px;
+                                    padding: 15px;
                                     cursor: pointer;
                                     outline: none;
                                     @media (max-width: 1350px) {
@@ -326,10 +326,12 @@
                             width: 100%;
                             text-align: center;
                             img {
-                                // display: block;
                                 max-width: 100%;
                                 max-height: 100%;
                                 object-fit: contain;
+                                position: relative;
+                                top: 50%;
+                                transform: translate(0, -50%);
                             }
                         }
                     }
@@ -359,6 +361,9 @@
                                     max-width: 100%;
                                     max-height: 100%;
                                     object-fit: contain;
+                                    position: relative;
+                                    top: 50%;
+                                    transform: translate(0, -50%);
                                 }
                             }
                         }
@@ -966,6 +971,13 @@
                 @media (max-width: 800px) {
                     font-size: 14px;
                     margin-bottom: 10px;
+                }
+                .small {
+                    font-size: 16px;
+                    padding-top: .25rem;
+                    span {
+                        text-transform: capitalize;
+                    }
                 }
             }
             h2 {

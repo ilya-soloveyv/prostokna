@@ -175,8 +175,18 @@ app.get('*', async (req, res, next) => {
         include: [
             {
                 model: Product,
-                attributes: ['sProductTitle', 'sProductURI'],
-                required: true
+                attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
+                required: true,
+                include: [
+                    {
+                        model: Material,
+                        attributes: ['sMaterialTitle']
+                    },        
+                    {
+                        model: Brus,
+                        attributes: ['sBrusTitle']
+                    },        
+                ]
             }
         ]
     })
@@ -211,7 +221,7 @@ data.left_menu = [
     },
     {
         title: 'Как мы работаем',
-        uri: '/',
+        uri: '/work',
         ico: [ '6.svg', '6a.svg' ]
     },
     {
@@ -264,7 +274,7 @@ app.get('/admin', auth.connect(basic), (req, res) => {
 app.post('/admin/ProductList', async (req, res) => {
     var responce = {}
         responce.product = await Product.findAll({
-            include: [Brand]
+            include: [Brand, Material, Brus]
         })
     res.json(responce)
 })
@@ -634,14 +644,6 @@ app.post('/admin/GalleryRemove', async (req, res) => {
         data.gallery = await Gallery.getList()
     res.json(data)
 })
-
-
-
-
-
-
-
-
 
 
 
@@ -1281,6 +1283,7 @@ app.get('/gager', (req, res) => {
 app.get('/product', async (req, res) => {
     data.title = 'Окна'
     data.left_menu_active = 1
+    data.product = null
     // data.products = await Product.findAll({
     //     attributes: ['sProductTitle', 'sProductURI'],
     //     include: [
@@ -1290,7 +1293,7 @@ app.get('/product', async (req, res) => {
     //         }
     //     ]
     // })
-    // res.json(data.productMenu)
+    // res.json(data)
     res.render('product/products.pug', data)
 })
 
@@ -1304,11 +1307,20 @@ app.get('/product/:sProductURI', async (req, res) => {
             {
                 model: Brand,
                 attributes: ['sBrandTitle']
+            },
+            {
+                model: Material,
+                attributes: ['sMaterialTitle']
+            },
+            {
+                model: Brus
             }
+
         ]
     })
 
     data.product = await Product.getProduct(req.params.sProductURI)
+    
 
     // res.json(data.product)
     res.render('product.pug', data)
@@ -1388,6 +1400,13 @@ app.get('/news', (req, res) => {
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('company/news/news.pug', data)
+})
+
+app.get('/news-tape', (req, res) => {
+    data.title = 'news-tape'
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('company/news/news-tape.pug', data)
 })
 
 

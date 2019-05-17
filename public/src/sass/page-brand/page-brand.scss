@@ -43,8 +43,10 @@ line-height: 20px;
 
 }
 .photo{
-  display: flex;
-  justify-content: center;
+  a{
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .owl-item.active.center{
@@ -128,6 +130,15 @@ line-height: 20px;
     }
   
 }
+.owl-nav{
+  @media screen and (min-width: 754px){
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    top: 81%;
+    left: 0;
+  }
+}
 .owl-nav,.navigation{
   display: flex;
   justify-content: space-between;
@@ -174,7 +185,10 @@ line-height: 20px;
 }
 
 .container_slider,.slider-nav{
- 
+ position: relative;
+ @media screen and (max-width: 766px){
+   position: relative;
+ }
   }
   .slide,.slide1{
     position: relative;

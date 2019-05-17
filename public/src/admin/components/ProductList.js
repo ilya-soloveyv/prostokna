@@ -23,6 +23,12 @@ export default {
                         #{{ product.iProductID }} | 
                         <template v-if="product.brand">
                             {{ product.brand.sBrandTitle }} {{ product.sProductTitle }}
+                            <template v-if="product.iGenerateUriMaterial">
+                                {{ product.material.sMaterialTitle }}
+                            </template>
+                            <template v-if="product.iGenerateUriBrus">
+                                {{ product.bru.sBrusTitle }}
+                            </template>
                         </template>
                         <template v-else>
                             {{ product.sProductTitle }}

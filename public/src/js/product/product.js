@@ -38,6 +38,9 @@ $(document).ready(function(){
 
             if (typeof sProductImageBackName !== 'undefined') {
                 $("#product .data .basic .gallery .view2 .back .bg img").attr('src', '/images/product/gallery/' + sProductImageBackName).show()
+                $("#product .data .basic .gallery .view2 .front").stop().animate({
+                    width: $("#product .data .basic .gallery .view2").width()/2
+                }, 150)
             } else {
                 $("#product .data .basic .gallery .view2 .back img").hide()
                 $("#product .data .basic .gallery .view2 .front").stop().animate({
@@ -88,6 +91,7 @@ function toggleProductSubmenu () {
     } else {
         // product_hamburger.addClass('is-active')
         product_catalog_modal.modal()
+
     }
 }
 $('#product_catalog_modal').on('show.bs.modal', function (event) {

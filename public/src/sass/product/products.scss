@@ -47,6 +47,11 @@
                 a {
                     color: white;
                 }
+                &.active {
+                    a {
+                        color: #2d70e4;
+                    }                    
+                }
             }
             &.active {
                 display: block;

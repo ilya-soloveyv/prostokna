@@ -118,6 +118,23 @@ if ($("#gallery").length) {
     })
 
 
+    document.addEventListener('swiped-left', function(e) {
+        console.log(e)
+        var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
+        $('#gallery .head .title').html(href)
+        console.log(href);
+        location = href
+        
+    });
+
+    document.addEventListener('swiped-right', function(e) {
+        console.log(e)
+        var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
+        $('#gallery .head .title').html(href)
+        console.log(href);
+        location = href
+    });
+
     function imageZoomOpen (i) {
         // $('.owl-carousel .item').remove()
         // $("#gallery .item .images ul li").each(function (i, el) {

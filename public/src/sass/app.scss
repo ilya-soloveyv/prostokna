@@ -673,14 +673,23 @@ $speed: .25s;
             display: block;
             height: 30px;
             width: 30px;
-            opacity: .75;
-            img {
-              width: 100%;
-              height: 100%;
+            // opacity: .75;
+            background-image: url('/images/whatsapp_grey.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all .25s;
+            &:hover {
+                background-image: url('/images/whatsapp.svg');
+                transition: all .25s;
             }
-            img:hover {
-                opacity: 0.8;
-            }
+            // img {
+            //   width: 100%;
+            //   height: 100%;
+            // }
+            // img:hover {
+            //     opacity: 0.8;
+            // }
         }
         @media (max-width: 575px) {
             height: 49px;
@@ -977,6 +986,41 @@ ul.social_icons {
         .help {
             font-family: 'Montserrat';
             font-size: 12px;
+        }
+    }
+    &.zay_modal_white {
+        .modal-content {
+            background: white !important;
+            .title {
+                color: #212529;
+            }
+            .desc {
+                color: #212529;
+            }
+            .help {
+                color: #212529;
+            }
+        }
+    }
+    &.zay_modal_black {
+        .modal-content {
+            background: #111111 !important;
+            .title {
+                color: white;
+            }
+            .desc {
+                color: white;
+            }
+            input, select {
+                background: #dddddd;
+            }
+            button {
+                background: linear-gradient(to right, #9b47e5 0%, #e45ae9 100%);
+                border: 1px solid #9b47e5;
+            }
+            .help {
+                color: white;
+            }
         }
     }
 }

@@ -35,6 +35,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/product/product.css")
             link(rel="stylesheet", href="/src/css/company/company.css")
             link(rel="stylesheet", href="/src/css/company/news/news.css")
+            link(rel="stylesheet", href="/src/css/company/news/news-tape.css")
             link(rel="stylesheet", href="/src/css/company/innovation/cheaper-together.css")
             link(rel="stylesheet", href="/src/css/pay/pay.css")
             link(rel="stylesheet", href="/src/css/palette/palette.css")
@@ -52,7 +53,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/calculation.css")
             link(rel="stylesheet", href="/src/css/page-brand/page-brand.css")
         else
-            link(rel="stylesheet", href="/app-13afdd8631.min.css")
+            link(rel="stylesheet", href="/app-258de11e08.min.css")
     body
         #top
             .logo
@@ -64,28 +65,14 @@ html(lang="ru")
                     input(type='text',placeholder='Введите поисковый запрос...').form-control.form-control-pokna.small.grey
             .phone
                 a.tel(href='tel:+74993912221') +7 499 391 22 21
-                a.callme(href='#' data-toggle="modal" data-target="#zay_modal") Перезвоните мне
-                a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5')
-                    img(src='/images/top/whatsapp_top_bl.svg', alt='4')
+                a.callme(href='#' data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white") Перезвоните мне
+                a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5' target="_blank")
+                    //- img(src='/images/top/whatsapp_top_bl.svg', alt='4')
             .l
                 .handle
                     .hamburger.hamburger--elastic
                         .hamburger-box
                             .hamburger-inner
-                    //- #hamburger.hamburglar
-                        .burger-icon
-                            span.burger-bun-top
-                            span.burger-filling
-                            span.burger-bun-bot
-                        .burger-ring
-                            svg.svg-ring
-                                path.path(fill='none', stroke='#232323', stroke-miterlimit='10', stroke-width='4', d='M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2')
-                        svg(width='0', height='0')
-                            mask#mask
-                                path(xmlns='http://www.w3.org/2000/svg', fill='none', stroke='#ff0000', stroke-miterlimit='10', stroke-width='4', d='M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4')
-                        .path-burger
-                            .animate-path
-                                .path-rotation
                 .menu
                     ul
                         if left_menu
@@ -104,7 +91,6 @@ html(lang="ru")
             .cal
                 .img
         block content
-
         .modal#wiki_catalog_modal(tabindex="-1", role="dialog")
             .modal-dialog(role="document")
                 .modal-content
@@ -127,8 +113,7 @@ html(lang="ru")
                             a(href="/wiki") Стекло и стеклопакеты
                         li
                             a(href="/wiki") Двери 
-
-        .modal#zay_modal(tabindex="-1", role="dialog")
+        .modal.fade#zay_modal(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
                     .close-modal(data-dismiss="modal")
@@ -157,7 +142,6 @@ html(lang="ru")
                                             option= val
                         button.btn.btn-primary.btn-block.mb-4 Заказать обратный звонок
                     .help * - Обязательные к заполнению поля
-
         .modal#thanks_modal(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
@@ -165,8 +149,6 @@ html(lang="ru")
                         i.material-icons close
                     .title Спасибо!
                     .desc Ваша заявка отправлена
-                                
-
         if env.NODE_ENV == 'development'
             script(src='/vue/vue.js')
             script(src='/src/js/jquery-3.3.1.js')
@@ -175,13 +157,12 @@ html(lang="ru")
             script(src='/src/js/popper.js')
             script(src='/src/js/tooltip.min.js')
             script(src='/src/js/bootstrap.js')
+            script(src='/src/js/swiped-events.js')
             script(src='/jquery-mousewheel/jquery.mousewheel.js')
             script(src='/src/js/jquery.fullpage.min.js')
             script(src='/src/js/owl.carousel.min.js')
             script(src='/src/js/jquery.touchSwipe.min.js')
             script(src='/src/js/jquery.knob.min.js')
-            //- script(src='/src/js/jquery.disablescroll.min.js')
-            //- script(src='/src/js/slick.js')
             script(src='/slick/slick.min.js')
             script(src='/src/js/rangeslider.min.js')
             script(src='/src/js/jquery.scrollbar.min.js')
@@ -209,6 +190,7 @@ html(lang="ru")
             script(src='/src/js/instruction/video.js')
             script(src='/src/js/company/company.js')
             script(src='/src/js/company/news/news.js')
+            script(src='/src/js/company/news/news-tape.js')
             script(src='/src/js/company/innovation/cheaper-together.js')
             script(src='/src/js/corporate/corporate.js')
             script(src='/src/js/regulation_window/regulation_window.js')
@@ -219,12 +201,10 @@ html(lang="ru")
             script(src='/src/js/calculation.js')
             script(src='/src/js/page-brand/page-brand.js')
         else
+            script(src='/app-6b0c9c780c.min.js')
 
             script(type="text/javascript").
                 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(21714754, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
             noscript
                 div
                     img(src="https://mc.yandex.ru/watch/21714754" style="position:absolute; left:-9999px;" alt="")
-
-            script(src='/app-b3d59b454b.min.js')
-            
