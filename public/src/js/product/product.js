@@ -91,6 +91,7 @@ function toggleProductSubmenu () {
     } else {
         // product_hamburger.addClass('is-active')
         product_catalog_modal.modal()
+
     }
 }
 $('#product_catalog_modal').on('show.bs.modal', function (event) {

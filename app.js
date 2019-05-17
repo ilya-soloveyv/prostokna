@@ -175,8 +175,18 @@ app.get('*', async (req, res, next) => {
         include: [
             {
                 model: Product,
-                attributes: ['sProductTitle', 'sProductURI'],
-                required: true
+                attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
+                required: true,
+                include: [
+                    {
+                        model: Material,
+                        attributes: ['sMaterialTitle']
+                    },        
+                    {
+                        model: Brus,
+                        attributes: ['sBrusTitle']
+                    },        
+                ]
             }
         ]
     })
@@ -1273,6 +1283,7 @@ app.get('/gager', (req, res) => {
 app.get('/product', async (req, res) => {
     data.title = 'Окна'
     data.left_menu_active = 1
+    data.product = null
     // data.products = await Product.findAll({
     //     attributes: ['sProductTitle', 'sProductURI'],
     //     include: [
@@ -1282,7 +1293,7 @@ app.get('/product', async (req, res) => {
     //         }
     //     ]
     // })
-    // res.json(data.productMenu)
+    // res.json(data)
     res.render('product/products.pug', data)
 })
 
