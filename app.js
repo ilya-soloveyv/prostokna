@@ -1397,6 +1397,12 @@ app.get('/news-tape', (req, res) => {
     res.render('company/news/news-tape.pug', data)
 })
 
+app.get('/favorites', (req, res) => {
+    data.title = 'favorites'
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('favorites/favorites.pug', data)
+})
 
 app.get('/page-brand', (req, res) => {
     data.title = 'page-brand'
