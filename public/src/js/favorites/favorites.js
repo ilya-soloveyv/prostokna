@@ -6,6 +6,22 @@ if ($('#favorites').length) {
         //counting howmatch want row from grid
     function countRow(queryEl){
         const elems = document.querySelectorAll('.' + queryEl)
+        if(window.innerWidth > 1300){
+            const leng = Math.ceil(elems.length / 5);
+            let tmplRow = ''
+            for(let i = 0; i < leng; i++){
+                tmplRow += ' 400px';
+            }
+            $('.favorites-cards-container').css('grid-template-rows', `${tmplRow}`)
+        }
+        if(window.innerWidth > 1000 && window.innerWidth < 1300){
+            const leng = Math.ceil(elems.length / 4);
+            let tmplRow = ''
+            for(let i = 0; i < leng; i++){
+                tmplRow += ' 400px';
+            }
+            $('.favorites-cards-container').css('grid-template-rows', `${tmplRow}`)
+        }
         if( window.innerWidth < 1000 && window.innerWidth > 610){
             const leng = Math.ceil(elems.length / 3);
             let tmplRow = ''
