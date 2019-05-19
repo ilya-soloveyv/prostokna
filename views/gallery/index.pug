@@ -2,13 +2,26 @@ extends ../layouts/app
 
 block content
     #gallery.ppage
-        include head
-        .list
-            ul
-                each item in gallery
-                    li
-                        .bg
-                            a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID id='gallery_item_' + item.iGalleryID)
-                                if item.gallery_images[0]
-                                    img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
-                                .title= item.sGalleryTitle
+        //- include head
+        .bgScroll
+            .head
+                .title Галлерея
+                ul
+                    li(class={active: !gallery_group_active})
+                        a(href="/gallery")
+                            img(src="/images/gallery/all.svg", alt="")
+                            span Все
+                    each group in gallery_group
+                        li(class={active: gallery_group_active == group.sGalleryGroupUri})
+                            a(href="/gallery/" + group.sGalleryGroupUri)
+                                img(src="/images/gallery/" + group.sGalleryGroupUri + ".svg", alt="")
+                                span= group.sGalleryGroupTitle
+            .list
+                ul
+                    each item in gallery
+                        li
+                            .bg
+                                a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID id='gallery_item_' + item.iGalleryID)
+                                    if item.gallery_images[0]
+                                        img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
+                                    .title= item.sGalleryTitle
