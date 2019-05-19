@@ -10,5 +10,18 @@
         flex-grow: 1;
         background: yellow;
         height: 100px;
+        display: flex;
+        flex-direction: row;
+        .col1 {
+            flex-basis: 30%;
+            background: green;
+            overflow: auto;
+        }
+        .col2 {
+            flex-basis: 40%;
+        }
+        .col3 {
+            flex-basis: 30%;
+        }
     }
 }
