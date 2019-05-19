@@ -6,28 +6,20 @@ $text: #353535;
     color: $text;
 		font-family: 'MontserratMedium';
 		padding-bottom: 33px;
-		@media screen and (max-width: 1200px){
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
+		display: flex;
+		flex-direction: column;
+		
 		@media screen and (max-width: 992px){
 			justify-content: flex-start;
 		}
 		&__title {
 			font-size: 28px;
 			font-family: 'MontserratSemiBold';
+			flex-basis: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			text-align: center;
-			margin-top: 3%;
-			@media screen and (max-width: 1400px){
-				margin-top: 5%;
-			}
-			@media screen and (max-width: 1200px){
-				margin-top: 0;
-			}
-			@media screen and (max-width: 992px){
-				margin-top: 5%;
-			}
 			@media screen and (max-width: 768px){
 				font-size: 23px;
 				padding: 0 3%;
@@ -35,7 +27,8 @@ $text: #353535;
 		}
 		&__radios {
 			position: absolute;
-			top: 27vw;
+			top: 50%;
+			transform: translateY(-50%);
 			right: 32px;
 			display: flex;
 			flex-direction: column;
@@ -113,25 +106,26 @@ $text: #353535;
 		&__wrapp {			
 			width: 90%;
 			margin: 0 auto;
-			margin-top: 64px;
 			display: none;
 			justify-content: space-between;
-			align-items: flex-start;
 			animation: op .3s;
+			height: 100px;
+			flex-grow: 1;
 			@media screen and (max-width: 992px){
 				margin-top: 25px;
 			}
 			&.active {
 				display: flex;
-				animation: op 1s;
+				animation: op 1s;	
 			}
 			@media screen and (max-width: 992px){
 				flex-direction: column;
 				align-items: center;
+				height: auto;
 			}			
 		}
 		&__block {
-			width: 29%;
+			flex-basis: 30%;
 			@media screen and (max-width: 992px){
 				width: 70%;
 			}
@@ -141,7 +135,9 @@ $text: #353535;
 		}
 
 		// DESCRIPTION SECTION
-		&__more {			
+		&__more {
+			overflow: auto;
+			height: 100%;		
 			@media screen and (max-width: 992px){
 				display: none;
 				position: absolute;
@@ -152,9 +148,14 @@ $text: #353535;
 				background: #e4e4e4;
 				border-radius: 20px;
 				z-index: 3;
+				overflow: visible;
+				height: auto;
 			}
 			@media screen and (max-width: 768px){
 				padding: 40px;
+			}	
+			@media screen and (max-width: 576px){
+				padding: 20px;
 			}	
 		}
 		&__desc {
@@ -215,42 +216,34 @@ $text: #353535;
 			&:last-child {
 				margin-bottom: 0;
 			}
+			@media screen and (max-width: 992px){
+				padding-right: 0;
+			}
 		}
-		.fixed {
-			@media screen and (max-width: 1600px) {
-				height: 33vw;
-				overflow-y: scroll;
-				&::-webkit-scrollbar { 
-					width: 5px;
-				}
-				&::-webkit-scrollbar-track {
-						margin-bottom: 20px;
-						border-radius: 5px;
-						background: #aaa;
-						@media (max-width: 767px) {
-								margin-bottom: .25rem;
-						}
-				}
-				/* Handle */
-				&::-webkit-scrollbar-thumb {
-						background: $accent;
-						border-radius: 5px;
-				}
-				/* Handle on hover */
-				&::-webkit-scrollbar-thumb:hover {
-						background: darken($accent, 10%);
-				}
-			}				
-			@media screen and (max-width: 992px) {
-				height: auto;
-				overflow-y: visible;
-			}				
+		.fixed {					
+			&::-webkit-scrollbar { 
+				width: 5px;
+			}
+			&::-webkit-scrollbar-track {
+					margin-bottom: 20px;
+					border-radius: 5px;
+					background: #aaa;					
+			}
+			/* Handle */
+			&::-webkit-scrollbar-thumb {
+					background: $accent;
+					border-radius: 5px;
+			}
+			/* Handle on hover */
+			&::-webkit-scrollbar-thumb:hover {
+					background: darken($accent, 10%);
+			}							
 		}
 
 		// IMAGE SECTION
 
 		&__img {
-			position: relative;
+			position: relative;			
 			.num {				
 				&__item {
 					position: absolute;
@@ -267,7 +260,7 @@ $text: #353535;
 					color: $accent;
 					transition: .3s;
 					z-index: 2;
-					@media screen and (max-width: 1200px){
+					@media screen and (max-width: 1400px){
 						width: 35px;
 						height: 35px;
 						font-size: 18px;
@@ -293,9 +286,10 @@ $text: #353535;
 				}
 			}
 			&.window {
-				width: 32%;
+				align-self: flex-start;				
 				@media screen and (max-width: 992px){
 					width: 70%;
+					align-self: auto;
 				}
 				@media screen and (max-width: 576px){
 					width: 90%;
@@ -360,12 +354,10 @@ $text: #353535;
 				}
 			}
 			&.balcony {
-				width: 37%;
-				@media screen and (max-width: 1200px){
-					width: 33%;
-				}
+				align-self: flex-start;		
 				@media screen and (max-width: 992px){
 					width: 70%;
+					align-self: auto;
 				}
 				@media screen and (max-width: 576px){
 					width: 90%;
@@ -428,8 +420,9 @@ $text: #353535;
 
 		&__accor {
 			margin-top: 40px;
-			padding-right: 25px;
-			margin-right: 20px;
+			overflow: auto;
+			margin-right: 38px;
+    	padding-right: 10px;
 			@media screen and (max-width: 1200px){
 				margin-right: 33px;
 			}
@@ -475,60 +468,4 @@ $text: #353535;
 		}
 
 }
-
-.instruction__more > .scroll-element,
-.instruction__more > .scroll-element div
-{
-    border: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    z-index: 10;
-}
- 
-.instruction__more > .scroll-element div {
-    display: block;
-    height: 100%;
-    left: 0;
-    top: 0;
-    width: 100%;
-}
- 
-.instruction__more > .scroll-element.scroll-x {
-    bottom: 2px;
-    height: 8px;
-    left: 0;
-    width: 100%;
-}
- 
-.instruction__more > .scroll-element.scroll-y {
-    height: 100%;
-    right: 2px;
-    top: 0;
-    width: 4px;
-}
- 
-.instruction__more > .scroll-element .scroll-element_outer {
-    overflow: hidden;
-}
- 
-.instruction__more > .scroll-element .scroll-element_outer,
-.instruction__more > .scroll-element .scroll-element_track,
-.instruction__more > .scroll-element .scroll-bar {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-}
- 
-.instruction__more > .scroll-element .scroll-element_track,
-.instruction__more > .scroll-element .scroll-bar {
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-    filter: alpha(opacity=40);
-    opacity: 0.9;
-}
- 
-.instruction__more > .scroll-element .scroll-element_track { background-color: #e0e0e0; }
-.instruction__more > .scroll-element .scroll-bar { background-color: #c2c2c2; transition: background-color .2s; }
-.instruction__more > .scroll-element:hover .scroll-bar { background-color: $accent; }
-.instruction__more > .scroll-element.scroll-draggable .scroll-bar { background-color: $accent; }
 
