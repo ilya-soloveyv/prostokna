@@ -19,6 +19,9 @@
         .header-container{
             margin: 2rem;
             height: 150px;
+            @media screen and (max-width: 426px){
+                margin:0;
+            }
         }
         .look-all{
             width: 138px;
@@ -45,6 +48,7 @@
         .favorites-card-button, .btn-view, .tab-favorites, .look-all{
             cursor: pointer;
         }
+        
         .favorites-cards-container{
             display: grid;
             grid-template-columns:19% 19% 19% 19% 19%;
@@ -68,12 +72,12 @@
                 grid-template-columns: 49% 49%;
                 grid-gap: 10vw 2%;
             }
-            @media screen and (max-width:420px){
-                grid-template-columns: 100%;
-                .favorites-card-item{
-                    margin: 15px 0;
-                }
-            }
+            // @media screen and (max-width:420px){
+            //     grid-template-columns: 100%;
+            //     .favorites-card-item{
+            //         margin: 15px 0;
+            //     }
+            // }
         }
         .favorites-card-item,.favorites-card-body{
             display: flex;
@@ -84,6 +88,25 @@
         .favorites-card-item{
             width:100%;
             position: relative;
+
+            .favorites-card-header{
+                @media screen and (max-width: 426px){
+                    width:80%;
+                }
+            }
+            a.favorites-card-button{
+                @media screen and (max-width: 426px){
+                 width: 35px;
+                 height:35px;               
+                }
+                img{
+                    @media screen and (max-width: 426px){
+                        width: 50%;
+                    }
+                }
+            }
+
+
             @media screen and (max-width: 400px) {
                 width: 100%
             }
@@ -95,6 +118,7 @@
             .favorites-card-body{
             @media screen and (max-width: 980px){
                 &:hover{
+
                 &:nth-last-of-type(-n+3){
                     .favorites{
                         padding-bottom: 500px;
@@ -121,30 +145,61 @@
                     position: absolute;
                     height: 350px;
                     top: 15%;  
+                    
                     @media screen and (max-width: 980px){
                         height: 202%;
                         z-index:10;
                         
                     }
-                    @media screen and (max-width: 420px){
-                        height: auto;
-                        position: inherit;
-                        margin-top: 0;
-                        margin-bottom: 30px;
-                    }
+                    @media screen and (max-width: 426px){
+                        height: 190%;
+                        padding: 1rem 1rem;
+                       }
+                    // @media screen and (max-width: 426px){
+                    //     height: auto;
+                    //     position: inherit;
+                    //     margin-top: 0;
+                    //     margin-bottom: 30px;
+                    // }
                     .favorites-card-body-text{
                         width: 100%;
                         display:block;
                         text-align: left;
+                        @media screen and (max-width: 426px){
+                         font-size: .6em;   
+                        }
+                        @media screen and (max-width: 350px){
+                            font-size: .5em;   
+                           }
                     }
                     #view.card-modals-view{
                         display: block;
+                        margin-top: .7rem;
+                        margin-bottom: 1.2rem;
+                        @media screen and (max-width: 426px){
+                         font-size: .6em;
+                         padding-top: .7rem;
+                         padding-bottom: 1rem;  
+                         margin: 0; 
+                        }
+                        @media screen and (max-width: 350px){
+                            font-size: .5em;   
+                           }
                         div{
                             display: block;
                         }
                     }
                     .btn-view{
                         display: block;
+                        @media screen and (max-width:1000px){
+                            padding: 3px 0;
+                        }
+                        @media screen and (max-width: 426px){
+                            font-size: .8em;
+                        }
+                        @media screen and (max-width: 330px){
+                            font-size: .6em;
+                        }
                     }
                 }
              }
@@ -176,9 +231,23 @@
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
             border-radius: 20px;
             border: 1px solid #95989a;
-            padding: 1rem 2rem;
+            padding: 1rem 1rem;
             width: 100%;
             position: relative;
+            // .button-view-all{
+            //     a{
+            //         color: black;
+            //         font-size: 2em;
+            //         @media screen and (max-width: 426px){
+            //             font-size: 1em;           
+            //            }
+            //     }
+            // }
+            .card-title{
+                @media screen and (max-width: 426px){
+                 font-size: .8em;           
+                }
+            }
             &>div{
                 margin: .3rem 0;
             }
@@ -187,11 +256,20 @@
                 border: 1px solid #ffffff;
                 padding: 2px;
                 margin:0;
+                @media screen and (max-width: 426px){
+                    border-radius: 3px;
+                    padding: 1px;
+                }
                 .card-color{
                     background: #9f9e9d;
                     width: 29px;
                     height: 29px;
                     border-radius: 6px;
+                    @media screen and (max-width: 426px){
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 3px;
+                    }
                     &.backColorLight{
                         background: $colorLight;
                     }
@@ -220,7 +298,7 @@
                 @media screen and (max-width: 750px) {
                     margin: 2rem 0;
                 }
-                @media screen and (max-width: 420px) {
+                @media screen and (max-width: 426px) {
                     margin: 1rem 0;
                 }
             }
@@ -234,6 +312,9 @@
                     width:100%;
                     border: 1px solid white;
                     border-radius: 20px;
+                }
+                @media screen and (max-width: 426px){
+                    padding: 3px 0;
                 }
             }
             .favorites-card-body-text{
@@ -251,6 +332,18 @@
                 align-items: center;
                 flex-direction: column;
                 justify-content: center;
+                @media screen and (max-width: 426px){
+                            height: 120px;
+                            width: 100%;
+                }
+                @media screen and (max-width: 426px){
+                    height: 120px;
+                    width: 100%;
+        }
+        @media screen and (max-width: 350px){
+            height: 120px;
+            width: 100%;
+}
                 img{
                     width: 100%;
                 }
@@ -260,6 +353,9 @@
     .card-modals{
         font-size: .7em;
         text-transform: uppercase;
+        @media screen and (max-width: 426px){
+            font-size: .5em;                   
+        }
     }
     section.favorites .favorites-card-body.active{
         height: 300px;
