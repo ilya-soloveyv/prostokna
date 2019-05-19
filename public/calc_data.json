@@ -1,4 +1,76 @@
 {
+    "material": [
+        {
+            "title": "Пластик",
+            "brand": [
+                {
+                    "title": "Alutech"
+                },
+                {
+                    "title": "KBE"
+                },
+                {
+                    "title": "Montblanc"
+                },
+                {
+                    "title": "Novotex"
+                },
+                {
+                    "title": "Rehau",
+                    "models": [
+                        {
+                            "title": "Euro"
+                        },
+                        {
+                            "title": "Blitz New"
+                        },
+                        {
+                            "title": "Delight"
+                        },
+                        {
+                            "title": "Grazio"
+                        },
+                        {
+                            "title": "Intelio"
+                        },
+                        {
+                            "title": "Brillant"
+                        },
+                        {
+                            "title": "Geneo"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Алюминий"
+        },
+        {
+            "title": "Сосна"
+        },
+        {
+            "title": "Лиственница"
+        },
+        {
+            "title": "Дуб"
+        }
+    ],
+    "element": [
+        {
+            "title": "Одностворчатое окно"
+        },
+        {
+            "title": "Двухстворчатое окно"
+        },
+        {
+            "title": "Трехстворчатое окно"
+        },
+        {
+            "title": "Дверь"
+        }
+    ],
+    
     "materials": [
         {
             "title": "Пластик",
