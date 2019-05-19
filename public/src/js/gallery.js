@@ -1,4 +1,33 @@
 if ($("#gallery").length) {
+
+
+    var galleryScrollPos = 0;
+    $('#gallery .bgScroll').scroll(function(e) {
+        var windowWidth = $(window).width()
+        console.log(windowWidth)
+        var st = $(this).scrollTop()
+
+        if (st < 200) {
+            // $('#gallery .head').css({position: 'absolute', left: 0, top: 0})
+        } else {
+            // $('#gallery .head').css({position: 'fixed', left: 60, top: 60})
+        }
+
+        if (st > galleryScrollPos) {
+            if (st > 200) {
+                $('#gallery .head').css({position: 'absolute', top:-200})
+            }
+            console.log('down')
+        } else {
+            $('#gallery .head').css({position: 'fixed', top:60})
+            console.log('up')
+        }
+
+        galleryScrollPos = st
+    })
+
+
+
     $(document).ready(function(){
         resizeGalleryListItemBlock()
     }).on("click", "#gallery .item .images ul li img", function () {
@@ -10,7 +39,7 @@ if ($("#gallery").length) {
         $('#gallery .list li').height(width)
     }
     $(window).resize(function(){
-        resizeGalleryListItemBlock()
+        // resizeGalleryListItemBlock()
     })
 
     // $(function () {
@@ -41,9 +70,9 @@ if ($("#gallery").length) {
         // })
 
 
-        $('[data-toggle="popover"]').popover({
-          container: 'body'
-        })
+        // $('[data-toggle="popover"]').popover({
+        //   container: 'body'
+        // })
     //   })
 
     // $("#gallery .item .pagg .pagg_list").scrollTop(150)

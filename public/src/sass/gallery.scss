@@ -1,18 +1,37 @@
 #gallery {
     background: #EDEDED;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    height: 1px;
+    height: calc(100vh - 60px);
+    overflow: hidden;
     @media (max-width: 1199px) {
         display: block;
     }
+    .bgScroll {
+        // max-height: 100%;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+        padding-top: 200px;
+    }
     .head {
-        flex-basis: 12rem;
-        flex-shrink: 0;
-        flex-grow: 0;
+        // flex-basis: 12rem;
+        // flex-shrink: 0;
+        // flex-grow: 0;
+        // background: #EDEDED;
+        background: red;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        z-index: 2;
+        // transition: all .25s;
         @media (max-width: 767px) {
             margin: 1rem 0;
             flex-basis: 8rem;
@@ -131,12 +150,12 @@
     .list {
         flex-grow: 1;
         flex-shrink: 0;
-        padding: 0 6rem;
-        margin: 0 6rem;
+        padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
-        height: 100px;
         overflow: auto;
+        background: green;
         @media (max-width: 1400px) {
             padding: 0 4rem;
             margin: 0 4rem;
@@ -145,30 +164,30 @@
             padding: 0 .25rem;
             margin: 0 .25rem;
         }
-        &::-webkit-scrollbar {
-            width: .5rem;
-            @media (max-width: 767px) {
-                width: .25rem;
-            }
-        }
-        /* Track */
-        &::-webkit-scrollbar-track {
-            margin-bottom: 6rem;
-            border-radius: 5px;
-            background: linear-gradient(0deg, #E55AE9, #9C47E5);
-            @media (max-width: 767px) {
-                margin-bottom: .25rem;
-            }
-        }
-        /* Handle */
-        &::-webkit-scrollbar-thumb {
-            background: white;
-            border-radius: 5px;
-        }
-        /* Handle on hover */
-        &::-webkit-scrollbar-thumb:hover {
-            // background: #555;
-        }
+        // &::-webkit-scrollbar {
+        //     width: .5rem;
+        //     @media (max-width: 767px) {
+        //         width: .25rem;
+        //     }
+        // }
+        // /* Track */
+        // &::-webkit-scrollbar-track {
+        //     margin-bottom: 6rem;
+        //     border-radius: 5px;
+        //     background: linear-gradient(0deg, #E55AE9, #9C47E5);
+        //     @media (max-width: 767px) {
+        //         margin-bottom: .25rem;
+        //     }
+        // }
+        // /* Handle */
+        // &::-webkit-scrollbar-thumb {
+        //     background: white;
+        //     border-radius: 5px;
+        // }
+        // /* Handle on hover */
+        // &::-webkit-scrollbar-thumb:hover {
+        //     // background: #555;
+        // }
         ul {
             flex-grow: 1;
             flex-shrink: 0;
@@ -176,10 +195,10 @@
             flex-direction: row;
             flex-wrap: wrap;
             height: 100%;
-            margin: 0 0 0 .5rem;
+            margin: 0;
             li {
                 width: 25%;
-                height: 25vh;
+                // height: 25vh;
                 display: flex;
                 @media (max-width: 1000px) {
                     width: 33.33%;
@@ -190,7 +209,7 @@
                     height: 33.33vh;
                 }
                 .bg {
-                    margin: 0 .5rem 1rem .5rem;
+                    margin: 0;
                     // margin: 0;
                     flex-grow: 1;
                     background: white;
