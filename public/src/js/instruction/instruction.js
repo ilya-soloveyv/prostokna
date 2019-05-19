@@ -8,14 +8,13 @@ if ($('.instruction').length) {
 		$(this).next().slideToggle();
 	}
 
-	$('.num .num__item').on('click', function(){
+	$('.instruction__wrapp .num .num__item').on('click', function(){
 		$(this).addClass('active').siblings().removeClass('active').closest('.instruction__wrapp').find('.instruction__accor .acc__title').eq($(this).index()).click();
 
 	});
 	
-	
 
-	var it = $('.instruction__wrapp.active .num__item');
+	var it = $('.instruction__wrapp.active .num__item:first-child');
 	if ($(it).hasClass('active') == true) {
 		$('.instruction__wrapp.active .instruction__accor .acc__title:first-child').click();
 	}
@@ -30,7 +29,7 @@ if ($('.instruction').length) {
 		} else if (check == 2) {
 			$(trg).first().removeClass('active');
 			$(trg).last().addClass('active');
-		}
+		}		
 	})
 
 	$('.instruction__wrapp .instruction__btn').on('click',function(){

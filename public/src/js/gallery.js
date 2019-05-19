@@ -5,6 +5,9 @@ if ($("#gallery").length) {
     $('#gallery .bgScroll').scroll(function(e) {
         var windowWidth = $(window).width()
         console.log(windowWidth)
+        if (windowWidth) {
+
+        }
         var st = $(this).scrollTop()
 
         if (st < 200) {
