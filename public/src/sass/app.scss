@@ -991,6 +991,11 @@ ul.social_icons {
     &.zay_modal_white {
         .modal-content {
             background: white !important;
+            .close-modal {
+                i {
+                    color: black;
+                }
+            }
             .title {
                 color: #212529;
             }
@@ -1005,6 +1010,11 @@ ul.social_icons {
     &.zay_modal_black {
         .modal-content {
             background: #111111 !important;
+            .close-modal {
+                i {
+                    color: white;
+                }
+            }
             .title {
                 color: white;
             }
