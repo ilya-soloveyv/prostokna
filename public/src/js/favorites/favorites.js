@@ -5,7 +5,10 @@ if ($('#favorites').length) {
         const card = document.querySelectorAll('.card-photo')
         for(let i = 0; i< card.length; i++){
             if(card[i].childNodes[0].clientHeight > 100){
+                if(window.innerWidth <376)
                 card[i].style.width = '40%';
+                if(window.innerWidth < 426 && window.innerWidth > 376)
+                card[i].style.width = '30%';
             } 
         }
     }

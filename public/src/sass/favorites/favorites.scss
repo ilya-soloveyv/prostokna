@@ -138,7 +138,25 @@
                     margin-top: 30px;
                     justify-content: flex-start;
                     background-image: linear-gradient(to top, #83f2fc 0%, #a3bbf9 52%, #d957e7 100%);
-                                  
+                    @keyframes toggle{
+                        0%{
+                            height: 0%;
+                        }
+                        100%{
+                            height: 85%;
+                        }
+                    }
+                    @media screen and (max-width: 1000px){
+                        @keyframes toggle{
+                            0%{
+                                height: 0%;
+                            }
+                            100%{
+                                height: 200%;
+                            }
+                        }        
+                    }
+                    animation: toggle 1s ease; 
                     div{
                         display: none;
                     }
