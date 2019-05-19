@@ -120,7 +120,7 @@ if($('#calc').length) {
                     this.calc()
                 },
                 calc: function () {
-                    return false
+                    // return false
                     var materials = this.materials[this.windows[this.current_window].material]
                     var brands = (materials.brands && materials.brands[this.windows[this.current_window].brand]) ? materials.brands[this.windows[this.current_window].brand] : false
                     var models = (brands.models && brands.models[this.windows[this.current_window].model]) ? brands.models[this.windows[this.current_window].model] : false
