@@ -1,3 +1,14 @@
 #instruction_video {
     background: green;
+    display: flex;
+    flex-direction: column;
+    .title {
+        flex-basis: 100px;
+        background: red;
+    }
+    .data {
+        flex-grow: 1;
+        background: yellow;
+        height: 100px;
+    }
 }
