@@ -2,7 +2,7 @@ if ($("#gallery").length) {
 
 
     var galleryScrollPos = 0;
-    $('#gallery .bgScroll').scroll(function(e) {
+    $('#gallery .wrap').scroll(function(e) {
         var windowWidth = $(window).width()
         console.log(windowWidth)
         if (windowWidth) {
@@ -17,12 +17,12 @@ if ($("#gallery").length) {
         }
 
         if (st > galleryScrollPos) {
-            if (st > 200) {
-                $('#gallery .head').css({position: 'absolute', top:-200})
+            if (st > 120) {
+                $('#gallery .head').addClass('hide')
             }
             console.log('down')
         } else {
-            $('#gallery .head').css({position: 'fixed', top:60})
+            $('#gallery .head').removeClass('hide')
             console.log('up')
         }
 
@@ -32,15 +32,15 @@ if ($("#gallery").length) {
 
 
     $(document).ready(function(){
-        resizeGalleryListItemBlock()
+        // resizeGalleryListItemBlock()
     }).on("click", "#gallery .item .images ul li img", function () {
         var src = $(this).attr('src')
         $("#gallery .item .zoom img").attr('src', src)
     })
-    function resizeGalleryListItemBlock() {
-        var width = $('#gallery .list li').width()
-        $('#gallery .list li').height(width)
-    }
+    // function resizeGalleryListItemBlock() {
+    //     var width = $('#gallery .list li').width()
+    //     $('#gallery .list li').height(width)
+    // }
     $(window).resize(function(){
         // resizeGalleryListItemBlock()
     })

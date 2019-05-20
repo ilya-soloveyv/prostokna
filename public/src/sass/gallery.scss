@@ -1,40 +1,77 @@
 #gallery {
     background: #EDEDED;
+    // background: yellow;
     // display: flex;
     // flex-direction: column;
     height: 1px;
     height: calc(100vh - 60px);
     overflow: hidden;
+    // position: relative;
     @media (max-width: 1199px) {
         display: block;
     }
-    .bgScroll {
-        // max-height: 100%;
+    .wrap {
+        position: relative;
         height: 100%;
         overflow: auto;
-        position: relative;
-        padding-top: 200px;
+        margin: 0 125px 0 125px;
+        padding: 200px 125px 0 125px;
+        @media (max-width: 1400px) {
+            margin: 0 100px 0 100px;
+            padding: 200px 100px 0 100px;
+        }
+        @media (max-width: 1199px) {
+            margin: 0 50px 0 50px;
+            padding: 200px 50px 0 50px;
+        }
+        @media (max-width: 767px) {
+            margin: 0 5px 0 5px;
+            padding: 120px 5px 0 5px;
+        }
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            margin: 200px 0 100px 0;
+            border-radius: 5px;
+            background: linear-gradient(0deg, #E55AE9, #9C47E5);
+            @media (max-width: 767px) {
+                margin: 120px 0 20px 0;
+            }
+        }
+        &::-webkit-scrollbar-thumb {
+            background: white;
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255,255,255,.95);
+        }
     }
     .head {
         // flex-basis: 12rem;
         // flex-shrink: 0;
         // flex-grow: 0;
-        // background: #EDEDED;
-        background: red;
+        background: #EDEDED;
+        // background: red;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        top: 0;
+        position: fixed;
+        top: 60px;
         left: 0;
         right: 0;
         height: 200px;
         z-index: 2;
-        // transition: all .25s;
+        transition: all .25s;
         @media (max-width: 767px) {
-            margin: 1rem 0;
-            flex-basis: 8rem;
+            top: 50px;
+            height: 120px;
+            &.hide {
+                top: -200px;
+            }
+            // margin: 1rem 0;
+            // flex-basis: 8rem;
         }
         .title {
             font-family: 'MontserratSemiBold';
@@ -154,66 +191,40 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        overflow: auto;
-        background: green;
-        @media (max-width: 1400px) {
-            padding: 0 4rem;
-            margin: 0 4rem;
-        }
-        @media (max-width: 767px) {
-            padding: 0 .25rem;
-            margin: 0 .25rem;
-        }
-        // &::-webkit-scrollbar {
-        //     width: .5rem;
-        //     @media (max-width: 767px) {
-        //         width: .25rem;
-        //     }
-        // }
-        // /* Track */
-        // &::-webkit-scrollbar-track {
-        //     margin-bottom: 6rem;
-        //     border-radius: 5px;
-        //     background: linear-gradient(0deg, #E55AE9, #9C47E5);
-        //     @media (max-width: 767px) {
-        //         margin-bottom: .25rem;
-        //     }
-        // }
-        // /* Handle */
-        // &::-webkit-scrollbar-thumb {
-        //     background: white;
-        //     border-radius: 5px;
-        // }
-        // /* Handle on hover */
-        // &::-webkit-scrollbar-thumb:hover {
-        //     // background: #555;
-        // }
+        // overflow: auto;
+        // background: green;
         ul {
             flex-grow: 1;
             flex-shrink: 0;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            // display: flex;
+            // flex-direction: row;
+            // flex-wrap: wrap;
             height: 100%;
             margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 20px;
+            @media (max-width: 1000px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            @media (max-width: 767px) {
+                grid-template-columns: 1fr 1fr;
+            }
             li {
-                width: 25%;
+                // width: 25%;
                 // height: 25vh;
-                display: flex;
-                @media (max-width: 1000px) {
-                    width: 33.33%;
-                    height: 33.33vh;
-                }
-                @media (max-width: 767px) {
-                    width: 50%;
-                    height: 33.33vh;
-                }
+                // display: flex;
+                padding-top: 100%;
+                position: relative;
+                background: white;
                 .bg {
                     margin: 0;
                     // margin: 0;
                     flex-grow: 1;
                     background: white;
-                    position: relative;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     img {
                         object-fit: cover;
                         width: 100%;
