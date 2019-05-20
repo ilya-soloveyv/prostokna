@@ -5,7 +5,7 @@
     // flex-direction: column;
     height: 1px;
     height: calc(100vh - 60px);
-    overflow: hidden;
+    // overflow: hidden;
     // position: relative;
     @media (max-width: 1199px) {
         display: block;
@@ -209,6 +209,7 @@
             }
             @media (max-width: 767px) {
                 grid-template-columns: 1fr 1fr;
+                grid-gap: 10px;
             }
             li {
                 // width: 25%;
