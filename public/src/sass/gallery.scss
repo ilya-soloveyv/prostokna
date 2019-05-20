@@ -11,7 +11,7 @@
         display: block;
     }
     .wrap {
-        position: relative;
+        // position: relative;
         height: 100%;
         overflow: auto;
         margin: 0 125px 0 125px;
@@ -28,24 +28,24 @@
             margin: 0 5px 0 5px;
             padding: 120px 5px 0 5px;
         }
-        &::-webkit-scrollbar {
-            width: 5px;
-        }
-        &::-webkit-scrollbar-track {
-            margin: 200px 0 100px 0;
-            border-radius: 5px;
-            background: linear-gradient(0deg, #E55AE9, #9C47E5);
-            @media (max-width: 767px) {
-                margin: 120px 0 20px 0;
-            }
-        }
-        &::-webkit-scrollbar-thumb {
-            background: white;
-            border-radius: 5px;
-        }
-        &::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(255,255,255,.95);
-        }
+        // &::-webkit-scrollbar {
+        //     width: 5px;
+        // }
+        // &::-webkit-scrollbar-track {
+        //     margin: 200px 0 100px 0;
+        //     border-radius: 5px;
+        //     background: linear-gradient(0deg, #E55AE9, #9C47E5);
+        //     @media (max-width: 767px) {
+        //         margin: 120px 0 20px 0;
+        //     }
+        // }
+        // &::-webkit-scrollbar-thumb {
+        //     background: white;
+        //     border-radius: 5px;
+        // }
+        // &::-webkit-scrollbar-thumb:hover {
+        //     background-color: rgba(255,255,255,.95);
+        // }
     }
     .head {
         // flex-basis: 12rem;
