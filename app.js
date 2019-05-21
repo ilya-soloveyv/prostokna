@@ -38,6 +38,7 @@ app.use('/bootstrap-select', express.static(__dirname + '/node_modules/bootstrap
 app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
 app.use('/slick', express.static(__dirname + '/node_modules/slick-carousel/slick'))
 app.use('/jquery-mousewheel', express.static(__dirname + '/node_modules/jquery-mousewheel'))
+app.use('/minibarjs', express.static(__dirname + '/node_modules/minibarjs/dist'))
 
 
 
