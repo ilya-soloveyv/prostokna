@@ -166,9 +166,6 @@ if ($("#gallery").length) {
         // })
 
 
-        // $('[data-toggle="popover"]').popover({
-        //   container: 'body'
-        // })
     //   })
 
     // $("#gallery .item .pagg .pagg_list").scrollTop(150)
@@ -224,6 +221,10 @@ if ($("#gallery").length) {
 
     // }
 
+    $('[data-toggle="popover"]').popover({
+        container: 'body'
+    })
+
 
     $("#gallery .item .images ul li img").click(function () {
         var i = $(this).parent().index()
@@ -243,21 +244,30 @@ if ($("#gallery").length) {
     })
 
 
-    document.addEventListener('swiped-left', function(e) {
-        console.log(e)
+    var gallery_card = document.getElementById('gallery_card')
+
+    gallery_card.addEventListener('swiped-left', function(e) {
+        // console.log(e)
         var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
-        $('#gallery .head .title').html(href)
-        console.log(href);
-        location = href
+        if (href) {
+            location = href
+        }
+        // console.log(href)
+        // $('#gallery .head .title').html(href)
+        // console.log(href);
+        // location = href
         
     });
 
-    document.addEventListener('swiped-right', function(e) {
-        console.log(e)
+    gallery_card.addEventListener('swiped-right', function(e) {
+        // console.log(e)
         var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
-        $('#gallery .head .title').html(href)
-        console.log(href);
-        location = href
+        if (href) {
+            location = href
+        }
+        // $('#gallery .head .title').html(href)
+        // console.log(href);
+        // location = href
     });
 
     function imageZoomOpen (i) {
@@ -276,5 +286,27 @@ if ($("#gallery").length) {
         $("#imageZoom").removeClass('active')
         $("html, body").css({overflow: 'auto'})
     }
+
+
+
+
+    var galleryScrollPos2 = 0
+    gallery_card.addEventListener('scroll', function(e) {
+
+        var st = $(gallery_card).scrollTop()
+
+        if (st > galleryScrollPos2) {
+            if (st > 120) {
+                $('#gallery .head').addClass('hide')
+            }
+            console.log('down')
+        } else {
+            $('#gallery .head').removeClass('hide')
+            console.log('up')
+        }
+
+        galleryScrollPos2 = st
+
+    });
 
 }
