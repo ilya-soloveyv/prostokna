@@ -6,26 +6,29 @@ if ($("#gallery").length) {
     // var scrollbar = Scrollbar.init(elem, {
     //     alwaysShowTracks: true
     // })
-
-    var galleryScrollPos = 0;
-    new MiniBar(document.getElementById('gallery_scroll'), {
-        alwaysShowBars: true,
-        onScroll: function(e) {
-            st = e.scrollTop
-
-            if (st > galleryScrollPos) {
-                if (st > 120) {
-                    $('#gallery .head').addClass('hide')
+    var gallery_scroll = document.getElementById('gallery_scroll')
+    if (gallery_scroll) {
+        var galleryScrollPos = 0;
+        new MiniBar(gallery_scroll, {
+            alwaysShowBars: true,
+            onScroll: function(e) {
+                st = e.scrollTop
+    
+                if (st > galleryScrollPos) {
+                    if (st > 120) {
+                        $('#gallery .head').addClass('hide')
+                    }
+                    console.log('down')
+                } else {
+                    $('#gallery .head').removeClass('hide')
+                    console.log('up')
                 }
-                console.log('down')
-            } else {
-                $('#gallery .head').removeClass('hide')
-                console.log('up')
+    
+                galleryScrollPos = st
             }
+        })
+    }
 
-            galleryScrollPos = st
-        }
-    })
 
     // Scrollbar.initAll({
     //     alwaysShowTracks: true
