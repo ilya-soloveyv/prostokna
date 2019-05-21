@@ -1,33 +1,123 @@
+
 if ($("#gallery").length) {
 
+    // var elem = document.getElementById("gallery_scroll")
+    // console.log(elem)
+    // var scrollbar = Scrollbar.init(elem, {
+    //     alwaysShowTracks: true
+    // })
 
     var galleryScrollPos = 0;
-    $('#gallery .wrap').scroll(function(e) {
-        var windowWidth = $(window).width()
-        console.log(windowWidth)
-        if (windowWidth) {
+    new MiniBar(document.getElementById('gallery_scroll'), {
+        alwaysShowBars: true,
+        onScroll: function(e) {
+            st = e.scrollTop
 
-        }
-        var st = $(this).scrollTop()
-
-        if (st < 200) {
-            // $('#gallery .head').css({position: 'absolute', left: 0, top: 0})
-        } else {
-            // $('#gallery .head').css({position: 'fixed', left: 60, top: 60})
-        }
-
-        if (st > galleryScrollPos) {
-            if (st > 120) {
-                $('#gallery .head').addClass('hide')
+            if (st > galleryScrollPos) {
+                if (st > 120) {
+                    $('#gallery .head').addClass('hide')
+                }
+                console.log('down')
+            } else {
+                $('#gallery .head').removeClass('hide')
+                console.log('up')
             }
-            console.log('down')
-        } else {
-            $('#gallery .head').removeClass('hide')
-            console.log('up')
-        }
 
-        galleryScrollPos = st
+            galleryScrollPos = st
+        }
     })
+
+    // Scrollbar.initAll({
+    //     alwaysShowTracks: true
+    // })
+
+    // console.log(Scrollbar.get())
+
+    // window.addEventListener('scroll', (e) => {
+        // console.log(1)
+    // })
+
+    // console.log(Scrollbar)
+
+    // Scrollbar.addListener(function() {
+        // console.log(1)
+        // output.textContent = scrollbar.isVisible(content);
+    //   });
+
+    // var galleryScrollPos = 0;
+    // setInterval(function(){
+
+
+    //     var x = Scrollbar.get('.wrap')
+    //     console.log(x)
+
+
+    //     var t = $('.scroll-content').css('transform').replace(/[^0-9\-.,]/g, '').split(',')
+    //     st = Number(t[5])
+    //     console.log(st)
+
+    //     if (st < galleryScrollPos) {
+    //         if (st < -200) {
+    //             $('#gallery .head').addClass('hide')
+    //         }
+    //         console.log('down')
+    //     } else if (st > galleryScrollPos) {
+    //         $('#gallery .head').removeClass('hide')
+    //         console.log('up')
+    //     }
+
+    //     galleryScrollPos = st
+    // }, 100)
+
+
+
+
+
+
+
+
+
+    // Scrollbar.wheelEventTarget((e) => {
+    //     console.log(e) // returns “scrollTop” equivalent
+    // })
+    // var x = Scrollbar.getAll()
+    // console.log(x)
+    
+    // $('.wrap').scroll(function(e){
+    //     console.log(e)
+    // })
+
+    // $('body').addClass('gallery_scroll')
+
+    
+
+    // var galleryScrollPos = 0;
+    // $(window).scroll(function(e) {
+    //     var windowWidth = $(window).width()
+    //     console.log(windowWidth)
+    //     if (windowWidth) {
+
+    //     }
+    //     var st = $(this).scrollTop()
+
+    //     if (st < 200) {
+    //         // $('#gallery .head').css({position: 'absolute', left: 0, top: 0})
+    //     } else {
+    //         // $('#gallery .head').css({position: 'fixed', left: 60, top: 60})
+    //     }
+
+    //     if (st > galleryScrollPos) {
+    //         if (st > 120) {
+    //             $('#gallery .head').addClass('hide')
+    //         }
+    //         console.log('down')
+    //     } else {
+    //         $('#gallery .head').removeClass('hide')
+    //         console.log('up')
+    //     }
+
+    //     galleryScrollPos = st
+    // })
 
 
 
