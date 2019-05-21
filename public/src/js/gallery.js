@@ -227,8 +227,10 @@ if ($("#gallery").length) {
 
 
     $("#gallery .item .images ul li img").click(function () {
-        var i = $(this).parent().index()
-        imageZoomOpen(i)
+        if ($(window).width() < 1200) {
+            var i = $(this).parent().index()
+            imageZoomOpen(i)
+        }
     })
     $("#imageZoom .nav_close").click(function () {
         imageZoomClose()
