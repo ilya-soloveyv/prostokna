@@ -194,6 +194,16 @@
         -webkit-overflow-scrolling: touch;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        @media (max-width: 1199px) {
+            height: 100%;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 10px;
+            // padding: 120px 0 0 0 !important;
+            // height: calc(100% - 120px);
+        }
         &::-webkit-scrollbar {
             width: 5px;
         }
