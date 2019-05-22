@@ -1480,6 +1480,7 @@ app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
     data.gallery = await Gallery.getList({
         iGalleryID: req.params.iGalleryID
     })
+    // res.json(data.gallery_list)
     res.render('gallery/item', data)
 })
 app.get('/work', async (req, res) => {
