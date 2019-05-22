@@ -17,7 +17,7 @@
         overflow: hidden;
         transition: .7 all;
         .header-container{
-            margin: 2rem;
+            margin-top: 2em;
             height: 150px;
             @media screen and (max-width: 426px){
                 margin:0;
@@ -48,11 +48,14 @@
         .favorites-card-button, .btn-view, .tab-favorites, .look-all{
             cursor: pointer;
         }
-        
+        .lines-container{
+            justify-content: space-around;
+        }
         .favorites-cards-container{
-            display: grid;
-            grid-template-columns:19% 19% 19% 19% 19%;
-            grid-gap: 10vw 1.2%;
+            // display: grid;
+            // grid-template-columns:19% 19% 19% 19% 19%;
+            // grid-gap: 10vw 1.2%;
+            width: 19%;
             text-align: center;
             color: white;
             // @media screen and (max-width:1300px){
@@ -61,16 +64,13 @@
             // }
            
             @media screen and (max-width:1300px){
-                grid-template-columns: 23% 23% 23% 23%;
-                grid-gap: 10vw 2.6%;
+                width: 23%;
             }
             @media screen and (max-width:1000px){
-                grid-template-columns: 32% 32% 32%;
-                grid-gap: 10vw 2%;
+                width: 31%;
             }
             @media screen and (max-width:610px){
-                grid-template-columns: 49% 49%;
-                grid-gap: 10vw 2%;
+                width: 47%;
             }
             // @media screen and (max-width:420px){
             //     grid-template-columns: 100%;
@@ -88,10 +88,11 @@
         .favorites-card-item{
             width:100%;
             position: relative;
-
+            margin-top: 30px;
+            cursor: pointer;
             .favorites-card-header{
                 @media screen and (max-width: 426px){
-                    width:80%;
+                    width:100%;
                 }
             }
             a.favorites-card-button{
@@ -128,98 +129,7 @@
             }
         }
             &:hover{
-             
-                
-                .favorites-card-header{
-                    display: flex;
-                }
-                .favorites-card-body{
-               //     height: 100%;
-                    margin-top: 30px;
-                    justify-content: flex-start;
-                    background-image: linear-gradient(to top, #83f2fc 0%, #a3bbf9 52%, #d957e7 100%);
-                    @keyframes toggle{
-                        0%{
-                            height: 0%;
-                        }
-                        100%{
-                            height: 85%;
-                        }
-                    }
-                    @media screen and (max-width: 1000px){
-                        @keyframes toggle{
-                            0%{
-                                height: 0%;
-                            }
-                            100%{
-                                height: 200%;
-                            }
-                        }        
-                    }
-                    animation: toggle 1s ease; 
-                    div{
-                        display: none;
-                    }
-                    position: absolute;
-                    height: 350px;
-                    top: 15%;  
-                    
-                    @media screen and (max-width: 980px){
-                        height: 202%;
-                        z-index:10;
-                        
-                    }
-                    @media screen and (max-width: 426px){
-                        height: 190%;
-                        padding: 1rem 1rem;
-                       }
-                    // @media screen and (max-width: 426px){
-                    //     height: auto;
-                    //     position: inherit;
-                    //     margin-top: 0;
-                    //     margin-bottom: 30px;
-                    // }
-                    .favorites-card-body-text{
-                        width: 100%;
-                        display:block;
-                        text-align: left;
-                        @media screen and (max-width: 426px){
-                         font-size: .6em;   
-                        }
-                        @media screen and (max-width: 350px){
-                            font-size: .5em;   
-                           }
-                    }
-                    #view.card-modals-view{
-                        display: block;
-                        margin-top: .7rem;
-                        margin-bottom: 1.2rem;
-                        @media screen and (max-width: 426px){
-                         font-size: .6em;
-                         padding-top: .7rem;
-                         padding-bottom: 1rem;  
-                         margin: 0; 
-                        }
-                        @media screen and (max-width: 350px){
-                            font-size: .5em;   
-                           }
-                        div{
-                            display: block;
-                        }
-                    }
-                    .btn-view{
-                        display: block;
-                        @media screen and (max-width:1000px){
-                            padding: 3px 0;
-                        }
-                        @media screen and (max-width: 426px){
-                            font-size: .8em;
-                        }
-                        @media screen and (max-width: 330px){
-                            font-size: .6em;
-                        }
-                    }
-                }
+               
              }
         }
         .favorites-card-header{
@@ -227,6 +137,9 @@
             justify-content: space-around;
             display: none;
             width: 70%;
+            @media screen and (max-width: 1000px) {
+                width: 100%;
+            }
             .favorites-card-button{
                 display: flex;
                 align-items: center;
@@ -243,6 +156,12 @@
                 &.window{
                     background-color: #89e6fb;
                 }
+                &.close{
+                    background-color: #535353;
+                    img{
+                        width: 25%;
+                    }
+                }
             }
         }
         .favorites-card-body{
@@ -252,6 +171,16 @@
             padding: 1rem 1rem;
             width: 100%;
             position: relative;
+            @media screen and (max-width: 768px){
+                padding: 1rem 1.5rem;
+            }
+            @media screen and (max-width: 520px){
+                padding: 1rem 2rem;
+            }
+            @media screen and (max-width: 426px){
+                border-radius: 15px;
+                padding: 1rem 1rem;
+            }
             // .button-view-all{
             //     a{
             //         color: black;
@@ -262,8 +191,9 @@
             //     }
             // }
             .card-title{
+                text-transform: uppercase;
                 @media screen and (max-width: 426px){
-                 font-size: .8em;           
+                 font-size: .7em;           
                 }
             }
             &>div{
@@ -273,10 +203,11 @@
                 border-radius: 9px;
                 border: 1px solid #ffffff;
                 padding: 2px;
-                margin:0;
+                margin:10px 0;
                 @media screen and (max-width: 426px){
                     border-radius: 3px;
                     padding: 1px;
+                    margin:6px 0;
                 }
                 .card-color{
                     background: #9f9e9d;
@@ -321,7 +252,7 @@
                 }
             }
             .btn-view{
-                font-size: 1.2em;
+                font-size: 1em;
                 border: none;
                 background: transparent;
                 border-bottom: 1px solid #414141;
@@ -342,30 +273,9 @@
                 letter-spacing: 0.22px;
                 line-height: 18px;
                 font-weight: 600;
+                margin-bottom: 20px;
             }
-            .card-photo{
-                text-align: center;
-                height: 200px;
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: center;
-                @media screen and (max-width: 426px){
-                            height: 120px;
-                            width: 100%;
-                }
-                @media screen and (max-width: 426px){
-                    height: 120px;
-                    width: 100%;
-        }
-        @media screen and (max-width: 350px){
-            height: 120px;
-            width: 100%;
-}
-                img{
-                    width: 100%;
-                }
-            }
+         
         }
     }
     .card-modals{
@@ -375,11 +285,120 @@
             font-size: .5em;                   
         }
     }
-    section.favorites .favorites-card-body.active{
-        height: 300px;
-                position: absolute;
-                width: 19%;
-                top: 10%;
+    
+    section.favorites {
+        .btn-view-mob.dots{
+            margin-top: 20px;
+        }
+        .card-photo{
+            text-align: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width:100%;
+            @media screen and (min-width: 1000px){
+                width: 70%;
+                height: 170px;
+            }    
+
+            @media screen and (max-width: 426px){
+                height: 100px;
+                width: 70%;
+    }
+    @media screen and (max-width: 350px){
+        height: 120px;
+        width: 100%;
+        }
+            img{
+                width: 100%;
+            }
+        }
+
+        .active{
+            cursor: auto;
+            .favorites-card-header{
+                display: flex;
+            }
+            .favorites-card-body{
+                height: 100%;
+                margin-top: 30px;
+                justify-content: flex-start;
+                background-image: linear-gradient(to top, #83f2fc 0%, #a3bbf9 52%, #d957e7 100%);
+               
+                animation: toggle 1s ease; 
+                padding: 2em 3em;
+                div{
+                    display: none;
+                }
+              //  position: absolute;
+                top: 15%;  
+                
+                @media screen and (max-width: 980px){
+                    height: 202%;
+                    z-index:10;
+                    padding: 2em 2em;
+                    
+                }
+                @media screen and (max-width: 426px){
+                    padding: 1em 1em;
+                   }
+                // @media screen and (max-width: 426px){
+                //     height: auto;
+                //     position: inherit;
+                //     margin-top: 0;
+                //     margin-bottom: 30px;
+                // }
+                .favorites-card-body-text{
+                    width: 100%;
+                    display:block;
+                    text-align: left;
+                    @media screen and (max-width: 426px){
+                     font-size: .6em;   
+                    }
+                    @media screen and (max-width: 350px){
+                        font-size: .5em;   
+                       }
+                }
+                #view.card-modals-view{
+                    display: block;
+                    margin-top: .7rem;
+                    margin-bottom: 1.2rem;
+                    font-weight: 600;
+                    @media screen and (max-width: 426px){
+                     font-size: .6em;
+                     padding-top: .7rem;
+                     padding-bottom: 1rem;  
+                     margin: 0; 
+                    }
+                    @media screen and (max-width: 350px){
+                        font-size: .5em;   
+                       }
+                    div{
+                        display: block;
+                    }
+                }
+                .btn-view{
+                    display: block;
+                    @media screen and (max-width:1000px){
+                        padding: 3px 0;
+                    }
+                    @media screen and (max-width: 426px){
+                        font-size: .7em;
+                    }
+                    @media screen and (max-width: 330px){
+                        font-size: .6em;
+                    }
+                }
+                .btn-view-mob{
+                    display: none;
+                }
+            }
+        }
     }
     
 }
