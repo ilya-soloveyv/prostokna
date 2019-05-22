@@ -248,29 +248,32 @@ if ($("#gallery").length) {
 
     var gallery_card = document.getElementById('gallery_card')
 
-    gallery_card.addEventListener('swiped-left', function(e) {
-        // console.log(e)
-        var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
-        if (href) {
-            location = href
-        }
-        // console.log(href)
-        // $('#gallery .head .title').html(href)
-        // console.log(href);
-        // location = href
-        
-    });
+    if (gallery_card) {
+        gallery_card.addEventListener('swiped-left', function(e) {
+            // console.log(e)
+            var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
+            if (href) {
+                location = href
+            }
+            // console.log(href)
+            // $('#gallery .head .title').html(href)
+            // console.log(href);
+            // location = href
+            
+        });
 
-    gallery_card.addEventListener('swiped-right', function(e) {
-        // console.log(e)
-        var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
-        if (href) {
-            location = href
-        }
-        // $('#gallery .head .title').html(href)
-        // console.log(href);
-        // location = href
-    });
+        gallery_card.addEventListener('swiped-right', function(e) {
+            // console.log(e)
+            var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
+            if (href) {
+                location = href
+            }
+            // $('#gallery .head .title').html(href)
+            // console.log(href);
+            // location = href
+        });
+    }
+
 
     function imageZoomOpen (i) {
         // $('.owl-carousel .item').remove()
@@ -291,24 +294,110 @@ if ($("#gallery").length) {
 
 
 
+    if (gallery_card) {
+        var galleryScrollPos2 = 0
+        gallery_card.addEventListener('scroll', function(e) {
 
-    var galleryScrollPos2 = 0
-    gallery_card.addEventListener('scroll', function(e) {
+            var st = $(gallery_card).scrollTop()
 
-        var st = $(gallery_card).scrollTop()
-
-        if (st > galleryScrollPos2) {
-            if (st > 120) {
-                $('#gallery .head').addClass('hide')
+            if (st > galleryScrollPos2) {
+                if (st > 120) {
+                    $('#gallery .head').addClass('hide')
+                }
+                console.log('down')
+            } else {
+                $('#gallery .head').removeClass('hide')
+                console.log('up')
             }
-            console.log('down')
-        } else {
+
+            galleryScrollPos2 = st
+
+        });
+
+    }
+
+
+    var gallery_card_owl = document.getElementById('gallery_card_owl')
+    if (gallery_card_owl) {
+
+
+        var owl = $('#gallery_card_owl')
+        owl.on('changed.owl.carousel', function(event) {
+            // console.log('changed.owl.carousel')
+            $('.owl-item').scrollTop(0)
             $('#gallery .head').removeClass('hide')
-            console.log('up')
+            scroll_active_gallery_card()
+
+            // var x = $('.owl-item.active')
+            // if (x.length) {
+            //     var iGalleryID = x.find('.owl-item-gallery-card').attr('data-iGalleryID')
+            //     console.log(iGalleryID)
+            //     window.history.pushState(null, null, '/gallery/big/' + iGalleryID)
+            //     // history.pushState(null, null, '/gallery/big/' + iGalleryID)
+            // }
+            
+            // var id_active = $('')
+            // history.pushState(null, null, '/gallery/big/21111')
+        })
+        owl.on('initialized.owl.carousel', function(event) {
+            // console.log('initialized.owl.carousel')
+            // var x = $('.owl-item.active')
+            // console.log(x)
+            scroll_active_gallery_card()
+            owl.trigger("to.owl.carousel", [2,0])
+        })
+        owl.owlCarousel({
+            items: 1
+        })
+
+        function scroll_active_gallery_card () {
+            var galleryScrollPos3 = 0
+            var gallery_card_owl_item_active = document.getElementsByClassName('owl-item active')[0]
+            if (gallery_card_owl_item_active) {
+                // console.log(gallery_card_owl_item_active)
+                gallery_card_owl_item_active.addEventListener('scroll', function(e) {
+                    var st = $(this).scrollTop()
+
+                    if (st > galleryScrollPos3) {
+                        if (st > 120) {
+                            $('#gallery .head').addClass('hide')
+                        }
+                        // console.log('down')
+                    } else {
+                        $('#gallery .head').removeClass('hide')
+                        // console.log('up')
+                    }
+
+                    galleryScrollPos3 = st
+                })                
+            }
         }
+        
+        $("#gallery_card_owl").click(function(){
+            
+        })
 
-        galleryScrollPos2 = st
 
-    });
+
+        // $(document).ready(function () {
+        //     $("").owlCarousel({
+        //         items: 1
+        //     })
+        // })
+
+
+        // var gallery_card_owl_item_list = document.getElementsByClassName('owl-item')
+        // console.log(gallery_card_owl_item_list)
+        // var gallery_card_owl_item = gallery_card_owl_item_list[0]
+        // console.log(gallery_card_owl_item)
+        // gallery_card_owl_item_list.forEach(element => {
+        //     element.addEventListener('scroll', function(e) {
+        //         console.log(e)
+        //     })
+        // })
+        // console.log(gallery_card_owl_item[0])
+        // console.log(gallery_card_owl_item)
+        // var st = $('.owl-item.active').scrollTop();
+    }
 
 }

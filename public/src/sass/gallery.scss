@@ -187,6 +187,7 @@
         flex-shrink: 0;
         margin: 0;
         padding: 0 250px;
+        -webkit-overflow-scrolling: touch;
         @media (max-width: 1400px) {
             padding: 0 200px;
         }
@@ -210,6 +211,7 @@
             height: calc(100% - 200px);
             margin: 0 !important;
             padding: 200px 0 0 0 !important;
+            -webkit-overflow-scrolling: touch;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -672,6 +674,160 @@
                         }
                     }    
                 }    
+            }
+        }
+    }
+    .gallery_card {
+        // background: red;
+        height: 1px;
+        height: 100%;
+        padding: 200px 250px 75px 100px;
+        position: relative;
+        @media (max-width: 767px) {
+            padding: 0;
+        }
+        .wrap {
+            position: relative;
+            height: 100%;
+        }
+        #gallery_card_owl {
+            // background: yellow;
+            height: 100%;
+            // border-right: none;
+            // margin-right: -5px;
+            @media (max-width: 767px) {
+                border: none;
+            }
+            .owl-stage-outer {
+                // background: green;
+                height: 100%;
+                .owl-stage {
+                    // background: white;
+                    height: 100%;
+                    .owl-item {
+                        height: 100%;
+                        // overflow: hidden;
+                        -webkit-overflow-scrolling: touch;
+                        padding: 20px 0 20px 20px;
+                        border: 1px solid #A8A8A8;
+                        @media (max-width: 767px) {
+                            border: none;
+                            overflow: auto;
+                            padding: 10px;
+                        }
+                        .owl-item-gallery-card {
+                            height: 100%;
+                            display: flex;
+                            @media (max-width: 767px) {
+                                display: block;
+                                padding-bottom: 10px;
+                            }
+                            .desc {
+                                flex-basis: 30%;
+                                flex-shrink: 0;
+                                // background: green;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                @media (max-width: 767px) {
+                                    padding-top: 120px;
+                                }
+                                .title {
+                                    font-family: 'MontserratBold';
+                                    text-transform: uppercase;
+                                    font-size: 16px;
+                                    margin: 0;
+                                    padding: 0 0 1rem;
+                                    @media (max-width: 767px) {
+                                        text-align: center;
+                                    }
+                                }
+                                .description {
+                                    font-family: 'Montserrat';
+                                    font-size: 14px;
+                                    padding: 0 0 1rem;
+                                }
+                            }
+                            .image {
+                                // background: #9C47E5;
+                                flex-grow: 1;
+                                padding-left: 20px;
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                                @media (max-width: 767px) {
+                                    display: none;
+                                }
+                            }
+                            .images {
+                                flex-basis: 220px;
+                                flex-shrink: 0;
+                                padding-right: 16px;
+                                padding-left: 20px;
+                                // background: #E55AE9;
+                                // border: 1px solid #A8A8A8;
+                                overflow: auto;
+                                @media (max-width: 767px) {
+                                    overflow: hidden;
+                                    padding: 0;
+                                }
+                                // height: 350px;
+                                &::-webkit-scrollbar {
+                                    width: 4px;
+                                }
+                                &::-webkit-scrollbar-track {
+
+                                    // border-radius: 5px;
+                                    // background: linear-gradient(0deg, #E55AE9, #9C47E5);
+                                    // margin-right: -5px;
+                                }
+                                &::-webkit-scrollbar-thumb {
+                                    background: #A8A8A8;
+                                    // border-radius: 10px 0 0 10px;
+                                }
+                                &::-webkit-scrollbar-thumb:hover {
+                                    // background-color: rgba(255,255,255,.95);
+                                }
+                                .bg {
+                                    // padding: 10px;
+                                    position: relative;
+                                    display: grid;
+                                    overflow: auto;
+                                    grid-template-columns: 1fr 1fr;
+                                    grid-gap: 10px;
+                                    @media (max-width: 767px) {
+                                        grid-template-columns: 1fr;
+                                    }
+                                    img {
+                                        // display: block;
+                                        // width: 100px;
+                                        // height: 100px;
+                                        // grid-row: 1;
+                                        @media (max-width: 767px) {
+                                            &:last-child {
+                                                margin-bottom: 10px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #gallery_card_pagg {
+            position: absolute;
+            top: 0;
+            right: -150px;
+            bottom: 0;
+            width: 150px;
+            background: rgba(0,0,0,.15);
+            overflow: hidden;
+            @media (max-width: 767px) {
+                display: none;
             }
         }
     }

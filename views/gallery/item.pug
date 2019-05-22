@@ -3,7 +3,61 @@ extends ../layouts/app
 block content
     #gallery.ppage
         include head
-        .item#gallery_card
+        .gallery_card
+            .wrap
+                #gallery_card_owl.owl-carousel
+                    each item, index in gallery_list
+                        div.owl-item-gallery-card(data-iGalleryID= item.iGalleryID)
+                            .desc
+                                //- .id_active= gallery[0].iGalleryID
+                                //- .id= item.iGalleryID
+                                .title= item.sGalleryTitle
+                                .description= item.tGalleryText
+                            .image
+                                if item.gallery_images[0]
+                                    img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
+                            .images
+                                .bg
+                                    each image in item.gallery_images
+                                        img(src="/images/gallery/" + image.sGalleryImageName, alt="")
+                #gallery_card_pagg gallery_card_pagg
+                //- div.owl-item-gallery-card
+                //-     .desc
+                //-         .id= gallery[0].iGalleryID
+                //-         .lorem
+                //-             div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eius totam est. Sit quo quaerat dolor vero amet vel expedita, delectus necessitatibus id, autem quos. Porro quos autem laboriosam officia!
+                //-             div Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam inventore recusandae exercitationem impedit nulla veniam id ipsum! Mollitia culpa expedita perferendis placeat, asperiores blanditiis animi adipisci explicabo unde, quisquam amet?
+                //-             div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae facere odio dicta cum, architecto ipsum molestiae autem excepturi esse exercitationem tempore fugiat ipsa quisquam assumenda ut voluptates. Nam, non officia!
+                //-             div Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus enim aliquam consequuntur, labore quibusdam fugit, in consequatur quia ullam porro animi quisquam magnam! Ratione eaque consequatur, corrupti nihil laborum ab?
+                //-             div Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolores ullam asperiores possimus accusamus enim hic culpa fuga sunt nihil perspiciatis quis laudantium, placeat eligendi facere est autem sequi veniam?
+                //-             div Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate magnam vero architecto. Nostrum sapiente, vel, ratione a, at ducimus esse tenetur nam consectetur veritatis assumenda magnam rerum nihil in laboriosam.
+                //- div.owl-item-gallery-card
+                //-     .desc
+                //-         .id= gallery[0].iGalleryID
+                //-         .lorem
+                //-             div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eius totam est. Sit quo quaerat dolor vero amet vel expedita, delectus necessitatibus id, autem quos. Porro quos autem laboriosam officia!
+                //-             div Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam inventore recusandae exercitationem impedit nulla veniam id ipsum! Mollitia culpa expedita perferendis placeat, asperiores blanditiis animi adipisci explicabo unde, quisquam amet?
+                //-             div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae facere odio dicta cum, architecto ipsum molestiae autem excepturi esse exercitationem tempore fugiat ipsa quisquam assumenda ut voluptates. Nam, non officia!
+                //-             div Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus enim aliquam consequuntur, labore quibusdam fugit, in consequatur quia ullam porro animi quisquam magnam! Ratione eaque consequatur, corrupti nihil laborum ab?
+                //-             div Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolores ullam asperiores possimus accusamus enim hic culpa fuga sunt nihil perspiciatis quis laudantium, placeat eligendi facere est autem sequi veniam?
+                //-             div Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate magnam vero architecto. Nostrum sapiente, vel, ratione a, at ducimus esse tenetur nam consectetur veritatis assumenda magnam rerum nihil in laboriosam.
+            
+                //- div.owl-item-gallery-card
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //- div.owl-item-gallery-card
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //- div.owl-item-gallery-card
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //-     div Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dignissimos corporis suscipit, assumenda culpa odio earum rem fugiat, quia omnis, distinctio eius ab officiis exercitationem ducimus neque totam repudiandae dolor?
+                //- div 222
+                //- div 333
+        //- .item#gallery_card
             .desc
                 button.title(
                     data-toggle="popover"
