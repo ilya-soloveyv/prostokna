@@ -1,29 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="515.948" height="607.746" viewBox="0 0 515.948 607.746">
   <defs>
     <clipPath id="clip-path">
-      <rect width="220" height="2" fill="none"/>
-    </clipPath>
-    <clipPath id="clip-path-2">
       <rect width="42" height="2" fill="none"/>
     </clipPath>
   </defs>
-  <g id="Group_772" data-name="Group 772" transform="translate(-722.5 -264.534)">
-    <g id="Group_771" data-name="Group 771">
+  <g id="balcony" transform="translate(-722.5 -264.534)">
+    <g id="Rectangle_585" data-name="Rectangle 585" transform="translate(977.016 264.797)" fill="none" stroke="#353535" stroke-width="3">
+      <rect width="219.205" height="607.335" stroke="none"/>
+      <rect x="1.5" y="1.5" width="216.205" height="604.335" fill="none"/>
+    </g>
+    <path id="Path_1260" data-name="Path 1260" d="M-10222.263-9678.031h253.426l-27.052-26.992h-198.832l-28.383,26.992" transform="translate(10950.875 10280.012)" fill="none"/>
+    <path id="Path_439" data-name="Path 439" d="M41.2,278.825H198.906V34.4H41.2ZM42.5,35.7H197.606V277.4H42.5Z" transform="translate(734.865 274.859)" fill="#353535"/>
+    <path id="Path_452" data-name="Path 452" d="M174.72,124.8a3.164,3.164,0,0,0-3.12,3.12,3.032,3.032,0,0,0,1.69,2.73h.13v17.162a1.43,1.43,0,0,0,2.86,0V130.651h.13a3.032,3.032,0,0,0,1.69-2.73A3.6,3.6,0,0,0,174.72,124.8Zm.78,23.142a.78.78,0,1,1-1.56,0V129.61a.78.78,0,1,1,1.56,0v18.332ZM176.15,130v-.26a1.43,1.43,0,1,0-2.86,0V130a2.526,2.526,0,0,1-1.04-2.08,2.469,2.469,0,0,1,2.47-2.47,2.557,2.557,0,0,1,2.47,2.47A2.714,2.714,0,0,1,176.15,130Z" transform="translate(774.003 301.991)" fill="#353535"/>
+    <path id="Path_453" data-name="Path 453" d="M264.837,337.9h-5.331l-2.73-2.73.13-.13-2.99-2.99v-.13l-20.542-20.672V22.622h-.13l20.8-20.542V331.924l1.95,1.95V0H10.4V331.794L3.9,337.9H0V343.5H9.491v9.621H256.517V343.5h8.321Zm-9.491,13.911H10.791v-7.671H255.216v7.671ZM33.023,23.792,45.5,36.924V297.471l-12.481,13ZM219.2,297.861l12.871,13H33.543l12.611-13Zm-172.658-.91V37.444H218.683V296.951Zm173.178.39V36.924l13-13.521v287.07ZM219.2,36.534H46.025L33.413,23.4H231.684ZM10.4,332.964l1.95-1.82,20.282-19.112,199.961-.13,20.542,20.672h0l1.95,1.95h0l2.86,2.86-251.836-.39ZM32.633,22.622,12.611,1.95H253.656L232.594,22.622ZM12.351,2.21,32.373,22.882v288.11h-.13L12.351,329.714ZM116.362,337.645c47.455.13,94.91.13,142.365.26h0C211.272,337.775,163.817,337.775,116.362,337.645Z" transform="translate(722.5 264.534)" fill="#353535"/>
+    <g id="balcony-center">
       <g id="Rectangle_588" data-name="Rectangle 588" transform="translate(986.055 273.837)" fill="none" stroke="#707070" stroke-width="2">
         <rect width="201.127" height="589.821" stroke="none"/>
         <rect x="1" y="1" width="199.127" height="587.821" fill="none"/>
-      </g>
-      <g id="Rectangle_585" data-name="Rectangle 585" transform="translate(977.016 264.797)" fill="none" stroke="#353535" stroke-width="3">
-        <rect width="219.205" height="607.335" stroke="none"/>
-        <rect x="1.5" y="1.5" width="216.205" height="604.335" fill="none"/>
       </g>
       <g id="Rectangle_587" data-name="Rectangle 587" transform="translate(1000.744 288.526)" fill="none" stroke="#353535" stroke-width="1">
         <rect width="171.184" height="561.573" stroke="none"/>
         <rect x="0.5" y="0.5" width="170.184" height="560.573" fill="none"/>
       </g>
-      <path id="Path_439" data-name="Path 439" d="M41.2,278.825H198.906V34.4H41.2ZM42.5,35.7H197.606V277.4H42.5Z" transform="translate(734.865 274.859)" fill="#353535"/>
-      <path id="Path_452" data-name="Path 452" d="M174.72,124.8a3.164,3.164,0,0,0-3.12,3.12,3.032,3.032,0,0,0,1.69,2.73h.13v17.162a1.43,1.43,0,0,0,2.86,0V130.651h.13a3.032,3.032,0,0,0,1.69-2.73A3.6,3.6,0,0,0,174.72,124.8Zm.78,23.142a.78.78,0,1,1-1.56,0V129.61a.78.78,0,1,1,1.56,0v18.332ZM176.15,130v-.26a1.43,1.43,0,1,0-2.86,0V130a2.526,2.526,0,0,1-1.04-2.08,2.469,2.469,0,0,1,2.47-2.47,2.557,2.557,0,0,1,2.47,2.47A2.714,2.714,0,0,1,176.15,130Z" transform="translate(774.003 301.991)" fill="#353535"/>
-      <path id="Path_453" data-name="Path 453" d="M264.837,337.9h-5.331l-2.73-2.73.13-.13-2.99-2.99v-.13l-20.542-20.672V22.622h-.13l20.8-20.542V331.924l1.95,1.95V0H10.4V331.794L3.9,337.9H0V343.5H9.491v9.621H256.517V343.5h8.321Zm-9.491,13.911H10.791v-7.671H255.216v7.671ZM33.023,23.792,45.5,36.924V297.471l-12.481,13ZM219.2,297.861l12.871,13H33.543l12.611-13Zm-172.658-.91V37.444H218.683V296.951Zm173.178.39V36.924l13-13.521v287.07ZM219.2,36.534H46.025L33.413,23.4H231.684ZM10.4,332.964l1.95-1.82,20.282-19.112,199.961-.13,20.542,20.672h0l1.95,1.95h0l2.86,2.86-251.836-.39ZM32.633,22.622,12.611,1.95H253.656L232.594,22.622ZM12.351,2.21,32.373,22.882v288.11h-.13L12.351,329.714ZM116.362,337.645c47.455.13,94.91.13,142.365.26h0C211.272,337.775,163.817,337.775,116.362,337.645Z" transform="translate(722.5 264.534)" fill="#353535"/>
       <line id="Line_146" data-name="Line 146" y1="8.474" x2="8.474" transform="translate(1186.334 266.21)" fill="none" stroke="#353535" stroke-width="1"/>
       <line id="Line_147" data-name="Line 147" y1="8.474" x2="8.474" transform="translate(986.337 265.645) rotate(90)" fill="none" stroke="#353535" stroke-width="1"/>
       <line id="Line_148" data-name="Line 148" y1="8.474" x2="8.474" transform="translate(1195.374 863.375) rotate(90)" fill="none" stroke="#353535" stroke-width="1"/>
@@ -35,47 +33,51 @@
       <path id="Path_1259" data-name="Path 1259" d="M174.72,124.8a3.164,3.164,0,0,0-3.12,3.12,3.032,3.032,0,0,0,1.69,2.73h.13v17.162a1.43,1.43,0,0,0,2.86,0V130.651h.13a3.032,3.032,0,0,0,1.69-2.73A3.6,3.6,0,0,0,174.72,124.8Zm.78,23.142a.78.78,0,1,1-1.56,0V129.61a.78.78,0,1,1,1.56,0v18.332ZM176.15,130v-.26a1.43,1.43,0,1,0-2.86,0V130a2.526,2.526,0,0,1-1.04-2.08,2.469,2.469,0,0,1,2.47-2.47,2.557,2.557,0,0,1,2.47,2.47A2.714,2.714,0,0,1,176.15,130Z" transform="translate(818.635 401.989)" fill="#353535"/>
       <line id="Line_152" data-name="Line 152" x2="171.184" transform="translate(1001.026 617.616)" fill="none" stroke="#707070" stroke-width="2"/>
       <line id="Line_153" data-name="Line 153" x2="171.184" transform="translate(1001.026 601.797)" fill="none" stroke="#707070" stroke-width="2"/>
-      <g id="Repeat_Grid_21" data-name="Repeat Grid 21" transform="translate(1196.448 265.28)" clip-path="url(#clip-path-2)">
-        <g transform="translate(-976.448 -436.28)">
-          <line id="Line_61-33" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-969.448 -436.28)">
-          <line id="Line_61-34" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-962.448 -436.28)">
-          <line id="Line_61-35" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-955.448 -436.28)">
-          <line id="Line_61-36" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-948.448 -436.28)">
-          <line id="Line_61-37" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-941.448 -436.28)">
-          <line id="Line_61-38" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-      </g>
-      <g id="Repeat_Grid_22" data-name="Repeat Grid 22" transform="translate(1196.448 870.28)" clip-path="url(#clip-path-2)">
-        <g transform="translate(-976.448 -436.28)">
-          <line id="Line_61-39" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-969.448 -436.28)">
-          <line id="Line_61-40" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-962.448 -436.28)">
-          <line id="Line_61-41" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-955.448 -436.28)">
-          <line id="Line_61-42" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-948.448 -436.28)">
-          <line id="Line_61-43" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-        <g transform="translate(-941.448 -436.28)">
-          <line id="Line_61-44" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
-        </g>
-      </g>
-      <line id="Line_155" data-name="Line 155" y2="605" transform="translate(1229.5 265.5)" fill="none" stroke="#707070" stroke-width="1"/>
     </g>
+    <g id="balcony-right">
+      <g id="Repeat_Grid_21" data-name="Repeat Grid 21" transform="translate(1196.448 265.28)" clip-path="url(#clip-path)">
+        <g transform="translate(-976.448 -436.28)">
+          <line id="Line_61" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-969.448 -436.28)">
+          <line id="Line_61-2" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-962.448 -436.28)">
+          <line id="Line_61-3" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-955.448 -436.28)">
+          <line id="Line_61-4" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-948.448 -436.28)">
+          <line id="Line_61-5" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-941.448 -436.28)">
+          <line id="Line_61-6" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Repeat_Grid_22" data-name="Repeat Grid 22" transform="translate(1196.448 870.28)" clip-path="url(#clip-path)">
+        <g transform="translate(-976.448 -436.28)">
+          <line id="Line_61-7" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-969.448 -436.28)">
+          <line id="Line_61-8" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-962.448 -436.28)">
+          <line id="Line_61-9" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-955.448 -436.28)">
+          <line id="Line_61-10" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-948.448 -436.28)">
+          <line id="Line_61-11" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+        <g transform="translate(-941.448 -436.28)">
+          <line id="Line_61-12" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+        </g>
+      </g>
+      <line id="Line_155" data-name="Line 155" y2="604.78" transform="translate(1229.5 267.5)" fill="none" stroke="#c351e7" stroke-width="3"/>
+    </g>
+    <line id="Line_208" data-name="Line 208" x2="217" transform="translate(977.5 433.5)" fill="none" stroke="#353535" stroke-width="2"/>
+    <line id="Line_209" data-name="Line 209" x1="462" transform="translate(732.5 352.5)" fill="none" stroke="#353535" stroke-width="2"/>
   </g>
 </svg>
