@@ -3,32 +3,30 @@ extends ../layouts/app
 block content
 		.instruction.ppage
 			h1.instruction__title Инструкция для самостоятельного замера окна
-			.instruction__radios
-				input#window(type="radio", name="instruction",data-check="1", checked)
-				label(for="window")
+			.instruction__tabs
+				.instruction__tabs_content.active
 					<svg xmlns="http://www.w3.org/2000/svg" width="28.114" height="30.126" viewBox="0 0 28.114 30.126">
 						<g id="Group_601" data-name="Group 601" transform="translate(1 1)">
-							<path id="Path_1227" data-name="Path 1227" d="M.506,460.9H-.5a.473.473,0,0,1-.5-.5.473.473,0,0,1,.5-.5H.506a.5.5,0,1,1,0,1Z" transform="translate(0 -433.781)" fill="#e4e4e4"/>
-							<path id="Path_1228" data-name="Path 1228" d="M56.795,59.307H33.7a.473.473,0,0,1-.5-.5V33.7a.473.473,0,0,1,.5-.5H56.795a.473.473,0,0,1,.5.5V58.807A.473.473,0,0,1,56.795,59.307ZM34.2,58.3H56.295V34.2H34.2Z" transform="translate(-32.188 -32.188)" fill="#e4e4e4"/>
-							<path id="Path_1229" data-name="Path 1229" d="M86.882,91.4H67.8a.473.473,0,0,1-.5-.5V67.8a.473.473,0,0,1,.5-.5H86.882a.473.473,0,0,1,.5.5V90.895A.474.474,0,0,1,86.882,91.4ZM68.3,90.395H86.376V68.3H68.3Z" transform="translate(-64.281 -64.281)" fill="#e4e4e4"/>
-							<path id="Path_1230" data-name="Path 1230" d="M40.7,462.813H17.606a1.48,1.48,0,0,1-1.506-1.506V460.3a.473.473,0,0,1,.5-.5H41.707a.473.473,0,0,1,.5.5v1.006A1.48,1.48,0,0,1,40.7,462.813Zm-23.6-2.006v.5a.473.473,0,0,0,.5.5H40.7a.473.473,0,0,0,.5-.5v-.5Z" transform="translate(-16.094 -433.687)" fill="#e4e4e4"/>
-							<path id="Path_1231" data-name="Path 1231" d="M40.7,2.013H17.606A1.509,1.509,0,0,1,16.1.506,1.48,1.48,0,0,1,17.606-1H40.7A1.48,1.48,0,0,1,42.207.506,1.48,1.48,0,0,1,40.7,2.013ZM17.606.006a.538.538,0,0,0-.5.5.5.5,0,0,0,.5.5H40.7a.473.473,0,0,0,.5-.5.473.473,0,0,0-.5-.5H17.606Z" transform="translate(-16.094)" fill="#e4e4e4"/>
-							<path id="Path_1232" data-name="Path 1232" d="M444.206,460.9H443.2a.5.5,0,0,1,0-1h1.006a.473.473,0,0,1,.5.5A.466.466,0,0,1,444.206,460.9Z" transform="translate(-417.593 -433.781)" fill="#e4e4e4"/>
-							<path id="Path_1233" data-name="Path 1233" d="M214.907,91.4H212.9a.473.473,0,0,1-.5-.5V67.8a.473.473,0,0,1,.5-.5h2.006a.473.473,0,0,1,.5.5V90.895A.474.474,0,0,1,214.907,91.4ZM213.4,90.395h1.006V68.3H213.4Z" transform="translate(-200.844 -64.281)" fill="#e4e4e4"/>
-							<path id="Path_1234" data-name="Path 1234" d="M93.353,95.36A.458.458,0,0,1,93,95.207a.483.483,0,0,1,0-.7L94.506,93a.5.5,0,1,1,.7.7l-1.5,1.512A.454.454,0,0,1,93.353,95.36Z" transform="translate(-88.328 -88.328)" fill="#e4e4e4"/>
-							<path id="Path_1235" data-name="Path 1235" d="M93.353,146.059a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7l1.006-1.006a.5.5,0,1,1,.7.7L93.7,145.906A.438.438,0,0,1,93.353,146.059Z" transform="translate(-88.328 -136.515)" fill="#e4e4e4"/>
-							<path id="Path_1236" data-name="Path 1236" d="M136.053,95.36a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7L137.206,93a.5.5,0,0,1,.7.7L136.4,95.212A.45.45,0,0,1,136.053,95.36Z" transform="translate(-128.515 -88.328)" fill="#e4e4e4"/>
-							<path id="Path_1237" data-name="Path 1237" d="M340.853,411.16a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7l1.506-1.506a.5.5,0,0,1,.7.7l-1.506,1.506A.455.455,0,0,1,340.853,411.16Z" transform="translate(-321.265 -385.546)" fill="#e4e4e4"/>
-							<path id="Path_1238" data-name="Path 1238" d="M349.353,367.959a.458.458,0,0,1-.353-.153.484.484,0,0,1,0-.7l1.006-1.006a.5.5,0,1,1,.7.7l-1.006,1.006A.438.438,0,0,1,349.353,367.959Z" transform="translate(-329.265 -345.359)" fill="#e4e4e4"/>
-							<path id="Path_1239" data-name="Path 1239" d="M298.153,411.16a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7l1.506-1.506a.5.5,0,0,1,.7.7l-1.506,1.506A.438.438,0,0,1,298.153,411.16Z" transform="translate(-281.078 -385.546)" fill="#e4e4e4"/>
-							<path id="Path_1240" data-name="Path 1240" d="M145.606,234.419a1.48,1.48,0,0,1-1.506-1.506v-2.006a1.506,1.506,0,0,1,3.013,0v2.006A1.48,1.48,0,0,1,145.606,234.419Zm0-4.013a.472.472,0,0,0-.5.5v2.006a.5.5,0,0,0,1,0v-2.006A.5.5,0,0,0,145.606,230.406Z" transform="translate(-136.562 -216.843)" fill="#e4e4e4"/>
-							<path id="Path_1241" data-name="Path 1241" d="M282.106,234.419a1.48,1.48,0,0,1-1.506-1.506v-2.006a1.506,1.506,0,0,1,3.013,0v2.006A1.48,1.48,0,0,1,282.106,234.419Zm0-4.013a.473.473,0,0,0-.5.5v2.006a.5.5,0,0,0,1,0v-2.006A.5.5,0,0,0,282.106,230.406Z" transform="translate(-265.031 -216.843)" fill="#e4e4e4"/>
+							<path id="Path_1227" data-name="Path 1227" d="M.506,460.9H-.5a.473.473,0,0,1-.5-.5.473.473,0,0,1,.5-.5H.506a.5.5,0,1,1,0,1Z" transform="translate(0 -433.781)" fill="#fff"/>
+							<path id="Path_1228" data-name="Path 1228" d="M56.795,59.307H33.7a.473.473,0,0,1-.5-.5V33.7a.473.473,0,0,1,.5-.5H56.795a.473.473,0,0,1,.5.5V58.807A.473.473,0,0,1,56.795,59.307ZM34.2,58.3H56.295V34.2H34.2Z" transform="translate(-32.188 -32.188)" fill="#fff"/>
+							<path id="Path_1229" data-name="Path 1229" d="M86.882,91.4H67.8a.473.473,0,0,1-.5-.5V67.8a.473.473,0,0,1,.5-.5H86.882a.473.473,0,0,1,.5.5V90.895A.474.474,0,0,1,86.882,91.4ZM68.3,90.395H86.376V68.3H68.3Z" transform="translate(-64.281 -64.281)" fill="#fff"/>
+							<path id="Path_1230" data-name="Path 1230" d="M40.7,462.813H17.606a1.48,1.48,0,0,1-1.506-1.506V460.3a.473.473,0,0,1,.5-.5H41.707a.473.473,0,0,1,.5.5v1.006A1.48,1.48,0,0,1,40.7,462.813Zm-23.6-2.006v.5a.473.473,0,0,0,.5.5H40.7a.473.473,0,0,0,.5-.5v-.5Z" transform="translate(-16.094 -433.687)" fill="#fff"/>
+							<path id="Path_1231" data-name="Path 1231" d="M40.7,2.013H17.606A1.509,1.509,0,0,1,16.1.506,1.48,1.48,0,0,1,17.606-1H40.7A1.48,1.48,0,0,1,42.207.506,1.48,1.48,0,0,1,40.7,2.013ZM17.606.006a.538.538,0,0,0-.5.5.5.5,0,0,0,.5.5H40.7a.473.473,0,0,0,.5-.5.473.473,0,0,0-.5-.5H17.606Z" transform="translate(-16.094)" fill="#fff"/>
+							<path id="Path_1232" data-name="Path 1232" d="M444.206,460.9H443.2a.5.5,0,0,1,0-1h1.006a.473.473,0,0,1,.5.5A.466.466,0,0,1,444.206,460.9Z" transform="translate(-417.593 -433.781)" fill="#fff"/>
+							<path id="Path_1233" data-name="Path 1233" d="M214.907,91.4H212.9a.473.473,0,0,1-.5-.5V67.8a.473.473,0,0,1,.5-.5h2.006a.473.473,0,0,1,.5.5V90.895A.474.474,0,0,1,214.907,91.4ZM213.4,90.395h1.006V68.3H213.4Z" transform="translate(-200.844 -64.281)" fill="#fff"/>
+							<path id="Path_1234" data-name="Path 1234" d="M93.353,95.36A.458.458,0,0,1,93,95.207a.483.483,0,0,1,0-.7L94.506,93a.5.5,0,1,1,.7.7l-1.5,1.512A.454.454,0,0,1,93.353,95.36Z" transform="translate(-88.328 -88.328)" fill="#fff"/>
+							<path id="Path_1235" data-name="Path 1235" d="M93.353,146.059a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7l1.006-1.006a.5.5,0,1,1,.7.7L93.7,145.906A.438.438,0,0,1,93.353,146.059Z" transform="translate(-88.328 -136.515)" fill="#fff"/>
+							<path id="Path_1236" data-name="Path 1236" d="M136.053,95.36a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7L137.206,93a.5.5,0,0,1,.7.7L136.4,95.212A.45.45,0,0,1,136.053,95.36Z" transform="translate(-128.515 -88.328)" fill="#fff"/>
+							<path id="Path_1237" data-name="Path 1237" d="M340.853,411.16a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7l1.506-1.506a.5.5,0,0,1,.7.7l-1.506,1.506A.455.455,0,0,1,340.853,411.16Z" transform="translate(-321.265 -385.546)" fill="#fff"/>
+							<path id="Path_1238" data-name="Path 1238" d="M349.353,367.959a.458.458,0,0,1-.353-.153.484.484,0,0,1,0-.7l1.006-1.006a.5.5,0,1,1,.7.7l-1.006,1.006A.438.438,0,0,1,349.353,367.959Z" transform="translate(-329.265 -345.359)" fill="#fff"/>
+							<path id="Path_1239" data-name="Path 1239" d="M298.153,411.16a.458.458,0,0,1-.353-.153.483.483,0,0,1,0-.7l1.506-1.506a.5.5,0,0,1,.7.7l-1.506,1.506A.438.438,0,0,1,298.153,411.16Z" transform="translate(-281.078 -385.546)" fill="#fff"/>
+							<path id="Path_1240" data-name="Path 1240" d="M145.606,234.419a1.48,1.48,0,0,1-1.506-1.506v-2.006a1.506,1.506,0,0,1,3.013,0v2.006A1.48,1.48,0,0,1,145.606,234.419Zm0-4.013a.472.472,0,0,0-.5.5v2.006a.5.5,0,0,0,1,0v-2.006A.5.5,0,0,0,145.606,230.406Z" transform="translate(-136.562 -216.843)" fill="#fff"/>
+							<path id="Path_1241" data-name="Path 1241" d="M282.106,234.419a1.48,1.48,0,0,1-1.506-1.506v-2.006a1.506,1.506,0,0,1,3.013,0v2.006A1.48,1.48,0,0,1,282.106,234.419Zm0-4.013a.473.473,0,0,0-.5.5v2.006a.5.5,0,0,0,1,0v-2.006A.5.5,0,0,0,282.106,230.406Z" transform="translate(-265.031 -216.843)" fill="#fff"/>
 						</g>
 					</svg>
-				input#balcony(type="radio", name="instruction", data-check="2")
-				label(for="balcony")
+				.instruction__tabs_content
 					<svg xmlns="http://www.w3.org/2000/svg" width="41.568" height="33.963" viewBox="0 0 41.568 33.963">
-						<path id="Path_1242" data-name="Path 1242" d="M41.006,33.963H.54a.535.535,0,0,1-.54-.54V31.111a.535.535,0,0,1,.54-.54h.648V15.728H.54a.54.54,0,0,1,0-1.08H11.278V.54a.535.535,0,0,1,.54-.54H29.6a.535.535,0,0,1,.54.54V14.648H41.028a.54.54,0,0,1,0,1.08H40.38V30.571h.648a.535.535,0,0,1,.54.54v2.312A.584.584,0,0,1,41.006,33.963ZM1.08,32.883H40.466V31.651H1.08Zm36.383-2.312H39.3V15.728H37.463Zm-3.586,0h2.506V15.728H33.877Zm-3.586,0H32.8V15.728H30.29Zm-3.586,0h2.355V15.728H26.7Zm-3.586,0h2.506V15.728H23.117Zm-3.586,0h2.506V15.728H19.531Zm-3.586,0h2.506V15.728H15.944Zm-3.586,0h2.506V15.728H12.358Zm-3.586,0h2.506V15.728H8.772Zm-3.586,0H7.691V15.728H5.185Zm-2.917,0H4.1V15.728H2.269ZM27.806,14.648h1.253V1.08h-16.7V14.648h1.253V2.873a.535.535,0,0,1,.54-.54H19.7a.535.535,0,0,1,.54.54V14.648h.929V2.873a.535.535,0,0,1,.54-.54h5.552a.535.535,0,0,1,.54.54V14.648Zm-5.552,0h4.472V3.414H22.253Zm-7.562,0h4.472V3.414H14.691Z" fill="#e4e4e4"/>
+						<path id="Path_1242" data-name="Path 1242" d="M41.006,33.963H.54a.535.535,0,0,1-.54-.54V31.111a.535.535,0,0,1,.54-.54h.648V15.728H.54a.54.54,0,0,1,0-1.08H11.278V.54a.535.535,0,0,1,.54-.54H29.6a.535.535,0,0,1,.54.54V14.648H41.028a.54.54,0,0,1,0,1.08H40.38V30.571h.648a.535.535,0,0,1,.54.54v2.312A.584.584,0,0,1,41.006,33.963ZM1.08,32.883H40.466V31.651H1.08Zm36.383-2.312H39.3V15.728H37.463Zm-3.586,0h2.506V15.728H33.877Zm-3.586,0H32.8V15.728H30.29Zm-3.586,0h2.355V15.728H26.7Zm-3.586,0h2.506V15.728H23.117Zm-3.586,0h2.506V15.728H19.531Zm-3.586,0h2.506V15.728H15.944Zm-3.586,0h2.506V15.728H12.358Zm-3.586,0h2.506V15.728H8.772Zm-3.586,0H7.691V15.728H5.185Zm-2.917,0H4.1V15.728H2.269ZM27.806,14.648h1.253V1.08h-16.7V14.648h1.253V2.873a.535.535,0,0,1,.54-.54H19.7a.535.535,0,0,1,.54.54V14.648h.929V2.873a.535.535,0,0,1,.54-.54h5.552a.535.535,0,0,1,.54.54V14.648Zm-5.552,0h4.472V3.414H22.253Zm-7.562,0h4.472V3.414H14.691Z" fill="#fff"/>
 					</svg>
 			.instruction__wrapp.active
 				.instruction__desc.instruction__block
@@ -40,14 +38,75 @@ block content
 						p.instruction__text Обращаем Ваше внимание на то, что после решения ставить окна у нас, Вы должны вызвать профессионального замерщика для точных замеров. Малейшая погрешность, которую Вы можете допустить при самостоятельном измерении, может кардинально повлиять на конечную установку окна. Вплоть до того, что окно совершенно не подойдет. Пластиковые окна подгонке не подлежат. В результате получится, что Вы потратили деньги впустую.
 						p.instruction__text Самостоятельно сделать замеры не сложно. Главное – точно придерживаться наших рекомендаций. В замер окна входят: ширина и высота оконного проема; ширина откосов; длина и ширина подоконника; глубина отлива. Для того, чтобы все выглядело нагляднее, нарисуйте схему окна и вписывайте в нее полученные размеры.
 				.instruction__img.instruction__block.window
+					a.up.go_to(href="#instruction__accor")
+						img(src="/images/instruction/arrow-down.svg", alt="up")
 					ul.num
-						li.num__item.active 1
+						li.num__item 1
 						li.num__item 2
 						li.num__item 3
 						li.num__item 4
 						li.num__item 5
-					img(src="/images/instruction/window.svg", alt="window")
-				.instruction__accor.instruction__block.fixed
+					ul.text
+						li.text__item Высота оконного проема
+						li.text__item Ширина оконного проема
+						li.text__item Длина подоконника
+						li.text__item Ширина подоконника
+						li.text__item Ширина откоса
+					<svg class="wind" xmlns="http://www.w3.org/2000/svg" width="444" height="618.061" viewBox="-5 -15 458 628.061">
+						<g id="window" transform="translate(-10.5 -147.439)">
+							<rect class="part center" id="Rectangle_1301" data-name="Rectangle 1301" width="336" height="484" transform="translate(66 187)" fill="none" stroke="#353535" stroke-width="1"/>
+							<g class="dn12 under" id="Rectangle_1305" data-name="Rectangle 1305" transform="translate(26 724)" fill="none" stroke="#353535" stroke-width="1">
+								<rect width="417" height="17" stroke="none"/>
+								<rect x="0.5" y="0.5" width="416" height="16" fill="none"/>
+							</g>
+							<g id="center" class="op1">
+								<g id="Rectangle_1303" data-name="Rectangle 1303" transform="translate(83 204)" fill="none" stroke="#353535" stroke-width="1">
+									<rect width="302" height="450" stroke="none"/>
+									<rect x="0.5" y="0.5" width="301" height="449" fill="none"/>
+								</g>
+								<g id="Rectangle_1304" data-name="Rectangle 1304" transform="translate(89 210)" fill="none" stroke="#353535" stroke-width="1">
+									<rect width="290" height="438" stroke="none"/>
+									<rect x="0.5" y="0.5" width="289" height="437" fill="none"/>
+								</g>
+								<path id="Path_452" data-name="Path 452" d="M176.257,124.8a4.722,4.722,0,0,0-4.657,4.657,4.526,4.526,0,0,0,2.523,4.075h.194v25.616a2.135,2.135,0,1,0,4.269,0V133.533h.194a4.526,4.526,0,0,0,2.523-4.075A5.379,5.379,0,0,0,176.257,124.8Zm1.164,34.543a1.164,1.164,0,1,1-2.329,0V131.98a1.164,1.164,0,0,1,2.329,0v27.362Zm.97-26.78v-.388a2.135,2.135,0,1,0-4.269,0v.388a3.771,3.771,0,0,1-1.552-3.1,3.685,3.685,0,0,1,3.687-3.687,3.817,3.817,0,0,1,3.687,3.687A4.051,4.051,0,0,1,178.392,132.562Z" transform="translate(216.955 285.717)" fill="#353535"/>
+							</g>
+							<g id="Group_788" data-name="Group 788">
+								<path class="part left" id="Path_1289" data-name="Path 1289" d="M-7342.632-7748.813V-8233.05l-38.108-37.871v558.969l38.108-36.861Z" transform="translate(7408.704 8420.271)" fill="none" stroke="#353535" stroke-linejoin="round" stroke-width="1"/>
+								<path class="part top" id="Path_1290" data-name="Path 1290" d="M-7344.982-8233.442l-36.222-37.176,410.133-.473-38.052,37.591Z" transform="translate(7410.299 8420.442)" fill="none" stroke="#353535" stroke-width="1"/>
+								<g class="part right" id="Path_1291" data-name="Path 1291" transform="translate(7410.579 8419.537)" fill="none">
+									<path d="M -6971.72216796875 -7710.9990234375 L -7008.39501953125 -7748.11279296875 L -7008.4990234375 -8232.70703125 L -6971.1494140625 -8269.71484375 L -6971.72216796875 -7710.9990234375 Z" stroke="none"/>
+									<path d="M -6971.650390625 -8268.513671875 L -7007.9990234375 -8232.498046875 L -7007.89501953125 -7748.318359375 L -6972.220703125 -7712.2158203125 L -6971.650390625 -8268.513671875 M -6970.64794921875 -8270.9150390625 L -6971.22314453125 -7709.783203125 L -7008.89501953125 -7747.9072265625 L -7008.9990234375 -8232.9150390625 L -6970.64794921875 -8270.9150390625 Z" stroke="none" fill="#353535"/>
+								</g>
+								<g id="down" class="part down">
+									<g class="line4" id="Rectangle_1302" data-name="Rectangle 1302" transform="translate(11 715)" fill="#353535" stroke="#353535" stroke-width="1">
+										<rect width="443" height="10" stroke="none"/>
+										<rect x="0.5" y="0.5" width="442" height="9" fill="none"/>
+									</g>
+									<path id="Path_1293" data-name="Path 1293" d="M-7390.412-7704.537l46.1-44.463,335.052-.01,43.8,44.382" transform="translate(7411 8420)" fill="none" stroke="#353535" stroke-width="2"/>
+								</g>
+							</g>
+							<line class="dc1 dn2 line" id="Line_207" data-name="Line 207" y2="484" transform="translate(130.5 187.5)" fill="none" stroke="#353535" stroke-width="2"/>
+							<line class="dn1 dc2 line" id="Line_208" data-name="Line 208" x2="336" transform="translate(66.5 606.5)" fill="none" stroke="#353535" stroke-width="2"/>
+							<line class="dn line4" id="Line_209" data-name="Line 209" x2="44" y2="44" transform="translate(401.5 670.5)" fill="none" stroke="#C351E7" stroke-width="3"/>
+							<line class="dn line5" id="Line_210" data-name="Line 210" y1="39" x2="39" transform="translate(401.5 148.5)" fill="none" stroke="#C351E7" stroke-width="3"/>
+							<g id="max-down" class="dn12">
+								<g id="Group_786" data-name="Group 786">
+									<line id="Line_211" data-name="Line 211" y2="5" transform="translate(11.5 729.5)" fill="none" stroke="#353535" stroke-width="1"/>
+									<line id="Line_212" data-name="Line 212" y2="5" transform="translate(11.5 739.5)" fill="none" stroke="#353535" stroke-width="1"/>
+									<line id="Line_213" data-name="Line 213" y2="5" transform="translate(11.5 749.5)" fill="none" stroke="#353535" stroke-width="1"/>
+									<line id="Line_214" data-name="Line 214" y2="5" transform="translate(11.5 759.5)" fill="none" stroke="#353535" stroke-width="1"/>
+								</g>
+								<g id="Group_787" data-name="Group 787">
+									<line id="Line_215" data-name="Line 215" y2="5" transform="translate(453.5 729.5)" fill="none" stroke="#353535" stroke-width="1"/>
+									<line id="Line_216" data-name="Line 216" y2="5" transform="translate(453.5 739.5)" fill="none" stroke="#353535" stroke-width="1"/>
+									<line id="Line_217" data-name="Line 217" y2="5" transform="translate(453.5 749.5)" fill="none" stroke="#353535" stroke-width="1"/>
+									<line id="Line_218" data-name="Line 218" y2="5" transform="translate(453.5 759.5)" fill="none" stroke="#353535" stroke-width="1"/>
+								</g>
+								<line class="line3" id="Line_219" data-name="Line 219" x2="442" transform="translate(11.5 764.5)" fill="none" stroke="#353535" stroke-linecap="square" stroke-width="2"/>
+							</g>
+						</g>
+					</svg>
+				#instruction__accor.instruction__accor.instruction__block.fixed
 					.acc__title 
 						span.tally 01
 						span.text Высота оконного проема
@@ -89,12 +148,101 @@ block content
 						p.instruction__text Высоту двери измеряем от порожка до верхнего откоса. Как измерить высоту окна, мы уже знаем. Все полученные данные подробно записываем. Затем, к каждому записанному размеру прибавляем по 10-15 мм. Дописав к данным конфигурацию створок (количество, как открываются), Вы получите подробное описание желаемых окон, по которому наши сотрудники максимально точно рассчитают предварительную стоимость Вашего заказа. Вам нужно просто переслать все данные нам.
 						p.instruction__text Еще раз обращаем Ваше внимание на то, что инструкция рассчитана только на получение предварительной оценки заказа. Для установки окон, замеры обязательно должен провести профессиональный замерщик. Он учтет все нюансы Вашего дома, оконных проемов и других важных мелочей. Мы не навязываем Вам наши услуги. Мы хотим предупредить, что ни одна инструкция не заменит многолетнего опыта профессионала и не учтет всех невидимых глазу нюансов. Вы можете на свой страх и риск заказать окна по произведенным Вами замерам. В такой ситуации мы снимаем с себя всякую ответственность.
 				.instruction__img.instruction__block.balcony
+					a.up.go_to(href="#instruction__accor")
+						img(src="/images/instruction/arrow-down.svg", alt="up")
 					ul.num
 						li.num__item 1
 						li.num__item 2
 						li.num__item 3
-					img(src="/images/instruction/balcony.svg", alt="balcony")
-				.instruction__accor.instruction__block
+					ul.text
+						li.text__item Общая ширина блока
+						li.text__item Ширина девери
+						li.text__item Высота балконного блока
+					//- img(src="/images/instruction/balcony.svg", alt="balcony")
+					<svg class="wind" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="515.948" height="607.746" viewBox="0 0 515.948 607.746">
+						<defs>
+							<clipPath id="clip-path">
+								<rect width="42" height="2" fill="none"/>
+							</clipPath>
+						</defs>
+						<g id="balcony" transform="translate(-722.5 -264.534)">
+							<g id="Rectangle_585" data-name="Rectangle 585" transform="translate(977.016 264.797)" fill="none" stroke="#353535" stroke-width="3">
+								<rect width="219.205" height="607.335" stroke="none"/>
+								<rect x="1.5" y="1.5" width="216.205" height="604.335" fill="none"/>
+							</g>
+							<path id="Path_1260" data-name="Path 1260" d="M-10222.263-9678.031h253.426l-27.052-26.992h-198.832l-28.383,26.992" transform="translate(10950.875 10280.012)" fill="none"/>
+							<path class="b-window" id="Path_439" data-name="Path 439" d="M41.2,278.825H198.906V34.4H41.2ZM42.5,35.7H197.606V277.4H42.5Z" transform="translate(734.865 274.859)" fill="#353535"/>
+							<path class="b-window" id="Path_452" data-name="Path 452" d="M174.72,124.8a3.164,3.164,0,0,0-3.12,3.12,3.032,3.032,0,0,0,1.69,2.73h.13v17.162a1.43,1.43,0,0,0,2.86,0V130.651h.13a3.032,3.032,0,0,0,1.69-2.73A3.6,3.6,0,0,0,174.72,124.8Zm.78,23.142a.78.78,0,1,1-1.56,0V129.61a.78.78,0,1,1,1.56,0v18.332ZM176.15,130v-.26a1.43,1.43,0,1,0-2.86,0V130a2.526,2.526,0,0,1-1.04-2.08,2.469,2.469,0,0,1,2.47-2.47,2.557,2.557,0,0,1,2.47,2.47A2.714,2.714,0,0,1,176.15,130Z" transform="translate(774.003 301.991)" fill="#353535"/>
+							<path class="b-window" id="Path_453" data-name="Path 453" d="M264.837,337.9h-5.331l-2.73-2.73.13-.13-2.99-2.99v-.13l-20.542-20.672V22.622h-.13l20.8-20.542V331.924l1.95,1.95V0H10.4V331.794L3.9,337.9H0V343.5H9.491v9.621H256.517V343.5h8.321Zm-9.491,13.911H10.791v-7.671H255.216v7.671ZM33.023,23.792,45.5,36.924V297.471l-12.481,13ZM219.2,297.861l12.871,13H33.543l12.611-13Zm-172.658-.91V37.444H218.683V296.951Zm173.178.39V36.924l13-13.521v287.07ZM219.2,36.534H46.025L33.413,23.4H231.684ZM10.4,332.964l1.95-1.82,20.282-19.112,199.961-.13,20.542,20.672h0l1.95,1.95h0l2.86,2.86-251.836-.39ZM32.633,22.622,12.611,1.95H253.656L232.594,22.622ZM12.351,2.21,32.373,22.882v288.11h-.13L12.351,329.714ZM116.362,337.645c47.455.13,94.91.13,142.365.26h0C211.272,337.775,163.817,337.775,116.362,337.645Z" transform="translate(722.5 264.534)" fill="#353535"/>
+							<g id="balcony-center" class="balcony-center">
+								<g id="Rectangle_588" data-name="Rectangle 588" transform="translate(986.055 273.837)" fill="none" stroke="#707070" stroke-width="2">
+									<rect width="201.127" height="589.821" stroke="none"/>
+									<rect x="1" y="1" width="199.127" height="587.821" fill="none"/>
+								</g>
+								<g id="Rectangle_587" data-name="Rectangle 587" transform="translate(1000.744 288.526)" fill="none" stroke="#353535" stroke-width="1">
+									<rect width="171.184" height="561.573" stroke="none"/>
+									<rect x="0.5" y="0.5" width="170.184" height="560.573" fill="none"/>
+								</g>
+								<line id="Line_146" data-name="Line 146" y1="8.474" x2="8.474" transform="translate(1186.334 266.21)" fill="none" stroke="#353535" stroke-width="1"/>
+								<line id="Line_147" data-name="Line 147" y1="8.474" x2="8.474" transform="translate(986.337 265.645) rotate(90)" fill="none" stroke="#353535" stroke-width="1"/>
+								<line id="Line_148" data-name="Line 148" y1="8.474" x2="8.474" transform="translate(1195.374 863.375) rotate(90)" fill="none" stroke="#353535" stroke-width="1"/>
+								<line id="Line_149" data-name="Line 149" y1="8.474" x2="8.474" transform="translate(986.337 871.85) rotate(180)" fill="none" stroke="#353535" stroke-width="1"/>
+								<line id="Line_150" data-name="Line 150" x1="14.124" y2="14.124" transform="translate(1171.645 275.249)" fill="none" stroke="#707070" stroke-width="1"/>
+								<line id="Line_151" data-name="Line 151" x1="14.124" y1="14.124" transform="translate(986.62 274.402)" fill="none" stroke="#707070" stroke-width="1"/>
+								<line id="Line_150-2" data-name="Line 150" x1="14.124" y2="13.559" transform="translate(1000.744 863.375) rotate(180)" fill="none" stroke="#707070" stroke-width="1"/>
+								<line id="Line_151-2" data-name="Line 151" x2="14.124" y2="13.277" transform="translate(1171.645 849.816)" fill="none" stroke="#707070" stroke-width="1"/>
+								<path id="Path_1259" data-name="Path 1259" d="M174.72,124.8a3.164,3.164,0,0,0-3.12,3.12,3.032,3.032,0,0,0,1.69,2.73h.13v17.162a1.43,1.43,0,0,0,2.86,0V130.651h.13a3.032,3.032,0,0,0,1.69-2.73A3.6,3.6,0,0,0,174.72,124.8Zm.78,23.142a.78.78,0,1,1-1.56,0V129.61a.78.78,0,1,1,1.56,0v18.332ZM176.15,130v-.26a1.43,1.43,0,1,0-2.86,0V130a2.526,2.526,0,0,1-1.04-2.08,2.469,2.469,0,0,1,2.47-2.47,2.557,2.557,0,0,1,2.47,2.47A2.714,2.714,0,0,1,176.15,130Z" transform="translate(818.635 401.989)" fill="#353535"/>
+								<line id="Line_152" data-name="Line 152" x2="171.184" transform="translate(1001.026 617.616)" fill="none" stroke="#707070" stroke-width="2"/>
+								<line id="Line_153" data-name="Line 153" x2="171.184" transform="translate(1001.026 601.797)" fill="none" stroke="#707070" stroke-width="2"/>
+							</g>
+							<g id="balcony-right" class="dn">
+								<g id="Repeat_Grid_21" data-name="Repeat Grid 21" transform="translate(1196.448 265.28)" clip-path="url(#clip-path)">
+									<g transform="translate(-976.448 -436.28)">
+										<line id="Line_61" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-969.448 -436.28)">
+										<line id="Line_61-2" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-962.448 -436.28)">
+										<line id="Line_61-3" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-955.448 -436.28)">
+										<line id="Line_61-4" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-948.448 -436.28)">
+										<line id="Line_61-5" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-941.448 -436.28)">
+										<line id="Line_61-6" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+								</g>
+								<g id="Repeat_Grid_22" data-name="Repeat Grid 22" transform="translate(1196.448 870.28)" clip-path="url(#clip-path)">
+									<g transform="translate(-976.448 -436.28)">
+										<line id="Line_61-7" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-969.448 -436.28)">
+										<line id="Line_61-8" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-962.448 -436.28)">
+										<line id="Line_61-9" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-955.448 -436.28)">
+										<line id="Line_61-10" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-948.448 -436.28)">
+										<line id="Line_61-11" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+									<g transform="translate(-941.448 -436.28)">
+										<line id="Line_61-12" data-name="Line 61" y2="3" transform="translate(979.448 436.28) rotate(90)" fill="none" stroke="#c351e7" stroke-width="1"/>
+									</g>
+								</g>
+								<line id="Line_155" data-name="Line 155" y2="604.78" transform="translate(1229.5 267.5)" fill="none" stroke="#c351e7" stroke-width="3"/>
+							</g>
+							<line class="b-line2" id="Line_208" data-name="Line 208" x2="217" transform="translate(977.5 433.5)" fill="none" stroke="#353535" stroke-width="2"/>
+							<line class="b-line1" id="Line_209" data-name="Line 209" x1="462" transform="translate(732.5 352.5)" fill="none" stroke="#353535" stroke-width="2"/>
+						</g>
+					</svg>
+				#instruction__accor.instruction__accor.instruction__block
 					.acc__title 
 						span.tally 01
 						span.text Общая ширина блока
