@@ -1183,7 +1183,7 @@ ul.social_icons {
                 align-items: center;
                 flex-direction: column;
                 img {
-                    width: 50%;
+                    width: 45%;
                     height: auto;
                 }
                 .title {
@@ -1197,7 +1197,11 @@ ul.social_icons {
                     margin-top: 15px;
                     flex-basis: 100%;
                     span {
+                        font-size: 18px;
                         font-family: 'MontserratSemiBold';
+                        // background: linear-gradient(0deg, #E55AE9, #9C47E5);
+                        color: white;
+                        display: block;
                     }
                 }
             }
