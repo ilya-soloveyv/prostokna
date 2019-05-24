@@ -344,6 +344,7 @@ $text: #353535;
 	            transition: 0.3s;
 	            transition-delay: 0.1s;
 	            opacity: 0;
+							visibility: hidden;
             }
 					}
 				}
@@ -437,13 +438,13 @@ $text: #353535;
 					&__item {
 						transition: opacity 0.3s 0.7s, background-color 0.3s;
 						&:nth-child(1) {
-							left: 71%;
-    					top: 14.5%;
+							left: 50%;
+    					top: 0;
 							transform: translate(-50%,-50%);
 						}
 						&:nth-child(2) {
 							left: 71%;
-    					top: 27.8%;
+    					top: 31.3%;
 							transform: translate(-50%,-50%);
 						}
 						&:nth-child(3) {
@@ -455,14 +456,15 @@ $text: #353535;
 	            transition: 0.3s;
 	            transition-delay: 0.1s;
 	            opacity: 0;
+							visibility: hidden;
             }
 					}
 				}
 				.text {			
 					&__item {						
 						&:nth-child(1) {
-							left: 9%;
-    					top: -0.9%;
+							left: 12%;
+              top: 8.1%;
 						}			
 						&:nth-child(2) {
 							left: -5%;
@@ -579,6 +581,14 @@ $text: #353535;
 	.part {
 		transition: 0.5s;
 	}
+	.part5 {
+		&.stroke {
+			stroke: $text;
+			opacity: 1;
+			stroke-width:2;
+		}
+		
+	}
 	.left {
 		&.active {
 			transform: translate(7388.704px, 8420.271px);
@@ -593,7 +603,7 @@ $text: #353535;
 	}
 	.right {
 		&.active {
-			transform: translate(7430.579px, 8419.537px);
+			transform: translate(-6920.668px, -7562.602px) rotate(180deg);
 			opacity: 0.5;
 		}
 	}
@@ -645,6 +655,7 @@ $text: #353535;
 	}
 	.dn {
 		opacity: 0;
+		transition:opacity 0.3s;
 		&.show {
 			opacity: 1;
 		}
@@ -666,10 +677,11 @@ $text: #353535;
 			stroke: $accent;
 		}
 	}
-	.line3,.b-line1,.b-line2 {
+	.line3,.b-line1,.b-line2,.block3 {
 		transition: stroke 0.3s;
 		&.color {
 			stroke: $accent;
+			opacity: 1;
 		}
 	}
 	.b-line1,.b-line2 {
@@ -681,6 +693,18 @@ $text: #353535;
 	}
 	.balcony-center,.b-window {
 		transition:opacity 0.3s;
+	}
+	.block4 {
+		&.black {
+			opacity: 1;
+		}
+	}
+	.rect3 {
+		transition: 1s;
+		&.active {
+			stroke-dasharray: 107.4%, 149%;
+			stroke-dashoffset: -38.3%;
+		}
 	}
 
 }
