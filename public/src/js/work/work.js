@@ -97,4 +97,45 @@ if ($(".work").length) {
 			}
 			
 		}
+
+	$('.way__item.last').hover(
+		function () {
+			if ($('.way__link.last').hasClass('none') == false) {
+				
+				setTimeout(function () {
+					$('.way__link.last').addClass('none');
+				}, 300);
+
+				setTimeout(function () {
+					$('.msn').addClass('active');
+				}, 600);
+
+
+				$.each($('.msn__link'), function (i, el) {
+					setTimeout(function () {
+						$(el).addClass("active");
+					}, 650 + (i * 200));
+
+				});
+			}			
+		},
+		function () {
+			if ($('.way__link.last').hasClass("none") == true) {
+				$.each($('.msn__link'), function (i, el) {
+					setTimeout(function () {
+						$(el).removeClass("active");
+					}, 200 + (i * 200));
+
+				});
+
+				setTimeout(function () {
+					$('.msn').removeClass("active");
+				}, 600);
+				setTimeout(function () {
+					$('.way__link.last').removeClass("none");
+				}, 900);
+			}		
+
+		});
+		
 }
