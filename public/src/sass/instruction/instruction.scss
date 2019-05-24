@@ -5,7 +5,7 @@ $text: #353535;
 }
 .instruction {
 		position: relative;
-    color: $text;
+    	color: $text;
 		font-family: 'MontserratMedium';
 		padding-bottom: 33px;
 		display: flex;
@@ -314,7 +314,7 @@ $text: #353535;
 				}
 				.num {
 					&__item {
-						transition: opacity 0.3s 0.7s, background-color 0.3s;
+						transition: opacity 0.3s, background-color 0.3s;
 						&:nth-child(1) {
 							left: 27.3%;
               top: 41%;
@@ -436,7 +436,7 @@ $text: #353535;
 				}
 				.num {
 					&__item {
-						transition: opacity 0.3s 0.7s, background-color 0.3s;
+						transition: opacity 0.3s, background-color 0.3s;
 						&:nth-child(1) {
 							left: 50%;
     					top: 0;
@@ -508,7 +508,7 @@ $text: #353535;
 						font-size: 10px;
 					}
 					&.active {						
-						transition-delay: 0.7s;
+						// transition-delay: 0.7s;
 						opacity: 1;
 					}				
 				}
