@@ -1182,6 +1182,11 @@ ul.social_icons {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                &:first-child {
+                    img {
+                        padding: 0 5px;
+                    }
+                }
                 img {
                     width: 45%;
                     height: auto;
