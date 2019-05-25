@@ -18,7 +18,7 @@
             .modal-content
                 include menu
     .callme
-        img(src="/images/product/phone.svg", alt="call me")
+        img(src="/images/product/phone.svg" alt="call me" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
     .data
         //- pre !{product.product_links}
         .basic
@@ -160,10 +160,9 @@
                     li.nav-item
                         a#home2-tab.nav-link(data-toggle="tab" href="#home2" aria-selected="true") Описание
                 .buttons
-                    button.calculate Добавить в калькулятор
+                    button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
                         i.material-icons star_border
-                //- button Добавить в калькулятор
         if product.product_colors.length
             .colors
                 .list
@@ -185,7 +184,7 @@
                                 )
                                 .code= color.color.sColorTitleCode
                                 .title= color.color.sColorTitle
-                    button Добавить в калькулятор
+                    button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                 .view
         .desc
             each image in product.product_images
@@ -200,4 +199,4 @@
                     else
                         span #{product.material.sMaterialTitle}
             .text!= product.sProductText
-            button Добавить в калькулятор
+            button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор

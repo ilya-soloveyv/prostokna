@@ -98,23 +98,24 @@ if ($(".work").length) {
 			
 		}
 
+
 	$('.way__item.last').hover(
 		function () {
 			if ($('.way__link.last').hasClass('none') == false) {
 				
 				setTimeout(function () {
 					$('.way__link.last').addClass('none');
-				}, 300);
+				}, 10);
 
 				setTimeout(function () {
 					$('.msn').addClass('active');
-				}, 600);
+				}, 250);
 
 
 				$.each($('.msn__link'), function (i, el) {
 					setTimeout(function () {
 						$(el).addClass("active");
-					}, 650 + (i * 200));
+					}, 350 + (i * 100));
 
 				});
 			}			
@@ -124,16 +125,16 @@ if ($(".work").length) {
 				$.each($('.msn__link'), function (i, el) {
 					setTimeout(function () {
 						$(el).removeClass("active");
-					}, 200 + (i * 200));
+					}, 200 + (i * 100));
 
 				});
 
 				setTimeout(function () {
 					$('.msn').removeClass("active");
-				}, 600);
+				}, 300);
 				setTimeout(function () {
 					$('.way__link.last').removeClass("none");
-				}, 900);
+				}, 400);
 			}		
 
 		});
