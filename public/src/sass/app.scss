@@ -647,6 +647,16 @@ $speed: .25s;
         z-index: 3;
         padding: 9px 0;
         // background-color: red;
+        a.callall {
+            display: none;
+            @media (max-width: 575px) {
+                display: block;
+            }
+            img {
+                fill: red;
+                margin: 12px;
+            }
+        }
         a.tel {
             float: left;
             display: block;
@@ -706,6 +716,9 @@ $speed: .25s;
                 top: 9px;
                 right: 10px;
             }
+            a.whatsapp {
+                display: none;
+            }
         }
     }
     .search {
@@ -754,6 +767,8 @@ $speed: .25s;
         }
     }
 }
+
+
 .modal-backdrop-wiki {
     #top {
         .phone {
@@ -776,7 +791,7 @@ $speed: .25s;
 .ppage {
     min-height: 100vh;
     padding: 60px 0 0 60px;
-    @media (max-width: 1200px) {
+    @media (max-width: 1199px) {
         padding-left: 0;
     }
     @media (max-width: 575px) {
@@ -938,6 +953,10 @@ ul.social_icons {
         border-radius: 0;
         @media (max-width: 575px) {
             padding: 2rem;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-content: center;
         }
         .close-modal {
             position: absolute;
@@ -1076,6 +1095,120 @@ ul.social_icons {
             padding-bottom: 0;
             @media (max-width: 575px) {
                 font-size: 12px;
+            }
+        }
+    }
+}
+
+
+
+#calc_wait {
+    .modal-dialog {
+        max-width: 400px;
+        @media (max-width: 575px) {
+            max-width: 100%;
+        }
+    }
+    .modal-content {
+        padding: 3rem;
+        border: none;
+        border-radius: 0;
+        @media (max-width: 575px) {
+            padding: 2rem;
+        }
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            cursor: pointer;
+            @media (max-width: 575px) {
+                right: .75rem;
+                top: .75rem;
+            }
+        }
+        .title {
+            text-align: center;
+            font-family: 'MontserratSemiBold';
+            font-size: 24px;
+            text-transform: uppercase;
+            padding-bottom: .5rem;
+            @media (max-width: 575px) {
+                font-size: 16px;
+            }
+        }
+        .desc {
+            text-align: center;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            padding-bottom: 0;
+            @media (max-width: 575px) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+#modal_mobile_contact {
+    .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+    }
+    .modal-content {
+        height: 100vh;
+        padding: 5rem 2rem;
+        border: none;
+        border-radius: 0;
+        background: #353535;
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            cursor: pointer;
+            color: white;
+            @media (max-width: 575px) {
+                right: .75rem;
+                top: .75rem;
+            }
+        }
+        .list {
+            height: 100%;
+            // background: red;
+            display: flex;
+            flex-wrap: wrap;
+            .item {
+                text-decoration: none;
+                flex-basis: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                &:first-child {
+                    img {
+                        padding: 0 5px;
+                    }
+                }
+                img {
+                    width: 45%;
+                    height: auto;
+                }
+                .title {
+                    padding-top: 15px;
+                    text-align: center;
+                    font-size: 14px;
+                    color: white;
+                }
+                &.item_5 {
+                    border-top: 1px solid rgba(255,255,255,.05);
+                    margin-top: 15px;
+                    flex-basis: 100%;
+                    span {
+                        font-size: 18px;
+                        font-family: 'MontserratSemiBold';
+                        // background: linear-gradient(0deg, #E55AE9, #9C47E5);
+                        color: white;
+                        display: block;
+                    }
+                }
             }
         }
     }

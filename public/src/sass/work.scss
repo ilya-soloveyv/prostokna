@@ -9,6 +9,22 @@ p {
 	text-align: center;
 }
 
+@keyframes soc_animation {
+	0% {
+		opacity: 1;
+		visibility: visible;
+		background: red;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+		background: blue;
+	}
+	// from {text-shadow: 0 0 3px black;}
+	// 50% {text-shadow: 0 0 30px black;}
+	// to {text-shadow: 0 0 3px black;}
+}
+
 .work {
 		font-family: 'Montserrat';
     background: $dark;
@@ -411,6 +427,9 @@ p {
 									opacity: 0;
 									visibility: hidden;
 								}
+								&:hover {
+									// animation: soc_animation .25s ease-in-out forwards;
+								}
 							}
 						}
 						.way__link {
@@ -531,15 +550,30 @@ p {
 								background: -ms-linear-gradient(left, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
 								background: linear-gradient(to right, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
 								filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b47e5', endColorstr='#e45ae9', GradientType=1 );
-								box-shadow: 0 0 0 3px #424242,
-														0 0 0 4px #fff;
+								box-shadow: 0 0 0 3px #424242, 0 0 0 4px #fff;
+								position: relative;
 								&.active {
-									display: flex;
+									display: block;
 									animation: op .3s;
 								}
-								img {
-									width: 20px;
-									height: 20px;
+								.msn__wrap {
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									height: 30px;
+									img {
+										width: 20px;
+										height: 20px;
+									}
+								}
+								.msn__title {
+									position: absolute;
+									left: 50%;
+									bottom: -24px;
+									transform: translate(-50%, 0);
+									font-size: 12px;
+									color: white;
+									text-decoration: none;
 								}
 								&:hover {																	
 									box-shadow: 0 0 0 2px #424242,
