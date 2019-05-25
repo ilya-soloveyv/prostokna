@@ -3,12 +3,14 @@
     ul
         li(class={active: !gallery_group_active})
             a(href="/gallery")
-                img(src="/images/gallery/all.svg", alt="")
+                .bg
+                    img(src="/images/gallery/all.svg", alt="")
                 span Все
         each group in gallery_group
             li(class={active: gallery_group_active == group.sGalleryGroupUri})
                 a(href="/gallery/" + group.sGalleryGroupUri)
-                    img(src="/images/gallery/" + group.sGalleryGroupUri + ".svg", alt="")
+                    .bg
+                        img(src="/images/gallery/" + group.sGalleryGroupUri + ".svg", alt="")
                     span= group.sGalleryGroupTitle
 
 //- .head
