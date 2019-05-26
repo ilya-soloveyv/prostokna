@@ -7,7 +7,7 @@ block content
             .wrap
                 #gallery_card_owl.owl-carousel
                     each item, index in gallery_list
-                        div.owl-item-gallery-card(data-iGalleryID= item.iGalleryID)
+                        .owl-item-gallery-card(data-iGalleryID= item.iGalleryID class={active: index == 3})
                             .desc
                                 //- .id_active= gallery[0].iGalleryID
                                 //- .id= item.iGalleryID
@@ -21,6 +21,11 @@ block content
                                     each image in item.gallery_images
                                         img(src="/images/gallery/" + image.sGalleryImageName, alt="")
                 #gallery_card_pagg
+                    .wrap_pagg
+                        each item, index in gallery_list
+                            a(class={active: item.iGalleryID == gallery[0].iGalleryID }, data-iGalleryID= item.iGalleryID, href="#")
+                                span.num= (index+1)
+                                span.titleDot= item.sGalleryTitleMin
                 //- div.owl-item-gallery-card
                 //-     .desc
                 //-         .id= gallery[0].iGalleryID

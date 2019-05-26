@@ -316,18 +316,55 @@ if ($("#gallery").length) {
     var gallery_card_owl = document.getElementById('gallery_card_owl')
     if (gallery_card_owl) {
 
+        var active_index = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').index()
+
 
         var owl = $('#gallery_card_owl')
         owl.on('changed.owl.carousel', function(event) {
+
             // console.log('changed.owl.carousel')
             $('.owl-item').scrollTop(0)
             $('#gallery .head').removeClass('hide')
-            scroll_active_gallery_card()
 
+            // var active = $('.owl-item.active')
+            // if (active.length) {
+            //     var index = event.item.index
+            //     var iGalleryID = active.find('.owl-item-gallery-card').attr('data-igalleryid')
+            //     // console.log('index', index)
+            //     // console.log('iGalleryID', iGalleryID)
+
+            //     // var currentItem = event.item.index;
+            //     // console.log('iGalleryID', currentItem)
+
+                
+                
+            //     // owl.trigger("to.owl.carousel", [2,250])
+            //     // owl.on('to.owl.carousel', 3)
+            // }
+
+            $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a').eq(event.item.index).addClass('active').siblings().removeClass('active')
+
+            scroll_active_gallery_card(event.item.index)
+            
             // var x = $('.owl-item.active')
+            var pagg_height = $('#gallery .gallery_card #gallery_card_pagg').height()
+            // console.log(pagg_height)
+            var pagg_scrollTop = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollTop()
+            // console.log(pagg_scrollTop)
+            var pagg_active_top = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').position().top
+            // console.log(pagg_active_top)
+            var pagg_active_height = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').height()
+            // console.log(pagg_active_height)
+
+            $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollTop(100)
+            
+            // history.pushState(null, null, '/gallery/big/' + iGalleryID)
+            // console.log(iGalleryID)
+            // history.replaceState("/gallery/big/" + iGalleryID)
             // if (x.length) {
             //     var iGalleryID = x.find('.owl-item-gallery-card').attr('data-iGalleryID')
             //     console.log(iGalleryID)
+            // history.replaceState()
             //     window.history.pushState(null, null, '/gallery/big/' + iGalleryID)
             //     // history.pushState(null, null, '/gallery/big/' + iGalleryID)
             // }
@@ -336,31 +373,46 @@ if ($("#gallery").length) {
             // history.pushState(null, null, '/gallery/big/21111')
         })
         owl.on('initialized.owl.carousel', function(event) {
+            scroll_active_gallery_card(event.item.index)
+
+            // console.log(event)
+            // event.item.index = 3
+            // owl.trigger("refresh.owl.carousel")
             // console.log('initialized.owl.carousel')
             // var x = $('.owl-item.active')
             // console.log(x)
-            scroll_active_gallery_card()
-            owl.trigger("to.owl.carousel", [2,0])
+            // $('#gallery .gallery_card #gallery_card_owl .owl-stage-outer .owl-stage .owl-item').eq(2).addClass('active').siblings().removeClass('active')
+            // var currentItem = event.item.index;
+            // console.log('iGalleryID', currentItem)
+            // owl.trigger("to.owl.carousel", [1,0])
+            // scroll_active_gallery_card()
+            // owl.trigger("to.owl.carousel", [2,0])
         })
         owl.owlCarousel({
             items: 1
         })
+        .trigger('to.owl.carousel', [active_index, 0])
 
-        function scroll_active_gallery_card () {
+        function scroll_active_gallery_card (index) {
             var galleryScrollPos3 = 0
-            var gallery_card_owl_item_active = document.getElementsByClassName('owl-item active')[0]
+            var gallery_card_owl_item_active = document.getElementsByClassName('owl-item')[index]
             if (gallery_card_owl_item_active) {
+                console.log(gallery_card_owl_item_active)
                 // console.log(gallery_card_owl_item_active)
                 gallery_card_owl_item_active.addEventListener('scroll', function(e) {
                     var st = $(this).scrollTop()
 
+                    // console.log(st)
+
                     if (st > galleryScrollPos3) {
                         if (st > 120) {
                             $('#gallery .head').addClass('hide')
+                            $('#gallery_card_pagg').addClass('postop')
                         }
                         // console.log('down')
                     } else {
                         $('#gallery .head').removeClass('hide')
+                        $('#gallery_card_pagg').removeClass('postop')
                         // console.log('up')
                     }
 
@@ -369,9 +421,12 @@ if ($("#gallery").length) {
             }
         }
         
-        $("#gallery_card_owl").click(function(){
-            
+        $("#gallery .gallery_card #gallery_card_pagg .wrap_pagg a").click(function(){
+            var index = $(this).index()
+            owl.trigger("to.owl.carousel", [index,0])
+            return false
         })
+        
 
 
 
