@@ -346,17 +346,37 @@ if ($("#gallery").length) {
 
             scroll_active_gallery_card(event.item.index)
             
-            // var x = $('.owl-item.active')
-            var pagg_height = $('#gallery .gallery_card #gallery_card_pagg').height()
-            // console.log(pagg_height)
-            var pagg_scrollTop = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollTop()
-            // console.log(pagg_scrollTop)
-            var pagg_active_top = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').position().top
-            // console.log(pagg_active_top)
-            var pagg_active_height = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').height()
-            // console.log(pagg_active_height)
 
-            $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollTop(100)
+
+
+
+            // var x = $('.owl-item.active')
+
+            if ($(window).width() > 767) {
+                var pagg_height = $('#gallery .gallery_card #gallery_card_pagg').height()
+                console.log(pagg_height)
+                var pagg_scrollTop = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollTop()
+                console.log(pagg_scrollTop)
+                var pagg_active_top = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').position().top
+                console.log(pagg_active_top)
+                var pagg_active_height = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').height()
+                console.log(pagg_active_height)
+
+                var t = pagg_active_top + pagg_scrollTop - (pagg_height/2) + (pagg_active_height/2)
+                $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').animate({scrollTop: t}, 250, 'swing')
+            } else {
+                var pagg_width = $('#gallery .gallery_card #gallery_card_pagg').width()
+                console.log(pagg_width)
+                var pagg_scrollLeft = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollLeft()
+                console.log(pagg_scrollLeft)
+                var pagg_active_left = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').position().left
+                console.log(pagg_active_left)
+                var pagg_active_width = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').width()
+                console.log(pagg_active_width)
+
+                var l = pagg_active_left + pagg_scrollLeft - (pagg_width/2) + (pagg_active_width/2)
+                $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').animate({scrollLeft: l}, 250, 'swing')
+            }
             
             // history.pushState(null, null, '/gallery/big/' + iGalleryID)
             // console.log(iGalleryID)
@@ -423,7 +443,7 @@ if ($("#gallery").length) {
         
         $("#gallery .gallery_card #gallery_card_pagg .wrap_pagg a").click(function(){
             var index = $(this).index()
-            owl.trigger("to.owl.carousel", [index,0])
+            owl.trigger("to.owl.carousel", [index, 250])
             return false
         })
         

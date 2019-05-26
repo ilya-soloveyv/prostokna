@@ -1065,6 +1065,7 @@
             .wrap_pagg {
                 height: 100%;
                 overflow: auto;
+                -webkit-overflow-scrolling: touch;
                 &::-webkit-scrollbar {
                     width: 0;
                     height: 0;
@@ -1082,7 +1083,7 @@
                     position: relative;
                     display: flex;
                     align-items: center;
-                    height: 50px;
+                    height: 100px;
                     text-decoration: none;
                     &::before {
                         content: '';
@@ -1121,6 +1122,7 @@
                         align-items: center;
                         font-size: 11px;
                         font-family: 'MontserratMedium';
+                        transition: all .25s;
                         @media (max-width: 767px) {
                             top: 8px;
                             left: 50%;
@@ -1135,14 +1137,18 @@
                         display: block;
                         padding: 0 47px 0 10px;
                         overflow: hidden;
-                        opacity: .5;
+                        opacity: 0;
                         visibility: hidden;
                         color: #A94BE6;
+                        transition: all .25s;
                         @media (max-width: 767px) {
+                            opacity: 0;
+                            visibility: hidden !important;
                             display: none;
                         }
                     }
                     &.active {
+                        // background: rgba(0,0,0,.5);
                         .num {
                             color: white;
                             background: #A94BE6;
