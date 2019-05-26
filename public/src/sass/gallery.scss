@@ -1,35 +1,9 @@
-// body.gallery_scroll {
-    // &::-webkit-scrollbar {
-    //     width: 5px;
-    // }
-    // &::-webkit-scrollbar-track {
-    //     margin: 200px 0 100px 0;
-    //     border-radius: 5px;
-    //     background: linear-gradient(0deg, #E55AE9, #9C47E5);
-    //     @media (max-width: 767px) {
-    //         margin: 120px 0 20px 0;
-    //     }
-    // }
-    // &::-webkit-scrollbar-thumb {
-    //     background: white;
-    //     border-radius: 5px;
-    // }
-    // &::-webkit-scrollbar-thumb:hover {
-    //     background-color: rgba(255,255,255,.95);
-    // }
-// }
-
 #gallery {
     background: #EDEDED;
-    // background: yellow;
-    // display: flex;
-    // flex-direction: column;
-    // height: 1px;
     height: calc(100vh - 60px);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    // position: relative;
     @media (max-width: 1199px) {
         display: block;
     }
@@ -903,14 +877,11 @@
                 border: none;
             }
             .owl-stage-outer {
-                // background: green;
                 height: 100%;
                 .owl-stage {
-                    // background: white;
                     height: 100%;
                     .owl-item {
                         height: 100%;
-                        // overflow: hidden;
                         -webkit-overflow-scrolling: touch;
                         padding: 20px 0 20px 20px;
                         border: 1px solid #A8A8A8;
@@ -929,7 +900,6 @@
                             .desc {
                                 flex-basis: 30%;
                                 flex-shrink: 0;
-                                // background: green;
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
@@ -953,7 +923,6 @@
                                 }
                             }
                             .image {
-                                // background: #9C47E5;
                                 flex-grow: 1;
                                 padding-left: 20px;
                                 img {
@@ -970,32 +939,18 @@
                                 flex-shrink: 0;
                                 padding-right: 16px;
                                 padding-left: 20px;
-                                // background: #E55AE9;
-                                // border: 1px solid #A8A8A8;
                                 overflow: auto;
                                 @media (max-width: 767px) {
                                     overflow: hidden;
                                     padding: 0;
                                 }
-                                // height: 350px;
                                 &::-webkit-scrollbar {
                                     width: 4px;
                                 }
-                                &::-webkit-scrollbar-track {
-
-                                    // border-radius: 5px;
-                                    // background: linear-gradient(0deg, #E55AE9, #9C47E5);
-                                    // margin-right: -5px;
-                                }
                                 &::-webkit-scrollbar-thumb {
                                     background: #A8A8A8;
-                                    // border-radius: 10px 0 0 10px;
-                                }
-                                &::-webkit-scrollbar-thumb:hover {
-                                    // background-color: rgba(255,255,255,.95);
                                 }
                                 .bg {
-                                    // padding: 10px;
                                     position: relative;
                                     display: grid;
                                     overflow: auto;
@@ -1005,10 +960,7 @@
                                         grid-template-columns: 1fr;
                                     }
                                     img {
-                                        // display: block;
-                                        // width: 100px;
-                                        // height: 100px;
-                                        // grid-row: 1;
+                                        cursor: pointer;
                                         @media (max-width: 767px) {
                                             &:last-child {
                                                 margin-bottom: 10px;
@@ -1030,7 +982,6 @@
             width: 150px;
             background: #EDEDED;
             overflow: hidden;
-            // background: red;
             z-index: 2;
             transition: all .25s;
             &::before {
@@ -1057,7 +1008,6 @@
                 width: auto;
                 right: 10px;
                 height: 50px;
-                // background: red;
                 &.postop {
                     top: 0;
                 }
