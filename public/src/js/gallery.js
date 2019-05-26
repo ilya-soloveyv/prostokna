@@ -154,33 +154,33 @@ if ($("#gallery").length) {
     })
 
 
-    var gallery_card = document.getElementById('gallery_card')
+    // var gallery_card = document.getElementById('gallery_card')
 
-    if (gallery_card) {
-        gallery_card.addEventListener('swiped-left', function(e) {
-            // console.log(e)
-            var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
-            if (href) {
-                location = href
-            }
-            // console.log(href)
-            // $('#gallery .head .title').html(href)
-            // console.log(href);
-            // location = href
+    // if (gallery_card) {
+    //     gallery_card.addEventListener('swiped-left', function(e) {
+    //         // console.log(e)
+    //         var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
+    //         if (href) {
+    //             location = href
+    //         }
+    //         // console.log(href)
+    //         // $('#gallery .head .title').html(href)
+    //         // console.log(href);
+    //         // location = href
             
-        });
+    //     });
 
-        gallery_card.addEventListener('swiped-right', function(e) {
-            // console.log(e)
-            var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
-            if (href) {
-                location = href
-            }
-            // $('#gallery .head .title').html(href)
-            // console.log(href);
-            // location = href
-        });
-    }
+    //     gallery_card.addEventListener('swiped-right', function(e) {
+    //         // console.log(e)
+    //         var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
+    //         if (href) {
+    //             location = href
+    //         }
+    //         // $('#gallery .head .title').html(href)
+    //         // console.log(href);
+    //         // location = href
+    //     });
+    // }
 
 
     function imageZoomOpen (i) {
@@ -202,27 +202,27 @@ if ($("#gallery").length) {
 
 
 
-    if (gallery_card) {
-        var galleryScrollPos2 = 0
-        gallery_card.addEventListener('scroll', function(e) {
+    // if (gallery_card) {
+    //     var galleryScrollPos2 = 0
+    //     gallery_card.addEventListener('scroll', function(e) {
 
-            var st = $(gallery_card).scrollTop()
+    //         var st = $(gallery_card).scrollTop()
 
-            if (st > galleryScrollPos2) {
-                if (st > 120) {
-                    $('#gallery .head').addClass('hide')
-                }
-                console.log('down')
-            } else {
-                $('#gallery .head').removeClass('hide')
-                console.log('up')
-            }
+    //         if (st > galleryScrollPos2) {
+    //             if (st > 120) {
+    //                 $('#gallery .head').addClass('hide')
+    //             }
+    //             console.log('down')
+    //         } else {
+    //             $('#gallery .head').removeClass('hide')
+    //             console.log('up')
+    //         }
 
-            galleryScrollPos2 = st
+    //         galleryScrollPos2 = st
 
-        });
+    //     });
 
-    }
+    // }
 
 
     var gallery_card_owl = document.getElementById('gallery_card_owl')
