@@ -176,7 +176,7 @@ app.get('*', async (req, res, next) => {
         include: [
             {
                 model: Product,
-                attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
+                attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iMaterialID', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
                 required: true,
                 include: [
                     {
@@ -191,6 +191,64 @@ app.get('*', async (req, res, next) => {
             }
         ]
     })
+
+    data.brandMenu = []
+
+    data.productMenu.forEach((brand, index1) => {
+        data.brandMenu.push({
+            iBrandID: brand.iBrandID,
+            sBrandTitle: brand.sBrandTitle,
+            iCountryID: brand.iCountryID,
+            products: {
+                list: [],
+                material: []
+            }
+        })
+
+        brand.products.forEach((product, index2) => {
+
+            var product_item = {
+                iProductID: product.iProductID,
+                sProductTitle: product.sProductTitle,
+                sProductURI: product.sProductURI,
+                iGenerateUriBrus: product.iGenerateUriBrus,
+                iGenerateUriMaterial: product.iGenerateUriMaterial,
+            }
+            if (product.iGenerateUriBrus) {
+                product_item.sBrusTitle = product.bru.sBrusTitle
+            }
+
+            if (product.iGenerateUriMaterial == 1) {
+
+                var material_index = data.brandMenu[index1].products.material.findIndex(
+                    function (material, index) {
+                        return material.iMaterialID == product.iMaterialID
+                    }
+                )
+
+                if (material_index < 0) {
+                    data.brandMenu[index1].products.material.push(
+                        {
+                            iMaterialID: product.iMaterialID,
+                            sMaterialTitle: product.material.sMaterialTitle,
+                            list: []
+                        }
+                    )
+                    material_index = data.brandMenu[index1].products.material.length-1
+                }
+
+                data.brandMenu[index1].products.material[material_index].list.push(product_item)
+
+            } else {
+                data.brandMenu[index1].products.list.push(product_item)
+            }
+
+        })        
+    })
+
+    // res.json(data.productMenu)
+    // res.json(data.brandMenu)
+
     next()
 })
 
@@ -1298,7 +1356,7 @@ app.get('/product', async (req, res) => {
     //         }
     //     ]
     // })
-    // res.json(data)
+    // res.json(data.productMenu)
     res.render('product/products.pug', data)
 })
 
