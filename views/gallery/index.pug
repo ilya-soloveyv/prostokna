@@ -1,12 +1,14 @@
 extends ../layouts/app
 
 block content
-    #gallery.ppage
+    #gallery.ppage.gallery_list
         include head
         .list#gallery_scroll
-            each item in gallery
-                a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID id='gallery_item_' + item.iGalleryID)
-                    .bg
-                        if item.gallery_images[0]
-                            img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
-                        .title= item.sGalleryTitle
+            .h1title Галлерея
+            .wrap
+                each item in gallery
+                    a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID id='gallery_item_' + item.iGalleryID)
+                        .bg
+                            if item.gallery_images[0]
+                                img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName, alt="")
+                            .title= item.sGalleryTitle

@@ -6,26 +6,22 @@ if ($("#gallery").length) {
     // var scrollbar = Scrollbar.init(elem, {
     //     alwaysShowTracks: true
     // })
+
     var gallery_scroll = document.getElementById('gallery_scroll')
     if (gallery_scroll) {
         var galleryScrollPos = 0;
-        new MiniBar(gallery_scroll, {
-            alwaysShowBars: true,
-            onScroll: function(e) {
-                st = e.scrollTop
-    
-                if (st > galleryScrollPos) {
-                    if (st > 120) {
-                        $('#gallery .head').addClass('hide')
-                    }
-                    console.log('down')
-                } else {
-                    $('#gallery .head').removeClass('hide')
-                    console.log('up')
+        gallery_scroll.addEventListener('scroll', function (e) {
+            st = $(gallery_scroll).scrollTop()
+            if (st > galleryScrollPos) {
+                if (st > 120) {
+                    $('#gallery .head').addClass('hide')
                 }
-    
-                galleryScrollPos = st
+                console.log('down')
+            } else {
+                $('#gallery .head').removeClass('hide')
+                console.log('up')
             }
+            galleryScrollPos = st
         })
     }
 
@@ -124,114 +120,26 @@ if ($("#gallery").length) {
 
 
 
-    $(document).ready(function(){
-        // resizeGalleryListItemBlock()
-    }).on("click", "#gallery .item .images ul li img", function () {
-        var src = $(this).attr('src')
-        $("#gallery .item .zoom img").attr('src', src)
+    $(document).on("click", "#gallery_card_owl .images img", function () {
+        if ($(window).width() > 767) {
+            var src = $(this).attr('src')
+            var index = $(this).index()
+            $(this).parents('.owl-item-gallery-card').find(".image img").attr('src', src).attr('data-index', index)
+        } else {
+            var i = $(this).parent().index()
+            imageZoomOpen(i)
+        }
+    }).on("click", "#gallery_card_owl .image img", function () {
+        var i = $(this).attr('data-index')
+        imageZoomOpen(i)
     })
-    // function resizeGalleryListItemBlock() {
-    //     var width = $('#gallery .list li').width()
-    //     $('#gallery .list li').height(width)
-    // }
-    $(window).resize(function(){
-        // resizeGalleryListItemBlock()
-    })
 
-    // $(function () {
-
-        // html{
-        //     background-color: red;
-        //     overflow: hidden;
-        //     width:100%;
-        // }
-        // body{
-        //     height:100%;
-        //     position:fixed; /* prevent overscroll bounce*/
-        //     background-color: lightgreen;
-        //     overflow-y:scroll;
-        //     -webkit-overflow-scrolling: touch; /* iOS velocity scrolling */
-        //     width:50%;                    
-        //     margin-left:25%;
-        // } 
-        // $('html').css({
-        //     overflow: 'hidden',
-        //     width: '100%'
-        // })
-        // $('body').css({
-        //     height: '100%',
-        //     position: 'fixed',
-        //     overflow: 'hidden',
-        //     '-webkit-overflow-scrolling': 'touch'
-        // })
-
-
-    //   })
-
-    // $("#gallery .item .pagg .pagg_list").scrollTop(150)
-    
-    // if ($(window).width() > 1199) {
-    //     var slick_height = $('#gallery .item .pagg .slick').height()/15
-    //     $('#gallery .item .pagg .slick a').height(slick_height)
-    //     $('#gallery .item .pagg .slick').slick({
-    //         slidesToShow: 15,
-    //         slidesToScroll: 1,
-    //         vertical: true,
-    //         verticalSwiping: true,
-    //         arrows: false,
-    //         focusOnSelect: true,
-    //         infinite: false,
-    //         adaptiveHeight: true,
-    //         // accessibility: false,
-    //         // prevArrow: null,
-    //         // nextArrow: null
-    //     }).mousewheel(function(e) {
-    //         e.preventDefault();
-        
-    //         if (e.deltaY < 0) {
-    //             $(this).slick('slickNext');
-    //         }
-    //         else {
-    //             $(this).slick('slickPrev');
-    //         }
-    //     })
-    // } else {
-    //     $('#gallery .item .pagg .slick').slick({
-    //         slidesToShow: 5,
-    //         // slidesToScroll: 5,
-    //         vertical: false,
-    //         verticalSwiping: false,
-    //         arrows: false,
-    //         focusOnSelect: true,
-    //         infinite: false,
-    //         // adaptiveHeight: true,
-    //         // accessibility: false,
-    //         // prevArrow: null,
-    //         // nextArrow: null
-    //     }).mousewheel(function(e) {
-    //         e.preventDefault();
-        
-    //         if (e.deltaY < 0) {
-    //             $(this).slick('slickNext');
-    //         }
-    //         else {
-    //             $(this).slick('slickPrev');
-    //         }
-    //     })
-
-    // }
 
     $('[data-toggle="popover"]').popover({
         container: 'body'
     })
 
 
-    $("#gallery .item .images ul li img").click(function () {
-        if ($(window).width() < 1200) {
-            var i = $(this).parent().index()
-            imageZoomOpen(i)
-        }
-    })
     $("#imageZoom .nav_close").click(function () {
         imageZoomClose()
     })
@@ -246,33 +154,33 @@ if ($("#gallery").length) {
     })
 
 
-    var gallery_card = document.getElementById('gallery_card')
+    // var gallery_card = document.getElementById('gallery_card')
 
-    if (gallery_card) {
-        gallery_card.addEventListener('swiped-left', function(e) {
-            // console.log(e)
-            var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
-            if (href) {
-                location = href
-            }
-            // console.log(href)
-            // $('#gallery .head .title').html(href)
-            // console.log(href);
-            // location = href
+    // if (gallery_card) {
+    //     gallery_card.addEventListener('swiped-left', function(e) {
+    //         // console.log(e)
+    //         var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').next().attr('href')
+    //         if (href) {
+    //             location = href
+    //         }
+    //         // console.log(href)
+    //         // $('#gallery .head .title').html(href)
+    //         // console.log(href);
+    //         // location = href
             
-        });
+    //     });
 
-        gallery_card.addEventListener('swiped-right', function(e) {
-            // console.log(e)
-            var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
-            if (href) {
-                location = href
-            }
-            // $('#gallery .head .title').html(href)
-            // console.log(href);
-            // location = href
-        });
-    }
+    //     gallery_card.addEventListener('swiped-right', function(e) {
+    //         // console.log(e)
+    //         var href = $('#gallery .item .pagg .pagg_bg .pagg_list a.active').prev().attr('href')
+    //         if (href) {
+    //             location = href
+    //         }
+    //         // $('#gallery .head .title').html(href)
+    //         // console.log(href);
+    //         // location = href
+    //     });
+    // }
 
 
     function imageZoomOpen (i) {
@@ -294,44 +202,101 @@ if ($("#gallery").length) {
 
 
 
-    if (gallery_card) {
-        var galleryScrollPos2 = 0
-        gallery_card.addEventListener('scroll', function(e) {
+    // if (gallery_card) {
+    //     var galleryScrollPos2 = 0
+    //     gallery_card.addEventListener('scroll', function(e) {
 
-            var st = $(gallery_card).scrollTop()
+    //         var st = $(gallery_card).scrollTop()
 
-            if (st > galleryScrollPos2) {
-                if (st > 120) {
-                    $('#gallery .head').addClass('hide')
-                }
-                console.log('down')
-            } else {
-                $('#gallery .head').removeClass('hide')
-                console.log('up')
-            }
+    //         if (st > galleryScrollPos2) {
+    //             if (st > 120) {
+    //                 $('#gallery .head').addClass('hide')
+    //             }
+    //             console.log('down')
+    //         } else {
+    //             $('#gallery .head').removeClass('hide')
+    //             console.log('up')
+    //         }
 
-            galleryScrollPos2 = st
+    //         galleryScrollPos2 = st
 
-        });
+    //     });
 
-    }
+    // }
 
 
     var gallery_card_owl = document.getElementById('gallery_card_owl')
     if (gallery_card_owl) {
 
+        var active_index = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').index()
+
 
         var owl = $('#gallery_card_owl')
         owl.on('changed.owl.carousel', function(event) {
+
             // console.log('changed.owl.carousel')
             $('.owl-item').scrollTop(0)
             $('#gallery .head').removeClass('hide')
-            scroll_active_gallery_card()
+
+            // var active = $('.owl-item.active')
+            // if (active.length) {
+            //     var index = event.item.index
+            //     var iGalleryID = active.find('.owl-item-gallery-card').attr('data-igalleryid')
+            //     // console.log('index', index)
+            //     // console.log('iGalleryID', iGalleryID)
+
+            //     // var currentItem = event.item.index;
+            //     // console.log('iGalleryID', currentItem)
+
+                
+                
+            //     // owl.trigger("to.owl.carousel", [2,250])
+            //     // owl.on('to.owl.carousel', 3)
+            // }
+
+            $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a').eq(event.item.index).addClass('active').siblings().removeClass('active')
+
+            scroll_active_gallery_card(event.item.index)
+            
+
+
+
 
             // var x = $('.owl-item.active')
+
+            if ($(window).width() > 767) {
+                var pagg_height = $('#gallery .gallery_card #gallery_card_pagg').height()
+                console.log(pagg_height)
+                var pagg_scrollTop = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollTop()
+                console.log(pagg_scrollTop)
+                var pagg_active_top = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').position().top
+                console.log(pagg_active_top)
+                var pagg_active_height = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').height()
+                console.log(pagg_active_height)
+
+                var t = pagg_active_top + pagg_scrollTop - (pagg_height/2) + (pagg_active_height/2)
+                $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').animate({scrollTop: t}, 250, 'swing')
+            } else {
+                var pagg_width = $('#gallery .gallery_card #gallery_card_pagg').width()
+                console.log(pagg_width)
+                var pagg_scrollLeft = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').scrollLeft()
+                console.log(pagg_scrollLeft)
+                var pagg_active_left = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').position().left
+                console.log(pagg_active_left)
+                var pagg_active_width = $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg a.active').width()
+                console.log(pagg_active_width)
+
+                var l = pagg_active_left + pagg_scrollLeft - (pagg_width/2) + (pagg_active_width/2)
+                $('#gallery .gallery_card #gallery_card_pagg .wrap_pagg').animate({scrollLeft: l}, 250, 'swing')
+            }
+            
+            // history.pushState(null, null, '/gallery/big/' + iGalleryID)
+            // console.log(iGalleryID)
+            // history.replaceState("/gallery/big/" + iGalleryID)
             // if (x.length) {
             //     var iGalleryID = x.find('.owl-item-gallery-card').attr('data-iGalleryID')
             //     console.log(iGalleryID)
+            // history.replaceState()
             //     window.history.pushState(null, null, '/gallery/big/' + iGalleryID)
             //     // history.pushState(null, null, '/gallery/big/' + iGalleryID)
             // }
@@ -340,31 +305,46 @@ if ($("#gallery").length) {
             // history.pushState(null, null, '/gallery/big/21111')
         })
         owl.on('initialized.owl.carousel', function(event) {
+            scroll_active_gallery_card(event.item.index)
+
+            // console.log(event)
+            // event.item.index = 3
+            // owl.trigger("refresh.owl.carousel")
             // console.log('initialized.owl.carousel')
             // var x = $('.owl-item.active')
             // console.log(x)
-            scroll_active_gallery_card()
-            owl.trigger("to.owl.carousel", [2,0])
+            // $('#gallery .gallery_card #gallery_card_owl .owl-stage-outer .owl-stage .owl-item').eq(2).addClass('active').siblings().removeClass('active')
+            // var currentItem = event.item.index;
+            // console.log('iGalleryID', currentItem)
+            // owl.trigger("to.owl.carousel", [1,0])
+            // scroll_active_gallery_card()
+            // owl.trigger("to.owl.carousel", [2,0])
         })
         owl.owlCarousel({
             items: 1
         })
+        .trigger('to.owl.carousel', [active_index, 0])
 
-        function scroll_active_gallery_card () {
+        function scroll_active_gallery_card (index) {
             var galleryScrollPos3 = 0
-            var gallery_card_owl_item_active = document.getElementsByClassName('owl-item active')[0]
+            var gallery_card_owl_item_active = document.getElementsByClassName('owl-item')[index]
             if (gallery_card_owl_item_active) {
+                console.log(gallery_card_owl_item_active)
                 // console.log(gallery_card_owl_item_active)
                 gallery_card_owl_item_active.addEventListener('scroll', function(e) {
                     var st = $(this).scrollTop()
 
+                    // console.log(st)
+
                     if (st > galleryScrollPos3) {
                         if (st > 120) {
                             $('#gallery .head').addClass('hide')
+                            $('#gallery_card_pagg').addClass('postop')
                         }
                         // console.log('down')
                     } else {
                         $('#gallery .head').removeClass('hide')
+                        $('#gallery_card_pagg').removeClass('postop')
                         // console.log('up')
                     }
 
@@ -373,9 +353,12 @@ if ($("#gallery").length) {
             }
         }
         
-        $("#gallery_card_owl").click(function(){
-            
+        $("#gallery .gallery_card #gallery_card_pagg .wrap_pagg a").click(function(){
+            var index = $(this).index()
+            owl.trigger("to.owl.carousel", [index, 250])
+            return false
         })
+        
 
 
 
