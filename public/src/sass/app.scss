@@ -1213,3 +1213,58 @@ ul.social_icons {
         }
     }
 }
+
+#product_catalog_modal {
+    padding-right: 0 !important;
+    .modal-dialog {
+        height: calc(100% - 60px);
+        margin: 60px 0 0 60px;
+        max-width: 100%;
+        overflow: hidden;
+        @media (max-width: 1199px) {
+            margin: 60px 0 0 0;
+        }
+        @media (max-width: 575px) {
+            height: calc(100% - 50px);
+            margin: 50px 0 0 0;
+        }
+        .modal-content {
+            height: 100%;
+            border: none;
+            border-radius: 0;
+            background: none;
+            .hamburger {
+                padding: 0;
+                // background: red;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                width: 30px;
+                height: 30px;
+                @media (max-width: 800px) {
+                    top: 15px;
+                    left: 50%;
+                    transform: translate(10px, 0);
+                    // margin-left: -50px;
+                }
+                .hamburger-box {
+                    width: inherit;
+                    .hamburger-inner {
+                        width: inherit;
+                        background: white;
+                        &::after {
+                            width: inherit;
+                            background: white;
+                        }
+                    }
+                }
+            }
+            .productsMenu {
+                background: rgba(53,53,53,.9);
+                @media (max-width: 575px) {
+                    padding: 50px 20px 0 70px;
+                }
+            }
+        }
+    }
+}

@@ -16,6 +16,9 @@
     .modal#product_catalog_modal(tabindex="-1", role="dialog")
         .modal-dialog(role="document")
             .modal-content
+                .hamburger.hamburger--spin.is-active(data-dismiss="modal" aria-label="Close")
+                    .hamburger-box
+                        .hamburger-inner
                 include menu
     .callme
         img(src="/images/product/phone.svg" alt="call me" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
