@@ -209,8 +209,8 @@
                         li.active {
                             a {
                                 span {
-                                    opacity: 1;
-                                    visibility: visible;
+                                    // opacity: 1;
+                                    // visibility: visible;
                                 }
                             }
                         }
@@ -234,13 +234,20 @@
                                 transform: translate(0, -50%);
                             }
                         }
-                        &:hover, &.active {
+                        &.active {
                             a {
-                                .bg {
-                                    left: 24px;
+                                span {
+                                    // left: 48px;
                                 }
+                            }
+                        }
+                        &:hover {
+                            a {
                                 span {
                                     left: 48px;
+                                }
+                                .bg {
+                                    left: 24px;
                                 }
                             }
                         }
@@ -358,8 +365,8 @@
                 }
                 &:hover {
                     img {
-                        -webkit-filter: grayscale(100%) blur(3px);
-                        filter: grayscale(100%) blur(3px);
+                        -webkit-filter: blur(2px);
+                        filter: blur(2px);
                         // filter: blur(3px);
                     }
                     .title {
