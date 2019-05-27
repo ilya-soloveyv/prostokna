@@ -664,6 +664,7 @@ app.post('/admin/GalleryRemove', async (req, res) => {
 
 app.get('/', (req, res) => {
     data.title = 'Просто окна'
+    data.description = 'Просто Окна – замер, проектирование, изготовление и реализация светопрозрачных конструкций любых типов: пластиковые окна ПВХ, алюминиевые окна, деревянные окна из евробруса, витражи, фасады и стоечно-ригельные системы. Монтажные работы любой сложности. Окна от производителя по лучшим ценам в Москве, МО и России. Мы не занимаемся накруткой цены, вы точно знаете, за что платите. Просто Окна – с нами просто.'
     data.left_menu_active = 0
     data.s2_menu = [
         {
@@ -1271,18 +1272,21 @@ app.get('/calc_data', (req, res) => {
 
 app.get('/contact', (req, res) => {
     data.title = 'Контакты'
+    data.description = ''
     data.left_menu_active = null
     res.render('contact.pug', data)
 })
 
 app.get('/gager', (req, res) => {
     data.title = 'Замерщик'
+    data.description = ''
     data.left_menu_active = null
     res.render('gager.pug', data)
 })
 
 app.get('/product', async (req, res) => {
     data.title = 'Окна'
+    data.description = ''
     data.left_menu_active = 1
     data.product = null
     // data.products = await Product.findAll({
@@ -1301,6 +1305,7 @@ app.get('/product', async (req, res) => {
 app.get('/product/:sProductURI', async (req, res) => {
     console.log('product page', req.params.sProductURI)
     data.title = 'Окна'
+    data.description = ''
     data.left_menu_active = 1
     data.products = await Product.findAll({
         attributes: ['sProductTitle', 'sProductURI'],
@@ -1329,18 +1334,21 @@ app.get('/product/:sProductURI', async (req, res) => {
 
 app.get('/pay', (req, res) => {
     data.title = 'Оплата'
+    data.description = ''
     data.left_menu_active = null
     res.render('pay.pug', data)
 })
 
 app.get('/palette', (req, res) => {
     data.title = 'Палитра'
+    data.description = ''
     data.left_menu_active = null
     res.render('palette.pug', data)
 })
 
 app.get('/options', (req, res) => {
     data.title = 'Опции'
+    data.description = ''
     data.left_menu_active = null
     res.render('options.pug', data)
 })
@@ -1358,6 +1366,7 @@ for (let index = 0; index < 10; index++) {
 
 app.get('/wiki', (req, res) => {
     data.title = 'Вики'
+    data.description = ''
     data.left_menu_active = 6
     res.render('wiki/catalog.pug', data)
 })
@@ -1368,36 +1377,42 @@ app.get('/wiki/get', (req, res) => {
 
 app.get('/wiki/article', (req, res) => {
     data.title = 'Wiki article'
+    data.description = ''
     data.left_menu_active = 6
     res.render('wiki/article.pug', data)
 })
 
 app.get('/instruction', (req, res) => {
     data.title = 'Instruction'
+    data.description = ''
     data.left_menu_active = null
     res.render('instruction/instruction.pug', data)
 })
 
 app.get('/instruction/video', (req, res) => {
     data.title = 'Instruction Video'
+    data.description = ''
     data.left_menu_active = null
     res.render('instruction/video.pug', data)
 })
 
 app.get('/company', (req, res) => {
     data.title = 'О компании'
+    data.description = ''
     data.left_menu_active = null
     res.render('company/company.pug', data)
 })
 
 app.get('/cheaper-together', (req, res) => {
     data.title = 'Вместе еще дешевле'
+    data.description = ''
     data.left_menu_active = null
     res.render('company/innovation/cheaper-together.pug', data)
 })
 
 app.get('/news', (req, res) => {
     data.title = 'news'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('company/news/news.pug', data)
@@ -1405,6 +1420,7 @@ app.get('/news', (req, res) => {
 
 app.get('/news-tape', (req, res) => {
     data.title = 'news-tape'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('company/news/news-tape.pug', data)
@@ -1412,6 +1428,7 @@ app.get('/news-tape', (req, res) => {
 
 app.get('/favorites', (req, res) => {
     data.title = 'favorites'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('favorites/favorites.pug', data)
@@ -1419,6 +1436,7 @@ app.get('/favorites', (req, res) => {
 
 app.get('/page-brand', (req, res) => {
     data.title = 'page-brand'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('page-brand/page-brand.pug', data)
@@ -1429,30 +1447,35 @@ app.get('/page-brand', (req, res) => {
 
 app.get('/corporate', (req, res) => {
     data.title = 'Corporate'
+    data.description = ''
     data.left_menu_active = null
     res.render('corporate/corporate.pug', data)
 })
 
 app.get('/regulation_window', (req, res) => {
     data.title = 'Регулировка окон'
+    data.description = ''
     data.left_menu_active = null
     res.render('regulation_window/regulation_window.pug', data)
 })
 
 app.get('/optional_service', (req, res) => {
     data.title = 'Дополнительные услуги'
+    data.description = ''
     data.left_menu_active = null
     res.render('optional_service/optional_service.pug', data)
 })
 
 app.get('/intuitive', (req, res) => {
     data.title = 'Интуйтивный подбор окон'
+    data.description = ''
     data.left_menu_active = null
     res.render('intuitive/intuitive.pug', data)
 })
 
 app.get('/gallery', async (req, res) => {
     data.title = 'Галлерея'
+    data.description = ''
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = false
@@ -1461,6 +1484,7 @@ app.get('/gallery', async (req, res) => {
 })
 app.get('/gallery/:sGalleryGroupUri', async (req, res) => {
     data.title = 'Галлерея'
+    data.description = ''
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = req.params.sGalleryGroupUri
@@ -1470,7 +1494,8 @@ app.get('/gallery/:sGalleryGroupUri', async (req, res) => {
     res.render('gallery', data)
 })
 app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
-    data.title = 'Галлерея' + req.params.iGalleryID
+    data.title = 'Галлерея ' + req.params.iGalleryID
+    data.description = ''
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = req.params.sGalleryGroupUri
@@ -1485,11 +1510,13 @@ app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
 })
 app.get('/work', async (req, res) => {
     data.title = 'Как мы работаем'
+    data.description = ''
     data.left_menu_active = 5
     res.render('work', data)
 })
 app.get('/calculation', async (req, res) => {
     data.title = 'Заказать точный расчет'
+    data.description = ''
     data.left_menu_active = null
     res.render('calculation', data)
 })

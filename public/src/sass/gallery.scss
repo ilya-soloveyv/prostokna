@@ -25,7 +25,8 @@
         transition: all .25s;
         &.hide {
             @media (max-width: 767px) {
-                top: -200px;
+                transform: translate(0, -100%);
+                // top: -200px;
             }
         }
         @media (max-width: 1400px) {
