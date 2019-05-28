@@ -1271,7 +1271,19 @@ ul.social_icons {
 #modal_video {
     .modal-dialog {
         min-width: 700px;
+        @media (max-width: 757px) {
+            min-width: 100%;
+            margin: 0;
+        }
         .modal-content {
+            @media (max-width: 757px) {
+                width: 100vw;
+                height: 100vh;
+                border: none;
+                border-radius: 0;
+                display: flex;
+                justify-content: center;
+            }
             .close-modal {
                 cursor: pointer;
                 position: absolute;
@@ -1285,6 +1297,9 @@ ul.social_icons {
             }
             #video_vimeo {
                 padding: 30px;
+                @media (max-width: 757px) {
+                    padding: 0;
+                }
                 iframe {
                     width: 100%;
                 }
