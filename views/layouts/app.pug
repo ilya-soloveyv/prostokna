@@ -181,6 +181,13 @@ html(lang="ru")
                         i.material-icons close
                     //- .title Калькулятор находиться в разработке
                     .desc Калькулятор находиться в разработке
+        .modal#modal_video(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    //- .title Калькулятор находиться в разработке
+                    #video_vimeo
         if env.NODE_ENV == 'development'
             script(src='/vue/vue.js')
             script(src='/src/js/jquery-3.3.1.js')
@@ -208,6 +215,7 @@ html(lang="ru")
             script(src='/src/js/product/product.js')
             script(src='/src/js/pay/pay.js')
             script(src='/src/js/index/s2.js')
+            script(src='/src/js/index/s3.js')
             script(src='/src/js/index/s5.js')
             script(src='/src/js/index/s6.js')
             script(src='/src/js/app/calc.js')
