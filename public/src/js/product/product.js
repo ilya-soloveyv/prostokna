@@ -1,6 +1,23 @@
 $(document).ready(function(){
     if ($('#product').length) {
 
+        function positionTabBg (_this) {
+            var _this = (_this) ? $(_this).parent() : $('#product .data .basic .info ul.nav li.nav-item a.active')
+            var pos = _this.position()
+            var left = pos.left
+            var top = pos.top
+            var width = _this.width()
+            var height = _this.height()
+            var bg = _this.parents('ul.nav').find('.bg')
+            bg.width(width).height(height).css({top:top, left: left})
+        }
+
+        positionTabBg()
+        
+        $('#product .data .basic .info ul.nav li.nav-item a').click(function(e){
+            positionTabBg(e.target)
+        })
+
         setWidthFrontBg()
         positionPoint2()
         useProductColorImage(0)
