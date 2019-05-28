@@ -1268,3 +1268,27 @@ ul.social_icons {
         }
     }
 }
+#modal_video {
+    .modal-dialog {
+        min-width: 700px;
+        .modal-content {
+            .close-modal {
+                cursor: pointer;
+                position: absolute;
+                right: 6px;
+                top: 6px;
+                cursor: pointer;
+                @media (max-width: 575px) {
+                    right: .75rem;
+                    top: .75rem;
+                }
+            }
+            #video_vimeo {
+                padding: 30px;
+                iframe {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
