@@ -63,6 +63,7 @@ $('#zay_modal').on('show.bs.modal', function (e) {
 
 $(".form_contact input[name=tel]").inputmask('+7 (999) 999-99-99')
 $(".form_contact").submit(function () {
+    console.log('form_contact')
     var name = $(this).find('input[name="name"]')
     name.removeClass('is-invalid')
     var tel = $(this).find('input[name="tel"]')
@@ -85,11 +86,13 @@ $(".form_contact").submit(function () {
     
     console.log(data)
 
+    // return false
+
     if (data.name.length == 0) {
         name.addClass('is-invalid')
         return false
     }
-    if (data.tel.length == 0) {
+    if (data.tel && data.tel.length == 0) {
         tel.addClass('is-invalid')
         return false
     }
