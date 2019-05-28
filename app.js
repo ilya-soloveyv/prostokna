@@ -1594,7 +1594,7 @@ app.post('/send', (req, res) => {
     var subject = req.body.subject
     var message = req.body.message
 
-    if (name.length && tel.length) {
+    if (name.length) {
         var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
 
         var message_html = ""
