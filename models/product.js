@@ -92,9 +92,9 @@ module.exports = (sequelize, DataTypes) => {
             }
           ]
         },
-        // {
-        //   model: sequelize.models.product_link,
-        //   require: false,
+        {
+          model: sequelize.models.product_link,
+          require: false,
         //   where: {
         //     iProductIDFrom: iProductID
         //   },
@@ -109,7 +109,7 @@ module.exports = (sequelize, DataTypes) => {
         //       model: sequelize.models.product
         //     }
         //   ]
-        // },
+        },
       ],
       order: [
         ['iProductID', 'ASC'],
