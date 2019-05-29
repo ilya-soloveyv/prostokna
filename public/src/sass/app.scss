@@ -1312,6 +1312,7 @@ ul.social_icons {
 
 
 
+$toggleBasicMenu_wrap: 59px;
 $toggleBasicMenu_size: 28px;
 $toggleBasicMenu_size_point: 6px;
 $toggleBasicMenu_size_point_split: $toggleBasicMenu_size_point / 2;
@@ -1320,18 +1321,27 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 
 #toggleBasicMenu {
     background: #ededed;
-    width: 59px;
-    height: 59px;
+    width: $toggleBasicMenu_wrap;
+    height: $toggleBasicMenu_wrap;
     z-index: 4;
     cursor: pointer;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 575px) {
+        background: none;
+        width: $toggleBasicMenu_wrap - 10;
+        height: $toggleBasicMenu_wrap - 10;
+    }
     .wrap {
         position: absolute;
         width: $toggleBasicMenu_size;
         height: $toggleBasicMenu_size;
+        @media (max-width: 575px) {
+            width: $toggleBasicMenu_size - 2;
+            height: $toggleBasicMenu_size - 2;
+        }
         span {
             background: #383838;
             width: $toggleBasicMenu_size_point;
@@ -1346,8 +1356,8 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
                 transform: translate(0, 0);
             }
             &:nth-child(2) {
-                transform: translate($toggleBasicMenu_size_point_pos_2, 0);
-                z-index: 2;
+                left: 50%;
+                transform: translate(-50%, 0);
             }
             &:nth-child(3) {
                 top: 0;
@@ -1388,18 +1398,5 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
     }
     &:hover {
         opacity: .75;
-        // span {
-        //     &:nth-child(2) {
-        //         animation: move_point_2 1s;
-        //         animation-fill-mode: forwards;
-        //         // transform: translate($toggleBasicMenu_size_point_pos_2, $toggleBasicMenu_size_point_pos_2);
-        //         // transform: translate(-50%, -50%);
-        //     }
-        //     // &:nth-child(2), &:nth-child(4), &:nth-child(6), &:nth-child(8) {
-        //     //     top: 50%;
-        //     //     left: 50%;
-        //     //     transform: translate(-50%, -50%);
-        //     // }
-        // }        
     }
 }
