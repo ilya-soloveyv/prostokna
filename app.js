@@ -62,23 +62,23 @@ const Gallery_image = require('./models').gallery_image
 
 
 
-if (process.env.NODE_ENV != 'development') {
-    app.use(function(req, res, next) {
-        if (req.secure) {
-            next()
-        } else {
-            res.redirect(301, 'https://' + req.headers.host + req.url)
-        }
-    })
-}
+// if (process.env.NODE_ENV != 'development') {
+//     app.use(function(req, res, next) {
+//         if (req.secure) {
+//             next()
+//         } else {
+//             res.redirect(301, 'https://' + req.headers.host + req.url)
+//         }
+//     })
+// }
 
-app.all('*', (req, res, next) => {
-    if (req.headers.host.match(/^www/) !== null ) {
-        res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
-    } else {
-        next()
-    }
-})
+// app.all('*', (req, res, next) => {
+//     if (req.headers.host.match(/^www/) !== null ) {
+//         res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
+//     } else {
+//         next()
+//     }
+// })
 
 
 
@@ -1690,20 +1690,20 @@ app.get('/all_windows', async (req, res) => {
 })
 
 
-if (process.env.NODE_ENV != 'development') {
-    var https_options = {
-        key: fs.readFileSync("encryption/private.key"),
-        cert: fs.readFileSync("encryption/mydomain.csr"),
-        // ca: [
-            // fs.readFileSync('encryption/www_synell_com.ca-bundle')
-        // ]
-    }
+// if (process.env.NODE_ENV != 'development') {
+//     var https_options = {
+//         key: fs.readFileSync("encryption/private.key"),
+//         cert: fs.readFileSync("encryption/mydomain.csr"),
+//         // ca: [
+//             // fs.readFileSync('encryption/www_synell_com.ca-bundle')
+//         // ]
+//     }
 
-    const https = require('https').createServer(https_options, app)
-    https.listen(443, () => {
-        console.log('Server https is running')
-    })
-}
+//     const https = require('https').createServer(https_options, app)
+//     https.listen(443, () => {
+//         console.log('Server https is running')
+//     })
+// }
 app.listen(process.env.PORT, () => {
     console.log('Server is running http://localhost:' + process.env.PORT)
 })
