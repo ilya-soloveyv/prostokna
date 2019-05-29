@@ -98,7 +98,7 @@ if ($('.calculation').length) {
 	}
 
 	$('.calc-form__btn').on('click', function(e) {
-		e.preventDefault();
+		// e.preventDefault();
 	});
 	const uploadButton = document.querySelector('.browse-btn');
 	const fileInfo = document.querySelector('.file-info');

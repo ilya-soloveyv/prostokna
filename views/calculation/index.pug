@@ -64,7 +64,8 @@ block content
 						p.payment__text Все просто! Заполните форму «Расчет стоимости», указав размеры ваших окон, либо просто прикрепите эскиз и нажмите кнопку «отправить»
 						span.payment__postscript *Максимальная погрешность не более 3%
 				.calc-content
-					form.calc-form(action="#", enctype="multipart/form-data",method="post")
+					form.form_contact.calc-form
+						input(type="hidden" name="subject")
 						.calc-form__wrapp
 							input.calc-form__input#name(type="text", name="name")
 							label.calc-form__label(for="name") Имя (обязательно)
@@ -82,5 +83,9 @@ block content
 						.calc-form__wrapp
 							textarea.calc-form__text#message(name="message")
 							label.calc-form__label(for="message") Описание
+<<<<<<< HEAD
 						button.calc-form__btn.active Отправить
+=======
+						button(type="submit").calc-form__btn Отправить
+>>>>>>> 03d55626a0e2efa7cb0422c89304c268e0b6cd6c
 
