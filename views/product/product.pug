@@ -40,20 +40,28 @@
                         .item
                             .title Материал
                             .list
-                                if product.product_links
+                                each item in material
+                                    span(
+                                        class= { active: item.iMaterialID == product.iMaterialID }
+                                    )= item.sMaterialTitle
+                                //- if product.product_links
                                     each link in product.product_links
                                         span !{link.material.sMaterialTitle}
-                                //- span.active Сосна
-                                //- span Лиственница
-                                //- span Дуб
+                                    
+                                //- each material in material
+                                    span.active #{material.sMaterialTitle}
                         .item
                             .title Выбор бруса
                             .list
-                                if product.product_links
+                                each item in brus
+                                    span(
+                                        class= { active: item.iBrusID == product.iBrusID }
+                                    )= item.sBrusTitle
+                                //- if product.product_links
                                     each link in product.product_links
                                         span !{link.bru.sBrusTitle}
-                                //- span.active Цельноламельный
-                                //- span Сращеный
+                                //- each brus in brus
+                                    span.active #{brus.sBrusTitle}
                 .view2
                     .back
                         if product.product_images[0] !== undefined

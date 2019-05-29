@@ -167,12 +167,14 @@ export default {
                                                     <input type="text" class="form-control" v-model="product.sProductTitle" required>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label class="label" for="">URI:</label>
                                                     <input type="text" class="form-control" v-model="product.sProductURI" disabled>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="label" for="">Материал:</label>
@@ -182,8 +184,6 @@ export default {
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="label" for="">Выбор бруса:</label>
@@ -192,6 +192,13 @@ export default {
                                                         <option :value="null">...</option>
                                                         <option v-for="(brus, index) in brus" :key="brus.iBrusID" :value="brus.iBrusID">{{ brus.sBrusTitle }}</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-sm bg-light">Создать перелинковку по материалу и брусу</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -302,6 +309,7 @@ export default {
                         <div class="card card-color">
                             <div class="card-header">Перелинковка по опциям</div>
                             <div class="card-body">
+                                
                             </div>
                         </div>
                     </div>

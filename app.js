@@ -1408,11 +1408,13 @@ app.get('/product/:sProductURI', async (req, res) => {
 
         ]
     })
+    data.material = await Material.findAll()
+    data.brus = await Brus.findAll()
 
     data.product = await Product.getProduct(req.params.sProductURI)
     
 
-    // res.json(data.product)
+    // res.json(data.material)
     res.render('product.pug', data)
 })
 
