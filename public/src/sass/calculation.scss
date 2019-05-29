@@ -357,6 +357,16 @@ $dark: rgba(#000, 0.74);
 				margin-top: 48px;
 				margin-left: auto;
 				cursor: pointer;
+				&.active {
+					background: rgba(155,71,229,1);
+					background: -moz-linear-gradient(left, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
+					background: -webkit-gradient(left top, right top, color-stop(0%, rgba(155,71,229,1)), color-stop(100%, rgba(228,90,233,1)));
+					background: -webkit-linear-gradient(left, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
+					background: -o-linear-gradient(left, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
+					background: -ms-linear-gradient(left, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
+					background: linear-gradient(to right, rgba(155,71,229,1) 0%, rgba(228,90,233,1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b47e5', endColorstr='#e45ae9', GradientType=1 );
+				}
 				@media screen and (max-width: 1200px) {
 					margin-top: 25px;
 				}

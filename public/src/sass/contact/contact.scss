@@ -16,7 +16,7 @@
                 display: flex;
                 height: 55.2vh;
                 min-height: 479px;
-                max-height: 479px;
+                max-height: 479px;								
             }
             &__data{
                 width: 374px;
@@ -32,7 +32,7 @@
                     font-size: 18px;
                 }
                 .number{
-                    font-size: 33px;
+                    font-size: 26px;
                 }
                 .week{
                     font-size: 14px;
@@ -44,8 +44,18 @@
                 .park {
                     font-size: 12px;
                     opacity: .5;
+										@media screen and (max-width: 992px){
+											width: 200%;
+										}
+										@media screen and (max-width: 768px){
+											width: 100%;
+										}
                 }
+								.online {
+									font-size: 14px;
+								}
                 .email{
+									font-size: 16px;
                     margin-top: 90px;
                     a {
                         color: white;
@@ -71,7 +81,7 @@
                     justify-content: space-between;
                     p{
                         font-family: 'MontserratMedium';
-                        font-size: 18px;
+                        font-size: 16px;
                         color: white;
                     }
                 }
@@ -299,11 +309,13 @@
                     min-height: 202px;
                 }
                 &__data{
-                    padding: 35px 0 0 40px;
+                    padding: 10px 0 0 40px;
                     width: 50%;
                     display: flex;
+										flex-direction: column-reverse;
+										justify-content: flex-end;
                     .container{
-                        width: 165px;
+                        width: 90%;
                         height: 135px;
                     }
                     p{
@@ -317,7 +329,7 @@
                         margin-bottom: 25px;
                     }
                     .email{
-                        margin-top: 35px;
+                        margin-top: 15px;
                     }
                     .social-icon{
                         margin-top: 115px;
@@ -401,28 +413,26 @@
                     height: 242px;
                 }
                 &__data{
-                    padding: 30px 0 0 20px;
-                    width: 50%;
-                    flex-direction: column;
+                    padding: 10px 0 0 20px;
                     .container{
-                        width: 135px;
+                        width: 95%;
                         height: 145px;
                         margin: 0;
                         padding: 0;
                     }
                     p{
-                        font-size: 8px;
+                        font-size: 11px;
                     }
                     .number{
                         font-size: 14px;
                     }
                     .week{
-                        font-size: 8px;
+                        font-size: 11px;
                         margin-top: -5px;
                         margin-bottom: 25px;
                     }
                     .email{
-                        font-size: 7px;
+                        font-size: 10px;
                         margin-top: 40px;
                     }
                     .social-icon{
@@ -492,6 +502,30 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 480px){
+	#contact{
+        main{
+					.contacts__info {
+						flex-direction: column;
+						height: auto;
+						min-height: auto;
+						max-height: none;
+					}
+					.contacts__data {
+						width: 100%;
+						padding: 30px 0 30px 20px;
+						.email {
+							margin-top: 24px;
+						}
+					}
+					.contacts__reqvizits {
+						width: 100%;
+						padding: 30px 0 30px 20px;
+					}
+        }
+    }	
 }
 @media (max-width: 375px){
     #contact{
