@@ -1690,20 +1690,20 @@ app.get('/all_windows', async (req, res) => {
 })
 
 
-// if (process.env.NODE_ENV != 'development') {
-//     var https_options = {
-//         key: fs.readFileSync("encryption/private.key"),
-//         cert: fs.readFileSync("encryption/mydomain.csr"),
-//         // ca: [
-//             // fs.readFileSync('encryption/www_synell_com.ca-bundle')
-//         // ]
-//     }
+if (process.env.NODE_ENV != 'development') {
+    var https_options = {
+        key: fs.readFileSync("encryption/private.key"),
+        cert: fs.readFileSync("encryption/server.crt"),
+        // ca: [
+            // fs.readFileSync('encryption/www_synell_com.ca-bundle')
+        // ]
+    }
 
-//     const https = require('https').createServer(https_options, app)
-//     https.listen(443, () => {
-//         console.log('Server https is running')
-//     })
-// }
+    const https = require('https').createServer(https_options, app)
+    https.listen(443, () => {
+        console.log('Server https is running')
+    })
+}
 app.listen(process.env.PORT, () => {
     console.log('Server is running http://localhost:' + process.env.PORT)
 })
