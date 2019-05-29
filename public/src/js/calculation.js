@@ -1,12 +1,12 @@
 if ($('.calculation').length) {
 
-	$('.calc__list li').on('click', function () {		
-		$(this)
-			.addClass('active').siblings().removeClass('active')
-			.closest('.calculation').find('.calc-content').removeClass('active')
-			.eq($(this).index()).addClass('active');		
+	// $('.calc__list li').on('click', function () {		
+	// 	$(this)
+	// 		.addClass('active').siblings().removeClass('active')
+	// 		.closest('.calculation').find('.calc-content').removeClass('active')
+	// 		.eq($(this).index()).addClass('active');		
 		
-	});
+	// });
 	if ($(window).width() >= '992') {
 		$('.calc-content').hover(
 			function () {
@@ -33,7 +33,16 @@ if ($('.calculation').length) {
 	
 
 	if ($(window).width() <= '992') {
+
 		$('.calc__list li:first-child').addClass('active');
+
+		$('.calc__list li').on('click', function () {
+			$(this)
+				.addClass('active').siblings().removeClass('active')
+				.closest('.calculation').find('.calc-content').removeClass('active')
+				.eq($(this).index()).addClass('active');
+
+		});
 
 		$('.calc-wrapp').swipe({
 			swipeLeft: leftSwipe,

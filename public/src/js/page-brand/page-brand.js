@@ -3,7 +3,14 @@ if ($('#page-brand').length) {
 
     $(document).ready(function(){
       
-   
+			$('.arrow').on('click', function(){
+				$('.brand__list').fadeToggle(300);
+				$(this).toggleClass('active');
+			});
+			$('.brand__item').on('click', function(){
+				$('.brand__list').fadeOut(300);
+				$('.arrow').removeClass('active');
+			});
     
         $('#page-brand .carouselOne').owlCarousel({
           items:1,
