@@ -21,6 +21,9 @@
 #gager {
     background-color: #353535;
     height: 1px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
     .preloader {
         position: fixed;
         right: 0;
@@ -118,12 +121,11 @@
         }
     }
     .data {
-        width: 100%;
+        width: 90%;
         height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
         background-color: #353535;
         .content{
             width: 100%;
@@ -131,26 +133,24 @@
             height: auto;
             display: flex;
             justify-content: space-between;
-            margin-top: 100px;
             &__text{
                 max-width: 897px;
-                width: 100%;
+                width: 55%;
                 height: 100%;
                 color: #fff;
-                padding-right: 20px;
                 p{
-                    font-family: "Montserrat";
+                    font-family: "MontserratMedium";
                     font-size: 16px;
                 }
                 .title{
                     font-family: "MontserratMedium";
-                    font-size: 35px;
+                    font-size: 22px;
                     margin-top: 130px;
                 }
             }
             &__form{
-                max-width: 627px;
-                width: 100%;
+                width: 40%;
+								max-width: 500px;
                 height: 100%;
                 background-color: #414141;
                 display: flex;
@@ -161,8 +161,6 @@
                     max-width: 500px;
                     height: 100%;
                     max-height: 500px;
-                    margin-top: 20px;
-                    margin-bottom: 20px;
                     p{
                         font-family: "MontserratSemiBold";
                         font-size: 14px;
@@ -176,6 +174,9 @@
                         border: none;
                         color: white;
                         padding: 0 15px;
+												&:focus {
+													outline: none;
+												}
                     }
                     button{
                         width: 100%;
@@ -196,20 +197,10 @@
     }
 }
 
-@media (max-width: 1650px){
-    #gager{
-        .data {
-            .content{
-                margin-top: 50px;
-            }
-        }
-    }
-}
 @media (max-width: 1500px){
     #gager{
         .data{
             .content{
-                margin-top: 80px;
                 max-width: 1060px;
                 &__text{
                     max-width: 580px;
@@ -223,7 +214,6 @@
                 }
                 &__form{
                     max-width: 425px;
-                    min-height: 545px;
                     padding: 40px;
                     .form{
                         max-width: 340px;
@@ -252,16 +242,14 @@
     #gager{
         height: 100%;
         .data{
-            justify-content: flex-start;
-            padding: 0;
             .content{
                 height: 100%;
                 flex-direction: column;
-                justify-content: flex-start;
                 align-items: center;
                 margin-top: 0;
                 &__text{
-                    max-width: 644px;
+                    max-width: 550px;
+										width: 100%;
                     order: 2;
                     padding: 40px;
                     height: auto;
@@ -276,14 +264,13 @@
                 }
                 &__form{
                     width: 100%;
-                    max-width: 992px;
+                    max-width: 550px;
                     order: 1;
-                    min-height: 442px;
                     padding: 40px;
+										margin-top: 30px;
                     .form{
                         max-width: 576px;
                         width: 100%;
-                        max-height: 342px;
                         margin-top: 0;
                         display: flex;
                         flex-direction: column;
@@ -302,7 +289,7 @@
                         button{
                             font-size: 11px;
                             width: 100%;
-                            max-width: 368px;
+                            max-width: 300px;
                             height: 44px;
                             margin-top: 40px;
 
@@ -358,6 +345,7 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 &__text{
+									padding: 30px 20px;
                     p{
                         font-size: 9px;
                         line-height: 20px;
@@ -368,7 +356,7 @@
                     }
                 }
                 &__form{
-                    min-height: 404px;
+									padding: 30px;
                     .form{
                         p{
                             font-size: 8px;
