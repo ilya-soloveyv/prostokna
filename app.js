@@ -59,6 +59,32 @@ const Gallery = require('./models').gallery
 const Gallery_image = require('./models').gallery_image
 
 
+
+
+
+if (process.env.NODE_ENV != 'development') {
+    app.use(function(req, res, next) {
+        if (req.secure) {
+            next()
+        } else {
+            res.redirect(301, 'https://' + req.headers.host + req.url)
+        }
+    })
+}
+
+app.all('*', (req, res, next) => {
+    if (req.headers.host.match(/^www/) !== null ) {
+        res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
+    } else {
+        next()
+    }
+})
+
+
+
+
+
+
 app.post('/test', async (req, res) => {
 
     // var product_image_point = await Product_image_point.findAll({
@@ -1664,7 +1690,25 @@ app.get('/all_windows', async (req, res) => {
 })
 
 
-http.listen(process.env.PORT || 8080, () => {
-    // console.clear()
-    console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
+if (process.env.NODE_ENV != 'development') {
+    var https_options = {
+        key: fs.readFileSync("encryption/private.key"),
+        cert: fs.readFileSync("encryption/mydomain.csr"),
+        // ca: [
+            // fs.readFileSync('encryption/www_synell_com.ca-bundle')
+        // ]
+    }
+
+    const https = require('https').createServer(https_options, app)
+    https.listen(443, () => {
+        console.log('Server https is running')
+    })
+}
+app.listen(process.env.PORT, () => {
+    console.log('Server is running http://localhost:' + process.env.PORT)
 })
+
+// http.listen(process.env.PORT || 8080, () => {
+//     // console.clear()
+//     console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
+// })
