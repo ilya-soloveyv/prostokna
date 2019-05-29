@@ -381,6 +381,7 @@ $speed: .25s;
         }
     }
     @media (max-width: 1200px) {
+        border-left: 0 !important;
         top: auto;
         left: 0;
         right: 0;
