@@ -20,7 +20,7 @@
 //     }
 // });
 
-$(document).on("click", "#top .hamburger", function () {
+$(document).on("click", "#toggleBasicMenu", function () {
     topmenu = $("#top .l .menu")
     if (!$(this).hasClass('is-active')) {
         $(this).addClass('is-active')
