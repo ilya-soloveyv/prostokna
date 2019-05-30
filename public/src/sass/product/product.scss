@@ -724,7 +724,9 @@
                     display: flex;
                     flex-direction: row;
                     @media (max-width: 800px) {
-                        display: none;
+                        padding: 15px 0 0;
+                        flex-basis: 55px;
+                        // display: none;
                     }
                     button.calculate {
                         flex-grow: 1;
@@ -765,6 +767,8 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        padding: 12px;
+                        transition: all .25s;
                         @media (max-width: 1050px) {
                             flex-basis: 45px;
                             height: 45px;
@@ -773,21 +777,39 @@
                             flex-basis: 35px;
                             height: 35px;
                         }
-                        i {
-                            color: white;
-                            font-size: 32px;
-                            opacity: .5;
-                            @media (max-width: 1050px) {
-                                font-size: 24px;
+                        @media (max-width: 800px) {
+                            margin-left: 10px;
+                        }
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            transition: all .25s;
+                            &.normal {
+                                opacity: .5;
+                                visibility: visible;
+                                display: block;
                             }
-                            @media (max-width: 950px) {
-                                font-size: 16px;
+                            &.hover {
+                                opacity: 0;
+                                visibility: hidden;
+                                display: none;
                             }
                         }
                         &:hover {
-                            i {
-                                opacity: 1;
-                                color: yellow;
+                            opacity: 1;
+                            img {
+                                &.normal {
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    display: none;
+                                }
+                                &.hover {
+                                    opacity: 1;
+                                    visibility: visible;
+                                    display: block;
+                                }
                             }
                         }
                     }
@@ -991,6 +1013,10 @@
                 .small {
                     font-size: 16px;
                     padding-top: .25rem;
+                    @media (max-width: 800px) {
+                        font-size: 12px;
+                        font-family: "Montserrat";
+                    }
                     span {
                         text-transform: capitalize;
                     }

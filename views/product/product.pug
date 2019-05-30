@@ -184,7 +184,9 @@
                 .buttons
                     button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
-                        i.material-icons star_border
+                        img.normal(src="/images/favorite.svg", alt="")
+                        img.hover(src="/images/favorite_gold.svg", alt="")
+                        
         if product.product_colors.length
             .colors
                 .list
