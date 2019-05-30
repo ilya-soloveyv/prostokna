@@ -56,6 +56,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/calculation.css")
             link(rel="stylesheet", href="/src/css/page-brand/page-brand.css")
         else
+            <script async type="text/javascript">function loadscript(e,t){var n=document.createElement("script");n.src="//lptracker.net.ru/"+e;n.onreadystatechange=t;n.onload=t;document.head.appendChild(n);return 1}var init_lstats=function(){lstats.site_id=5954;lstats.referer()};var jquery_lstats=function(){jQstat.noConflict();loadscript("stats_auto.js",init_lstats)};loadscript("jquery-1.10.2.min.js",jquery_lstats);</script>
             link(rel="stylesheet", href="/app-536c16ae90.min.css")
     body
         #top
@@ -69,7 +70,7 @@ html(lang="ru")
             .phone
                 a.callall(href="#" data-toggle="modal" data-target="#modal_mobile_contact")
                     img(src="/images/call.svg", alt="")
-                a.tel(href='tel:+74993912221') +7 499 391 22 21
+                a.tel.lptracker_phone(href='tel:+74993912221') +7 499 391 22 21
                 a.callme(href='#' data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white") Перезвоните мне
                 a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5' target="_blank")
                     //- img(src='/images/top/whatsapp_top_bl.svg', alt='4')
@@ -148,7 +149,8 @@ html(lang="ru")
                             img(src="/images/telegram.svg", alt="")
                             .title Напишите нам в<br> Telegram
                         a.item.item_5(href="tel:+74993912221")
-                            .title Или вы можете перезвонить нам сами по телефону <span>+7 (499) 391-22-21</span>
+                            .title Или вы можете перезвонить нам сами по телефону
+                                span.lptracker_phone +7 (499) 391-22-21
         .modal.fade#zay_modal(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
