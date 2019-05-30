@@ -20,6 +20,14 @@
                     .hamburger-box
                         .hamburger-inner
                 include menu
+    .modal#product_modal_images(tabindex="-1", role="dialog")
+        .modal-dialog(role="document")
+            .modal-content
+                .hamburger.hamburger--spin(data-dismiss="modal" aria-label="Close")
+                    .hamburger-box
+                        .hamburger-inner
+                .wrap
+                    .owl-carousel
     .callme
         img(src="/images/product/phone.svg" alt="call me" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
     .data
@@ -67,19 +75,21 @@
                         if product.product_images[0] !== undefined
                             .bg
                                 img(
-                                    src="/images/product/gallery/" + product.product_images[0].sProductImageBackName,
-                                    data-iProductImageID= product.product_images[0].iProductImageID,
+                                    src="/images/product/gallery/" + product.product_images[0].sProductImageBackName
+                                    data-iProductImageID= product.product_images[0].iProductImageID
+                                    data-index="0"
                                     alt="")
                     .front
                         .front_bg
                             if product.product_images[0] !== undefined
                                 .bg
                                     img(
-                                        src="/images/product/gallery/" + product.product_images[0].sProductImageFrontName,
-                                        data-iProductImageID= product.product_images[0].iProductImageID,
+                                        src="/images/product/gallery/" + product.product_images[0].sProductImageFrontName
+                                        data-iProductImageID= product.product_images[0].iProductImageID
+                                        data-index="0"
                                         alt="")
-                    ul.point
-                        //- each point in product_images_point
+                    //- ul.point
+                        each point in product_images_point
                             li.point_item(
                                 data-iProductImageID= point.iProductImageID,
                                 data-fProductImagePointPosX= point.fProductImagePointPosX,
