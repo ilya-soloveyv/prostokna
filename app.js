@@ -1696,9 +1696,9 @@ if (process.env.NODE_ENV != 'development') {
     var https_options = {
         key: fs.readFileSync("encryption/private.key"),
         cert: fs.readFileSync("encryption/server.crt"),
-        // ca: [
-            // fs.readFileSync('encryption/www_synell_com.ca-bundle')
-        // ]
+        ca: [
+            fs.readFileSync('encryption/mydomain.ca-bundle')
+        ]
     }
 
     const https = require('https').createServer(https_options, app)
