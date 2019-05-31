@@ -62,23 +62,23 @@ const Gallery_image = require('./models').gallery_image
 
 
 
-// if (process.env.NODE_ENV != 'development') {
-//     app.use(function(req, res, next) {
-//         if (req.secure) {
-//             next()
-//         } else {
-//             res.redirect(301, 'https://' + req.headers.host + req.url)
-//         }
-//     })
-// }
+if (process.env.NODE_ENV != 'development') {
+    app.use(function(req, res, next) {
+        if (req.secure) {
+            next()
+        } else {
+            res.redirect(301, 'https://' + req.headers.host + req.url)
+        }
+    })
+}
 
-// app.all('*', (req, res, next) => {
-//     if (req.headers.host.match(/^www/) !== null ) {
-//         res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
-//     } else {
-//         next()
-//     }
-// })
+app.all('*', (req, res, next) => {
+    if (req.headers.host.match(/^www/) !== null ) {
+        res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
+    } else {
+        next()
+    }
+})
 
 
 
