@@ -1526,6 +1526,13 @@ app.get('/page-brand', (req, res) => {
     //где апи по новостям и запросы??
     res.render('page-brand/page-brand.pug', data)
 })
+
+app.get('/best-cost', (req, res) => {
+    data.title = 'best-cost'
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('best-cost/best-cost.pug', data)
+})
 //app.get('/cheaper-together', (req, res) => {
     //res.render('company/company.pug', data)
 //})
