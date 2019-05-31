@@ -5,7 +5,6 @@
                 .hamburger.hamburger--spin
                     .hamburger-box
                         .hamburger-inner
-                //- .type
             h1 #{product.brand.sBrandTitle}
                 span #{product.sProductTitle}
     .submenu
@@ -31,10 +30,9 @@
     .callme
         img(src="/images/product/phone.svg" alt="call me" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
     .data
-        //- pre !{product.product_links}
         .basic
-            .gallery                
-                .list2
+            .gallery
+                .list2#slick_wrap
                     .slick
                         each image in product.product_images
                             div.slick-change(
@@ -44,32 +42,26 @@
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
                                 img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
-                    //- .selectOption
-                        .item
-                            .title Материал
-                            .list
-                                each item in material
-                                    span(
-                                        class= { active: item.iMaterialID == product.iMaterialID }
-                                    )= item.sMaterialTitle
-                                //- if product.product_links
-                                    each link in product.product_links
-                                        span !{link.material.sMaterialTitle}
-                                    
-                                //- each material in material
-                                    span.active #{material.sMaterialTitle}
-                        .item
-                            .title Выбор бруса
-                            .list
-                                each item in brus
-                                    span(
-                                        class= { active: item.iBrusID == product.iBrusID }
-                                    )= item.sBrusTitle
-                                //- if product.product_links
-                                    each link in product.product_links
-                                        span !{link.bru.sBrusTitle}
-                                //- each brus in brus
-                                    span.active #{brus.sBrusTitle}
+                    if 'material' in product.product_links || 'brus' in product.product_links
+                        .selectOption
+                            if 'material' in product.product_links && product.product_links.material.length
+                                .item
+                                    .title Материал
+                                    .list
+                                        each item in product.product_links.material
+                                            a(
+                                                class= { active: item.iMaterialID == product.iMaterialID }
+                                                href="/product/" + item.sProductURI
+                                            )= item.sMaterialTitle
+                            if 'brus' in product.product_links && product.product_links.brus.length
+                                .item
+                                    .title Выбор бруса
+                                    .list
+                                        each item in product.product_links.brus
+                                            a(
+                                                class= { active: item.iBrusID == product.iBrusID }
+                                                href="/product/" + item.sProductURI
+                                            )= item.sBrusTitle
                 .view2
                     .back
                         if product.product_images[0] !== undefined
@@ -185,8 +177,7 @@
                     button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
                         img.normal(src="/images/favorite.svg", alt="")
-                        img.hover(src="/images/favorite_gold.svg", alt="")
-                        
+                        img.hover(src="/images/favorite_gold.svg", alt="")          
         if product.product_colors.length
             .colors
                 .list
