@@ -251,17 +251,6 @@
                                     }
                                 }
                             }
-                    //         img {
-                    // //             height: 155px;
-                    // //             margin: 10px 0;
-                    // //             object-fit: contain;
-                    // //             @media (max-width: 1350px) {
-                    // //                 height: 100px;
-                    // //             }
-                    // //             @media (max-width: 1350px) {
-                    // //                 height: 75px;
-                    // //             }
-                    //         }
                         }
                     }
                     .selectOption {
@@ -287,7 +276,9 @@
                             .list {
                                 display: none;
                                 padding: .5rem 0;
-                                span {
+                                a {
+                                    color: white;
+                                    text-decoration: none;
                                     display: block;
                                     font-size: 10px;
                                     padding: .35rem 0;

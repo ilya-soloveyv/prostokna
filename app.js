@@ -1387,7 +1387,7 @@ app.get('/product', async (req, res) => {
 })
 
 app.get('/product/:sProductURI', async (req, res) => {
-    console.log('product page', req.params.sProductURI)
+    // console.log('product page', req.params.sProductURI)
     data.title = 'Окна'
     data.description = ''
     data.left_menu_active = 1
@@ -1412,9 +1412,8 @@ app.get('/product/:sProductURI', async (req, res) => {
     data.brus = await Brus.findAll()
 
     data.product = await Product.getProduct(req.params.sProductURI)
-    
 
-    // res.json(data.material)
+    // res.json(data.product.product_links)
     res.render('product.pug', data)
 })
 
