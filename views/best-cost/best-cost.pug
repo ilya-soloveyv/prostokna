@@ -1,0 +1,80 @@
+extends ../layouts/app
+
+block content
+    #best-cost
+        section.best-cost.ppage
+            img(src='/images/best-cost/window-center.png').window-right
+            img(src='/images/best-cost/mouse.png').mouse
+            .container
+                .row.header-container
+                    .col-lg-12.title-best-cost.text-center
+                        span НАШЛИ ДЕШЕВЛЕ,  МЫ СДЕЛАЕМ ЕЩЕ ДЕШЕВЛЕ!
+                    .col-lg-12.title-best-cost.text-center.pre-title-mobile
+                        span НАШЛИ ДЕШЕВЛЕ,<br>  МЫ СДЕЛАЕМ ЕЩЕ ДЕШЕВЛЕ!
+                    .col-lg-12.text-center.pre-title-button
+                        a().descripshen.anchor ОПИСАНИЕ
+                    .col-lg-12.text-center.pre-title-star
+                        img(src='/images/best-cost/star-white.png')
+                    .col-lg-8.pre-title-best-cost.text-center#pre-title.popup
+                        button.button-close 
+                            img(src='/images/best-cost/cross.png').cross
+                        p Если вы, дорогие покупатели, найдете цену на окна ниже, чем у нас, мы гарантированно сделаем вам еще более выгодное предложение. Мы настолько уверены в наших низких ценах, что готовы сделать ваш заказ еще более выгодным.
+                        p Все очень просто! Если вы нашли цену ниже нашей, оставляете заявку на занижение цены. В течение 30 минут наш менеджер свяжется с вами, чтобы предложить лучшую цену! И это ощутимая разница.
+            .container.container-grid
+                .row.container-elements
+                    .element
+                        span.number 01
+                        p.text Товар должен соответствовать товару нашей компании: марка профиля, конфигурация, марка фурнитуры, гарантия, либо быть схожим по большинству параметров.
+                    .element
+                        span.number 02
+                        p.text Предложение другой компании должно быть идентично нашему: оно должно включать все те же товары.
+                    .element
+                        span.number 03
+                        p.text Цена на данный товар актуальная и действующая
+                    .element
+                        span.number 04
+                        p.text Скидка начисляется, при предоставлении информации по одному из пунктов:
+                        p.text коммерческого предложения другой компании с ценами на окна
+                        p.text названия компании, контактов для связи
+                        p.text адреса сайта
+                        a(href='').my-com-anchor.anchor
+                            img(src='/images/best-cost/pop.png')
+                        #my-com.com.popup
+                            .block-text
+                                span 01
+                                p.text коммерческого предложения другой компании с ценами на окна
+                            .block-text
+                                span 02
+                                p.text названия компании, контактов для связи
+                            .block-text
+                                span 03
+                                p.text адреса сайта
+                    .element
+                        span.number 05
+                        p.text Акция действует абсолютно для всех заявок и расчетов
+            .container.container-popup
+                .row.popup-form-mobile
+                    .col-lg-12.text-center.button-make-sale
+                        a.make-sale() СДЕЛАТЬ ДЕШЕВЛЕ
+                    .col-lg-12.text-center.form-container#form-target.popup
+                        form(action="", method="post").form-panel
+                            input#name(type="text", name="name", placeholder='Ваше имя *' required)
+                            input#tel(type="tel", name="tel" placeholder='Телефон для связи *' required)
+                            input#mark(type="text", name="mark" placeholder='Марка оконных конструкция *' required)
+                            input#sait(type="text" name="sait" placeholder='Адрес сайта, оконной компании *' required)
+                            input#traid(type="text" name="traid" placeholder='Коммерческое предложение другой компании с ценами *' required)
+                            button(type="submit").button-go ОТПРАВИТЬ
+            .container-fluid.my-tablet-cost
+                .row
+                    .col-lg-12.text-center.button-dekstop
+                        button.cost СДЕЛАТЬ ДЕШЕВЛЕ
+            .container.container-form
+                .row.background-form
+                    .col-lg-12.text-center
+                        form(action="", method="post").form-panel
+                            input#name(type="text", name="name", placeholder='Ваше имя *' required)
+                            input#tel(type="tel", name="tel" placeholder='Телефон для связи *' required)
+                            input#mark(type="text", name="mark" placeholder='Марка оконных конструкция *' required)
+                            input#sait(type="text" name="sait" placeholder='Адрес сайта, оконной компании *' required)
+                            input#traid(type="text" name="traid" placeholder='Коммерческое предложение другой компании с ценами на окна *' required)
+                            button(type="submit").button-go ОТПРАВИТЬ

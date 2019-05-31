@@ -196,9 +196,9 @@ export default {
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12">
+                                            <div class="col-12">                                                
+                                                <label class="label" for="" style="color:#ADB5BD">Перелинковка по материалу и брусу:</label>
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-sm bg-light">Создать перелинковку по материалу и брусу</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -302,14 +302,6 @@ export default {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card card-color">
-                            <div class="card-header">Перелинковка по опциям</div>
-                            <div class="card-body">
-                                
                             </div>
                         </div>
                     </div>

@@ -76,7 +76,7 @@
                         width: 30px;
                         .hamburger-inner {
                             width: inherit;
-                            background: #313131;
+                            background: #353535;
                             @media (max-width: 800px) {
                                 background: white;
                             }
@@ -963,6 +963,7 @@
                     max-width: 100%;
                     max-height: 100%;
                     object-fit: contain;
+                    cursor: pointer;
                 }
             }
         }
