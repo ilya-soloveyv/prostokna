@@ -103,8 +103,12 @@ module.exports = (sequelize, DataTypes) => {
             {
               model: sequelize.models.product,
               required: false,
-              attributes: ['iMaterialID', 'iBrusID', 'sProductTitle', 'sProductURI'],
+              attributes: ['iMaterialID', 'iBrusID', 'sProductTitle', 'sProductURI', 'iGenerateUriMaterial', 'iGenerateUriBrus'],
               include: [
+                {
+                  model: sequelize.models.brand,
+                  attributes: ['sBrandTitle'],
+                },
                 {
                   model: sequelize.models.material,
                   attributes: ['sMaterialTitle'],
