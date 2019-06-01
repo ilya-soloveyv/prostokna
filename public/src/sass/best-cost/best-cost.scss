@@ -427,6 +427,16 @@
         flex-direction: column;
         width: 43%;
         margin: 0 auto;
+        #traid-file{
+            position: absolute;
+            top: 60%;
+            width: 43%;
+            opacity: 0;
+            @media screen and (max-width: 768px){
+                top: 73%;
+                width: 80%;
+            }
+        }
         input{
             border: none;
             height: 44px;
@@ -438,8 +448,9 @@
             &::placeholder{
                 color: white;
                 margin-top: 30px;
-                font-size: 12px;
+                font-size: 10px;
                 line-height: 20px;
+                padding-top: 20px;
             }
         }
         .button-go{
@@ -460,6 +471,9 @@
             left: 25%;
             &:active{
                 box-shadow:none;
+            }
+            &:hover{
+                background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
             }
         }
     }
