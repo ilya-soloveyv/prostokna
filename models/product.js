@@ -25,6 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     iBrusID: DataTypes.INTEGER,
     iGenerateUriMaterial: DataTypes.INTEGER,
     iGenerateUriBrus: DataTypes.INTEGER,
+    iPrice: { type: DataTypes.INTEGER, allowNull: true },
+    iActive:{ type: DataTypes.INTEGER, allowNull: true },
   }, {
     timestamps: false,
     freezeTableName: true,

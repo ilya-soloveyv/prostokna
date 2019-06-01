@@ -395,6 +395,9 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     req.body.product.iGenerateUriMaterial = (req.body.product.iGenerateUriMaterial) ? 1 : 0
     req.body.product.iGenerateUriBrus = (req.body.product.iGenerateUriBrus) ? 1 : 0
 
+    req.body.product.iPrice = (req.body.product.iPrice) ? req.body.product.iPrice : null
+    req.body.product.iActive = (req.body.product.iActive) ? 1 : 0
+
     // Подготавливаем URI
     brand = await Brand.findByPk(req.body.product.iBrandID, {
         attributes: ['sBrandTitle']
