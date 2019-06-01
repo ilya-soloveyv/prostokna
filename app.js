@@ -377,6 +377,9 @@ app.post('/admin/ProductEdit', async (req, res) => {
         if (req.body.iProductID) {
             responce.product = await Product.getProduct(Number(req.body.iProductID))
         }
+        responce.products = await Product.findAll({
+            include: [Brand, Material, Brus]
+        })
     res.json(responce)
 })
 app.post('/admin/ProductUpdate', async (req, res) => {
@@ -491,6 +494,35 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         }
     }
     await productImageColor()
+
+    var productLink = async () => {
+        if (req.body.product.product_links) {
+            for (const item of req.body.product.product_links) {
+                if (item.iProductLinkID && item.del === true) {
+                    await Product_link.destroy({
+                        where: {
+                            iProductLinkID: item.iProductLinkID
+                        }
+                    })
+                } else if (item.iProductLinkID) {
+                    await Product_link.update({
+                        iProductIDFrom: item.iProductIDFrom,
+                        iProductIDTo: item.iProductIDTo,
+                    }, {
+                        where: {
+                            iProductLinkID: item.iProductLinkID
+                        }                    
+                    })
+                } else if (item.del !== true) {
+                    await Product_link.create({
+                        iProductIDFrom: item.iProductIDFrom,
+                        iProductIDTo: item.iProductIDTo,
+                    })
+                }
+            }
+        }
+    }
+    await productLink()
 
 
     var responce = {}

@@ -9,11 +9,13 @@ export default {
             brus: [],
             material: [],
             color: [],
+            products: [],
             product: {
                 product_images: []
             },
             product_link: [],
-            attachment: {}
+            attachment: {},
+            product_links: 0
         }
     },
     created: function () {
@@ -28,6 +30,7 @@ export default {
                 this.brus = responce.data.brus
                 this.material = responce.data.material
                 this.color = responce.data.color
+                this.products = responce.data.products
                 if (responce.data.product) {
                     this.product = responce.data.product
                 }                
@@ -97,6 +100,32 @@ export default {
             }).then( (response) => {
                 Vue.set(this.product.product_colors[index], 'sProductColorFilename', response.data.filename)
             })
+        },
+        useProductLink: function () {
+            console.log(this.product_links.bru)
+            this.product.product_links.push({
+                iProductLinkID: false,
+                iProductIDFrom: this.product.iProductID,
+                iProductIDTo: this.product_links.iProductID,
+                product: {
+                    sProductTitle: this.product_links.sProductTitle,
+                    iGenerateUriMaterial: this.product_links.iGenerateUriMaterial,
+                    iGenerateUriBrus: this.product_links.iGenerateUriBrus,
+                    brand: {
+                        sBrandTitle: this.product_links.brand.sBrandTitle,
+                    },
+                    material: {
+                        sMaterialTitle: this.product_links.material.sMaterialTitle,
+                    },
+                    bru: {
+                        sBrusTitle: (this.product_links.bru !== null) ? this.product_links.bru.sBrusTitle : false,
+                    },
+                }
+            })
+            Vue.set(this, 'product_links', 0)
+        },
+        delProductLink: function (index) {
+            Vue.set(this.product.product_links[index], 'del', true)
         }
     },
     template: `
@@ -198,7 +227,33 @@ export default {
                                         <div class="row">
                                             <div class="col-12">                                                
                                                 <label class="label" for="" style="color:#ADB5BD">Перелинковка по материалу и брусу:</label>
-                                                <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <template v-for="(item, index) in product.product_links">
+                                                            <span v-if="!item.del" class="badge badge-product-link-item badge-pill badge-primary p-2 pl-3 mb-2 mr-2">
+                                                                {{ item.product.brand.sBrandTitle }} {{ item.product.sProductTitle }}
+                                                                <template v-if="item.product.iGenerateUriMaterial">
+                                                                    {{ item.product.material.sMaterialTitle }}
+                                                                </template>
+                                                                <template v-if="item.product.iGenerateUriBrus">
+                                                                    {{ item.product.bru.sBrusTitle }}
+                                                                </template>
+                                                                <i class="material-icons" v-on:click="delProductLink(index)">clear</i>
+                                                            </span>
+                                                        </template>
+                                                        <select v-on:change="useProductLink" v-model="product_links" class="badge badge-product-link-item badge-pill badge-light mb-3 mr-2" title="Выбрать товар" width="200px">
+                                                            <option value=0>Выбрать товар</option>
+                                                            <option v-for="(item, index) in products" :value="item">
+                                                                {{ item.brand.sBrandTitle }} {{ item.sProductTitle }}
+                                                                <template v-if="item.iGenerateUriMaterial">
+                                                                    {{ item.material.sMaterialTitle }}
+                                                                </template>
+                                                                <template v-if="item.iGenerateUriBrus">
+                                                                    {{ item.bru.sBrusTitle }}
+                                                                </template>
+                                                            </option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
