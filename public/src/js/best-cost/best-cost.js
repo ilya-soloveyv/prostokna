@@ -59,4 +59,9 @@ if ($('#best-cost').length) {
         $('.cost').on('click', function() {
             $('html,body').animate({scrollTop:$('.background-form').offset().top + 200 +"px"},{duration:1E3});
           });
+          $('.form-panel').submit(function(ev) {
+            ev.preventDefault(); // to stop the form from submitting
+            /* Validations go here */
+            $('#form-target').removeClass('active')
+        });
 }
