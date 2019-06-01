@@ -222,10 +222,12 @@ function useProductColorImage (index) {
     $('#product .data .colors .list ul li').eq(index).addClass('active')
     var activeImg = $('#product .data .colors .list ul li.active')
     if (activeImg.length) {
+        var title = activeImg.attr('title')
         var code = activeImg.attr('attr-sColorTitleCode')
         var iProductID = activeImg.attr('attr-iProductID')
         var sProductColorFilename = activeImg.attr('attr-sProductColorFilename')
         $('#product .data .colors .view').html('<img src="/images/product/color/' + sProductColorFilename + '" data-index="' + index + '">')
+        $('#product .data .colors .list .colorName .bg span').text(title)
     }
 }
 
