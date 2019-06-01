@@ -42,26 +42,47 @@
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
                                 img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
+                    if product.iPrice
+                        .productPrice
+                            .bg
+                                .title
+                                    span= product.brand.sBrandTitle + " " + product.sProductTitle
+                                    br
+                                    span #{product.material.sMaterialTitle}
+                                    if product.iGenerateUriBrus == 1
+                                        br
+                                        span #{product.bru.sBrusTitle}
+                                .cost от #{product.iPrice} м<sup>2</sup>
                     if 'material' in product.product_links || 'brus' in product.product_links
                         .selectOption
                             if 'material' in product.product_links && product.product_links.material.length
                                 .item
-                                    .title Материал
-                                    .list
-                                        each item in product.product_links.material
-                                            a(
-                                                class= { active: item.iMaterialID == product.iMaterialID }
-                                                href="/product/" + item.sProductURI
-                                            )= item.sMaterialTitle
+                                    .wrap
+                                        .title
+                                            img(src="/images/option_material.svg", alt="")
+                                            span Материал
+                                            i.material-icons.material-icons-add add
+                                            i.material-icons.material-icons-remove remove
+                                        .list
+                                            each item in product.product_links.material
+                                                a(
+                                                    class= { active: item.iMaterialID == product.iMaterialID }
+                                                    href="/product/" + item.sProductURI
+                                                )= item.sMaterialTitle
                             if 'brus' in product.product_links && product.product_links.brus.length
                                 .item
-                                    .title Выбор бруса
-                                    .list
-                                        each item in product.product_links.brus
-                                            a(
-                                                class= { active: item.iBrusID == product.iBrusID }
-                                                href="/product/" + item.sProductURI
-                                            )= item.sBrusTitle
+                                    .wrap
+                                        .title
+                                            img(src="/images/option_brus.svg", alt="")
+                                            span Выбор бруса
+                                            i.material-icons.material-icons-add add
+                                            i.material-icons.material-icons-remove remove
+                                        .list
+                                            each item in product.product_links.brus
+                                                a(
+                                                    class= { active: item.iBrusID == product.iBrusID }
+                                                    href="/product/" + item.sProductURI
+                                                )= item.sBrusTitle
                 .view2
                     .back
                         if product.product_images[0] !== undefined
