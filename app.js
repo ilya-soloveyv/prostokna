@@ -202,6 +202,9 @@ app.get('*', async (req, res, next) => {
         include: [
             {
                 model: Product,
+                where: {
+                    iActive: 1
+                },
                 attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iMaterialID', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
                 required: true,
                 include: [
