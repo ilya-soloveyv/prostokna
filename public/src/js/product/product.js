@@ -107,9 +107,8 @@ $(document).ready(function(){
             // $('#product').toggleClass('openSubmenu')
         })
 
-        $("#product .selectOption .item").click(function(){
-            $("#product .selectOption .item").removeClass('active')
-            $(this).addClass('active')
+        $("#product .selectOption .item .title").click(function(){
+            $(this).parent().parent().toggleClass('active').siblings().removeClass('active')
         })
 
         // Модалка с галлереей
