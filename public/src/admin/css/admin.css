@@ -112,6 +112,15 @@ body {
       top: 7px; }
     .ProductEdit .custom-control label:after {
       top: 9px; }
+  .ProductEdit .custom-control.custom-switch-iActive {
+    height: 38px; }
+    .ProductEdit .custom-control.custom-switch-iActive label {
+      height: 38px;
+      line-height: 38px; }
+      .ProductEdit .custom-control.custom-switch-iActive label:before {
+        top: 10px; }
+      .ProductEdit .custom-control.custom-switch-iActive label:after {
+        top: 12px; }
 
 .ProductEdit .card {
   margin-bottom: 2rem; }

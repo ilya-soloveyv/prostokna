@@ -11,7 +11,8 @@ export default {
             color: [],
             products: [],
             product: {
-                product_images: []
+                product_images: [],
+                iActive: 1
             },
             product_link: [],
             attachment: {},
@@ -102,7 +103,6 @@ export default {
             })
         },
         useProductLink: function () {
-            console.log(this.product_links.bru)
             this.product.product_links.push({
                 iProductLinkID: false,
                 iProductIDFrom: this.product.iProductID,
@@ -223,6 +223,24 @@ export default {
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Цена от:</label>
+                                                    <input type="text" class="form-control" v-model="product.iPrice">
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Публикация:</label>
+                                                    <div class="custom-control custom-switch custom-switch-iActive">
+                                                        <input type="checkbox" id="iActive" class="custom-control-input" v-model="product.iActive">
+                                                        <label for="iActive" class="custom-control-label">
+                                                            <template v-if="product.iActive == 1">Опубликовано</template>
+                                                            <template v-else>Скрыто</template>                                                            
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-12">                                                

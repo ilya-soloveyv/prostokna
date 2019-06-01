@@ -138,6 +138,19 @@ body {
                 top: 9px;
             }
         }
+        &.custom-switch-iActive {
+            height: 38px;
+            label {
+                height: 38px;
+                line-height: 38px;
+                &:before {
+                    top: 10px;
+                }
+                &:after {
+                    top: 12px;
+                }
+            }
+        }
     }
     .card {
         margin-bottom: 2rem;
