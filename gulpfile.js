@@ -45,6 +45,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
             'public/src/js/jquery.knob.min.js',
+            'public/src/js/html2canvas.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
             'public/src/js/index/s2.js',

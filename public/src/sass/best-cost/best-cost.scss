@@ -330,7 +330,7 @@
         z-index:11;
 
         @media screen and (max-width: 768px){
-            width: 300px;
+            
             height: 42px;
             border: none;
             color: white;
@@ -340,7 +340,7 @@
             align-items: center;
             display: flex;
             justify-content: center;
-            background-image: url('/images/best-cost/stars.png');
+            //background-image: url('/images/best-cost/stars.png');
             background-repeat: no-repeat;
             background-position: top;
             margin: 3rem auto;
@@ -348,12 +348,11 @@
                 display:flex;
                 position: relative;
                 height: 43px;
-                width: 100%;
+                width: 300px;
                 
             }
         }
         @media screen and (max-width: 540px){
-            width: 217px;
             a.make-sale{
                 height: 33px;
                 width:179px;
@@ -517,7 +516,7 @@
                 line-height: 22px;
                 box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16);
                 border-radius: 23px;
-                background-image: linear-gradient(to right, #e55ae9 0%, #9b47e5 100%);
+                background: linear-gradient(to right, #e55ae9, #9b47e5);
                 cursor: pointer;
                 z-index:99;
                 @media screen and (max-width: 768px){
