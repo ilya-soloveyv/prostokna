@@ -38,6 +38,7 @@ app.use('/bootstrap-select', express.static(__dirname + '/node_modules/bootstrap
 app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
 app.use('/slick', express.static(__dirname + '/node_modules/slick-carousel/slick'))
 app.use('/jquery-mousewheel', express.static(__dirname + '/node_modules/jquery-mousewheel'))
+app.use('/minibarjs', express.static(__dirname + '/node_modules/minibarjs/dist'))
 
 
 
@@ -56,6 +57,32 @@ const Product_link = require('./models').product_link
 const Gallery_group = require('./models').gallery_group
 const Gallery = require('./models').gallery
 const Gallery_image = require('./models').gallery_image
+
+
+
+
+
+if (process.env.NODE_ENV != 'development') {
+    app.use(function(req, res, next) {
+        if (req.secure) {
+            next()
+        } else {
+            res.redirect(301, 'https://' + req.headers.host + req.url)
+        }
+    })
+}
+
+app.all('*', (req, res, next) => {
+    if (req.headers.host.match(/^www/) !== null ) {
+        res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
+    } else {
+        next()
+    }
+})
+
+
+
+
 
 
 app.post('/test', async (req, res) => {
@@ -175,11 +202,82 @@ app.get('*', async (req, res, next) => {
         include: [
             {
                 model: Product,
-                attributes: ['sProductTitle', 'sProductURI'],
-                required: true
+                where: {
+                    iActive: 1
+                },
+                attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iMaterialID', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
+                required: true,
+                include: [
+                    {
+                        model: Material,
+                        attributes: ['sMaterialTitle']
+                    },        
+                    {
+                        model: Brus,
+                        attributes: ['sBrusTitle']
+                    },        
+                ]
             }
         ]
     })
+
+    data.brandMenu = []
+
+    data.productMenu.forEach((brand, index1) => {
+        data.brandMenu.push({
+            iBrandID: brand.iBrandID,
+            sBrandTitle: brand.sBrandTitle,
+            iCountryID: brand.iCountryID,
+            products: {
+                list: [],
+                material: []
+            }
+        })
+
+        brand.products.forEach((product, index2) => {
+
+            var product_item = {
+                iProductID: product.iProductID,
+                sProductTitle: product.sProductTitle,
+                sProductURI: product.sProductURI,
+                iGenerateUriBrus: product.iGenerateUriBrus,
+                iGenerateUriMaterial: product.iGenerateUriMaterial,
+            }
+            if (product.iGenerateUriBrus) {
+                product_item.sBrusTitle = product.bru.sBrusTitle
+            }
+
+            if (product.iGenerateUriMaterial == 1) {
+
+                var material_index = data.brandMenu[index1].products.material.findIndex(
+                    function (material, index) {
+                        return material.iMaterialID == product.iMaterialID
+                    }
+                )
+
+                if (material_index < 0) {
+                    data.brandMenu[index1].products.material.push(
+                        {
+                            iMaterialID: product.iMaterialID,
+                            sMaterialTitle: product.material.sMaterialTitle,
+                            list: []
+                        }
+                    )
+                    material_index = data.brandMenu[index1].products.material.length-1
+                }
+
+                data.brandMenu[index1].products.material[material_index].list.push(product_item)
+
+            } else {
+                data.brandMenu[index1].products.list.push(product_item)
+            }
+
+        })        
+    })
+
+    // res.json(data.productMenu)
+    // res.json(data.brandMenu)
+
     next()
 })
 
@@ -211,7 +309,7 @@ data.left_menu = [
     },
     {
         title: 'Как мы работаем',
-        uri: '/',
+        uri: '/work',
         ico: [ '6.svg', '6a.svg' ]
     },
     {
@@ -264,7 +362,7 @@ app.get('/admin', auth.connect(basic), (req, res) => {
 app.post('/admin/ProductList', async (req, res) => {
     var responce = {}
         responce.product = await Product.findAll({
-            include: [Brand]
+            include: [Brand, Material, Brus]
         })
     res.json(responce)
 })
@@ -282,6 +380,9 @@ app.post('/admin/ProductEdit', async (req, res) => {
         if (req.body.iProductID) {
             responce.product = await Product.getProduct(Number(req.body.iProductID))
         }
+        responce.products = await Product.findAll({
+            include: [Brand, Material, Brus]
+        })
     res.json(responce)
 })
 app.post('/admin/ProductUpdate', async (req, res) => {
@@ -296,6 +397,9 @@ app.post('/admin/ProductUpdate', async (req, res) => {
 
     req.body.product.iGenerateUriMaterial = (req.body.product.iGenerateUriMaterial) ? 1 : 0
     req.body.product.iGenerateUriBrus = (req.body.product.iGenerateUriBrus) ? 1 : 0
+
+    req.body.product.iPrice = (req.body.product.iPrice) ? req.body.product.iPrice : null
+    req.body.product.iActive = (req.body.product.iActive) ? 1 : 0
 
     // Подготавливаем URI
     brand = await Brand.findByPk(req.body.product.iBrandID, {
@@ -396,6 +500,35 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         }
     }
     await productImageColor()
+
+    var productLink = async () => {
+        if (req.body.product.product_links) {
+            for (const item of req.body.product.product_links) {
+                if (item.iProductLinkID && item.del === true) {
+                    await Product_link.destroy({
+                        where: {
+                            iProductLinkID: item.iProductLinkID
+                        }
+                    })
+                } else if (item.iProductLinkID) {
+                    await Product_link.update({
+                        iProductIDFrom: item.iProductIDFrom,
+                        iProductIDTo: item.iProductIDTo,
+                    }, {
+                        where: {
+                            iProductLinkID: item.iProductLinkID
+                        }                    
+                    })
+                } else if (item.del !== true) {
+                    await Product_link.create({
+                        iProductIDFrom: item.iProductIDFrom,
+                        iProductIDTo: item.iProductIDTo,
+                    })
+                }
+            }
+        }
+    }
+    await productLink()
 
 
     var responce = {}
@@ -638,14 +771,6 @@ app.post('/admin/GalleryRemove', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 // cookie
 // app.use(function (req, res, next) {
 //     var cookie = req.cookies.cookieName;
@@ -661,6 +786,7 @@ app.post('/admin/GalleryRemove', async (req, res) => {
 
 app.get('/', (req, res) => {
     data.title = 'Просто окна'
+    data.description = 'Просто Окна – замер, проектирование, изготовление и реализация светопрозрачных конструкций любых типов: пластиковые окна ПВХ, алюминиевые окна, деревянные окна из евробруса, витражи, фасады и стоечно-ригельные системы. Монтажные работы любой сложности. Окна от производителя по лучшим ценам в Москве, МО и России. Мы не занимаемся накруткой цены, вы точно знаете, за что платите. Просто Окна – с нами просто.'
     data.left_menu_active = 0
     data.s2_menu = [
         {
@@ -1268,19 +1394,23 @@ app.get('/calc_data', (req, res) => {
 
 app.get('/contact', (req, res) => {
     data.title = 'Контакты'
+    data.description = ''
     data.left_menu_active = null
     res.render('contact.pug', data)
 })
 
 app.get('/gager', (req, res) => {
     data.title = 'Замерщик'
+    data.description = ''
     data.left_menu_active = null
     res.render('gager.pug', data)
 })
 
 app.get('/product', async (req, res) => {
     data.title = 'Окна'
+    data.description = ''
     data.left_menu_active = 1
+    data.product = null
     // data.products = await Product.findAll({
     //     attributes: ['sProductTitle', 'sProductURI'],
     //     include: [
@@ -1295,8 +1425,9 @@ app.get('/product', async (req, res) => {
 })
 
 app.get('/product/:sProductURI', async (req, res) => {
-    console.log('product page', req.params.sProductURI)
+    // console.log('product page', req.params.sProductURI)
     data.title = 'Окна'
+    data.description = ''
     data.left_menu_active = 1
     data.products = await Product.findAll({
         attributes: ['sProductTitle', 'sProductURI'],
@@ -1304,30 +1435,43 @@ app.get('/product/:sProductURI', async (req, res) => {
             {
                 model: Brand,
                 attributes: ['sBrandTitle']
+            },
+            {
+                model: Material,
+                attributes: ['sMaterialTitle']
+            },
+            {
+                model: Brus
             }
+
         ]
     })
+    data.material = await Material.findAll()
+    data.brus = await Brus.findAll()
 
     data.product = await Product.getProduct(req.params.sProductURI)
 
-    // res.json(data.product)
+    // res.json(data.product.product_links)
     res.render('product.pug', data)
 })
 
 app.get('/pay', (req, res) => {
     data.title = 'Оплата'
+    data.description = ''
     data.left_menu_active = null
     res.render('pay.pug', data)
 })
 
 app.get('/palette', (req, res) => {
     data.title = 'Палитра'
+    data.description = ''
     data.left_menu_active = null
     res.render('palette.pug', data)
 })
 
 app.get('/options', (req, res) => {
     data.title = 'Опции'
+    data.description = ''
     data.left_menu_active = null
     res.render('options.pug', data)
 })
@@ -1345,6 +1489,7 @@ for (let index = 0; index < 10; index++) {
 
 app.get('/wiki', (req, res) => {
     data.title = 'Вики'
+    data.description = ''
     data.left_menu_active = 6
     res.render('wiki/catalog.pug', data)
 })
@@ -1355,36 +1500,42 @@ app.get('/wiki/get', (req, res) => {
 
 app.get('/wiki/article', (req, res) => {
     data.title = 'Wiki article'
+    data.description = ''
     data.left_menu_active = 6
     res.render('wiki/article.pug', data)
 })
 
 app.get('/instruction', (req, res) => {
     data.title = 'Instruction'
+    data.description = ''
     data.left_menu_active = null
     res.render('instruction/instruction.pug', data)
 })
 
 app.get('/instruction/video', (req, res) => {
     data.title = 'Instruction Video'
+    data.description = ''
     data.left_menu_active = null
     res.render('instruction/video.pug', data)
 })
 
 app.get('/company', (req, res) => {
     data.title = 'О компании'
+    data.description = ''
     data.left_menu_active = null
     res.render('company/company.pug', data)
 })
 
 app.get('/cheaper-together', (req, res) => {
     data.title = 'Вместе еще дешевле'
+    data.description = ''
     data.left_menu_active = null
     res.render('company/innovation/cheaper-together.pug', data)
 })
 
 app.get('/news', (req, res) => {
     data.title = 'news'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('company/news/news.pug', data)
@@ -1392,6 +1543,7 @@ app.get('/news', (req, res) => {
 
 app.get('/news-tape', (req, res) => {
     data.title = 'news-tape'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('company/news/news-tape.pug', data)
@@ -1399,6 +1551,7 @@ app.get('/news-tape', (req, res) => {
 
 app.get('/favorites', (req, res) => {
     data.title = 'favorites'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('favorites/favorites.pug', data)
@@ -1406,6 +1559,7 @@ app.get('/favorites', (req, res) => {
 
 app.get('/page-brand', (req, res) => {
     data.title = 'page-brand'
+    data.description = ''
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('page-brand/page-brand.pug', data)
@@ -1423,30 +1577,35 @@ app.get('/best-cost', (req, res) => {
 
 app.get('/corporate', (req, res) => {
     data.title = 'Corporate'
+    data.description = ''
     data.left_menu_active = null
     res.render('corporate/corporate.pug', data)
 })
 
 app.get('/regulation_window', (req, res) => {
     data.title = 'Регулировка окон'
+    data.description = ''
     data.left_menu_active = null
     res.render('regulation_window/regulation_window.pug', data)
 })
 
 app.get('/optional_service', (req, res) => {
     data.title = 'Дополнительные услуги'
+    data.description = ''
     data.left_menu_active = null
     res.render('optional_service/optional_service.pug', data)
 })
 
 app.get('/intuitive', (req, res) => {
     data.title = 'Интуйтивный подбор окон'
+    data.description = ''
     data.left_menu_active = null
     res.render('intuitive/intuitive.pug', data)
 })
 
 app.get('/gallery', async (req, res) => {
     data.title = 'Галлерея'
+    data.description = ''
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = false
@@ -1455,6 +1614,7 @@ app.get('/gallery', async (req, res) => {
 })
 app.get('/gallery/:sGalleryGroupUri', async (req, res) => {
     data.title = 'Галлерея'
+    data.description = ''
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = req.params.sGalleryGroupUri
@@ -1464,7 +1624,8 @@ app.get('/gallery/:sGalleryGroupUri', async (req, res) => {
     res.render('gallery', data)
 })
 app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
-    data.title = 'Галлерея' + req.params.iGalleryID
+    data.title = 'Галлерея ' + req.params.iGalleryID
+    data.description = ''
     data.left_menu_active = 3
     data.gallery_group = await Gallery_group.findAll()
     data.gallery_group_active = req.params.sGalleryGroupUri
@@ -1474,9 +1635,21 @@ app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
     data.gallery = await Gallery.getList({
         iGalleryID: req.params.iGalleryID
     })
+    // res.json(data.gallery_list)
     res.render('gallery/item', data)
 })
-
+app.get('/work', async (req, res) => {
+    data.title = 'Как мы работаем'
+    data.description = ''
+    data.left_menu_active = 5
+    res.render('work', data)
+})
+app.get('/calculation', async (req, res) => {
+    data.title = 'Заказать точный расчет'
+    data.description = ''
+    data.left_menu_active = null
+    res.render('calculation', data)
+})
 
 
 
@@ -1493,7 +1666,7 @@ app.post('/send', (req, res) => {
     var subject = req.body.subject
     var message = req.body.message
 
-    if (name.length && tel.length) {
+    if (name.length) {
         var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
 
         var message_html = ""
@@ -1563,7 +1736,25 @@ app.get('/all_windows', async (req, res) => {
 })
 
 
-http.listen(process.env.PORT || 8080, () => {
-    // console.clear()
-    console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
+if (process.env.NODE_ENV != 'development') {
+    var https_options = {
+        key: fs.readFileSync("encryption/private.key"),
+        cert: fs.readFileSync("encryption/server.crt"),
+        ca: [
+            fs.readFileSync('encryption/mydomain.ca-bundle')
+        ]
+    }
+
+    const https = require('https').createServer(https_options, app)
+    https.listen(443, () => {
+        console.log('Server https is running')
+    })
+}
+app.listen(process.env.PORT, () => {
+    console.log('Server is running http://localhost:' + process.env.PORT)
 })
+
+// http.listen(process.env.PORT || 8080, () => {
+//     // console.clear()
+//     console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
+// })

@@ -1,5 +1,6 @@
 #products {
     height: 1px;
+    overflow: hidden;
 }
 .productsMenu {
     display: flex;
@@ -8,55 +9,104 @@
     height: 100%;
     min-height: 100%;
     padding: 100px;
-    &__brands {
-        flex-grow: 0;
-        flex-shrink: 0;
-        // flex-basis: 100px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding:0 0 1rem;
-        &__brand {
+    overflow: hidden;
+    @media (max-width: 575px) {
+        overflow: auto;
+        padding: 30px;
+    }
+    ul.nav {
+        margin: 0 0 20px;
+        @media (max-width: 575px) {
+            margin: 0 0 10px;
+        }
+        .nav-link {
+            padding: 0;
+            margin: 5px 15px 5px 0;
             font-family: 'MontserratMedium';
             font-size: 18px;
-            padding: .5rem 1rem .5rem 0;
-            a {
-                opacity: .5;
-                color: white;
-                text-decoration: none;
-                &:hover {
-                    opacity: .75;
-                }
+            color: white;
+            opacity: .5;
+            transition: all .25s;
+            text-transform: capitalize;
+            &:hover {
+                opacity: .75;
             }
             &.active {
-                a {
-                    opacity: 1;
-                }                
+                opacity: 1;
+            }
+            @media (max-width: 575px) {
+                font-size: 16px;
+                margin: 3px 10px 3px 0;
             }
         }
     }
-    &__products {
-        // background: blue;
-        flex-grow: 1;
-        &__list {
-            display: none;
-            &__product {
-                font-family: 'Montserrat';
-                font-size: 18px;
-                padding: 1rem 1rem 1rem 0;
-                a {
-                    color: white;
-                }
+    .wrap-link {
+        padding: 10px 0;
+        @media (max-width: 575px) {
+            padding: 5px 0;
+        }
+        .nav-link2 {
+            font-family: 'Montserrat';
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            opacity: .5;
+            @media (max-width: 575px) {
+                font-size: 14px;
             }
-            &.active {
-                display: block;
+            &.active, &:hover {
+                opacity: 1
             }
         }
     }
+    // &__brands {
+    //     flex-grow: 0;
+    //     flex-shrink: 0;
+    //     // flex-basis: 100px;
+    //     display: flex;
+    //     flex-direction: row;
+    //     flex-wrap: wrap;
+    //     padding:0 0 1rem;
+    //     &__brand {
+    //         font-family: 'MontserratMedium';
+    //         font-size: 18px;
+    //         padding: .5rem 1rem .5rem 0;
+    //         a {
+    //             opacity: .5;
+    //             color: white;
+    //             text-decoration: none;
+    //             &:hover {
+    //                 opacity: .75;
+    //             }
+    //         }
+    //         &.active {
+    //             a {
+    //                 opacity: 1;
+    //             }                
+    //         }
+    //     }
+    // }
+    // &__products {
+    //     // background: blue;
+    //     flex-grow: 1;
+    //     &__list {
+    //         display: none;
+    //         &__product {
+    //             font-family: 'Montserrat';
+    //             font-size: 18px;
+    //             padding: 1rem 1rem 1rem 0;
+    //             a {
+    //                 color: white;
+    //             }
+    //             &.active {
+    //                 a {
+    //                     color: #2d70e4;
+    //                 }                    
+    //             }
+    //         }
+    //         &.active {
+    //             display: block;
+    //         }
+    //     }
+    // }
 }
-// .select-brand
-// ul {
-//     li {
-//         padding: 10px;
-//     }
-// }

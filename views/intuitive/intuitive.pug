@@ -3,7 +3,7 @@ extends ../layouts/app
 block content
     #intuitive.ppage
         .intuitive-bref(v-if="!showResult")
-            h1 Интуйтивный подбор окон
+            h1 Интуитивный подбор окон
             .subject(v-if="currentSubject == null")
                 .desc Куда вы хотите поставить окна?
                 ul
@@ -26,7 +26,7 @@ block content
                 ul.answers
                     li(
                         v-for="(answer, index) in questions[currentSubject][currentQuestion].answers"
-                        v-bind:class="{ active: answer.status}")
+                        v-bind:class="{ active: answer.status, dis: !questions[currentSubject][currentQuestion].next && !answer.status }")
                         label
                             input(
                                 type="checkbox"

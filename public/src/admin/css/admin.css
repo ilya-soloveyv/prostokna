@@ -112,6 +112,15 @@ body {
       top: 7px; }
     .ProductEdit .custom-control label:after {
       top: 9px; }
+  .ProductEdit .custom-control.custom-switch-iActive {
+    height: 38px; }
+    .ProductEdit .custom-control.custom-switch-iActive label {
+      height: 38px;
+      line-height: 38px; }
+      .ProductEdit .custom-control.custom-switch-iActive label:before {
+        top: 10px; }
+      .ProductEdit .custom-control.custom-switch-iActive label:after {
+        top: 12px; }
 
 .ProductEdit .card {
   margin-bottom: 2rem; }
@@ -128,6 +137,25 @@ body {
 
 .ProductEdit textarea {
   height: 390px; }
+
+.ProductEdit .badge-product-link-item {
+  position: relative;
+  font-size: 12px;
+  padding-right: 30px !important;
+  padding-left: 10px !important;
+  font-family: 'Museo Sans Cyrl 300';
+  font-weight: normal; }
+  .ProductEdit .badge-product-link-item i {
+    font-size: 20px;
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    cursor: pointer; }
+
+.ProductEdit select.badge {
+  border: none;
+  width: 150px;
+  padding: 6px 0; }
 
 .ColorList td {
   padding: 5px; }

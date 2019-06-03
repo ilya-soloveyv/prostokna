@@ -138,6 +138,19 @@ body {
                 top: 9px;
             }
         }
+        &.custom-switch-iActive {
+            height: 38px;
+            label {
+                height: 38px;
+                line-height: 38px;
+                &:before {
+                    top: 10px;
+                }
+                &:after {
+                    top: 12px;
+                }
+            }
+        }
     }
     .card {
         margin-bottom: 2rem;
@@ -157,6 +170,26 @@ body {
     }
     textarea {
         height: 390px;
+    }
+    .badge-product-link-item {
+        position: relative;
+        font-size: 12px;
+        padding-right: 30px !important;
+        padding-left: 10px !important;
+        font-family: 'Museo Sans Cyrl 300';
+        font-weight: normal;
+        i {
+            font-size: 20px;
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            cursor: pointer;
+        }
+    }
+    select.badge {
+        border: none;
+        width: 150px;
+        padding: 6px 0;
     }
 }
 

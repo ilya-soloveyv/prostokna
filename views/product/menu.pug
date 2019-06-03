@@ -1,11 +1,96 @@
 .productsMenu
-    .productsMenu__brands
-        each product, index in productMenu
-            .productsMenu__brands__brand(class= index == 0 ? "active" : "")
-                a(href="#") #{product.sBrandTitle}
-    .productsMenu__products
-        each list, index in productMenu
-            .productsMenu__products__list(class= index == 0 ? "active" : "")
-                each product, index2 in list.products
-                    .productsMenu__products__list__product
-                        a(href="/product/" + product.sProductURI) #{list.sBrandTitle} #{product.sProductTitle}
+
+    - var page_product = (product) ? product : false
+
+    ul.nav(role="tablist")
+        each brand, index in brandMenu
+            li.nav-item
+                a.nav-link(
+                    class= { active: page_product && page_product.iBrandID == brand.iBrandID || !page_product && index == 0 }
+                    id= "tab_" + brand.iBrandID
+                    data-toggle="tab"
+                    href= "#tab_content_" + brand.iBrandID
+                    role="tab"
+                    aria-controls= "tab_" + brand.iBrandID
+                    aria-selected="true") #{brand.sBrandTitle}
+    .tab-content
+        each brand, index in brandMenu
+            .tab-pane.fade(
+                class= { active: product && product.iBrandID == brand.iBrandID || !product && index == 0, show: product && product.iBrandID == brand.iBrandID || !product && index == 0}
+                id= "tab_content_" + brand.iBrandID
+                role="tabpanel"
+                aria-labelledby="home-tab")
+                if brand.products.material.length
+                    ul.nav(role="tablist")
+                        each material, index2 in brand.products.material
+                            li.nav-item
+                                a.nav-link(
+                                    class= { active: page_product && page_product.iMaterialID == material.iMaterialID || !page_product && index2 == 0 }
+                                    id= "tab_" + brand.iBrandID + "_material_" + material.iMaterialID
+                                    data-toggle="tab"
+                                    href= "#tab_content_" + brand.iBrandID + "_material_" + material.iMaterialID
+                                    role="tab"
+                                    aria-controls= "tab_" + brand.iBrandID + "_material_" + material.iMaterialID
+                                    aria-selected="true") #{material.sMaterialTitle}
+                    .tab-content
+                        each material, index2 in brand.products.material
+                            .tab-pane.fade(
+                                class= { active: page_product && page_product.iMaterialID == material.iMaterialID || !page_product && index2 == 0, show: page_product && page_product.iMaterialID == material.iMaterialID || !page_product && index2 == 0 }
+                                id= "tab_content_" + brand.iBrandID + "_material_" + material.iMaterialID)
+                                each product, index3 in material.list
+                                    div.wrap-link
+                                        a.nav-link2(
+                                            class= { active: page_product && page_product.iProductID == product.iProductID }
+                                            href="/product/" + product.sProductURI) #{brand.sBrandTitle} #{product.sProductTitle}
+                                            if product.iGenerateUriBrus
+                                                |  #{product.sBrusTitle}
+                else
+                    each product, index2 in brand.products.list
+                        div.wrap-link
+                            a.nav-link2(
+                                href="/product/" + product.sProductURI,
+                                class= { active: page_product && page_product.iProductID == product.iProductID}) #{brand.sBrandTitle} #{product.sProductTitle}
+
+
+
+
+
+
+
+    //- .productsMenu__brands
+    //-     each brand, index in brandMenu
+    //-         .productsMenu__brands__brand(class= index == 0 ? "active" : "")
+    //-             a(href="#") #{brand.sBrandTitle}
+    //- .productsMenu__products
+    //-     span aaaa
+            //- if product
+            //-     .productsMenu__brands__brand(class= brand.iBrandID == product.iBrandID ? "active" : "")
+            //-         a(href="#") #{brand.sBrandTitle}
+            //- else
+            //-     .productsMenu__brands__brand(class= index == 0 ? "active" : "")
+            //-         a(href="#") #{brand.sBrandTitle}
+        //- each brand, index in productMenu
+        //-     if product
+        //-         .productsMenu__brands__brand(class= brand.iBrandID == product.iBrandID ? "active" : "")
+        //-             a(href="#") #{brand.sBrandTitle}
+        //-     else
+        //-         .productsMenu__brands__brand(class= index == 0 ? "active" : "")
+        //-             a(href="#") #{brand.sBrandTitle}
+    //- .productsMenu__products
+    //-     //- pre #{product.iBrandID}
+    //-     each brand, index in productMenu
+    //-         if product
+    //-             - var i = brand.iBrandID
+    //-             - var i2 = product.iBrandID
+    //-         else
+    //-             - var i = index
+    //-             - var i2 = 0
+    //-         .productsMenu__products__list(class= i == i2 ? "active" : "")
+    //-             each prod, index2 in brand.products
+    //-                 .productsMenu__products__list__product(class= (product && prod.iProductID == product.iProductID) ? "active" : "")
+    //-                     a(href="/product/" + prod.sProductURI) #{brand.sBrandTitle} #{prod.sProductTitle}
+    //-                         if prod.iGenerateUriBrus
+    //-                             |  #{prod.bru.sBrusTitle},
+    //-                         if prod.iGenerateUriMaterial
+    //-                             |  #{prod.material.sMaterialTitle}
+

@@ -1,0 +1,217 @@
+extends ../layouts/app
+
+block content
+		.work.ppage
+			h1.work-title Как мы работаем
+			.work-tabs
+				ul.work-users
+					li.person.active Если вы физлицо
+					li.entity Если вы юрлицо
+				.tabs-content.active
+					.stages
+						ul.stages__list
+							li.stages__item.active(data-target='1') 01
+								span.day День 1
+							li.stages__item(data-target='2') 02
+								span.day День 2
+							li.stages__item(data-target='3') 03
+								span.day День 3
+							li.stages__item(data-target='4') 04
+								span.day Заключения договора
+							li.stages__item(data-target='5') 05
+								span.day Проведение монтажных работ
+							li.bg
+					.all-wrap
+						.days-content.active
+							ul.steps
+								li.steps__item.active Шаг 1
+								li.steps__item Шаг 2
+							.step-wrapp
+								.step-content.active
+									p.step__desc Вы отправляете проект по вашему объекту этими способами:
+									ul.way__list
+										li.way__item
+											a.way__link(href="/calculation")
+												span.way__icon
+													img.sch(src="/images/work/mouse.svg", alt="mouse")
+												p.way__text Через формы на сайте
+										li.way__item
+											a.way__link(href="#" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_black")
+												span.way__icon
+													img.sc(src="/images/work/call.svg", alt="call")
+												p.way__text По телефону
+										li.way__item
+											a.way__link(href="mailto:prosto@prostokna.ru")
+												span.way__icon
+													img.sc(src="/images/work/mail.svg", alt="mail")
+												p.way__text По email
+										li.way__item.last
+											a.way__link.last(href="#")
+												span.way__icon
+													img.sc(src="/images/work/message.svg", alt="message")
+												p.way__text Через мессенджеры<br> What’s app, Viber, Telegram
+											ul.msn
+												li.msn__item
+													a.msn__link(href="https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5", target="_blank")
+														.msn__wrap
+															img.msn__icon(src="/images/work/whatsapp.svg", alt="whatsup")
+														span.msn__title WhatsApp
+												li.msn__item
+													a.msn__link(href="viber://add?number=79779390290", target="_blank")
+														.msn__wrap
+															img.msn__icon(src="/images/work/viber.svg", alt="viber")
+														span.msn__title Viber
+												li.msn__item
+													a.msn__link(href="https://telegram.me/79779390290", target="_blank")
+														.msn__wrap
+															img.msn__icon(src="/images/work/telegram.svg", alt="telegram")
+														span.msn__title Telegram
+								.step-content.step-content_middle.bor-left
+									p.step__desc С вами свяжется специалист розничного отдела для первичного обсуждения вашего проекта. На данном этапе уточняются текущие задачи, проверяется тех. задание, подготавливаются эскизы и предварительная смета по проекту.								
+						.days-content
+							ul.steps.steps_two
+								li.steps__item.active Шаг 3
+							.step-wrapp.step-wrapp_two
+								.step-content.step-content_middle.active
+									p.step__desc.tac После согласования цен и сроков, к вам на объект выезжает замерщик или техноглог в зависимости от текущей сложности.
+						.days-content
+							ul.steps.steps_two
+								li.steps__item.active Шаг 4
+							.step-wrapp.step-wrapp_two
+								.step-content.step-content_middle.active
+									p.step__desc.tac После получения замерных листов расчётно-сметный отдел произведёт подготовку эскизов и сметы в нескольких окончательных вариантах.
+						.days-content
+							ul.steps
+								li.steps__item.active Шаг 5
+								li.steps__item Шаг 6
+								li.steps__item Шаг 7
+							.step-wrapp
+								.step-content.active
+									p.step__desc С вами свяжется ваш личный менеджер для окончательного согласования проекта. Подписание договора вы сможете совместить с посещением оконного шоу-рума в центре Москвы. Также договор можно заключить полностью удалённо. На этом этапе формируется окончательная цена, срок исполнения, рабочий проект.
+								.step-content.step-content_middle.bor-all
+									p.step__desc Внесение оплаты/предоплаты по договору.		
+								.step-content
+									p.step__desc После запуска заказа в производство, происходит согласование с личным менеджером, удобной для вас даты доставки, а перед доставкой заблаговременно вы получите оповещение о времени прибытия.		
+						.days-content
+							ul.steps.steps_two
+								li.steps__item.active Шаг 8
+							.step-wrapp.step-wrapp_two
+								.step-content.step-content_middle.active
+									p.step__desc.tac Заблаговременное (минимум за 4-5 дней) согласование удобной даты и времени выполнения монтажных работ с представителем монтажного отдела. После завершения установки осуществляется приемка работ по Акту, далее вносится окончательная оплата по договору, если требуется.
+				.tabs-content
+					.stages
+						ul.stages__list
+							li.stages__item.active(data-target='1') 01
+								span.day День 1
+							li.stages__item(data-target='2') 02
+								span.day День 2
+							li.stages__item(data-target='3') 03
+								span.day День 3
+							li.stages__item(data-target='4') 04
+								span.day Заключения договора
+							li.stages__item(data-target='5') 05
+								span.day Проведение монтажных работ
+							li.bg
+					.all-wrap
+						.days-content.active
+							ul.steps
+								li.steps__item.active Шаг 1
+								li.steps__item Шаг 2
+								li.steps__item Шаг 3
+							.step-wrapp
+								.step-content.active
+									p.step__desc Вы отправляете проект по вашему объекту этими способами:
+									ul.way__list
+										li.way__item
+											a.way__link(href="/calculation")
+												span.way__icon
+													img.sch(src="/images/work/mouse.svg", alt="mouse")
+												p.way__text Через формы на сайте
+										li.way__item
+											a.way__link(href="#" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_black")
+												span.way__icon
+													img.sc(src="/images/work/call.svg", alt="call")
+												p.way__text По телефону
+										li.way__item
+											a.way__link(href="mailto:prosto@prostokna.ru")
+												span.way__icon
+													img.sc(src="/images/work/mail.svg", alt="mail")
+												p.way__text По email
+										li.way__item.last
+											a.way__link.last(href="#")
+												span.way__icon
+													img.sc(src="/images/work/message.svg", alt="message")
+												p.way__text Через мессенджеры<br> What’s app, Viber, Telegram
+											ul.msn
+												li.msn__item
+													a.msn__link(href="https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5", target="_blank")
+														.msn__wrap
+															img.msn__icon(src="/images/work/whatsapp.svg", alt="whatsup")
+														span.msn__title WhatsApp
+												li.msn__item
+													a.msn__link(href="viber://add?number=79779390290", target="_blank")
+														.msn__wrap
+															img.msn__icon(src="/images/work/viber.svg", alt="viber")
+														span.msn__title Viber
+												li.msn__item
+													a.msn__link(href="https://telegram.me/79779390290", target="_blank")
+														.msn__wrap
+															img.msn__icon(src="/images/work/telegram.svg", alt="telegram")
+														span.msn__title Telegram
+
+								.step-content.step-content_middle.bor-all
+									p.step__desc За вами закрепляется один из личных ведущих менеджеров корпоративного отдела для сопровождения имеющегося и ведения всех последующих проектов.
+									p.step__desc На данном этапе уточняются:
+									ul.todo__list
+										li.todo__item
+											<svg xmlns="http://www.w3.org/2000/svg" width="19.679" height="12.222" viewBox="0 0 19.679 12.222">
+												<path id="Path_11513" data-name="Path 11513" d="M-5459.027-1225.745l7.947,8.155,11.018-11.156" transform="translate(5459.385 1229.098)" fill="none" stroke="#fff" stroke-width="1"/>
+											</svg>
+											p.todo__text текущие задачи;
+										li.todo__item
+											<svg xmlns="http://www.w3.org/2000/svg" width="19.679" height="12.222" viewBox="0 0 19.679 12.222">
+												<path id="Path_11513" data-name="Path 11513" d="M-5459.027-1225.745l7.947,8.155,11.018-11.156" transform="translate(5459.385 1229.098)" fill="none" stroke="#fff" stroke-width="1"/>
+											</svg>
+											p.todo__text проверяется тех. задание;
+										li.todo__item
+											<svg xmlns="http://www.w3.org/2000/svg" width="19.679" height="12.222" viewBox="0 0 19.679 12.222">
+												<path id="Path_11513" data-name="Path 11513" d="M-5459.027-1225.745l7.947,8.155,11.018-11.156" transform="translate(5459.385 1229.098)" fill="none" stroke="#fff" stroke-width="1"/>
+											</svg>
+											p.todo__text подготавливаются эскизы и предварительная смета по проекту.
+								.step-content
+									p.step__desc Вам будет отправлен пакет уставных документов для проверки и возможного дальнейшего занесения в реестр ваших поставщиков.
+						.days-content
+							ul.steps.steps_two
+								li.steps__item.active Шаг 4
+							.step-wrapp.step-wrapp_two
+								.step-content.step-content_middle.active
+									p.step__desc.tac После согласования цен и сроков, к вам на объект выезжает технолог или инженер-геодезист в зависимости от текущей сложности.
+						.days-content
+							ul.steps.steps_two
+								li.steps__item.active Шаг 5
+							.step-wrapp.step-wrapp_two
+								.step-content.step-content_middle.active
+									p.step__desc.tac После получения замерных листов, расчётно-сметный отдел произведёт подготовку эскизов и сметы в нескольких окончательных вариантах. На данном этапе начинается разработка монтажных узлов, подготовка исполнительной документации (КМ, КМД, ППР) при необходимости.
+						.days-content
+							ul.steps
+								li.steps__item.active Шаг 6
+								li.steps__item Шаг 7
+								li.steps__item Шаг 8
+							.step-wrapp
+								.step-content.active
+									p.step__desc До окончательного согласования проекта и перед заключением договора представителя вашей компании при необходимости запишут вас на посещение нашего производства для ознакомления с объемом мощностей, возможностей и уровнем качества.
+								.step-content.step-content_middle.bor-all
+									p.step__desc Подписание самого договора также можно совместить с посещением оконного шоу-рума в центре Москвы. Также договор можно заключить полностью удалённо с последующим обменом оригиналами через курьера. На этом этапе формируется окончательная цена, срок исполнения, рабочий проект.		
+								.step-content
+									p.step__desc Внесение оплаты/предоплаты по договору.		
+						.days-content
+							ul.steps
+								li.steps__item.active Шаг 9
+								li.steps__item Шаг 10
+							.step-wrapp
+								.step-content.active
+									p.step__desc Представители монтажного отдела выходят на объект согласно заранее составленному, удобно для вас, графику проведения работ. В процессе проведения работ подписываются промежуточные Акты, в том числе Акты скрытых работ (при необходимости).
+								.step-content.step-content_middle.bor-left
+									p.step__desc Представитель нашего монтажного отдела осуществляет сдачу завершённых объёмов. Окончательная приёмка работ производится согласно Актам, составленным по формам КС-2, КС-3 и Акту сдачи-приёмки выполненных работ.
+			a.btn-call(href="#" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_black")
+				img(src="/images/work/call.svg", alt="call")
