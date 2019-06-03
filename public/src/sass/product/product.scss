@@ -169,7 +169,7 @@
                 flex-direction: column;
             }
             .gallery {
-                flex-basis: 50%;
+                flex-basis: 60%;
                 min-width: 400px;
                 height: 800px;
                 background: #353535;
@@ -544,7 +544,7 @@
                 }
             }
             .info {
-                width: 50%;
+                width: 40%;
                 padding: 50px 50px 50px 25px;
                 text-align: center;
                 display: flex;
@@ -576,7 +576,7 @@
                                 flex-wrap: wrap;
                                 max-height: 330px;
                                 min-width: 390px;
-                                align-content: center;
+                                align-content: space-between;
                                 justify-content: center;
                                 @media (max-width: 1050px) {
                                     min-width: 330px;
@@ -593,7 +593,7 @@
                                 }
                                 li {
                                     margin-bottom: 15px;
-                                    width: 33.33%;
+                                    // width: 33.33%;
                                     min-width: 130px;
                                     height: 140px;
                                     background-clip: content-box;
@@ -632,7 +632,7 @@
                                             height: 65px;
                                         }
                                         .value {
-                                            font-family: "Montserrat";
+                                            font-family: "MontserratMedium";
                                             font-size: 16px;
                                             position: absolute;
                                             top: 50%;
