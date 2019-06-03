@@ -632,8 +632,8 @@
                                             height: 65px;
                                         }
                                         .value {
-                                            font-family: "MontserratMedium";
-                                            font-size: 20px;
+                                            font-family: "Montserrat";
+                                            font-size: 16px;
                                             position: absolute;
                                             top: 50%;
                                             left: 50%;
@@ -649,7 +649,8 @@
                                                 font-size: 10px;
                                             }
                                             .line1 {
-                                                font-size: 14px;
+                                                font-size: 10px;
+                                                line-height: 16px;
                                                 text-align: center;
                                                 @media (max-width: 950px) {
                                                     font-size: 11px;
@@ -659,7 +660,7 @@
                                                 
                                             }
                                             .line3 {
-                                                font-size: 14px;
+                                                line-height: 16px;
                                                 text-align: center;
                                                 @media (max-width: 950px) {
                                                     font-size: 11px;
@@ -767,6 +768,7 @@
                     flex-direction: row;
                     flex-wrap: nowrap;
                     position: relative;
+                    margin: auto 50px;
                     .bg {
                         position: absolute;
                         top: 0;
@@ -816,6 +818,7 @@
                     padding: 30px 0 0;
                     display: flex;
                     flex-direction: row;
+                    margin: auto 50px;
                     @media (max-width: 800px) {
                         padding: 15px 0 0;
                         flex-basis: 55px;
@@ -856,7 +859,7 @@
                         outline: 0;
                         background-color: #222222;
                         cursor: pointer;
-                        border-radius: 10px;
+                        border-radius: 6px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
