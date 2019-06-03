@@ -384,6 +384,9 @@
                 .view2 {
                     position: relative;
                     flex-grow: 1;
+                    @media (max-width: 800px) {
+                        margin-right: 80px;
+                    }
                     .back {
                         position: absolute;
                         top: 0;
