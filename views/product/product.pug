@@ -42,7 +42,7 @@
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
                                 img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
-                    if product.iPrice
+                    //- if product.iPrice
                         .productPrice
                             .bg
                                 .title
@@ -112,6 +112,18 @@
                     .tab-content
                         #home1.tab-pane.fade.show.active
                             ul.circle
+                                if product.iPrice != null
+                                    li
+                                        .percent
+                                            .value
+                                                .line1 от
+                                                .line2 #{product.iPrice}
+                                                .line3 м<sup>2</sup>
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle.price(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle.price(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Цена
                                 li
                                     .percent
                                         .value= product.iProductParam1+"%"
@@ -152,14 +164,15 @@
                                         svg(viewBox="0 0 36 36", class="circular-chart")
                                             path.circle(stroke-dasharray=product.iProductParam5+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
                                     .title Экологичность
-                                li
-                                    .percent
-                                        .value= product.iProductParam6+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Цена
+                                if product.iPrice == null
+                                    li
+                                        .percent
+                                            .value= product.iProductParam6+"%"
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Цена
                         #home2.tab-pane.fade
                             p= product.sProductDesc
                             ul
