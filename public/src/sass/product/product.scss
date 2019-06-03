@@ -595,7 +595,7 @@
                                     margin-bottom: 15px;
                                     width: 33.33%;
                                     min-width: 130px;
-                                    height: 125px;
+                                    height: 140px;
                                     background-clip: content-box;
                                     display: flex;
                                     flex-direction: column;
@@ -616,8 +616,8 @@
                                         height: 80px;
                                     }
                                     .percent {
-                                        height: 100px;
-                                        width: 100px;
+                                        height: 115px;
+                                        width: 115px;
                                         position: relative;
                                         @media (max-width: 1050px) {
                                             width: 80px;
@@ -676,7 +676,7 @@
                                             .circle {
                                                 stroke: #4E4E4E;
                                                 fill: none;
-                                                stroke-width: 1;
+                                                stroke-width: .9;
                                                 stroke-linecap: round;
                                             }
                                         }
@@ -689,7 +689,7 @@
                                             .circle {
                                                 stroke: #43A22C;
                                                 fill: none;
-                                                stroke-width: 1;
+                                                stroke-width: .9;
                                                 stroke-linecap: round;
                                                 animation: progress_circle 2s ease-out forwards;
                                                 &.price {
