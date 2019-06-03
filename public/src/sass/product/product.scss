@@ -279,13 +279,17 @@
                     .selectOption {
                         position: absolute;
                         right: 0;
-                        top: 240px;
+                        top: 100px;
                         z-index: 99;
                         font-family: 'Montserrat';
                         text-transform: uppercase;
                         text-align: center;
                         display: flex;
                         flex-direction: column;
+                        @media (max-width: 800px) {
+                            top: 50px;
+                            right: 10px;
+                        }
                         .item {
                             display: flex;
                             flex-direction: column;
@@ -293,6 +297,9 @@
                             flex-shrink: 1;
                             flex-grow: 0;
                             align-items: flex-end;
+                            @media (max-width: 800px) {
+                                margin-bottom: 10px;
+                            }
                             .wrap {
                                 background: rgba(0,0,0,.5);
                                 border-radius: 4px;
@@ -305,10 +312,17 @@
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
+                                    @media (max-width: 800px) {
+                                        padding: 5px;
+                                    }
                                     img {
                                         width: 30px;
                                         height: 30px;
                                         object-fit: contain;
+                                        @media (max-width: 800px) {
+                                            width: 25px;
+                                            height: 25px;
+                                        }
                                     }
                                     span {
                                         display: none;
@@ -560,7 +574,7 @@
                                 display: flex;
                                 flex-direction: column;
                                 flex-wrap: wrap;
-                                max-height: 300px;
+                                max-height: 330px;
                                 min-width: 390px;
                                 align-content: center;
                                 justify-content: center;
@@ -575,13 +589,13 @@
                                 }
                                 @media (max-width: 800px) {
                                     min-width: 240px;
-                                    max-height: 180px;
+                                    max-height: 190px;
                                 }
                                 li {
                                     margin-bottom: 15px;
                                     width: 33.33%;
                                     min-width: 130px;
-                                    height: 125px;
+                                    height: 150px;
                                     background-clip: content-box;
                                     display: flex;
                                     flex-direction: column;
@@ -599,11 +613,11 @@
                                     @media (max-width: 800px) {
                                         width: 33.33%;
                                         min-width: 80px;
-                                        height: 60px;
+                                        height: 80px;
                                     }
                                     .percent {
-                                        height: 100px;
-                                        width: 100px;
+                                        height: 125px;
+                                        width: 125px;
                                         position: relative;
                                         @media (max-width: 1050px) {
                                             width: 80px;
@@ -614,8 +628,8 @@
                                             height: 60px;
                                         }
                                         @media (max-width: 800px) {
-                                            width: 45px;
-                                            height: 45px;
+                                            width: 65px;
+                                            height: 65px;
                                         }
                                         .value {
                                             font-family: "MontserratMedium";
@@ -633,6 +647,23 @@
                                             @media (max-width: 800px) {
                                                 font-family: "Montserrat";
                                                 font-size: 10px;
+                                            }
+                                            .line1 {
+                                                font-size: 14px;
+                                                text-align: center;
+                                                @media (max-width: 950px) {
+                                                    font-size: 11px;
+                                                }
+                                            }
+                                            .line2 {
+                                                
+                                            }
+                                            .line3 {
+                                                font-size: 14px;
+                                                text-align: center;
+                                                @media (max-width: 950px) {
+                                                    font-size: 11px;
+                                                }
                                             }
                                         }
                                         .circular-chart-full {
@@ -660,6 +691,9 @@
                                                 stroke-width: 1.25;
                                                 stroke-linecap: round;
                                                 animation: progress_circle 2s ease-out forwards;
+                                                &.price {
+                                                    stroke: #FD578B;                                                    
+                                                }
                                                 @keyframes progress_circle {
                                                     0% {
                                                         stroke-dasharray: 0 100;
