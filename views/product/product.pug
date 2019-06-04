@@ -204,9 +204,15 @@
                 ul.nav.nav-tabs
                     .bg
                     li.nav-item
-                        a#home1-tab.nav-link.active(data-toggle="tab" href="#home1" aria-selected="true") Характеристики
+                        a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
+                            img.normal(src="/images/percent.svg", alt="")
+                            img.hover(src="/images/percent_hover.svg", alt="")
+                            span Характеристики
                     li.nav-item
-                        a#home2-tab.nav-link(data-toggle="tab" href="#home2" aria-selected="true") Описание
+                        a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
+                            span Описание
+                            img.normal(src="/images/list.svg", alt="")
+                            img.hover(src="/images/list_hover.svg", alt="")
                 .buttons
                     button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
@@ -229,14 +235,20 @@
                                 attr-sProductColorFilename= color.sProductColorFilename
                                 attr-sColorTitleCode= color.color.sColorTitleCode
                                 attr-sColorTextureFileName= color.color.sColorTextureFileName
-                                title= color.color.sColorTitle
+                                data-title= color.color.sColorTitle
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                data-html="true"
+                                title= color.color.sColorTitle + "<br><span style='text-transform: uppercase; font-size: 10px;'>" + color.color.sColorTitleCode + "</span>"
                                 )
                                 .code= color.color.sColorTitleCode
                                 .title= color.color.sColorTitle
                     div.colorName
                         .bg
                             img(src="/images/color.svg", alt="")
-                            span
+                            .colorDesc
+                                span.sColorTitle
+                                span.sColorTitleCode
                     button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                 .view
         .desc

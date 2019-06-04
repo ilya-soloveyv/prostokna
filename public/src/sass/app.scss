@@ -1360,8 +1360,22 @@ ul.social_icons {
                                     }
                                     img {
                                         width: 100%;
-                                        height: 100%;
+                                        height: calc(100% - 60px);
                                         object-fit: contain;
+                                        margin-bottom: 15px;
+                                    }
+                                    .titleCode {
+                                        color: white;
+                                        text-align: center;
+                                        .title {
+                                            font-family: 'MontserratMedium';
+                                            font-size: 16px;
+                                        }
+                                        .code {
+                                            font-family: 'Montserrat';
+                                            text-transform: uppercase;
+                                            font-size: 14px;
+                                        }
                                     }
                                 }
                             }

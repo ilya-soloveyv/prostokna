@@ -799,10 +799,9 @@
                         display: flex;
                         flex-direction: row;
                         flex-wrap: nowrap;
-                        // align-items: center;
-                        // justify-content: center;
                         a {
-                            // display: block;
+                            display: flex;
+                            align-items: center;
                             flex-grow: 1;
                             flex-shrink: 0;
                             color: white;
@@ -817,10 +816,41 @@
                             @media (max-width: 800px) {
                                 font-size: 10px;
                             }
+                            img {
+                                padding: 10px 15px;
+                                &.hover {
+                                    display: none;
+                                }
+                            }
+                            span {
+                                padding: 0;
+                                flex-grow: 1;
+                                text-align: center;
+                                display: block;
+                            }
+                            &.nav-item-1 {
+                                padding-right: 20px;
+                                img {
+                                    
+                                }
+                            }
+                            &.nav-item-2 {
+                                padding-left: 20px;
+                                img {
+
+                                }
+                            }
                             &.active {
                                 background: none;
-                                // background: #111111;
-                                // border-radius: 20px;
+                                img {
+                                    padding: 10px 15px;
+                                    &.normal {
+                                        display: none;
+                                    }
+                                    &.hover {
+                                        display: block;
+                                    }
+                                }
                             }
                         }
                     }
@@ -886,6 +916,7 @@
                         }
                         @media (max-width: 800px) {
                             margin-left: 10px;
+                            padding: 8px;
                         }
                         img {
                             display: block;
@@ -895,12 +926,9 @@
                             transition: all .25s;
                             &.normal {
                                 opacity: .5;
-                                visibility: visible;
                                 display: block;
                             }
                             &.hover {
-                                opacity: 0;
-                                visibility: hidden;
                                 display: none;
                             }
                         }
@@ -908,13 +936,9 @@
                             opacity: 1;
                             img {
                                 &.normal {
-                                    opacity: 0;
-                                    visibility: hidden;
                                     display: none;
                                 }
                                 &.hover {
-                                    opacity: 1;
-                                    visibility: visible;
                                     display: block;
                                 }
                             }
@@ -1043,10 +1067,21 @@
                             padding: 10px 20px;
                         }
                         img {
-                            margin-right: 15px;
+                            margin-right: 20px;
                             height: 25px;
                             @media (max-width: 800px) {
                                 height: 20px;
+                            }
+                        }
+                        .colorDesc {
+                            display: flex;
+                            flex-direction: column;
+                            span.sColorTitle {
+                                font-size: 14px;
+                            }
+                            span.sColorTitleCode {
+                                font-size: 10px;
+                                text-transform: uppercase;
                             }
                         }
                     }
@@ -1058,11 +1093,13 @@
                     // margin-top: 100px;
                     max-width: 360px;
                     width: 100%;
-                    height: 60px;
+                    height: 50px;
                     color: #FFFFFF;
                     border: 0 none;
                     outline: 0;
-                    border-radius: 70px;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 25px;
                     font-size: 15px;
                     text-transform: uppercase;
                     margin-top:auto;
@@ -1213,14 +1250,15 @@
             button {
                 font-family: 'Montserrat';
                 background: linear-gradient(90deg, #0585FA, #0167E0, #005ED9);
-                margin-top: 50px;
                 max-width: 360px;
                 width: 100%;
-                height: 60px;
+                height: 50px;
                 color: #FFFFFF;
                 border: 0 none;
                 outline: 0;
-                border-radius: 70px;
+                margin: 50px 0 0;
+                padding: 0;
+                border-radius: 25px;
                 font-size: 15px;
                 text-transform: uppercase;
                 cursor: pointer;

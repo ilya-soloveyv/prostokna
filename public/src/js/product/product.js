@@ -1,8 +1,10 @@
 $(document).ready(function(){
     if ($('#product').length) {
 
+        $('[data-toggle="tooltip"]').tooltip()
+
         function positionTabBg (_this) {
-            var _this = (_this) ? $(_this).parent() : $('#product .data .basic .info ul.nav li.nav-item a.active')
+            var _this = (_this) ? $(_this).parents(".nav-item").find('a').parent() : $('#product .data .basic .info ul.nav li.nav-item a.active').parent()
             var pos = _this.position()
             var left = pos.left
             var top = pos.top
@@ -14,7 +16,7 @@ $(document).ready(function(){
 
         positionTabBg()
         
-        $('#product .data .basic .info ul.nav li.nav-item a').click(function(e){
+        $('#product .data .basic .info ul.nav li.nav-item').click(function(e){
             positionTabBg(e.target)
         })
 
@@ -134,9 +136,15 @@ $(document).ready(function(){
             var index = Number($(e.target).attr('data-index'))
             $('#product .data .colors .list ul li').each(function (e, i) {
                 var img = $(this).attr('attr-sproductcolorfilename')
+                var title = $(this).attr('data-title')
+                var code = $(this).attr('attr-sColorTitleCode')
                 owl_product_modal_images.trigger('add.owl.carousel', [
                     `<div class="item">
                         <img src="/images/product/color/` + img + `">
+                        <div class="titleCode">
+                            <div class="title">` + title + `</div>
+                            <div class="code">` + code + `</div>
+                        </div>
                     </div>`
                 ])
             })
@@ -221,12 +229,13 @@ function useProductColorImage (index) {
     $('#product .data .colors .list ul li').eq(index).addClass('active')
     var activeImg = $('#product .data .colors .list ul li.active')
     if (activeImg.length) {
-        var title = activeImg.attr('title')
+        var title = activeImg.attr('data-title')
         var code = activeImg.attr('attr-sColorTitleCode')
         var iProductID = activeImg.attr('attr-iProductID')
         var sProductColorFilename = activeImg.attr('attr-sProductColorFilename')
         $('#product .data .colors .view').html('<img src="/images/product/color/' + sProductColorFilename + '" data-index="' + index + '">')
-        $('#product .data .colors .list .colorName .bg span').text(title)
+        $('#product .data .colors .list .colorName .bg span.sColorTitle').text(title)
+        $('#product .data .colors .list .colorName .bg span.sColorTitleCode').text(code)
     }
 }
 
