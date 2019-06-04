@@ -1,7 +1,10 @@
 $(document).ready(function(){
     if ($('#product').length) {
 
-        $('[data-toggle="tooltip"]').tooltip()
+        if ($(window).width() <= 800) {
+            $('[data-toggle="tooltip"]').tooltip()
+        }
+        
 
         function positionTabBg (_this) {
             var _this = (_this) ? $(_this).parents(".nav-item").find('a').parent() : $('#product .data .basic .info ul.nav li.nav-item a.active').parent()
