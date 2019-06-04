@@ -292,11 +292,11 @@ data.left_menu = [
         uri: '/product',
         ico: [ '2.svg', '2a.svg' ]
     },
-    {
-        title: 'Услуги',
-        uri: '/',
-        ico: [ '3.svg', '3a.svg' ]
-    },
+    // {
+    //     title: 'Услуги',
+    //     uri: '/',
+    //     ico: [ '3.svg', '3a.svg' ]
+    // },
     {
         title: 'Галерея работ',
         uri: '/gallery',
@@ -1329,7 +1329,7 @@ app.get('/', (req, res) => {
             list: [
                 {
                     title: 'Акция "Найдите дешевле"',
-                    uri: '#'
+                    uri: '/best-cost'
                 }
             ]
         },
