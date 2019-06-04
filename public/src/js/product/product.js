@@ -1,7 +1,7 @@
 $(document).ready(function(){
     if ($('#product').length) {
 
-        if ($(window).width() <= 800) {
+        if ($(window).width() > 800) {
             $('[data-toggle="tooltip"]').tooltip()
         }
         
