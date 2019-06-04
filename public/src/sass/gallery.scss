@@ -767,6 +767,9 @@
                 overflow: auto;
                 &::-webkit-scrollbar {
                     display: none;
+                    -webkit-appearance: none;
+                    -webkit-overflow-scrolling: touch;
+                    width: 0 !important;
                 }
                 .pagg_list {
                     // background: green;
@@ -786,6 +789,9 @@
                     }
                     &::-webkit-scrollbar {
                         display: none;
+                        -webkit-appearance: none;
+                        -webkit-overflow-scrolling: touch;
+                        width: 0 !important;
                     }
                     a {
                         position: relative;
