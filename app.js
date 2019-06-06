@@ -1578,6 +1578,30 @@ app.get('/calculation', async (req, res) => {
     data.left_menu_active = null
     res.render('calculation', data)
 })
+app.get('/accessories', async (req, res) => {
+    data.title = 'Шторы'
+    data.description = ''
+    data.left_menu_active = null
+		res.render('accessories/access.pug', data)
+})
+app.get('/mesh', async (req, res) => {
+    data.title = 'Сетки'
+    data.description = ''
+    data.left_menu_active = null
+		res.render('accessories/mesh.pug', data)
+})
+app.get('/jalousie', async (req, res) => {
+    data.title = 'Жалюзи'
+    data.description = ''
+    data.left_menu_active = null
+	res.render('accessories/jalousie.pug', data)
+})
+app.get('/handle', async (req, res) => {
+    data.title = 'Ручки'
+    data.description = ''
+    data.left_menu_active = null
+	res.render('accessories/handle.pug', data)
+})
 
 
 
