@@ -5,7 +5,6 @@
                 .hamburger.hamburger--spin
                     .hamburger-box
                         .hamburger-inner
-                //- .type
             h1 #{product.brand.sBrandTitle}
                 span #{product.sProductTitle}
     .submenu
@@ -20,13 +19,20 @@
                     .hamburger-box
                         .hamburger-inner
                 include menu
+    .modal#product_modal_images(tabindex="-1", role="dialog")
+        .modal-dialog(role="document")
+            .modal-content
+                .hamburger.hamburger--spin(data-dismiss="modal" aria-label="Close")
+                    .hamburger-box
+                        .hamburger-inner
+                .wrap
+                    .owl-carousel
     .callme
         img(src="/images/product/phone.svg" alt="call me" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
     .data
-        //- pre !{product.product_links}
         .basic
-            .gallery                
-                .list2
+            .gallery
+                .list2#slick_wrap
                     .slick
                         each image in product.product_images
                             div.slick-change(
@@ -36,42 +42,67 @@
                                 data-sProductImageBackName=image.sProductImageBackName
                             )
                                 img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
-                    //- .selectOption
-                        .item
-                            .title Материал
-                            .list
-                                if product.product_links
-                                    each link in product.product_links
-                                        span !{link.material.sMaterialTitle}
-                                //- span.active Сосна
-                                //- span Лиственница
-                                //- span Дуб
-                        .item
-                            .title Выбор бруса
-                            .list
-                                if product.product_links
-                                    each link in product.product_links
-                                        span !{link.bru.sBrusTitle}
-                                //- span.active Цельноламельный
-                                //- span Сращеный
+                    //- if product.iPrice
+                        .productPrice
+                            .bg
+                                .title
+                                    span= product.brand.sBrandTitle + " " + product.sProductTitle
+                                    br
+                                    span #{product.material.sMaterialTitle}
+                                    if product.iGenerateUriBrus == 1
+                                        br
+                                        span #{product.bru.sBrusTitle}
+                                .cost от #{product.iPrice} м<sup>2</sup>
+                    if 'material' in product.product_links || 'brus' in product.product_links
+                        .selectOption
+                            if 'material' in product.product_links && product.product_links.material.length
+                                .item
+                                    .wrap
+                                        .title
+                                            img(src="/images/option_material.svg", alt="")
+                                            span Материал
+                                            i.material-icons.material-icons-add add
+                                            i.material-icons.material-icons-remove remove
+                                        .list
+                                            each item in product.product_links.material
+                                                a(
+                                                    class= { active: item.iMaterialID == product.iMaterialID }
+                                                    href="/product/" + item.sProductURI
+                                                )= item.sMaterialTitle
+                            if 'brus' in product.product_links && product.product_links.brus.length
+                                .item
+                                    .wrap
+                                        .title
+                                            img(src="/images/option_brus.svg", alt="")
+                                            span Выбор бруса
+                                            i.material-icons.material-icons-add add
+                                            i.material-icons.material-icons-remove remove
+                                        .list
+                                            each item in product.product_links.brus
+                                                a(
+                                                    class= { active: item.iBrusID == product.iBrusID }
+                                                    href="/product/" + item.sProductURI
+                                                )= item.sBrusTitle
                 .view2
                     .back
                         if product.product_images[0] !== undefined
                             .bg
                                 img(
-                                    src="/images/product/gallery/" + product.product_images[0].sProductImageBackName,
-                                    data-iProductImageID= product.product_images[0].iProductImageID,
+                                    src="/images/product/gallery/" + product.product_images[0].sProductImageBackName
+                                    data-iProductImageID= product.product_images[0].iProductImageID
+                                    data-index="0"
                                     alt="")
                     .front
                         .front_bg
                             if product.product_images[0] !== undefined
                                 .bg
                                     img(
-                                        src="/images/product/gallery/" + product.product_images[0].sProductImageFrontName,
-                                        data-iProductImageID= product.product_images[0].iProductImageID,
+                                        src="/images/product/gallery/" + product.product_images[0].sProductImageFrontName
+                                        data-iProductImageID= product.product_images[0].iProductImageID
+                                        data-index="0"
                                         alt="")
-                    ul.point
-                        //- each point in product_images_point
+                    //- ul.point
+                        each point in product_images_point
                             li.point_item(
                                 data-iProductImageID= point.iProductImageID,
                                 data-fProductImagePointPosX= point.fProductImagePointPosX,
@@ -81,6 +112,18 @@
                     .tab-content
                         #home1.tab-pane.fade.show.active
                             ul.circle
+                                if product.iPrice != null
+                                    li
+                                        .percent
+                                            .value
+                                                .line1 от
+                                                .line2 #{product.iPrice}
+                                                .line3 &nbsp;
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle.price(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle.price(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Цена м<sup>2</sup>
                                 li
                                     .percent
                                         .value= product.iProductParam1+"%"
@@ -121,14 +164,15 @@
                                         svg(viewBox="0 0 36 36", class="circular-chart")
                                             path.circle(stroke-dasharray=product.iProductParam5+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
                                     .title Экологичность
-                                li
-                                    .percent
-                                        .value= product.iProductParam6+"%"
-                                        svg(viewBox="0 0 36 36", class="circular-chart-full")
-                                            path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                        svg(viewBox="0 0 36 36", class="circular-chart")
-                                            path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-                                    .title Цена
+                                if product.iPrice == null
+                                    li
+                                        .percent
+                                            .value= product.iProductParam6+"%"
+                                            svg(viewBox="0 0 36 36", class="circular-chart-full")
+                                                path.circle(stroke-dasharray="100, 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                            svg(viewBox="0 0 36 36", class="circular-chart")
+                                                path.circle(stroke-dasharray=product.iProductParam6+", 100", d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
+                                        .title Цена
                         #home2.tab-pane.fade
                             p= product.sProductDesc
                             ul
@@ -160,13 +204,20 @@
                 ul.nav.nav-tabs
                     .bg
                     li.nav-item
-                        a#home1-tab.nav-link.active(data-toggle="tab" href="#home1" aria-selected="true") Характеристики
+                        a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
+                            img.normal(src="/images/percent.svg", alt="")
+                            img.hover(src="/images/percent_hover.svg", alt="")
+                            span Характеристики
                     li.nav-item
-                        a#home2-tab.nav-link(data-toggle="tab" href="#home2" aria-selected="true") Описание
+                        a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
+                            span Описание
+                            img.normal(src="/images/list.svg", alt="")
+                            img.hover(src="/images/list_hover.svg", alt="")
                 .buttons
                     button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
-                        i.material-icons star_border
+                        img.normal(src="/images/favorite.svg", alt="")
+                        img.hover(src="/images/favorite_gold.svg", alt="")          
         if product.product_colors.length
             .colors
                 .list
@@ -184,10 +235,20 @@
                                 attr-sProductColorFilename= color.sProductColorFilename
                                 attr-sColorTitleCode= color.color.sColorTitleCode
                                 attr-sColorTextureFileName= color.color.sColorTextureFileName
-                                title= color.color.sColorTitle
+                                data-title= color.color.sColorTitle
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                data-html="true"
+                                title= color.color.sColorTitle + "<br><span style='text-transform: uppercase; font-size: 10px;'>" + color.color.sColorTitleCode + "</span>"
                                 )
                                 .code= color.color.sColorTitleCode
                                 .title= color.color.sColorTitle
+                    div.colorName
+                        .bg
+                            img(src="/images/color.svg", alt="")
+                            .colorDesc
+                                span.sColorTitle
+                                span.sColorTitleCode
                     button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                 .view
         .desc

@@ -55,8 +55,10 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/work.css")
             link(rel="stylesheet", href="/src/css/calculation.css")
             link(rel="stylesheet", href="/src/css/page-brand/page-brand.css")
+            link(rel="stylesheet", href="/src/css/best-cost/best-cost.css")
         else
-            link(rel="stylesheet", href="/app-536c16ae90.min.css")
+            <script async type="text/javascript">function loadscript(e,t){var n=document.createElement("script");n.src="//lptracker.net.ru/"+e;n.onreadystatechange=t;n.onload=t;document.head.appendChild(n);return 1}var init_lstats=function(){lstats.site_id=5954;lstats.referer()};var jquery_lstats=function(){jQstat.noConflict();loadscript("stats_auto.js",init_lstats)};loadscript("jquery-1.10.2.min.js",jquery_lstats);</script>
+            link(rel="stylesheet", href="/app-c4f3c38fa3.min.css")
     body
         #top
             .logo
@@ -67,17 +69,24 @@ html(lang="ru")
                 .bginput
                     input(type='text',placeholder='Введите поисковый запрос...').form-control.form-control-pokna.small.grey
             .phone
+                a.tel.lptracker_phone(href='tel:+74993912221') +7 499 391 22 21
+                a.callme(href='#' data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white") Перезвоните мне
+                //- a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5' target="_blank")
+                    //- img(src='/images/top/whatsapp_top_bl.svg', alt='4')
                 a.callall(href="#" data-toggle="modal" data-target="#modal_mobile_contact")
                     img(src="/images/call.svg", alt="")
-                a.tel(href='tel:+74993912221') +7 499 391 22 21
-                a.callme(href='#' data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white") Перезвоните мне
-                a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5' target="_blank")
-                    //- img(src='/images/top/whatsapp_top_bl.svg', alt='4')
             .l
-                .handle
-                    .hamburger.hamburger--elastic
-                        .hamburger-box
-                            .hamburger-inner
+                #toggleBasicMenu
+                    .wrap
+                        span
+                        span
+                        span
+                        span
+                        span
+                        span
+                        span
+                        span
+                        span
                 .menu
                     ul
                         if left_menu
@@ -137,7 +146,8 @@ html(lang="ru")
                             img(src="/images/telegram.svg", alt="")
                             .title Напишите нам в<br> Telegram
                         a.item.item_5(href="tel:+74993912221")
-                            .title Или вы можете перезвонить нам сами по телефону <span>+7 (499) 391-22-21</span>
+                            .title Или вы можете перезвонить нам сами по телефону
+                                span.lptracker_phone +7 (499) 391-22-21
         .modal.fade#zay_modal(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
@@ -203,6 +213,9 @@ html(lang="ru")
             script(src='/src/js/owl.carousel.min.js')
             script(src='/src/js/jquery.touchSwipe.min.js')
             script(src='/src/js/jquery.knob.min.js')
+            script(src='/src/js/html2canvas.min.js')
+            //- script(src='/src/js/jquery.disablescroll.min.js')
+            //- script(src='/src/js/slick.js')
             script(src='/slick/slick.min.js')
             script(src='/src/js/rangeslider.min.js')
             script(src='/src/js/jquery.scrollbar.min.js')
@@ -242,8 +255,9 @@ html(lang="ru")
             script(src='/src/js/work/work.js')
             script(src='/src/js/calculation.js')
             script(src='/src/js/page-brand/page-brand.js')
+            script(src='/src/js/best-cost/best-cost.js')
         else
-            script(src='/app-caac3c735c.min.js')
+            script(src='/app-be2c20d7c6.min.js')
 
             script(src="https://www.googletagmanager.com/gtag/js?id=UA-140504195-1" async)
             script.

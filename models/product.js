@@ -25,6 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     iBrusID: DataTypes.INTEGER,
     iGenerateUriMaterial: DataTypes.INTEGER,
     iGenerateUriBrus: DataTypes.INTEGER,
+    iPrice: { type: DataTypes.INTEGER, allowNull: true },
+    iActive:{ type: DataTypes.INTEGER, allowNull: true },
   }, {
     timestamps: false,
     freezeTableName: true,
@@ -65,7 +67,8 @@ module.exports = (sequelize, DataTypes) => {
         return {}
       }      
     }
-    return await Product.findByPk(iProductID, {
+
+    var product = await Product.findByPk(iProductID, {
       include: [
         {
           model: sequelize.models.brand
@@ -92,30 +95,100 @@ module.exports = (sequelize, DataTypes) => {
             }
           ]
         },
-        // {
-        //   model: sequelize.models.product_link,
-        //   require: false,
-        //   where: {
-        //     iProductIDFrom: iProductID
-        //   },
-        //   include: [
-        //     {
-        //       model: sequelize.models.material
-        //     },
-        //     {
-        //       model: sequelize.models.brus
-        //     },
-        //     {
-        //       model: sequelize.models.product
-        //     }
-        //   ]
-        // },
+        {
+          model: sequelize.models.product_link,
+          required: false,
+          where: {
+            iProductIDFrom: iProductID
+          },
+          include: [
+            {
+              model: sequelize.models.product,
+              required: false,
+              attributes: ['iMaterialID', 'iBrusID', 'sProductTitle', 'sProductURI', 'iGenerateUriMaterial', 'iGenerateUriBrus'],
+              include: [
+                {
+                  model: sequelize.models.brand,
+                  attributes: ['sBrandTitle'],
+                },
+                {
+                  model: sequelize.models.material,
+                  attributes: ['sMaterialTitle'],
+                },
+                {
+                  model: sequelize.models.brus,
+                  attributes: ['sBrusTitle'],
+                }                
+              ]
+            },
+          ]
+        }
       ],
       order: [
         ['iProductID', 'ASC'],
         [sequelize.models.product_image, 'iOrder', 'ASC']
       ]
     })
+
+    if ("product_links" in product && product.product_links.length) {
+      var iMaterialID = product.iMaterialID
+      var iBrusID = product.iBrusID
+      var temp = {
+        material: [],
+        brus: []
+      }
+      product.product_links.forEach(element => {
+        if (element.product.iMaterialID != iMaterialID) {
+          temp.material.push({
+            iProductID: element.iProductIDLink,
+            sProductURI: element.product.sProductURI,
+            iMaterialID: element.product.iMaterialID,
+            sMaterialTitle: element.product.material.sMaterialTitle
+          })
+        }
+        if (element.product.iBrusID != iBrusID) {
+          temp.brus.push({
+            iProductID: element.iProductIDLink,
+            sProductURI: element.product.sProductURI,
+            iBrusID: element.product.iBrusID,
+            sBrusTitle: element.product.bru.sBrusTitle
+          })
+        }
+      })
+
+      if (temp.material.length) {
+        temp.material.push({
+          iProductID: product.iProductID,
+          sProductURI: product.sProductURI,
+          iMaterialID: product.iMaterialID,
+          sMaterialTitle: product.material.sMaterialTitle
+        })
+        function compareMaterial(a, b) {
+          return a.iMaterialID - b.iMaterialID
+        }
+        temp.material.sort(compareMaterial)
+      }
+
+      if (temp.brus.length) {
+        temp.brus.push({
+          iProductID: product.iProductID,
+          sProductURI: product.sProductURI,
+          iBrusID: product.iBrusID,
+          sBrusTitle: product.bru.sBrusTitle
+        })
+        function compareBrus(a, b) {
+          return a.iBrusID - b.iBrusID
+        }
+        temp.brus.sort(compareBrus)
+      }
+
+      product.product_links = temp
+    }
+    
+
+
+
+    return product
   }
 
   return Product;

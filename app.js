@@ -59,6 +59,32 @@ const Gallery = require('./models').gallery
 const Gallery_image = require('./models').gallery_image
 
 
+
+
+
+if (process.env.NODE_ENV != 'development') {
+    app.use(function(req, res, next) {
+        if (req.secure) {
+            next()
+        } else {
+            res.redirect(301, 'https://' + req.headers.host + req.url)
+        }
+    })
+}
+
+app.all('*', (req, res, next) => {
+    if (req.headers.host.match(/^www/) !== null ) {
+        res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
+    } else {
+        next()
+    }
+})
+
+
+
+
+
+
 app.post('/test', async (req, res) => {
 
     // var product_image_point = await Product_image_point.findAll({
@@ -176,6 +202,9 @@ app.get('*', async (req, res, next) => {
         include: [
             {
                 model: Product,
+                where: {
+                    iActive: 1
+                },
                 attributes: ['iProductID', 'sProductTitle', 'sProductURI', 'iMaterialID', 'iGenerateUriBrus', 'iGenerateUriMaterial'],
                 required: true,
                 include: [
@@ -263,11 +292,11 @@ data.left_menu = [
         uri: '/product',
         ico: [ '2.svg', '2a.svg' ]
     },
-    {
-        title: 'Услуги',
-        uri: '/',
-        ico: [ '3.svg', '3a.svg' ]
-    },
+    // {
+    //     title: 'Услуги',
+    //     uri: '/',
+    //     ico: [ '3.svg', '3a.svg' ]
+    // },
     {
         title: 'Галерея работ',
         uri: '/gallery',
@@ -351,6 +380,9 @@ app.post('/admin/ProductEdit', async (req, res) => {
         if (req.body.iProductID) {
             responce.product = await Product.getProduct(Number(req.body.iProductID))
         }
+        responce.products = await Product.findAll({
+            include: [Brand, Material, Brus]
+        })
     res.json(responce)
 })
 app.post('/admin/ProductUpdate', async (req, res) => {
@@ -365,6 +397,9 @@ app.post('/admin/ProductUpdate', async (req, res) => {
 
     req.body.product.iGenerateUriMaterial = (req.body.product.iGenerateUriMaterial) ? 1 : 0
     req.body.product.iGenerateUriBrus = (req.body.product.iGenerateUriBrus) ? 1 : 0
+
+    req.body.product.iPrice = (req.body.product.iPrice) ? req.body.product.iPrice : null
+    req.body.product.iActive = (req.body.product.iActive) ? 1 : 0
 
     // Подготавливаем URI
     brand = await Brand.findByPk(req.body.product.iBrandID, {
@@ -465,6 +500,35 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         }
     }
     await productImageColor()
+
+    var productLink = async () => {
+        if (req.body.product.product_links) {
+            for (const item of req.body.product.product_links) {
+                if (item.iProductLinkID && item.del === true) {
+                    await Product_link.destroy({
+                        where: {
+                            iProductLinkID: item.iProductLinkID
+                        }
+                    })
+                } else if (item.iProductLinkID) {
+                    await Product_link.update({
+                        iProductIDFrom: item.iProductIDFrom,
+                        iProductIDTo: item.iProductIDTo,
+                    }, {
+                        where: {
+                            iProductLinkID: item.iProductLinkID
+                        }                    
+                    })
+                } else if (item.del !== true) {
+                    await Product_link.create({
+                        iProductIDFrom: item.iProductIDFrom,
+                        iProductIDTo: item.iProductIDTo,
+                    })
+                }
+            }
+        }
+    }
+    await productLink()
 
 
     var responce = {}
@@ -1265,7 +1329,7 @@ app.get('/', (req, res) => {
             list: [
                 {
                     title: 'Акция "Найдите дешевле"',
-                    uri: '#'
+                    uri: '/best-cost'
                 }
             ]
         },
@@ -1361,7 +1425,7 @@ app.get('/product', async (req, res) => {
 })
 
 app.get('/product/:sProductURI', async (req, res) => {
-    console.log('product page', req.params.sProductURI)
+    // console.log('product page', req.params.sProductURI)
     data.title = 'Окна'
     data.description = ''
     data.left_menu_active = 1
@@ -1382,11 +1446,12 @@ app.get('/product/:sProductURI', async (req, res) => {
 
         ]
     })
+    data.material = await Material.findAll()
+    data.brus = await Brus.findAll()
 
     data.product = await Product.getProduct(req.params.sProductURI)
-    
 
-    // res.json(data.product)
+    // res.json(data.product.product_links)
     res.render('product.pug', data)
 })
 
@@ -1498,6 +1563,13 @@ app.get('/page-brand', (req, res) => {
     data.left_menu_active = null
     //где апи по новостям и запросы??
     res.render('page-brand/page-brand.pug', data)
+})
+
+app.get('/best-cost', (req, res) => {
+    data.title = 'best-cost'
+    data.left_menu_active = null
+    //где апи по новостям и запросы??
+    res.render('best-cost/best-cost.pug', data)
 })
 //app.get('/cheaper-together', (req, res) => {
     //res.render('company/company.pug', data)
@@ -1688,7 +1760,25 @@ app.get('/all_windows', async (req, res) => {
 })
 
 
-http.listen(process.env.PORT || 8080, () => {
-    // console.clear()
-    console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
+if (process.env.NODE_ENV != 'development') {
+    var https_options = {
+        key: fs.readFileSync("encryption/private.key"),
+        cert: fs.readFileSync("encryption/server.crt"),
+        ca: [
+            fs.readFileSync('encryption/mydomain.ca-bundle')
+        ]
+    }
+
+    const https = require('https').createServer(https_options, app)
+    https.listen(443, () => {
+        console.log('Server https is running')
+    })
+}
+app.listen(process.env.PORT, () => {
+    console.log('Server is running http://localhost:' + process.env.PORT)
 })
+
+// http.listen(process.env.PORT || 8080, () => {
+//     // console.clear()
+//     console.log('Server is running on http://localhost:' + process.env.PORT || 8080)
+// })

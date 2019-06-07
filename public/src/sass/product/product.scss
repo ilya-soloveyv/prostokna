@@ -76,7 +76,7 @@
                         width: 30px;
                         .hamburger-inner {
                             width: inherit;
-                            background: #313131;
+                            background: #353535;
                             @media (max-width: 800px) {
                                 background: white;
                             }
@@ -169,7 +169,7 @@
                 flex-direction: column;
             }
             .gallery {
-                flex-basis: 50%;
+                flex-basis: 55%;
                 min-width: 400px;
                 height: 800px;
                 background: #353535;
@@ -251,49 +251,107 @@
                                     }
                                 }
                             }
-                    //         img {
-                    // //             height: 155px;
-                    // //             margin: 10px 0;
-                    // //             object-fit: contain;
-                    // //             @media (max-width: 1350px) {
-                    // //                 height: 100px;
-                    // //             }
-                    // //             @media (max-width: 1350px) {
-                    // //                 height: 75px;
-                    // //             }
-                    //         }
+                        }
+                    }
+                    .productPrice {
+                        position: absolute;
+                        top: 100px;
+                        right: 0;
+                        background: rgba(255, 255, 255, 0.1);
+                        padding: 7px;
+                        z-index: 99;
+                        text-align: right;
+                        .bg {
+                            background: linear-gradient(90deg, #F36C64, #FD578B);
+                            border-radius: 4px;
+                            padding: 15px 20px;
+                            font-family: 'MontserratSemiBold';
+                            .title {
+                                font-size: 10px;
+                                text-transform: uppercase;
+                                padding-bottom: 8px;
+                            }
+                            .cost {
+                                font-size: 16px;
+                            }
                         }
                     }
                     .selectOption {
                         position: absolute;
-                        right: 10%;
-                        top: 50%;
-                        transform: translate(0, -50%);
-                        z-index: 100;
+                        right: 15%;
+                        top: 100px;
+                        z-index: 99;
                         font-family: 'Montserrat';
                         text-transform: uppercase;
                         text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        @media (max-width: 800px) {
+                            top: 50px;
+                            right: 10px;
+                        }
                         .item {
-                            background: rgba(0,0,0,.5);
-                            border-radius: 4px;
+                            display: flex;
+                            flex-direction: column;
                             margin-bottom: 1rem;
-                            overflow: hidden;
-                            .title {
-                                padding: .5rem 3rem;
-                                font-size: 12px;
-                                cursor: pointer;
-                                background: rgba(0,0,0,.5);
+                            flex-shrink: 1;
+                            flex-grow: 0;
+                            align-items: flex-end;
+                            @media (max-width: 800px) {
+                                margin-bottom: 10px;
                             }
-                            .list {
-                                display: none;
-                                padding: .5rem 0;
-                                span {
-                                    display: block;
-                                    font-size: 10px;
-                                    padding: .35rem 0;
+                            .wrap {
+                                background: rgba(0,0,0,.5);
+                                border-radius: 4px;
+                                overflow: hidden;
+                                .title {
+                                    padding: 10px;
+                                    font-size: 12px;
                                     cursor: pointer;
-                                    &.active {
-                                        color: #43A22C;
+                                    background: rgba(34,34,34,.5);
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    @media (max-width: 800px) {
+                                        padding: 5px;
+                                    }
+                                    img {
+                                        width: 30px;
+                                        height: 30px;
+                                        object-fit: contain;
+                                        @media (max-width: 800px) {
+                                            width: 25px;
+                                            height: 25px;
+                                        }
+                                    }
+                                    span {
+                                        display: none;
+                                        padding: 0 0 0 10px;
+                                    }
+                                    i {
+                                        padding: 0 0 0 10px;
+                                        font-size: 18px;
+                                        &.material-icons-add {
+                                            display: block;
+                                        }
+                                        &.material-icons-remove {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                                .list {
+                                    display: none;
+                                    padding: .5rem 1rem;
+                                    a {
+                                        color: white;
+                                        text-decoration: none;
+                                        display: block;
+                                        font-size: 10px;
+                                        padding: .35rem 0;
+                                        cursor: pointer;
+                                        &.active {
+                                            color: #43A22C;
+                                        }
                                     }
                                 }
                             }
@@ -301,8 +359,23 @@
                                 margin: 0;
                             }
                             &.active {
-                                .list {
-                                    display: block;
+                                .wrap {
+                                    .title {
+                                        span {
+                                            display: block;
+                                        }
+                                        i {
+                                            &.material-icons-add {
+                                                display: none;
+                                            }
+                                            &.material-icons-remove {
+                                                display: block;
+                                            }    
+                                        }
+                                    }
+                                    .list {
+                                        display: block;
+                                    }
                                 }
                             }
                         }
@@ -311,6 +384,9 @@
                 .view2 {
                     position: relative;
                     flex-grow: 1;
+                    @media (max-width: 800px) {
+                        margin: 30px 80px 30px 0;
+                    }
                     .back {
                         position: absolute;
                         top: 0;
@@ -325,6 +401,10 @@
                             left: 0;
                             width: 100%;
                             text-align: center;
+                            @media (max-width: 800px) {
+                                top: 20px;
+                                bottom: 20px;
+                            }
                             img {
                                 max-width: 100%;
                                 max-height: 100%;
@@ -332,6 +412,7 @@
                                 position: relative;
                                 top: 50%;
                                 transform: translate(0, -50%);
+                                cursor: pointer;
                             }
                         }
                     }
@@ -356,6 +437,10 @@
                                 left: 0;
                                 width: 100%;
                                 text-align: center;
+                                @media (max-width: 800px) {
+                                    top: 20px;
+                                    bottom: 20px;
+                                }
                                 img {
                                     // display: block;
                                     max-width: 100%;
@@ -364,6 +449,7 @@
                                     position: relative;
                                     top: 50%;
                                     transform: translate(0, -50%);
+                                    cursor: pointer;
                                 }
                             }
                         }
@@ -469,8 +555,8 @@
                 }
             }
             .info {
-                width: 50%;
-                padding: 50px 50px 50px 25px;
+                width: 45%;
+                padding: 50px 75px 50px 25px;
                 text-align: center;
                 display: flex;
                 flex-direction: column;
@@ -499,9 +585,9 @@
                                 display: flex;
                                 flex-direction: column;
                                 flex-wrap: wrap;
-                                max-height: 300px;
+                                max-height: 330px;
                                 min-width: 390px;
-                                align-content: center;
+                                align-content: space-between;
                                 justify-content: center;
                                 @media (max-width: 1050px) {
                                     min-width: 330px;
@@ -514,13 +600,13 @@
                                 }
                                 @media (max-width: 800px) {
                                     min-width: 240px;
-                                    max-height: 180px;
+                                    max-height: 190px;
                                 }
                                 li {
                                     margin-bottom: 15px;
-                                    width: 33.33%;
+                                    // width: 33.33%;
                                     min-width: 130px;
-                                    height: 125px;
+                                    height: 140px;
                                     background-clip: content-box;
                                     display: flex;
                                     flex-direction: column;
@@ -538,11 +624,11 @@
                                     @media (max-width: 800px) {
                                         width: 33.33%;
                                         min-width: 80px;
-                                        height: 60px;
+                                        height: 80px;
                                     }
                                     .percent {
-                                        height: 100px;
-                                        width: 100px;
+                                        height: 115px;
+                                        width: 115px;
                                         position: relative;
                                         @media (max-width: 1050px) {
                                             width: 80px;
@@ -553,12 +639,12 @@
                                             height: 60px;
                                         }
                                         @media (max-width: 800px) {
-                                            width: 45px;
-                                            height: 45px;
+                                            width: 65px;
+                                            height: 65px;
                                         }
                                         .value {
                                             font-family: "MontserratMedium";
-                                            font-size: 20px;
+                                            font-size: 16px;
                                             position: absolute;
                                             top: 50%;
                                             left: 50%;
@@ -573,6 +659,24 @@
                                                 font-family: "Montserrat";
                                                 font-size: 10px;
                                             }
+                                            .line1 {
+                                                font-size: 10px;
+                                                line-height: 16px;
+                                                text-align: center;
+                                                @media (max-width: 950px) {
+                                                    font-size: 11px;
+                                                }
+                                            }
+                                            .line2 {
+                                                
+                                            }
+                                            .line3 {
+                                                line-height: 16px;
+                                                text-align: center;
+                                                @media (max-width: 950px) {
+                                                    font-size: 11px;
+                                                }
+                                            }
                                         }
                                         .circular-chart-full {
                                             position: absolute;
@@ -583,7 +687,7 @@
                                             .circle {
                                                 stroke: #4E4E4E;
                                                 fill: none;
-                                                stroke-width: 1.25;
+                                                stroke-width: .9;
                                                 stroke-linecap: round;
                                             }
                                         }
@@ -596,9 +700,12 @@
                                             .circle {
                                                 stroke: #43A22C;
                                                 fill: none;
-                                                stroke-width: 1.25;
+                                                stroke-width: .9;
                                                 stroke-linecap: round;
                                                 animation: progress_circle 2s ease-out forwards;
+                                                &.price {
+                                                    stroke: #FD578B;                                                    
+                                                }
                                                 @keyframes progress_circle {
                                                     0% {
                                                         stroke-dasharray: 0 100;
@@ -611,7 +718,9 @@
                                         font-size: 12px;
                                         padding-top: 5px;
                                         line-height: 20px;
-                                        font-family: "MontserratSemiBold";
+                                        // font-family: "MontserratSemiBold";
+                                        font-family: "Montserrat";
+                                            // font-size: 16px;
                                         text-transform: uppercase;
                                         @media (max-width: 1050px) {
                                             font-size: 10px;
@@ -690,10 +799,9 @@
                         display: flex;
                         flex-direction: row;
                         flex-wrap: nowrap;
-                        // align-items: center;
-                        // justify-content: center;
                         a {
-                            // display: block;
+                            display: flex;
+                            align-items: center;
                             flex-grow: 1;
                             flex-shrink: 0;
                             color: white;
@@ -708,10 +816,35 @@
                             @media (max-width: 800px) {
                                 font-size: 10px;
                             }
+                            img {
+                                padding: 10px 15px;
+                                &.hover {
+                                    display: none;
+                                }
+                            }
+                            span {
+                                padding: 0;
+                                flex-grow: 1;
+                                text-align: center;
+                                display: block;
+                            }
+                            &.nav-item-1 {
+                                padding-right: 20px;
+                            }
+                            &.nav-item-2 {
+                                padding-left: 20px;
+                            }
                             &.active {
                                 background: none;
-                                // background: #111111;
-                                // border-radius: 20px;
+                                img {
+                                    padding: 10px 15px;
+                                    &.normal {
+                                        display: none;
+                                    }
+                                    &.hover {
+                                        display: block;
+                                    }
+                                }
                             }
                         }
                     }
@@ -722,13 +855,13 @@
                     display: flex;
                     flex-direction: row;
                     @media (max-width: 800px) {
-                        display: none;
+                        padding: 15px 0 0;
+                        flex-basis: 55px;
                     }
                     button.calculate {
                         flex-grow: 1;
                         font-family: 'Montserrat';
                         background-color: #414141;
-                        // align-self: flex-end;
                         height: 50px;
                         color: #FFFFFF;
                         border: 0 none;
@@ -759,10 +892,12 @@
                         outline: 0;
                         background-color: #222222;
                         cursor: pointer;
-                        border-radius: 10px;
+                        border-radius: 6px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        padding: 12px;
+                        transition: all .25s;
                         @media (max-width: 1050px) {
                             flex-basis: 45px;
                             height: 45px;
@@ -771,21 +906,33 @@
                             flex-basis: 35px;
                             height: 35px;
                         }
-                        i {
-                            color: white;
-                            font-size: 32px;
-                            opacity: .5;
-                            @media (max-width: 1050px) {
-                                font-size: 24px;
+                        @media (max-width: 800px) {
+                            margin-left: 10px;
+                            padding: 8px;
+                        }
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            transition: all .25s;
+                            &.normal {
+                                opacity: .5;
+                                display: block;
                             }
-                            @media (max-width: 950px) {
-                                font-size: 16px;
+                            &.hover {
+                                display: none;
                             }
                         }
                         &:hover {
-                            i {
-                                opacity: 1;
-                                color: yellow;
+                            opacity: 1;
+                            img {
+                                &.normal {
+                                    display: none;
+                                }
+                                &.hover {
+                                    display: block;
+                                }
                             }
                         }
                     }
@@ -825,13 +972,15 @@
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                    padding: 0 0 75px;
+                    padding: 0 0 30px;
                     margin: 0;
                     list-style: none;
+                    order: 1;
                     @media (max-width: 800px) {
                         justify-content: center;
                         align-content: flex-start;
                         padding: 0 0 25px;
+                        order: 2;
                     }
                     li {
                         position: relative;
@@ -889,6 +1038,46 @@
                         }
                     }
                 }
+                .colorName {
+                    order: 2;
+                    @media (max-width: 800px) {
+                        order: 1;
+                        text-align: center;
+                    }
+                    .bg {
+                        padding: 10px 30px;
+                        border-radius: 30px;
+                        background: rgba(0,0,0,.16);
+                        display: inline-block;
+                        font-family: 'MontserratMedium';
+                        font-size: 14px;
+                        display: inline-flex;
+                        align-items: center;
+                        @media (max-width: 800px) {
+                            margin-bottom: 15px;
+                            font-size: 12px;
+                            padding: 10px 20px;
+                        }
+                        img {
+                            margin-right: 20px;
+                            height: 25px;
+                            @media (max-width: 800px) {
+                                height: 20px;
+                            }
+                        }
+                        .colorDesc {
+                            display: flex;
+                            flex-direction: column;
+                            span.sColorTitle {
+                                font-size: 14px;
+                            }
+                            span.sColorTitleCode {
+                                font-size: 10px;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
                 button {
                     font-family: 'Montserrat';
                     background-color: #414141;
@@ -896,13 +1085,17 @@
                     // margin-top: 100px;
                     max-width: 360px;
                     width: 100%;
-                    height: 60px;
+                    height: 50px;
                     color: #FFFFFF;
                     border: 0 none;
                     outline: 0;
-                    border-radius: 70px;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 25px;
                     font-size: 15px;
                     text-transform: uppercase;
+                    margin-top:auto;
+                    order: 3;
                     @media (max-width: 1050px) {
                         height: 45px;
                         max-width: 260px;
@@ -948,6 +1141,7 @@
                     max-width: 100%;
                     max-height: 100%;
                     object-fit: contain;
+                    cursor: pointer;
                 }
             }
         }
@@ -989,6 +1183,10 @@
                 .small {
                     font-size: 16px;
                     padding-top: .25rem;
+                    @media (max-width: 800px) {
+                        font-size: 12px;
+                        font-family: "Montserrat";
+                    }
                     span {
                         text-transform: capitalize;
                     }
@@ -1044,14 +1242,15 @@
             button {
                 font-family: 'Montserrat';
                 background: linear-gradient(90deg, #0585FA, #0167E0, #005ED9);
-                margin-top: 50px;
                 max-width: 360px;
                 width: 100%;
-                height: 60px;
+                height: 50px;
                 color: #FFFFFF;
                 border: 0 none;
                 outline: 0;
-                border-radius: 70px;
+                margin: 50px 0 0;
+                padding: 0;
+                border-radius: 25px;
                 font-size: 15px;
                 text-transform: uppercase;
                 cursor: pointer;
