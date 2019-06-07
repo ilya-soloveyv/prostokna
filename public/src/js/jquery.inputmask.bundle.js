@@ -1285,7 +1285,7 @@
                 onBeforeWrite: null,
                 onUnMask: null,
                 showMaskOnFocus: !0,
-                showMaskOnHover: !0,
+                showMaskOnHover: 0,
                 onKeyValidation: $.noop,
                 skipOptionalPartCharacter: " ",
                 numericInput: !1,
