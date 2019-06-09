@@ -1674,6 +1674,12 @@ app.get('/handle', async (req, res) => {
     data.left_menu_active = null
 	res.render('accessories/handle.pug', data)
 })
+app.get('/flap', async (req, res) => {
+    data.title = 'Клапаны'
+    data.description = ''
+    data.left_menu_active = null
+	res.render('accessories/flap.pug', data)
+})
 
 
 

@@ -72,12 +72,28 @@ if ($('#accessories').length) {
 		} else {
 			$('.circle li').filter(':last').addClass('i2').prev('.item').addClass('i1')
 		}
-	}
+	}	
 
 	$(document).on("click", ".circle li", function () {
-		var index = $(this).index()
-		setActive(index)
+		if (!$(this).hasClass('i1') && !$(this).hasClass('i5')) {
+			var index = $(this).index()
+			setActive(index)
+		} else if ($(this).hasClass('i1')) {
+			$('.circle li.i2').trigger('click');
+			setTimeout(function () {
+				$('.circle li.i2').trigger('click');
+			}, 250);						
+		} else if ($(this).hasClass('i5')) {
+			$('.circle li.i4').trigger('click');
+			setTimeout(function () {
+				$('.circle li.i4').trigger('click');
+			}, 250);
+		}
+		
 	})
+
+
+	
 	
 
 	// Hover item circle
