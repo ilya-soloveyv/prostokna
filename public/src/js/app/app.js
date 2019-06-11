@@ -112,3 +112,53 @@ $(".form_contact").submit(function () {
 
     return false;
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var modal_gallery_owl = $("#modal_gallery_owl .owl-carousel")
+modal_gallery_owl.on('changed.owl.carousel', function(event) {
+
+})
+modal_gallery_owl.on('initialized.owl.carousel', function(event) {
+    
+})
+modal_gallery_owl.owlCarousel({
+    items: 1,
+    nav: true,
+    dots: true
+})
+$('#modal_gallery_owl').on('show.bs.modal', function (event) {
+
+}).on('shown.bs.modal', function (event) {
+    $('html, body').css({overflow: "hidden"})
+    $('body').addClass('modal-backdrop-wiki').css({background: '#353535'})
+    $("#product .toggle_submenu .bg .icons .hamburger").addClass('is-active')
+    $("#modal_gallery_owl").find('.hamburger').addClass('is-active')
+    modal_gallery_owl.addClass('open')
+}).on('hide.bs.modal', function (event) {
+    $('html, body').css({overflow: "auto"})
+    $('body').removeClass('modal-backdrop-wiki').css({background: '#FFF'})
+    $("#product .toggle_submenu .bg .icons .hamburger").removeClass('is-active')
+    $("#modal_gallery_owl").find('.hamburger').removeClass('is-active')
+    modal_gallery_owl.removeClass('open')
+    $('#modal_gallery_owl .owl-item').each(function(i, el){
+        modal_gallery_owl.trigger('remove.owl.carousel', i)
+    })
+})
+//  *** *** *** *** *** *** *** *** *** *** *** *** //
