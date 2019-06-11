@@ -1156,6 +1156,7 @@ ul.social_icons {
 }
 
 #modal_mobile_contact {
+    padding-right: 0 !important;
     .modal-dialog {
         max-width: 100%;
         margin: 0;
@@ -1165,7 +1166,10 @@ ul.social_icons {
         padding: 5rem 2rem;
         border: none;
         border-radius: 0;
-        background: #353535;
+        background: rgba(53, 53, 53, .9);
+        @media (max-width: 575px) {
+            background: rgba(53, 53, 53, 1);
+        }
         .close-modal {
             position: absolute;
             right: 1rem;
@@ -1178,19 +1182,27 @@ ul.social_icons {
             }
         }
         .list {
-            height: 100%;
+            
             // background: red;
             display: flex;
             flex-wrap: wrap;
-            max-width: 450px;
+            max-width: 600px;
             margin: auto;
+            // justify-content: flex-start;
+            align-items: center;
+            @media (max-width: 575px) {
+                height: 100%;
+            }
             .item {
                 text-decoration: none;
-                flex-basis: 50%;
+                flex-basis: 25%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                @media (max-width: 575px) {
+                    flex-basis: 50%;
+                }
                 &:first-child {
                     img {
                         padding: 0 5px;
@@ -1201,15 +1213,21 @@ ul.social_icons {
                     height: auto;
                 }
                 .title {
-                    padding-top: 15px;
+                    padding-top: 50px;
                     text-align: center;
                     font-size: 14px;
                     color: white;
+                    @media (max-width: 575px) {
+                        padding-top: 15px;
+                    }
                 }
                 &.item_5 {
-                    border-top: 1px solid rgba(255,255,255,.05);
-                    margin-top: 15px;
+                    border-top: 1px solid rgba(255,255,255,.15);
+                    margin-top: 50px;
                     flex-basis: 100%;
+                    @media (max-width: 575px) {
+                        margin-top: 15px;
+                    }
                     span {
                         font-size: 18px;
                         font-family: 'MontserratSemiBold';
