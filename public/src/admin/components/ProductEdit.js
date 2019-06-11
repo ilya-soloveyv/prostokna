@@ -1,5 +1,8 @@
 export default {
     name: 'ProductEdit',
+    components: {
+        'picture-input': PictureInput,
+    },
     props: [
         'iProductID'
     ],
@@ -126,6 +129,9 @@ export default {
         },
         delProductLink: function (index) {
             Vue.set(this.product.product_links[index], 'del', true)
+        },
+        uploadPlan: function () {
+
         }
     },
     template: `
@@ -143,12 +149,32 @@ export default {
                                             <div v-for="(image, index) in product.product_images" v-if="image.del !== true" class="mb-3">
                                                 <div class="row mb-1">
                                                     <div class="col">
-                                                        <label class="file_upload">
-                                                            <input type="file" :name="'front[' + index + ']'" :image_type="'sProductImageFrontName'" :image_index="index" :index="index" @change="upload" />
-                                                            <img v-if="image.sProductImageFrontName" :src="'/images/product/gallery/' + image.sProductImageFrontName" />
-                                                        </label>
+                                                        <picture-input
+                                                            ref="planImage"
+                                                            @change="uploadPlan"
+                                                            :crop="false"
+                                                            accept="image/jpeg,image/png,image/svg+xml,image/svg"
+                                                            size="10"
+                                                            buttonClass="btn btn-primary btn-sm"
+                                                            :hideChangeButton='true'
+                                                            v-bind:prefill="(image.sProductImageFrontName) ? '/images/product/gallery/'+image.sProductImageFrontName : ''"
+                                                            :customStrings="{
+                                                                drag: 'Перетащите изображение или нажмите для выбора файла'
+                                                            }"></picture-input>
                                                     </div>
                                                     <div class="col">
+                                                        <picture-input
+                                                            ref="planImage"
+                                                            @change="uploadPlan"
+                                                            :crop="false"
+                                                            accept="image/jpeg,image/png,image/svg+xml,image/svg"
+                                                            size="10"
+                                                            buttonClass="btn btn-primary btn-sm"
+                                                            :hideChangeButton='true'
+                                                            v-bind:prefill="(image.sProductImageBackName) ? '/images/product/gallery/'+image.sProductImageBackName : ''"
+                                                            :customStrings="{
+                                                                drag: 'Перетащите изображение или нажмите для выбора файла'
+                                                            }"></picture-input>
                                                         <label class="file_upload">
                                                             <input type="file" :name="'back[' + index + ']'" :image_type="'sProductImageBackName'" :image_index="index" @change="upload" />
                                                             <img v-if="image.sProductImageBackName" :src="'/images/product/gallery/' + image.sProductImageBackName" />

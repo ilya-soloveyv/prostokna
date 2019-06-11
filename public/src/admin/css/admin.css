@@ -224,3 +224,37 @@ body {
   width: 103px;
   text-align: center;
   border-radius: 3px; }
+
+.picture-input {
+  z-index: 0 !important; }
+  .picture-input canvas {
+    border-radius: 4px !important;
+    background: none !important;
+    object-fit: cover !important;
+    z-index: 0 !important;
+    padding: 0 !important; }
+  .picture-input .preview-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    z-index: 0 !important;
+    background: #EDF2F9 !important;
+    background: grey !important;
+    border: 1px dashed #bcc9da !important;
+    border-radius: 4px !important; }
+  .picture-input .picture-inner {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: none !important; }
+    .picture-input .picture-inner .picture-inner-text {
+      padding: 20px !important;
+      font-size: 11px !important;
+      color: #9eaec5 !important; }
