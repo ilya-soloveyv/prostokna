@@ -1,13 +1,6 @@
 $dark: rgba(#000, 0.74);
 
-p {
-	margin: 0;
-	padding: 0;
-}
 
-.tac {
-	text-align: center;
-}
 
 @keyframes soc_animation {
 	0% {
@@ -20,9 +13,6 @@ p {
 		visibility: hidden;
 		background: blue;
 	}
-	// from {text-shadow: 0 0 3px black;}
-	// 50% {text-shadow: 0 0 30px black;}
-	// to {text-shadow: 0 0 3px black;}
 }
 
 .work {
@@ -35,6 +25,14 @@ p {
 		}
 		@media screen and (max-width: 359px) {
 			justify-content: space-around;
+		}
+		p {
+			margin: 0;
+			padding: 0;
+		}
+
+		.tac {
+			text-align: center;
 		}
 		&-title {
 			font-family: 'MontserratSemiBold';
