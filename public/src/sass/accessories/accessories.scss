@@ -3,6 +3,38 @@ $text: #353535;
 #accessories {
 	position: relative;
 	overflow: hidden;
+	.btn_call {
+		width: 75px;
+		height: 75px;
+		border-radius: 17px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(243,109,97,1);
+		background: -moz-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: -webkit-gradient(left top, right top, color-stop(0%, rgba(243,109,97,1)), color-stop(100%, rgba(253,86,142,1)));
+		background: -webkit-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: -o-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: -ms-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: linear-gradient(to right, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f36d61', endColorstr='#fd568e', GradientType=1 );
+		position: fixed;
+		bottom: 30px;
+		left: 75px;
+		@media screen and (max-width: 1400px) {
+			width: 65px;
+			height: 65px;
+		}
+		@media screen and (max-width: 1200px) {
+			width: 55px;
+			height: 55px;
+			left: 20px;
+		}
+		@media screen and (max-width: 992px) {
+			display: none;
+		}
+	}
 	.btn-more_desc {
 		width: 57px;
 		padding: 8px;

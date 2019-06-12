@@ -39,6 +39,7 @@ app.use('/popperjs', express.static(__dirname + '/node_modules/popper.js/dist'))
 app.use('/slick', express.static(__dirname + '/node_modules/slick-carousel/slick'))
 app.use('/jquery-mousewheel', express.static(__dirname + '/node_modules/jquery-mousewheel'))
 app.use('/minibarjs', express.static(__dirname + '/node_modules/minibarjs/dist'))
+app.use('/vue-picture-input', express.static(__dirname + '/node_modules/vue-picture-input/umd'))
 
 
 
@@ -1383,6 +1384,13 @@ app.get('/', (req, res) => {
         },
     ]
     res.render('index.pug', data)
+})
+
+app.get('/test', (req, res) => {
+    data.title = 'test'
+    data.description = ''
+    data.left_menu_active = null
+    res.render('test.pug', data)
 })
 
 app.get('/calc_data', (req, res) => {
