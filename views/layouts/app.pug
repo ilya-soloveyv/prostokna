@@ -61,50 +61,8 @@ html(lang="ru")
             <script async type="text/javascript">function loadscript(e,t){var n=document.createElement("script");n.src="//lptracker.net.ru/"+e;n.onreadystatechange=t;n.onload=t;document.head.appendChild(n);return 1}var init_lstats=function(){lstats.site_id=5954;lstats.referer()};var jquery_lstats=function(){jQstat.noConflict();loadscript("stats_auto.js",init_lstats)};loadscript("jquery-1.10.2.min.js",jquery_lstats);</script>
             link(rel="stylesheet", href="/app-95bb4f07d6.min.css")
     body
-        #top
-            .logo
-                a(href='/')
-                    img(src="/images/logo3.svg", alt="")
-            .search
-                a(href='#').mbutton.grey.small Найти
-                .bginput
-                    input(type='text',placeholder='Введите поисковый запрос...').form-control.form-control-pokna.small.grey
-            .phone
-                a.tel.lptracker_phone(href='tel:+74993912221') +7 499 391 22 21
-                a.callme(href='#' data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white") Перезвоните мне
-                //- a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5' target="_blank")
-                    //- img(src='/images/top/whatsapp_top_bl.svg', alt='4')
-                a.callall(href="#" data-toggle="modal" data-target="#modal_mobile_contact")
-                    img(src="/images/call.svg", alt="")
-            .l
-                #toggleBasicMenu
-                    .wrap
-                        span
-                        span
-                        span
-                        span
-                        span
-                        span
-                        span
-                        span
-                        span
-                .menu
-                    ul
-                        if left_menu
-                            each item, index in left_menu
-                                if (left_menu_active || left_menu_active === 0) && index == left_menu_active
-                                    - var active_class = 'active'
-                                else
-                                    - var active_class = ''
-                                li(class= active_class)
-                                    a(href= item.uri)
-                                        .b
-                                            img(src="/images/top/" + item.ico[0], alt="")
-                                        .h
-                                            img(src="/images/top/" + item.ico[1], alt="")
-                                        .title #{item.title}
-            .cal(data-toggle="modal" data-target="#calc_wait")
-                .img
+        include ../include/top.pug
+
         block content
         .modal#wiki_catalog_modal(tabindex="-1", role="dialog")
             .modal-dialog(role="document")

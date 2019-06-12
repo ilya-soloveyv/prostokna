@@ -1387,7 +1387,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-    res.render('test.pug')
+    data.title = 'test'
+    data.description = ''
+    data.left_menu_active = null
+    res.render('test.pug', data)
 })
 
 app.get('/calc_data', (req, res) => {
