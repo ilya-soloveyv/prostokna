@@ -1680,6 +1680,12 @@ app.get('/flap', async (req, res) => {
     data.left_menu_active = null
 	res.render('accessories/flap.pug', data)
 })
+app.get('/windowsill', async (req, res) => {
+    data.title = 'Подоконники'
+    data.description = ''
+    data.left_menu_active = null
+	res.render('accessories/windowsill.pug', data)
+})
 
 
 

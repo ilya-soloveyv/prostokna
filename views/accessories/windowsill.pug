@@ -1,0 +1,162 @@
+extends ../layouts/app
+
+block content
+		#accessories.ppage
+			.menu
+				.menu__icon
+					<svg xmlns="http://www.w3.org/2000/svg" width="25.711" height="27.547" viewBox="0 0 25.711 27.547">
+						<g id="Group_980" data-name="Group 980" transform="translate(-683.067 47)">
+							<path id="Path_537" data-name="Path 537" d="M684.444,414.718h-.918a.459.459,0,0,1,0-.918h.918a.459.459,0,0,1,0,.918Z" transform="translate(0 -436.007)" fill="#353535"/>
+							<path id="Path_538" data-name="Path 538" d="M722.63,416.555H701.51a1.353,1.353,0,0,1-1.377-1.377v-.918a.434.434,0,0,1,.459-.459h22.956a.434.434,0,0,1,.459.459v.918A1.353,1.353,0,0,1,722.63,416.555Zm-21.579-1.836v.459a.434.434,0,0,0,.459.459h21.12a.434.434,0,0,0,.459-.459v-.459Z" transform="translate(-16.148 -436.007)" fill="#353535"/>
+							<path id="Path_539" data-name="Path 539" d="M1128.177,414.718h-.918a.459.459,0,0,1,0-.918h.918a.459.459,0,0,1,0,.918Z" transform="translate(-419.859 -436.007)" fill="#353535"/>
+							<g id="Group_979" data-name="Group 979" transform="translate(683.985 -47)">
+								<path id="Path_540" data-name="Path 540" d="M724.007-45.623A1.353,1.353,0,0,0,722.63-47H701.51a1.353,1.353,0,0,0-1.377,1.377,1.378,1.378,0,0,0,.918,1.3v22.577a.434.434,0,0,0,.459.459h21.12a.434.434,0,0,0,.459-.459V-44.319A1.348,1.348,0,0,0,724.007-45.623Zm-3.673,15.61H703.806v-12.4h16.528Zm-16.528,7.805v-6.887h16.528v6.887Zm18.365,0h-.918V-42.868a.434.434,0,0,0-.459-.459H703.347a.434.434,0,0,0-.459.459v20.661h-.918V-44.245h20.2Zm.459-22.956H701.51a.46.46,0,0,1-.459-.459.494.494,0,0,1,.459-.459h21.12a.434.434,0,0,1,.459.459A.434.434,0,0,1,722.63-45.164Z" transform="translate(-700.133 47)" fill="#353535" opacity="0.25"/>
+								<path id="Path_541" data-name="Path 541" d="M785.926,57.7a.417.417,0,0,0,.321-.138l1.377-1.377a.455.455,0,1,0-.643-.643L785.6,56.915a.444.444,0,0,0,0,.643A.417.417,0,0,0,785.926,57.7Z" transform="translate(-780.875 -49.891)" fill="#353535" opacity="0.25"/>
+								<path id="Path_542" data-name="Path 542" d="M853.871,58.476a.444.444,0,0,0,.643,0l2.3-2.3a.455.455,0,1,0-.643-.643l-2.3,2.3A.444.444,0,0,0,853.871,58.476Z" transform="translate(-845.469 -49.891)" fill="#353535" opacity="0.25"/>
+								<path id="Path_543" data-name="Path 543" d="M785.926,151.1a.417.417,0,0,0,.321-.138l.918-.918a.454.454,0,0,0-.643-.643l-.918.918a.444.444,0,0,0,0,.643A.416.416,0,0,0,785.926,151.1Z" transform="translate(-780.875 -138.707)" fill="#353535" opacity="0.25"/>
+								<path id="Path_544" data-name="Path 544" d="M785.926,108.437a.417.417,0,0,0,.321-.138l.918-.918a.455.455,0,0,0-.643-.643l-.918.918a.444.444,0,0,0,0,.643A.417.417,0,0,0,785.926,108.437Z" transform="translate(-780.875 -98.336)" fill="#353535" opacity="0.25"/>
+								<path id="Path_545" data-name="Path 545" d="M828.271,57.558a.444.444,0,0,0,.643,0l1.377-1.377a.455.455,0,1,0-.643-.643l-1.377,1.377A.444.444,0,0,0,828.271,57.558Z" transform="translate(-821.246 -49.891)" fill="#353535" opacity="0.25"/>
+								<ellipse id="Ellipse_298" data-name="Ellipse 298" cx="0.459" cy="0.459" rx="0.459" ry="0.459" transform="translate(6.819 9.262) rotate(-9.217)" fill="#353535" opacity="0.25"/>
+							</g>
+						</g>
+					</svg>
+					button.hamburger.hamburger--collapse(type="button")
+						span.hamburger-box
+							span.hamburger-inner
+				.menu__title Подоконники
+			.menu-overlay
+				ul.menu-list
+					li
+						a(href="/handle") Ручки
+					li
+						a(href="/accessories") Шторы
+					li
+						a(href="/jalousie") Жалюзи
+					li
+						a(href="/mesh") Москитные сетки
+					li
+						a(href="/windowsill") Подоконники
+					li
+						a(href="/flap") Клапаны
+			.content.content_windowsill
+				.content_block.content_block_windowsill
+					.settings.settings_windowsill
+						.select_wrapp
+							.select
+								ul.select__list.select__list_brand
+									li.select__item(data-option = "color").active Brand
+									li.select__item(data-option = "texture") Texture	
+									li.select__item(data-option = "color") Color
+									li.select__item(data-option = "texture") Texture
+							.select
+								ul.select__list.select__list_model
+									li.select__item(data-option = "color").active Model
+									li.select__item(data-option = "texture") Texture	
+									li.select__item(data-option = "color") Color
+									li.select__item(data-option = "texture") Texture
+						ul.windowsill__list
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+							li.windowsill__item
+								img(src="/images/accessories/windowsill/sill.png", alt="windowsill")
+								.desc
+									.title CHRISTALLIT
+									.num 4702
+									.text SIMPLY MODEL		
+					.result.result_windowsill
+						.title_block
+							span.sill_title CHRISTALLIT
+							span.sill_subtitle SIMPLY MODEL
+						.sill_price 3750 рублей
+						.btn-more_desc.btn-more_desc-sill
+							img(src="/images/accessories/more.svg", alt="color")
+						.sill_color
+							img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+							.color_num 4702
+							.color_name LIGHT SILVER
+						.sill_result
+							span.plus +
+							img(src="/images/accessories/windowsill/sill-main.png", alt="windowsill")
+						p.sill_text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					.choise.choise_windowsill
+						.sill-arrow
+							img.arrow(src="/images/accessories/windowsill/sill-down.svg", alt="windowsill")
+						ul.sill-gamma
+							li.gamma__item
+								.sill_color
+									img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+									.color_num 4702
+									.color_name LIGHT SILVER
+								img.sill(src="/images/accessories/windowsill/sill-green.png", alt="windowsill")
+								img.star(src="/images/accessories/star.svg", alt="star")
+							li.gamma__item
+								.sill_color
+									img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+									.color_num 4702
+									.color_name LIGHT SILVER
+								img.sill(src="/images/accessories/windowsill/sill-green.png", alt="windowsill")
+								img.star(src="/images/accessories/star.svg", alt="star")
+							li.gamma__item
+								.sill_color
+									img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+									.color_num 4702
+									.color_name LIGHT SILVER
+								img.sill(src="/images/accessories/windowsill/sill-green.png", alt="windowsill")
+								img.star(src="/images/accessories/star.svg", alt="star")
+							li.gamma__item
+								.sill_color
+									img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+									.color_num 4702
+									.color_name LIGHT SILVER
+								img.sill(src="/images/accessories/windowsill/sill-green.png", alt="windowsill")
+								img.star(src="/images/accessories/star.svg", alt="star")
+							li.gamma__item
+								.sill_color
+									img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+									.color_num 4702
+									.color_name LIGHT SILVER
+								img.sill(src="/images/accessories/windowsill/sill-green.png", alt="windowsill")
+								img.star(src="/images/accessories/star.svg", alt="star")
+							li.gamma__item
+								.sill_color
+									img(src="/images/accessories/windowsill/sill-grey.svg", alt="windowsill")
+									.color_num 4702
+									.color_name LIGHT SILVER
+								img.sill(src="/images/accessories/windowsill/sill-green.png", alt="windowsill")
+								img.star(src="/images/accessories/star.svg", alt="star")
+
+				

@@ -250,7 +250,7 @@ $text: #353535;
 						top: 14px;
 						transition: transform 0.3s;
 						z-index: 0;
-						cursor: pointer;
+						cursor: pointer;						
 					}
 					&.active {
 						.select__item {
@@ -728,6 +728,7 @@ $text: #353535;
 		@import 'mesh';
 		@import 'jalousie';
 		@import 'handle';
-		@import 'flap';
+		@import 'flap';		
 	}	
+	@import 'windowsill';
 }
