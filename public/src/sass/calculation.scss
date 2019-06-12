@@ -20,9 +20,13 @@ $dark: rgba(#000, 0.74);
 			text-transform: uppercase;
 			color: #fff;
 			text-align: center;
-			margin-bottom: 5%;
+			flex-basis: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			@media screen and (max-width: 576px){
-				margin-top: 5%;		
+				margin-top: 5%;
+				flex-basis: 20px;	
 			}
 		}
 }
@@ -354,7 +358,7 @@ $dark: rgba(#000, 0.74);
 				text-transform: uppercase;
 				font-family: 'MontserratSemiBold';
 				color: #fff;
-				margin-top: 48px;
+				margin-top: 40px;
 				margin-left: auto;
 				cursor: pointer;
 				&.active {
