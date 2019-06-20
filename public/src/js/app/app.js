@@ -62,56 +62,143 @@ $('#zay_modal').on('show.bs.modal', function (e) {
 })
 
 $(".form_contact input[name=tel]").inputmask('+7 (999) 999-99-99')
-$(".form_contact").submit(function () {
-    console.log('form_contact')
-    var name = $(this).find('input[name="name"]')
-    name.removeClass('is-invalid')
-    var tel = $(this).find('input[name="tel"]')
-    tel.removeClass('is-invalid')
-    var email = $(this).find('input[name="email"]')
-    var from = $(this).find('select[name="from"]')
-    var to = $(this).find('select[name="to"]')
-    var subject = $(this).find('input[name="subject"]')
-    var message = $(this).find('textarea[name="message"]')
 
+$(".form_contact").submit(function (event) {
+    event.preventDefault()
 
-    var data = {}
-        data.name = name.val()
-        data.tel = tel.val()
-        data.email = email.val()
-        data.from = from.val()
-        data.to = to.val()
-        data.subject = subject.val()
-        data.message = message.val()
-    
-    console.log(data)
+    $(this).find('input[name="name"]').removeClass('is-invalid')
+    $(this).find('input[name="tel"]').removeClass('is-invalid')
 
-    // return false
-
-    if (data.name.length == 0) {
-        name.addClass('is-invalid')
+    var name = $(this).find('input[name="name"]').val()
+    if (name.length == 0) {
+        $(this).find('input[name="name"]').addClass('is-invalid')
         return false
     }
-    if (data.tel && data.tel.length == 0) {
-        tel.addClass('is-invalid')
+    var tel = $(this).find('input[name="tel"]').val()
+    if (tel.length == 0) {
+        $(this).find('input[name="tel"]').addClass('is-invalid')
         return false
     }
 
-    // return false
-
-    $.ajax({
-        url: "/send",
-        type: "POST",
-        data: data
-    }).done(function() {
-        
-    });
-    
     $("#zay_modal").modal('hide')
-    $("#thanks_modal").modal()
+    $("#thanks_modal").modal()            
+
+
+    var form = new FormData()
+
+    form.append('name', $(this).find('input[name="name"]').val())
+    form.append('tel', $(this).find('input[name="tel"]').val())
+    form.append('email', $(this).find('input[name="email"]').val())
+    form.append('from', $(this).find('input[name="from"]').val())
+    form.append('to', $(this).find('input[name="to"]').val())
+    form.append('subject', $(this).find('input[name="subject"]').val())
+    form.append('message', $(this).find('input[name="message"]').val())
+
+    if ($(this).find('input[type=file]').length) {
+        var files = $(this).find('input[type=file]')[0].files
+        for (var i = 0; i < files.length; i++) {
+            form.append('file[]', files[i])
+        }
+    }
+
+    axios.post('/send', form, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    }).then( (response) => {
+        if (response.data.error) {
+
+        }
+    })
+
 
     return false;
 })
+
+
+
+    // var fileCatcher = document.getElementById('file-catcher')
+    // var fileInput = document.getElementById('file-input')
+    // var fileListDisplay = document.getElementById('file-list-display')
+  
+    // var fileList = []
+    // var renderFileList, sendFile
+  
+    // fileInput.addEventListener('change', function (evnt) {
+    //     fileList = []
+    //     for (var i = 0; i < fileInput.files.length; i++) {
+    //         fileList.push(fileInput.files[i])
+    //     }
+    //     renderFileList()
+    // })
+  
+    // renderFileList = function () {
+    //     fileListDisplay.innerHTML = ''
+    //     var length = fileList.length
+    //     fileList.forEach(function (file, index) {
+    //         var temp = index
+    //         var z = (length > (temp+1)) ? ', ' : ''
+    //         var fileDisplayEl = document.createElement('span')
+    //         fileDisplayEl.innerHTML = file.name + z
+    //         fileListDisplay.appendChild(fileDisplayEl)
+    //     })
+    // }
+
+    // fileCatcher.addEventListener('click', function (event) {
+    //     event.preventDefault()
+
+    //     var formData = new FormData()
+    //     fileList.forEach(function (file, index) {
+    //         formData.append('file[]', fileList[index])
+    //     })
+    //     formData.set('file2', fileList)
+
+    //     console.log(formData)
+
+    //     // sendFile()
+    //     // fileList.forEach(function (file) {
+            
+    //     // })
+    // })
+  
+    // sendFile = function (file) {
+    //     // console.log(fileList)
+    //     // var formData = new FormData()
+
+    //     // fileList.forEach(function (file, index) {
+    //     //     formData.append('file[]', fileList[index])
+    //     // })
+
+    //     // console.log(formData)
+        
+    //     // var request = new XMLHttpRequest();
+    
+    //     // formData.set('file', file);
+    //     // request.open("POST", '/send');
+    //     // request.send(formData);
+    // };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

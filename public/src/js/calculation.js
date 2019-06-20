@@ -102,21 +102,21 @@ if ($('.calculation').length) {
 	});
 	const uploadButton = document.querySelector('.browse-btn');
 	const fileInfo = document.querySelector('.file-info');
-	const realInput = document.getElementById('image');
+	// const realInput = document.getElementById('image');
 
-	uploadButton.addEventListener('click', (e) => {
-		e.preventDefault();
-		realInput.click();
-	});
+	// uploadButton.addEventListener('click', (e) => {
+	// 	e.preventDefault();
+	// 	// realInput.click();
+	// });
 
-	realInput.addEventListener('change', () => {
-		const name = realInput.value.split(/\\|\//).pop();
-		const truncated = name.length > 20
-			? name.substr(name.length - 20)
-			: name;
+	// realInput.addEventListener('change', () => {
+	// 	const name = realInput.value.split(/\\|\//).pop();
+	// 	const truncated = name.length > 20
+	// 		? name.substr(name.length - 20)
+	// 		: name;
 
-		fileInfo.innerHTML = truncated;
-		fileInfo.style.color = "#fff";
-		fileInfo.style.top = "9px";
-	});
+	// 	fileInfo.innerHTML = truncated;
+	// 	fileInfo.style.color = "#fff";
+	// 	fileInfo.style.top = "9px";
+	// });
 }
