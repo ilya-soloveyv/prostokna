@@ -1691,27 +1691,48 @@ app.get('/windowsill', async (req, res) => {
 
 
 
-app.post('/send', (req, res) => {
+app.post('/send', async (req, res) => {
+    var dir_name = randomString()
+    var dir = './public/upload/' + dir_name;
+    var upload_files = []
 
-    // res.send(200)
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+    }
 
-    var name = req.body.name
-    var tel = req.body.tel
-    var email = req.body.email
-    var from = req.body.from
-    var to = req.body.to
-    var subject = req.body.subject
-    var message = req.body.message
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, dir)
+        },
+        filename: function (req, file, cb) {
+            upload_files.push(file.originalname)
+            cb(null, file.originalname)
+        }
+    })
 
-    if (name.length) {
-        var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
+    var upload = multer({ storage: storage }).array('file[]')
 
-        var message_html = ""
+    upload(req, res, function (err, responce) {
+        var message_html = "";
+        var name = (req.body.name && req.body.name != 'undefined') ? req.body.name : false
+        var tel = (req.body.tel && req.body.tel != 'undefined') ? req.body.tel : false
+        var email = (req.body.email && req.body.email != 'undefined') ? req.body.email : false
+        var from = (req.body.from && req.body.from != 'undefined') ? req.body.from : false
+        var to = (req.body.to && req.body.to != 'undefined') ? req.body.to : false
+        var subject = (req.body.subject && req.body.subject != 'undefined') ? req.body.subject : false
+        var message = (req.body.message && req.body.message != 'undefined') ? req.body.message : false
+
         if (name) {
             message_html+= "<p>Имя: <b>" + name + "</b></p>"
+        } else {
+            res.json({error: ['name']})
+            return false
         }
         if (tel) {
             message_html+= "<p>Телефон: <b>" + tel + "</b></p>"
+        } else {
+            res.json({error: ['tel']})
+            return false
         }
         if (email) {
             message_html+= "<p>Электронная почта: <b>" + email + "</b></p>"
@@ -1723,30 +1744,36 @@ app.post('/send', (req, res) => {
             message_html+= "<p>Время звонка до: <b>" + to + "</b></p>"
         }
         if (subject) {
-            message_html+= "<p>Тема обращения: <b>" + subject + "</b></p>"
+            message_html+= "<p>Источник: <b>" + subject + "</b></p>"
         }
         if (message) {
             message_html+= "<p>Сообщение: <b>" + message + "</b></p>"
         }
+        message_html+= "<p>id: " + dir_name + "</p>"
+
+
+        var path = require('path')
+        var filepath = [];
+        upload_files.forEach(file => {
+            filepath.push(path.join(dir, file))
+        })
 
         var data = {
             from: 'prostokna.ru <noreply@prostokna.ru>',
-            to: '<prosto@prostokna.ru>',
+            to: '<prosto@prostokna.ru>', // prosto@prostokna.ru
             subject: 'Заявка',
             text: message_html,
-            html: message_html
+            html: message_html,
+            attachment: filepath
         };
         
+        var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
         mailgun.messages().send(data, function (error, body) {
-            // console.log(body);
+            res.json(200)
         })
-    }
-
-    res.sendStatus(200)
-
-
-    
+    })
 })
+
 
 //API
 app.get('/all_windows', async (req, res) => {

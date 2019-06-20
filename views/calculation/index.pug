@@ -65,7 +65,7 @@ block content
 						span.payment__postscript *Максимальная погрешность не более 3%
 				.calc-content
 					form.form_contact.calc-form
-						input(type="hidden" name="subject")
+						input(type="hidden" name="subject" value="Заказать точный расчет")
 						.calc-form__wrapp
 							input.calc-form__input#name(type="text", name="name")
 							label.calc-form__label(for="name") Имя (обязательно)
@@ -74,14 +74,14 @@ block content
 							label.calc-form__label(for="tel") Телефон (обязательно)
 						.calc-form__wrapp
 							input.calc-form__input#email(type="email", name="email")
-							label.calc-form__label(for="email") Email (обязательно)
+							label.calc-form__label(for="email") Email
 						.calc-form__wrapp
 							.file-wrap
-								input.calc-form__input#image(type="file", name="image")
-								button.browse-btn
-								span.file-info Прикрепить эскиз
+								label
+									input.calc-form__input#file-input(type="file", name="image", multiple)
+									span.file-info#file-list-display Прикрепить эскиз
 						.calc-form__wrapp
 							textarea.calc-form__text#message(name="message")
 							label.calc-form__label(for="message") Описание
-						button(type="submit").calc-form__btn.active Отправить
+						button(type="submit")#file-catcher.calc-form__btn.active Отправить
 
