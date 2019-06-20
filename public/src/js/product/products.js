@@ -6,3 +6,32 @@ $(document).on("click", ".productsMenu__brands__brand a", function () {
     $('.productsMenu__products__list').eq(index).addClass('active')
     return false
 })
+
+
+// $(document).on("click", ".brand_list_link", function () {
+//     $(this).parents('.brand_list_item').toggleClass('open').siblings().removeClass('open')
+//     return false
+// }).on("click", "#productMenu .list .item .title ul li", function () {
+//     $(this).addClass('active').siblings().removeClass('active')
+//     return false
+// }).on("click", "#productMenu .filter .category ul li a", function () {
+//     $(this).parent().addClass('active').siblings().removeClass('active')
+//     return false
+// })
+
+
+
+// var productsMenu = new Vue({
+//     el: '#productMenu',
+//     data: {
+//         mess: 'Hello Vue'
+//     },
+//     created: function () {
+        
+//     },
+//     methods: {
+//         test: function () {
+
+//         },
+//     }
+// })
