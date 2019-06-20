@@ -1386,13 +1386,6 @@ app.get('/', (req, res) => {
     res.render('index.pug', data)
 })
 
-app.get('/test', (req, res) => {
-    data.title = 'test'
-    data.description = ''
-    data.left_menu_active = null
-    res.render('test.pug', data)
-})
-
 app.get('/calc_data', (req, res) => {
     fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
         if (err) throw err

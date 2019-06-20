@@ -326,9 +326,16 @@ section.company-header-section {
 }
 
 .company-section-slider_item {
-	width: 100%;
-	height: 80vmin;
-  background: #535353 url("/images/intuitive/temp/3.png") center/contain no-repeat;
+  width: 100%;
+  padding: 30px;
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
+	// height: 80vmin;
+  // background: #535353 url("/images/intuitive/temp/3.png") center/contain no-repeat;
+  img {
+    cursor: pointer;
+  }
 }
 
 
