@@ -3,6 +3,38 @@ $text: #353535;
 #accessories {
 	position: relative;
 	overflow: hidden;
+	.btn_call {
+		width: 75px;
+		height: 75px;
+		border-radius: 17px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(243,109,97,1);
+		background: -moz-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: -webkit-gradient(left top, right top, color-stop(0%, rgba(243,109,97,1)), color-stop(100%, rgba(253,86,142,1)));
+		background: -webkit-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: -o-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: -ms-linear-gradient(left, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		background: linear-gradient(to right, rgba(243,109,97,1) 0%, rgba(253,86,142,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f36d61', endColorstr='#fd568e', GradientType=1 );
+		position: fixed;
+		bottom: 30px;
+		left: 75px;
+		@media screen and (max-width: 1400px) {
+			width: 65px;
+			height: 65px;
+		}
+		@media screen and (max-width: 1200px) {
+			width: 55px;
+			height: 55px;
+			left: 20px;
+		}
+		@media screen and (max-width: 992px) {
+			display: none;
+		}
+	}
 	.btn-more_desc {
 		width: 57px;
 		padding: 8px;
@@ -181,22 +213,49 @@ $text: #353535;
 			.light {
 				display: flex;
 				justify-content: space-between;
-				align-items: center;
+				align-items: center;				
 				&__item {
 					display: flex;
 					justify-content: space-around;
 					align-items: center;
 					width: 30%;
 					background: #5C5C5C;
-					padding: 9px;
+					padding: 0 9px;
 					border-radius: 5px;
+					height: 46px;
 					cursor: pointer;
 					@media screen and (max-width: 1200px){
 						width: 31%;
-						padding: 9px 5px;
+						padding: 0px 5px;
 					}
 					@media screen and (max-width: 576px){
-						padding: 5px;
+						padding: 0 5px;
+						height: 38px;
+					}
+					input[type="radio"] {
+						display: none;						
+						&:checked {
+							& + label {
+								.sun {
+									display: none;
+								}
+								.check {
+									display: inline-block;
+									width: 20px;
+								}
+							}
+						}
+					}
+					label {
+						margin-bottom: 0;
+						width: 100%;
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						.check {
+							display: none;
+						}
 					}
 					img {
 						@media screen and (max-width: 1400px){
@@ -250,7 +309,7 @@ $text: #353535;
 						top: 14px;
 						transition: transform 0.3s;
 						z-index: 0;
-						cursor: pointer;
+						cursor: pointer;						
 					}
 					&.active {
 						.select__item {
@@ -728,6 +787,7 @@ $text: #353535;
 		@import 'mesh';
 		@import 'jalousie';
 		@import 'handle';
-		@import 'flap';
+		@import 'flap';		
 	}	
+	@import 'windowsill';
 }
