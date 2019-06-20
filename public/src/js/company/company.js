@@ -44,11 +44,27 @@ if ($('#company').length) {
 
   $(".owl-carousel.company-section-slider").owlCarousel({
     dots: false,
-    loop: true,
-    items: 1,
+    loop: false,
+    items: 2,
     nav: true,
     navText: ["<img src='/images/company/left.png'>","<img src='/images/company/right.png'>"]
   });
+
+
+  $(".owl-carousel.company-section-slider img").click(function(e){
+    var index = $(this).parents('.owl-item').index()
+    $(".company-section-slider_item").each(function (e, i) {
+        var img = $(this).find('img').attr('data-src')
+        console.log(img)
+        modal_gallery_owl.trigger('add.owl.carousel', [
+            `<div class="item">
+                <img src="` + img + `">
+            </div>`
+        ])
+    })
+    modal_gallery_owl.trigger('to.owl.carousel', [index, 0])
+    $("#modal_gallery_owl").modal()
+  })
 
 
   //Natification
