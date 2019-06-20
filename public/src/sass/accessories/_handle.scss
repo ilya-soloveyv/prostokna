@@ -60,6 +60,9 @@
 					transition: transform 0.3s;
 					z-index: 0;
 					cursor: pointer;
+					@media screen and (max-width: 576px){
+						top: 11px;
+					}
 				}
 				&_brand {
 					border-top-left-radius: 19px;

@@ -115,4 +115,9 @@ if ($('#accessories').length) {
 			}			
 		}
 	);
+
+	$('.sill-arrow .arrow').on('click', function(){
+		var pos =	$(window).scrollTop();
+		$('html, body').animate({ scrollTop: pos + 200 }, "slow");
+	});
 }

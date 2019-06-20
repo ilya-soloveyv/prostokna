@@ -2,6 +2,8 @@ extends ../layouts/app
 
 block content
 		#accessories.ppage
+			.btn_call
+				img(src="/images/accessories/call.svg", alt="call")
 			.menu
 				.menu__icon
 					<svg id="Group_407" data-name="Group 407" xmlns="http://www.w3.org/2000/svg" width="25.442" height="25.441" viewBox="0 0 25.442 25.441">
@@ -30,7 +32,7 @@ block content
 					li
 						a(href="/mesh") Москитные сетки
 					li
-						a(href="#") Подоконники
+						a(href="/windowsill") Подоконники
 					li
 						a(href="/flap") Клапаны
 			.content
@@ -39,14 +41,23 @@ block content
 						h2.settings__title Светопропускная способность
 						ul.light
 							li.light__item
-								img(src="/images/accessories/sun.svg", alt="sun")
-								span 100%
+								input#light1(type="radio", name="sun")
+								label(for="light1")
+									img.sun(src="/images/accessories/sun.svg", alt="sun")
+									img.check(src="/images/accessories/check.svg", alt="check")
+									span 100%
 							li.light__item
-								img(src="/images/accessories/sun.svg", alt="sun")
-								span 50%
+								input#light2(type="radio", name="sun")
+								label(for="light2")
+									img.sun(src="/images/accessories/sun.svg", alt="sun")
+									img.check(src="/images/accessories/check.svg", alt="check")
+									span 50%
 							li.light__item
-								img(src="/images/accessories/sun.svg", alt="sun")
-								span 0%
+								input#light3(type="radio", name="sun")
+								label(for="light3")
+									img.sun(src="/images/accessories/sun.svg", alt="sun")
+									img.check(src="/images/accessories/check.svg", alt="check")
+									span 0%
 						.select
 							ul.select__list
 								li.select__item(data-option = "color").active Color
