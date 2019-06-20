@@ -41,14 +41,23 @@ block content
 						h2.settings__title Светопропускная способность
 						ul.light
 							li.light__item
-								img(src="/images/accessories/sun.svg", alt="sun")
-								span 100%
+								input#light1(type="radio", name="sun")
+								label(for="light1")
+									img.sun(src="/images/accessories/sun.svg", alt="sun")
+									img.check(src="/images/accessories/check.svg", alt="check")
+									span 100%
 							li.light__item
-								img(src="/images/accessories/sun.svg", alt="sun")
-								span 50%
+								input#light2(type="radio", name="sun")
+								label(for="light2")
+									img.sun(src="/images/accessories/sun.svg", alt="sun")
+									img.check(src="/images/accessories/check.svg", alt="check")
+									span 50%
 							li.light__item
-								img(src="/images/accessories/sun.svg", alt="sun")
-								span 0%
+								input#light3(type="radio", name="sun")
+								label(for="light3")
+									img.sun(src="/images/accessories/sun.svg", alt="sun")
+									img.check(src="/images/accessories/check.svg", alt="check")
+									span 0%
 						.select
 							ul.select__list
 								li.select__item(data-option = "color").active Color
