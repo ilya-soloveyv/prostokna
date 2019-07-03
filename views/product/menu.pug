@@ -1,19 +1,42 @@
+//- mixin productBrandModel
+    ul.list-brands-models
+        +productBrandModel_brand
+        +productBrandModel_brand
+        +productBrandModel_brand
+        +productBrandModel_brand
+        +productBrandModel_brand
+
+//- mixin productBrandModel_brand
+    li.item
+        .item__links
+            a.item__links__brand(href="/brand/montblanc")
+                .item__links__brand__ico
+            a.item__links__title(href="#") Montblanc
+        .item__models
+            ul.models__list
+                +productBrandModel_brand_model
+                +productBrandModel_brand_model
+                +productBrandModel_brand_model
+                +productBrandModel_brand_model
+                    
+//- mixin productBrandModel_brand_model
+    li.list__item
+        a(href="/product/montblanc_eco") Eco
+
 //- #productMenu
     .list
         .item
             .title
                 .name Пластик
-            ul.brand_list
+            //- ul.brand_list
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Alutech
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
-                li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name KBE
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Alutech
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
                     ul
                         li
                             a(href="#")
@@ -34,64 +57,243 @@
                             a(href="#")
                                 span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Montblanc
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name KBE
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Novotex
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Montblanc
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Rehau
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Novotex
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name SEAL
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Rehau
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Wintech
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name SEAL
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Provedal
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Wintech
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Slidors
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Provedal
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
+                li.brand_list_item
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Slidors
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
         .item
             .title
                 .name Алюминий
+            +productBrandModel
         .item
             .title
                 .name Дерево
-                ul
-                    li.active
-                        a(href="#") Сосна
-                    li
-                        a(href="#") Лиственница
-                    li
-                        a(href="#") Дуб
-            ul.brand_list
+                //- .button_select_options
+                    .title Лиственница
+                    ul
+                        li.active Сосна
+                        li Лиственница
+                        li Дуб
+            //- ul.brand_list
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Alutech
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
-                li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name KBE
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Alutech
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
                     ul
                         li
                             a(href="#")
@@ -112,40 +314,218 @@
                             a(href="#")
                                 span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Montblanc
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name KBE
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul.model_list
+                        li.model_list_item
+                            a(href="#")
+                                span.model-name Eco
+                        li.model_list_item
+                            a(href="#")
+                                span.model-name Nord
+                        li.model_list_item
+                            a(href="#")
+                                span.model-name Blitz New
+                        li.model_list_item
+                            a(href="#")
+                                span.model-name Delight
+                        li.model_list_item
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Novotex
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Montblanc
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Rehau
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Novotex
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name SEAL
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Rehau
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Wintech
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name SEAL
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Provedal
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Wintech
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Slidors
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Provedal
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
+                li.brand_list_item
+                    .links
+                        a.brand-link(href="#")
+                            .ico
+                        a.brand_list_link(href="#")
+                            span.brand-name Slidors
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
     .filter
         .category
             ul.category_list
@@ -175,15 +555,11 @@
         .list
             ul.brand_list
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Alutech
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
-                li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name KBE
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Alutech
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
                     ul
                         li
                             a(href="#")
@@ -204,41 +580,202 @@
                             a(href="#")
                                 span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Montblanc
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name KBE
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Novotex
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Montblanc
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Rehau
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Novotex
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name SEAL
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Rehau
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Wintech
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name SEAL
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Provedal
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Wintech
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
                 li.brand_list_item
-                    a.brand_list_link(href="#")
-                        span.brand-name Slidors
-                        i.material-icons.material-icons-add add
-                        i.material-icons.material-icons-remove remove
-
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Provedal
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
+                li.brand_list_item
+                    .links
+                        a.brand_list_link(href="#")
+                            span.brand-name Slidors
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul
+                        li
+                            a(href="#")
+                                span.model-name Eco
+                        li
+                            a(href="#")
+                                span.model-name Nord
+                        li
+                            a(href="#")
+                                span.model-name Euro
+                        li
+                            a(href="#")
+                                span.model-name Blitz New
+                        li
+                            a(href="#")
+                                span.model-name Delight
+                        li
+                            a(href="#")
+                                span.model-name Techno 58
 
 .productsMenu
 
