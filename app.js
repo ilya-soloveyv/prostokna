@@ -1760,7 +1760,7 @@ app.post('/send', async (req, res) => {
 
         var data = {
             from: 'prostokna.ru <noreply@prostokna.ru>',
-            to: '<prosto@prostokna.ru>', // prosto@prostokna.ru
+            to: '<prosto@prostokna.ru>, <prosto.pochta2013@mail.ru>',
             subject: 'Заявка',
             text: message_html,
             html: message_html,
