@@ -1,5 +1,5 @@
 //- mixin productBrandModel
-    ul.list-brands-models
+    ul.brands-models
         +productBrandModel_brand
         +productBrandModel_brand
         +productBrandModel_brand
@@ -28,6 +28,7 @@
         .item
             .title
                 .name Пластик
+            +productBrandModel
             //- ul.brand_list
                 li.brand_list_item
                     .links
@@ -279,6 +280,7 @@
         .item
             .title
                 .name Дерево
+            +productBrandModel
                 //- .button_select_options
                     .title Лиственница
                     ul

@@ -13,9 +13,17 @@
 `git clone https://github.com/ [ Ваш аккаунт ] /prostokna.git`
 В выбранной папке появляется папка с названием `prostokna`<br>
 `cd prostokna`<br>
+5. **Создаем файлы**<br>
+5.1. `.htpasswd`<br>
+admin:password<br>
+5.2. `/config/config.json`<br>
+Берем данные из файла `/config/__config.json`<br>
+Меняем на свои доступы к MySQL, саму базу пока не создаем<br>
+5.3. `/config/default.json`<br>
+Берем данные из файла `/config/__default.json`<br>
+Меняем на свои доступы к MySQL, саму базу пока не создаем<br>
 5. **Установка Sequelize**<br>
 Запускаем:<br>
-`sequelize init`<br>
 `sequelize db:create`<br>
 `sequelize db:migrate`<br>
 6. **Установка зависимостей**<br>
