@@ -6,14 +6,14 @@ function initMap() {
 	var zoom = 17;
 	var window_width = $(window).width();
 	if (window_width <= 576) {
-		var lat = 55.7760;
-		var lng = 37.680;
-		var zoom = 15;
+		var lat = 55.7067838;
+		var lng = 37.6888278;
+			var zoom = 16;
 	}
 	if (window_width <= 350) {
-		var lat = 55.7765;
-		var lng = 37.680;
-		var zoom = 14;
+		var lat = 55.7067838;
+		var lng = 37.6868278;
+		var zoom = 16;
 	}
 
     // Styles a map in night mode.

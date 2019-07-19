@@ -58,8 +58,8 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/best-cost/best-cost.css")
             link(rel="stylesheet", href="/src/css/accessories/accessories.css")
         else
-            <script async type="text/javascript">function loadscript(e,t){var n=document.createElement("script");n.src="//lptracker.net.ru/"+e;n.onreadystatechange=t;n.onload=t;document.head.appendChild(n);return 1}var init_lstats=function(){lstats.site_id=5954;lstats.referer()};var jquery_lstats=function(){jQstat.noConflict();loadscript("stats_auto.js",init_lstats)};loadscript("jquery-1.10.2.min.js",jquery_lstats);</script>
-            link(rel="stylesheet", href="/app-a111a0f5fd.min.css")
+            script(src="https://stats.lptracker.ru/code/new/68632" async)
+            link(rel="stylesheet", href="/app-c366079ef3.min.css")
     body
         include ../include/top.pug
 
@@ -115,6 +115,7 @@ html(lang="ru")
                     .title Закажите обратный звонок
                     .desc Вам не придется долго ждать звонка, мы сразу вас проконсультируем
                     form.form_contact(action="#" method="POST")
+                        input(type="hidden" name="subject" value="Закажите обратный звонок")
                         .row
                             .col-sm-6.mb-sm-3
                                 .form-group
@@ -149,7 +150,7 @@ html(lang="ru")
                     .close-modal(data-dismiss="modal")
                         i.material-icons close
                     //- .title Калькулятор находиться в разработке
-                    .desc Калькулятор находиться в разработке
+                    .desc Калькулятор находиться в разработке. <br> Воспользуйтесь формой <br> <a href="/calculation">точного расчета</a>.
         .modal#modal_video(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
@@ -166,6 +167,7 @@ html(lang="ru")
                     .wrap
                         .owl-carousel
 
+        script(src="/axios/axios.js")
         if env.NODE_ENV == 'development'
             script(src='/vue/vue.js')
             script(src='/src/js/jquery-3.3.1.js')
@@ -226,7 +228,7 @@ html(lang="ru")
             script(src='/src/js/best-cost/best-cost.js')
             script(src='/src/js/accessories/accessories.js')
         else
-            script(src='/app-fb6efcefdf.min.js')
+            script(src='/app-c76807bee1.min.js')
 
             script(src="https://www.googletagmanager.com/gtag/js?id=UA-140504195-1" async)
             script.
