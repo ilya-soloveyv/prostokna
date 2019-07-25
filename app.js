@@ -82,6 +82,37 @@ app.all('*', (req, res, next) => {
 })
 
 
+app.get('/getProductMenu', async(req, res) => {
+    let result = {}
+
+    result.materials = await Material.findAll()
+    result.brands = await Brand.findAll()
+    result.products = await Product.findAll({
+        attributes: [
+            'iProductID', 'iMaterialID', 'iBrandID', 'sProductTitle', 'sProductURI', 'iGenerateUriMaterial', 'iGenerateUriBrus',
+            'Brand.sBrandTitle',
+            'Material.sMaterialTitle',
+            'Bru.sBrusTitle'
+        ],
+        include: [
+            {
+                model: Brand
+            },
+            {
+                model: Material
+            },
+            {
+                model: Brus
+            }
+        ],
+        where: {
+            iActive: 1
+        }
+    })
+
+    res.json(result)
+})
+
 
 
 
@@ -1798,6 +1829,7 @@ app.get('/all_windows', async (req, res) => {
     // })
     // connection.end()
 })
+
 
 
 if (process.env.NODE_ENV != 'development') {

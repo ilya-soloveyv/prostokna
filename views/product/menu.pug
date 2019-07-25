@@ -1,34 +1,61 @@
-//- mixin productBrandModel
-    ul.brands-models
-        +productBrandModel_brand
-        +productBrandModel_brand
-        +productBrandModel_brand
-        +productBrandModel_brand
-        +productBrandModel_brand
-
-//- mixin productBrandModel_brand
-    li.item
-        .item__links
-            a.item__links__brand(href="/brand/montblanc")
-                .item__links__brand__ico
-            a.item__links__title(href="#") Montblanc
-        .item__models
-            ul.models__list
-                +productBrandModel_brand_model
-                +productBrandModel_brand_model
-                +productBrandModel_brand_model
-                +productBrandModel_brand_model
-                    
-//- mixin productBrandModel_brand_model
-    li.list__item
-        a(href="/product/montblanc_eco") Eco
-
-//- #productMenu
+- var iProductID = (product && product.iProductID) ? product.iProductID : false;
+#productMenu(data-iProductID= iProductID)
     .list
-        .item
+        .item(v-for="materialMenu, materialMenuKey in materialMenus")
             .title
-                .name Пластик
-            +productBrandModel
+                .name {{ materialMenu.title }}
+                ul.subMenu
+                    li(v-for="subMenu in materialMenu.subMenu")
+                        a(
+                            href="#"
+                            v-bind:class="{ active: materialMenu.iMaterialID == subMenu.iMaterialID}"
+                            v-on:click.prevent="changeMaterial(materialMenuKey, subMenu.iMaterialID)") {{ subMenu.title }}
+            ul.brands-models-list
+                li.brand-item(
+                    v-for="brand, brandKey in materialMenu.list"
+                    v-bind:class="{ active: brand.active }"
+                    )
+                    .brand-data
+                        a.brand-page-link(href="/brand/montblanc")
+                            .ico-info
+                        a.brand-title(href="#" v-on:click.prevent="clickBrand(materialMenuKey, brandKey)") {{ brand.sBrandTitle }}
+                        .ico(v-on:click.prevent="clickBrand(materialMenuKey, brandKey)")
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul.models-list
+                        li.model-item(
+                            v-for="model in brand.list"
+                            v-bind:class="{ active: model.active}"
+                            )
+                            span.empty
+                            a(v-bind:href="'/product/' + model.sProductURI")
+                                template {{ model.iProductID }} {{ model.sProductTitle }}
+                                template(v-if="model.sBrusTitle") брус {{ model.sBrusTitle }}
+        //- .item item
+                //- li.brand-item(v-for="brand in brands")
+                    .brand-data
+                        a.brand-page-link(href="/brand/montblanc")
+                            .item__links__brand__ico
+                        a.brand-title(href="#") {{ brand.title }}
+                        i.material-icons.material-icons-add add
+                        i.material-icons.material-icons-remove remove
+                    .models-list
+                        ul.model-data
+                            li.model-item(v-for="model in brand.models")
+                                a(href="/product/montblanc_eco") {{ model.title }}
+            //- ul.brands-models-list
+            //-     li.brand-item(v-for="brand in brands")
+            //-         .brand-data
+            //-             a.brand-page-link(href="/brand/montblanc")
+            //-                 .item__links__brand__ico
+            //-             a.brand-title(href="#") {{ brand.title }}
+            //-             i.material-icons.material-icons-add add
+            //-             i.material-icons.material-icons-remove remove
+            //-         .models-list
+            //-             ul.model-data
+            //-                 li.model-item(v-for="model in brand.models")
+            //-                     a(href="/product/montblanc_eco") {{ model.title }}
+            //- +productBrandModel
             //- ul.brand_list
                 li.brand_list_item
                     .links
@@ -273,11 +300,11 @@
                         li
                             a(href="#")
                                 span.model-name Techno 58
-        .item
+        //- .item
             .title
                 .name Алюминий
             +productBrandModel
-        .item
+        //- .item
             .title
                 .name Дерево
             +productBrandModel
@@ -555,7 +582,9 @@
                 li.category_item
                     a.category_link(href="#") Перегородки
         .list
-            ul.brand_list
+            
+            //- +productBrandModel
+            //- ul.brand_list
                 li.brand_list_item
                     .links
                         a.brand_list_link(href="#")
@@ -779,7 +808,7 @@
                             a(href="#")
                                 span.model-name Techno 58
 
-.productsMenu
+//- .productsMenu
 
     - var page_product = (product) ? product : false
 
