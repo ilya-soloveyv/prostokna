@@ -1,7 +1,43 @@
 - var iProductID = (product && product.iProductID) ? product.iProductID : false;
+
 #productMenu(data-iProductID= iProductID)
     .list
-        .item(v-for="materialMenu, materialMenuKey in materialMenus")
+        .item(v-for="material, key in materials")
+            .title
+                .name {{ material.sMaterialTitle }}
+                .subMenu
+                    .item(v-for="category in material.material_categories")
+                        input(
+                            type="radio"
+                            :name="'category_' + key + '[]'"
+                            :id="'category_' + key + '_' + category.iMaterialCategoryID"
+                            :value="category.iMaterialCategoryID"
+                            v-model="material.iMaterialCategoryID_active")
+                        label(:for="'category_' + key + '_' + category.iMaterialCategoryID") {{ category.sMaterialCategoryTitle }}
+            ul.brands-models-list
+                li.brand-item(
+                    v-for="brand, brandKey in material.brand"
+                    v-bind:class="{ active: brand.active }"
+                    )
+                    .brand-data
+                        a.brand-page-link(href="/brand/montblanc")
+                            .ico-info
+                        a.brand-title(href="#" v-on:click.prevent="clickBrand(brand)") {{ brand.sBrandTitle }}
+                        .ico(v-on:click.prevent="clickBrand(brand)")
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul.models-list
+                        li.model-item(
+                            v-for="model in brand.models"
+                            v-bind:class="{ active: model.active}"
+                            v-show="!material.iMaterialCategoryID_active || model.iMaterialCategoryID == material.iMaterialCategoryID_active"
+                            )
+                            span.empty
+                            a(v-bind:href="'/product/' + model.sProductURI")
+                                template {{ model.sProductTitle }}
+                                template(v-if="model.sBrusTitle") брус {{ model.sBrusTitle }}
+            //- pre(style="background: white;font-size:10px;") {{ material }}
+        //- .item(v-for="materialMenu, materialMenuKey in materialMenus")
             .title
                 .name {{ materialMenu.title }}
                 ul.subMenu

@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define('product', {
     iProductID: { allowNull: false, type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     iMaterialID: { type: DataTypes.INTEGER, allowNull: false },
+    iMaterialCategoryID: { type: DataTypes.INTEGER, allowNull: true, defaultValue: null },
     iBrandID: { type: DataTypes.INTEGER, allowNull: false },
     sProductTitle: { type: DataTypes.STRING, allowNull: false },
     sProductURI: { type: DataTypes.STRING, allowNull: false },

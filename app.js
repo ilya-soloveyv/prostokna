@@ -48,6 +48,7 @@ const Country = require('./models').country
 const Brand = require('./models').brand
 const Glazing = require('./models').glazing
 const Material = require('./models').material
+const Material_category = require('./models').material_category
 const Color = require('./models').color
 const Product = require('./models').product
 const Product_color = require('./models').product_color
@@ -85,11 +86,21 @@ app.all('*', (req, res, next) => {
 app.get('/getProductMenu', async(req, res) => {
     let result = {}
 
-    result.materials = await Material.findAll()
+    result.materials = await Material.findAll({
+        include: [
+            {
+                model: Material_category
+            }
+        ],
+        order: [
+            ['iMaterialID', 'ASC']
+        ]
+    })
+    result.material_categorys = await Material_category.findAll()
     result.brands = await Brand.findAll()
     result.products = await Product.findAll({
         attributes: [
-            'iProductID', 'iMaterialID', 'iBrandID', 'sProductTitle', 'sProductURI', 'iGenerateUriMaterial', 'iGenerateUriBrus',
+            'iProductID', 'iMaterialID', 'iMaterialCategoryID', 'iBrandID', 'sProductTitle', 'sProductURI', 'iGenerateUriMaterial', 'iGenerateUriBrus',
             'Brand.sBrandTitle',
             'Material.sMaterialTitle',
             'Bru.sBrusTitle'
@@ -394,7 +405,10 @@ app.get('/admin', auth.connect(basic), (req, res) => {
 app.post('/admin/ProductList', async (req, res) => {
     var responce = {}
         responce.product = await Product.findAll({
-            include: [Brand, Material, Brus]
+            order: [
+                ['iProductID', 'ASC']
+            ],
+            include: [Brand, Material, Brus],
         })
     res.json(responce)
 })
@@ -403,6 +417,7 @@ app.post('/admin/ProductEdit', async (req, res) => {
         responce.brand = await Brand.findAll()
         responce.brus = await Brus.findAll()
         responce.material = await Material.findAll()
+        responce.material_category = await Material_category.findAll()
         responce.color = await Color.findAll({
             order: [
                 ['iOrder', 'ASC'],
@@ -433,17 +448,19 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     req.body.product.iPrice = (req.body.product.iPrice) ? req.body.product.iPrice : null
     req.body.product.iActive = (req.body.product.iActive) ? 1 : 0
 
+    req.body.product.iMaterialCategoryID = (req.body.product.iMaterialCategoryID) ? req.body.product.iMaterialCategoryID : null
+
     // Подготавливаем URI
     brand = await Brand.findByPk(req.body.product.iBrandID, {
         attributes: ['sBrandTitle']
     })
     var uri_string = brand.sBrandTitle + ' ' + req.body.product.sProductTitle
 
-    if (req.body.product.iGenerateUriMaterial && req.body.product.iMaterialID) {
-        material = await Material.findByPk(req.body.product.iMaterialID, {
-            attributes: ['sMaterialTitle']
+    if (req.body.product.iGenerateUriMaterial && req.body.product.iMaterialCategoryID) {
+        material_category = await Material_category.findByPk(req.body.product.iMaterialCategoryID, {
+            attributes: ['sMaterialCategoryTitle']
         })
-        uri_string+= '_' + material.sMaterialTitle
+        uri_string+= '_' + material_category.sMaterialCategoryTitle
     }
 
     if (req.body.product.iGenerateUriBrus && req.body.product.iBrusID) {
