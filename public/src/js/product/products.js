@@ -84,7 +84,6 @@ if ($('#productMenu').length) {
                             this.materials[materialKey].brand.push(product.brand)
                         }
                     })
-
                     if (this.iProductID) {
                         console.log(this.iProductID)
                         this.materials.forEach(material => {
@@ -101,67 +100,8 @@ if ($('#productMenu').length) {
                             })
                         })
                     }
-
-
-
-                    // this.brands = response.data.brands
-                    // 
-                    // if (this.iProductID) {
-                    //     var iMaterialID = this.products.find(x => x.iProductID === this.iProductID).iMaterialID
-                    //     if (iMaterialID == 4 || iMaterialID == 5 || iMaterialID == 6) { // Колхоз. Если товар дерево, выделяем подкатегорию дерева
-                    //         Vue.set(this.materialMenus[2], 'iMaterialID', iMaterialID)
-                    //     }
-                    // }
-                    // this.setListInMaterial()
-                    // if (this.iProductID) {
-                    //     this.materialMenus.forEach((e1, k1) => {
-                    //         e1.list.forEach((e2, k2) => {
-                    //             e2.list.forEach((e3, k3) => {
-                    //                 if (e3.iProductID == this.iProductID) {
-                    //                     Vue.set(this.materialMenus[k1].list[k2], 'active', true)
-                    //                     Vue.set(this.materialMenus[k1].list[k2].list[k3], 'active', true)
-                    //                 }                            
-                    //             })
-                    //         })
-                    //     })    
-                    // }
                 })
             },
-            // setListInMaterial: function (k1 = false, k2 = false) {
-            //     this.materialMenus.forEach((materialMenu, materialMenuKey)  => {
-            //         Vue.set(this.materialMenus[materialMenuKey], 'list', [])
-
-                    // this.products.forEach(product => {
-                    //     if (product.iMaterialID == materialMenu.iMaterialID) {
-                    //         var temp = this.materialMenus[materialMenuKey].list.find(x => x.iBrandID === product.iBrandID)
-                    //         var product_item = {
-                    //             iProductID: product.iProductID,
-                    //             sProductTitle: product.sProductTitle,
-                    //             sProductURI: product.sProductURI,
-                    //             iGenerateUriMaterial: product.iGenerateUriMaterial,
-                    //             iGenerateUriBrus: product.iGenerateUriBrus,
-                    //             iMaterialID: product.iMaterialID,
-                    //             sMaterialTitle: (product.material) ? product.material.sMaterialTitle : false,
-                    //             sBrusTitle: (product.bru) ? product.bru.sBrusTitle : false,
-                    //             active: false
-                    //         }
-                    //         if (!temp) {
-                    //             this.materialMenus[materialMenuKey].list.push({
-                    //                 iBrandID: product.iBrandID,
-                    //                 sBrandTitle: product.brand.sBrandTitle,
-                    //                 active: false,
-                    //                 list: [product_item]
-                    //             })
-                    //         } else {
-                    //             temp.list.push(product_item)
-                    //         }
-                    //     }
-                    // })
-            //     })
-            //     if (k1 !== false && k2 !== false) {
-            //         Vue.set(this.materialMenus[k1].list[k2], 'active', true)
-            //     }
-            // },
         }
     })
 }
