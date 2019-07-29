@@ -333,14 +333,13 @@ export default {
                                                                         type="checkbox"
                                                                         name="producttypes[]"
                                                                         :id="'producttype_' + producttype.iProductTypeID"
-                                                                        v-model="product.product_producttypes"
+                                                                        v-model="product.product_producttype"
                                                                         :value="producttype.iProductTypeID">
                                                                     <label
                                                                         :for="'producttype_' + producttype.iProductTypeID">{{ producttype.sProductTypeTitle }}</label>
                                                                 </div>
                                                             </template>
                                                         </div>
-                                                        {{ product.product_producttypes }}
                                                     </div>
                                                 </div>
                                             </div>
