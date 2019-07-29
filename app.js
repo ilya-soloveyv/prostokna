@@ -103,26 +103,34 @@ app.get('/getProductMenu', async(req, res) => {
     result.brands = await Brand.findAll()
     result.products = await Product.findAll({
         attributes: [
-            'iProductID', 'iMaterialID', 'iMaterialCategoryID', 'iBrandID', 'sProductTitle', 'sProductURI', 'iGenerateUriMaterial', 'iGenerateUriBrus',
-            'Brand.sBrandTitle',
-            'Material.sMaterialTitle',
-            'Bru.sBrusTitle'
+            'iProductID',
+            'iMaterialID',
+            'iMaterialCategoryID',
+            'iBrandID', 'sProductTitle',
+            'sProductURI',
+            'iGenerateUriMaterial',
+            'iGenerateUriBrus'
         ],
         include: [
             {
-                model: Brand
+                model: Brand,
+                attributes: ['iBrandID', 'sBrandTitle']
             },
             {
-                model: Material
+                model: Material,
+                attributes: ['iMaterialID', 'sMaterialTitle']
             },
             {
-                model: Material_category
+                model: Material_category,
+                attributes: ['iMaterialCategoryID', 'iMaterialID', 'sMaterialCategoryTitle']
             },
             {
-                model: Brus
+                model: Brus,
+                attributes: ['iBrusID', 'sBrusTitle']
             },
             {
-                model: Product_producttype
+                model: Product_producttype,
+                attributes: ['iProductProductTypeID', 'iProductID', 'iProductTypeID']
             }
         ],
         where: {
