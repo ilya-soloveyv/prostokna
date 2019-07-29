@@ -15,6 +15,9 @@ module.exports = (sequelize, DataTypes) => {
     Material.hasMany(models.product, {
       foreignKey: 'iMaterialID'
     })
+    Material.hasMany(models.material_category, {
+      foreignKey: 'iMaterialID'
+    })
   };
   return Material;
 };

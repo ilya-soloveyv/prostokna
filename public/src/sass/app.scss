@@ -504,7 +504,7 @@ $speed: .25s;
             -moz-transition: all .25s linear;
             -o-transition: all .25s linear;
             -webkit-transition: all .25s linear;
-            @media (max-width: 1199px) {
+            @media (max-width: 1200px) {
                 top: 50px;
                 width: 0vw;
             }
@@ -749,7 +749,7 @@ $speed: .25s;
             text-align: center;
             float: right;
         }
-        @media (max-width: 1199px) {
+        @media (max-width: 1200px) {
            display: none;
         }
     }
@@ -798,7 +798,7 @@ $speed: .25s;
 .ppage {
     min-height: 100vh;
     padding: 60px 0 0 60px;
-    @media (max-width: 1199px) {
+    @media (max-width: 1200px) {
         padding-left: 0;
     }
     @media (max-width: 575px) {
@@ -1248,7 +1248,7 @@ ul.social_icons {
         margin: 60px 0 0 60px;
         max-width: 100%;
         overflow: hidden;
-        @media (max-width: 1199px) {
+        @media (max-width: 1200px) {
             margin: 60px 0 0 0;
         }
         @media (max-width: 575px) {
@@ -1303,7 +1303,7 @@ ul.social_icons {
         margin: 60px 0 0 60px;
         max-width: 100%;
         overflow: hidden;
-        @media (max-width: 1199px) {
+        @media (max-width: 1200px) {
             margin: 60px 0 0 0;
         }
         @media (max-width: 575px) {

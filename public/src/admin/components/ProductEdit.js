@@ -11,6 +11,8 @@ export default {
             brand: [],
             brus: [],
             material: [],
+            material_category: [],
+            producttypes: [],
             color: [],
             products: [],
             product: {
@@ -33,6 +35,8 @@ export default {
                 this.brand = responce.data.brand
                 this.brus = responce.data.brus
                 this.material = responce.data.material
+                this.material_category = responce.data.material_category
+                this.producttypes = responce.data.producttype
                 this.color = responce.data.color
                 this.products = responce.data.products
                 if (responce.data.product) {
@@ -132,6 +136,9 @@ export default {
         },
         uploadPlan: function () {
 
+        },
+        changeMaterial: function () {
+            Vue.set(this.product, 'iMaterialCategoryID', null)
         }
     },
     template: `
@@ -234,8 +241,21 @@ export default {
                                                 <div class="form-group">
                                                     <label class="label" for="">Материал:</label>
                                                     <label class="float-right text-muted">URI <input type="checkbox" v-model="product.iGenerateUriMaterial" :disabled="!product.iMaterialID"></label>
-                                                    <select v-model.number="product.iMaterialID" class="form-control" required>
+                                                    <select v-model.number="product.iMaterialID" class="form-control" @change="changeMaterial" required>
                                                         <option v-for="(material, index) in material" :key="material.iMaterialID" :value="material.iMaterialID">{{ material.sMaterialTitle }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Вид материала:</label>
+                                                    <select v-model.number="product.iMaterialCategoryID" class="form-control">
+                                                        <option :value='null' value=0>Не выбрано...</option>
+                                                        <option
+                                                            v-for="(category, index) in material_category"
+                                                            :disabled="category.iMaterialID != product.iMaterialID"
+                                                            :key="category.iMaterialCategoryID"
+                                                            :value="category.iMaterialCategoryID">{{ category.sMaterialCategoryTitle }}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -297,6 +317,30 @@ export default {
                                                                 </template>
                                                             </option>
                                                         </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="label" for="" style="color:#ADB5BD">Привязка продуктов к категориям:</label>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="producttypes">
+                                                            <template v-for="(producttype, key) in producttypes">
+                                                                <div class="item">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        name="producttypes[]"
+                                                                        :id="'producttype_' + producttype.iProductTypeID"
+                                                                        v-model="product.product_producttypes"
+                                                                        :value="producttype.iProductTypeID">
+                                                                    <label
+                                                                        :for="'producttype_' + producttype.iProductTypeID">{{ producttype.sProductTypeTitle }}</label>
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                        {{ product.product_producttypes }}
                                                     </div>
                                                 </div>
                                             </div>
