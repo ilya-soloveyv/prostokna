@@ -89,6 +89,9 @@ app.get('/getProductMenu', async(req, res) => {
     let result = {}
 
     result.materials = await Material.findAll({
+        where: {
+            iActive: 1
+        },
         include: [
             {
                 model: Material_category
