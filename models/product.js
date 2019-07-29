@@ -140,6 +140,13 @@ module.exports = (sequelize, DataTypes) => {
       ]
     })
 
+    product.dataValues.product_producttype = []
+    if ("product_producttypes" in product && product.product_producttypes.length) {
+      product.product_producttypes.forEach((type) => {
+        product.dataValues.product_producttype.push(type.iProductTypeID)
+      })
+    }
+
     if ("product_links" in product && product.product_links.length) {
       var iMaterialID = product.iMaterialID
       var iBrusID = product.iBrusID

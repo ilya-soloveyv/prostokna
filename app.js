@@ -600,6 +600,23 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     }
     await productLink()
 
+    var productType = async () => {
+        if (req.body.product.product_producttype) {
+            await Product_producttype.destroy({
+                where: {
+                    iProductID: iProductID
+                }
+            })
+            for (const iProductTypeID of req.body.product.product_producttype) {
+                await Product_producttype.create({
+                    iProductID: iProductID,
+                    iProductTypeID: iProductTypeID,
+                })
+            }
+        }
+    }
+    await productType()
+
 
     var responce = {}
         // responce.brand = await Brand.findAll()
