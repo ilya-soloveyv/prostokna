@@ -63,8 +63,12 @@ if ($('#productMenu').length) {
                 Vue.set(this.mobile, 'material', material)
             },
             'filterParams.iMaterialID': function (val) {
-                var sMaterialTitle = this.filterParams.material.find(x => x.iMaterialID === val).sMaterialTitle
-                // console.log(sMaterialTitle)
+                var material = this.filterParams.material.find(x => x.iMaterialID === val)
+                if (material) {
+                    var sMaterialTitle = material.sMaterialTitle
+                } else {
+                    var sMaterialTitle = null
+                }
                 Vue.set(this.filterParams, 'sMaterialTitle', sMaterialTitle)
             }
         },
