@@ -12,6 +12,7 @@ export default {
             brus: [],
             material: [],
             material_category: [],
+            producttypes: [],
             color: [],
             products: [],
             product: {
@@ -35,6 +36,7 @@ export default {
                 this.brus = responce.data.brus
                 this.material = responce.data.material
                 this.material_category = responce.data.material_category
+                this.producttypes = responce.data.producttype
                 this.color = responce.data.color
                 this.products = responce.data.products
                 if (responce.data.product) {
@@ -315,6 +317,30 @@ export default {
                                                                 </template>
                                                             </option>
                                                         </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="label" for="" style="color:#ADB5BD">Привязка продуктов к категориям:</label>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="producttypes">
+                                                            <template v-for="(producttype, key) in producttypes">
+                                                                <div class="item">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        name="producttypes[]"
+                                                                        :id="'producttype_' + producttype.iProductTypeID"
+                                                                        v-model="product.product_producttypes"
+                                                                        :value="producttype.iProductTypeID">
+                                                                    <label
+                                                                        :for="'producttype_' + producttype.iProductTypeID">{{ producttype.sProductTypeTitle }}</label>
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                        {{ product.product_producttypes }}
                                                     </div>
                                                 </div>
                                             </div>

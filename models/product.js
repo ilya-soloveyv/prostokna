@@ -40,6 +40,9 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsTo(models.material, {
       foreignKey: 'iMaterialID'
     })
+    Product.belongsTo(models.material_category, {
+      foreignKey: 'iMaterialCategoryID'
+    })
     Product.hasMany(models.product_color, {
       foreignKey: 'iProductID'
     })
@@ -51,6 +54,9 @@ module.exports = (sequelize, DataTypes) => {
     })
     Product.hasMany(models.product_link, {
       foreignKey: 'iProductIDFrom'
+    })
+    Product.hasMany(models.product_producttype, {
+      foreignKey: 'iProductID'
     })
   };
 
@@ -123,6 +129,9 @@ module.exports = (sequelize, DataTypes) => {
               ]
             },
           ]
+        },
+        {
+          model: sequelize.models.product_producttype
         }
       ],
       order: [

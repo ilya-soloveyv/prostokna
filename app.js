@@ -51,6 +51,8 @@ const Material = require('./models').material
 const Material_category = require('./models').material_category
 const Color = require('./models').color
 const Product = require('./models').product
+const Producttype = require('./models').producttype
+const Product_producttype = require('./models').product_producttype
 const Product_color = require('./models').product_color
 const Product_image = require('./models').product_image
 const Product_image_point = require('./models').product_image_point
@@ -97,6 +99,7 @@ app.get('/getProductMenu', async(req, res) => {
         ]
     })
     result.material_categorys = await Material_category.findAll()
+    result.producttypes = await Producttype.findAll()
     result.brands = await Brand.findAll()
     result.products = await Product.findAll({
         attributes: [
@@ -113,7 +116,13 @@ app.get('/getProductMenu', async(req, res) => {
                 model: Material
             },
             {
+                model: Material_category
+            },
+            {
                 model: Brus
+            },
+            {
+                model: Product_producttype
             }
         ],
         where: {
@@ -418,6 +427,7 @@ app.post('/admin/ProductEdit', async (req, res) => {
         responce.brus = await Brus.findAll()
         responce.material = await Material.findAll()
         responce.material_category = await Material_category.findAll()
+        responce.producttype = await Producttype.findAll()
         responce.color = await Color.findAll({
             order: [
                 ['iOrder', 'ASC'],
