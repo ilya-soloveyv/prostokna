@@ -62,14 +62,17 @@ if ($('#productMenu').length) {
                 }
                 Vue.set(this.mobile, 'material', material)
             },
-            'filterParams.iMaterialID': function (val) {
-                var material = this.filterParams.material.find(x => x.iMaterialID === val)
-                if (material) {
-                    var sMaterialTitle = material.sMaterialTitle
-                } else {
-                    var sMaterialTitle = null
+            'filterParams.iMaterialID': function (iMaterialID) {
+                if (iMaterialID) {
+                    var material = this.filterParams.material.find(x => x.iMaterialID === iMaterialID)
+                    console.log(material)
+                    if (material) {
+                        var sMaterialTitle = material.sMaterialTitle
+                    } else {
+                        var sMaterialTitle = null
+                    }
+                    Vue.set(this.filterParams, 'sMaterialTitle', sMaterialTitle)
                 }
-                Vue.set(this.filterParams, 'sMaterialTitle', sMaterialTitle)
             }
         },
         methods: {
