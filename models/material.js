@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Material = sequelize.define('material', {
     iMaterialID: { allowNull: false, type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    sMaterialTitle: { type: DataTypes.STRING, allowNull: false }
+    sMaterialTitle: { type: DataTypes.STRING, allowNull: false },
+    iActive: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 }
   }, {
     timestamps: false,
     freezeTableName: true,
