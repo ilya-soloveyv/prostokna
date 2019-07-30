@@ -90,31 +90,40 @@ if ($('#accessories').length) {
 			}, 250);
 		}
 		
-	})
+	});
 
-
+	$('.choise').bind('mousewheel', function (e) {
+		if (e.originalEvent.wheelDelta / 120 > 0) {
+			$('.circle li.i4').trigger('click');
+		}
+		else {
+			$('.circle li.i2').trigger('click');
+		}
+	});
 	
 	
 
 	// Hover item circle
-
-	$('.circle .item').hover(
-		function () {
-			$(this).find('.item__desc').css({ 'opacity': '1' });
-			if ($(this).hasClass('active')) {
+	if ($(window).width() >= 992) {
+		$('.circle .item').hover(
+			function () {
 				$(this).find('.item__desc').css({ 'opacity': '1' });
-			} else {
-				$('.circle .item.active').find('.item__desc').css({ 'opacity': '0' });
+				if ($(this).hasClass('active')) {
+					$(this).find('.item__desc').css({ 'opacity': '1' });
+				} else {
+					$('.circle .item.active').find('.item__desc').css({ 'opacity': '0' });
+				}
+			}, function () {
+				if ($(this).hasClass('active')) {
+					$(this).find('.item__desc').css({ 'opacity': '0' });
+				} else {
+					$(this).find('.item__desc').css({ 'opacity': '0' });
+					$('.circle .item.active').find('.item__desc').css({ 'opacity': '0' });
+				}
 			}
-		}, function () {
-			if ($(this).hasClass('active')) {
-				$(this).find('.item__desc').css({ 'opacity': '1' });
-			} else {
-				$(this).find('.item__desc').css({ 'opacity': '0' });
-				$('.circle .item.active').find('.item__desc').css({ 'opacity': '1' });
-			}			
-		}
-	);
+		);
+	}
+	
 
 	$('.sill-arrow .arrow').on('click', function(){
 		var pos =	$(window).scrollTop();
