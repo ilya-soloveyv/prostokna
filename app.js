@@ -855,6 +855,57 @@ app.post('/admin/GalleryRemove', async (req, res) => {
     res.json(data)
 })
 
+app.post('/admin/BrandList', async (req, res) => {
+    var request = {}
+
+    request.brand = await Brand.findAll({
+        include: [
+            {
+                model: Country
+            }
+        ]
+    })
+    request.country = await Country.findAll()
+
+    res.json(request)
+})
+app.post('/admin/BrandUpdate', async (req, res) => {
+    var request = {}
+
+    var brand = (req.body.brand) ? req.body.brand : {}
+        brand.sBrandTitle = (brand.sBrandTitle) ? brand.sBrandTitle : false
+        brand.iCountryID = (brand.iCountryID) ? brand.iCountryID : false
+        if (brand.sBrandTitle) {
+            brand.sBrandURI = cyrillicToTranslit().transform(brand.sBrandTitle, "_").toLowerCase()
+        }
+        brand.iActive = (brand.iActive) ? 1 : 0
+        brand.sBrandDesc = (brand.sBrandDesc) ? brand.sBrandDesc : null
+
+    if (brand.iBrandID && brand.sBrandTitle && brand.iCountryID) {
+        await Brand.update(brand, {
+            where: {
+                iBrandID: brand.iBrandID
+            }                    
+        })    
+    } else {
+        var { dataValues, iBrandID } = await Brand.create(brand)
+        brand.iBrandID = iBrandID
+    }
+
+    if (brand.iBrandID) {
+        request.brand = await Brand.findByPk(brand.iBrandID, {
+            include: [
+                {
+                    model: Country
+                }
+            ]
+        })
+    }
+
+    res.json(request)
+})
+
+
 
 
 
@@ -1644,12 +1695,38 @@ app.get('/favorites', (req, res) => {
     res.render('favorites/favorites.pug', data)
 })
 
-app.get('/page-brand', (req, res) => {
-    data.title = 'page-brand'
-    data.description = ''
-    data.left_menu_active = null
-    //где апи по новостям и запросы??
-    res.render('page-brand/page-brand.pug', data)
+app.get('/brand/:sBrandURI', async (req, res) => {
+    data.brands = await Brand.findAll({
+        where: {
+            iActive: 1
+        }
+    })
+    var brand = await Brand.findAll({
+        where: {
+            sBrandURI: req.params.sBrandURI,
+            iActive: 1,
+        }
+    })
+    if (brand[0]) {
+        data.product = await Product.findAll({
+            where: {
+                iBrandID: brand[0].iBrandID
+            },
+            include: [
+                {
+                    model: Product_image
+                }
+            ]
+        })
+        data.brand = brand[0]
+        data.title = brand[0].sBrandTitle
+        data.description = ''
+        data.left_menu_active = 1
+        // res.json(data)
+        res.render('page-brand/page-brand.pug', data)
+    } else {
+        res.status(404).send('Sorry cant find that!')
+    }
 })
 
 app.get('/best-cost', (req, res) => {

@@ -11,10 +11,10 @@ export default {
                 //     title: 'Материалы',
                 //     uri: '/material',
                 // },
-                // {
-                //     title: 'Бренды',
-                //     uri: '/brand',
-                // },
+                {
+                    title: 'Бренды',
+                    uri: '/brand',
+                },
                 {
                     title: 'Цвета',
                     uri: '/color',
