@@ -1,3 +1,16 @@
+// {/* <picture-input
+//                                                             ref="planImage"
+//                                                             @change="uploadPlan"
+//                                                             :crop="false"
+//                                                             accept="image/jpeg,image/png,image/svg+xml,image/svg"
+//                                                             size="10"
+//                                                             buttonClass="btn btn-primary btn-sm"
+//                                                             :hideChangeButton='true'
+//                                                             v-bind:prefill="(image.sProductImageBackName) ? '/images/product/gallery/'+image.sProductImageBackName : ''"
+//                                                             :customStrings="{
+//                                                                 drag: 'Перетащите изображение или нажмите для выбора файла'
+//                                                             }"></picture-input> */}
+
 export default {
     name: 'ProductEdit',
     components: {
@@ -170,18 +183,6 @@ export default {
                                                             }"></picture-input>
                                                     </div>
                                                     <div class="col">
-                                                        <picture-input
-                                                            ref="planImage"
-                                                            @change="uploadPlan"
-                                                            :crop="false"
-                                                            accept="image/jpeg,image/png,image/svg+xml,image/svg"
-                                                            size="10"
-                                                            buttonClass="btn btn-primary btn-sm"
-                                                            :hideChangeButton='true'
-                                                            v-bind:prefill="(image.sProductImageBackName) ? '/images/product/gallery/'+image.sProductImageBackName : ''"
-                                                            :customStrings="{
-                                                                drag: 'Перетащите изображение или нажмите для выбора файла'
-                                                            }"></picture-input>
                                                         <label class="file_upload">
                                                             <input type="file" :name="'back[' + index + ']'" :image_type="'sProductImageBackName'" :image_index="index" @change="upload" />
                                                             <img v-if="image.sProductImageBackName" :src="'/images/product/gallery/' + image.sProductImageBackName" />
