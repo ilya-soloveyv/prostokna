@@ -20,7 +20,7 @@
                     v-bind:class="{ active: brand.active }"
                     )
                     .brand-data
-                        a.brand-page-link(href="/page-brand")
+                        a.brand-page-link(:href="'/brand/' + brand.sBrandURI")
                             .ico-info
                         a.brand-title(href="#" v-on:click.prevent="clickBrand(brand)") {{ brand.sBrandTitle }}
                         .ico(v-on:click.prevent="clickBrand(brand)")
@@ -189,7 +189,7 @@
                     v-bind:class="{ active: brand.active }"
                     )
                     .brand-data
-                        a.brand-page-link(href="/page-brand")
+                        a.brand-page-link(:href="'/brand/' + brand.sBrandURI")
                             .ico-info
                         a.brand-title(href="#" v-on:click.prevent="clickBrand(brand)") {{ brand.sBrandTitle }}
                         .ico(v-on:click.prevent="clickBrand(brand)")

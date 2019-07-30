@@ -117,7 +117,7 @@ app.get('/getProductMenu', async(req, res) => {
         include: [
             {
                 model: Brand,
-                attributes: ['iBrandID', 'sBrandTitle']
+                attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI']
             },
             {
                 model: Material,
