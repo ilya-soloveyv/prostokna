@@ -1,834 +1,225 @@
-//- mixin productBrandModel
-    ul.brands-models
-        +productBrandModel_brand
-        +productBrandModel_brand
-        +productBrandModel_brand
-        +productBrandModel_brand
-        +productBrandModel_brand
+- var iProductID = (product && product.iProductID) ? product.iProductID : false;
 
-//- mixin productBrandModel_brand
-    li.item
-        .item__links
-            a.item__links__brand(href="/brand/montblanc")
-                .item__links__brand__ico
-            a.item__links__title(href="#") Montblanc
-        .item__models
-            ul.models__list
-                +productBrandModel_brand_model
-                +productBrandModel_brand_model
-                +productBrandModel_brand_model
-                +productBrandModel_brand_model
-                    
-//- mixin productBrandModel_brand_model
-    li.list__item
-        a(href="/product/montblanc_eco") Eco
-
-//- #productMenu
+#productMenu(data-iProductID= iProductID)
     .list
-        .item
+        .item(v-for="material, key in materials")
             .title
-                .name Пластик
-            +productBrandModel
-            //- ul.brand_list
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Alutech
+                .name {{ material.sMaterialTitle }}
+                .subMenu
+                    .item(v-for="category in material.material_categories")
+                        input(
+                            type="radio"
+                            :name="'category_' + key + '[]'"
+                            :id="'category_' + key + '_' + category.iMaterialCategoryID"
+                            :value="category.iMaterialCategoryID"
+                            v-model="material.iMaterialCategoryID_active")
+                        label(:for="'category_' + key + '_' + category.iMaterialCategoryID") {{ category.sMaterialCategoryTitle }}
+            ul.brands-models-list
+                li.brand-item(
+                    v-for="brand, brandKey in material.brand"
+                    v-bind:class="{ active: brand.active }"
+                    )
+                    .brand-data
+                        a.brand-page-link(:href="'/brand/' + brand.sBrandURI")
+                            .ico-info
+                        a.brand-title(href="#" v-on:click.prevent="clickBrand(brand)") {{ brand.sBrandTitle }}
+                        .ico(v-on:click.prevent="clickBrand(brand)")
                             i.material-icons.material-icons-add add
                             i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name KBE
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Montblanc
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Novotex
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Rehau
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name SEAL
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Wintech
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Provedal
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Slidors
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-        .item
-            .title
-                .name Алюминий
-            +productBrandModel
-        .item
-            .title
-                .name Дерево
-            +productBrandModel
-                //- .button_select_options
-                    .title Лиственница
-                    ul
-                        li.active Сосна
-                        li Лиственница
-                        li Дуб
-            //- ul.brand_list
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Alutech
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name KBE
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul.model_list
-                        li.model_list_item
-                            a(href="#")
-                                span.model-name Eco
-                        li.model_list_item
-                            a(href="#")
-                                span.model-name Nord
-                        li.model_list_item
-                            a(href="#")
-                                span.model-name Blitz New
-                        li.model_list_item
-                            a(href="#")
-                                span.model-name Delight
-                        li.model_list_item
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Montblanc
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Novotex
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Rehau
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name SEAL
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Wintech
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Provedal
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand-link(href="#")
-                            .ico
-                        a.brand_list_link(href="#")
-                            span.brand-name Slidors
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
+                    ul.models-list
+                        li.model-item(
+                            v-for="model in brand.models"
+                            v-bind:class="{ active: model.active}"
+                            v-show="!material.iMaterialCategoryID_active || model.iMaterialCategoryID == material.iMaterialCategoryID_active"
+                            )
+                            span.empty
+                            a(v-bind:href="'/product/' + model.sProductURI")
+                                template {{ model.sProductTitle }}
+                                template(v-if="model.sBrusTitle")  {{ model.sBrusTitle }}
     .filter
-        .category
-            ul.category_list
-                li.category_item
-                    a.category_link(href="#") Балконы и лоджии
-                li.category_item.active
-                    a.category_link(href="#") Фасады
-                    ul
-                        li
-                            a(href="#") Сосна
-                        li
-                            a(href="#") Лиственница
-                        li.active
-                            a(href="#") Дуб
-                li.category_item
-                    a.category_link(href="#") Беседки и террасы
-                li.category_item
-                    a.category_link(href="#") Квартиры и загородные дома
-                li.category_item
-                    a.category_link(href="#") Зимние сады и зенитные фонари
-                li.category_item
-                    a.category_link(href="#") Двери
-                li.category_item
-                    a.category_link(href="#") Раздвижные конструкции/портал
-                li.category_item
-                    a.category_link(href="#") Перегородки
-        .list
-            ul.brand_list
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Alutech
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name KBE
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Montblanc
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Novotex
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Rehau
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name SEAL
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Wintech
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Provedal
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
-                li.brand_list_item
-                    .links
-                        a.brand_list_link(href="#")
-                            span.brand-name Slidors
-                            i.material-icons.material-icons-add add
-                            i.material-icons.material-icons-remove remove
-                    ul
-                        li
-                            a(href="#")
-                                span.model-name Eco
-                        li
-                            a(href="#")
-                                span.model-name Nord
-                        li
-                            a(href="#")
-                                span.model-name Euro
-                        li
-                            a(href="#")
-                                span.model-name Blitz New
-                        li
-                            a(href="#")
-                                span.model-name Delight
-                        li
-                            a(href="#")
-                                span.model-name Techno 58
+        .filterData
+            .category
+                ul.category_list
+                    li.category_item(
+                        v-for="producttype in producttypes"
+                    )
+                        input.producttype_input(
+                            name="producttypes[]"
+                            :id="'producttypes_' + producttype.iProductTypeID"
+                            :value="producttype.iProductTypeID"
+                            v-model="filterParams.iProductTypeID"
+                            type="radio"
+                        )
+                        label.producttype_label(
+                            :for="'producttypes_' + producttype.iProductTypeID"
+                        )
+                            .ico
+                                img(:src="'/images/product/producttype/' + producttype.sProductTypeIco", alt="")
+                            .title {{ producttype.sProductTypeTitle }}
+                        div.materials(
+                            v-show="producttype.iProductTypeID == filterParams.iProductTypeID && filterParams.material[0]"
+                        )
+                            div.material_item(
+                                v-for="material in filterParams.material")
+                                    input.material_input(
+                                        :name="'producttypes_ ' + producttype.iProductTypeID + '_material[]'"
+                                        :id="'producttypes_' + producttype.iProductTypeID + '_material_' + material.iMaterialID"
+                                        :value="material.iMaterialID"
+                                        v-model="filterParams.iMaterialID"
+                                        @change="filterMaterialClick(material)"
+                                        type="radio"
+                                    )
+                                    label.material_label(
+                                        :for="'producttypes_' + producttype.iProductTypeID + '_material_' + material.iMaterialID"
+                                    )
+                                        span {{ material.sMaterialTitle }}
+                                    div.material_category(v-show="material.iMaterialID == filterParams.iMaterialID")
+                                        div.material_category_item(v-for="category in material.material_categories")
+                                            input.material_category_input(
+                                                :name="'producttypes_ ' + producttype.iProductTypeID + '_material_' + material.iMaterialID + '_category[]'"
+                                                :id="'producttypes_' + producttype.iProductTypeID + '_material_' + material.iMaterialID + '_category_' + category.iMaterialCategoryID"
+                                                :value="category.iMaterialCategoryID"
+                                                v-model="filterParams.iMaterialCategoryID"
+                                                @change="filterMaterialCategoryClick(category)"
+                                                type="radio"
+                                            )
+                                            label.material_category_label(
+                                                :for="'producttypes_' + producttype.iProductTypeID + '_material_' + material.iMaterialID + '_category_' + category.iMaterialCategoryID"
+                                            )
+                                                span {{ category.sMaterialCategoryTitle }}
+            .list
+                ul.brands-models-list
+                    li.brand-item(
+                        v-for="brand, brandKey in filterResult"
+                        v-bind:class="{ active: brand.active }"
+                        )
+                        .brand-data
+                            a.brand-title(href="#" v-on:click.prevent="clickFilterBrand(brand)") {{ brand.sBrandTitle }}
+                            .ico(v-on:click.prevent="clickFilterBrand(brand)")
+                                i.material-icons.material-icons-add add
+                                i.material-icons.material-icons-remove remove
+                        ul.models-list
+                            li.model-item(
+                                v-for="model in brand.models"
+                                v-bind:class="{ active: model.active}"
+                                )
+                                a(v-bind:href="'/product/' + model.sProductURI")
+                                    template {{ model.sProductTitle }}
+                                    template(v-if="model.sBrusTitle")  {{ model.sBrusTitle }}
+    .wrap
+        .title Выберите материал
+        .button
+            label.filterButton(:class="{ active: openFilter }")
+                .ico
+                    input(
+                        type="checkbox"
+                        v-model="openFilter"
+                    )
+        .options
+            .materials(v-if="!openFilter && mobile.material")
+                .sMaterialTitle(data-toggle="dropdown") {{ mobile.material.sMaterialTitle }}
+                .dropdown-menu
+                .list
+                    template(v-for="material, key in materials")
+                        label.item(
+                            :class="{ active: material.iMaterialID == mobile.iMaterialID}"
+                        ) {{ material.sMaterialTitle }}
+                            input(
+                                type="radio"
+                                name="mobile_materials[]"
+                                :value="material.iMaterialID"
+                                v-model="mobile.iMaterialID")
+            .material_types(v-if="!openFilter && mobile.iMaterialID")
+                .item(v-for="category in mobile.material.material_categories")
+                    input(
+                        type="radio"
+                        :name="'mobile_category[]'"
+                        :id="'categoryMobile_' + category.iMaterialCategoryID"
+                        :value="category.iMaterialCategoryID"
+                        v-model="mobile.material.iMaterialCategoryID_active")
+                    label(
+                        :for="'categoryMobile_' + category.iMaterialCategoryID") {{ category.sMaterialCategoryTitle }}
+            .materials(v-if="openFilter")
+                .sMaterialTitle(data-toggle="dropdown") {{ filterParams.sMaterialTitle }}
+                .dropdown-menu
+                .list
+                    template(v-for="material, key in filterParams.material")
+                        label.item(
+                            :class="{ active: material.iMaterialID == filterParams.iMaterialID}"
+                        ) {{ material.sMaterialTitle }}
+                            input(
+                                :name="'producttypes_material[]'"
+                                :id="'producttypes_material_' + material.iMaterialID"
+                                :value="material.iMaterialID"
+                                v-model="filterParams.iMaterialID"
+                                @change="filterMaterialClick(material)"
+                                type="radio")
+            template(v-for="material, key in filterParams.material")
+                .material_types(v-if="openFilter && material.iMaterialID == filterParams.iMaterialID")
+                    .item(v-for="category in material.material_categories")
+                        input(
+                            :name="'producttypes_material_' + material.iMaterialID + '_category[]'"
+                            :id="'producttypes_material_' + material.iMaterialID + '_category_' + category.iMaterialCategoryID"
+                            :value="category.iMaterialCategoryID"
+                            v-model="filterParams.iMaterialCategoryID"
+                            @change="filterMaterialCategoryClick(category)"
+                            type="radio")
+                        label(
+                            :for="'producttypes_material_' + material.iMaterialID + '_category_' + category.iMaterialCategoryID") {{ category.sMaterialCategoryTitle }}
+        .categorys
+            .item(for="" v-for="producttype in producttypes")
+                input.producttype_input(
+                    name="producttypesMobile[]"
+                    :id="'producttypes_' + producttype.iProductTypeID"
+                    :value="producttype.iProductTypeID"
+                    v-model="filterParams.iProductTypeID"
+                    type="radio"
+                )
+                label(
+                    @click="useFilterMobile"
+                    :class="{ openFilter: openFilter }"
+                    :for="'producttypes_' + producttype.iProductTypeID"
+                )
+                    img(:src="'/images/product/producttype/' + producttype.sProductTypeIco", alt="")
 
-.productsMenu
-
-    - var page_product = (product) ? product : false
-
-    ul.nav(role="tablist")
-        each brand, index in brandMenu
-            li.nav-item
-                a.nav-link(
-                    class= { active: page_product && page_product.iBrandID == brand.iBrandID || !page_product && index == 0 }
-                    id= "tab_" + brand.iBrandID
-                    data-toggle="tab"
-                    href= "#tab_content_" + brand.iBrandID
-                    role="tab"
-                    aria-controls= "tab_" + brand.iBrandID
-                    aria-selected="true") #{brand.sBrandTitle}
-    .tab-content
-        each brand, index in brandMenu
-            .tab-pane.fade(
-                class= { active: product && product.iBrandID == brand.iBrandID || !product && index == 0, show: product && product.iBrandID == brand.iBrandID || !product && index == 0}
-                id= "tab_content_" + brand.iBrandID
-                role="tabpanel"
-                aria-labelledby="home-tab")
-                if brand.products.material.length
-                    ul.nav(role="tablist")
-                        each material, index2 in brand.products.material
-                            li.nav-item
-                                a.nav-link(
-                                    class= { active: page_product && page_product.iMaterialID == material.iMaterialID || !page_product && index2 == 0 }
-                                    id= "tab_" + brand.iBrandID + "_material_" + material.iMaterialID
-                                    data-toggle="tab"
-                                    href= "#tab_content_" + brand.iBrandID + "_material_" + material.iMaterialID
-                                    role="tab"
-                                    aria-controls= "tab_" + brand.iBrandID + "_material_" + material.iMaterialID
-                                    aria-selected="true") #{material.sMaterialTitle}
-                    .tab-content
-                        each material, index2 in brand.products.material
-                            .tab-pane.fade(
-                                class= { active: page_product && page_product.iMaterialID == material.iMaterialID || !page_product && index2 == 0, show: page_product && page_product.iMaterialID == material.iMaterialID || !page_product && index2 == 0 }
-                                id= "tab_content_" + brand.iBrandID + "_material_" + material.iMaterialID)
-                                each product, index3 in material.list
-                                    div.wrap-link
-                                        a.nav-link2(
-                                            class= { active: page_product && page_product.iProductID == product.iProductID }
-                                            href="/product/" + product.sProductURI) #{brand.sBrandTitle} #{product.sProductTitle}
-                                            if product.iGenerateUriBrus
-                                                |  #{product.sBrusTitle}
-                else
-                    each product, index2 in brand.products.list
-                        div.wrap-link
-                            a.nav-link2(
-                                href="/product/" + product.sProductURI,
-                                class= { active: page_product && page_product.iProductID == product.iProductID}) #{brand.sBrandTitle} #{product.sProductTitle}
-
+        .data(v-if="mobile.material")
+            ul.brands-models-list(v-if="!openFilter")
+                li.brand-item(
+                    v-for="brand, brandKey in mobile.material.brand"
+                    v-bind:class="{ active: brand.active }"
+                    )
+                    .brand-data
+                        a.brand-page-link(:href="'/brand/' + brand.sBrandURI")
+                            .ico-info
+                        a.brand-title(href="#" v-on:click.prevent="clickBrand(brand)") {{ brand.sBrandTitle }}
+                        .ico(v-on:click.prevent="clickBrand(brand)")
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul.models-list
+                        li.model-item(
+                            v-for="model in brand.models"
+                            v-bind:class="{ active: model.active}"
+                            v-show="!mobile.material.iMaterialCategoryID_active || model.iMaterialCategoryID == mobile.material.iMaterialCategoryID_active"
+                            )
+                            span.empty
+                            a(v-bind:href="'/product/' + model.sProductURI")
+                                template {{ model.sProductTitle }}
+                                template(v-if="model.sBrusTitle")  {{ model.sBrusTitle }}
+            ul.brands-models-list(v-if="openFilter")
+                li.brand-item(
+                    v-for="brand, brandKey in filterResult"
+                    v-bind:class="{ active: brand.active }"
+                    )
+                    .brand-data
+                        a.brand-title(href="#" v-on:click.prevent="clickFilterBrand(brand)") {{ brand.sBrandTitle }}
+                        .ico(v-on:click.prevent="clickFilterBrand(brand)")
+                            i.material-icons.material-icons-add add
+                            i.material-icons.material-icons-remove remove
+                    ul.models-list
+                        li.model-item(
+                            v-for="model in brand.models"
+                            v-bind:class="{ active: model.active}"
+                            )
+                            a(v-bind:href="'/product/' + model.sProductURI")
+                                template {{ model.sProductTitle }}
+                                template(v-if="model.sBrusTitle")  {{ model.sBrusTitle }}

@@ -48,8 +48,11 @@ const Country = require('./models').country
 const Brand = require('./models').brand
 const Glazing = require('./models').glazing
 const Material = require('./models').material
+const Material_category = require('./models').material_category
 const Color = require('./models').color
 const Product = require('./models').product
+const Producttype = require('./models').producttype
+const Product_producttype = require('./models').product_producttype
 const Product_color = require('./models').product_color
 const Product_image = require('./models').product_image
 const Product_image_point = require('./models').product_image_point
@@ -81,6 +84,65 @@ app.all('*', (req, res, next) => {
     }
 })
 
+
+app.get('/getProductMenu', async(req, res) => {
+    let result = {}
+
+    result.materials = await Material.findAll({
+        where: {
+            iActive: 1
+        },
+        include: [
+            {
+                model: Material_category
+            }
+        ],
+        order: [
+            ['iMaterialID', 'ASC']
+        ]
+    })
+    result.material_categorys = await Material_category.findAll()
+    result.producttypes = await Producttype.findAll()
+    result.brands = await Brand.findAll()
+    result.products = await Product.findAll({
+        attributes: [
+            'iProductID',
+            'iMaterialID',
+            'iMaterialCategoryID',
+            'iBrandID', 'sProductTitle',
+            'sProductURI',
+            'iGenerateUriMaterial',
+            'iGenerateUriBrus'
+        ],
+        include: [
+            {
+                model: Brand,
+                attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI']
+            },
+            {
+                model: Material,
+                attributes: ['iMaterialID', 'sMaterialTitle']
+            },
+            {
+                model: Material_category,
+                attributes: ['iMaterialCategoryID', 'iMaterialID', 'sMaterialCategoryTitle']
+            },
+            {
+                model: Brus,
+                attributes: ['iBrusID', 'sBrusTitle']
+            },
+            {
+                model: Product_producttype,
+                attributes: ['iProductProductTypeID', 'iProductID', 'iProductTypeID']
+            }
+        ],
+        where: {
+            iActive: 1
+        }
+    })
+
+    res.json(result)
+})
 
 
 
@@ -363,7 +425,10 @@ app.get('/admin', auth.connect(basic), (req, res) => {
 app.post('/admin/ProductList', async (req, res) => {
     var responce = {}
         responce.product = await Product.findAll({
-            include: [Brand, Material, Brus]
+            order: [
+                ['iProductID', 'ASC']
+            ],
+            include: [Brand, Material, Brus],
         })
     res.json(responce)
 })
@@ -372,6 +437,8 @@ app.post('/admin/ProductEdit', async (req, res) => {
         responce.brand = await Brand.findAll()
         responce.brus = await Brus.findAll()
         responce.material = await Material.findAll()
+        responce.material_category = await Material_category.findAll()
+        responce.producttype = await Producttype.findAll()
         responce.color = await Color.findAll({
             order: [
                 ['iOrder', 'ASC'],
@@ -402,17 +469,19 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     req.body.product.iPrice = (req.body.product.iPrice) ? req.body.product.iPrice : null
     req.body.product.iActive = (req.body.product.iActive) ? 1 : 0
 
+    req.body.product.iMaterialCategoryID = (req.body.product.iMaterialCategoryID) ? req.body.product.iMaterialCategoryID : null
+
     // Подготавливаем URI
     brand = await Brand.findByPk(req.body.product.iBrandID, {
         attributes: ['sBrandTitle']
     })
     var uri_string = brand.sBrandTitle + ' ' + req.body.product.sProductTitle
 
-    if (req.body.product.iGenerateUriMaterial && req.body.product.iMaterialID) {
-        material = await Material.findByPk(req.body.product.iMaterialID, {
-            attributes: ['sMaterialTitle']
+    if (req.body.product.iGenerateUriMaterial && req.body.product.iMaterialCategoryID) {
+        material_category = await Material_category.findByPk(req.body.product.iMaterialCategoryID, {
+            attributes: ['sMaterialCategoryTitle']
         })
-        uri_string+= '_' + material.sMaterialTitle
+        uri_string+= '_' + material_category.sMaterialCategoryTitle
     }
 
     if (req.body.product.iGenerateUriBrus && req.body.product.iBrusID) {
@@ -530,6 +599,23 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         }
     }
     await productLink()
+
+    var productType = async () => {
+        if (req.body.product.product_producttype) {
+            await Product_producttype.destroy({
+                where: {
+                    iProductID: iProductID
+                }
+            })
+            for (const iProductTypeID of req.body.product.product_producttype) {
+                await Product_producttype.create({
+                    iProductID: iProductID,
+                    iProductTypeID: iProductTypeID,
+                })
+            }
+        }
+    }
+    await productType()
 
 
     var responce = {}
@@ -768,6 +854,57 @@ app.post('/admin/GalleryRemove', async (req, res) => {
         data.gallery = await Gallery.getList()
     res.json(data)
 })
+
+app.post('/admin/BrandList', async (req, res) => {
+    var request = {}
+
+    request.brand = await Brand.findAll({
+        include: [
+            {
+                model: Country
+            }
+        ]
+    })
+    request.country = await Country.findAll()
+
+    res.json(request)
+})
+app.post('/admin/BrandUpdate', async (req, res) => {
+    var request = {}
+
+    var brand = (req.body.brand) ? req.body.brand : {}
+        brand.sBrandTitle = (brand.sBrandTitle) ? brand.sBrandTitle : false
+        brand.iCountryID = (brand.iCountryID) ? brand.iCountryID : false
+        if (brand.sBrandTitle) {
+            brand.sBrandURI = cyrillicToTranslit().transform(brand.sBrandTitle, "_").toLowerCase()
+        }
+        brand.iActive = (brand.iActive) ? 1 : 0
+        brand.sBrandDesc = (brand.sBrandDesc) ? brand.sBrandDesc : null
+
+    if (brand.iBrandID && brand.sBrandTitle && brand.iCountryID) {
+        await Brand.update(brand, {
+            where: {
+                iBrandID: brand.iBrandID
+            }                    
+        })    
+    } else {
+        var { dataValues, iBrandID } = await Brand.create(brand)
+        brand.iBrandID = iBrandID
+    }
+
+    if (brand.iBrandID) {
+        request.brand = await Brand.findByPk(brand.iBrandID, {
+            include: [
+                {
+                    model: Country
+                }
+            ]
+        })
+    }
+
+    res.json(request)
+})
+
 
 
 
@@ -1558,12 +1695,38 @@ app.get('/favorites', (req, res) => {
     res.render('favorites/favorites.pug', data)
 })
 
-app.get('/page-brand', (req, res) => {
-    data.title = 'page-brand'
-    data.description = ''
-    data.left_menu_active = null
-    //где апи по новостям и запросы??
-    res.render('page-brand/page-brand.pug', data)
+app.get('/brand/:sBrandURI', async (req, res) => {
+    data.brands = await Brand.findAll({
+        where: {
+            iActive: 1
+        }
+    })
+    var brand = await Brand.findAll({
+        where: {
+            sBrandURI: req.params.sBrandURI,
+            iActive: 1,
+        }
+    })
+    if (brand[0]) {
+        data.product = await Product.findAll({
+            where: {
+                iBrandID: brand[0].iBrandID
+            },
+            include: [
+                {
+                    model: Product_image
+                }
+            ]
+        })
+        data.brand = brand[0]
+        data.title = brand[0].sBrandTitle
+        data.description = ''
+        data.left_menu_active = 1
+        // res.json(data)
+        res.render('page-brand/page-brand.pug', data)
+    } else {
+        res.status(404).send('Sorry cant find that!')
+    }
 })
 
 app.get('/best-cost', (req, res) => {
@@ -1760,8 +1923,8 @@ app.post('/send', async (req, res) => {
 
         var data = {
             from: 'prostokna.ru <noreply@prostokna.ru>',
-            to: '<prosto@prostokna.ru>, <prosto.pochta2013@mail.ru>',
-            subject: 'Заявка',
+            to: '<prosto@prostokna.ru>, <prosto.pochta2013@mail.ru>, <viki.z@prostokna.ru>, <kaleev.e@prostokna.ru>',
+            subject: 'Заявка: ' + subject,
             text: message_html,
             html: message_html,
             attachment: filepath
@@ -1798,6 +1961,7 @@ app.get('/all_windows', async (req, res) => {
     // })
     // connection.end()
 })
+
 
 
 if (process.env.NODE_ENV != 'development') {

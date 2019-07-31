@@ -157,6 +157,31 @@ body {
   width: 150px;
   padding: 6px 0; }
 
+.ProductEdit .producttypes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px; }
+  .ProductEdit .producttypes .item {
+    display: flex;
+    flex-direction: column; }
+    .ProductEdit .producttypes .item input {
+      display: none; }
+      .ProductEdit .producttypes .item input:checked ~ label {
+        background: #007BFF;
+        color: white; }
+    .ProductEdit .producttypes .item label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 24px;
+      background: #F8F9FA;
+      border-radius: 12px;
+      font-size: 12px;
+      cursor: pointer;
+      margin: 0 5px 5px 0;
+      padding: 0 10px; }
+
 .ColorList td {
   padding: 5px; }
 

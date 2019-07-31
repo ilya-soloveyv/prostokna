@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define('product', {
     iProductID: { allowNull: false, type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     iMaterialID: { type: DataTypes.INTEGER, allowNull: false },
+    iMaterialCategoryID: { type: DataTypes.INTEGER, allowNull: true, defaultValue: null },
     iBrandID: { type: DataTypes.INTEGER, allowNull: false },
     sProductTitle: { type: DataTypes.STRING, allowNull: false },
     sProductURI: { type: DataTypes.STRING, allowNull: false },
@@ -39,6 +40,9 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsTo(models.material, {
       foreignKey: 'iMaterialID'
     })
+    Product.belongsTo(models.material_category, {
+      foreignKey: 'iMaterialCategoryID'
+    })
     Product.hasMany(models.product_color, {
       foreignKey: 'iProductID'
     })
@@ -50,6 +54,9 @@ module.exports = (sequelize, DataTypes) => {
     })
     Product.hasMany(models.product_link, {
       foreignKey: 'iProductIDFrom'
+    })
+    Product.hasMany(models.product_producttype, {
+      foreignKey: 'iProductID'
     })
   };
 
@@ -122,6 +129,9 @@ module.exports = (sequelize, DataTypes) => {
               ]
             },
           ]
+        },
+        {
+          model: sequelize.models.product_producttype
         }
       ],
       order: [
@@ -129,6 +139,13 @@ module.exports = (sequelize, DataTypes) => {
         [sequelize.models.product_image, 'iOrder', 'ASC']
       ]
     })
+
+    product.dataValues.product_producttype = []
+    if ("product_producttypes" in product && product.product_producttypes.length) {
+      product.product_producttypes.forEach((type) => {
+        product.dataValues.product_producttype.push(type.iProductTypeID)
+      })
+    }
 
     if ("product_links" in product && product.product_links.length) {
       var iMaterialID = product.iMaterialID
