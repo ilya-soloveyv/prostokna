@@ -1716,6 +1716,9 @@ app.get('/brand/:sBrandURI', async (req, res) => {
                 {
                     model: Product_image
                 }
+            ],
+            order: [
+                [ Product_image, 'iOrder', 'ASC']
             ]
         })
         data.brand = brand[0]
