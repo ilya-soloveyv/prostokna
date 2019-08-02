@@ -2,42 +2,35 @@ extends ../layouts/app
 
 block content
     #page-brand
-        section.page.ppage
-            .container.page_all
-                .row
-                    .col-xl-12.title
-                        .sBrandTitle #{brand.sBrandTitle}
-                        span.more
-                          img.arrow(src="/images/page-brand/arrow.svg")
-                          ul.brand__list
-                            each item in brands
-                                li.brand__item(class= (item.iBrandID == brand.iBrandID) ? 'active' : '')
-                                    a(href="/brand/" + item.sBrandURI) #{ item.sBrandTitle }
-                    .col-xl-12
-                        button.btn ОПИСАНИЕ
-            .container
-                .row
-                    .col-lg-11.pre_title.text-center
-                        span #{ brand.sBrandDesc }
-            .container
-                .row
-                    .container_slider.col-xl-12.owl-theme.owl-carousel
-                        each item, key in product
-                            .slide(data-hash= key)
-                                a(href='#' + key)
-                                    .photo
-                                        if item.product_images[0]
-                                            img.img(src="/images/product/gallery/" + item.product_images[0].sProductImageFrontName)
-                                        a.btn-look(href="/product/" + item.sProductURI)
-                                            img(src="/images/page-brand/look.png")
-                                    .slide_title
-                                        span.slide_title_text #{ item.sProductTitle }
-            .container.slider_two
-                .row
-                    .slider-nav.col-xl-12.owl-theme.owl-carousel.carouselOne
-                        each item, key in product
-                            .slide1
-                                if item.product_images[0]
-                                    img.img(src="/images/product/gallery/" + item.product_images[0].sProductImageFrontName)
-                                a.btn-look(href="/product/" + item.sProductURI)
-                                    img(src="/images/page-brand/look.png")
+        .title
+            .brand_title #{brand.sBrandTitle}
+            .dropdown.dropright
+                .ico(id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                    img(src="/images/page-brand/arrow.svg", alt="")
+                .dropdown-menu(aria-labelledby="dropdownMenuButton")
+                    each item in brands
+                        a.dropdown-item(href="/brand/" + item.sBrandURI, class= (item.iBrandID == brand.iBrandID) ? 'active' : '') #{ item.sBrandTitle }
+        .desc
+            .sBrandDesc #{ brand.sBrandDesc }
+                .closeDesc
+            .buttonDesc Описание
+        .products
+            .gallery
+                each item, key in product
+                    div(class=0 ? 'active' : '')
+                        if (item.product_images[0])
+                            .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
+                                a(href="/product/" + item.sProductURI)
+                                    img(src="/images/page-brand/look.svg")
+                        .sProductTitle #{ item.sProductTitle }
+        .productSelected
+            .gallery2
+                each item, key in product
+                    div
+                        if (item.product_images[0])
+                            .sProductImage
+                                .bg
+                                    img(src="/images/product/gallery/" + item.product_images[0].sProductImageFrontName)
+                                    a(href="/product/" + item.sProductURI)
+                                        img(src="/images/page-brand/look.svg")
+                        .sProductTitle #{ item.sProductTitle }
