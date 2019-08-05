@@ -80,7 +80,12 @@ $(".form_contact").submit(function (event) {
         return false
     }
 
-    yaCounter21714754.reachGoal('zvonok');
+    // Цель Метрика
+    var metrika = $(this).find('input[name=metrika]').val()
+    if (metrika) {
+        yaCounter21714754.reachGoal(metrika)
+    }
+    
 
     $("#zay_modal").modal('hide')
     $("#thanks_modal").modal()            
@@ -95,6 +100,7 @@ $(".form_contact").submit(function (event) {
     form.append('to', $(this).find('input[name="to"]').val())
     form.append('subject', $(this).find('input[name="subject"]').val())
     form.append('message', $(this).find('input[name="message"]').val())
+    form.append('page_path', $(this).find('input[name="page_path"]').val())
 
     if ($(this).find('input[type=file]').length) {
         var files = $(this).find('input[type=file]')[0].files

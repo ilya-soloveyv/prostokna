@@ -116,6 +116,8 @@ html(lang="ru")
                     .desc Вам не придется долго ждать звонка, мы сразу вас проконсультируем
                     form.form_contact(action="#" method="POST")
                         input(type="hidden" name="subject" value="Закажите обратный звонок")
+                        input(type="hidden" name="metrika" value="zvonok")
+                        input(type="hidden" name="page_path" value= page_path)
                         .row
                             .col-sm-6.mb-sm-3
                                 .form-group
