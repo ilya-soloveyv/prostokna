@@ -46,6 +46,9 @@
                 p.title С нами Вам будет просто!
             .content__form
                 form.form.form_contact
+                    input(type="hidden" name="subject" value="Вызов замерщика")
+                    input(type="hidden" name="metrika" value="zayavka")
+                    input(type="hidden" name="page_path" value= page_path)
                     p ИМЯ *
                     input(name="name" placeholder='')
                     p EMAIL
