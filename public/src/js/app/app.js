@@ -80,6 +80,8 @@ $(".form_contact").submit(function (event) {
         return false
     }
 
+    yaCounter21714754.reachGoal('zvonok');
+
     $("#zay_modal").modal('hide')
     $("#thanks_modal").modal()            
 
