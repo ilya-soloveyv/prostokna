@@ -70,6 +70,9 @@ if ($('.instruction').length) {
 		$('.door').removeClass('op3');
 		$('.right-line').removeClass('show');
 
+		$('.rain').removeClass('active');
+		$('.dashdot').removeClass('active');
+
 		
 		$('.instruction__wrapp.active .text .text__item').removeClass('active')
 
@@ -145,6 +148,15 @@ if ($('.instruction').length) {
 				$('.under').addClass('op3');
 				$('#max-down').addClass('op3');
 				$('.part5').addClass('stroke');
+			} else if (index == 5) {
+				$('#max-down').addClass('op3');
+				$('.block3').addClass('op3');
+				$('.part3').addClass('op3')
+				$('#center').addClass('op3')
+				$('.line').addClass('op3')
+				$('.under').addClass('op3')
+				$('.rain').addClass('active');
+				$('.dashdot').addClass('active');
 			}
 
 			$('.instruction__wrapp.active .num .num__item').eq(index).removeClass('none').addClass('active').siblings().removeClass('active').addClass('none')
