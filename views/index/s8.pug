@@ -1,15 +1,16 @@
 .section.s8
-    .fp_bg
-        .l
-            .bg_flex
+    .fp_bg.fp_bg_s8
+        .flex-block
+              .bl-wrapp_lt
                 .title Напишите нам
+              .bl-wrapp_lb
                 ul
                     li(data-subject="Напишите нам - Вы клиент") Вы клиент<i class="material-icons">keyboard_arrow_right</i>
                     li(data-subject="Напишите нам - Вы монтажная бригада") Вы монтажная бригада<i class="material-icons">keyboard_arrow_right</i>
                     li(data-subject="Напишите нам - Вы корпоративный клиент") Вы корпоративный клиент<i class="material-icons">keyboard_arrow_right</i>
-        .r
-            .bg_flex
+              .bl-wrapp_rt
                 .desc Вы можете отправить нам сообщение на любую интересующую вас тему, или документ со своими замерами для расчета стоимости окна.
+              .bl-wrapp_rb
                 .bgform
                     form.form_contact
                         input(type="hidden" name="subject" value="Главная страница - Напишите нам")

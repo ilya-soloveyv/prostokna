@@ -6,16 +6,32 @@
     }
 }
 #regulation_window {
-    font-family: 'Montserrat';
-    // display: none;
+    font-family: 'Montserrat';    
     @media screen and (max-width: 992px) {
         display: block;
     }
+		.owl-carousel, .owl-carousel .owl-item {
+			position: static;
+		}
+		.owl-item.active.center {
+			.regulation_window-infoitem {
+				display: block;
+				position: absolute;
+				width: 80%;
+				bottom: 0;
+				left: 50%;
+			}
+			@media screen and (max-width: 576px){
+				.icon-block img {
+					opacity: 1;
+				}
+			}
+		}
     .pop-up {
     position: absolute;
     width: 55%;  
     padding: 75px;  
-    top: 10%;
+    top: 14%;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(53, 53, 53, 0.95);    
@@ -196,9 +212,13 @@ ul, li {
         padding-top: 92px;
         padding-bottom: 63px;
         position: relative;
+        @media screen and (max-width: 992px) {
+          padding-top: 40px;
+    			padding-bottom: 30px;
+        }
         @media screen and (max-width: 576px) {
-            padding-top: 50px;
-            padding-bottom: 45px;
+          padding-top: 30px;
+    			padding-bottom: 25px;
         }
         .swap-d {
             position: absolute;
@@ -284,7 +304,7 @@ ul, li {
     }
     &-title {
         font-family: 'Montserrat';
-        font-size: 28px;
+        font-size: 20px;
         text-transform: uppercase;
         font-weight: 600;
         color: #353535;
@@ -304,14 +324,7 @@ ul, li {
         display: flex;
         justify-content: space-around;
     }
-    &-checkitem {
-        width: 42px;
-        @media screen and (max-width: 992px) {
-            width: 32px;
-        }
-        @media screen and (max-width: 576px) {
-            width: 22px;
-        }     
+    &-checkitem {     
         span {
             width: 1px;
             height: 25px;
@@ -321,34 +334,65 @@ ul, li {
             margin-bottom: 5px;
 
         }
-        img {
-            opacity: 0.5;
+        .icon-block {            
             cursor: pointer;
-            width: 100%;
-        }
-        &.active {
-            img {
-                opacity: 1;
-            }
-        }
+            width: 40px;
+						height: 40px;
+						margin: 0 auto;
+						@media screen and (max-width: 992px) {
+							width: 30px;
+							height: 30px;
+						}
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+							@media screen and (max-width: 576px){
+								opacity: 0.5;
+							}
+						}
+        }        
     }
     &-infolist {
-        margin-top: 60px;
+        margin-top: 40px;
+				height: calc(100vh - 350px);
+				overflow-y: scroll;
+				@media screen and (max-width: 992px) {            
+            height: calc(100vh - 310px);
+        }
+				@media screen and (max-width: 576px) {            
+            height: calc(100vh - 259px);
+        }
+				&::-webkit-scrollbar { 
+					width: 5px;
+				}
+				&::-webkit-scrollbar-track {
+						border-radius: 5px;
+						background: #aaa;					
+				}
+				/* Handle */
+				&::-webkit-scrollbar-thumb {
+						background: rgba(161,73,229,1);
+						border-radius: 5px;
+				}
+				/* Handle on hover */
+				&::-webkit-scrollbar-thumb:hover {
+						background: darken(rgba(161,73,229,1), 10%);
+				}
         @media screen and (max-width: 576px) {            
             margin-top: 20px;
         }
     }
+		
     &-infoitem {
-        display: none;
-        &.active {
-            display: block;
-        }
+        display: none;      
         .info-title {
             font-size: 11px;
             text-transform: uppercase;
             text-align: center;
             font-weight: 400;
             margin-bottom: 65px;
+						font-family: 'MontserratSemiBold';
             @media screen and (max-width: 992px) {
                 font-size: 9px;
             }
@@ -362,6 +406,7 @@ ul, li {
             text-align: center;
             width: 40%;
             margin: 0 auto;
+						line-height: 2.2em;
             @media screen and (max-width: 1200px) {
                 width: 50%;
             }
@@ -397,5 +442,5 @@ ul, li {
             }         
         }
     }
+		
 }
-
