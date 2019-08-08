@@ -249,3 +249,266 @@ $('#modal_gallery_owl').on('show.bs.modal', function (event) {
     })
 })
 //  *** *** *** *** *** *** *** *** *** *** *** *** //
+
+
+// NEW MODAL WINDOW
+
+if ($('#form_request').length) {	
+	let close = $('#form_request .modal-close');
+	// Закрытие POP-UP
+	close.on('click', function (){
+		$('#form_request').fadeOut(300);
+	});
+	$('.modal-result').on('click', function (){
+		$('#form_request').fadeOut(300);
+	});
+
+
+	// Переход к списку
+	$('.modal-block_load-btn').on('click', function(){
+		$('.modal-block_load').fadeOut(100);
+		setTimeout(() => {
+			$('.modal-block_checkload').fadeIn(300);
+		}, 100);
+		
+	});
+
+	// Переход добавить еще
+
+	$('.modal-block_checkload-more').on('click', function () {
+		$('.modal-block_checkload').fadeOut(100);
+		setTimeout(() => {
+			$('.modal-block_load').fadeIn(300);
+		}, 100);
+
+	});
+
+	// Переход к форме
+	$('.modal-block_checkload-btn').on('click', function () {
+		$('.modal-block_checkload').fadeOut(100);
+		setTimeout(() => {
+			$('.modal-block_form').fadeIn(300);
+		}, 100);
+	});
+
+	// Переход от формы к списку файлов
+	$('.modal-block_form-back').on('click', function () {
+		$('.modal-block_form').fadeOut(100);
+		setTimeout(() => {
+			$('.modal-block_checkload').fadeIn(300);
+		}, 100);
+	});
+
+	// Переход к прогрес бару
+	$('.modal-block_form-submit').on('click', function (e) {
+		e.preventDefault();		
+		$('.modal-main').fadeOut(100);
+		setTimeout(() => {
+			$('.modal-progressbar').fadeIn(300);
+		}, 100);
+		// Течение прогрес бара
+		setTimeout(() => {
+			let count = 0;
+
+			let intervalId = setInterval(() => {
+				count++;
+				$('.modal-progressbar .count span').html(count);
+				if (count > 99) {
+					clearInterval(intervalId);
+					setTimeout(() => {
+						$('.modal-progressbar').fadeOut(100);
+						$('.modal-result').fadeIn(300);
+					}, 200);					
+				}
+			}, 20);
+			$('.modal-progressbar .line').addClass('active');
+		}, 300);
+		
+	});
+
+	// Загрузка файлов
+	var output = [],
+			loadList = document.querySelector('.modal-block_checkload-list');
+	var dropZone = document.querySelector('.modal-block_load');
+	var reader;
+	var progress = document.querySelector('.percent');
+	// Загрузка файлов через кнопку		
+	function handleFileSelectClick(evt) {
+		let files = evt.target.files; // Сохраняем в переменую масив файлов
+
+		progress.style.width = '0%';
+		progress.textContent = '0%';
+
+		reader = new FileReader();
+		reader.onprogress = updateProgress;
+		reader.onloadstart = function (e) {
+			$('.progress_bar').addClass('loading');
+		};
+
+		reader.onload = function (e) {
+			// Ensure that the progress bar displays 100% at the end.
+			progress.style.width = '100%';
+			progress.textContent = '100%';
+			setTimeout("$('.progress_bar').removeClass('loading');", 2000);
+		}
+
+		reader.readAsBinaryString(evt.target.files[0]);
+		// Перебираем все файлы которые загружают		
+		for (var i = 0, f; f = files[i]; i++) {
+			let itemValue = escape(f.name);
+			
+			// Пушив в масив елементы с названиями файлов
+			output.push(['<li class="modal-block_checkload-item">', truncate(itemValue), '<span>&times</span></li>'].join(''));			
+		}
+		// Вставляем масив в список
+		loadList.innerHTML = output.join('');
+
+		addScroll(output.length);
+		if (output.length > 0) {
+			$('.modal-block_checkload-btn').addClass('active');
+		}
+
+		$('.modal-block_checkload-item span').on('click', function () {
+			let itemIdx = $(this).closest('.modal-block_checkload-item').index();
+			output.splice(itemIdx, 1);
+			
+			$(this).closest('.modal-block_checkload-item').remove();
+			addScroll($('.modal-block_checkload-item').length);
+
+
+			if ($('.modal-block_checkload-item').length == 0) {
+				$('.modal-block_checkload-btn').removeClass('active');
+				$('.modal-block_checkload').fadeOut(100);
+				setTimeout(() => {
+					$('.modal-block_load').fadeIn(300);
+				}, 100);
+			}	
+		})
+	}
+
+	// Загрузка файлов по через Drag and Drop
+
+	function handleFileSelectDrop(evt) {
+		
+		evt.stopPropagation();
+		evt.preventDefault();
+
+		let files = evt.dataTransfer.files; // Сохраняем в переменую масив файлов		
+		// Сбрасываем каждый раз прогрес бар
+		progress.style.width = '0%';
+		progress.textContent = '0%';
+		// Создаем новый обьект
+		reader = new FileReader();
+		reader.onprogress = updateProgress;
+		// Начинаеться загрузка, показываем прогрес бар
+		reader.onloadstart = function (e) {
+			$('.progress_bar').addClass('loading');
+		};
+
+		reader.onload = function (e) {
+			// Ensure that the progress bar displays 100% at the end.
+			progress.style.width = '100%';
+			progress.textContent = '100%';
+			// Убираем полосу прогрес бара после загрузки
+			setTimeout("$('.progress_bar').removeClass('loading');", 2000);
+		}
+
+		reader.readAsBinaryString(evt.dataTransfer.files[0]);
+		// Перебираем все файлы которые загружают		
+		for (var i = 0, f; f = files[i]; i++) {
+			let itemValue = escape(f.name);
+			// Пушив в масив елементы с названиями файлов
+			output.push(['<li class="modal-block_checkload-item">', truncate(itemValue), '<span>&times</span></li>'].join(''));			
+		}
+		// Вставляем масив в список
+		loadList.innerHTML = output.join('');
+
+		addScroll(output.length);
+		if (output.length > 0) {
+			$('.modal-block_checkload-btn').addClass('active');
+		}
+		$('.modal-block_load-img svg path').css({'fill': '#fff'});
+		$('.modal-block_load-img').css({'transform': 'scale(1)'});
+
+		$('.modal-block_load').fadeOut(100);
+		setTimeout(() => {
+			$('.modal-block_checkload').fadeIn(300);
+		}, 100);
+
+		$('.modal-block_checkload-item span').on('click', function () {
+			let itemIdx = $(this).closest('.modal-block_checkload-item').index();
+			output.splice(itemIdx, 1);
+
+			$(this).closest('.modal-block_checkload-item').remove();
+			addScroll($('.modal-block_checkload-item').length);
+			if ($('.modal-block_checkload-item').length == 0) {
+				$('.modal-block_checkload-btn').removeClass('active');
+				$('.modal-block_checkload').fadeOut(100);
+				setTimeout(() => {
+					$('.modal-block_load').fadeIn(300);
+				}, 100);
+			}
+		})
+	}
+
+	function handleDragOver(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+		evt.dataTransfer.dropEffect = 'copy';
+
+		$('.modal-block_load-img svg path').css('fill', '#9b47e5');
+		$('.modal-block_load-img').css({ 'transform': 'scale(1.2)' });
+	}
+	function handleDragLeave(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+
+		$('.modal-block_load-img svg path').css('fill', '#fff');
+		$('.modal-block_load-img').css({ 'transform': 'scale(1)' });
+	}
+
+	function updateProgress(evt) {
+		// evt is an ProgressEvent.
+		if (evt.lengthComputable) {
+			var percentLoaded = Math.round((evt.loaded / evt.total) * 100);
+			// Increase the progress bar length.
+			if (percentLoaded < 100) {
+				progress.style.width = percentLoaded + '%';
+				progress.textContent = percentLoaded + '%';
+			}
+		}
+	}
+
+	function createProgressbar () {
+		
+	}
+
+	// Следим за изменением инпута
+	document.getElementById('load-input').addEventListener('change', handleFileSelectClick, false);
+
+	dropZone.addEventListener('dragover', handleDragOver, false);
+	dropZone.addEventListener('dragleave', handleDragLeave, false);
+	dropZone.addEventListener('drop', handleFileSelectDrop, false);
+
+
+	
+	// Обрезаем лишние буквы ставим ...
+	function truncate(value) {
+		if (value.length > 10) {
+			return value.substring(0, 10) + '...';
+		} else {
+			return value;
+		}
+	}
+
+	// Если список имеет больше 9 елементов, делаем скролл блока
+	function addScroll(value) {
+		if (value > 9) {
+			loadList.style.height = 125 + 'px';
+			loadList.style.overflow = 'auto';
+		} else {
+			loadList.style.height = 'auto';
+			loadList.style.overflow = 'visible';
+		}
+	}	
+}
