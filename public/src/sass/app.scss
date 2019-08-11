@@ -1606,9 +1606,8 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 // NEW MODAL REQUESTS
 
 #form_request {
-	// display: none;
-	display: block;
-	background: rgba(0, 0, 0, 0.8);
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
 	.modal {
 		&-main {
 			display: flex;

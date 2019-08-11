@@ -261,7 +261,12 @@ $('#modal_gallery_owl').on('show.bs.modal', function (event) {
 
 // NEW MODAL WINDOW
 
-if ($('#form_request').length) {	
+if ($('#form_request').length) {
+	// Тестовое открытие
+	$("#top .search a.mbutton").on("click", function () {
+		$('#form_request').show()
+		return false
+	})
 	let close = $('#form_request .modal-close');
 	// Закрытие POP-UP
 	close.on('click', function (){
