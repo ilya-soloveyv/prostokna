@@ -22,6 +22,7 @@ const db = config.get('db')
 app.use(cookieParser())
 app.locals.env = process.env;
 app.use(express.static('public'))
+app.use(express.static('wp')) // Удалить, и папку и строку когда старый сайт будет неактуален
 app.set('view engine', 'pug')
 const multer = require('multer')
 const sharp = require('sharp')
