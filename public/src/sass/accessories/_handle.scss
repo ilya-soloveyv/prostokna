@@ -261,14 +261,14 @@
 		}
 		.window {
 			&_handle {			
-				width: 90%;
-				left: 60%;
+				width: 85%;
+    		left: 55%;
 				@media screen and (max-width: 1200px){
-					width: 130%;
+					width: 115%;
 				}
 				@media screen and (max-width: 992px){
 					width: 80%;
-					left: auto;
+					left: -5%;
 				}
 				@media screen and (max-width: 576px){
 					width: 70%;
