@@ -69,21 +69,21 @@ block content
 						input(type="hidden" name="metrika" value="zayavka")
 						input(type="hidden" name="page_path" value= page_path)
 						.calc-form__wrapp
-							input.calc-form__input#name(type="text", name="name")
+							input.calc-form__input#name(type="text", name="name", tabindex="1")
 							label.calc-form__label(for="name") Имя (обязательно)
 						.calc-form__wrapp
-							input.calc-form__input#tel(name="tel")
+							input.calc-form__input#tel(name="tel", tabindex="2")
 							label.calc-form__label(for="tel") Телефон (обязательно)
 						.calc-form__wrapp
-							input.calc-form__input#email(type="email", name="email")
+							input.calc-form__input#email(type="email", name="email", tabindex="3")
 							label.calc-form__label(for="email") Email
 						.calc-form__wrapp
 							.file-wrap
 								label
-									input.calc-form__input#file-input(type="file", name="image", multiple)
+									input.calc-form__input#file-input(type="file", name="image", multiple, tabindex="4")
 									span.file-info#file-list-display Прикрепить эскиз
 						.calc-form__wrapp
-							textarea.calc-form__text#message(name="message")
+							textarea.calc-form__text#message(name="message", tabindex="5")
 							label.calc-form__label(for="message") Описание
 						button(type="submit")#file-catcher.calc-form__btn.active Отправить
 

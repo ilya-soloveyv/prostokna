@@ -15,22 +15,32 @@ $(document).ready(function () {
 			center: true,
 			dots: false
 		});
-		regSlider.on('click', '.owl-item', function () {
-			//получить индекс
-			var click = $(this).index() + 1;
-			//по клику листаем к слайду на который кликнули
-			regSlider.trigger('to.owl.carousel', [click]);
-			// Или добавляем свою функцию вместо листания
-		});
+		$('.owl-item').on('click', function() {
+			var centerSlide = $('.owl-item.active.center').index();
+			var currentSlide = $(this).index();
+			if (centerSlide < currentSlide) {
+				regSlider.trigger('next.owl.carousel');
+			} else {
+				regSlider.trigger('prev.owl.carousel');
+			}
+		})
 	
 
-		regSlider.on('changed.owl.carousel', function(){
+		regSlider.on('next.owl.carousel', function(){
 			let active = $('.owl-item.active.center .regulation_window-checkitem'),
 					activeIdx = active.attr('data-tab'),
-				num = +activeIdx - 1,
-				activeSld = $('.regulation_window-infolist .regulation_window-infoitem').eq(num),
-					sld = $('.regulation_window-infolist .regulation_window-infoitem');
-			console.log(num);
+					num = +activeIdx - 1,
+					activeSld = $('.regulation_window-infolist .regulation_window-infoitem').eq(num),
+					sld = $('.regulation_window-infolist .regulation_window-infoitem');			
+			sld.fadeOut(100);
+			activeSld.fadeIn(300);
+		});
+		regSlider.on('prev.owl.carousel', function(){
+			let active = $('.owl-item.active.center .regulation_window-checkitem'),
+					activeIdx = active.attr('data-tab'),
+					num = +activeIdx - 1,
+					activeSld = $('.regulation_window-infolist .regulation_window-infoitem').eq(num),
+					sld = $('.regulation_window-infolist .regulation_window-infoitem');			
 			sld.fadeOut(100);
 			activeSld.fadeIn(300);
 		});

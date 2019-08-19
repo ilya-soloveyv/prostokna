@@ -26,6 +26,7 @@ if ($('.instruction').length) {
 		$('.dn1').removeClass('active')
 		$('.dn12').removeClass('active')
 		$('.dc1').removeClass('color')
+		$('.button-list').removeClass('disable');
 
 		$('.dc2').removeClass('color')
 		$('.dn2').removeClass('active')
@@ -98,6 +99,9 @@ if ($('.instruction').length) {
 				$('.dn1').addClass('active')
 				$('.dn12').addClass('active')
 				$('.dc1').addClass('color')
+				if ($(window).width() > 992) {
+					$('.button-list').addClass('disable');
+				}
 				// b
 				$('#balcony-top').addClass('show');
 				$('#balcony-center').addClass('op3');
@@ -115,6 +119,9 @@ if ($('.instruction').length) {
 				$('.dn12').addClass('active')
 				$('.dn2').addClass('active')
 				$('.dc2').addClass('color')
+				if ($(window).width() > 992) {
+					$('.button-list').addClass('disable');
+				}
 				// b
 				$('.b-line2').addClass('color');
 				$('#balcony-center').addClass('op3');
@@ -125,6 +132,9 @@ if ($('.instruction').length) {
 				$('#center').addClass('op3')
 				$('.line').addClass('op3')
 				$('.under').addClass('op3')
+				if ($(window).width() > 992) {
+					$('.button-list').addClass('disable');
+				}
 				// b
 				$('#balcony-right').addClass('show');
 				$('#balcony-center').addClass('op3');
@@ -140,6 +150,9 @@ if ($('.instruction').length) {
 				$('.line').addClass('op3');
 				$('.under').addClass('op3');
 				$('#max-down').addClass('op3');
+				if ($(window).width() > 992) {
+					$('.button-list').addClass('disable');
+				}
 			} else if (index == 4) {
 				$('.line5').addClass('db4');
 				$('.part').addClass('op3');
@@ -148,6 +161,9 @@ if ($('.instruction').length) {
 				$('.under').addClass('op3');
 				$('#max-down').addClass('op3');
 				$('.part5').addClass('stroke');
+				if ($(window).width() > 992) {
+					$('.button-list').addClass('disable');
+				}
 			} else if (index == 5) {
 				$('#max-down').addClass('op3');
 				$('.block3').addClass('op3');
@@ -157,6 +173,11 @@ if ($('.instruction').length) {
 				$('.under').addClass('op3')
 				$('.rain').addClass('active');
 				$('.dashdot').addClass('active');
+				$('.dn1').addClass('active')
+				$('.dn2').addClass('active')
+				if ($(window).width() > 992) {
+					$('.button-list').addClass('disable');
+				}
 			}
 
 			$('.instruction__wrapp.active .num .num__item').eq(index).removeClass('none').addClass('active').siblings().removeClass('active').addClass('none')
@@ -183,6 +204,22 @@ if ($('.instruction').length) {
 		$(this).toggleClass('active');
 		$('.instruction__wrapp.active .instruction__more').slideToggle();
 	});
+
+	// Кнопки примеров шаблона
+	if ($(window).width() > 993) {
+		$('.button-show').hover(hoverIn, hoverOut);
+		$('.button-download').hover(hoverIn, hoverOut);
+	}
 	
-	
+	if ($(window).width() < 992) {
+		$('.button-show').find('span.active').text('Смотреть пример');
+		$('.button-download').find('span.active').text('Cкачать шаблон');
+	}
+
+	function hoverIn() {		
+		$(this).find('span.active').removeClass('active').siblings().addClass('active');
+	}
+	function hoverOut() {		
+		$(this).find('span.active').removeClass('active').siblings().addClass('active');
+	}
 }
