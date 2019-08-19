@@ -22,6 +22,7 @@ const db = config.get('db')
 app.use(cookieParser())
 app.locals.env = process.env;
 app.use(express.static('public'))
+app.use(express.static('wp')) // Удалить, и папку и строку когда старый сайт будет неактуален
 app.set('view engine', 'pug')
 const multer = require('multer')
 const sharp = require('sharp')
@@ -340,6 +341,9 @@ app.get('*', async (req, res, next) => {
 
     // res.json(data.productMenu)
     // res.json(data.brandMenu)
+
+    data.page_path = req.path
+    // console.log(req.path)
 
     next()
 })
@@ -1716,6 +1720,9 @@ app.get('/brand/:sBrandURI', async (req, res) => {
                 {
                     model: Product_image
                 }
+            ],
+            order: [
+                [ Product_image, 'iOrder', 'ASC']
             ]
         })
         data.brand = brand[0]
@@ -1884,6 +1891,8 @@ app.post('/send', async (req, res) => {
         var to = (req.body.to && req.body.to != 'undefined') ? req.body.to : false
         var subject = (req.body.subject && req.body.subject != 'undefined') ? req.body.subject : false
         var message = (req.body.message && req.body.message != 'undefined') ? req.body.message : false
+        var page_path = (req.body.page_path && req.body.page_path != 'undefined') ? req.body.page_path : false
+        
 
         if (name) {
             message_html+= "<p>Имя: <b>" + name + "</b></p>"
@@ -1908,6 +1917,9 @@ app.post('/send', async (req, res) => {
         }
         if (subject) {
             message_html+= "<p>Источник: <b>" + subject + "</b></p>"
+        }
+        if (page_path) {
+            message_html+= "<p>Страница: <b>" + page_path + "</b></p>"
         }
         if (message) {
             message_html+= "<p>Сообщение: <b>" + message + "</b></p>"

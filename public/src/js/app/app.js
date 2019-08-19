@@ -80,6 +80,13 @@ $(".form_contact").submit(function (event) {
         return false
     }
 
+    // Цель Метрика
+    var metrika = $(this).find('input[name=metrika]').val()
+    if (metrika) {
+        yaCounter21714754.reachGoal(metrika)
+    }
+    
+
     $("#zay_modal").modal('hide')
     $("#thanks_modal").modal()            
 
@@ -93,6 +100,7 @@ $(".form_contact").submit(function (event) {
     form.append('to', $(this).find('input[name="to"]').val())
     form.append('subject', $(this).find('input[name="subject"]').val())
     form.append('message', $(this).find('input[name="message"]').val())
+    form.append('page_path', $(this).find('input[name="page_path"]').val())
 
     if ($(this).find('input[type=file]').length) {
         var files = $(this).find('input[type=file]')[0].files
@@ -254,6 +262,7 @@ $('#modal_gallery_owl').on('show.bs.modal', function (event) {
 // NEW MODAL WINDOW
 
 if ($('#form_request').length) {
+
 	Inputmask({ "mask": "+7 (999) 999-99-99" }).mask("#form_request input[name=phone]")
 
 	// Active placeholder script
@@ -262,6 +271,13 @@ if ($('#form_request').length) {
 			$(this).siblings('label').css('transform', 'translateY(-33px)');
 		}
 	});
+
+
+	// Тестовое открытие
+	$("#top .search a.mbutton").on("click", function () {
+		$('#form_request').show()
+		return false
+	})
 
 	let close = $('#form_request .modal-close');
 	let cloverlay = $('#form_request .form-overlay');

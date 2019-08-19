@@ -1,0 +1,301 @@
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+select[multiple]{
+	min-width: 250px;
+	min-height: 150px;
+}
+
+/* ------------------------------------------------*/
+/* ---------->>> Shortcode Generator <<<-----------*/
+/* ------------------------------------------------*/
+.flow-shortcode-select { margin: 0 auto; clear: both; display: block; margin-bottom: 1em; width: 100%; max-width: 50%; }
+.flow-shortcode-field-container { background-color: #F3F3F3; border: 1px solid #E4E4E4; border-radius: 5px 5px 5px 5px; margin-bottom: 1em; padding: 1em; }
+.flow-shortcode-label { font-weight: 700; float: left; width: 15%; margin-right: 2%; word-wrap: break-word; }
+.flow-shortcode-field { float: left; width: 83%; }
+.flow-shortcode-field input { width: 100%; }
+.flow-shortcode-label-required { margin-left: 1%; color: #ee0000; }
+#send-shortcode { float: right; }
+.flow-shortcode-field input.flow-shortcode-field-colorpicker { width: 90%; float: left; margin-top: 8px; }
+.flow-shortcode-field input.flow-shortcode-field-upload { width: 80%; }
+
+@media (max-width: 1280px){
+	.flow-shortcode-field input.flow-shortcode-field-colorpicker { width: 75%; float: left; margin-top: 8px; }
+	.flow-shortcode-field input.flow-shortcode-field-upload { width: 65%; }
+}
+.flow-settings-checklist { padding-left: 0!important; margin: 1em 0!important; /* max-width: 600px; */ }
+.flow-settings-checklist li { border-bottom: 1px solid #eeeeee; padding: 5px; list-style: none outside none!important; }
+.flow-settings-checklist li:first-child { border-top: 1px solid #eeeeee; }
+
+/* -----------------------------------------------*/
+/* ------------->>> Admin Tables <<<--------------*/
+/* -----------------------------------------------*/
+.flow-admin-table { width: 100%; }
+.flow-admin-table tr { background: none repeat scroll 0 0 #F9F9F9; border: 1px solid #E4E4E4; margin: 0; padding-left: 3px; }
+	.flow-admin-table th { margin-top: 5px; font-weight: 700; text-align: right; }
+		.flow-admin-table td p { color: #aaa; font-size: 12px; }
+			.flow-admin-table td p code { color: #555; }
+			.flow-admin-table td p b { color: #666; }
+	.flow-admin-table td input, .flow-admin-table td textarea { padding: 4px; }
+	.flow-admin-table td, .flow-admin-table th { background-color: #fff; }
+
+.meta-boxes-table tr { background: none repeat scroll 0 0 #F9F9F9; border: 1px solid #E4E4E4; margin: 0; padding-left: 3px; }
+.meta-boxes-table th { font-weight: 700; text-align: right; }
+.meta-boxes-table code { color: #444; }
+.meta-boxes-table td p { clear: both; color: #AAAAAA; display: block; font-size: 12px!important; margin: 5px 0; }
+.meta-boxes-table td, .meta-boxes-table th { background-color: #fff; } 
+
+/* -----------------------------------------------*/
+/* ------------->>> SEO Meta Box <<<--------------*/
+/* -----------------------------------------------*/
+#flow_seo_snippet .default_title { display: none; }
+#flow_seo_snippet .title { color: #11c; font-size: 16px; line-height: 19px; text-decoration: underline; }
+#flow_seo_snippet .title:focus { color: #dd4b39; }
+#flow_seo_snippet .url { font-size: small; color: #093; line-height: 1; text-decoration: none; font-style: normal; clear: both; display: block; }
+#flow_seo_snippet .desc { font-size: 13px; line-height: 1.24; max-width: 512px; min-height: 34px; }
+	#flow_seo_snippet .desc .content { color: #222; }
+	
+.flow_seo_meta_box .wrong { font-weight: bold; color: #dd4b39; }
+.flow_seo_meta_box .good { font-weight: bold; color: #093; }
+.flow_seo_meta_box pre { white-space: pre-wrap; }
+
+/* -----------------------------------------------*/
+/* -------------->>> About Page <<<---------------*/
+/* -----------------------------------------------*/
+.about-table tr { border: 1px solid #E4E4E4; }
+.flow-welcome-panel {
+    border-style: solid;
+    border-width: 1px 0;
+    line-height: 1.6em;
+    margin: 20px 8px;
+    overflow: auto;
+    padding: 30px 10px 20px;
+    position: relative;
+}
+.flow-welcome-panel {
+    border-color: #DFDFDF;
+}
+.flow-welcome-panel h3 {
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0.1em 0 0.8em;
+}
+.flow-welcome-panel h4 {
+    font-size: 16px;
+	line-height: 1.25;
+}
+.flow-welcome-panel .flow-welcome-panel-close {
+    font-size: 13px;
+    padding: 8px 3px;
+    position: absolute;
+    right: 10px;
+    text-decoration: none;
+    top: 0;
+}
+.flow-welcome-panel .flow-welcome-panel-close:before {
+    background: url("images/xit.gif") no-repeat scroll 0 17% transparent;
+    content: " ";
+    height: 100%;
+    left: -12px;
+    position: absolute;
+    width: 10px;
+}
+.flow-welcome-panel .flow-welcome-panel-close:hover:before {
+    background-position: 100% 17%;
+}
+.flow-welcome-panel .wp-badge {
+    float: left;
+    margin-bottom: 20px;
+}
+.flow-welcome-panel-content {
+    max-width: 1500px;
+}
+.flow-welcome-panel-content .about-description, .flow-welcome-panel h3 {
+    margin-left: 190px;
+}
+.flow-welcome-panel p.flow-welcome-panel-dismiss {
+    clear: both;
+    padding: 1em 0 0;
+}
+.flow-welcome-panel .flow-welcome-panel-column-container {
+    clear: both;
+    overflow: hidden;
+    padding-left: 26px;
+    position: relative;
+}
+.flow-welcome-panel .flow-welcome-panel-column {
+    float: left;
+    margin: 0 5% 0 -25px;
+    min-width: 200px;
+    padding-left: 25px;
+    width: 30%;
+}
+.flow-welcome-panel .flow-welcome-panel-column.flow-welcome-panel-last {
+    margin-right: 0;
+}
+.flow-welcome-panel h4 .icon16 {
+    margin-left: -32px;
+}
+.flow-welcome-panel .flow-welcome-panel-column ul {
+    margin: 1.6em 1em 1em 1.3em;
+}
+.flow-welcome-panel .flow-welcome-panel-column li {
+    list-style-type: disc;
+    padding-left: 2px;
+}
+.about-wrap {
+    font-size: 15px;
+    margin: 25px 40px 0 20px;
+    max-width: 1050px;
+    position: relative;
+}
+.flow-about-description {
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.625;
+}
+.flow-about-description {
+    margin-top: 1.4em;
+}
+.flow-welcome-panel-content .flow-about-description, .flow-welcome-panel h3 {
+    margin-left: 190px;
+}
+.flow-welcome-panel p {
+    color: #777777;
+}
+.flow-welcome-panel-column {
+	color: #464646;
+	font-size: 14px;
+	line-height: 1.625;
+}
+.flow-welcome-panel-column p {
+	 color: #464646;
+}
+.form-table.about-table th { text-align: left; }
+.about-table { margin-bottom: 0; }
+.about-table td, .about-table th { font-size: 14px; }
+
+/* -----------------------------------------------*/
+/* ------------->>> Styling Page <<<--------------*/
+/* -----------------------------------------------*/
+.flow-styling-title { font-weight: bold; text-align: right; display: block; line-height: 100%; margin-top: 8px; }
+.flow-styling-subtitle { clear: both; color: #AAAAAA; display: block; font-size: 11px; font-style: italic; font-weight: normal; line-height: 130%; margin-top: 5px; text-align: right; }
+.flow_styling_input { float: left; min-width: 150px; padding: 7px; width: 15%; margin-right: 10px; }
+.ui-slider-horizontal { 
+	 background: none repeat-x scroll 50% 50% #FFFFFF;
+	border: 1px solid #AAAAAA;
+	color: #222222;
+	display: block;
+	float: left;
+	height: 3px;
+	position: relative;
+	width: 200px;
+	margin-top: 14px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: none repeat scroll 0 0 #BBBBBB;
+    border: 1px solid #999999;
+	color: #555555;
+	display: block;
+	font-weight: normal;
+	height: 20px;
+	position: relative;
+	width: 10px;
+}
+.ui-slider .ui-slider-handle {
+	cursor: default;
+	height: 1.2em;
+	position: absolute;
+	width: 1.2em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	margin-left: -0.6em;
+	top: -0.55em;
+}
+.ui-slider-range-min {
+	background: none repeat scroll 0 0 #DDDDDD;
+	display: block;
+	height: 3px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 42.4893%;
+}
+.ui-slider-handle[style*="left: 0%"]:after {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #EE5555;
+    content: "OFF";
+    font-size: 10px;
+    font-weight: bold;
+    left: 15px;
+    line-height: 145%;
+    padding-left: 5px;
+    padding-right: 2px;
+    position: absolute;
+    text-transform: uppercase;
+    width: 105px;
+	
+	background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+}
+.ui-slider-handle[style*="left: 0%"] {
+    background-color: #EE5555;
+    border: 1px solid #AA4444;
+    border-radius: 3px 3px 3px 3px;
+}
+
+::-webkit-input-placeholder  { font-style:italic; color:#ccc; }
+.flow_styling_input:-moz-placeholder { font-style:italic; color:#ccc; }
+.flow_styling_input::-webkit-input-placeholder { font-style:italic; color:#ccc; }
+.flow_styling_input::-moz-placeholder { font-style:italic; color:#ccc; }
+
+.flow-styling-info pre code{
+	background-color: #F9F9F9;
+    border: 1px solid #EEEEEE;
+    display: block;
+    font-size: 12px;
+    line-height: 125%;
+    padding: 20px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+.flow-styling-info {
+	font-size: 15px; 
+	line-height: 150%;
+}
+.flow-styling-info-list {
+	font-size: 15px;
+    line-height: 150%;
+    list-style: square outside none;
+    margin-left: 50px;
+}
+.flow-styling-info-list li {
+	padding-left: 10px;
+}
+.form-table.flow-styling-table th { text-align: left; }
+
+/* ------------------------------------------------*/
+/* ------------->>> Image Sampler <<<--------------*/
+/* ------------------------------------------------*/
+.ims_canvas_wrapper { color:#000; margin: 10px auto 20px; position:relative; width:730px; }
+	.ims_column1 { float:left; width: 500px; padding-right:20px; }
+		#panel { cursor: crosshair; display: block; }
+	.ims_column2 { float:left; width: 190px; }
+		.ims_column2 > div { margin-bottom:5px; }
+		.ims_column2 input[type=text] { width:110px; }
+#swImage { border:1px #000 solid; cursor:pointer; height:25px; line-height:25px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+#swImage:hover { margin-left:2px; }
+#preview { border:1px #000 solid; height:80px; width:80px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+.imagesampler-uploader .flowuploader_media_preview_image img { display: none; }
+.form-table td .empty-canvas { width: 390px; height: 292px; border: 3px dashed #eee; display: table; }
+.form-table td .empty-canvas > p { display: table-cell; font-size: 24px!important; line-height: 110%; text-align: center; vertical-align: middle; padding: 40px; }
