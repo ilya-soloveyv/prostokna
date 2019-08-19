@@ -102,6 +102,8 @@ if ($('.calculation').length) {
 	}
 
 	$('.calc-form__btn').on('click', function(e) {
+		alert(1)
+		return false
 		// e.preventDefault();
 	});
 	const uploadButton = document.querySelector('.browse-btn');

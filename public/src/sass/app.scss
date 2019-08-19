@@ -1606,6 +1606,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 // NEW MODAL REQUESTS
 
 #form_request {
+
 	// display: none;
 	align-items: center;
 	justify-content: center;
@@ -1619,7 +1620,8 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 		position: absolute;
 		top: 0;
 		left: 0;
-	}
+	}    
+
 	.modal {
 		&-main {
 			display: flex;

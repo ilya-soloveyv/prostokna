@@ -66,6 +66,8 @@ block content
 				.calc-content
 					form.form_contact.calc-form
 						input(type="hidden" name="subject" value="Заказать точный расчет")
+						input(type="hidden" name="metrika" value="zayavka")
+						input(type="hidden" name="page_path" value= page_path)
 						.calc-form__wrapp
 							input.calc-form__input#name(type="text", name="name", tabindex="1")
 							label.calc-form__label(for="name") Имя (обязательно)
