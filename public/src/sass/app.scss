@@ -850,11 +850,11 @@ ul.social_icons {
                   &.viber:hover {
                     background-image: url('/images/social_icons/viber_rgb.svg')
                 }
-                &.skype {
-                    background-image: url('/images/social_icons/skype_bl.svg')
+                &.telegram {
+                    background-image: url('/images/social_icons/telegram_bl.svg')
                 }
-                  &.skype:hover {
-                    background-image: url('/images/social_icons/skype_rgb.svg')
+                  &.telegram:hover {
+                    background-image: url('/images/social_icons/telegram_rgb.svg')
                 }
                 &.facebook {
                     background-image: url('/images/social_icons/facebook_bl.svg')
@@ -900,11 +900,11 @@ ul.social_icons {
                   &.viber:hover {
                     background-image: url('/images/social_icons/viber_rgb.svg')
                 }
-                &.skype {
-                    background-image: url('/images/social_icons/skype_bl.svg')
+                &.telegram {
+                    background-image: url('/images/social_icons/telegram_bl.svg')
                 }
-                  &.skype:hover {
-                    background-image: url('/images/social_icons/skype_rgb.svg')
+                  &.telegram:hover {
+                    background-image: url('/images/social_icons/telegram_rgb.svg')
                 }
                 &.facebook {
                     background-image: url('/images/social_icons/facebook_bl.svg')
@@ -1607,22 +1607,35 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 
 #form_request {
 	// display: none;
-	display: block;
-	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.form-overlay {
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	.modal {
 		&-main {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-			height: 100%;
-			width: 100%;
+			// height: 100%;
+			// width: 100%;
 		}
 		&-title {
+			position: relative;
 			text-transform: uppercase;
 			color: #fff;
 			font-size: 16px;
 			font-family: 'MontserratSemiBold';
+			@media screen and (max-width: 576px){
+				font-size: 12px;
+			}
 		}
 		&-wrapp {
 			position: relative;
@@ -1635,6 +1648,12 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 			width: 635px;
 			height: 412px;
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+			@media screen and (max-width: 768px){
+				width: 500px;
+			}
+			@media screen and (max-width: 576px){
+				width: 90vw;
+			}
 		}
 		&-close {
 			font-size: 24px;
@@ -1653,6 +1672,14 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 			border-radius: 15px;
 			width: calc(100% - 280px);
 			height: calc(100% - 120px);
+			@media screen and (max-width: 768px){
+				width: calc(100% - 150px);
+			}
+			@media screen and (max-width: 576px){
+				width: calc(100% - 60px);
+				height: calc(100% - 150px);
+				padding: 20px 30px;
+			}
 			&-title {
 				color: #fff;
 				font-size: 13px;
@@ -1665,6 +1692,9 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				margin-bottom: 38px;
 				transition: transform .25s;
 				svg {
+					@media screen and (max-width: 576px){
+						width: 100%;
+					}
 					path {
 						transition: fill .25s;
 					}
@@ -1703,12 +1733,18 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				color: #fff;
 				text-transform: uppercase;
 				font-size: 10px;
+				@media screen and (max-width: 576px){
+					width: 100%;
+				}
 			}
 		}
 		&-block_checkload {			
 			width: 100%;
 			padding: 0px 47px;      
       display: none;
+			@media screen and (max-width: 576px){
+				padding: 0px 25px; 
+			}
 			&-list {
 				display: flex;
 				justify-content: flex-start;
@@ -1748,8 +1784,19 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
         margin-top: 15px;
 				margin-right: 3.5%;	
         white-space: nowrap;
+				@media screen and (max-width: 576px){
+					width: 44%;
+				}
         &:nth-child(-n + 3) {
           margin-top: 0;
+					@media screen and (max-width: 576px){
+						margin-top: 15px;
+					}
+        }
+        &:nth-child(-n + 2) {
+          @media screen and (max-width: 576px){
+						margin-top: 0;
+					}
         }
 				span {					
 					display: block;          
@@ -1779,6 +1826,9 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
         margin-bottom: 65px;
         text-align: left;
         cursor: pointer;
+				@media screen and (max-width: 576px){
+					width: 44%;
+				}
         &:after {
 					content: '+';
 					display: block;
@@ -1826,6 +1876,10 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				font-family: 'MontserratSemiBold';
 				color: rgba(255, 255, 255, 0.5);
 				cursor: pointer;
+				@media screen and (max-width: 576px){
+					width: 50%;
+					max-width: 180px;
+				}
         &.active {
           background: linear-gradient(to right, #9b47e5 0%, #e45ae9 100%);
           color: #fff;
@@ -1836,6 +1890,25 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 			padding: 0px 128px;
 			width: 100%;
 			display: none;
+			@media screen and (max-width: 768px){
+				padding: 0px 50px;
+			}
+			@media screen and (max-width: 576px){
+				padding: 0px 30px;
+			}
+			.input-wrapp {
+				position: relative;
+				label {
+					position: absolute;
+					top: 12px;
+					left: 23px;
+					color: rgba(255, 255, 255, 0.57);
+					margin-bottom: 0;
+					font-size: 14px;
+					transition: transform .25s;
+					pointer-events: none;
+				}
+			}
 			&-input {
 				background: transparent;
 				border: 2px solid #585858;
@@ -1843,13 +1916,18 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				border-radius: 40px;
 				display: block;
 				width: 100%;
-				margin-bottom: 19px;
+				margin-bottom: 30px;
 				color: #fff;
 				font-size: 12px;
 				font-family: 'MontserratMedium';
 				caret-color: #9b47e5;
+				transition: .25s;
 				&:focus {
 					outline: none;
+					border: 2px solid #9b47e5;
+					&+label {
+						transform: translateY(-33px);
+					}
 				}
 			}
 			&-buttons {
@@ -1897,6 +1975,14 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 			border-radius: 18px;
 			padding: 37px 72px;
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+			@media screen and (max-width: 768px){
+				width: 540px;
+				padding: 37px 52px;
+			}
+			@media screen and (max-width: 576px){
+				width: 90vw;
+				padding: 30px 42px;
+			}
 			.count {
 				text-align: center;
 				color: #fff;				

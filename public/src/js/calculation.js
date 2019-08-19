@@ -23,12 +23,16 @@ if ($('.calculation').length) {
 			contents = $('.calc-content');	
 	
 
-	$('.calc-form__input').keyup(function (){
-		$(this).siblings('.calc-form__label').css('transform', 'translateY(-150%)');
+	$('.calc-form__input').change(function (){		
+		if ($(this).val().length) {
+			$(this).siblings('.calc-form__label').css('transform', 'translateY(-150%)');
+		}
 	});
 
-	$('.calc-form__text').keyup(function (){
-		$(this).siblings('.calc-form__label').css('transform', 'translateY(-150%)');
+	$('.calc-form__text').change(function (){
+		if ($(this).val().length) {
+			$(this).siblings('.calc-form__label').css('transform', 'translateY(-150%)');
+		}
 	});
 	
 

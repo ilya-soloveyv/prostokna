@@ -124,7 +124,7 @@
 									vertical-align: top;
 									display: inline-block;
 									width: 50%;
-									font-size: 12px;
+									font-size: 14px;
 									@media (max-width: 1200px) {
 										padding: 10px 0 30px 25px;
 										font-size: 14px;
@@ -259,6 +259,20 @@
 						}
 					@media (max-width: 576px) {
 						height: 56%;
+					}
+					.mob-adress {
+						display: none;
+						@media screen and (max-width: 576px){
+							display: block;
+							background: #2d70e4;
+							color: #fff;
+							padding: 3px 10px;
+							font-size: 11px;
+							position: absolute;
+							top: 30%;
+    					left: 25%;
+							z-index: 1000;
+						}
 					}
 					.map {
 						position: absolute;
@@ -532,3 +546,4 @@
         }
     }
 }
+

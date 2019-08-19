@@ -23,18 +23,22 @@
 						p Кор/с 30101810400000000225
 						p БИК 044525205
 			.contacts__form
-				img(src='/images/contact/Keyboard.svg')
 				form.form.form_contact
 					input(type="hidden" name="subject" value="Контакты")
 					.left-block
 						.form-group.mb-0
-							input(name="name" placeholder='ИМЯ *')
+							input(name="name")
+							label.form-label Имя
 							.invalid-feedback Необходимо указать Ваше имя
 						.form-group.mb-0
-							input(name="email" placeholder='EMAIL')
+							input(name="email")
+							label.form-label Email
 						.form-group.mb-0
-							input(name="tel" placeholder='ТЕЛЕФОН *')
+							input(name="tel")
+							label.form-label Телефон
 							.invalid-feedback Необходимо указать контактный номер
 					.right-block
-						textarea(name="message" placeholder='СООБЩЕНИЕ')
+						.form-group.mb-0
+							textarea(name="message")
+							label.form-label Сообщение
 						button отправить
