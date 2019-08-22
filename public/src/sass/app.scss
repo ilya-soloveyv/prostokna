@@ -1608,9 +1608,11 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 #form_request {
 
 	// display: none;
-	display: flex;
 	align-items: center;
 	justify-content: center;
+	&.active {
+		display: flex;
+	}
 	.form-overlay {
 		width: 100%;
 		height: 100%;
