@@ -169,6 +169,7 @@ html(lang="ru")
                     .wrap
                         .owl-carousel
         .modal#form_request(tabindex="-1", role="dialog")
+            .form-overlay
             form.modal-main
                 .modal-title Отправьте ваш макет / эскиз на расчет
                 .modal-wrapp
@@ -194,9 +195,15 @@ html(lang="ru")
                             .percent 0%
                         button(type="button").modal-block_checkload-btn Далее
                     .modal-block_form
-                        input.modal-block_form-input(type="text", name="name", placeholder="Ваше имя", required)
-                        input.modal-block_form-input(type="email", name="email", placeholder="Ваш email", required)
-                        input.modal-block_form-input(type="tel", name="phone", placeholder="Ваш номер телефона", required)
+                        .input-wrapp
+                            input#name.modal-block_form-input(type="text", name="name", required)
+                            label(for="name") Ваше имя
+                        .input-wrapp
+                            input#email.modal-block_form-input(type="email", name="email", required)
+                            label(for="email") Ваш email
+                        .input-wrapp
+                            input#phone.modal-block_form-input(type="tel", name="phone", required)
+                            label(for="phone") Ваш номер телефона
                         .modal-block_form-buttons
                             button.modal-block_form-back(type="button") Назад
                             button.modal-block_form-submit Отправить

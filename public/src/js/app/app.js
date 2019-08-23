@@ -262,14 +262,33 @@ $('#modal_gallery_owl').on('show.bs.modal', function (event) {
 // NEW MODAL WINDOW
 
 if ($('#form_request').length) {
+
+	Inputmask({ "mask": "+7 (999) 999-99-99" }).mask("#form_request input[name=phone]")
+
+	// Active placeholder script
+	$('.modal-block_form input').change(function () {
+		if ($(this).val().length) {
+			$(this).siblings('label').css('transform', 'translateY(-33px)');
+		}
+	});
+
+
 	// Тестовое открытие
 	$("#top .search a.mbutton").on("click", function () {
 		$('#form_request').show()
 		return false
 	})
+
 	let close = $('#form_request .modal-close');
+	let cloverlay = $('#form_request .form-overlay');
 	// Закрытие POP-UP
 	close.on('click', function (){
+		$('#form_request').fadeOut(300);
+	});
+	$('.modal-result').on('click', function (){
+		$('#form_request').fadeOut(300);
+	});
+	cloverlay.on('click', function (){
 		$('#form_request').fadeOut(300);
 	});
 	$('.modal-result').on('click', function (){
@@ -368,7 +387,7 @@ if ($('#form_request').length) {
 		reader.readAsBinaryString(evt.target.files[0]);
 		// Перебираем все файлы которые загружают		
 		for (var i = 0, f; f = files[i]; i++) {
-			let itemValue = escape(f.name);
+			let itemValue = f.name;
 			
 			// Пушив в масив елементы с названиями файлов
 			output.push(['<li class="modal-block_checkload-item">', truncate(itemValue), '<span>&times</span></li>'].join(''));			
@@ -429,7 +448,7 @@ if ($('#form_request').length) {
 		reader.readAsBinaryString(evt.dataTransfer.files[0]);
 		// Перебираем все файлы которые загружают		
 		for (var i = 0, f; f = files[i]; i++) {
-			let itemValue = escape(f.name);
+			let itemValue = f.name;
 			// Пушив в масив елементы с названиями файлов
 			output.push(['<li class="modal-block_checkload-item">', truncate(itemValue), '<span>&times</span></li>'].join(''));			
 		}
