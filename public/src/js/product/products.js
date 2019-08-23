@@ -1,26 +1,3 @@
-// $(document).on("click", ".productsMenu__brands__brand a", function () {
-//     $('.productsMenu__brands__brand').removeClass('active')
-//     $(this).parent().addClass('active')
-//     var index = $(this).parent().index()
-//     $('.productsMenu__products__list').removeClass('active')
-//     $('.productsMenu__products__list').eq(index).addClass('active')
-//     return false
-// })
-
-
-// $(document).on("click", ".brand_list_link", function () {
-//     $(this).parents('.list').find('.brand_list_item').removeClass('open')
-//     $(this).parents('.brand_list_item').addClass('open')
-//     return false
-// }).on("click", "#productMenu .list .item .title ul li", function () {
-//     $(this).addClass('active').siblings().removeClass('active')
-//     return false
-// }).on("click", "#productMenu .filter .category ul li a", function () {
-//     $(this).parent().addClass('active').siblings().removeClass('active')
-//     return false
-// })
-
-
 if ($('#productMenu').length) {
     var productsMenu = new Vue({
         el: '#productMenu',
@@ -28,6 +5,7 @@ if ($('#productMenu').length) {
             iProductID: 0,
             filterParams: {
                 iProductTypeID: false,
+                sProductTypeTitle: 'test',
                 iMaterialID: false,
                 sMaterialTitle: false,
                 iMaterialCategoryID: false,
@@ -48,7 +26,7 @@ if ($('#productMenu').length) {
         created: function () {
             this.get()
         },
-        mounted: function() {
+        mounted: function () {
             Vue.set(this, 'iProductID', Number(this.$el.getAttribute('data-iProductID')))
         },
         watch: {
@@ -156,10 +134,15 @@ if ($('#productMenu').length) {
                     if (this.materials[0]) {
                         Vue.set(this.mobile, 'iMaterialID', this.materials[0].iMaterialID)
                     }
-                    
+
+                    Vue.nextTick(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                    })
+
+
                 })
             },
-            onlyUnique: function (value, index, self) { 
+            onlyUnique: function (value, index, self) {
                 return self.indexOf(value) === index;
             },
             getFilterResult: function () {
@@ -167,49 +150,12 @@ if ($('#productMenu').length) {
                 Vue.set(this.filterParams, 'material', [])
                 Vue.set(this.filterParams, 'iMaterialID', false)
                 Vue.set(this.filterParams, 'iMaterialCategoryID', false)
-                
+
                 this.products.forEach(product => {
                     var check = product.product_producttypes.find(x => x.iProductTypeID === this.filterParams.iProductTypeID)
                     if (check) {
                         this.filterParams.product.push(product)
                     }
-                    // if (check) {
-                    //     var brand = this.filterResult.find(x => x.iBrandID === product.brand.iBrandID)
-                    //     if (brand) {
-                    //         brand.models.push({
-                    //             iProductID: product.iProductID,
-                    //             sProductTitle: product.sProductTitle,
-                    //             sProductURI: product.sProductURI,
-                    //         })
-                    //     } else {
-                    //         this.filterResult.push({
-                    //             iBrandID: product.brand.iBrandID,
-                    //             sBrandTitle: product.brand.sBrandTitle,
-                    //             models: [
-                    //                 {
-                    //                     iProductID: product.iProductID,
-                    //                     sProductTitle: product.sProductTitle,
-                    //                     sProductURI: product.sProductURI,
-                    //                 }
-                    //             ]
-                    //         })
-                    //     }
-                    //     // Добавляем материал в фильтр поиска и делаем первый пункт активным
-                    //     var check = this.filterParams.material.find(x => x.iMaterialID === product.iMaterialID)
-                    //     if (check) {
-                            
-                    //     } else {
-                    //         var material = this.materials.find(x => x.iMaterialID === product.iMaterialID)
-                    //         this.filterParams.material.push({
-                    //             iMaterialID: material.iMaterialID,
-                    //             sMaterialTitle: material.sMaterialTitle
-                    //         })
-                    //     }
-                    //     if (this.filterParams.material[0]) {
-                    //         Vue.set(this.filterParams, 'iMaterialID', this.filterParams.material[0].iMaterialID)
-                    //     }
-                    //     // *** //
-                    // }                    
                 })
 
                 var iMaterialID = []
@@ -224,8 +170,8 @@ if ($('#productMenu').length) {
                     }
                 })
 
-                var iMaterialIDUnique = iMaterialID.filter( this.onlyUnique )
-                var iMaterialCategoryIDUnique = iMaterialCategoryID.filter( this.onlyUnique )
+                var iMaterialIDUnique = iMaterialID.filter(this.onlyUnique)
+                var iMaterialCategoryIDUnique = iMaterialCategoryID.filter(this.onlyUnique)
 
                 this.materials.forEach(material => {
                     var check = iMaterialIDUnique.find(x => x === material.iMaterialID)
@@ -245,7 +191,7 @@ if ($('#productMenu').length) {
                                     iMaterialCategoryID: category.iMaterialCategoryID,
                                     sMaterialCategoryTitle: category.sMaterialCategoryTitle
                                 })
-                            }                            
+                            }
                         })
                     }
                 })
@@ -257,6 +203,9 @@ if ($('#productMenu').length) {
                     }
                 }
 
+                let sProductTypeTitle = this.producttypes.find(x => x.iProductTypeID === this.filterParams.iProductTypeID).sProductTypeTitle
+                Vue.set(this.filterParams, 'sProductTypeTitle', sProductTypeTitle)
+
                 this.getResult()
 
             },
@@ -267,7 +216,7 @@ if ($('#productMenu').length) {
                     Vue.set(this.filterParams, 'iMaterialCategoryID', material.material_categories[0].iMaterialCategoryID)
                 } else {
                     Vue.set(this.filterParams, 'iMaterialCategoryID', false)
-                }                
+                }
                 this.getResult()
             },
             filterMaterialCategoryClick: function () {
@@ -305,6 +254,7 @@ if ($('#productMenu').length) {
                     this.filterResult.push({
                         iBrandID: product.iBrandID,
                         sBrandTitle: product.brand.sBrandTitle,
+                        sBrandURI: product.brand.sBrandURI,
                         models: [product_temp],
                         active: false
                     })

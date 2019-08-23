@@ -558,6 +558,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                     await Product_color.update({
                         iColorID: image.iColorID,
                         sProductColorFilename: image.sProductColorFilename,
+                        iIndex: image.iIndex,
                     }, {
                         where: {
                             iProductColorID: image.iProductColorID
@@ -568,6 +569,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         iProductID: iProductID,
                         iColorID: image.iColorID,
                         sProductColorFilename: image.sProductColorFilename,
+                        iIndex: image.iIndex,
                     })
                 }
             }
