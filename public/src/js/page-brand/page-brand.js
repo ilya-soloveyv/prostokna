@@ -13,7 +13,7 @@ if ($('#page-brand').length) {
     // contain: true,
     swipeToSlide: true,
     focusOnSelect: true,
-    centerMode: true,
+    // centerMode: true,
     // centerPadding: 0,
     asNavFor: '.gallery2',
     responsive: [
