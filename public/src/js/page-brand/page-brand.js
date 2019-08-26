@@ -39,6 +39,12 @@ if ($('#page-brand').length) {
     // var index = Number($(this).attr('data-slick-index'))
     // $('.gallery2').slick('slickGoTo', index)
   })
+  $('.gallery .slick-slide').on("mouseover", function () {
+    $(this).addClass('slick-current').siblings().removeClass('slick-current')
+    // var index = Number($(this).attr('data-slick-index'))
+    // $('.gallery2').slick('slickGoTo', index)
+  })
+
   $('.gallery2').slick({
     // infinite: true,
     slidesToShow: 1,
