@@ -19,9 +19,14 @@ block content
                 each item, key in product
                     div(class=0 ? 'active' : '')
                         if (item.product_images[0])
-                            .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
-                                a(href="/product/" + item.sProductURI)
-                                    img(src="/images/page-brand/look.svg")
+                            if item.product_colors[0]
+                                .sProductImage(style="background-image: url(/images/product/color/" + item.product_colors[0].sProductColorFilename + ")")
+                                    a(href="/product/" + item.sProductURI)
+                                        img(src="/images/page-brand/look.svg")
+                            else
+                                .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
+                                    a(href="/product/" + item.sProductURI)
+                                        img(src="/images/page-brand/look.svg")
                         .sProductTitle #{ item.sProductTitle }
         .productSelected
             .gallery2
@@ -30,7 +35,12 @@ block content
                         if (item.product_images[0])
                             .sProductImage
                                 .bg
-                                    img(src="/images/product/gallery/" + item.product_images[0].sProductImageFrontName)
-                                    a(href="/product/" + item.sProductURI)
-                                        img(src="/images/page-brand/look.svg")
+                                    if item.product_colors[0]
+                                        img(src="/images/product/color/" + item.product_colors[0].sProductColorFilename)
+                                        a(href="/product/" + item.sProductURI)
+                                            img(src="/images/page-brand/look.svg")
+                                    else
+                                        img(src="/images/product/gallery/" + item.product_images[0].sProductImageFrontName)
+                                        a(href="/product/" + item.sProductURI)
+                                            img(src="/images/page-brand/look.svg")
                         .sProductTitle #{ item.sProductTitle }

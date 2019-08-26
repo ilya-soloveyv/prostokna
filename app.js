@@ -1721,6 +1721,13 @@ app.get('/brand/:sBrandURI', async (req, res) => {
             include: [
                 {
                     model: Product_image
+                },
+                {
+                    model: Product_color,
+                    required: false,
+                    where: {
+                        iIndex: 1
+                    }
                 }
             ],
             order: [
