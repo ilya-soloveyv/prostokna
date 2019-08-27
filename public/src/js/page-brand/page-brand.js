@@ -1,4 +1,5 @@
 if ($('#page-brand').length) {
+  $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
   $('.buttonDesc').click(function () {
     $('.sBrandDesc').show()
@@ -32,10 +33,10 @@ if ($('#page-brand').length) {
     ],
     prevArrow: '<button type="button" class="slick-prev"><img src="/images/page-brand/arrow.svg"></button>',
     nextArrow: '<button type="button" class="slick-next"><img src="/images/page-brand/arrow.svg"></button>'
-  }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    // $('.gallery2').slick('slickGoTo', nextSlide + 1)
   })
-  $('.gallery .slick-slide').on("click", function () {
+  $('.gallery .slick-slide').on("click", function (e) {
+    e.preventDefault()
+    return false;
     // var index = Number($(this).attr('data-slick-index'))
     // $('.gallery2').slick('slickGoTo', index)
   })

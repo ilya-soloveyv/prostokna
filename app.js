@@ -1716,7 +1716,8 @@ app.get('/brand/:sBrandURI', async (req, res) => {
     if (brand[0]) {
         data.product = await Product.findAll({
             where: {
-                iBrandID: brand[0].iBrandID
+                iBrandID: brand[0].iBrandID,
+                iActive: 1,
             },
             include: [
                 {

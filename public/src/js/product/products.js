@@ -1,4 +1,5 @@
 if ($('#productMenu').length) {
+    $('[data-toggle="popover"]').popover()
     var productsMenu = new Vue({
         el: '#productMenu',
         data: {
