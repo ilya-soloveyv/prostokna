@@ -3,6 +3,8 @@ extends ../layouts/app
 block content
     #page-brand
         .title
+            a(href="/product")
+                .material-icons(data-toggle="tooltip" data-placement="right" title="Вернуться к меню") reply
             .brand_title #{brand.sBrandTitle}
             .dropdown.dropright
                 .ico(id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
@@ -22,11 +24,13 @@ block content
                             if item.product_colors[0]
                                 .sProductImage(style="background-image: url(/images/product/color/" + item.product_colors[0].sProductColorFilename + ")")
                                     a(href="/product/" + item.sProductURI)
-                                        img(src="/images/page-brand/look.svg")
+                                        .linkp
+                                            img(src="/images/page-brand/look.svg")
                             else
                                 .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
                                     a(href="/product/" + item.sProductURI)
-                                        img(src="/images/page-brand/look.svg")
+                                        .linkp
+                                            img(src="/images/page-brand/look.svg")
                         .sProductTitle #{ item.sProductTitle }
         .productSelected
             .gallery2
