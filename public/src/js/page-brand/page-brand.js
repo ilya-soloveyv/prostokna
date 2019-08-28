@@ -1,9 +1,9 @@
 if ($('#page-brand').length) {
-  $('body').css({
-    overflow: 'hidden',
-    position: 'fixed',
-    width: '100%'
-  })
+  // $('body').css({
+  //   overflow: 'hidden',
+  //   position: 'fixed',
+  //   width: '100%'
+  // })
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
   $('.buttonDesc').click(function () {
