@@ -1,4 +1,5 @@
 if ($('#page-brand').length) {
+  $('body').css({overflow: 'hidden'})
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
   $('.buttonDesc').click(function () {
