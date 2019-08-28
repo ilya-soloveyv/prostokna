@@ -3,8 +3,9 @@ extends ../layouts/app
 block content
     #page-brand
         .title
-            a(href="/product")
-                .material-icons(data-toggle="tooltip" data-placement="right" title="Вернуться к меню") reply
+            .back
+                a(href="/product")
+                    img(src="/images/page-brand/arrow.svg" alt="Вернуться к меню" data-toggle="tooltip" data-placement="right" title="Вернуться к меню")
             .brand_title #{brand.sBrandTitle}
             .dropdown.dropright
                 .ico(id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
@@ -13,7 +14,8 @@ block content
                     each item in brands
                         a.dropdown-item(href="/brand/" + item.sBrandURI, class= (item.iBrandID == brand.iBrandID) ? 'active' : '') #{ item.sBrandTitle }
         .desc
-            .sBrandDesc #{ brand.sBrandDesc }
+            .sBrandDesc
+                .text #{ brand.sBrandDesc }
                 .closeDesc
             .buttonDesc Описание
         .products
