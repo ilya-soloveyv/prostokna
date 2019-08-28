@@ -39,9 +39,12 @@ if ($('#page-brand').length) {
     prevArrow: '<button type="button" class="slick-prev"><img src="/images/page-brand/arrow.svg"></button>',
     nextArrow: '<button type="button" class="slick-next"><img src="/images/page-brand/arrow.svg"></button>'
   })
-  $('.gallery .slick-slide').on("click", function (e) {
-    e.preventDefault()
-    return false;
+  $('.gallery .slick-slide a').on("click", function (e) {
+    if ($(window).width() <= 1200) {
+      e.preventDefault()
+    }
+    // 
+    // return false;
     // var index = Number($(this).attr('data-slick-index'))
     // $('.gallery2').slick('slickGoTo', index)
   })

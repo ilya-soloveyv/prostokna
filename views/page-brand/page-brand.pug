@@ -3,9 +3,9 @@ extends ../layouts/app
 block content
     #page-brand
         .title
-            .back
+            .back.red-tooltip(data-toggle="tooltip" data-placement="left" title="Вернуться к меню")
                 a(href="/product")
-                    img(src="/images/page-brand/arrow.svg" alt="Вернуться к меню" data-toggle="tooltip" data-placement="right" title="Вернуться к меню")
+                    img(src="/images/page-brand/arrow.svg" alt="Вернуться к меню")
             .brand_title #{brand.sBrandTitle}
             .dropdown.dropright
                 .ico(id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
@@ -21,19 +21,17 @@ block content
         .products
             .gallery
                 each item, key in product
-                    div(class=0 ? 'active' : '')
-                        if (item.product_images[0])
-                            if item.product_colors[0]
-                                .sProductImage(style="background-image: url(/images/product/color/" + item.product_colors[0].sProductColorFilename + ")")
-                                    a(href="/product/" + item.sProductURI)
-                                        .linkp
-                                            img(src="/images/page-brand/look.svg")
-                            else
-                                .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
-                                    a(href="/product/" + item.sProductURI)
-                                        .linkp
-                                            img(src="/images/page-brand/look.svg")
-                        .sProductTitle #{ item.sProductTitle }
+                    div
+                        a(href="/product/" + item.sProductURI)
+                            if (item.product_images[0])
+                                if item.product_colors[0]
+                                    .sProductImage(style="background-image: url(/images/product/color/" + item.product_colors[0].sProductColorFilename + ")")
+                                else
+                                    .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
+                            .sProductTitle #{ item.sProductTitle }
+                            .linkp
+                                img(src="/images/page-brand/look.svg")
+
         .productSelected
             .gallery2
                 each item, key in product
