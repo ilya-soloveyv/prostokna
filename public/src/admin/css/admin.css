@@ -134,6 +134,15 @@ body {
     position: absolute;
     right: 3px;
     top: 3px; }
+  .ProductEdit .card-color label.file_upload button.iIndex {
+    top: 37px; }
+    .ProductEdit .card-color label.file_upload button.iIndex.active {
+      background: #28A745 !important; }
+      .ProductEdit .card-color label.file_upload button.iIndex.active i {
+        color: white; }
+    .ProductEdit .card-color label.file_upload button.iIndex i {
+      display: block;
+      font-size: 19px; }
 
 .ProductEdit textarea {
   height: 390px; }

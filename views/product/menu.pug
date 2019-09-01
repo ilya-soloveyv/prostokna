@@ -20,7 +20,11 @@
                     v-bind:class="{ active: brand.active }"
                     )
                     .brand-data
-                        a.brand-page-link(:href="'/brand/' + brand.sBrandURI")
+                        a.brand-page-link(
+                            :href="'/brand/' + brand.sBrandURI"
+                            data-toggle="tooltip"
+                            data-placement="left"
+                            title="Перейти на страницу бренда")
                             .ico-info
                         a.brand-title(href="#" v-on:click.prevent="clickBrand(brand)") {{ brand.sBrandTitle }}
                         .ico(v-on:click.prevent="clickBrand(brand)")
@@ -107,7 +111,9 @@
                                     template {{ model.sProductTitle }}
                                     template(v-if="model.sBrusTitle")  {{ model.sBrusTitle }}
     .wrap
-        .title Выберите материал
+        .title
+            template(v-if="!openFilter") Выберите материал
+            template(v-else) {{ filterParams.sProductTypeTitle }}
         .button
             label.filterButton(:class="{ active: openFilter }")
                 .ico
@@ -117,7 +123,9 @@
                     )
         .options
             .materials(v-if="!openFilter && mobile.material")
-                .sMaterialTitle(data-toggle="dropdown") {{ mobile.material.sMaterialTitle }}
+                .sMaterialTitle(data-toggle="dropdown")
+                    span {{ mobile.material.sMaterialTitle }}
+                    i.material-icons.material-icons-add add
                 .dropdown-menu
                 .list
                     template(v-for="material, key in materials")
@@ -140,7 +148,9 @@
                     label(
                         :for="'categoryMobile_' + category.iMaterialCategoryID") {{ category.sMaterialCategoryTitle }}
             .materials(v-if="openFilter")
-                .sMaterialTitle(data-toggle="dropdown") {{ filterParams.sMaterialTitle }}
+                .sMaterialTitle(data-toggle="dropdown")
+                    span {{ filterParams.sMaterialTitle }}
+                    i.material-icons.material-icons-add add
                 .dropdown-menu
                 .list
                     template(v-for="material, key in filterParams.material")
@@ -211,6 +221,8 @@
                     v-bind:class="{ active: brand.active }"
                     )
                     .brand-data
+                        a.brand-page-link(:href="'/brand/' + brand.sBrandURI")
+                            .ico-info
                         a.brand-title(href="#" v-on:click.prevent="clickFilterBrand(brand)") {{ brand.sBrandTitle }}
                         .ico(v-on:click.prevent="clickFilterBrand(brand)")
                             i.material-icons.material-icons-add add

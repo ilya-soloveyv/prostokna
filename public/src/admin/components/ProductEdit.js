@@ -152,6 +152,16 @@ export default {
         },
         changeMaterial: function () {
             Vue.set(this.product, 'iMaterialCategoryID', null)
+        },
+        imageColorIndex: function (photo) {
+            this.product.product_colors.forEach((element) => {
+                let i = 0
+                if (photo.iProductColorID == element.iProductColorID) {
+                    i = 1
+                }
+                Vue.set(element, 'iIndex', i)
+            })
+            // console.log(photo)
         }
     },
     template: `
@@ -460,6 +470,9 @@ export default {
                                                     <input type="file" :name="index" @change="uploadColor" />
                                                     <img v-if="item.sProductColorFilename" :src="'/images/product/color/' + item.sProductColorFilename" />
                                                     <button type="button" class="btn btn-sm bg-light" v-on:click="removeImageColor(index)">del</button>
+                                                    <button type="button" class="btn btn-sm bg-light iIndex" v-on:click="imageColorIndex(item)" :class="{ active: item.iIndex }">
+                                                        <i class="material-icons">done</i>
+                                                    </button>
                                                 </label>
                                             </div>
                                             <div class="col">

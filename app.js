@@ -558,6 +558,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                     await Product_color.update({
                         iColorID: image.iColorID,
                         sProductColorFilename: image.sProductColorFilename,
+                        iIndex: image.iIndex,
                     }, {
                         where: {
                             iProductColorID: image.iProductColorID
@@ -568,6 +569,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         iProductID: iProductID,
                         iColorID: image.iColorID,
                         sProductColorFilename: image.sProductColorFilename,
+                        iIndex: image.iIndex,
                     })
                 }
             }
@@ -1714,11 +1716,19 @@ app.get('/brand/:sBrandURI', async (req, res) => {
     if (brand[0]) {
         data.product = await Product.findAll({
             where: {
-                iBrandID: brand[0].iBrandID
+                iBrandID: brand[0].iBrandID,
+                iActive: 1,
             },
             include: [
                 {
                     model: Product_image
+                },
+                {
+                    model: Product_color,
+                    required: false,
+                    where: {
+                        iIndex: 1
+                    }
                 }
             ],
             order: [
