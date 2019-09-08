@@ -1,11 +1,12 @@
 #regulation_windowall {
     font-family: 'Montserrat';
-    display: none;   
-    @media screen and (max-width: 992px) {
+    display: block;
+		@media screen and (max-width: 992px) {
         display: none;
     }
 }
 #regulation_window {
+		display: none;
     font-family: 'Montserrat';    
     @media screen and (max-width: 992px) {
         display: block;
@@ -163,6 +164,8 @@ ul, li {
         .regulation-problem {            
             min-height: 210px;
             cursor: pointer;
+						display: block;
+						text-decoration: none;
             &:last-child {
                 min-height: 0;
             }
@@ -206,24 +209,20 @@ ul, li {
     }
 }
 
-.regulation_window {
-
+.regulation_window {		
     &-header {
-        padding-top: 92px;
-        padding-bottom: 63px;
+        padding-top: 30px;
+        padding-bottom: 30px;
         position: relative;
-        @media screen and (max-width: 992px) {
-          padding-top: 40px;
-    			padding-bottom: 30px;
-        }
         @media screen and (max-width: 576px) {
-          padding-top: 30px;
-    			padding-bottom: 25px;
+          padding-top: 20px;
+    			padding-bottom: 20px;
         }
         .swap-d {
             position: absolute;
             left: 50px;
-            top: 84px;
+            top: 50%;
+						transform: translateY(-50%);
             @media screen and (max-width: 992px) {
                 display: none;
             } 
@@ -234,7 +233,7 @@ ul, li {
                 display: block;
                 position: absolute;
                 left: 50px;
-                bottom: 30px;
+                bottom: 23px;
             }
             @media screen and (max-width: 576px) {
                 left: 25px;
@@ -249,7 +248,7 @@ ul, li {
                 width: 92px;
                 padding: 8px 0;
                 margin: 0 auto;
-                margin-top: 30px;
+                margin-top: 20px;
                 border: none;
                 color: #fff;
                 text-transform: uppercase;
@@ -355,13 +354,13 @@ ul, li {
     }
     &-infolist {
         margin-top: 40px;
-				height: calc(100vh - 350px);
-				overflow-y: scroll;
+				height: calc(100vh - 255px);
+				overflow-y: auto;
 				@media screen and (max-width: 992px) {            
-            height: calc(100vh - 310px);
+            height: calc(100vh - 290px);
         }
 				@media screen and (max-width: 576px) {            
-            height: calc(100vh - 259px);
+            height: calc(100vh - 234px);
         }
 				&::-webkit-scrollbar { 
 					width: 5px;
@@ -387,17 +386,17 @@ ul, li {
     &-infoitem {
         display: none;      
         .info-title {
-            font-size: 11px;
+            font-size: 14px;
             text-transform: uppercase;
             text-align: center;
             font-weight: 400;
-            margin-bottom: 65px;
+            margin-bottom: 45px;
 						font-family: 'MontserratSemiBold';
             @media screen and (max-width: 992px) {
-                font-size: 9px;
+                font-size: 13px;
             }
             @media screen and (max-width: 576px) {
-                font-size: 7px;
+                font-size: 12px;
                 margin-bottom: 35px;
             }         
         }
@@ -425,7 +424,7 @@ ul, li {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					margin-bottom: 50px;
+					margin-bottom: 45px;
 					@media screen and (max-width: 576px){
 						flex-direction: column;
 					}

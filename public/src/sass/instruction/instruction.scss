@@ -152,7 +152,7 @@ $text: #353535;
 				padding: 87px;
 				background: #e4e4e4;
 				border-radius: 20px;
-				z-index: 3;
+				z-index: 101;
 				overflow: visible;
 				height: auto;
 			}
@@ -174,7 +174,7 @@ $text: #353535;
 			display: none;
 			@media screen and (max-width: 992px){
 				position: relative;
-				z-index: 5;
+				z-index: 102;
 				display: block;
 				width: 150px;
 				margin: 0 auto;
@@ -194,6 +194,10 @@ $text: #353535;
 				}
 				.clouse {
 					display: none;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
 					text-align: center;
 					color: #fff;
 					font-size: 25px;
@@ -206,9 +210,7 @@ $text: #353535;
 						display: none;
 					}
 					.clouse {
-						display: block;
-						margin-top: -1px;
-						margin-left: -1px;
+						display: block;						
 						animation: op .3s;
 					}				
 				}
@@ -996,7 +998,7 @@ $text: #353535;
 		transition: 0.3s;
 		&.active {
 			line {
-				stroke: $text;
+				stroke: $accent;
 			}
 		}
 	}

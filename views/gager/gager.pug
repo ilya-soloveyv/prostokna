@@ -47,16 +47,16 @@
         .overlay
         .popup-thanks
           img(src="/images/gager/check.svg", alt="check")
-          span Ваша заявка успешно отправлена. В ближайшее время с вами свяжется наш менеджер
+          span Спасибо) Ваша заявка успешно отправлена. В ближайшее время с вами свяжется наш менеджер.
         form.gager-form_main
           .input-wrapp
-            input#name.gager-input(type="text" name="name" tabindex="1")
+            input#name.gager-input(type="text" name="name" tabindex="1" required)
             label(for="name") Ваше имя
           .input-wrapp
-            input#email.gager-input(type="email" name="email" tabindex="2")
+            input#email.gager-input(type="email" name="email" tabindex="2" required)
             label(for="name") Ваш email
           .input-wrapp
-            input#phone.gager-input(type="phone" name="phone" tabindex="3")
+            input#phone.gager-input(type="phone" name="phone" tabindex="3" required)
             label(for="phone") Ваш телефон
           button.form-submit Вызвать замерщика
           a.go-to(href="#desc") Описание

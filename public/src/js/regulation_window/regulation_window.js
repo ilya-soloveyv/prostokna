@@ -6,6 +6,8 @@ $(document).ready(function () {
     $('.pop-up').fadeOut();    
   });
 
+	
+
 	if ($('#regulation_window').length) {
 		let regSlider = $('.regulation_window-chekclist');
 
@@ -13,7 +15,8 @@ $(document).ready(function () {
 			items: 3,
 			loop: true,
 			center: true,
-			dots: false
+			dots: false,
+			URLhashListener: true
 		});
 		$('.owl-item').on('click', function() {
 			var centerSlide = $('.owl-item.active.center').index();
@@ -57,6 +60,17 @@ $(document).ready(function () {
 		function workRightSwipe (e) {
 			regSlider.trigger('prev.owl.carousel');
 		}
+
+		$('.regulation-problem').on('click', function () {		
+			$('#regulation_windowall').fadeOut(250);
+			setTimeout(() => {
+				$('#regulation_window').fadeIn(250);
+			}, 250);			
+
+			var countClick = $(this).attr('data-pb');						
+			$('.regulation_window-infoitem').fadeOut();
+			$('.regulation_window-infoitem').eq(countClick-1).fadeIn();
+		});
 
 	}
 });

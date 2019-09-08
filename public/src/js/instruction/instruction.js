@@ -216,6 +216,20 @@ if ($('.instruction').length) {
 		$('.button-download').find('span.active').text('Cкачать шаблон');
 	}
 
+	window.onresize = function(event) {
+		if ($(window).width() > 993) {
+			$('.button-show').hover(hoverIn, hoverOut);
+			$('.button-download').hover(hoverIn, hoverOut);
+		}
+		if ($(window).width() < 992) {
+			$('.button-show').find('span.active').text('Смотреть пример');
+			$('.button-download').find('span.active').text('Cкачать шаблон');
+		} else {
+			$('.button-show').find('span.active').text('Пример');
+			$('.button-download').find('span.active').text('Шаблон');
+		}
+	};
+
 	function hoverIn() {		
 		$(this).find('span.active').removeClass('active').siblings().addClass('active');
 	}
