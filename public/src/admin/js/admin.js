@@ -50,8 +50,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    routes
-})
+    routes})
 
 const app = new Vue({
     router,

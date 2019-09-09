@@ -76,6 +76,13 @@
                                                     href="/product/" + item.sProductURI
                                                 )= item.sBrusTitle
                 .view2
+                    a.go-to-gallery(
+                        href="/gallery"
+                    )
+                        span
+                            img(
+                                src="/images/product/camera.svg"
+                            )
                     .back
                         if product.product_images[0] !== undefined
                             .bg
@@ -193,18 +200,34 @@
                                 li
                                     span Особенности профиля створки: 
                                     | #{product.FrameFeature}
-                ul.nav.nav-tabs
-                    .bg
-                    li.nav-item
-                        a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
-                            img.normal(src="/images/percent.svg", alt="")
-                            img.hover(src="/images/percent_hover.svg", alt="")
-                            span Характеристики
-                    li.nav-item
-                        a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
-                            span Описание
-                            img.normal(src="/images/list.svg", alt="")
-                            img.hover(src="/images/list_hover.svg", alt="")
+                div.btn-wrap
+                    ul.nav.nav-tabs
+                        .bg
+                        li.nav-item
+                            a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
+                                img.normal(src="/images/percent.svg", alt="")
+                                img.hover(src="/images/percent_hover.svg", alt="")
+                                span Характеристики
+                        li.nav-item
+                            a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
+                                span Описание
+                                img.normal(src="/images/list.svg", alt="")
+                                img.hover(src="/images/list_hover.svg", alt="")
+                    div.link-wrap
+                        a(
+                        href="#"
+                        )
+                            span
+                                img.normal._left(src="/images/link-brand.svg", alt="")
+                                img.hover._left(src="/images/link-brand_hover.svg", alt="")
+                                span О бренде
+                        a(
+                            href="#"
+                        )
+                            span.link-instalment-plan
+                                span Рассрочка
+                                img.normal._right(src="/images/percent.svg", alt="")
+                                img.hover._right(src="/images/percent_hover.svg", alt="")
                 .buttons
                     button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
@@ -241,12 +264,12 @@
                             .colorDesc
                                 span.sColorTitle
                                 span.sColorTitleCode
-                    button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+                    button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                 .view
         .desc
             each image in product.product_images
                 if image.iPhotoInDescOnPage == 1
-                    img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
+                    img.desc-img(src="/images/product/gallery/" + image.sProductImageFrontName, alt="")
             h1 #{product.brand.sBrandTitle} #{product.sProductTitle}
                 .small
                     if product.iGenerateUriBrus
@@ -256,4 +279,20 @@
                     else
                         span #{product.material.sMaterialTitle}
             .text!= product.sProductText
-            button(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+            .buttons-wrap
+                div.link-wrap
+                    a(
+                        href="#"
+                    )
+                        span
+                            img.normal._left(src="/images/link_garant.svg", alt="")
+                            img.hover._left(src="/images/link_garant_hover.svg", alt="")
+                            span О гарантии
+                    a(
+                        href="#"
+                    )
+                        span.link-instalment-plan
+                            span О монтаже
+                            img.normal._right(src="/images/link-mont.svg", alt="")
+                            img.hover._right(src="/images/link-mont_hover.svg", alt="")
+                button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор

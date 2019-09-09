@@ -9,8 +9,25 @@ if($('#calc').length) {
             data: {
                 title: "Калькулятор",
                 windows: [],
+                window: {
+                    title: 'Новое окно',
+                    price: 0,
+                    material: 0,
+                    brand: 0,
+                    model: 0,
+                    glazing: 0,
+                    collection: 0,
+                    window_x: 1000,
+                    window_y: 1000,
+                    door_x: 1000,
+                    door_y: 600,
+                    opening: {
+                        window: [],
+                        door: []
+                    }
+                },
                 current_window: null,
-                calcSumma: 0,
+                calcSum: 0,
                 materials: json.materials
             },
             computed: {
@@ -27,29 +44,15 @@ if($('#calc').length) {
             },
             methods: {
                 addNewWindow: function () {
-                    this.windows.push({
-                        title: 'Новое окна',
-                        price: 0,
-                        material: 0,
-                        brand: 0,
-                        model: 0,
-                        glazing: 0,
-                        collection: 0,
-                        window_x: 1000,
-                        window_y: 1000,
-                        door_x: 1000,
-                        door_y: 600,
-                        opening: {
-                            window: [],
-                            door: []
-                        }
-                    })
+                    this.windows.push(this.window)
+                    console.log(this.windows)
                     Vue.set(this, 'current_window', this.windows.length-1)
                     Vue.nextTick(function () {
                         vm.insertOpening()
                         $('.scrollbar-outer').scrollTop(9999)
                         vm.calc()
-                    })                    
+                    })
+                    console.log('click')
                 },
                 insertOpening: function () {
                     // окна
@@ -94,20 +97,38 @@ if($('#calc').length) {
                         Vue.delete(this.windows, index)
                     }
                 },
-                resetBrand: function () {
+                resetBrand: function (e) {
+                    let value = parseInt(e && e.target && e.target.value ? e.target.value : 0, 10)
+                    if (!this.materials[value].brands || !this.materials[value].brands.length) {
+                        value = 0
+                    }
                     Vue.set(this.windows[this.current_window], 'brand', 0)
+                    Vue.set(this.windows[this.current_window], 'material', value)
                     this.resetModel()
                 },
-                resetModel: function () {
+                resetModel: function (e) {
+                    let value = parseInt(e && e.target && e.target.value ? e.target.value : 0, 10)
+                    const materialIndex = this.windows[this.current_window].material
+                    // console.log(materialIndex)
+                    if (!this.materials[materialIndex].brands[value].models || !this.materials[materialIndex].brands[value].models.length) {
+                        value = 0
+                    }
                     Vue.set(this.windows[this.current_window], 'model', 0)
+                    Vue.set(this.windows[this.current_window], 'brand', value)
                     this.resetGlazing()
                 },
-                resetGlazing: function () {
+                resetGlazing: function (e) {
+                    let value = parseInt(e && e.target && e.target.value ? e.target.value : 0, 10)
+                    const brandIndex = this.windows[this.current_window].brand
+                    console.log(brandIndex)
                     Vue.set(this.windows[this.current_window], 'glazing', 0)
+                    Vue.set(this.windows[this.current_window], 'model', value)
                     this.resetType()
                 },
-                resetType: function () {
+                resetType: function (e) {
+                    let value = parseInt(e && e.target && e.target.value ? e.target.value : 0, 10)
                     Vue.set(this.windows[this.current_window], 'type', 0)
+                    Vue.set(this.windows[this.current_window], 'glazing', value)
                     this.calc()
                 },
                 useCollection: function (index) {
@@ -137,10 +158,11 @@ if($('#calc').length) {
             },
             mounted: function () {
                 // Тесты
-                this.addNewWindow()
-                Vue.nextTick(function () {
-                    $("#nav-tab a").eq(1).click()
-                })
+                //this.addNewWindow()
+                // Vue.nextTick(function () {
+                //     $("#nav-tab a").eq(1).click()
+                //     console.log('click tab')
+                // })
                 // *** //
             }
         })

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="13.02" height="12.928" viewBox="0 0 13.02 12.928">
   <g id="Group_344" data-name="Group 344" transform="translate(0.5 0.5)">
-    <path id="Path_402" data-name="Path 402" d="M.262,17.915a.262.262,0,1,1,0-.525h6.57a.262.262,0,0,1,0,.525Zm0,0" transform="translate(0 -5.987)" fill="#42a12b" stroke="#42a12b" stroke-width="1"/>
-    <path id="Path_403" data-name="Path 403" d="M.262,12.118a.259.259,0,1,1,0-.518H11.757a.262.262,0,0,1,0,.525H.262Zm0,0" transform="translate(0 -3.994)" fill="#42a12b" stroke="#42a12b" stroke-width="1"/>
-    <path id="Path_404" data-name="Path 404" d="M.262,6.325a.262.262,0,1,1,0-.525h6.57a.262.262,0,0,1,0,.525Zm0,0" transform="translate(0 -1.997)" fill="#42a12b" stroke="#42a12b" stroke-width="1"/>
-    <path id="Path_405" data-name="Path 405" d="M.262.525A.262.262,0,0,1,.262,0H11.757a.262.262,0,0,1,0,.525Zm0,0" fill="#42a12b" stroke="#42a12b" stroke-width="1"/>
+    <path id="Path_402" data-name="Path 402" d="M.262,17.915a.262.262,0,1,1,0-.525h6.57a.262.262,0,0,1,0,.525Zm0,0" transform="translate(0 -5.987)" fill="#42a12b" stroke="#86ECFB" stroke-width="1"/>
+    <path id="Path_403" data-name="Path 403" d="M.262,12.118a.259.259,0,1,1,0-.518H11.757a.262.262,0,0,1,0,.525H.262Zm0,0" transform="translate(0 -3.994)" fill="#42a12b" stroke="#86ECFB" stroke-width="1"/>
+    <path id="Path_404" data-name="Path 404" d="M.262,6.325a.262.262,0,1,1,0-.525h6.57a.262.262,0,0,1,0,.525Zm0,0" transform="translate(0 -1.997)" fill="#42a12b" stroke="#86ECFB" stroke-width="1"/>
+    <path id="Path_405" data-name="Path 405" d="M.262.525A.262.262,0,0,1,.262,0H11.757a.262.262,0,0,1,0,.525Zm0,0" fill="#86ECFB" stroke="#86ECFB" stroke-width="1"/>
   </g>
 </svg>
