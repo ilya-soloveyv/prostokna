@@ -35,6 +35,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/jquery-ui.min.js',
             'public/src/js/jquery.ui.touch-punch.min.js',
             'public/src/js/popper.js',
+            'public/src/js/jquery.loupe.min.js',
             'public/src/js/tooltip.min.js',
             'public/src/js/bootstrap.js',
             'public/src/js/swiped-events.js',            
@@ -85,7 +86,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/calculation.js',
             'public/src/js/page-brand/page-brand.js',
             'public/src/js/best-cost/best-cost.js',
-						'public/src/js/accessories/accessories.js',
+						'public/src/js/accessories/accessories.js',						
         ],{
             allowEmpty: true 
         })

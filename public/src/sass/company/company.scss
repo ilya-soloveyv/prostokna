@@ -76,7 +76,7 @@
 }
 
 section.company-header-section {
-  padding: 7vh 7vw 7vh;
+  padding: 7vh 7vw 2vh;
   background: #353535;
 }
 
@@ -212,7 +212,7 @@ section.company-header-section {
     position: absolute;
     width: 100%;
     height: 10px;
-    top: -20px;
+    top: -25px;
     width: 86vw;
     left: 50%;
     transform: translateX(-50%);
@@ -239,7 +239,7 @@ section.company-header-section {
 }
 
 .company-prostokna-section {
-  padding: 60px 7vw 18vh;
+  padding: 45px 7vw 65px;
   width: 100%;
   background-color: #ededed;
   h3 {
@@ -250,8 +250,8 @@ section.company-header-section {
     margin-bottom: 40px;
   }
 	h4 {
-		margin-top: 140px;
-		margin-bottom: 120px;
+		margin-top: 30px;
+		margin-bottom: 50px;
 		font-size: 1.375rem;
 		text-align: center;
 		font-weight: 600;
@@ -266,8 +266,7 @@ section.company-header-section {
 
 .company-prostokna-section-block {
   width: 25vw;
-  padding: 8vh 3.5vw 2vh 5vw;
-  padding: 7vh 2.5vw 2vh 4vw;
+  padding: 4vh 2.5vw 2vh 2.5vw;
   background: white;
   border: 1px solid #707070;
   border-radius: 20px;
@@ -286,7 +285,7 @@ section.company-header-section {
       overflow: hidden;
       line-height: 1.4rem;
 			margin-bottom: 30px;
-			padding-left: 20px;
+			padding-left: 35px;
       &:before {
 				position: absolute;
 				top: 0;
@@ -308,20 +307,23 @@ section.company-header-section {
 }
 
 
-.owl-carousel.company-section-slider {
+.company-section-slider {
 	width: 80%;
   margin: 44px auto;
-  .owl-nav button.owl-prev {
-    position: absolute;
-    top: 50%;
-    left: -10%;
-    transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 576px){
+    width: 100%;
+    flex-direction: column;
   }
-  .owl-nav button.owl-next {
-    position: absolute;
-    top: 50%;
-    right: -10%;
-    transform: translateY(-50%);
+  a {
+    display: block;
+    img {
+      @media screen and (max-width: 576px){
+        width: 100%;        
+      }      
+    }
   }
 }
 
@@ -420,7 +422,7 @@ section.company-header-section {
 	}
 
 	.company-header-section_text-block, .company-header_bottom_desc {
-  	padding: 7vh 7vw 7vh; 
+  	padding: 7vh 7vw 0vh; 
 	}
 
 	.company-header-slider_touch-icon {
@@ -442,7 +444,6 @@ section.company-header-section {
   .company-header {
     order: 2;
     width: 100%;
-    margin-bottom: 5vh;
     h3 {
       text-align: center;
       font-size: 1.3rem;
@@ -503,6 +504,6 @@ section.company-header-section {
   }
 
   .company-header_slider {
-    margin: 5vh 0;
+    margin: 3vh 0;
   }
 }
