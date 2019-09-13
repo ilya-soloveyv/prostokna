@@ -68,7 +68,7 @@ const Gallery_image = require('./models').gallery_image
 
 
 if (process.env.NODE_ENV != 'development') {
-    app.use(function(req, res, next) {
+    app.use(function (req, res, next) {
         if (req.secure) {
             next()
         } else {
@@ -78,7 +78,7 @@ if (process.env.NODE_ENV != 'development') {
 }
 
 app.all('*', (req, res, next) => {
-    if (req.headers.host.match(/^www/) !== null ) {
+    if (req.headers.host.match(/^www/) !== null) {
         res.redirect(301, 'https://' + req.headers.host.replace(/^www\./, '') + req.url)
     } else {
         next()
@@ -86,7 +86,7 @@ app.all('*', (req, res, next) => {
 })
 
 
-app.get('/getProductMenu', async(req, res) => {
+app.get('/getProductMenu', async (req, res) => {
     let result = {}
 
     result.materials = await Material.findAll({
@@ -275,11 +275,11 @@ app.get('*', async (req, res, next) => {
                     {
                         model: Material,
                         attributes: ['sMaterialTitle']
-                    },        
+                    },
                     {
                         model: Brus,
                         attributes: ['sBrusTitle']
-                    },        
+                    },
                 ]
             }
         ]
@@ -327,7 +327,7 @@ app.get('*', async (req, res, next) => {
                             list: []
                         }
                     )
-                    material_index = data.brandMenu[index1].products.material.length-1
+                    material_index = data.brandMenu[index1].products.material.length - 1
                 }
 
                 data.brandMenu[index1].products.material[material_index].list.push(product_item)
@@ -336,7 +336,7 @@ app.get('*', async (req, res, next) => {
                 data.brandMenu[index1].products.list.push(product_item)
             }
 
-        })        
+        })
     })
 
     // res.json(data.productMenu)
@@ -352,12 +352,12 @@ data.left_menu = [
     {
         title: 'Главная',
         uri: '/',
-        ico: [ '1.svg', '1a.svg' ]
+        ico: ['1.svg', '1a.svg']
     },
     {
         title: 'Окна',
         uri: '/product',
-        ico: [ '2.svg', '2a.svg' ]
+        ico: ['2.svg', '2a.svg']
     },
     // {
     //     title: 'Услуги',
@@ -367,32 +367,32 @@ data.left_menu = [
     {
         title: 'Галерея работ',
         uri: '/gallery',
-        ico: [ '4.svg', '4a.svg' ]
+        ico: ['4.svg', '4a.svg']
     },
     {
         title: 'О компании',
         uri: '/company',
-        ico: [ '5.svg', '5a.svg' ]
+        ico: ['5.svg', '5a.svg']
     },
     {
         title: 'Как мы работаем',
         uri: '/work',
-        ico: [ '6.svg', '6a.svg' ]
+        ico: ['6.svg', '6a.svg']
     },
     {
         title: 'Словарь оконных терминов',
         uri: '/wiki',
-        ico: [ '7.svg', '7a.svg' ]
+        ico: ['7.svg', '7a.svg']
     },
     {
         title: 'Сравнение профильных систем',
         uri: '/#s5',
-        ico: [ '8.svg', '8a.svg' ]
+        ico: ['8.svg', '8a.svg']
     },
     {
         title: 'Контакты',
         uri: '/contact',
-        ico: [ '9.svg', '9a.svg' ]
+        ico: ['9.svg', '9a.svg']
     },
 ]
 
@@ -428,33 +428,33 @@ app.get('/admin', auth.connect(basic), (req, res) => {
 })
 app.post('/admin/ProductList', async (req, res) => {
     var responce = {}
-        responce.product = await Product.findAll({
-            order: [
-                ['iProductID', 'ASC']
-            ],
-            include: [Brand, Material, Brus],
-        })
+    responce.product = await Product.findAll({
+        order: [
+            ['iProductID', 'ASC']
+        ],
+        include: [Brand, Material, Brus],
+    })
     res.json(responce)
 })
 app.post('/admin/ProductEdit', async (req, res) => {
     var responce = {}
-        responce.brand = await Brand.findAll()
-        responce.brus = await Brus.findAll()
-        responce.material = await Material.findAll()
-        responce.material_category = await Material_category.findAll()
-        responce.producttype = await Producttype.findAll()
-        responce.color = await Color.findAll({
-            order: [
-                ['iOrder', 'ASC'],
-                ['iColorID', 'ASC']
-            ]
-        })
-        if (req.body.iProductID) {
-            responce.product = await Product.getProduct(Number(req.body.iProductID))
-        }
-        responce.products = await Product.findAll({
-            include: [Brand, Material, Brus]
-        })
+    responce.brand = await Brand.findAll()
+    responce.brus = await Brus.findAll()
+    responce.material = await Material.findAll()
+    responce.material_category = await Material_category.findAll()
+    responce.producttype = await Producttype.findAll()
+    responce.color = await Color.findAll({
+        order: [
+            ['iOrder', 'ASC'],
+            ['iColorID', 'ASC']
+        ]
+    })
+    if (req.body.iProductID) {
+        responce.product = await Product.getProduct(Number(req.body.iProductID))
+    }
+    responce.products = await Product.findAll({
+        include: [Brand, Material, Brus]
+    })
     res.json(responce)
 })
 app.post('/admin/ProductUpdate', async (req, res) => {
@@ -485,14 +485,14 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         material_category = await Material_category.findByPk(req.body.product.iMaterialCategoryID, {
             attributes: ['sMaterialCategoryTitle']
         })
-        uri_string+= '_' + material_category.sMaterialCategoryTitle
+        uri_string += '_' + material_category.sMaterialCategoryTitle
     }
 
     if (req.body.product.iGenerateUriBrus && req.body.product.iBrusID) {
         brus = await Brus.findByPk(req.body.product.iBrusID, {
             attributes: ['sBrusTitle']
         })
-        uri_string+= '_' + brus.sBrusTitle
+        uri_string += '_' + brus.sBrusTitle
     }
 
     req.body.product.sProductURI = cyrillicToTranslit().transform(uri_string, "_").toLowerCase()
@@ -527,10 +527,10 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         iPhotoInDescOnPage: image.iPhotoInDescOnPage,
                         iOrder: image.iOrder,
                     }, {
-                        where: {
-                            iProductImageID: image.iProductImageID
-                        }                    
-                    })
+                            where: {
+                                iProductImageID: image.iProductImageID
+                            }
+                        })
                 } else if (image.del !== true) {
                     await Product_image.create({
                         iProductID: iProductID,
@@ -560,10 +560,10 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         sProductColorFilename: image.sProductColorFilename,
                         iIndex: image.iIndex,
                     }, {
-                        where: {
-                            iProductColorID: image.iProductColorID
-                        }                    
-                    })
+                            where: {
+                                iProductColorID: image.iProductColorID
+                            }
+                        })
                 } else if (image.del !== true) {
                     await Product_color.create({
                         iProductID: iProductID,
@@ -591,10 +591,10 @@ app.post('/admin/ProductUpdate', async (req, res) => {
                         iProductIDFrom: item.iProductIDFrom,
                         iProductIDTo: item.iProductIDTo,
                     }, {
-                        where: {
-                            iProductLinkID: item.iProductLinkID
-                        }                    
-                    })
+                            where: {
+                                iProductLinkID: item.iProductLinkID
+                            }
+                        })
                 } else if (item.del !== true) {
                     await Product_link.create({
                         iProductIDFrom: item.iProductIDFrom,
@@ -625,9 +625,9 @@ app.post('/admin/ProductUpdate', async (req, res) => {
 
 
     var responce = {}
-        // responce.brand = await Brand.findAll()
-        // responce.material = await Material.findAll()
-        responce.product = await Product.getProduct(iProductID)
+    // responce.brand = await Brand.findAll()
+    // responce.material = await Material.findAll()
+    responce.product = await Product.getProduct(iProductID)
     res.json(responce)
 })
 app.post('/admin/ProductDelete', async (req, res) => {
@@ -661,7 +661,7 @@ app.post('/admin/upload', (req, res) => {
     upload(req, res, function (err, responce) {
         res.json(req.file)
     })
-    
+
 })
 app.post('/admin/ProductUploadColor', (req, res) => {
     var filename = randomString() + '.' + req.headers.extension
@@ -681,19 +681,19 @@ app.post('/admin/ProductUploadColor', (req, res) => {
 
 app.post('/admin/ColorList', async (req, res) => {
     var data = {}
-        data.material = await Material.findAll()
-        data.color = await Color.findAll({
-            include: [
-                {
-                    model: Material
-                }
-            ],
-            order: [
-                ['iMaterialID', 'ASC'],
-                ['iOrder', 'ASC'],
-                ['iColorID', 'ASC']
-            ]
-        })
+    data.material = await Material.findAll()
+    data.color = await Color.findAll({
+        include: [
+            {
+                model: Material
+            }
+        ],
+        order: [
+            ['iMaterialID', 'ASC'],
+            ['iOrder', 'ASC'],
+            ['iColorID', 'ASC']
+        ]
+    })
     res.json(data)
 })
 app.post('/admin/ColorUpdate', async (req, res) => {
@@ -715,10 +715,10 @@ app.post('/admin/ColorUpdate', async (req, res) => {
             sColorTextureFileName: color.sColorTextureFileName,
             iOrder: color.iOrder,
         }, {
-            where: {
-                iColorID: color.iColorID
-            }                    
-        })
+                where: {
+                    iColorID: color.iColorID
+                }
+            })
     } else if (color.del !== true) {
         await Color.create({
             iMaterialID: color.iMaterialID,
@@ -731,18 +731,18 @@ app.post('/admin/ColorUpdate', async (req, res) => {
     }
 
     var data = {}
-        data.color = await Color.findAll({
-            include: [
-                {
-                    model: Material
-                }
-            ],
-            order: [
-                ['iMaterialID', 'ASC'],
-                ['iOrder', 'ASC'],
-                ['iColorID', 'ASC']
-            ]
-        })
+    data.color = await Color.findAll({
+        include: [
+            {
+                model: Material
+            }
+        ],
+        order: [
+            ['iMaterialID', 'ASC'],
+            ['iOrder', 'ASC'],
+            ['iColorID', 'ASC']
+        ]
+    })
     res.json(data)
 })
 app.post('/admin/ColorUpload', async (req, res) => {
@@ -763,8 +763,8 @@ app.post('/admin/ColorUpload', async (req, res) => {
 
 app.post('/admin/GalleryList', async (req, res) => {
     var data = {}
-        data.gallery_group = await Gallery_group.findAll()
-        data.gallery = await Gallery.getList()
+    data.gallery_group = await Gallery_group.findAll()
+    data.gallery = await Gallery.getList()
     res.json(data)
 })
 app.post('/admin/GalleryUpload', async (req, res) => {
@@ -784,15 +784,15 @@ app.post('/admin/GalleryUpload', async (req, res) => {
         var check = 0
         filesName.forEach(name => {
             sharp('./public/images/gallery/' + 'temp_' + name)
-            .resize(900, 900)
-            .toFile('./public/images/gallery/' + name, function(err, response) {
-                sharp.cache(false)
-                check++
-                if (check == filesName.length) {
-                    res.send(filesName)
-                }
-            })            
-        })        
+                .resize(900, 900)
+                .toFile('./public/images/gallery/' + name, function (err, response) {
+                    sharp.cache(false)
+                    check++
+                    if (check == filesName.length) {
+                        res.send(filesName)
+                    }
+                })
+        })
     })
 })
 app.post('/admin/GalleryUpdate', async (req, res) => {
@@ -828,10 +828,10 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
                         sGalleryImageName: image.sGalleryImageName,
                         iGalleryImageOrder: image.iGalleryImageOrder
                     }, {
-                        where: {
-                            iGalleryImageID: image.iGalleryImageID
-                        }                    
-                    })
+                            where: {
+                                iGalleryImageID: image.iGalleryImageID
+                            }
+                        })
                 } else if (image.del !== true) {
                     await Gallery_image.create({
                         iGalleryID: iGalleryID,
@@ -844,10 +844,10 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
     }
     await galleryImage()
 
-    
+
 
     var data = {}
-        data.gallery = await Gallery.getList()
+    data.gallery = await Gallery.getList()
     res.json(data)
 })
 app.post('/admin/GalleryRemove', async (req, res) => {
@@ -857,7 +857,7 @@ app.post('/admin/GalleryRemove', async (req, res) => {
         }
     })
     var data = {}
-        data.gallery = await Gallery.getList()
+    data.gallery = await Gallery.getList()
     res.json(data)
 })
 
@@ -879,20 +879,20 @@ app.post('/admin/BrandUpdate', async (req, res) => {
     var request = {}
 
     var brand = (req.body.brand) ? req.body.brand : {}
-        brand.sBrandTitle = (brand.sBrandTitle) ? brand.sBrandTitle : false
-        brand.iCountryID = (brand.iCountryID) ? brand.iCountryID : false
-        if (brand.sBrandTitle) {
-            brand.sBrandURI = cyrillicToTranslit().transform(brand.sBrandTitle, "_").toLowerCase()
-        }
-        brand.iActive = (brand.iActive) ? 1 : 0
-        brand.sBrandDesc = (brand.sBrandDesc) ? brand.sBrandDesc : null
+    brand.sBrandTitle = (brand.sBrandTitle) ? brand.sBrandTitle : false
+    brand.iCountryID = (brand.iCountryID) ? brand.iCountryID : false
+    if (brand.sBrandTitle) {
+        brand.sBrandURI = cyrillicToTranslit().transform(brand.sBrandTitle, "_").toLowerCase()
+    }
+    brand.iActive = (brand.iActive) ? 1 : 0
+    brand.sBrandDesc = (brand.sBrandDesc) ? brand.sBrandDesc : null
 
     if (brand.iBrandID && brand.sBrandTitle && brand.iCountryID) {
         await Brand.update(brand, {
             where: {
                 iBrandID: brand.iBrandID
-            }                    
-        })    
+            }
+        })
     } else {
         var { dataValues, iBrandID } = await Brand.create(brand)
         brand.iBrandID = iBrandID
@@ -928,10 +928,119 @@ app.post('/admin/BrandUpdate', async (req, res) => {
 //     next()
 // });
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     data.title = 'Просто окна'
     data.description = 'Просто Окна – замер, проектирование, изготовление и реализация светопрозрачных конструкций любых типов: пластиковые окна ПВХ, алюминиевые окна, деревянные окна из евробруса, витражи, фасады и стоечно-ригельные системы. Монтажные работы любой сложности. Окна от производителя по лучшим ценам в Москве, МО и России. Мы не занимаемся накруткой цены, вы точно знаете, за что платите. Просто Окна – с нами просто.'
     data.left_menu_active = 0
+
+    // Менюшка окон
+    // let MaterialBrandProductMenu = []
+    // let product = await Product.findAll({
+    //     attributes: ['iProductID', 'iMaterialID', 'iBrandID', 'sProductTitle', 'sProductURI'],
+    //     include: [
+    //         {
+    //             model: Brand,
+    //             attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI'],
+    //             where: {
+    //                 iActive: 1
+    //             }
+    //         },
+    //         {
+    //             model: Material,
+    //             attributes: ['iMaterialID', 'sMaterialTitle'],
+    //             where: {
+    //                 iActive: 1
+    //             }
+    //         },
+    //         {
+    //             model: Material_category,
+    //             attributes: ['iMaterialCategoryID', 'iMaterialID', 'sMaterialCategoryTitle'],
+    //         },
+    //     ],
+    //     where: {
+    //         iActive: 1
+    //     },
+    // })
+    // product.forEach((p) => {
+    //     let product_item = {
+    //         title: p.sProductTitle,
+    //         uri: '/product/' + p.sProductURI
+    //     }
+    //     let checkMaterial = MaterialBrandProductMenu.find(function (material) {
+    //         return material.iMaterialID == p.iMaterialID
+    //     })
+
+    //     // category
+    //     if (!checkMaterial) {
+    //         MaterialBrandProductMenu.push({
+    //             iMaterialID: p.material.iMaterialID,
+    //             title: p.material.sMaterialTitle,
+    //             uri: '#',
+    //             list: []
+    //         })
+    //     }
+
+    //     // material_category
+    //     if (p.material_category) {
+    //         let material_item = MaterialBrandProductMenu.find(function (material) {
+    //             return material.iMaterialID == p.iMaterialID
+    //         })
+    //         let material_category_item = material_item.list.find(function (material_category) {
+    //             return material_category.iMaterialCategoryID == p.material_category.iMaterialCategoryID
+    //         })
+    //         if (!material_category_item) {
+    //             material_item.list.push({
+    //                 iMaterialCategoryID: p.material_category.iMaterialCategoryID,
+    //                 title: p.material_category.sMaterialCategoryTitle,
+    //                 uri: '#',
+    //                 list: []
+    //             })
+    //         }
+    //     }
+
+    //     // brand
+        
+
+    // })
+
+        // material_category
+
+    //     if (checkMaterial) {
+    //         let checkBrand = checkMaterial.list.find(function (brand) {
+    //             return brand.iBrandID == p.iBrandID
+    //         })    
+    //         if (checkBrand) {
+    //             // console.log(checkBrand)
+    //             checkBrand.list.push(product_item)
+    //         } else {
+    //             checkMaterial.list.push({
+    //                 iBrandID: p.brand.iBrandID,
+    //                 title: p.brand.sBrandTitle,
+    //                 uri: '#',
+    //                 list: [product_item]
+    //             })
+    //         }
+    //     } else {
+    //         MaterialBrandProductMenu.push({
+    //             iMaterialID: p.material.iMaterialID,
+    //             title: p.material.sMaterialTitle,
+    //             uri: '#',
+    //             list: [
+    //                 {
+    //                     iBrandID: p.brand.iBrandID,
+    //                     title: p.brand.sBrandTitle,
+    //                     uri: '#',
+    //                     list: [product_item]
+    //                 }
+    //             ]
+    //         })
+    //     }
+    
+
+    // res.json(MaterialBrandProductMenu)
+    // res.json(product)
+    // return false
+
     data.s2_menu = [
         {
             title: 'Окна',
@@ -1533,7 +1642,7 @@ app.get('/calc_data', (req, res) => {
     fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
         if (err) throw err
         res.json(JSON.parse(data))
-    })    
+    })
 })
 
 app.get('/contact', (req, res) => {
@@ -1732,7 +1841,7 @@ app.get('/brand/:sBrandURI', async (req, res) => {
                 }
             ],
             order: [
-                [ Product_image, 'iOrder', 'ASC']
+                [Product_image, 'iOrder', 'ASC']
             ]
         })
         data.brand = brand[0]
@@ -1753,7 +1862,7 @@ app.get('/best-cost', (req, res) => {
     res.render('best-cost/best-cost.pug', data)
 })
 //app.get('/cheaper-together', (req, res) => {
-    //res.render('company/company.pug', data)
+//res.render('company/company.pug', data)
 //})
 
 app.get('/corporate', (req, res) => {
@@ -1835,37 +1944,37 @@ app.get('/accessories', async (req, res) => {
     data.title = 'Шторы'
     data.description = ''
     data.left_menu_active = null
-		res.render('accessories/access.pug', data)
+    res.render('accessories/access.pug', data)
 })
 app.get('/mesh', async (req, res) => {
     data.title = 'Сетки'
     data.description = ''
     data.left_menu_active = null
-		res.render('accessories/mesh.pug', data)
+    res.render('accessories/mesh.pug', data)
 })
 app.get('/jalousie', async (req, res) => {
     data.title = 'Жалюзи'
     data.description = ''
     data.left_menu_active = null
-	res.render('accessories/jalousie.pug', data)
+    res.render('accessories/jalousie.pug', data)
 })
 app.get('/handle', async (req, res) => {
     data.title = 'Ручки'
     data.description = ''
     data.left_menu_active = null
-	res.render('accessories/handle.pug', data)
+    res.render('accessories/handle.pug', data)
 })
 app.get('/flap', async (req, res) => {
     data.title = 'Клапаны'
     data.description = ''
     data.left_menu_active = null
-	res.render('accessories/flap.pug', data)
+    res.render('accessories/flap.pug', data)
 })
 app.get('/windowsill', async (req, res) => {
     data.title = 'Подоконники'
     data.description = ''
     data.left_menu_active = null
-	res.render('accessories/windowsill.pug', data)
+    res.render('accessories/windowsill.pug', data)
 })
 
 
@@ -1876,7 +1985,7 @@ app.post('/send', async (req, res) => {
     var dir = './public/upload/' + dir_name;
     var upload_files = []
 
-    if (!fs.existsSync(dir)){
+    if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
     }
 
@@ -1902,39 +2011,39 @@ app.post('/send', async (req, res) => {
         var subject = (req.body.subject && req.body.subject != 'undefined') ? req.body.subject : false
         var message = (req.body.message && req.body.message != 'undefined') ? req.body.message : false
         var page_path = (req.body.page_path && req.body.page_path != 'undefined') ? req.body.page_path : false
-        
+
 
         if (name) {
-            message_html+= "<p>Имя: <b>" + name + "</b></p>"
+            message_html += "<p>Имя: <b>" + name + "</b></p>"
         } else {
-            res.json({error: ['name']})
+            res.json({ error: ['name'] })
             return false
         }
         if (tel) {
-            message_html+= "<p>Телефон: <b>" + tel + "</b></p>"
+            message_html += "<p>Телефон: <b>" + tel + "</b></p>"
         } else {
-            res.json({error: ['tel']})
+            res.json({ error: ['tel'] })
             return false
         }
         if (email) {
-            message_html+= "<p>Электронная почта: <b>" + email + "</b></p>"
+            message_html += "<p>Электронная почта: <b>" + email + "</b></p>"
         }
         if (from) {
-            message_html+= "<p>Время звонка от: <b>" + from + "</b></p>"
+            message_html += "<p>Время звонка от: <b>" + from + "</b></p>"
         }
         if (to) {
-            message_html+= "<p>Время звонка до: <b>" + to + "</b></p>"
+            message_html += "<p>Время звонка до: <b>" + to + "</b></p>"
         }
         if (subject) {
-            message_html+= "<p>Источник: <b>" + subject + "</b></p>"
+            message_html += "<p>Источник: <b>" + subject + "</b></p>"
         }
         if (page_path) {
-            message_html+= "<p>Страница: <b>" + page_path + "</b></p>"
+            message_html += "<p>Страница: <b>" + page_path + "</b></p>"
         }
         if (message) {
-            message_html+= "<p>Сообщение: <b>" + message + "</b></p>"
+            message_html += "<p>Сообщение: <b>" + message + "</b></p>"
         }
-        message_html+= "<p>id: " + dir_name + "</p>"
+        message_html += "<p>id: " + dir_name + "</p>"
 
 
         var path = require('path')
@@ -1951,8 +2060,8 @@ app.post('/send', async (req, res) => {
             html: message_html,
             attachment: filepath
         };
-        
-        var mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN})
+
+        var mailgun = require('mailgun-js')({ apiKey: process.env.MAILGUN_KEY, domain: process.env.MAILGUN_DOMAIN })
         mailgun.messages().send(data, function (error, body) {
             res.json(200)
         })
