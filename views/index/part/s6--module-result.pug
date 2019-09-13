@@ -17,15 +17,16 @@ div(data-Module="module-result")
         div(data-grid="inner-result-2")
             .scrollbar-outer.vertical
                 figure(data-El="tabpanel-2", data-showed="true")
-                    //- ins(hidden="true").empty Еще не добавлено
+                    ins.empty(v-if="!windows.length") Еще не добавлено
 
                     ins(
+                        v-if="windows.length"
                         v-for="(item, index) in windows"
                         v-bind:class="{ active: index == current_window }"
                         v-on:click.self.capture="useWindow(index)"
                         )
                         i.material-icons( v-on:click="removeWindow(index)" ) close
-                        span( data-El="num", v-on:click="useWindow(index)" ) {{ item.title }} {{ index }}
+                        span( data-El="num", v-on:click="useWindow(index)" ) {{ index }} {{ item.title }}
                             big.calc_result( data-El="cost" ) {{ item.price }}
 
                             //- ins.active 
@@ -41,26 +42,26 @@ div(data-Module="module-result")
                             //-             img(src="/images/index/s6/texture-1.png", alt="")
                             //-         li 
                             //-             img(src="/images/index/s6/texture-2.png", alt="")
-                figure(data-El="tabpanel-1")
-                    ins(hidden="false").empty Еще не добавлено
-                    ins
-                        i.material-icons close
-                        span(data-El="num") Окно 1
-                            big(data-El="cost") 8600
-                    ins
-                        i.material-icons close
-                        span(data-El="num") Окно 2
-                            big(data-El="cost") 8600
-                    ins
-                        i.material-icons close
-                        span(data-El="num") Окно 3
-                            big(data-El="cost") 8600
+                //figure(data-El="tabpanel-1")
+                //    ins(hidden="false").empty Еще не добавлено
+                //    ins
+                //        i.material-icons close
+                //        span(data-El="num") Окно 1
+                //            big(data-El="cost") 8600
+                //    ins
+                //        i.material-icons close
+                //        span(data-El="num") Окно 2
+                //            big(data-El="cost") 8600
+                //    ins
+                //        i.material-icons close
+                //        span(data-El="num") Окно 3
+                //            big(data-El="cost") 8600
             a(data-El="add", href="#", v-on:click.prevent="addNewWindow") Добавить окно
     
         div(data-grid="inner-result-2")
             p
                 small Общая стоимость:
-                big.calc_result(data-El="cost") {{ calcSumma }}
+                big.calc_result(data-El="cost") {{ calcSum }}
             
             .grid-buttons
                 a(href="", role="button").v2.bg-btn Отправить на точный расчет
