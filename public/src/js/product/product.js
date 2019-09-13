@@ -116,7 +116,7 @@ $(document).ready(function(){
             $(this).parent().parent().toggleClass('active').siblings().removeClass('active')
         })
 
-        // Модалка с галлереей
+        // Модалка с галлерееееей
 
         $("#product .data .basic .gallery .view2").click(function(e){
             if (e.target.localName == 'img') {
