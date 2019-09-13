@@ -1268,11 +1268,17 @@ ul.social_icons {
                 left: 30px;
                 width: 30px;
                 height: 30px;
-                @media (max-width: 800px) {
-                    top: 15px;
-                    left: 50%;
+                @media (max-width: 990px) {
+                    top: 20px;
+                    left: auto;
+                    right: 40px;
                     transform: translate(10px, 0);
-                    // margin-left: -50px;
+                }
+                @media (max-width: 767px) {
+                    top: 15px;
+                    left: auto;
+                    right: 20px;
+                    transform: translate(10px, 0);
                 }
                 .hamburger-box {
                     width: inherit;
