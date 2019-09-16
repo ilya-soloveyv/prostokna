@@ -1148,9 +1148,6 @@
                 display: flex;
                 flex-direction: column;
                 flex-wrap: nowrap;
-                @media (max-width: 1350px) {
-                    flex-basis: 450px;
-                }
                 @media (max-width: 767px) {
                     flex-basis: 100%;
                     order: 1;
