@@ -259,9 +259,48 @@ $('#modal_gallery_owl').on('show.bs.modal', function (event) {
 //  *** *** *** *** *** *** *** *** *** *** *** *** //
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // NEW MODAL WINDOW
 
 if ($('#form_request').length) {
+
+	var fileListArray = []
 
 	Inputmask({ "mask": "+7 (999) 999-99-99" }).mask("#form_request input[name=phone]")
 
@@ -274,10 +313,10 @@ if ($('#form_request').length) {
 
 
 	// Тестовое открытие
-	$("#top .search a.mbutton").on("click", function () {
-		$('#form_request').show()
-		return false
-	})
+	// $("#top .search a.mbutton").on("click", function () {
+	// 	$('#form_request').css({display: 'flex'})
+	// 	return false
+	// })
 
 	let close = $('#form_request .modal-close');
 	let cloverlay = $('#form_request .form-overlay');
@@ -333,7 +372,44 @@ if ($('#form_request').length) {
 
 	// Переход к прогрес бару
 	$('.modal-block_form-submit').on('click', function (e) {
-		e.preventDefault();		
+		// console.log(fileListArray)
+
+		var bodyFormData = new FormData()
+
+    bodyFormData.set('title', 'Илья Тест')
+		// for (var i = 0; i < fileListArray.length; i++) {
+		// 	sendData.append('file[]', fileListArray[i])
+		// }
+
+		console.log(bodyFormData)
+
+		axios({
+			method: 'post',
+			url: '/send2',
+			data: bodyFormData,
+			config: { headers: {'Content-Type': 'multipart/form-data' }}
+			})
+			.then(function (response) {
+					//handle success
+					console.log(response);
+			})
+			.catch(function (response) {
+					//handle error
+					console.log(response);
+			});
+    // axios.post('/send2', sendData, {
+    //     headers: {
+    //         'Content-Type': 'multipart/form-data'
+    //     }
+    // }).then( (response) => {
+    //     if (response.data.error) {
+
+    //     }
+    // })
+
+		e.preventDefault()
+		return false
+
 		$('.modal-main').fadeOut(100);
 		setTimeout(() => {
 			$('.modal-progressbar').fadeIn(300);
@@ -367,6 +443,8 @@ if ($('#form_request').length) {
 	// Загрузка файлов через кнопку		
 	function handleFileSelectClick(evt) {
 		let files = evt.target.files; // Сохраняем в переменую масив файлов
+		fileListArray.push(files)
+		console.log(files)
 
 		progress.style.width = '0%';
 		progress.textContent = '0%';

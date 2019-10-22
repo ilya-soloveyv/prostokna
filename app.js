@@ -340,7 +340,7 @@ app.get('*', async (req, res, next) => {
     })
 
     // res.json(data.productMenu)
-    // res.json(data.brandMenu)
+    // res.json(data)
 
     data.page_path = req.path
     // console.log(req.path)
@@ -934,379 +934,130 @@ app.get('/', async (req, res) => {
     data.left_menu_active = 0
 
     // Менюшка окон
-    // let MaterialBrandProductMenu = []
-    // let product = await Product.findAll({
-    //     attributes: ['iProductID', 'iMaterialID', 'iBrandID', 'sProductTitle', 'sProductURI'],
-    //     include: [
-    //         {
-    //             model: Brand,
-    //             attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI'],
-    //             where: {
-    //                 iActive: 1
-    //             }
-    //         },
-    //         {
-    //             model: Material,
-    //             attributes: ['iMaterialID', 'sMaterialTitle'],
-    //             where: {
-    //                 iActive: 1
-    //             }
-    //         },
-    //         {
-    //             model: Material_category,
-    //             attributes: ['iMaterialCategoryID', 'iMaterialID', 'sMaterialCategoryTitle'],
-    //         },
-    //     ],
-    //     where: {
-    //         iActive: 1
-    //     },
-    // })
-    // product.forEach((p) => {
-    //     let product_item = {
-    //         title: p.sProductTitle,
-    //         uri: '/product/' + p.sProductURI
-    //     }
-    //     let checkMaterial = MaterialBrandProductMenu.find(function (material) {
-    //         return material.iMaterialID == p.iMaterialID
-    //     })
+    let MaterialBrandProductMenu = []
+    let product = await Product.findAll({
+        attributes: ['iProductID', 'iMaterialID', 'iBrandID', 'sProductTitle', 'sProductURI'],
+        include: [
+            {
+                model: Brand,
+                attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI'],
+                where: {
+                    iActive: 1
+                }
+            },
+            {
+                model: Material,
+                attributes: ['iMaterialID', 'sMaterialTitle'],
+                where: {
+                    iActive: 1
+                }
+            },
+            {
+                model: Material_category,
+                attributes: ['iMaterialCategoryID', 'iMaterialID', 'sMaterialCategoryTitle'],
+            },
+        ],
+        where: {
+            iActive: 1
+        },
+    })
+    product.forEach((p) => {
+        let checkMaterial = MaterialBrandProductMenu.find(function (material) {
+            return material.iMaterialID == p.iMaterialID
+        })
 
-    //     // category
-    //     if (!checkMaterial) {
-    //         MaterialBrandProductMenu.push({
-    //             iMaterialID: p.material.iMaterialID,
-    //             title: p.material.sMaterialTitle,
-    //             uri: '#',
-    //             list: []
-    //         })
-    //     }
-
-    //     // material_category
-    //     if (p.material_category) {
-    //         let material_item = MaterialBrandProductMenu.find(function (material) {
-    //             return material.iMaterialID == p.iMaterialID
-    //         })
-    //         let material_category_item = material_item.list.find(function (material_category) {
-    //             return material_category.iMaterialCategoryID == p.material_category.iMaterialCategoryID
-    //         })
-    //         if (!material_category_item) {
-    //             material_item.list.push({
-    //                 iMaterialCategoryID: p.material_category.iMaterialCategoryID,
-    //                 title: p.material_category.sMaterialCategoryTitle,
-    //                 uri: '#',
-    //                 list: []
-    //             })
-    //         }
-    //     }
-
-    //     // brand
-        
-
-    // })
+        // category
+        if (!checkMaterial) {
+            MaterialBrandProductMenu.push({
+                iMaterialID: p.material.iMaterialID,
+                title: p.material.sMaterialTitle[0].toUpperCase() + p.material.sMaterialTitle.slice(1),
+                uri: '#',
+                list: []
+            })
+        }
 
         // material_category
+        if (p.material_category) {
+            let material_item = MaterialBrandProductMenu.find(function (material) {
+                return material.iMaterialID == p.iMaterialID
+            })
+            let material_category_item = material_item.list.find(function (material_category) {
+                return material_category.iMaterialCategoryID == p.material_category.iMaterialCategoryID
+            })
+            if (!material_category_item) {
+                material_item.list.push({
+                    iMaterialCategoryID: p.material_category.iMaterialCategoryID,
+                    title: p.material_category.sMaterialCategoryTitle[0].toUpperCase() + p.material_category.sMaterialCategoryTitle.slice(1),
+                    uri: '#',
+                    list: []
+                })
+            }
+        }
 
-    //     if (checkMaterial) {
-    //         let checkBrand = checkMaterial.list.find(function (brand) {
-    //             return brand.iBrandID == p.iBrandID
-    //         })    
-    //         if (checkBrand) {
-    //             // console.log(checkBrand)
-    //             checkBrand.list.push(product_item)
-    //         } else {
-    //             checkMaterial.list.push({
-    //                 iBrandID: p.brand.iBrandID,
-    //                 title: p.brand.sBrandTitle,
-    //                 uri: '#',
-    //                 list: [product_item]
-    //             })
-    //         }
-    //     } else {
-    //         MaterialBrandProductMenu.push({
-    //             iMaterialID: p.material.iMaterialID,
-    //             title: p.material.sMaterialTitle,
-    //             uri: '#',
-    //             list: [
-    //                 {
-    //                     iBrandID: p.brand.iBrandID,
-    //                     title: p.brand.sBrandTitle,
-    //                     uri: '#',
-    //                     list: [product_item]
-    //                 }
-    //             ]
-    //         })
-    //     }
+    })
+
+    product.forEach((p) => {
+        var product_item = {
+            title: p.brand.sBrandTitle + ' ' + p.sProductTitle,
+            uri: '/product/' + p.sProductURI
+        }
+        var material = MaterialBrandProductMenu.find(x => x.iMaterialID == p.iMaterialID)
+        if (p.material_category) {
+            var material = material.list.find(x => x.iMaterialCategoryID == p.material_category.iMaterialCategoryID)
+        }
+        var brand = material.list.find(x => x.iBrandID == p.brand.iBrandID)
+        if (!brand) {
+            material.list.push({
+                iBrandID: p.brand.iBrandID,
+                title: p.brand.sBrandTitle,
+                uri: '#',
+                list: [product_item]
+            })
+        } else {
+            brand.list.push(product_item)
+        }
+
+        
+    })
+    // Менюшка окон END
+
+
     
+    MaterialBrandProductMenu.push({
+        title: 'Дизайн окна',
+        uri: '#',
+        list: [
+            {
+                title: 'Каталог ламинации',
+                uri: '/palette'
+            },
+            {
+                title: 'Каталог RAL',
+                uri: '/palette'
+            }
+        ]
+    }, {
+        title: 'Опции',
+        uri: '/options'
+    }, {
+        title: 'Видео "Как просто выбрать окно"',
+        uri: '#s3'
+    },
+    {
+        title: 'Интуйтивный выбор окон',
+        uri: '/intuitive'
+    })
 
-    // res.json(MaterialBrandProductMenu)
+
     // res.json(product)
+    // res.json(MaterialBrandProductMenu)
     // return false
 
     data.s2_menu = [
         {
             title: 'Окна',
             img: '1.svg',
-            list: [
-                {
-                    title: 'Пластик',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Rehau',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Euro',
-                                    uri: '/product/rehau_euro'
-                                },
-                                {
-                                    title: 'Blitz New',
-                                    uri: '/product/rehau_blitz_new'
-                                },
-                                {
-                                    title: 'Grazio',
-                                    uri: '/product/rehau_grazio'
-                                },
-                                {
-                                    title: 'Delight',
-                                    uri: '/product/rehau_delight'
-                                },
-                                {
-                                    title: 'Brillant',
-                                    uri: '/product/rehau_brillant'
-                                },
-                                {
-                                    title: 'Intelio',
-                                    uri: '/product/rehau_intelio'
-                                },
-                                {
-                                    title: 'Geneo',
-                                    uri: '/product/rehau_geneo'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'KBE',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'KBE 58',
-                                    uri: '/product/kbe_58'
-                                },
-                                {
-                                    title: 'KBE 70 Expert',
-                                    uri: '/product/kbe_expert'
-                                },
-                                {
-                                    title: 'KBE 76',
-                                    uri: '/product/kbe_76'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Montblanc',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Eco',
-                                    uri: '/product/montblanc_eco'
-                                },
-                                {
-                                    title: 'Nord',
-                                    uri: '/product/montblanc_nord'
-                                },
-                                {
-                                    title: 'Thermo',
-                                    uri: '#'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Novotex',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Techno 58',
-                                    uri: '/product/novotex_techno_58'
-                                },
-                                {
-                                    title: 'Techno 70',
-                                    uri: '/product/novotex_techno_70'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Wintech',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Isotech 530',
-                                    uri: '/product/wintech_isotek_530'
-                                },
-                                {
-                                    title: 'Thermotech 742',
-                                    uri: '/product/wintech_thermotek_742'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Gutwerk',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Gutwerk 58',
-                                    uri: '/product/kbe_gut_gutwerk_58'
-                                },
-                                {
-                                    title: 'Gutwerk 70',
-                                    uri: '/product/kbe_master_gutwerk'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Slidors',
-                            uri: '#'
-                        },
-                    ]
-                },
-                {
-                    title: 'Алюминий',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Seal',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'КПТ 45',
-                                    uri: '/product/seal_45'
-                                },
-                                {
-                                    title: 'КПТ 74',
-                                    uri: '/product/seal_74'
-                                },
-                                {
-                                    title: 'КП 50',
-                                    uri: '/product/seal_kp50'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Alutech',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'ALT C48',
-                                    uri: '/product/alutech_alt_c48'
-                                },
-                                {
-                                    title: 'ALT W62',
-                                    uri: '/product/alutech_alt_w62'
-                                },
-                                {
-                                    title: 'F50',
-                                    uri: '/product/alutech_f50'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Provedal',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'p480',
-                                    uri: '#'
-                                },
-                                {
-                                    title: 'c640',
-                                    uri: '#'
-                                },
-                            ]
-                        },
-                    ]
-                },
-                {
-                    title: 'Дерево евробрус',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Сосна',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Эконом',
-                                    uri: '#'
-                                },
-                                {
-                                    title: 'Сращенный евробрус',
-                                    uri: '/product/sosna_srashchennaya'
-                                },
-                                {
-                                    title: 'Цельный евробрус',
-                                    uri: '/product/sosna_tselnolamelnaya'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Лиственница',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Сращенный евробрус',
-                                    uri: '/product/listvennitsa_srashchennaya'
-                                },
-                                {
-                                    title: 'Цельный евробрус',
-                                    uri: '/product/listvennitsa_tselnolamelnaya'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Дуб',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Сращенный евробрус',
-                                    uri: '/product/dub_srashchennaya'
-                                },
-                                {
-                                    title: 'Цельный евробрус',
-                                    uri: '/product/dub_tselnolamelnaya'
-                                },
-                            ]
-                        },
-                        {
-                            title: 'Меранти',
-                            uri: '#'
-                        },
-                    ]
-                },
-                {
-                    title: 'Дизайн окна',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог ламинации',
-                            uri: '/palette'
-                        },
-                        {
-                            title: 'Каталог RAL',
-                            uri: '/palette'
-                        }
-                    ]
-                },
-                {
-                    title: 'Опции',
-                    uri: '/options'
-                },
-                {
-                    title: 'Видео "Как просто выбрать окно"',
-                    uri: '#s3'
-                },
-                {
-                    title: 'Интуйтивный выбор окон',
-                    uri: '/intuitive'
-                },
-            ]
+            list: MaterialBrandProductMenu
         },
         {
             title: 'Услуги',
@@ -2066,6 +1817,11 @@ app.post('/send', async (req, res) => {
             res.json(200)
         })
     })
+})
+
+app.post('/send2', async (req, res) => {
+    console.log(req.body)
+    res.json(req.body.name)
 })
 
 
