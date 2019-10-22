@@ -31,4 +31,11 @@
                                                                 ul
                                                                     each item4 in item3.list
                                                                         li
-                                                                            a(href= item4.uri)= item4.title
+                                                                            if !item4.list
+                                                                                a(href= item4.uri)= item4.title
+                                                                            else
+                                                                                a.more(href= item4.uri)= item4.title
+                                                                                ul
+                                                                                    each item5 in item4.list
+                                                                                        li
+                                                                                            a(href= item5.uri)= item5.title
