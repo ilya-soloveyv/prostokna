@@ -1455,7 +1455,7 @@ app.get('/product/:sProductURI', async (req, res) => {
 
     data.product = await Product.getProduct(req.params.sProductURI)
 
-    // res.json(data.product.product_links)
+    // res.json(data.product)
     res.render('product.pug', data)
 })
 
