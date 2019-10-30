@@ -80,11 +80,13 @@ $(document).ready(function(){
                 $("#product .data .basic .gallery .view2 .front").stop().animate({
                     width: $("#product .data .basic .gallery .view2").width()/2
                 }, 150)
+                $(".ui-resizable-handle.ui-resizable-e").css({ opacity: 1, visibility: 'visible' })
             } else {
                 $("#product .data .basic .gallery .view2 .back img").hide()
                 $("#product .data .basic .gallery .view2 .front").stop().animate({
                     width: $("#product .data .basic .gallery .view2").width()
                 }, 150)
+                $(".ui-resizable-handle.ui-resizable-e").css({ opacity: 0, visibility: 'hidden' })
             }
             positionPoint2()
         })
