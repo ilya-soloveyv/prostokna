@@ -230,7 +230,8 @@
                                 img.normal._right(src="/images/percent.svg", alt="")
                                 img.hover._right(src="/images/percent_hover.svg", alt="")
                 .buttons
-                    button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+                    a.calculate(href="/calculation") Заказать расчет
+                    //- button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                     button.favorite
                         img.normal(src="/images/favorite.svg", alt="")
                         img.hover(src="/images/favorite_gold.svg", alt="")          
@@ -265,7 +266,8 @@
                             .colorDesc
                                 span.sColorTitle
                                 span.sColorTitleCode
-                    button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+                    a.calculate(href="/calculation") Заказать расчет
+                    //- button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
                 .view
         .desc
             each image in product.product_images
@@ -296,4 +298,5 @@
                             span О монтаже
                             img.normal._right(src="/images/link-mont.svg", alt="")
                             img.hover._right(src="/images/link-mont_hover.svg", alt="")
-                button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор
+                a.calculate(href="/calculation") Заказать расчет
+                //- button.calculate(data-toggle="modal" data-target="#calc_wait") Добавить в калькулятор

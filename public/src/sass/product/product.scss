@@ -344,6 +344,49 @@
                 }
             }
         }
+        a {
+            &.calculate {
+                font-family: 'MontserratSemiBold', sans-serif;
+                background-image: linear-gradient(45deg, #BF81ED 0%, #D65EE8 50%, #BF81ED 100%);
+                background-position: 100% 0;
+                background-size: 200% 200%;
+                box-shadow: 6px 3px 6px 0 rgba(0,0,0,.47);
+                transition: .5s;
+                font-size: 14px;
+                height: 50px;
+                position: relative;
+                overflow: hidden;
+                &:before {
+                    content: "";
+                    background: linear-gradient(90deg, rgba(255,255,255,.15), rgba(255,255,255,.15));
+                    height: 50px;
+                    width: 50px;
+                    position: absolute;
+                    top: 0;
+                    left: -75px;
+                    transform: skewX(-45deg);
+                }
+                &:hover, &:focus, &:active, &_active {
+                    cursor: pointer;
+                    box-shadow: 0 0 0 0 rgba(0,40,120,0);
+                    background-position: 0 0;
+                    outline: 0;
+                    &:before {
+                        left: 110%;
+                        transition: .5s ease-in-out;
+                    }
+                }
+                @media (max-width: 1050px) {
+                    font-size: 14px;
+                }
+                @media (max-width: 767px) {
+                    height: 44px;
+                }
+                @media (max-width: 359px) {
+                    font-size: 12px;
+                }
+            }
+        }
         .basic {
             border-bottom: 1px solid white;
             display: flex;
@@ -1077,6 +1120,18 @@
                         border-radius: 25px;
                         text-transform: uppercase;
                     }
+                    a {
+                        flex-grow: 1;
+                        color: #FFFFFF;
+                        border: 0 none;
+                        outline: 0;
+                        border-radius: 25px;
+                        text-transform: uppercase;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                    }
                     button.favorite {
                         flex-basis: 50px;
                         height: 50px;
@@ -1284,6 +1339,28 @@
                         margin-right: auto;
                     }
                 }
+                a {
+                    background-color: #414141;
+                    max-width: 320px;
+                    width: 100%;
+                    color: #FFFFFF;
+                    border: 0 none;
+                    outline: 0;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 25px;
+                    text-transform: uppercase;
+                    margin-top:auto;
+                    order: 3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    @media (max-width: 767px) {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
             }
             .view {
                 // width: auto;
@@ -1472,6 +1549,31 @@
                 }
                 @media (max-width: 767px) {
                     margin-top: 25px;
+                }
+            }
+            a {
+                &.calculate {
+                    max-width: 360px;
+                    width: 100%;
+                    color: #FFFFFF;
+                    border: 0 none;
+                    outline: 0;
+                    margin: 0;
+                    padding: 0;
+                    border-radius: 25px;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    outline: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    @media (max-width: 1050px) {
+                        max-width: 320px;
+                    }
+                    @media (max-width: 767px) {
+                        margin-top: 25px;
+                    }    
                 }
             }
         }
