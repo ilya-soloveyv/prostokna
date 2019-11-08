@@ -343,6 +343,7 @@ app.get('*', async (req, res, next) => {
     // res.json(data)
 
     data.page_path = req.path
+    data.NODE_ENV = process.env.NODE_ENV
     // console.log(req.path)
 
     next()
