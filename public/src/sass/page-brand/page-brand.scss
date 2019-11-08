@@ -285,12 +285,15 @@
               text-decoration: none;
               position: relative;
               .sProductImage {
-                // margin: 50px;
+                margin: 50px;
                 flex-grow: 1;
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: contain;
                 position: relative;
+                @media (max-width: 1200px) {
+                  margin: 0;
+                }
                 @media (max-width: 700px) {
                   margin: 0 25%;
                 }
