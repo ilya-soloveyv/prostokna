@@ -12,6 +12,9 @@ $(document).on("mouseenter", "#fullpage_welcome .section.s2 ul.level1 li.level1"
     $(this).parents('.back').find('i.material-icons.material-icons-arrow_left').animate({left: "100%"}, s2_speed, function () {
         $("#fullpage_welcome .section.s2 ul.level1 li.level1 ul li ul").hide()
     })    
+}).on("click", "#fullpage_welcome .section.s2 ul.level1 li.level1 ul li a.disabled", function(){
+    $('#modal_development').modal()
+    return false;
 }).on("click", "#fullpage_welcome .section.s2 ul.level1 li.level1 ul li a.more", function(){
     $(this).next().show()
     $(this).parents('.list').animate({left: "-=100%"}, s2_speed)

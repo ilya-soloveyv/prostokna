@@ -1154,6 +1154,52 @@ ul.social_icons {
     }
 }
 
+#modal_development {
+    .modal-dialog {
+        max-width: 400px;
+        @media (max-width: 575px) {
+            max-width: 100%;
+        }
+    }
+    .modal-content {
+        padding: 3rem;
+        border: none;
+        border-radius: 0;
+        @media (max-width: 575px) {
+            padding: 2rem;
+        }
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            cursor: pointer;
+            @media (max-width: 575px) {
+                right: .75rem;
+                top: .75rem;
+            }
+        }
+        .title {
+            text-align: center;
+            font-family: 'MontserratSemiBold';
+            font-size: 24px;
+            text-transform: uppercase;
+            padding-bottom: .5rem;
+            @media (max-width: 575px) {
+                font-size: 16px;
+            }
+        }
+        .desc {
+            text-align: center;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            padding-bottom: 0;
+            @media (max-width: 575px) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
 #modal_mobile_contact {
     padding-right: 0 !important;
     .modal-dialog {
