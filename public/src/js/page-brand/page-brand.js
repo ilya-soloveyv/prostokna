@@ -4,7 +4,10 @@ if ($('#page-brand').length) {
   //   position: 'fixed',
   //   width: '100%'
   // })
-  $('[data-toggle="tooltip"]').tooltip()
+  $('.red-tooltip').tooltip({
+    placement: 'left',
+    template: '<div class="tooltip tooltip-page-brand" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+  })
   $('[data-toggle="popover"]').popover()
   $('.buttonDesc').click(function () {
     $('.sBrandDesc').show()

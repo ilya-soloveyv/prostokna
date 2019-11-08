@@ -1,3 +1,13 @@
+.tooltip-page-brand {
+  .arrow {
+    &::before {
+      border-left-color: rgba(40, 40, 40, 0.9);
+    }
+  }
+  .tooltip-inner {
+    background: rgba(40, 40, 40, 0.9);
+  }
+}
 #page-brand {
   background: #353535;
   display: flex;
@@ -144,7 +154,7 @@
     flex-shrink: 0;
     font-family: 'MontserratMedium';
     color: white;
-    font-size: 13px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -275,7 +285,7 @@
               text-decoration: none;
               position: relative;
               .sProductImage {
-                margin: 50px;
+                // margin: 50px;
                 flex-grow: 1;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -293,14 +303,45 @@
                 flex-shrink: 0;
                 flex-basis: 40px;
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                flex-direction: column;
                 font-family: 'MontserratSemiBold';
                 font-size: 16px;
                 color: white;
+                .sProductTitle__title {
+                  flex-grow: 1;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+                .sProductTitle__categories {
+                  font-family: 'Montserrat';
+                  font-size: 14px;
+                  opacity: .5;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+                .sProductTitle__brus {
+                  font-family: 'Montserrat';
+                  font-size: 14px;
+                  opacity: .5;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding-bottom: 10px;
+                }
                 @media (max-width: 1000px) {
                   text-align: center;
-                  font-size: 10px;
+                  .sProductTitle__title {
+                    font-size: 10px;
+                  }
+                  .sProductTitle__categories {
+                    font-size: 10px;
+                  }
+                  .sProductTitle__brus {
+                    font-size: 10px;
+                    display: none;
+                  }
                 }
               }
               .linkp {
@@ -442,11 +483,26 @@
               flex-shrink: 0;
               flex-basis: 50px;
               display: flex;
-              align-items: center;
-              justify-content: center;
+              flex-direction: column;
               font-family: 'MontserratSemiBold';
               font-size: 16px;
+              padding-bottom: 10px;
               color: white;
+              .sProductTitle__title {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .sProductTitle__more {
+                font-family: 'Montserrat';
+                font-size: 14px;
+                opacity: .5;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+              }
             }
           }
         }

@@ -1574,6 +1574,15 @@ app.get('/brand/:sBrandURI', async (req, res) => {
             },
             include: [
                 {
+                    model: Material
+                },
+                {
+                    model: Material_category
+                },
+                {
+                    model: Brus
+                },
+                {
                     model: Product_image
                 },
                 {
@@ -1592,7 +1601,7 @@ app.get('/brand/:sBrandURI', async (req, res) => {
         data.title = brand[0].sBrandTitle
         data.description = ''
         data.left_menu_active = 1
-        // res.json(data)
+        // res.json(data.product)
         res.render('page-brand/page-brand.pug', data)
     } else {
         res.status(404).send('Sorry cant find that!')
