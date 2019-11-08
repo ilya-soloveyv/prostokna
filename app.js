@@ -1029,7 +1029,7 @@ app.get('/', async (req, res) => {
         list: [
             {
                 title: 'Каталог ламинации',
-                uri: '/palette'
+                dev: true
             },
             {
                 title: 'Каталог RAL',
@@ -1046,6 +1046,10 @@ app.get('/', async (req, res) => {
     {
         title: 'Интуйтивный выбор окон',
         uri: '/intuitive'
+    },
+    {
+        title: 'Избранное',
+        uri: '/favorites'
     })
 
 
@@ -1068,8 +1072,23 @@ app.get('/', async (req, res) => {
                     uri: '/gager'
                 },
                 {
+                    title: 'Своими руками',
+                    uri: '#',
+                    list: [
+                        {
+                            title: 'Регулировка фурнитуры',
+                            uri: '/regulation_window'
+                        },
+                        {
+                            title: 'Инструкция по самостоятельному замеру',
+                            uri: '/optional_service'
+                        },
+                    ]
+                },
+                {
                     title: 'Установка окон',
                     uri: '#',
+                    dev: true,
                     list: [
                         {
                             title: 'Установка от Просто Окна',
@@ -1089,33 +1108,17 @@ app.get('/', async (req, res) => {
                                 },
                             ]
                         },
-                        {
-                            title: 'Своими руками',
-                            uri: '#',
-                            list: [
-                                {
-                                    title: 'Обучение монтажу',
-                                    uri: '#'
-                                },
-                                {
-                                    title: 'Регулировка',
-                                    uri: '/regulation_window'
-                                },
-                                {
-                                    title: 'Инструкция по предварительному замеру',
-                                    uri: '/optional_service'
-                                },
-                            ]
-                        },
                     ]
                 },
                 {
                     title: 'Установка откосов',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Установка подоконников',
                     uri: '#',
+                    dev: true,
                     list: [
                         {
                             title: 'Заделка шва под подоконником',
@@ -1126,6 +1129,7 @@ app.get('/', async (req, res) => {
                 {
                     title: 'Отделка балконов',
                     uri: '#',
+                    dev: true,
                     list: [
                         {
                             title: 'Построение крыши',
@@ -1147,22 +1151,27 @@ app.get('/', async (req, res) => {
                 },
                 {
                     title: 'Окосячка',
+                    dev: true,
                     uri: '#'
                 },
                 {
                     title: 'Вывоз мусора',
+                    dev: true,
                     uri: '#'
                 },
                 {
                     title: 'Клининг после установки',
+                    dev: true,
                     uri: '#'
                 },
                 {
                     title: 'Доставка',
+                    dev: true,
                     uri: '#'
                 },
                 {
                     title: 'Сервисное обслуживание',
+                    dev: true,
                     uri: '#'
                 },
             ]
@@ -1173,63 +1182,27 @@ app.get('/', async (req, res) => {
             list: [
                 {
                     title: 'Подоконники',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог с ценами',
-                            uri: '/options'
-                        }
-                    ]
+                    uri: '/options'
                 },
                 {
                     title: 'Ручки',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог с ценами',
-                            uri: '/options'
-                        }
-                    ]
+                    uri: '/options'
                 },
                 {
                     title: 'Шторы',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог с ценами',
-                            uri: '/options'
-                        }
-                    ]
+                    uri: '/options'
                 },
                 {
                     title: 'Жалюзи',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог с ценами',
-                            uri: '/options'
-                        }
-                    ]
+                    uri: '/options'
                 },
                 {
                     title: 'Клапаны',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог с ценами',
-                            uri: '/options'
-                        }
-                    ]
+                    uri: '/options'
                 },
                 {
                     title: 'Москитные сетки',
-                    uri: '#',
-                    list: [
-                        {
-                            title: 'Каталог с ценами',
-                            uri: '/options'
-                        }
-                    ]
+                    uri: '/options'
                 },
             ]
         },
@@ -1239,15 +1212,17 @@ app.get('/', async (req, res) => {
             list: [
                 {
                     title: 'Калькулятор',
-                    uri: '#s6'
+                    uri: '#s6',
+                    dev: true
                 },
                 {
-                    title: 'Заказать расчет',
-                    uri: '#'
+                    title: 'Заказать точный расчёт',
+                    uri: '/calculation'
                 },
                 {
                     title: 'Лучшая цена',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Оплата',
@@ -1255,11 +1230,13 @@ app.get('/', async (req, res) => {
                 },
                 {
                     title: 'Цены по типу дома',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Рассрочка',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
             ]
         },
@@ -1269,39 +1246,48 @@ app.get('/', async (req, res) => {
             list: [
                 {
                     title: 'Словарь оконных терминов',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'История',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Профили',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Сравнительные характеристики профильных систем',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Фурнитура',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Стекло и стеклопакеты',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Монтаж',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Балконы',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Двери',
-                    uri: '/wiki'
+                    uri: '#',
+                    dev: true
                 },
             ]
         },
@@ -1315,15 +1301,18 @@ app.get('/', async (req, res) => {
                 },
                 {
                     title: 'PDF презентация для скачивания',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Услуги корпоративного монтажа',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Личный кабинет',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
             ]
         },
@@ -1351,11 +1340,12 @@ app.get('/', async (req, res) => {
                 },
                 {
                     title: 'Как мы работаем',
-                    uri: '#'
+                    uri: '/work'
                 },
                 {
                     title: 'Гарантия',
-                    uri: '#'
+                    uri: '#',
+                    dev: true
                 },
                 {
                     title: 'Новости',
@@ -1367,7 +1357,8 @@ app.get('/', async (req, res) => {
                     list: [
                         {
                             title: 'Заработайте с нами',
-                            uri: '#'
+                            uri: '#',
+                            dev: true
                         },
                         {
                             title: 'Вместе еще дешевле',
@@ -1375,11 +1366,13 @@ app.get('/', async (req, res) => {
                         },
                         {
                             title: 'Освященные окна',
-                            uri: '#'
+                            uri: '#',
+                            dev: true
                         },
                         {
                             title: 'Благотворительность',
-                            uri: '#'
+                            uri: '#',
+                            dev: true
                         },
                     ]
                 },
