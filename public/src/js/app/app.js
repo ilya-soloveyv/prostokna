@@ -64,6 +64,7 @@ $('#zay_modal').on('show.bs.modal', function (e) {
 $(".form_contact input[name=tel]").inputmask('+7 (999) 999-99-99')
 
 $(".form_contact").submit(function (event) {
+		// alert(1)
     event.preventDefault()
 
     $(this).find('input[name="name"]').removeClass('is-invalid')
@@ -80,15 +81,22 @@ $(".form_contact").submit(function (event) {
         return false
     }
 
-    // Цель Метрика
-    var metrika = $(this).find('input[name=metrika]').val()
-    if (metrika) {
-        yaCounter21714754.reachGoal(metrika)
-    }
+		// Цель Метрика
+		var metrika = $(this).find('input[name=metrika]').val()
+		if ($("#NODE_ENV").val() != 'development') {
+			if (metrika) {
+				yaCounter21714754.reachGoal(metrika)
+			}
+		}
     
 
     $("#zay_modal").modal('hide')
-    $("#thanks_modal").modal()            
+		if (metrika == 'gager') {
+			gagerFormSuccess() // Искать на странице gager. запуск анимации
+		} else {
+			$("#thanks_modal").modal()
+		}
+		
 
 
     var form = new FormData()
@@ -107,7 +115,8 @@ $(".form_contact").submit(function (event) {
         for (var i = 0; i < files.length; i++) {
             form.append('file[]', files[i])
         }
-    }
+		}
+		
 
     axios.post('/send', form, {
         headers: {
@@ -120,7 +129,7 @@ $(".form_contact").submit(function (event) {
     })
 
 
-    return false;
+    return true;
 })
 
 

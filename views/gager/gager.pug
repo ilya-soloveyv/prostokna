@@ -48,7 +48,10 @@
         .popup-thanks
           img(src="/images/gager/check.svg", alt="check")
           span Спасибо) Ваша заявка успешно отправлена. В ближайшее время с вами свяжется наш менеджер.
-        form.gager-form_main
+        form.gager-form_main.form_contact(action="#" method="POST")
+          input(type="hidden" name="subject" value="Вызов замерщика")
+          input(type="hidden" name="metrika" value="gager")
+          input(type="hidden" name="page_path" value= page_path)
           .input-wrapp
             input#name.gager-input(type="text" name="name" tabindex="1" required)
             label(for="name") Ваше имя
@@ -56,7 +59,7 @@
             input#email.gager-input(type="email" name="email" tabindex="2" required)
             label(for="name") Ваш email
           .input-wrapp
-            input#phone.gager-input(type="phone" name="phone" tabindex="3" required)
+            input#phone.gager-input(type="phone" name="tel" tabindex="3" required)
             label(for="phone") Ваш телефон
           button.form-submit Вызвать замерщика
           a.go-to(href="#desc") Описание
