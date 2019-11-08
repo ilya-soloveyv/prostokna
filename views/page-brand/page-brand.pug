@@ -3,7 +3,7 @@ extends ../layouts/app
 block content
     #page-brand
         .title
-            .back.red-tooltip(data-toggle="tooltip" data-placement="left" title="Вернуться к меню")
+            .back.red-tooltip(title="Вернуться к меню")
                 a(href="/product")
                     img(src="/images/page-brand/arrow.svg" alt="Вернуться к меню")
             .brand_title #{brand.sBrandTitle}
@@ -28,7 +28,12 @@ block content
                                     .sProductImage(style="background-image: url(/images/product/color/" + item.product_colors[0].sProductColorFilename + ")")
                                 else
                                     .sProductImage(style="background-image: url(/images/product/gallery/" + item.product_images[0].sProductImageFrontName + ")")
-                            .sProductTitle #{ item.sProductTitle }
+                            .sProductTitle
+                                .sProductTitle__title #{ item.sProductTitle }
+                                if item.material_category
+                                    .sProductTitle__categories #{ item.material_category.sMaterialCategoryTitle }
+                                if item.bru
+                                    .sProductTitle__brus #{ item.bru.sBrusTitle }
                             .linkp
                                 img(src="/images/page-brand/look.svg")
 
@@ -47,4 +52,11 @@ block content
                                         img(src="/images/product/gallery/" + item.product_images[0].sProductImageFrontName)
                                         a(href="/product/" + item.sProductURI)
                                             img(src="/images/page-brand/look.svg")
-                        .sProductTitle #{ item.sProductTitle }
+                        .sProductTitle
+                            .sProductTitle__title #{ item.sProductTitle }
+                            if item.material_category || item.bru
+                                .sProductTitle__more
+                                    if item.bru
+                                        .sProductTitle__brus #{ item.bru.sBrusTitle }
+                                    if item.material_category
+                                        .sProductTitle__categories , #{ item.material_category.sMaterialCategoryTitle }
