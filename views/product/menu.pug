@@ -150,7 +150,9 @@
             .materials(v-if="openFilter")
                 .sMaterialTitle(data-toggle="dropdown")
                     span {{ filterParams.sMaterialTitle }}
-                    i.material-icons.material-icons-add add
+                    i.material-icons.material-icons-add(
+                        v-if="filterParams.material.length > 1"
+                    ) add
                 .dropdown-menu
                 .list
                     template(v-for="material, key in filterParams.material")
