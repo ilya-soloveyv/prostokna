@@ -791,7 +791,7 @@
                     text-transform: uppercase;
                     text-decoration: none;
                     @media (max-width: 700px) {
-                        font-size: 12px;
+                        font-size: 13px;
                     }
                 }
                 .ico {
@@ -842,7 +842,7 @@
                         color: white;
                         text-decoration: none;
                         @media (max-width: 700px) {
-                            font-size: 11px;
+                            font-size: 12px;
                         }
                         &:hover {
                             color: #8AE1F8;
@@ -853,47 +853,3 @@
         }
     }
 }
-
-// .brands-models {
-//     background: blue;
-//     font-family: 'MontserratBold';
-//     .item {
-//         display: flex;
-//         flex-direction: column;
-//         background: red;
-//         &__links {
-//             display: flex;
-//             flex-direction: row;
-//             background: brown;
-//             &__brand {
-//                 flex-basis: 30px;
-//                 flex-shrink: 0;
-//                 background: green;
-//                 margin-right: 10px;
-//                 display: flex;
-//                 flex-direction: row;
-//                 border-radius: 50%;
-//                 border: 1px solid black;
-//                 &__ico {
-//                     flex-grow: 1;
-//                     margin: 5px;
-//                     background-color: navy;
-//                     background-image: url('/images/info.svg');
-//                     background-position: center;
-//                     background-size: contain;
-//                     background-repeat: no-repeat;
-//                 }
-//             }
-//             &__title {
-//                 background: orange;
-//                 line-height: 30px;
-//             }
-//             &:hover {
-//                 background: grey;
-//                 &__brand {
-//                     border: 1px solid red;
-//                 }
-//             }
-//         }
-//     }
-// }
