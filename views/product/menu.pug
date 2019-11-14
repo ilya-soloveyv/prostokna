@@ -234,6 +234,7 @@
                             v-for="model in brand.models"
                             v-bind:class="{ active: model.active}"
                             )
+                            span.empty
                             a(v-bind:href="'/product/' + model.sProductURI")
                                 template {{ model.sProductTitle }}
                                 template(v-if="model.sBrusTitle")  {{ model.sBrusTitle }}

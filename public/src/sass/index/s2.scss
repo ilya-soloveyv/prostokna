@@ -139,6 +139,9 @@
                                         &:hover {
                                             opacity: 1;
                                         }
+                                        &.disabled {
+                                            opacity: .5;
+                                        }
                                     }
                                     ul {
                                         left: 100%;

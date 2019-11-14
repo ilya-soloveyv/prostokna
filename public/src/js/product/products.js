@@ -262,14 +262,7 @@ if ($('#productMenu').length) {
                 }
             },
             useFilterMobile: function () {
-                alert('click useFilterMobile')
-                alert('params #1 openFilter: ' + this.openFilter)
                 Vue.set(this, 'openFilter', true)
-                Vue.nextTick(function(){
-                    alert('change params openFilter')
-                    alert('params #2 openFilter: ' + productsMenu.openFilter)
-                })
-                alert('params #3 openFilter: ' + this.openFilter)
             }
         }
     })
