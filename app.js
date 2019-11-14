@@ -1602,6 +1602,12 @@ app.get('/brand/:sBrandURI', async (req, res) => {
         data.title = brand[0].sBrandTitle
         data.description = ''
         data.left_menu_active = 1
+        // Делаем колхоз на заглавную букву для sMaterialCategoryTitle
+        data.product.forEach(x => {
+            if (x.material_category) {
+                x.material_category.sMaterialCategoryTitle = x.material_category.sMaterialCategoryTitle[0].toUpperCase() + x.material_category.sMaterialCategoryTitle.slice(1)
+            }
+        })
         // res.json(data.product)
         res.render('page-brand/page-brand.pug', data)
     } else {
