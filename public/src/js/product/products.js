@@ -137,7 +137,10 @@ if ($('#productMenu').length) {
                     }
 
                     Vue.nextTick(function () {
-                        $('[data-toggle="tooltip"]').tooltip()
+                        $('[data-toggle="tooltip"]').tooltip({
+                            placement: 'left',
+                            template: '<div class="tooltip tooltip-page-product" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                        })
                     })
 
 

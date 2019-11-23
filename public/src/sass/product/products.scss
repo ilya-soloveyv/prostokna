@@ -2,6 +2,16 @@
     height: 1px;
     overflow: hidden;
 }
+.tooltip-page-product {
+    .arrow {
+      &::before {
+        border-left-color: rgba(40, 40, 40, 0.9);
+      }
+    }
+    .tooltip-inner {
+      background: rgba(40, 40, 40, 0.9);
+    }
+}
 .productsMenu {
     display: flex;
     flex-direction: column;
