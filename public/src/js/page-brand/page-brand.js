@@ -8,6 +8,7 @@ if ($('#page-brand').length) {
     placement: 'left',
     template: '<div class="tooltip tooltip-page-brand" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
   })
+  $('.red-tooltip').tooltip('hide')
   $('[data-toggle="popover"]').popover()
   $('.buttonDesc').click(function () {
     $('.sBrandDesc').show()

@@ -1,6 +1,15 @@
 if ($('#company').length) {
 
 
+  window.addEventListener('scroll', function() {
+    $('.company-header_slider h5').each(function(i, el){
+      setTimeout(function(){
+        $(el).addClass('light');
+     },250 + ( i * 250 ))
+    })
+    // $('.company-header_slider h5')
+  });
+
 
   $('.loop-link').loupe({
     width: 350,
