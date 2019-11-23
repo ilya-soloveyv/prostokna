@@ -106,7 +106,8 @@ section.company-header-section {
   }
   p {
     font-size: 14px;
-		letter-spacing: 0.05em;
+    line-height: 22px;
+		// letter-spacing: 0.05em;
   }
 }
 
@@ -118,8 +119,8 @@ section.company-header-section {
   }
   p {
     font-size: 14px;
-    line-height: 1.5rem;
-		letter-spacing: 0.05em;
+    line-height: 22px;
+		// letter-spacing: 0.05em;
   }
 }
 
@@ -143,6 +144,7 @@ section.company-header-section {
       margin-top: 55px;
       color: white;
       font-size: 13px;
+      line-height: 22px;
       &:before {
         counter-increment: slider;
         content: "0"counter(slider);
@@ -163,12 +165,20 @@ section.company-header-section {
         background-clip: content-box;
         border: 1px solid #707070;
       }
+      &.light {
+        &:before {
+          background: linear-gradient(to right, #913fd2, #e953ef);
+          background-clip: content-box;
+          border: 1px solid #707070;
+        }
+      }
     }
   }
   p {
     margin-top: 20px;
     color: white;
     font-size: 13px;
+    line-height: 22px;
   }
   & > * {
     padding: 5px 0;
@@ -422,7 +432,7 @@ section.company-header-section {
 	}
 
 	.company-header-section_text-block, .company-header_bottom_desc {
-  	padding: 7vh 7vw 0vh; 
+  	padding: 0 7vw 0vh; 
 	}
 
 	.company-header-slider_touch-icon {
@@ -450,7 +460,7 @@ section.company-header-section {
       margin-bottom: 5vh;
     }
     p {
-      line-height: 1.7rem;
+      // line-height: 1.7rem;
     }
   }
 
@@ -479,10 +489,10 @@ section.company-header-section {
 @media screen and (max-width: 600px) {
 	.company-header_slider {
 		h5 {
-			width: 50%;
+			width: 90%;
 		}
 		p {
-			width: 50%;
+			width: 90%;
 		}
 	}
 }
