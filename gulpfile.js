@@ -13,6 +13,7 @@ const rimraf        = require('rimraf')
 const revOutdated   = require('gulp-rev-outdated')
 const path          = require('path')
 const through       = require('through2')
+const autoprefixer = require('gulp-autoprefixer');
 // const runSequence   = require('run-sequence')
 
 function cleaner() {
@@ -52,6 +53,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/html2canvas.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
+            'public/src/js/index/s1.js',
             'public/src/js/index/s2.js',
             'public/src/js/index/s3.js',
             'public/src/js/index/s5.js',
@@ -86,7 +88,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/calculation.js',
             'public/src/js/page-brand/page-brand.js',
             'public/src/js/best-cost/best-cost.js',
-						'public/src/js/accessories/accessories.js',						
+			'public/src/js/accessories/accessories.js',						
         ],{
             allowEmpty: true 
         })
@@ -208,6 +210,7 @@ gulp.task('sass', function () {
             'public/src/sass/**/*.scss'
         ])
         .pipe(sass())
+        .pipe(autoprefixer(['last 2 versions']))
         .pipe(gulp.dest('public/src/css'))
 });
 
