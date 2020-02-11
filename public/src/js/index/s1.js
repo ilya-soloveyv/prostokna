@@ -2,6 +2,7 @@ if (screen.width < 800) {
     s1Slider();
 
     window.addEventListener('orientationchange', s1Slider())
+    window.addEventListener('resize', s1Slider())
 }
 
 function s1Slider() {
