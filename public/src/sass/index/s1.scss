@@ -103,6 +103,10 @@
 			li:last-child a:after {
 				top: initial;
 				bottom: 45px;
+
+				@media (max-width: 1280px) {
+					bottom: 25px;
+				}
 			}
 
 			a {
@@ -110,7 +114,7 @@
 				display: block;
 
 				margin: 0 -60px 0 -40px;
-				padding: 45px 60px 45px 65px;
+				padding: 45px 95px 45px 65px;
 
 				border-radius: 15px;
 				background-image: linear-gradient(270deg, hsla(294, 75%, 63%, 0) 0%, hsla(194, 92%, 76%, 0) 100%);
@@ -118,7 +122,7 @@
 				position: relative;
 
 				@media (max-width: 1280px) {
-					padding: 25px 60px 25px 65px;
+					padding: 25px 75px 25px 65px;
 					margin: 0 -20px 0 -40px;
 				}
 
@@ -173,6 +177,11 @@
 					height: 40px;
 
 					opacity: 0;
+
+					@media (max-width: 1280px) {
+						top: 30px;
+						right: 40px;
+					}
 				}
 
 				.arrow-up,
@@ -184,6 +193,10 @@
 					right: 69px;
 
 					opacity: 0;
+
+					@media (max-width: 1280px) {
+						right: 49px;
+					}
 
 					&:before,
 					&:after {
@@ -223,6 +236,10 @@
 				.arrow-down {
 					bottom: 46px;
 
+					@media (max-width: 1280px) {
+						bottom: 17px;
+					}
+
 					&:before,
 					&:after {
 						background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.772.218l4.52 4.52 4.52-4.52A.74.74 0 0111.339 0a.74.74 0 01.527.218.74.74 0 01.218.527.74.74 0 01-.218.527L6.819 6.319a.74.74 0 01-.527.218.74.74 0 01-.527-.218L.718 1.272A.74.74 0 01.5.745.74.74 0 01.718.218.74.74 0 011.245 0c.2 0 .386.078.527.218z' fill='%23fff'/%3E%3C/svg%3E");
@@ -231,6 +248,10 @@
 
 				.arrow-up {
 					top: 46px;
+
+					@media (max-width: 1280px) {
+						top: 22px;
+					}
 
 					&:before,
 					&:after {
