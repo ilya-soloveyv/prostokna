@@ -230,7 +230,7 @@ gulp.task('watch', () => {
 
 gulp.task('bs', /* ['nodemon'], */ function() {
 	browserSync.init(null, {
-		proxy: "http://localhost:3000",
+		proxy: "http://localhost:4000",
         files: [
             'views/**/*.*',
             'public/src/css/**/*.*',
