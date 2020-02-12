@@ -49,7 +49,7 @@
 
 		@media (max-width: 800px) {
 			align-items: flex-end;
-			margin-bottom: 10vh;
+			margin-bottom: 12vh;
 
 			z-index: 1;
 
@@ -326,7 +326,7 @@
 		@media (max-width: 575px) {
 			font-size: 24px;
 			text-align: center;
-			margin-top: 20vh;
+			margin-top: 10vh;
 		}
 	}
 
@@ -348,7 +348,7 @@
 
 		@media (max-width: 575px) {
 			position: absolute;
-			bottom: -10vh;
+			bottom: -12vh;
 			left: 50%;
 			margin: 0;
 			transform: translateX(-50%);
