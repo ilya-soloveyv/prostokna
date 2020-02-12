@@ -6,4 +6,12 @@ if (screen.width < 800) {
         cssEase: 'linear',
         arrows: false,
     });
+} else {
+    $('.s1 .items a').hover(
+        function() {
+            $('.s1 .items a').removeClass('is-hovered');
+            $( this ).addClass('is-hovered');
+        }
+    );
 }
+
