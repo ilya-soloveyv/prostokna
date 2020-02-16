@@ -353,12 +353,26 @@ data.left_menu = [
     {
         title: 'Главная',
         uri: '/',
-        ico: ['1.svg', '1a.svg']
+        ico: {
+            name: 'home',
+            viewBox: '0 0 25 25'
+        }
     },
     {
         title: 'Окна',
         uri: '/product',
-        ico: ['2.svg', '2a.svg']
+        ico: {
+            name: 'window',
+            viewBox: '0 0 25 27'
+        }
+    },
+    {
+        title: 'Как измерить окно',
+        uri: '#',
+        ico: {
+            name: 'angle',
+            viewBox: '0 0 25 25'
+        }
     },
     // {
     //     title: 'Услуги',
@@ -368,32 +382,50 @@ data.left_menu = [
     {
         title: 'Галерея работ',
         uri: '/gallery',
-        ico: ['4.svg', '4a.svg']
+        ico: {
+            name: 'gallery',
+            viewBox: '0 0 25 25'
+        }
     },
     {
         title: 'О компании',
         uri: '/company',
-        ico: ['5.svg', '5a.svg']
+        ico: {
+            name: 'handshake',
+            viewBox: '0 0 25 23'
+        }
     },
     {
         title: 'Как мы работаем',
         uri: '/work',
-        ico: ['6.svg', '6a.svg']
+        ico: {
+            name: 'gear',
+            viewBox: '0 0 25 25'
+        }
     },
     {
         title: 'Словарь оконных терминов',
         uri: '/wiki',
-        ico: ['7.svg', '7a.svg']
+        ico: {
+            name: 'book',
+            viewBox: '0 0 25 27'
+        }
     },
     {
         title: 'Сравнение профильных систем',
         uri: '/#s5',
-        ico: ['8.svg', '8a.svg']
+        ico: {
+            name: 'scales',
+            viewBox: '0 0 25 23'
+        }
     },
     {
         title: 'Контакты',
         uri: '/contact',
-        ico: ['9.svg', '9a.svg']
+        ico: {
+            name: 'marker',
+            viewBox: '0 0 27 37'
+        }
     },
 ]
 
