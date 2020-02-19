@@ -22,6 +22,37 @@ $(document).on("mouseenter", "#fullpage_welcome .section.s2 ul.level1 li.level1"
     return false;
 })
 
+
+$('.s2-secondary-card a.more').click(function() {
+    $('.s2-secondary-list li').removeClass('show');
+
+    $( this ).closest('li').addClass('show');
+
+    return false;
+})
+
+if (screen.width < 800) {
+    $('.s2-control--menu').click(function() {
+        $('.s2-secondary-list').removeClass('open');
+        $('.s2-secondary-list li').removeClass('show');
+    })
+
+    $('.s2-primary-card').click(function() {
+        $('.s2-secondary-list').addClass('open');
+        
+        $('.s2-secondary-list li').removeClass('is-active show');
+        $('.s2-secondary-list > li').eq($(this).index()).addClass('is-active show');
+    });
+} else {
+    $('.s2-primary-card').click(function() {
+        $('.s2-primary-card').removeClass('is-active').addClass('is-inactive');
+        $( this ).removeClass('is-inactive').addClass('is-active');
+    
+        $('.s2-secondary-list li').removeClass('is-active show');
+        $('.s2-secondary-list > li').eq($(this).index()).addClass('is-active show');
+    });
+}
+
 function s2_menu_open(_this) {
     $(_this).css({"z-index": 2});
     var front = $(_this).find('.front')

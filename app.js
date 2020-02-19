@@ -353,26 +353,17 @@ data.left_menu = [
     {
         title: 'Главная',
         uri: '/',
-        ico: {
-            name: 'home',
-            viewBox: '0 0 25 25'
-        }
+        ico: 'home',
     },
     {
         title: 'Окна',
         uri: '/product',
-        ico: {
-            name: 'window',
-            viewBox: '0 0 25 27'
-        }
+        ico: 'window',
     },
     {
         title: 'Как измерить окно',
         uri: '#',
-        ico: {
-            name: 'angle',
-            viewBox: '0 0 25 25'
-        }
+        ico: 'angle',
     },
     // {
     //     title: 'Услуги',
@@ -382,50 +373,32 @@ data.left_menu = [
     {
         title: 'Галерея работ',
         uri: '/gallery',
-        ico: {
-            name: 'gallery',
-            viewBox: '0 0 25 25'
-        }
+        ico: 'gallery',
     },
     {
         title: 'О компании',
         uri: '/company',
-        ico: {
-            name: 'handshake',
-            viewBox: '0 0 25 23'
-        }
+        ico: 'handshake',
     },
     {
         title: 'Как мы работаем',
         uri: '/work',
-        ico: {
-            name: 'gear',
-            viewBox: '0 0 25 25'
-        }
+        ico: 'gear',
     },
     {
         title: 'Словарь оконных терминов',
         uri: '/wiki',
-        ico: {
-            name: 'book',
-            viewBox: '0 0 25 27'
-        }
+        ico: 'book',
     },
     {
         title: 'Сравнение профильных систем',
         uri: '/#s5',
-        ico: {
-            name: 'scales',
-            viewBox: '0 0 25 23'
-        }
+        ico: 'scales',
     },
     {
         title: 'Контакты',
         uri: '/contact',
-        ico: {
-            name: 'marker',
-            viewBox: '0 0 27 37'
-        }
+        ico: 'marker',
     },
 ]
 
@@ -1093,12 +1066,12 @@ app.get('/', async (req, res) => {
     data.s2_menu = [
         {
             title: 'Окна',
-            img: '1.svg',
+            ico: 'windows',
             list: MaterialBrandProductMenu
         },
         {
             title: 'Услуги',
-            img: '2.svg',
+            ico: 'services',
             list: [
                 {
                     title: 'Вызов замерщика',
@@ -1211,7 +1184,7 @@ app.get('/', async (req, res) => {
         },
         {
             title: 'Комплектующие',
-            img: '3.svg',
+            ico: 'accessories',
             list: [
                 {
                     title: 'Подоконники',
@@ -1241,7 +1214,7 @@ app.get('/', async (req, res) => {
         },
         {
             title: 'Цены',
-            img: '4.svg',
+            ico: 'prices',
             list: [
                 {
                     title: 'Калькулятор',
@@ -1275,7 +1248,7 @@ app.get('/', async (req, res) => {
         },
         {
             title: 'Wiki окна',
-            img: '5.svg',
+            ico: 'wiki-windows',
             list: [
                 {
                     title: 'Словарь оконных терминов',
@@ -1326,7 +1299,7 @@ app.get('/', async (req, res) => {
         },
         {
             title: 'Корпоративным клиентам',
-            img: '6.svg',
+            ico: 'corporate-clients',
             list: [
                 {
                     title: 'Страница с описанием',
@@ -1351,7 +1324,7 @@ app.get('/', async (req, res) => {
         },
         {
             title: 'Акции/новое',
-            img: '7.svg',
+            ico: 'stocks',
             list: [
                 {
                     title: 'Акция "Найдите дешевле"',
@@ -1361,7 +1334,7 @@ app.get('/', async (req, res) => {
         },
         {
             title: 'Компания',
-            img: '8.svg',
+            ico: 'company',
             list: [
                 {
                     title: 'Контакты',

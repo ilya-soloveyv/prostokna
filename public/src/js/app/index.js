@@ -1,5 +1,5 @@
 function fullpage_welcome_color(i) {
-    if (i == 1 || i == 3 || i == 6 || i == 8) {
+    if (i == 1 || i == 2 || i == 3 || i == 7) {
         var fullpage_color_class = "white";
     } else {
         var fullpage_color_class = "black";
