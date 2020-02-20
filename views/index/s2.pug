@@ -8,6 +8,7 @@ mixin list(list)
                     +list(item.list)
 .section.s2
     .fp_bg
+        button.s2-menu MENU
         ul.s2-main-list
             each item in s2_menu
                 li.s2-primary-card
@@ -19,8 +20,7 @@ mixin list(list)
                     p= item.title
         ol.s2-secondary-list
             each item in s2_menu
-                li
+                li.s2-secondary-card
                     +list(item.list)
-            button.s2-control.s2-control--prev Назад
-            button.s2-control.s2-control--next Вперед
-            button.s2-control.s2-control--menu MENU
+                    svg(aria-hidden='true')
+                        use(xlink:href=`#symbol--index-${item.ico}`)
