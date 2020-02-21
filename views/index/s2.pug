@@ -1,41 +1,26 @@
+mixin list(list)
+    if list
+        ol
+            each item in list
+                li.s2-secondary-card
+                    a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+
+                    +list(item.list)
 .section.s2
     .fp_bg
-        ul.level1
+        button.s2-menu MENU
+        ul.s2-main-list
             each item in s2_menu
-                li(class='level1')
-                    .front
-                        .img
-                            img(src="/images/index/s2/"+item.img, alt= item.title)
-                        .title= item.title
-                    .back
-                        .bg
-                        .title= item.title
-                        i.material-icons.material-icons-clear clear
-                        i.material-icons.material-icons-arrow_left arrow_left
-                        if item.list
-                            .list
-                                ul
-                                    each item2 in item.list
-                                        li
-                                            if !item2.list
-                                                a(href= item2.uri class= { 'disabled': item2.dev })= item2.title
-                                            else
-                                                a.more(href= item2.uri class= { 'disabled': item2.dev })= item2.title
-                                                ul
-                                                    each item3 in item2.list
-                                                        li
-                                                            if !item3.list
-                                                                a(href= item3.uri class= { 'disabled': item3.dev })= item3.title
-                                                            else
-                                                                a.more(href= item3.uri class= { 'disabled': item3.dev })= item3.title
-                                                                ul
-                                                                    each item4 in item3.list
-                                                                        li
-                                                                            if !item4.list
-                                                                                a(href= item4.uri class= { 'disabled': item4.dev })= item4.title
-                                                                            else
-                                                                                a.more(href= item4.uri class= { 'disabled': item4.dev })= item4.title
-                                                                                ul
-                                                                                    each item5 in item4.list
-                                                                                        li
-                                                                                            a(href= item5.uri class= { 'disabled': item5.dev })= item5.title
+                li.s2-primary-card
+                    svg(aria-hidden='true')
+                        defs
+                            filter(id='f1' width='272%' height='808%' x='-76%' y='-344%' filterUnits='objectBoundingBox')
+                                feGaussianBlur(stdDeviation='5 5' result='FeGaussianBlur2117Out' in='SourceGraphic')
+                        use(xlink:href=`#symbol--index-${item.ico}`)
+                    p= item.title
+        ol.s2-secondary-list
+            each item in s2_menu
+                li.s2-secondary-card
+                    +list(item.list)
+                    svg(aria-hidden='true')
+                        use(xlink:href=`#symbol--index-${item.ico}`)
