@@ -10,8 +10,12 @@
 	}
 
 	.bginput {
-		border-color: #fff;
+		color: #fff;
 
+		border-color: #fff;
+		input {
+			color: #fff;
+		}
 		label {
 			border-color: #82dcee;
 		}
@@ -199,6 +203,13 @@
 			overflow: hidden auto;
 
 			transform: translateY(-50%);
+		}
+
+		@media (max-width: 600px) {
+			top: initial;
+			bottom: 20px;
+
+			transform: translate(-50%, 0);
 		}
 	}
 }
@@ -401,7 +412,7 @@
 		height: 200px;
 
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-65%);
 
 		@media (max-width: 1440px) {
 			width: 140px;
@@ -424,18 +435,15 @@
 		font-weight: 600;
 		text-transform: uppercase;
 
-		bottom: 30px;
+		top: calc(100% - 80px);
 
 		@media (max-width: 1440px) {
 			font-size: 18px;
 		}
 
 		@media (max-width: 800px) {
+			top: calc(100% - 45px);
 			font-size: 13px;
-		}
-
-		@media (max-width: 600px) {
-			bottom: 10px;
 		}
 	}
 }
