@@ -227,6 +227,10 @@ gulp.task('watch', () => {
     gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
 })
 
+gulp.task('watch_admin', () => {
+    gulp.watch('public/src/admin/sass/**/*.scss', gulp.series('sass_admin'))
+})
+
 gulp.task('bs', /* ['nodemon'], */ function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:4000",

@@ -6,6 +6,14 @@ import Material from '../components/Material.js'
 import Brand from '../components/Brand.js'
 import Color from '../components/Color.js'
 import Gallery from '../components/Gallery.js'
+import Part from '../components/Part.js'
+import PartList from '../components/PartList.js'
+import PartHandle from '../components/PartHandle.js'
+import PartCurtain from '../components/PartCurtain.js'
+import PartJalousie from '../components/PartJalousie.js'
+import PartGrid from '../components/PartGrid.js'
+import PartSill from '../components/PartSill.js'
+import PartValve from '../components/PartValve.js'
 
 const routes = [
     {
@@ -46,6 +54,40 @@ const routes = [
     {
         path: '/gallery',
         component: Gallery
+    },
+    {
+        path: '/part',
+        component: Part,
+        children: [
+            {
+                path: '',
+                component: PartList
+            },
+            {
+                path: 'handle',
+                component: PartHandle,
+            },
+            {
+                path: 'curtain',
+                component: PartCurtain,
+            },
+            {
+                path: 'jalousie',
+                component: PartJalousie,
+            },
+            {
+                path: 'grid',
+                component: PartGrid,
+            },
+            {
+                path: 'sill',
+                component: PartSill,
+            },
+            {
+                path: 'valve',
+                component: PartValve,
+            },
+        ]
     },
 ]
 

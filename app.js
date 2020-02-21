@@ -943,6 +943,46 @@ app.post('/admin/BrandUpdate', async (req, res) => {
 
     res.json(request)
 })
+app.post('/admin/part/handle/get', async (req, res) => {
+    const response = {}
+    const HandleBrand = require('./models').handle_brand
+    const Handle = require('./models').handle
+
+    response.handleBrand = await HandleBrand.findAll()
+    response.handle = await Handle.findAll()
+
+    // var brand = (req.body.brand) ? req.body.brand : {}
+    // brand.sBrandTitle = (brand.sBrandTitle) ? brand.sBrandTitle : false
+    // brand.iCountryID = (brand.iCountryID) ? brand.iCountryID : false
+    // if (brand.sBrandTitle) {
+    //     brand.sBrandURI = cyrillicToTranslit().transform(brand.sBrandTitle, "_").toLowerCase()
+    // }
+    // brand.iActive = (brand.iActive) ? 1 : 0
+    // brand.sBrandDesc = (brand.sBrandDesc) ? brand.sBrandDesc : null
+
+    // if (brand.iBrandID && brand.sBrandTitle && brand.iCountryID) {
+    //     await Brand.update(brand, {
+    //         where: {
+    //             iBrandID: brand.iBrandID
+    //         }
+    //     })
+    // } else {
+    //     var { dataValues, iBrandID } = await Brand.create(brand)
+    //     brand.iBrandID = iBrandID
+    // }
+
+    // if (brand.iBrandID) {
+    //     request.brand = await Brand.findByPk(brand.iBrandID, {
+    //         include: [
+    //             {
+    //                 model: Country
+    //             }
+    //         ]
+    //     })
+    // }
+
+    res.json(response)
+})
 
 
 
