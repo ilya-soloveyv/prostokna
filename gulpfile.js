@@ -210,7 +210,7 @@ gulp.task('sass', function () {
             'public/src/sass/**/*.scss'
         ])
         .pipe(sass())
-        .pipe(autoprefixer(['last 2 versions']))
+        .pipe(autoprefixer(['last 3 versions']))
         .pipe(gulp.dest('public/src/css'))
 });
 
