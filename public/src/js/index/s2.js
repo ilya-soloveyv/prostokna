@@ -61,13 +61,21 @@ if (screen.width < 800) {
         $('.s2-secondary-list').slick('slickGoTo', $(this).index());
     });
 } else {
-    $('.s2-primary-card').click(function() {
+    $('.s2-primary-card').click(function(e) {
+        if (e.target.classList.contains('card-close')) {
+            return;
+        }
         $('.s2-primary-card').removeClass('is-active').addClass('is-inactive');
         $( this ).removeClass('is-inactive').addClass('is-active');
     
         $('.s2-secondary-card').removeClass('is-active show');
         $('.s2-secondary-list > li').eq($(this).index()).addClass('is-active show');
     });
+
+    $('.card-close').click(function() {
+        $('.s2-primary-card').removeClass('is-active show is-inactive');
+        $('.s2-secondary-card').removeClass('is-active show');
+    })
 }
 
 function s2_menu_open(_this) {

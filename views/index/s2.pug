@@ -12,10 +12,10 @@ mixin list(list)
         ul.s2-main-list
             each item in s2_menu
                 li.s2-primary-card
-                    svg(aria-hidden='true')
-                        defs
-                            filter(id='f1' width='272%' height='808%' x='-76%' y='-344%' filterUnits='objectBoundingBox')
-                                feGaussianBlur(stdDeviation='5 5' result='FeGaussianBlur2117Out' in='SourceGraphic')
+                    button.card-close(aria-label='Закрыть')
+                        svg(width='15px' height='15px')
+                            use(xlink:href='#symbol--cross')
+                    svg.card-icon(aria-hidden='true')
                         use(xlink:href=`#symbol--index-${item.ico}`)
                     p= item.title
         ol.s2-secondary-list
