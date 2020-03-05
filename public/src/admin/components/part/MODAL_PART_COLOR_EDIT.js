@@ -41,8 +41,9 @@ export default {
         })
       } else {
         Vue.set(this, 'partColor', {
+          iPartBrandID: this.iPartBrandID,
           iOrder: 9999,
-          iPartBrandID: this.iPartBrandID
+          iActive: true
         })
       }
     },

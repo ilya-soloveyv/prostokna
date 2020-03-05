@@ -30,7 +30,8 @@ export default {
       } else {
         Vue.set(this, 'partModel', {
           iPartBrandID: this.iPartBrandID,
-          iOrder: 9999
+          iOrder: 9999,
+          iActive: true
         })
       }
     },
