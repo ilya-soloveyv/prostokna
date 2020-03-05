@@ -38,7 +38,8 @@ export default {
         })
       } else {
         Vue.set(this, 'part', {
-          iOrder: 9999
+          iOrder: 9999,
+          iActive: true
         })
       }
     },
@@ -63,7 +64,7 @@ export default {
             <form @submit.prevent="update" id="modalPartEditForm">
               <div class="form-group">
                 <label for="sPartTitle">Название</label>
-                <input type="text" class="form-control" id="sPartTitle" v-model="part.sPartTitle" autocomplete="off" required>
+                <input type="text" ref="sPartTitle" class="form-control" id="sPartTitle" v-model="part.sPartTitle" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label for="iOrderInput">iOrder</label>
