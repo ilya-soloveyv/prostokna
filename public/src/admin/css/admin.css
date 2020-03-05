@@ -39,6 +39,15 @@ body {
   font-family: 'Museo Sans Cyrl 300';
   font-size: 14px; }
 
+.custom-switch {
+  height: 1rem;
+  display: flex; }
+  .custom-switch label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #212529 !important; }
+
 #app {
   flex-grow: 1;
   flex-shrink: 1;
@@ -76,7 +85,7 @@ body {
           color: lime;
           text-decoration: none;
           padding: 6px 16px; }
-          #app .sidebar .fixed ul.menu li.router-link-exact-active > a {
+          #app .sidebar .fixed ul.menu li.router-link-active > a {
             font-family: 'Museo Sans Cyrl 700'; }
           #app .sidebar .fixed ul.menu li ul {
             margin: 0;
@@ -299,13 +308,141 @@ body {
       font-size: 11px !important;
       color: #9eaec5 !important; }
 
-.PartHandle {
-  height: 100%;
-  overflow: hidden;
+#part {
   display: grid;
-  grid-template-columns: 250px 250px 1fr;
-  grid-gap: 16px; }
-  .PartHandle .brand {
-    border-right: 1px solid #E3EBF6; }
-  .PartHandle .model {
-    border-right: 1px solid #E3EBF6; }
+  grid-template-columns: repeat(3, 250px) 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  height: 100vh;
+  overflow: hidden;
+  margin: -2rem; }
+  #part .myalert {
+    text-align: center;
+    display: block;
+    opacity: 0.5; }
+  #part .partBlock {
+    display: flex;
+    flex-direction: column; }
+    #part .partBlock h2 {
+      padding: 0;
+      margin: 1rem;
+      flex-shrink: 0;
+      display: flex;
+      height: 30px; }
+      #part .partBlock h2 span {
+        font-size: 16px;
+        opacity: 0.85;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-grow: 1; }
+      #part .partBlock h2 a.add {
+        flex-basis: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0; }
+        #part .partBlock h2 a.add:hover {
+          opacity: 0.5; }
+    #part .partBlock .blockData {
+      flex-grow: 1;
+      overflow: auto; }
+  #part .partList {
+    grid-row: 1 / span 2;
+    background-color: rgba(0, 0, 0, 0.025); }
+  #part .partBrandList {
+    grid-row: 1 / span 2;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.005); }
+  #part .partModelList {
+    background-color: rgba(0, 0, 0, 0.025); }
+  #part .partModelEdit {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    background-color: rgba(0, 0, 0, 0.005); }
+  #part .partModelColor {
+    grid-column: 3;
+    background-color: rgba(0, 0, 0, 0.045); }
+  #part ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #part ul li {
+      padding: 0 1rem;
+      line-height: 30px;
+      display: flex; }
+      #part ul li:hover .edit {
+        opacity: 0.5; }
+      #part ul li:hover .destroy {
+        opacity: 0.5; }
+      #part ul li.noActive .title {
+        text-decoration: line-through; }
+      #part ul li a.router-link-active {
+        font-weight: bold;
+        color: black;
+        text-decoration: none; }
+      #part ul li .color {
+        flex-basis: 24px;
+        flex-shrink: 0;
+        margin: 3px 5px 3px 0;
+        border-radius: 3px; }
+      #part ul li .emptyColor {
+        flex-basis: 24px;
+        margin-right: 5px; }
+      #part ul li .title {
+        flex-grow: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+      #part ul li .edit {
+        flex-basis: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.25;
+        flex-shrink: 0; }
+        #part ul li .edit:hover {
+          opacity: 0.75; }
+      #part ul li .destroy {
+        flex-basis: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.25;
+        flex-shrink: 0; }
+        #part ul li .destroy:hover {
+          opacity: 0.75; }
+          #part ul li .destroy:hover svg {
+            stroke: #DC3545; }
+  #part #PartModelEditForm {
+    padding: 0 1rem; }
+  #part .images {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem; }
+    #part .images .image {
+      padding-bottom: 100%;
+      position: relative;
+      background-color: #EEF0F2;
+      border-radius: 0.25rem;
+      overflow: hidden; }
+      #part .images .image label {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25rem;
+        margin: 0;
+        cursor: pointer;
+        text-align: center; }
+        #part .images .image label input {
+          display: none; }
+        #part .images .image label img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain; }
