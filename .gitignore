@@ -11,4 +11,5 @@ package-lock.json
 .htpasswd
 /public/upload
 /public/images/gallery
+/public/images/part
 /encryption
