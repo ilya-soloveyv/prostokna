@@ -1185,7 +1185,6 @@ app.post('/admin/part/uploadPartModel', async (req, res) => {
     const PartImage = require('./models').partImage
     var filename = randomString() + '.' + req.headers.extension
     const iPartModelID = req.headers.ipartmodelid
-    const iPartColorID = 1
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
             cb(null, './public/images/part')
@@ -1195,15 +1194,51 @@ app.post('/admin/part/uploadPartModel', async (req, res) => {
         }
     })
     var upload = multer({ storage: storage }).single('file')
-    upload(req, res, async function (err, response) {
+    upload(req, res, async function (err, resp) {
+        const response = {}
         await PartImage.create({
             iPartModelID,
-            iPartColorID,
             sPartImageFile: req.file.filename,
             iActive: true
         })
-        res.json(req.file)
+        // response.file = file
+        response.images = await PartImage.getList(iPartModelID)
+        res.json(response)
+    })  
+})
+app.post('/admin/part/destroyPartModelImage', async (req, res) => {
+    const fs = require('fs')
+    const PartImage = require('./models').partImage
+    const response = {}
+    const iPartImageID = req.body.iPartImageID
+    response.image = await PartImage.findByPk(iPartImageID)
+    fs.unlinkSync('./public/images/part/' + response.image.sPartImageFile)
+    await PartImage.destroy({
+        where: {
+            iPartImageID
+        }
     })
+    response.images = await PartImage.getList(response.image.iPartModelID)
+    res.json(response)
+})
+app.post('/admin/part/updatePartModelImage', async (req, res) => {
+    const PartImage = require('./models').partImage
+    const response = {}
+    const iPartModelID = req.body.iPartModelID
+    const iPartImageID = req.body.iPartImageID
+    const iPartColorID = req.body.iPartColorID
+    await PartImage.update(
+        {
+            iPartColorID
+        },
+        {
+            where: {
+                iPartImageID
+            }            
+        }
+    )
+    response.images = await PartImage.getList(iPartModelID)
+    res.json(response)
 })
 
 

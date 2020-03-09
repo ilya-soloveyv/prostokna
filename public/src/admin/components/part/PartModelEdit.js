@@ -1,14 +1,20 @@
+import PartModelEditImage from './PartModelEditImage.js'
 export default {
   name: 'PartModelEdit',
-  props: [
-    'iPartID',
-    'iPartBrandID',
-    'iPartModelID'
-  ],
+  components: {
+    PartModelEditImage
+  },
+  props: {
+    iPartID: String,
+    iPartBrandID: String,
+    iPartModelID: String,
+    partColorList: Array
+  },
   data() {
     return {
       partModel: {},
-      loading: false
+      loading: false,
+      uploading: false
     }
   },
   created: function() {
@@ -45,22 +51,6 @@ export default {
         this.$emit('reloadPartModelList')
       })
     },
-    upload() {
-      var form = new FormData();
-      form.append('file', event.target.files[0]);
-      axios.post('/admin/part/uploadPartModel', form, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'extension': event.target.files[0].name.split('.').pop(),
-          iPartModelID: this.iPartModelID
-        }
-      }).then((response) => {
-        // Vue.set(this.product.product_images[index], column, response.data.filename)
-      })
-    },
-    addImageColor() {
-      console.log(222)
-    }
   },
   template: `
     <div>
@@ -80,14 +70,14 @@ export default {
             <textarea class="form-control" id="tPartModelDescInput" v-model="partModel.tPartModelDesc" rows="5"></textarea>
           </div>
           <div class="form-group">
-            <label for="iOrderInput">iOrder</label>
-            <input type="text" class="form-control" id="iOrderInput" v-model.number="partModel.iOrder" autocomplete="off" required>
+            <label for="partModeliOrderInput">iOrder</label>
+            <input type="text" class="form-control" id="partModeliOrderInput" v-model.number="partModel.iOrder" autocomplete="off" required>
           </div>
           <div class="form-group">
-            <label for="iActiveInput">iActive</label>
+            <label for="partModeliActiveInput">iActive</label>
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="iActiveInput" v-model="partModel.iActive">
-              <label class="custom-control-label" for="iActiveInput">
+              <input type="checkbox" class="custom-control-input" id="partModeliActiveInput" v-model="partModel.iActive">
+              <label class="custom-control-label" for="partModeliActiveInput">
                 <template v-if="partModel.iActive">Опубликовано</template>
                 <template v-else>Скрыто</template>
               </label>
@@ -95,20 +85,22 @@ export default {
           </div>
         </form>
         <div class="images">
-          <div class="image" v-for="(image, imageIndex) in partModel.images" :key="imageIndex">
-            <label>
-              <input type="file" :name="imageIndex" @change="upload" />
-              <img :src="'/images/part/' + image.sPartImageFile" />
-            </label>
-          </div>
-          <div class="image">
-            <label>
-              <input type="file" @change="upload" />
-              Выбрать изображение
-            </label>
-          </div>
+          <PartModelEditImage
+            v-for="(image, imageIndex) in partModel.images"
+            :key="imageIndex"
+            :iPartModelID="iPartModelID"
+            :image="image"
+            :partColorList="partColorList"
+            @reloadImages="get"
+          />
+          <PartModelEditImage
+            :iPartModelID="iPartModelID"
+            :partColorList="partColorList"
+            @reloadImages="get"
+          />
         </div>
         <button type="submit" class="btn btn-primary ml-3 mb-3" form="PartModelEditForm" :disabled="loading">Сохранить</button>
+        <pre>{{ partModel }}</pre>
       </template>
     </div>
   `,

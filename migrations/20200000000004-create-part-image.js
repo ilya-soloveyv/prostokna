@@ -15,13 +15,14 @@ module.exports = {
       },
       iPartColorID: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
         references: {
           model: 'part_color',
           key: 'iPartColorID',
         },
         onUpdate: 'NO ACTION',
-        onDelete: 'CASCADE',
+        onDelete: 'SET NULL',
       },
       sPartImageFile: {
         type: Sequelize.STRING,

@@ -6,14 +6,14 @@ module.exports = {
       {
         iPartImageID: 1,
         iPartModelID: 3,
-        iPartColorID: 1,
+        iPartColorID: null,
         sPartImageFile: '1.jpg',
         iActive: true
       },
       {
         iPartImageID: 2,
         iPartModelID: 3,
-        iPartColorID: 3,
+        iPartColorID: null,
         sPartImageFile: '2.jpg',
         iActive: true
       },
