@@ -1,26 +1,61 @@
-mixin list(list)
+mixin desktopList(list)
     if list
         ol
             each item in list
-                li.s2-secondary-card
+                li
                     a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+                        span.bg
 
-                    +list(item.list)
+                    +desktopList(item.list)
+
+mixin mobList(list, type, ico, title, index)
+    if list
+        if type
+            div(class=`slide s2-list-${index}`)
+                ol.slide-wrap
+                    p.s2-title= title
+                    each item in list
+                        li.s2-first-level
+                            a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+
+                            +mobList(item.list, false, false, title)
+
+                    svg.card-icon(aria-hidden='true')
+                        use(xlink:href=`#index-${ico}`)
+        else
+            ol
+                p.s2-title= title
+                each item in list
+                    li
+                        a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+
+                        +mobList(item.list, false, false, title)
+
 .section.s2
-    .fp_bg
-        button.s2-menu MENU
+    .desktop
         ul.s2-main-list
             each item in s2_menu
-                li.s2-primary-card
-                    button.card-close(aria-label='Закрыть')
-                        svg(width='15px' height='15px')
-                            use(xlink:href='#symbol--cross')
-                    svg.card-icon(aria-hidden='true')
-                        use(xlink:href=`#symbol--index-${item.ico}`)
-                    p= item.title
-        ol.s2-secondary-list
+                li.s2-card
+                    .s2-front-card
+                        div
+                            button.card-back(aria-label='Назад')
+                                svg(width='15px' height='15px')
+                                    use(xlink:href='#back')
+                            button.card-close(aria-label='Закрыть')
+                                svg(width='15px' height='15px')
+                                    use(xlink:href='#cross')
+                        svg.card-icon(aria-hidden='true')
+                            use(xlink:href=`#index-${item.ico}`)
+                        p= item.title
+                    .s2-back-card
+                        +desktopList(item.list)
+    .mob
+        button.s2-close MENU
+        .s2-cards
             each item in s2_menu
-                li.s2-secondary-card
-                    +list(item.list)
-                    svg(aria-hidden='true')
-                        use(xlink:href=`#symbol--index-${item.ico}`)
+                .s2-front-card
+                    svg.card-icon(aria-hidden='true')
+                        use(xlink:href=`#index-${item.ico}`)
+                    p= item.title
+        each item, index in s2_menu
+            +mobList(item.list, 1, item.ico, item.title, index)

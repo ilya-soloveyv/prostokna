@@ -631,3 +631,23 @@ if ($('#form_request').length) {
 		}
 	}	
 }
+
+// загрузка свг спрайта
+fetch('images/svg/sprite.symbol.svg')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Загрузка спрайта прошла неуспешно');
+        }
+        return response.text();
+    })
+    .then(text => {
+        let div = document.createElement('div');
+        div.style.display = 'none';
+        
+        div.innerHTML = text;
+
+        document.body.appendChild(div);
+    })
+    .catch(error => {
+        console.error('Возникла проблема с операцией получения: ', error);
+    });
