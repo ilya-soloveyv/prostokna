@@ -32,7 +32,7 @@
         a.back {
             display: flex;
             justify-content: center;
-            font-family: 'Montserrat';
+            
             font-size: 16px;
             text-transform: uppercase;
             line-height: 24px;
@@ -86,7 +86,7 @@
                 .num {
                     flex-basis: 150px;
                     flex-shrink: 0;
-                    font-family: 'Montserrat';
+                    
                     font-size: 100px;
                     line-height: 80px;
                     color: #E4E4E4;
@@ -111,7 +111,7 @@
                         flex-basis: 150px;
                     }
                     .title {
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 14px;
                         color: #353535;
                         line-height: 22px;
@@ -120,7 +120,7 @@
                     a {
                         display: flex;
                         justify-content: center;
-                        font-family: 'Montserrat';
+                        
                         font-size: 10px;
                         text-transform: uppercase;
                         line-height: 14px;
@@ -149,7 +149,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         padding-left: 50px;
-        font-family: 'MontserratMedium';
+        font-weight: 500;
         font-size: 14px;
         line-height: 24px;
         @media (max-width: 1350px) {
@@ -163,7 +163,7 @@
             line-height: 20px;
         }
         h1 {
-            font-family: 'MontserratBold';
+            font-weight: bold;
             font-size: 20px;
             line-height: 30px;
             margin-bottom: 50px;

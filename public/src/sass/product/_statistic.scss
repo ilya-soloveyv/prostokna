@@ -18,7 +18,7 @@
   }
 
   &__head {
-    font-family: 'MontserratSemiBold';
+    font-weight: 600;
     width: 40px;
     margin: 40px auto 20px;
     display: none;
@@ -278,7 +278,7 @@
     padding: 60px 10px 40px 25px;
     font-size: 12px;
     line-height: 24px;
-    font-family: 'MontserratSemiBold';
+    font-weight: 600;
     border-radius: 5px;
     width: 300px;
     min-width: 300px;
@@ -424,7 +424,7 @@
   }
   &__note {
     font-size: 12px;
-    font-family: 'MontserratSemiBold';
+    font-weight: 600;
     margin-top: 10px;
     text-transform: uppercase;
 

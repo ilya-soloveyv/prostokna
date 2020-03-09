@@ -176,7 +176,7 @@
 	    		top: 20%;
 	    		left: 110%;
 	    		width: 120%;
-	    		font-family: 'MontserratSemiBold';
+	    		font-weight: 600;
 	    		color: #EDEDED;
 	    		@media screen and (max-width: 992px) {
 	    			top: 110%;
@@ -367,7 +367,7 @@
 	    		top: 20%;
 	    		left: 110%;
 	    		width: 200%;
-	    		font-family: 'MontserratSemiBold';
+	    		font-weight: 600;
 	    		color: #EDEDED;
 	    		@media screen and (max-width: 992px) {
 	    			top: 110%;
@@ -556,7 +556,7 @@
 	    		top: 20%;
 	    		left: 110%;
 	    		width: 200%;
-	    		font-family: 'MontserratSemiBold';
+	    		font-weight: 600;
 	    		color: #EDEDED;
 	    		@media screen and (max-width: 992px) {
 	    			top: 110%;
@@ -627,7 +627,7 @@
 			&__title {
 				font-size: 16px;
 				text-transform: uppercase;
-				font-family: 'Montserrat';
+				
 				font-weight: 700;
 				margin-top: 12px;
 				@media screen and (max-width: 576px) {
@@ -703,7 +703,7 @@
 			justify-content: space-between;
 			list-style: none;
 			color: #fff;
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			font-size: 3vh;
 			text-transform: uppercase;
 			width: 75vw;
@@ -725,7 +725,7 @@
 			list-style: none;
 			color: #fff;
 			text-transform: uppercase;
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			font-size: 5vh;
 			margin-top: 10vh;
 			@media screen and (max-width: 992px) {

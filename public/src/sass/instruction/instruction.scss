@@ -6,7 +6,7 @@ $text: #353535;
 .instruction {
 		position: relative;
     	color: $text;
-		font-family: 'MontserratMedium';
+		font-weight: 500;
 		padding-bottom: 33px;
 		display: flex;
 		flex-direction: column;
@@ -16,7 +16,7 @@ $text: #353535;
 		}
 		&__title {
 			font-size: 28px;
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			flex-basis: 100px;
 			display: flex;
 			justify-content: center;
@@ -770,7 +770,7 @@ $text: #353535;
 					background: rgba(67, 67, 67, 0.85);
 					color: #fff;
 					font-size: 16px;
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 					text-align: center;
 					border-radius: 13px;
 					transition: opacity 0.3s 0.1s;

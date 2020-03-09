@@ -50,7 +50,7 @@
                 width: 100vw;
             }
             .title{
-                font-family: "MontserratMedium";
+                font-weight: 500;
                 font-size: 35px;
                 text-transform: uppercase;
                 color: #fff;
@@ -59,7 +59,7 @@
             ul{
                 height: 24px;
                 width: 96%;
-                font-family: "MontserratMedium";
+                font-weight: 500;
                 font-size: 22px;
                 list-style: none;
                 display: flex;
@@ -135,7 +135,7 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				font-family: 'MontserratMedium';
+				font-weight: 500;
 				@media screen and (max-width: 1400px){
 					padding: 4%;
 					width: 50%;
@@ -215,7 +215,7 @@
 					background: rgba(0, 0, 0, 0.8);
 					border-radius: 15px;
 					z-index: 50;
-					font-family: 'MontserratMedium';
+					font-weight: 500;
 					img {
 						display: block;
 						margin: 0 auto;
@@ -285,7 +285,7 @@
 						color: #fff;
 						font-size: 14px;
 						text-transform: uppercase;
-						font-family: 'MontserratSemiBold';
+						font-weight: 600;
 						margin-top: 90px;
 						cursor: pointer;
 						box-shadow: 4px 3px 6px rgba(0, 0, 0, 0.57);
@@ -311,7 +311,7 @@
 						text-decoration: none;
 						background: #3C3C3C;
 						font-size: 11px;
-						font-family: 'MontserratMedium';
+						font-weight: 500;
 						width: 175px;
 						margin: 0 auto;
 						margin-top: 60px;

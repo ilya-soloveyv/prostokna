@@ -109,7 +109,7 @@
 			line-height: 60px;
 			margin: 0 0 80px 0;
 			text-transform: uppercase;
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			@media screen and (max-width: 1200px) {
 				font-size: 55px;
 			}
@@ -130,7 +130,7 @@
 			padding: 0;
 			list-style: none;
 			text-transform: uppercase;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			li {
 				position: relative;
 				cursor: pointer;
@@ -219,7 +219,7 @@
 		}
 		.desc {
 			width: 100%;
-			font-family: 'Montserrat';
+			
 			color: #FFF;
 			height: calc(100% - 80px);			
 			display: flex;
@@ -292,7 +292,7 @@
 				button {
 						background-color: white;
 						color: black;
-						font-family: 'MontserratSemiBold';
+						font-weight: 600;
 						font-size: 14px;
 						line-height: 18px;
 						padding: 13px 30px;
@@ -323,7 +323,7 @@
 						border: 1px solid white;
 						border-radius: 22px;
 						cursor: pointer;
-						font-family: 'MontserratSemiBold';
+						font-weight: 600;
 						font-size: 14px;
 						line-height: 18px;
 						color: white;
@@ -361,7 +361,7 @@
                 .bg_flex {
                     width: 100%;
                     margin: 0 100px;
-                    font-family: 'MontserratSemiBold';
+                    font-weight: 600;
                     color: #FFF;
                     text-transform: uppercase;
                     .title {
@@ -444,7 +444,7 @@
                     width: 100%;
                     margin: 0 100px;
                     .desc {
-                        font-family: 'Montserrat';
+                        
                         color: #FFF;
                         margin-bottom: 80px;
                     }
@@ -470,7 +470,7 @@
                             button {
                                 background-color: white;
                                 color: black;
-                                font-family: 'MontserratSemiBold';
+                                font-weight: 600;
                                 font-size: 14px;
                                 line-height: 18px;
                                 padding: 13px 30px;
@@ -490,7 +490,7 @@
                                 border: 1px solid white;
                                 border-radius: 22px;
                                 cursor: pointer;
-                                font-family: 'MontserratSemiBold';
+                                font-weight: 600;
                                 font-size: 14px;
                                 line-height: 18px;
                                 color: white;
@@ -616,7 +616,7 @@
                 .bg_flex {
                     width: 80%;
                     margin: 0 auto;
-                    font-family: 'MontserratSemiBold';
+                    font-weight: 600;
                     color: #FFF;
                     text-transform: uppercase;
                     .title {
@@ -701,7 +701,7 @@
                     width: 80%;
                     margin: 0 auto;
                     .desc {
-                        font-family: 'Montserrat';
+                        
                         color: #FFF;
                         font-size: 15px;
                         padding-bottom: 20px;                        
@@ -755,7 +755,7 @@
                     .bg_flex {
                         width: 80%;
                         margin: 0 auto;
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         color: #FFF;
                         text-transform: uppercase;
                         .title {
@@ -841,7 +841,7 @@
                         width: 80%;
                         margin: 0 auto;
                         .desc {
-                            font-family: 'Montserrat';
+                            
                             color: #FFF;
                             font-size: 15px;
                             padding-bottom: 20px;                        
@@ -895,7 +895,7 @@
                     .bg_flex {
                         width: 95%;
                         margin: 0 auto;
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         color: #FFF;
                         text-transform: uppercase;
                         .title {
@@ -982,7 +982,7 @@
                         width: 95%;
                         margin: 0 auto;
                         .desc {
-                            font-family: 'Montserrat';
+                            
                             color: #FFF;
                             font-size: 15px;
                             padding-bottom: 15px;
