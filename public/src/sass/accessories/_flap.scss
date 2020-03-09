@@ -8,7 +8,7 @@
 			justify-content: center;
 			&__desc {
 				text-align: center;
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 			}
 			&__title {
 				font-size: 18px;
@@ -69,7 +69,7 @@
 				}				
 			}
 			&__color__desc {
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 				margin-bottom: 132px;
 				@media screen and (max-width: 992px) {
 					margin-bottom: 35px;

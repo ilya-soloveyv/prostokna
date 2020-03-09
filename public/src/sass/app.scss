@@ -55,7 +55,7 @@ body {
 }
 
 a.mbutton {
-	font-family: "MontserratSemiBold";
+	font-weight: 600;
 	font-size: 14px;
 	line-height: 18px;
 	display: inline-block;
@@ -154,7 +154,6 @@ textarea {
 	&.form-control-pokna {
 		border-radius: 22px;
 		padding: 12px 20px;
-		font-family: "Montserrat";
 		font-size: 14px;
 		line-height: 18px;
 		&.white {
@@ -300,7 +299,7 @@ $speed: 0.25s;
 			position: relative;
 			display: block;
 			padding: 5px 100px;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			font-size: 16px;
 			line-height: 20px;
 			color: #fff;
@@ -499,7 +498,7 @@ $speed: 0.25s;
 			display: none;
 		}
 	}
-	
+
 	@media (max-width: 575px) {
 		padding: 0 0 0 60px;
 	}
@@ -907,7 +906,7 @@ $speed: 0.25s;
 		flex-wrap: wrap;
 		white-space: wrap;
 		padding: 0 20px 0 10px;
-		font-family: "MontserratMedium";
+		font-weight: 500;
 
 		font-size: 14px;
 	}
@@ -1112,7 +1111,7 @@ ul.social_icons {
 		}
 		.title {
 			text-align: center;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			font-size: 24px;
 			text-transform: uppercase;
 			padding-bottom: 0.5rem;
@@ -1122,7 +1121,7 @@ ul.social_icons {
 		}
 		.desc {
 			text-align: center;
-			font-family: "Montserrat";
+
 			font-size: 16px;
 			padding-bottom: 3rem;
 			@media (max-width: 575px) {
@@ -1138,7 +1137,7 @@ ul.social_icons {
 		select {
 			border-radius: 2rem;
 			padding: 0.5rem 1rem;
-			font-family: "Montserrat";
+
 			height: 2.75rem;
 			@media (max-width: 575px) {
 				height: 2rem;
@@ -1147,7 +1146,6 @@ ul.social_icons {
 			}
 		}
 		.help {
-			font-family: "Montserrat";
 			font-size: 12px;
 		}
 	}
@@ -1225,7 +1223,7 @@ ul.social_icons {
 		}
 		.title {
 			text-align: center;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			font-size: 24px;
 			text-transform: uppercase;
 			padding-bottom: 0.5rem;
@@ -1235,7 +1233,7 @@ ul.social_icons {
 		}
 		.desc {
 			text-align: center;
-			font-family: "Montserrat";
+
 			font-size: 16px;
 			padding-bottom: 0;
 			@media (max-width: 575px) {
@@ -1271,7 +1269,7 @@ ul.social_icons {
 		}
 		.title {
 			text-align: center;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			font-size: 24px;
 			text-transform: uppercase;
 			padding-bottom: 0.5rem;
@@ -1281,7 +1279,7 @@ ul.social_icons {
 		}
 		.desc {
 			text-align: center;
-			font-family: "Montserrat";
+
 			font-size: 16px;
 			padding-bottom: 0;
 			@media (max-width: 575px) {
@@ -1317,7 +1315,7 @@ ul.social_icons {
 		}
 		.title {
 			text-align: center;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			font-size: 24px;
 			text-transform: uppercase;
 			padding-bottom: 0.5rem;
@@ -1327,7 +1325,7 @@ ul.social_icons {
 		}
 		.desc {
 			text-align: center;
-			font-family: "Montserrat";
+
 			font-size: 16px;
 			padding-bottom: 0;
 			@media (max-width: 575px) {
@@ -1411,7 +1409,7 @@ ul.social_icons {
 					}
 					span {
 						font-size: 18px;
-						font-family: "MontserratSemiBold";
+						font-weight: 600;
 						// background: linear-gradient(0deg, #E55AE9, #9C47E5);
 						color: white;
 						display: block;
@@ -1581,11 +1579,10 @@ ul.social_icons {
 										color: white;
 										text-align: center;
 										.title {
-											font-family: "MontserratMedium";
+											font-weight: 500;
 											font-size: 16px;
 										}
 										.code {
-											font-family: "Montserrat";
 											text-transform: uppercase;
 											font-size: 14px;
 										}
@@ -1777,7 +1774,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 			text-transform: uppercase;
 			color: #fff;
 			font-size: 16px;
-			font-family: "MontserratSemiBold";
+			font-weight: 600;
 			@media screen and (max-width: 576px) {
 				font-size: 12px;
 			}
@@ -1855,7 +1852,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				border-radius: 50px;
 				text-transform: uppercase;
 				font-size: 12px;
-				font-family: "MontserratSemiBold";
+				font-weight: 600;
 				color: #fff;
 				cursor: pointer;
 				span {
@@ -1925,7 +1922,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				color: #fff;
 				text-transform: uppercase;
 				font-size: 10px;
-				font-family: "MontserratMedium";
+				font-weight: 500;
 				margin-top: 15px;
 				margin-right: 3.5%;
 				white-space: nowrap;
@@ -1952,7 +1949,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 					transform: translateY(-50%);
 					color: #fff;
 					font-size: 20px;
-					font-family: "Montserrat";
+
 					cursor: pointer;
 				}
 			}
@@ -1965,7 +1962,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				color: #fff;
 				text-transform: uppercase;
 				font-size: 10px;
-				font-family: "MontserratMedium";
+				font-weight: 500;
 				border: none;
 				display: block;
 				margin-bottom: 65px;
@@ -1983,7 +1980,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 					transform: translateY(-50%);
 					color: #fff;
 					font-size: 20px;
-					font-family: "Montserrat";
+
 					cursor: pointer;
 				}
 			}
@@ -2018,7 +2015,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				border-radius: 50px;
 				text-transform: uppercase;
 				font-size: 12px;
-				font-family: "MontserratSemiBold";
+				font-weight: 600;
 				color: rgba(255, 255, 255, 0.5);
 				cursor: pointer;
 				@media screen and (max-width: 576px) {
@@ -2064,7 +2061,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				margin-bottom: 30px;
 				color: #fff;
 				font-size: 12px;
-				font-family: "MontserratMedium";
+				font-weight: 500;
 				caret-color: #9b47e5;
 				transition: 0.25s;
 				&:focus {
@@ -2088,7 +2085,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				border-radius: 50px;
 				text-transform: uppercase;
 				font-size: 12px;
-				font-family: "MontserratSemiBold";
+				font-weight: 600;
 				color: rgba(255, 255, 255, 0.5);
 				cursor: pointer;
 			}
@@ -2100,7 +2097,7 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 				border-radius: 50px;
 				text-transform: uppercase;
 				font-size: 12px;
-				font-family: "MontserratSemiBold";
+				font-weight: 600;
 				color: rgba(255, 255, 255, 0.5);
 				cursor: pointer;
 				&.active {
