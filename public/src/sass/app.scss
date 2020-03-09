@@ -5,19 +5,19 @@
 	font-style: normal;
 }
 @font-face {
-	font-family: "MontserratMedium";
+	font-family: "Montserrat";
 	src: url("/fonts/Montserrat-Medium.woff2") format("woff2"), url("/fonts/Montserrat-Medium.woff") format("woff");
 	font-weight: 500;
 	font-style: normal;
 }
 @font-face {
-	font-family: "MontserratSemiBold";
+	font-family: "Montserrat";
 	src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2"), url("/fonts/Montserrat-SemiBold.woff") format("woff");
 	font-weight: 600;
 	font-style: normal;
 }
 @font-face {
-	font-family: "MontserratBold";
+	font-family: "Montserrat";
 	src: url("/fonts/Montserrat-Bold.woff2") format("woff2"), url("/fonts/Montserrat-Bold.woff") format("woff");
 	font-weight: bold;
 	font-style: normal;
@@ -471,6 +471,10 @@ $speed: 0.25s;
 			}
 		}
 	}
+
+	.icon--phone {
+		color: #fff;
+	}
 }
 
 #top {
@@ -490,6 +494,12 @@ $speed: 0.25s;
 
 	transition: 0.3s ease-out;
 
+	@media (max-width: 800px) {
+		.bginput {
+			display: none;
+		}
+	}
+	
 	@media (max-width: 575px) {
 		padding: 0 0 0 60px;
 	}
@@ -653,6 +663,8 @@ $speed: 0.25s;
 
 			justify-content: center;
 
+			margin-right: 15px;
+
 			span {
 				position: absolute;
 				text-indent: -999em;
@@ -668,7 +680,7 @@ $speed: 0.25s;
 			display: block;
 
 			margin-right: 15px;
-			padding: 0.6em 1em;
+			padding: 5px;
 
 			background-color: #a9b1f7;
 
@@ -683,8 +695,6 @@ $speed: 0.25s;
 			}
 
 			.icon--whats-app {
-				color: #fff;
-				
 				width: 18px;
 				height: 18px;
 
@@ -724,6 +734,19 @@ $speed: 0.25s;
 		}
 	}
 
+	.top-search-btn {
+		display: none;
+
+		@media (max-width: 800px) {
+			display: inline-block;
+
+			border: none;
+			background-color: transparent;
+
+			margin-right: 15px;
+		}
+	}
+
 	.cal,
 	.favorites {
 		cursor: pointer;
@@ -757,8 +780,6 @@ $speed: 0.25s;
 		}
 	}
 
-	
-
 	.count {
 		position: absolute;
 		color: #fff;
@@ -786,10 +807,6 @@ $speed: 0.25s;
 	max-width: 630px;
 	width: 100%;
 
-	@media (max-width: 800px) {
-		display: none;
-	}
-
 	label {
 		margin: 0;
 		padding: 3px 18px;
@@ -810,8 +827,23 @@ $speed: 0.25s;
 		padding: 5px 15px;
 
 		cursor: pointer;
-	}
+		position: relative;
 
+		&:before {
+			content: "";
+
+			width: 2px;
+			height: 20px;
+
+			position: absolute;
+			right: 0;
+			top: 50%;
+
+			background-color: #82dcee;
+
+			transform: translateY(-50%);
+		}
+	}
 }
 
 .menu {
@@ -1691,6 +1723,10 @@ $toggleBasicMenu_size_point_pos_3: $toggleBasicMenu_size - $toggleBasicMenu_size
 	fill: currentColor;
 
 	transition: 0.3s ease-out;
+
+	&.icon--phone {
+		color: #fff;
+	}
 
 	&.icon--magnifier {
 		width: 22px;
