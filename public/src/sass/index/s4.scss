@@ -37,7 +37,7 @@
                 }
                 .bg_flex {
                     .line1 {
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         font-size: 18px;
                         line-height: 24px;
                         text-transform: uppercase;
@@ -64,7 +64,7 @@
                         }
                     }
                     .line2 {
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 60px;
                         line-height: 70px;
                         text-transform: uppercase;
@@ -86,7 +86,7 @@
                             padding-bottom: 4%;
                         }
                         @media (max-width: 575px) {
-                            font-family: 'Montserrat';
+                            
                             font-size: 20px;
                             line-height: 20px;
                             padding-bottom: 30px;
@@ -99,7 +99,7 @@
                         }
                     }
                     .line3 {
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 16px;
                         line-height: 30px;
                         padding-bottom: 50px;
@@ -118,7 +118,7 @@
                             line-height: 15px;
                         }
                         @media (max-width: 575px) {
-                            font-family: 'Montserrat';
+                            
                             font-size: 12px;
                             line-height: 14px;
                             padding-bottom: 30px;
@@ -242,7 +242,7 @@
                         justify-content: center;
                         border-right: 1px solid #c6c6c6;
                         border-bottom: 1px solid #c6c6c6;
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         font-size: 14px;
                         line-height: 24px;
                         @media (min-width: 768px) and (max-width: 1023px) {
@@ -398,7 +398,7 @@
                                 position: absolute;
                                 top: 0;
                                 left: 0;
-                                font-family: 'MontserratBold';
+                                font-weight: bold;
                                 font-size: 230px;
                                 line-height: 172px;
                                 opacity: .08;

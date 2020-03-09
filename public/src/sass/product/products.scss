@@ -32,7 +32,7 @@
         .nav-link {
             padding: 0;
             margin: 5px 15px 5px 0;
-            font-family: 'MontserratMedium';
+            font-weight: 500;
             font-size: 18px;
             color: white;
             opacity: .5;
@@ -56,7 +56,7 @@
             padding: 5px 0;
         }
         .nav-link2 {
-            font-family: 'Montserrat';
+            
             font-size: 16px;
             color: white;
             text-decoration: none;
@@ -109,7 +109,7 @@
     }
     ul.brand_list {
         li.brand_list_item {
-            font-family: 'MontserratBold';
+            font-weight: bold;
             font-size: 14px;
             text-transform: uppercase;
             line-height: 30px;
@@ -221,7 +221,7 @@
                 .name {
                     flex-basis: 20px;
                     line-height: 20px;
-                    font-family: 'MontserratBold';
+                    font-weight: bold;
                     font-size: 12px;
                     text-transform: uppercase;
                     display: flex;
@@ -253,7 +253,7 @@
                         margin: 0;
                         padding: 0 10px;
                         font-size: 10px;
-                        font-family: 'MontserratBold';
+                        font-weight: bold;
                         text-transform: uppercase;
                         position: relative;
                         color: white;
@@ -344,7 +344,7 @@
                                 // justify-content: center;
                                 font-size: 10px;
                                 line-height: 12px;
-                                font-family: 'MontserratSemiBold';
+                                font-weight: 600;
                                 text-transform: uppercase;
                             }
                         }
@@ -368,7 +368,7 @@
                                     span {
                                         cursor: pointer;
                                         border-radius: 12px;
-                                        font-family: 'MontserratBold';
+                                        font-weight: bold;
                                         text-transform: uppercase;
                                         color: white;
                                         font-size: 10px;
@@ -395,7 +395,7 @@
                                             span {
                                                 cursor: pointer;
                                                 border-radius: 12px;
-                                                font-family: 'MontserratBold';
+                                                font-weight: bold;
                                                 text-transform: uppercase;
                                                 color: white;
                                                 font-size: 10px;
@@ -411,7 +411,7 @@
                             display: block;
                             background: rgba(45,45,45,1);
                             border-radius: 3px;
-                            font-family: 'MontserratSemiBold';
+                            font-weight: 600;
                             font-size: 10px;
                             text-transform: uppercase;
                             text-decoration: none;
@@ -429,7 +429,7 @@
                                 border-radius: 15px;
                                 a {
                                     display: block;
-                                    font-family: 'MontserratSemiBold';
+                                    font-weight: 600;
                                     font-size: 10px;
                                     text-transform: uppercase;
                                     text-decoration: none;
@@ -494,7 +494,7 @@
             align-items: center;
             justify-content: center;
             text-transform: uppercase;
-            font-family: 'MontserratSemiBold';
+            font-weight: 600;
             font-size: 15px;
             @media (max-width: 700px) {
                 font-size: 13px;
@@ -576,7 +576,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-family: 'MontserratBold';
+                        font-weight: bold;
                         text-transform: uppercase;
                         font-size: 13px;
                     }
@@ -617,7 +617,7 @@
                         align-items: center;
                         justify-content: center;
                         text-transform: uppercase;
-                        font-family: 'MontserratBold';
+                        font-weight: bold;
                         font-size: 14px;
                         border-radius: 20px;
                         @media (max-width: 700px) {
@@ -664,7 +664,7 @@
                         background: #414141;
                         padding: 0 10px;
                         border-radius: 25px;
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         text-transform: uppercase;
                         font-size: 10px;
                         line-height: 20px;
@@ -796,7 +796,7 @@
                     color: white;
                     display: flex;
                     align-items: center;
-                    font-family: 'MontserratBold';
+                    font-weight: bold;
                     font-size: 14px;
                     text-transform: uppercase;
                     text-decoration: none;
@@ -846,7 +846,7 @@
                         flex-shrink: 0;
                     }
                     a {
-                        font-family: 'MontserratBold';
+                        font-weight: bold;
                         font-size: 13px;
                         text-transform: uppercase;
                         color: white;

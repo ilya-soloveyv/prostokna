@@ -72,7 +72,7 @@ $text: #353535;
 		&__title {
 			margin-top: 7px;
 			font-size: 16px;
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			text-transform: uppercase;
 			@media screen and (max-width: 576px) {
 				display: none;
@@ -138,7 +138,7 @@ $text: #353535;
 			}
 			li {
 				font-size: 24px;
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 				margin: 10px 0;
 				text-transform: uppercase;
 				opacity: 0;
@@ -206,7 +206,7 @@ $text: #353535;
 			}
 			&__title {
 				font-size: 15px;
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 				margin-bottom: 21px;
 				color: $text; 
 				@media screen and (max-width: 1400px){
@@ -270,7 +270,7 @@ $text: #353535;
 					}
 					span {
 						font-size: 12px;
-						font-family: 'MontserratMedium';
+						font-weight: 500;
 						letter-spacing:0.06em;
 						color: #fff;
 					}
@@ -337,7 +337,7 @@ $text: #353535;
 					width: 100%;
 					padding: 11px 0;
 					font-size: 12px;
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 					text-transform: uppercase;
 					transition: background-color .3s;
 					background-color: transparent;					
@@ -726,7 +726,7 @@ $text: #353535;
 					&__title {
 						font-size: 16px;
 						text-transform: uppercase;
-						font-family: 'MontserratSemiBold';
+						font-weight: 600;
 						white-space: nowrap;
 						color: #d4d4d4;
 						margin-top: 5px;
@@ -744,7 +744,7 @@ $text: #353535;
 					}	
 					&__price {
 						font-size: 12px;
-						font-family: 'MontserratSemiBold';
+						font-weight: 600;
 						color: #d4d4d4;
 					}				
 				}
@@ -769,7 +769,7 @@ $text: #353535;
 					margin-top: 10px;
 					margin-bottom: 10px;
 					font-size: 16px;
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 					@media screen and (max-width: 1400px){
 						font-size: 14px;
 						margin-top: 5px;
@@ -779,14 +779,14 @@ $text: #353535;
 				.current__price {
 					font-size: 12px;
 					margin-bottom: 20px;
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 					@media screen and (max-width: 1400px){
 						margin-bottom: 10px;
 					}
 				}
 				.current__text {
 					font-size: 12px;
-					font-family: 'MontserratMedium';
+					font-weight: 500;
 					@media screen and (max-width: 1400px){
 						line-height: 1em;
 					}

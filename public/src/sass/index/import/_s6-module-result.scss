@@ -13,7 +13,7 @@
     display: none;
     background: #323232;
     padding: 40px 35px;
-    font-family: 'Montserrat';
+    
     font-weight: normal;
     
     .scrollbar-outer {
@@ -41,7 +41,7 @@
         display: none;
         color: #FFF;
         text-transform: uppercase;
-        font-family: 'MontserratSemiBold';
+        font-weight: 600;
         font-size: 45px;
         margin-top: 20px;
         margin-bottom: 30px;
@@ -72,7 +72,7 @@
 	        a {
 	        	display: block;
 	        	font-size: 16px;
-	        	font-family: 'MontserratSemiBold';
+	        	font-weight: 600;
 	        	color: #FFF;
 	        	text-transform: uppercase;
 	        	@media (max-width: 575px) {
@@ -128,10 +128,10 @@
 				i.material-icons {color: #000;}
 				> span {
 					color: #2D70E4;
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 				}
 				ul li {
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 					color: #000;
 				}
 			}
@@ -259,7 +259,7 @@
             border-radius: 50%;
             color: #2d70e4;
             text-align: center;
-            font-family: 'MontserratMedium';
+            font-weight: 500;
             font-size: 24px;
             line-height: 31px;
             width: 31px;
@@ -281,7 +281,7 @@
     	text-transform: uppercase;
     	margin-bottom: 70px;
     	color: #fff;
-    	 font-family: 'MontserratMedium';
+    	 font-weight: 500;
     	 -webkit-border-radius: 10px;
     	         border-radius: 10px;
     	@media (max-width: 575px) {

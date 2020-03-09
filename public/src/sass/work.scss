@@ -16,7 +16,7 @@ $dark: rgba(#000, 0.74);
 }
 
 .work {
-		font-family: 'Montserrat';
+		
     background: $dark;
 		overflow: hidden;
 		@media screen and (max-width: 576px) {
@@ -35,7 +35,7 @@ $dark: rgba(#000, 0.74);
 			text-align: center;
 		}
 		&-title {
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			color: #fff;
 			text-align: center;
 			font-size: 18px;
@@ -77,7 +77,7 @@ $dark: rgba(#000, 0.74);
 				width: 50%;
 				line-height: 38px;
 				font-size: 14px;
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 				color: #fff;
 				text-transform: uppercase;
 				text-align: center;
@@ -133,7 +133,7 @@ $dark: rgba(#000, 0.74);
 				width: 50%;
 				line-height: 38px;
 				font-size: 14px;
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 				color: #fff;
 				text-transform: uppercase;
 				text-align: center;
@@ -229,7 +229,7 @@ $dark: rgba(#000, 0.74);
 		margin-top: 41px;
 		margin-bottom: 5%;
 		font-size: 14px;
-		font-family: 'MontserratSemiBold';	
+		font-weight: 600;	
 		@media screen and (max-width: 1200px) {
 			font-size: 13px;
 		}
@@ -392,7 +392,7 @@ $dark: rgba(#000, 0.74);
 				}
 				.step__desc {
 					font-size: 14px;
-					font-family: 'Montserrat';
+					
 					margin-bottom: 26px;
 					@media screen and (max-width: 1200px) {
 						font-size: 13px;
@@ -503,7 +503,7 @@ $dark: rgba(#000, 0.74);
 								}						
 							}
 							.way__text {								
-								font-family: 'Montserrat';
+								
 								transition: text-transform .3s;
 							}
 						}
@@ -613,7 +613,7 @@ $dark: rgba(#000, 0.74);
 					}				
 					.todo__text {
 						font-size: 14px;
-						font-family: 'Montserrat';
+						
 						@media screen and (max-width: 1200px) {
 							font-size: 13px;
 						}

@@ -633,7 +633,7 @@ if ($('#form_request').length) {
 }
 
 // загрузка свг спрайта
-fetch('images/svg/sprite.symbol.svg')
+fetch('/images/svg/sprite.symbol.svg')
     .then(response => {
         if (!response.ok) {
             throw new Error('Загрузка спрайта прошла неуспешно');
