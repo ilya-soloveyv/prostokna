@@ -16,13 +16,15 @@
 
 	.bginput {
 		.icon--magnifier {
-			color: #fff;
+			color: #363636;
 		}
 	}
 
 	@media (max-width: 800px) {
 		.icon--hamburger,
-		.icon--logo {
+		.icon--logo,
+		.icon--whats-app,
+		.icon--magnifier {
 			color: #fff;
 		}
 	}
@@ -37,10 +39,13 @@
 		font-size: 13px;
 	}
 
+	.fp-tableCell {
+		padding-top: 0;
+	}
+
 	.fp-bg {
 		display: grid;
 		grid-template-columns: 1fr 1.3fr;
-		height: inherit;
 
 		@media (max-width: 1050px) {
 			grid-template-columns: 1fr 1fr;
@@ -86,9 +91,9 @@
 
 	.r {
 		color: #fff;
+		background-color: #323232;
 
-		background: #323232 url(/images/index/s1-bg-1.jpg);
-		background-size: cover;
+		position: relative;
 
 		@media (max-width: 800px) {
 			&:before {
@@ -106,6 +111,19 @@
 			}
 		}
 
+		.bg-image {
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			opacity: 0.5;
+		}
+
 		.desktop {
 			display: flex;
 
@@ -115,6 +133,8 @@
 		}
 
 		.items {
+			position: relative;
+
 			flex-direction: column;
 			justify-content: flex-end;
 
@@ -501,6 +521,10 @@
 
 			@media (max-width: 575px) {
 				color: #fff;
+
+				p {
+					display: none;
+				}
 			}
 
 			&:hover,
@@ -515,7 +539,7 @@
 			}
 			@media (max-width: 575px) {
 				font-size: 17px;
-				margin: 1.75em 0 0.5em 0;
+				margin: 2em 0 0.5em 0;
 			}
 		}
 
@@ -525,7 +549,7 @@
 			}
 			@media (max-width: 575px) {
 				font-size: 13px;
-				margin-bottom: 1em;
+				margin-bottom: 3em;
 				display: inline-block;
 			}
 		}
