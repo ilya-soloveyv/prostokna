@@ -1,5 +1,5 @@
 #regulation_windowall {
-    font-family: 'Montserrat';
+    
     display: block;
 		@media screen and (max-width: 992px) {
         display: none;
@@ -7,7 +7,7 @@
 }
 #regulation_window {
 		display: none;
-    font-family: 'Montserrat';    
+        
     @media screen and (max-width: 992px) {
         display: block;
     }
@@ -110,7 +110,7 @@
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin: 0;    
-    font-family: 'Montserrat';
+    
     font-weight: 500;
     line-height: 1.2;
     color: #353535;
@@ -302,7 +302,7 @@ ul, li {
         }      
     }
     &-title {
-        font-family: 'Montserrat';
+        
         font-size: 20px;
         text-transform: uppercase;
         font-weight: 600;
@@ -391,7 +391,7 @@ ul, li {
             text-align: center;
             font-weight: 400;
             margin-bottom: 45px;
-						font-family: 'MontserratSemiBold';
+						font-weight: 600;
             @media screen and (max-width: 992px) {
                 font-size: 13px;
             }

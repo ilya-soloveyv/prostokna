@@ -147,7 +147,7 @@
                     }
                     .info {
                         padding-top: 20px;
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 14px;
                         line-height: 20px;
                         text-transform: uppercase;
@@ -209,7 +209,7 @@
                     bottom: 0;
                     left: 20%;
                     height: 100%;
-                    font-family: 'MontserratBold';
+                    font-weight: bold;
                     font-size: 600px;
                     line-height: 600px;
                     color: #FFF;
@@ -302,7 +302,7 @@
                         padding: 0 15px;
                     }
                     .title {
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 60px;
                         line-height: 80px;
                         color: white;
@@ -333,7 +333,7 @@
                         }
                     }
                     .text {
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         font-size: 16px;
                         line-height: 30px;
                         color: white;
@@ -350,7 +350,7 @@
                             line-height: 22px;
                         }
                         @media (max-width: 575px) {
-                            font-family: 'Montserrat';
+                            
                             font-size: 14px;
                             line-height: 20px;
                             width: 340px;

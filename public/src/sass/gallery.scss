@@ -44,7 +44,7 @@
             top: 50px;
         }
         .title {
-            font-family: 'MontserratSemiBold';
+            font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
             padding-bottom: 1rem;
@@ -133,7 +133,7 @@
                         }
                     }
                     span {
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 10px;
                         text-transform: uppercase;
                         position: absolute;
@@ -312,7 +312,7 @@
             padding: 30px 0;
             text-align: center;
             // width: 400px;
-            font-family: 'MontserratSemiBold';
+            font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
             @media (max-width: 1199px) {
@@ -364,7 +364,7 @@
                     visibility: hidden;
                     transition: all .25s;
                     text-align: center;
-                    font-family: 'MontserratSemiBold';
+                    font-weight: 600;
                     font-size: 14px;
                     padding: 1rem;
                 }
@@ -452,7 +452,7 @@
                         visibility: hidden;
                         transition: opacity 0.3s, visibility 0.3s;
                         text-align: center;
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 14px;
                         padding: 1rem;
                     }
@@ -551,7 +551,7 @@
                         visibility: hidden;
                         transition: opacity 0.3s, visibility 0.3s;
                         text-align: center;
-                        font-family: 'MontserratSemiBold';
+                        font-weight: 600;
                         font-size: 14px;
                         padding: 1rem;
                     }
@@ -601,7 +601,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: 'MontserratSemiBold';
+            font-weight: 600;
             font-size: 13px;
             @media (max-width: 1550px) {
                 flex-basis: 400px;
@@ -616,7 +616,7 @@
                 // background: yellowgreen;
             }
             button.title, h1 {
-                font-family: 'MontserratBold';
+                font-weight: bold;
                 text-transform: uppercase;
                 font-size: 16px;
                 margin: 0;
@@ -838,7 +838,7 @@
                             width: 1.4rem;
                             height: 1.4rem;
                             margin-top: -.7rem;
-                            font-family: 'Montserrat';
+                            
                             font-size: 12px;
                             background: linear-gradient(135deg, #E55AE9, #9C47E5);
                             border-radius: 1rem;
@@ -855,7 +855,7 @@
                             }
                         }
                         span.titleDot {
-                            font-family: 'MontserratSemiBold';
+                            font-weight: 600;
                             font-size: 12px;
                             text-transform: uppercase;
                             height: 100%;
@@ -925,7 +925,7 @@
                                     padding-top: 180px;
                                 }
                                 .title {
-                                    font-family: 'MontserratBold';
+                                    font-weight: bold;
                                     text-transform: uppercase;
                                     font-size: 16px;
                                     margin: 0;
@@ -935,7 +935,7 @@
                                     }
                                 }
                                 .description {
-                                    font-family: 'Montserrat';
+                                    
                                     font-size: 14px;
                                     padding: 0 0 1rem;
                                 }
@@ -1089,7 +1089,7 @@
                         justify-content: center;
                         align-items: center;
                         font-size: 11px;
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         transition: all .25s;
                         @media (max-width: 767px) {
                             top: 8px;
@@ -1099,7 +1099,7 @@
                         }
                     }
                     .titleDot {
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         font-size: 12px;
                         line-height: 14px;
                         display: block;

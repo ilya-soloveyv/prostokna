@@ -1,7 +1,6 @@
 $dark: rgba(#000, 0.74);
 
 .calculation {
-    font-family: 'Montserrat';
     background: $dark;
 		overflow: hidden;
 		display: flex;
@@ -16,7 +15,7 @@ $dark: rgba(#000, 0.74);
 		}
 		&__title {
 			font-size: 17px;
-			font-family: 'MontserratSemiBold';
+			font-weight: 600;
 			text-transform: uppercase;
 			color: #fff;
 			text-align: center;
@@ -106,7 +105,7 @@ $dark: rgba(#000, 0.74);
 								0 0 0 4px #707070;
 		color: #fff;
 		font-size: 15px;
-		font-family: 'MontserratSemiBold';
+		font-weight: 600;
 		cursor: pointer;
 		transition: 0.2s;
 		@media screen and (max-width: 1400px) {
@@ -136,7 +135,7 @@ $dark: rgba(#000, 0.74);
 	p {
 		color: #fff;
 		font-size: 14px;
-		font-family: 'MontserratSemiBold';
+		font-weight: 600;
 		margin-left: 40px;
 		@media screen and (max-width: 1400px) {
 			margin-left: 20px;
@@ -255,7 +254,7 @@ $dark: rgba(#000, 0.74);
 				left: 30px;
 				color: #707070;
 				font-size: 14px;
-				font-family: 'MontserratMedium';
+				font-weight: 500;
 				z-index: 0;
 				transition: transform .3s;
 			}
@@ -317,7 +316,7 @@ $dark: rgba(#000, 0.74);
 					left: 30px;
 					color: #707070;
 					font-size: 14px;
-					font-family: 'MontserratMedium';
+					font-weight: 500;
 					z-index: 0;
 				}
 			}
@@ -356,7 +355,7 @@ $dark: rgba(#000, 0.74);
 				padding: 8px 0;
 				font-size: 11px;
 				text-transform: uppercase;
-				font-family: 'MontserratSemiBold';
+				font-weight: 600;
 				color: #fff;
 				margin-top: 40px;
 				margin-left: auto;
@@ -407,7 +406,7 @@ $dark: rgba(#000, 0.74);
 				.time__title {
 					color: #fff;
 					font-size: 14px;
-					font-family: 'MontserratSemiBold';
+					font-weight: 600;
 					margin-bottom: 25px;
 					@media screen and (max-width: 576px) {
 						font-size: 13px;
@@ -419,7 +418,7 @@ $dark: rgba(#000, 0.74);
 				.time__text {
 					color: #fff;
 					font-size: 13px;
-					font-family: 'MontserratMedium';
+					font-weight: 500;
 					@media screen and (max-width: 576px) {
 						font-size: 11px;
 					}
@@ -437,7 +436,7 @@ $dark: rgba(#000, 0.74);
 			.payment__item {
 				color: #fff;
 				font-size: 14px;
-				font-family: 'MontserratMedium';
+				font-weight: 500;
 				margin-bottom: 30px;
 				@media screen and (max-width: 1200px) {
 					margin-bottom: 20px;
@@ -452,7 +451,7 @@ $dark: rgba(#000, 0.74);
 			}
 		}
 		.payment__wrapp {
-			font-family: 'MontserratMedium';
+			font-weight: 500;
 			padding: 30px;
 			border-radius: 11px;
 			background: #343434;
