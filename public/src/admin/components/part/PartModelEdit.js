@@ -100,7 +100,6 @@ export default {
           />
         </div>
         <button type="submit" class="btn btn-primary ml-3 mb-3" form="PartModelEditForm" :disabled="loading">Сохранить</button>
-        <pre>{{ partModel }}</pre>
       </template>
     </div>
   `,
