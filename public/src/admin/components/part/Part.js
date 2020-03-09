@@ -19,13 +19,15 @@ export default {
     MODAL_PART_BRAND_EDIT,
     MODAL_PART_COLOR_EDIT
   },
-  props: [
-    'iPartID',
-    'iPartBrandID',
-    'iPartModelID'
-  ],
+  props: {
+    iPartID: String,
+    iPartBrandID: String,
+    iPartModelID: String
+  },
   data() {
-    return {}
+    return {
+      partColorList: []
+    }
   },
   methods: {
     reloadPartList() {
@@ -48,6 +50,10 @@ export default {
     },
     reloadPartColorList() {
       this.$refs.PartColor.get()
+    },
+    reloadPartColorList2(partColorList) {
+      Vue.set(this, 'partColorList', partColorList)
+      // console.log(partColorList)
     }
   },
   template: `
@@ -90,7 +96,7 @@ export default {
           <span>Карточка модели</span>
         </h2>
         <div class="blockData">
-          <PartModelEdit :iPartID="iPartID" :iPartBrandID="iPartBrandID" :iPartModelID="iPartModelID" @reloadPartModelList="reloadPartModelList" />
+          <PartModelEdit :iPartID="iPartID" :iPartBrandID="iPartBrandID" :iPartModelID="iPartModelID" :partColorList="partColorList" @reloadPartModelList="reloadPartModelList" />
         </div>
       </div>
       <div class="partBlock partModelColor">
@@ -101,7 +107,7 @@ export default {
           </router-link>
         </h2>
         <div class="blockData">
-          <PartColor ref="PartColor" :iPartID="iPartID" :iPartBrandID="iPartBrandID" />
+          <PartColor ref="PartColor" :iPartID="iPartID" :iPartBrandID="iPartBrandID" @reloadPartColorList2="reloadPartColorList2" />
         </div>
       </div>
       <MODAL_PART_EDIT @reloadPartList="reloadPartList" />

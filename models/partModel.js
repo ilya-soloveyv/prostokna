@@ -28,7 +28,13 @@ module.exports = (sequelize, DataTypes) => {
       include: [
         {
           model: sequelize.models.partImage,
-          as: 'images'
+          as: 'images',
+          include: [
+            {
+              model: sequelize.models.partColor,
+              as: 'color'
+            }
+          ]
         }
       ]
     })

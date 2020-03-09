@@ -314,14 +314,24 @@ body {
   grid-template-rows: repeat(2, 1fr);
   height: 100vh;
   overflow: hidden;
-  margin: -2rem; }
+  margin: -2rem;
+  background-color: #DDDDDD;
+  grid-gap: 1px; }
+  @media (max-width: 1400px) {
+    #part {
+      grid-template-columns: repeat(2, 250px) 1fr; } }
+  @media (max-width: 1100px) {
+    #part {
+      grid-template-columns: 250px 1fr;
+      grid-template-rows: repeat(4, 1fr); } }
   #part .myalert {
     text-align: center;
     display: block;
     opacity: 0.5; }
   #part .partBlock {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    overflow: hidden; }
     #part .partBlock h2 {
       padding: 0;
       margin: 1rem;
@@ -350,22 +360,60 @@ body {
       overflow: auto; }
   #part .partList {
     grid-row: 1 / span 2;
-    background-color: rgba(0, 0, 0, 0.025); }
+    background-color: #f0f0f0; }
+    @media (max-width: 1400px) {
+      #part .partList {
+        grid-row: 1 / span 1;
+        background-color: #F9F9F9; } }
+    @media (max-width: 1100px) {
+      #part .partList {
+        grid-row: 1 / span 1;
+        background-color: #F9F9F9; } }
   #part .partBrandList {
     grid-row: 1 / span 2;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.005); }
+    background-color: #F9F9F9; }
+    @media (max-width: 1400px) {
+      #part .partBrandList {
+        grid-row: 2 / span 1;
+        background-color: #F9F9F9; } }
+    @media (max-width: 1100px) {
+      #part .partBrandList {
+        grid-row: 2 / span 1;
+        background-color: #F9F9F9; } }
   #part .partModelList {
-    background-color: rgba(0, 0, 0, 0.025); }
+    background-color: #f0f0f0; }
+    @media (max-width: 1400px) {
+      #part .partModelList {
+        grid-row: 1 / span 1; } }
+    @media (max-width: 1100px) {
+      #part .partModelList {
+        grid-row: 3 / span 1;
+        background-color: #F9F9F9; } }
   #part .partModelEdit {
     grid-column: 4;
     grid-row: 1 / span 2;
-    background-color: rgba(0, 0, 0, 0.005); }
+    background-color: #F9F9F9; }
+    @media (max-width: 1400px) {
+      #part .partModelEdit {
+        grid-column: 3; } }
+    @media (max-width: 1100px) {
+      #part .partModelEdit {
+        grid-column: 2;
+        grid-row: 1 / span 4; } }
   #part .partModelColor {
     grid-column: 3;
-    background-color: rgba(0, 0, 0, 0.045); }
+    background-color: #f0f0f0; }
+    @media (max-width: 1400px) {
+      #part .partModelColor {
+        grid-column: 2; } }
+    @media (max-width: 1100px) {
+      #part .partModelColor {
+        grid-column: 1;
+        grid-row: 4 / span 1;
+        background-color: #F9F9F9; } }
   #part ul {
-    margin: 0;
+    margin: 0 0 0.5rem;
     padding: 0;
     list-style: none; }
     #part ul li {
@@ -428,7 +476,15 @@ body {
       position: relative;
       background-color: #EEF0F2;
       border-radius: 0.25rem;
-      overflow: hidden; }
+      overflow: hidden;
+      opacity: 1;
+      display: flex; }
+      #part .images .image .partModelEditImage {
+        display: flex; }
+      #part .images .image:hover label {
+        opacity: 0.5; }
+      #part .images .image:hover a.destroy {
+        opacity: 1; }
       #part .images .image label {
         position: absolute;
         width: 100%;
@@ -446,3 +502,22 @@ body {
           width: 100%;
           height: 100%;
           object-fit: contain; }
+      #part .images .image a.destroy {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0; }
+      #part .images .image select {
+        position: absolute;
+        left: 0.25rem;
+        bottom: 0.25rem;
+        width: calc(100% - 0.5rem);
+        padding: 0 0.25rem;
+        height: 1.5rem;
+        font-size: 14px !important; }

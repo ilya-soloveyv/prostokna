@@ -424,6 +424,15 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: -2rem;
+    background-color: #DDDDDD;
+    grid-gap: 1px;
+    @media (max-width: 1400px) {
+        grid-template-columns: repeat(2, 250px) 1fr;
+    }
+    @media (max-width: 1100px) {
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
     .myalert {
         text-align: center;
         display: block;
@@ -432,6 +441,7 @@ body {
     .partBlock {
         display: flex;
         flex-direction: column;
+        overflow: hidden;
         h2 {
             padding: 0;
             margin: 1rem;
@@ -461,32 +471,71 @@ body {
         }
         .blockData {
             flex-grow: 1;
+            // flex-shrink: 0;
             overflow: auto;
         }
     }
     .partList {
         grid-row: 1 / span 2;
-        background-color: rgba($color: #000000, $alpha: 0.025);
+        background-color: #f0f0f0;
+        @media (max-width: 1400px) {
+            grid-row: 1 / span 1;
+            background-color: #F9F9F9;
+        }
+        @media (max-width: 1100px) {
+            grid-row: 1 / span 1;
+            background-color: #F9F9F9;
+        }
     }
     .partBrandList {
         grid-row: 1 / span 2;
         overflow: auto;
-        background-color: rgba($color: #000000, $alpha: 0.005);
+        background-color: #F9F9F9;
+        @media (max-width: 1400px) {
+            grid-row: 2 / span 1;
+            background-color: #F9F9F9;
+        }
+        @media (max-width: 1100px) {
+            grid-row: 2 / span 1;
+            background-color: #F9F9F9;
+        }
     }
     .partModelList {
-        background-color: rgba($color: #000000, $alpha: 0.025);
+        background-color: #f0f0f0;
+        @media (max-width: 1400px) {
+            grid-row: 1 / span 1;
+        }
+        @media (max-width: 1100px) {
+            grid-row: 3 / span 1;
+            background-color: #F9F9F9;
+        }
     }
     .partModelEdit {
         grid-column: 4;
         grid-row: 1 / span 2;
-        background-color: rgba($color: #000000, $alpha: 0.005);
+        background-color: #F9F9F9;
+        @media (max-width: 1400px) {
+            grid-column: 3;
+        }
+        @media (max-width: 1100px) {
+            grid-column: 2;
+            grid-row: 1 / span 4;
+        }
     }
     .partModelColor {
         grid-column: 3;
-        background-color: rgba($color: #000000, $alpha: 0.045);
+        background-color: #f0f0f0;
+        @media (max-width: 1400px) {
+            grid-column: 2;
+        }
+        @media (max-width: 1100px) {
+            grid-column: 1;
+            grid-row: 4 / span 1;
+            background-color: #F9F9F9;
+        }
     }
     ul {
-        margin: 0;
+        margin: 0 0 0.5rem;
         padding: 0;
         list-style: none;
         li {
@@ -571,6 +620,19 @@ body {
             background-color: #EEF0F2;
             border-radius: 0.25rem;
             overflow: hidden;
+            opacity: 1;
+            display: flex;
+            .partModelEditImage {
+                display: flex;
+            }
+            &:hover {
+                label {
+                    opacity: 0.5;
+                }
+                a.destroy {
+                    opacity: 1;
+                }
+            }
             label {
                 position: absolute;
                 width: 100%;
@@ -590,6 +652,27 @@ body {
                     height: 100%;
                     object-fit: contain;
                 }
+            }
+            a.destroy {
+                position: absolute;
+                top: 0.25rem;
+                right: 0.25rem;
+                background-color: white;
+                padding: 0.5rem;
+                border-radius: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+            }
+            select {
+                position: absolute;
+                left: 0.25rem;
+                bottom: 0.25rem;
+                width: calc(100% - 0.5rem);
+                padding: 0 0.25rem;
+                height: 1.5rem;
+                font-size: 14px !important;
             }
         }
     }

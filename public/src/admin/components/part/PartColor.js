@@ -16,6 +16,9 @@ export default {
   watch: {
     iPartBrandID: function () {
       this.get()
+    },
+    partColorList: function () {
+      this.$emit('reloadPartColorList2', this.partColorList)
     }
   },
   methods: {

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const PartImage = sequelize.define('partImage', {
     iPartImageID: { allowNull: false, type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     iPartModelID: { type: DataTypes.INTEGER, allowNull: false },
-    iPartColorID: { type: DataTypes.INTEGER, allowNull: false },
+    iPartColorID: { type: DataTypes.INTEGER, allowNull: true, defaultValue: null },
     sPartImageFile: { type: DataTypes.STRING, allowNull: false },
     iActive: { type: DataTypes.BOOLEAN, defaultValue: true }
   }, {
@@ -16,9 +16,19 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'iPartModelID'
     })
     PartImage.belongsTo(models.partColor, {
-      foreignKey: 'iPartColorID'
+      foreignKey: 'iPartColorID',
+      as: 'color'
     })
   };
+
+  PartImage.getList = async (iPartModelID) => {
+    const images = await PartImage.findAll({
+      where: {
+        iPartModelID
+      }
+    })
+    return images
+  }
 
   return PartImage;
 };
