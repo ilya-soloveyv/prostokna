@@ -49,6 +49,9 @@ mixin mobList(list, type, ico, title, index)
                         p= item.title
                     .s2-back-card
                         +desktopList(item.list)
+                    svg.s2-mouse(width="34" height="81")
+                        use(xlink:href='#mouse')
+                    
     .mob
         button.s2-close MENU
         .s2-cards

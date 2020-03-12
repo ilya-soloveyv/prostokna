@@ -17,8 +17,14 @@ if (screen.width > 910) {
 
             target.classList.remove('inactive');
             target.classList.add('active');
-
+            
             hiddenCards();
+
+            if (target.querySelector('.s2-back-card').offsetHeight != target.querySelector('.s2-back-card').scrollHeight) {
+                target.classList.add('isScroll')
+            }
+
+            console.log(target.querySelector('.s2-back-card').offsetHeight != target.querySelector('.s2-back-card').scrollHeight);
         })
     });
 
@@ -111,6 +117,8 @@ if (screen.width > 910) {
 
 function hiddenCards() {
     let shownCards = document.querySelectorAll('.s2 .isShown');
+    let scrollCards = document.querySelectorAll('.s2 .isScroll');
 
     shownCards.forEach(el => el.classList.remove('isShown'));
+    scrollCards.forEach(el => el.classList.remove('isScroll'));
 }
