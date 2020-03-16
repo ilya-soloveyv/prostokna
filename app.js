@@ -1182,6 +1182,36 @@ app.post('/admin/part/destroyPartColor', async (req, res) => {
     res.json(response)
 })
 app.post('/admin/part/uploadPartModel', async (req, res) => {
+    const PartModel = require('./models').partModel
+    var filename = randomString() + '.' + req.headers.extension
+    const iPartModelID = req.headers.ipartmodelid
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/part')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        await PartModel.update(
+            {
+                sPartModelFile: req.file.filename
+            },
+            {
+                where: {
+                    iPartModelID
+                }
+            }
+        )
+        // response.file = file
+        // response.images = await PartImage.getList(iPartModelID)
+        res.json(response)
+    })
+})
+app.post('/admin/part/uploadPartColor', async (req, res) => {
     const PartImage = require('./models').partImage
     var filename = randomString() + '.' + req.headers.extension
     const iPartModelID = req.headers.ipartmodelid
@@ -1227,9 +1257,11 @@ app.post('/admin/part/updatePartModelImage', async (req, res) => {
     const iPartModelID = req.body.iPartModelID
     const iPartImageID = req.body.iPartImageID
     const iPartColorID = req.body.iPartColorID
+    const iPartColorPrice = req.body.iPartColorPrice || null
     await PartImage.update(
         {
-            iPartColorID
+            iPartColorID,
+            iPartColorPrice
         },
         {
             where: {

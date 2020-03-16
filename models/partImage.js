@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     iPartModelID: { type: DataTypes.INTEGER, allowNull: false },
     iPartColorID: { type: DataTypes.INTEGER, allowNull: true, defaultValue: null },
     sPartImageFile: { type: DataTypes.STRING, allowNull: false },
-    iActive: { type: DataTypes.BOOLEAN, defaultValue: true }
+    iActive: { type: DataTypes.BOOLEAN, defaultValue: true },
+    iPartColorPrice: { type: DataTypes.INTEGER }
   }, {
     timestamps: false,
     freezeTableName: true,
