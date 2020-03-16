@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     iPartModelPrice: { type: DataTypes.INTEGER },
     tPartModelDesc: { type: DataTypes.TEXT },
     iActive: { type: DataTypes.BOOLEAN, defaultValue: true },
-    iOrder: { type: DataTypes.INTEGER, defaultValue: 9999, allowNull: false }
+    iOrder: { type: DataTypes.INTEGER, defaultValue: 9999, allowNull: false },
+    sPartModelFile: { type: DataTypes.STRING }
   }, {
     timestamps: false,
     freezeTableName: true,
