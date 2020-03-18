@@ -943,11 +943,13 @@ app.post('/admin/part/updatePart', async (req, res) => {
     const response = {}
     let iPartID = req.body.iPartID || false
     const sPartTitle = req.body.sPartTitle || null
+    const sPartURI = req.body.sPartURI || cyrillicToTranslit().transform(sPartTitle, "_").toLowerCase()
     const iActive = req.body.iActive || false
     const iOrder = req.body.iOrder || 9999
     if (iPartID) {
         response.update = await Part.update({
             sPartTitle,
+            sPartURI,
             iActive,
             iOrder
         }, {
@@ -958,6 +960,7 @@ app.post('/admin/part/updatePart', async (req, res) => {
     } else {
         response.create = await Part.create({
             sPartTitle,
+            sPartURI,
             iActive,
             iOrder
         })
@@ -1005,11 +1008,13 @@ app.post('/admin/part/updatePartBrand', async (req, res) => {
     let iPartBrandID = req.body.iPartBrandID || false
     const iPartID = req.body.iPartID || null
     const sPartBrandTitle = req.body.sPartBrandTitle || null
+    const sPartBrandURI = req.body.sPartBrandURI || cyrillicToTranslit().transform(sPartBrandTitle, "_").toLowerCase()
     const iActive = req.body.iActive || false
     const iOrder = req.body.iOrder || 9999
     if (iPartBrandID) {
         response.update = await PartBrand.update({
             sPartBrandTitle,
+            sPartBrandURI,
             iActive,
             iOrder
         }, {
@@ -1020,6 +1025,7 @@ app.post('/admin/part/updatePartBrand', async (req, res) => {
     } else {
         response.create = await PartBrand.create({
             sPartBrandTitle,
+            sPartBrandURI,
             iPartID,
             iActive,
             iOrder
@@ -1276,159 +1282,6 @@ app.post('/admin/part/updatePartModelImage', async (req, res) => {
 
 
 
-
-
-
-
-
-
-// app.post('/admin/part/handle/getBrand', async (req, res) => {
-//     const response = {}
-//     const HandleBrand = require('./models').handle_brand
-//     response.handleBrand = await HandleBrand.findAll({
-//         order: [
-//             ['iActive', 'DESC'],
-//             ['iOrder', 'ASC']
-//         ]
-//     })
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/getBrandItem', async (req, res) => {
-//     const response = {}
-//     const HandleBrand = require('./models').handle_brand
-//     response.handleBrand = await HandleBrand.findByPk(req.body.iHandleBrandID)
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/updateBrand', async (req, res) => {
-//     const response = {}
-//     const HandleBrand = require('./models').handle_brand
-//     let iHandleBrandID = req.body.handleBrand.iHandleBrandID
-//     const sHandleBrandTitle = req.body.handleBrand.sHandleBrandTitle || null
-//     const iActive = req.body.handleBrand.iActive || false
-//     const iOrder = req.body.handleBrand.iOrder || 9999
-//     if (iHandleBrandID) {
-//         response.update = await HandleBrand.update(
-//             {
-//                 sHandleBrandTitle,
-//                 iActive,
-//                 iOrder
-//             },
-//             {
-//                 where: {
-//                     iHandleBrandID
-//                 }
-//             }
-//         )
-//     } else {
-//         response.create = await HandleBrand.create(
-//             {
-//                 sHandleBrandTitle,
-//                 iActive,
-//                 iOrder
-//             }
-//         )
-//         iHandleBrandID = response.create.iHandleBrandID
-//     }
-//     response.iHandleBrandID = iHandleBrandID
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/removeBrand', async (req, res) => {
-//     const response = {}
-//     const HandleBrand = require('./models').handle_brand
-//     response.handle = await HandleBrand.destroy({
-//         where: {
-//             iHandleBrandID: req.body.iHandleBrandID
-//         }
-//     })
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/getHandleList', async (req, res) => {
-//     const response = {}
-//     const Handle = require('./models').handle
-//     response.handle = await Handle.findAll({
-//         where: {
-//             iHandleBrandID: req.body.iHandleBrandID
-//         },
-//         order: [
-//             ['iActive', 'DESC'],
-//             ['iOrder', 'ASC']
-//         ]
-//     })
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/getHandle', async (req, res) => {
-//     const response = {}
-//     const Handle = require('./models').handle
-//     response.handle = await Handle.findByPk(req.body.iHandleID)
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/updateHandle', async (req, res) => {
-//     const response = {}
-//     const Handle = require('./models').handle
-//     let iHandleID = req.body.handle.iHandleID
-//     const iHandleBrandID = req.body.handle.iHandleBrandID
-//     const sHandleTitle = req.body.handle.sHandleTitle || null
-//     const iHandlePrice = req.body.handle.iHandlePrice || 1
-//     const tHandleDesc = req.body.handle.tHandleDesc || null
-//     const iActive = req.body.handle.iActive || false
-//     const iOrder = req.body.handle.iOrder || 9999
-//     if (iHandleID) {
-//         response.update = await Handle.update(
-//             {
-//                 iHandleBrandID,
-//                 sHandleTitle,
-//                 iHandlePrice,
-//                 tHandleDesc,
-//                 iActive,
-//                 iOrder
-//             },
-//             {
-//                 where: {
-//                     iHandleID
-//                 }
-//             }
-//         )
-//     } else {
-//         response.create = await Handle.create(
-//             {
-//                 iHandleBrandID,
-//                 sHandleTitle,
-//                 iHandlePrice,
-//                 tHandleDesc,
-//                 iActive,
-//                 iOrder
-//             }
-//         )
-//         iHandleID = response.create.iHandleID
-//     }
-//     response.iHandleID = iHandleID
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/removeHandle', async (req, res) => {
-//     const response = {}
-//     const Handle = require('./models').handle
-//     response.handle = await Handle.destroy({
-//         where: {
-//             iHandleID: req.body.iHandleID
-//         }
-//     })
-//     res.json(response)
-// })
-// app.post('/admin/part/handle/getColorList', async (req, res) => {
-//     const response = {}
-//     const HandleColor = require('./models').handleColor
-//     response.colors = await HandleColor.findAll({
-//         where: {
-//             iHandleBrandID: req.body.iHandleBrandID
-//         }
-//     })
-//     res.json(response)
-// })
-
-
-
-
-
 // cookie
 // app.use(function (req, res, next) {
 //     var cookie = req.cookies.cookieName;
@@ -1571,6 +1424,27 @@ app.get('/', async (req, res) => {
     // res.json(MaterialBrandProductMenu)
     // return false
 
+    const Part = require('./models').part
+    const partList = await Part.findAll({
+        attributes: [
+            'sPartTitle',
+            'sPartURI'
+        ],
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+    const menuPartList = []
+    partList.forEach(part => {
+        menuPartList.push({
+            title: part.sPartTitle,
+            uri: '/part/' + part.sPartURI
+        })
+    })
+
     data.s2_menu = [
         {
             title: 'Окна',
@@ -1693,32 +1567,7 @@ app.get('/', async (req, res) => {
         {
             title: 'Комплектующие',
             ico: 'accessories',
-            list: [
-                {
-                    title: 'Подоконники',
-                    uri: '/options'
-                },
-                {
-                    title: 'Ручки',
-                    uri: '/options'
-                },
-                {
-                    title: 'Шторы',
-                    uri: '/options'
-                },
-                {
-                    title: 'Жалюзи',
-                    uri: '/options'
-                },
-                {
-                    title: 'Клапаны',
-                    uri: '/options'
-                },
-                {
-                    title: 'Москитные сетки',
-                    uri: '/options'
-                },
-            ]
+            list: menuPartList
         },
         {
             title: 'Цены',
@@ -2248,6 +2097,19 @@ app.get('/windowsill', async (req, res) => {
     data.description = ''
     data.left_menu_active = null
     res.render('accessories/windowsill.pug', data)
+})
+
+app.get('/part/:sPartURI', async (req, res) => {
+    const sPartURI = req.params.sPartURI
+    // const part = 
+    res.json({ sPartURI })
+})
+
+app.get('/part/:sPartURI/:sPartBrandURI', async (req, res) => {
+    const sPartURI = req.params.sPartURI
+    const sPartBrandURI = req.params.sPartBrandURI
+    // const part = 
+    res.json({ sPartURI, sPartBrandURI })
 })
 
 

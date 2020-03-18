@@ -19,6 +19,9 @@ export default {
       const iPartBrandID = this.$route.query.MODAL_PART_BRAND_EDIT
       Vue.set(this, 'iPartBrandID', Number(iPartBrandID))
     })
+    $('#MODAL_PART_BRAND_EDIT').on('shown.bs.modal', () => {
+      this.$refs.sPartBrandTitle.focus()
+    })
     $('#MODAL_PART_BRAND_EDIT').on('hide.bs.modal', () => {
       let query = Object.assign({}, this.$route.query);
       delete query.MODAL_PART_BRAND_EDIT
@@ -68,7 +71,11 @@ export default {
             <form @submit.prevent="update" id="modalPartBrandEditForm">
               <div class="form-group">
                 <label for="sPartBrandTitle">Название</label>
-                <input type="text" class="form-control" id="sPartBrandTitle" v-model="partBrand.sPartBrandTitle" autocomplete="off" required>
+                <input type="text" class="form-control" id="sPartBrandTitle" ref="sPartBrandTitle" v-model="partBrand.sPartBrandTitle" autocomplete="off" required>
+              </div>
+              <div class="form-group">
+                <label for="sPartBrandURI">URI</label>
+                <input type="text" class="form-control" id="sPartBrandURI" v-model="partBrand.sPartBrandURI" autocomplete="off">
               </div>
               <div class="form-group">
                 <label for="partBrand_iOrderInput">iOrder</label>

@@ -19,6 +19,9 @@ export default {
       const iPartColorID = this.$route.query.MODAL_PART_COLOR_EDIT
       Vue.set(this, 'iPartColorID', Number(iPartColorID))
     })
+    $('#MODAL_PART_COLOR_EDIT').on('shown.bs.modal', () => {
+      this.$refs.sPartColorTitle.focus()
+    })
     $('#MODAL_PART_COLOR_EDIT').on('hide.bs.modal', () => {
       let query = Object.assign({}, this.$route.query);
       delete query.MODAL_PART_COLOR_EDIT
@@ -68,7 +71,7 @@ export default {
             <form @submit.prevent="update" id="modalPartColorEditForm">
               <div class="form-group">
                 <label for="sPartColorTitle">sPartColorTitle</label>
-                <input type="text" class="form-control" id="sPartColorTitle" v-model="partColor.sPartColorTitle" autocomplete="off" required>
+                <input type="text" class="form-control" id="sPartColorTitle" ref="sPartColorTitle" v-model="partColor.sPartColorTitle" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label for="sPartColorCode">sPartColorCode</label>

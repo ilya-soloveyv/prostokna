@@ -76,7 +76,7 @@ export default {
             <div class="col">
               <div class="form-group">
                 <label for="sPartModelTitleInput">Название модели</label>
-                <input type="text" class="form-control" id="sPartModelTitleInput" v-model="partModel.sPartModelTitle" autocomplete="off" required>
+                <input type="text" class="form-control" id="sPartModelTitleInput" ref="sPartModelTitleInput" v-model="partModel.sPartModelTitle" autocomplete="off" required>
               </div>
               <div class="row">
                 <div class="col">
