@@ -16,6 +16,9 @@ export default {
       const iPartID = this.$route.query.MODAL_PART_EDIT
       Vue.set(this, 'iPartID', Number(iPartID))
     })
+    $('#MODAL_PART_EDIT').on('shown.bs.modal', () => {
+      this.$refs.sPartTitle.focus()
+    })
     $('#MODAL_PART_EDIT').on('hide.bs.modal', () => {
       let query = Object.assign({}, this.$route.query);
       delete query.MODAL_PART_EDIT
@@ -64,7 +67,11 @@ export default {
             <form @submit.prevent="update" id="modalPartEditForm">
               <div class="form-group">
                 <label for="sPartTitle">Название</label>
-                <input type="text" ref="sPartTitle" class="form-control" id="sPartTitle" v-model="part.sPartTitle" autocomplete="off" required>
+                <input type="text" class="form-control" id="sPartTitle" ref="sPartTitle" v-model="part.sPartTitle" autocomplete="off" required>
+              </div>
+              <div class="form-group">
+                <label for="sPartURI">URI</label>
+                <input type="text" ref="sPartURI" class="form-control" id="sPartURI" v-model="part.sPartURI" autocomplete="off">
               </div>
               <div class="form-group">
                 <label for="iOrderInput">iOrder</label>
