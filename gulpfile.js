@@ -14,6 +14,7 @@ const revOutdated   = require('gulp-rev-outdated')
 const path          = require('path')
 const through       = require('through2')
 const autoprefixer = require('gulp-autoprefixer');
+const pug = require('gulp-pug')
 // const runSequence   = require('run-sequence')
 
 function cleaner() {
@@ -41,6 +42,8 @@ gulp.task('js_min', (done) => {
             'public/src/js/bootstrap.js',
             'public/src/js/swiped-events.js',            
             'public/src/js/jquery.fullpage.min.js',
+            'public/src/js/scrolloverflow.min.js',
+            'public/src/js/fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
             'public/src/js/jquery.touchSwipe.min.js',
             'node_modules/jquery-mousewheel/jquery.mousewheel.js',
@@ -56,39 +59,40 @@ gulp.task('js_min', (done) => {
             'public/src/js/index/s1.js',
             'public/src/js/index/s2.js',
             'public/src/js/index/s3.js',
+            'public/src/js/index/s4.js',
             'public/src/js/index/s5.js',
             'public/src/js/index/s6.js',
             'public/src/js/app/calc.js',
             'public/src/js/index/s7.js',
             'public/src/js/index/s8.js',
             'public/src/js/index/s9.js',
-            'public/src/js/contact/contact.js',
-            'public/src/js/pay/pay.js',
-            'public/src/js/gager/gager.js',
-            'public/src/js/product/products.js',
-            'public/src/js/product/product.js',
-            'public/src/js/palette/palette.js',
-            'public/src/js/options/options.js',
-            'public/src/js/wiki/catalog.js',
-            'public/src/js/wiki/article.js',
-            'public/src/js/instruction/instruction.js',
-            'public/src/js/instruction/video.js',
-            'public/src/js/company/company.js',
-            'public/src/js/company/news/news.js',
-            'public/src/js/company/news/news-tape.js',
-            'public/src/js/favorites/favorites.js',
-            'public/src/js/company/innovation/cheaper-together.js',
-            'public/src/js/corporate/corporate.js',
-            'public/src/js/regulation_window/regulation_window.js',
-            'public/src/js/optional_service/optional_service.js',
-            'public/src/js/intuitive/intuitive.js',
-            'public/src/js/app/compare.js',
-            'public/src/js/gallery.js',
-            'public/src/js/work/work.js',
-            'public/src/js/calculation.js',
-            'public/src/js/page-brand/page-brand.js',
-            'public/src/js/best-cost/best-cost.js',
-			'public/src/js/accessories/accessories.js',						
+            // 'public/src/js/contact/contact.js',
+            // 'public/src/js/pay/pay.js',
+            // 'public/src/js/gager/gager.js',
+            // 'public/src/js/product/products.js',
+            // 'public/src/js/product/product.js',
+            // 'public/src/js/palette/palette.js',
+            // 'public/src/js/options/options.js',
+            // 'public/src/js/wiki/catalog.js',
+            // 'public/src/js/wiki/article.js',
+            // 'public/src/js/instruction/instruction.js',
+            // 'public/src/js/instruction/video.js',
+            // 'public/src/js/company/company.js',
+            // 'public/src/js/company/news/news.js',
+            // 'public/src/js/company/news/news-tape.js',
+            // 'public/src/js/favorites/favorites.js',
+            // 'public/src/js/company/innovation/cheaper-together.js',
+            // 'public/src/js/corporate/corporate.js',
+            // 'public/src/js/regulation_window/regulation_window.js',
+            // 'public/src/js/optional_service/optional_service.js',
+            // 'public/src/js/intuitive/intuitive.js',
+            // 'public/src/js/app/compare.js',
+            // 'public/src/js/gallery.js',
+            // 'public/src/js/work/work.js',
+            // 'public/src/js/calculation.js',
+            // 'public/src/js/page-brand/page-brand.js',
+            // 'public/src/js/best-cost/best-cost.js',
+			// 'public/src/js/accessories/accessories.js',						
         ],{
             allowEmpty: true 
         })
@@ -120,7 +124,12 @@ gulp.task('css_min', (done) => {
             'public/src/css_static/jquery.scrollbar.css',
             'public/src/css_static/rangeslider.css',
             'public/src/css_static/hamburgers.css',
-            'public/src/css/hamburglar.css',            
+            'public/src/css/hamburglar.css',    
+            'public/src/css/common.css',
+            'public/src/css/components/btn.css',
+            'public/src/css/components/header.css',
+            'public/src/css/components/footer.css',
+            'public/src/css/components/modals.css', 
             'public/src/css/app.css',
             'public/src/css/index/index.css',
             'public/src/css/index/s1.css',
@@ -157,7 +166,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/calculation.css',
             'public/src/css/page-brand/page-brand.css',
             'public/src/css/best-cost/best-cost.css',
-					'public/src/css/accessories/accessories.css',
+			'public/src/css/accessories/accessories.css',
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
@@ -200,7 +209,11 @@ gulp.task('production', gulp.series(
 
 
 
-
+gulp.task('pug', function buildHTML() {
+    return gulp.src('views/index/s4.pug')
+    .pipe(pug())
+    .pipe(gulp.dest('dist'));
+  });
 
 
 
@@ -210,7 +223,7 @@ gulp.task('sass', function () {
             'public/src/sass/**/*.scss'
         ])
         .pipe(sass())
-        .pipe(autoprefixer(['last 3 versions']))
+        .pipe(autoprefixer(['last 2 versions']))
         .pipe(gulp.dest('public/src/css'))
 });
 
@@ -224,7 +237,8 @@ gulp.task('sass_admin', function () {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
+    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass', 'css_min'))
+    gulp.watch('public/src/js/**/*.js', gulp.series('js_min'))
 })
 
 gulp.task('bs', /* ['nodemon'], */ function() {

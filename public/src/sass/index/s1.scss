@@ -448,7 +448,7 @@
 			background-color: hsla(0, 0%, 0%, 0.52);
 		}
 
-		> * {
+		> *:not(.btn) {
 			max-width: 405px;
 			margin: auto;
 		}
@@ -570,65 +570,6 @@
 		}
 	}
 
-	a.mbutton {
-		position: relative;
-		box-shadow: 4px 3px 6px rgba(0, 0, 0, 0.57);
-		border-radius: 2.4em;
-		font-size: 14px;
-		background-image: linear-gradient(to right, #d859e7 0%, #bd8af0 100%);
-		color: #fff;
-		padding: 1.15em 0;
-
-		transition: 0.3s ease-out;
-
-		max-width: 255px;
-		width: 100%;
-
-		text-align: center;
-
-		@media (max-width: 800px) {
-			width: 198px;
-		}
-
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-
-			border-radius: 2.4em;
-
-			background-image: linear-gradient(to right, #bd8af0 0%, #d859e7 100%);
-
-			z-index: 0;
-			transition: 0.5s ease-out;
-			opacity: 0;
-		}
-
-		&:hover,
-		&:focus {
-			box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.57);
-
-			&:before {
-				opacity: 1;
-			}
-		}
-
-		@media (max-width: 800px) {
-			margin-bottom: -1.95em;
-		}
-
-		@media (max-width: 575px) {
-			font-size: 12px;
-		}
-
-		span {
-			position: relative;
-		}
-	}
-
 	.desktop {
 		display: block;
 
@@ -666,6 +607,12 @@
 
 		@media (max-width: 800px) {
 			display: block;
+		}
+	}
+
+	.btn {
+		@media (max-width: 800px) {
+			align-self: center;
 		}
 	}
 }
