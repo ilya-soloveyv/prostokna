@@ -27,6 +27,10 @@ export default {
                     title: 'Комплектующие',
                     uri: '/part'
                 },
+                {
+                    title: 'Главная страница',
+                    uri: '/index'
+                },
             ]
         }
     },
