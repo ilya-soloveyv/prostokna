@@ -1,0 +1,32 @@
+extends ../layouts/app
+
+block content
+    #gallery.ppage
+        include head
+        .gallery_card
+            .wrap
+                #gallery_card_owl.owl-carousel
+                    each item, index in gallery_list
+                        .owl-item-gallery-card(data-iGalleryID= item.iGalleryID class={active: index == 3})
+                            .desc
+                                .title= item.sGalleryTitle
+                                .description= item.tGalleryText
+                            .image
+                                if item.gallery_images[0]
+                                    img(src="/images/gallery/" + item.gallery_images[0].sGalleryImageName alt="" data-index="0")
+                            .images
+                                .bg
+                                    each image in item.gallery_images
+                                        img(src="/images/gallery/" + image.sGalleryImageName, alt="")
+                #gallery_card_pagg
+                    .wrap_pagg
+                        each item, index in gallery_list
+                            a(class={active: item.iGalleryID == gallery[0].iGalleryID }, data-iGalleryID= item.iGalleryID, href="#")
+                                span.num= (index+1)
+                                span.titleDot= item.sGalleryTitleMin
+        #imageZoom(data-i=0)
+            .nav_close
+                i.material-icons close
+            .owl-carousel.owl-theme
+                //- each image in gallery[0].gallery_images
+                    img(src="/images/gallery/" + image.sGalleryImageName, alt="")

@@ -33,6 +33,8 @@ if ($("#intuitive").length) {
         positionButtons()
     })
 
+	  		
+
     var vmIntuitive = new Vue({
         el: '#intuitive',
         data: {
@@ -622,5 +624,4 @@ if ($("#intuitive").length) {
             }
         }
     })
-
 }

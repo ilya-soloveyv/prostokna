@@ -1,5 +1,7 @@
 #optional_service {
-    font-family: 'Montserrat';
+    
+		background: #EDEDED;
+		position: relative;
     .pop-up { 
         display: none;               
         width: 60%;
@@ -20,6 +22,8 @@
         @media screen and (max-width: 576px) {
             padding: 25px 10px;
             width: 95%;
+						height: 82vh;
+						transform: translate(-50%,-45%);
         }
         &_wrapp {
             display: flex;
@@ -27,6 +31,11 @@
             @media screen and (max-width: 992px) {
                 flex-direction: column;
                 align-items: center;
+            }
+            @media screen and (max-width: 576px) {
+                overflow-y: scroll;
+								height: 100%;
+								padding-right: 10px;
             }
         }
         &_close {
@@ -105,6 +114,16 @@
             font-size: 18px;
         }
     }
+		.owl-item.active.center {
+			.optional_wrapp {
+				@media screen and (max-width: 992px) {
+						display: block;
+				}
+			}
+		}
+		.owl-stage-outer {
+			padding-bottom: 30px;
+		}
 }
 
 .optional_service {
@@ -114,7 +133,7 @@
         padding-bottom: 63px;
         position: relative;
         @media screen and (max-width: 576px) {
-            padding-top: 50px;
+            padding-top: 15px;
             padding-bottom: 45px;
         }
         .swap-m {
@@ -133,8 +152,8 @@
         }       
     }
     &-title {
-        font-family: 'Montserrat';
-        font-size: 28px;
+        
+        font-size: 20px;
         text-transform: uppercase;
         font-weight: 600;
         color: #353535;
@@ -158,7 +177,10 @@
     &-main {
         border-top: 1px solid #353535;
         position: relative;
-        padding-bottom: 100px;        
+        padding-bottom: 100px;
+				@media screen and (max-width: 992px) {
+					padding-bottom: 0;         
+				}       
         .swap-d {
             position: absolute;
             bottom: 0;
@@ -175,15 +197,17 @@
     &-chekclist {        
         display: flex;
         justify-content: space-around;
+				width: 85%;
+				margin: 0 auto;
     }
-    &-checkitem {
-        width: 368px;
-        @media screen and (max-width: 1200px) {
-            width: 30%;            
-        }
-        @media screen and (max-width: 992px) {
-            width: 5%;            
-        }
+    &-checkitem {       
+        @media screen and (max-width: 992px){
+					width: 325px;
+    			margin: 0 auto;
+				}		
+        @media screen and (max-width: 576px){
+					width: 100%;
+				}		
         &:hover {
             .btn-desc {
                 opacity: 1;
@@ -218,7 +242,22 @@
 
         }
         .img_wrap {
-            min-height: 50px;
+						width: 50px;
+						height: 50px;
+						margin: 0 auto;
+						@media screen and (max-width: 1400px) {
+              width: 40px;
+							height: 40px;
+            }
+						@media screen and (max-width: 576px) {
+							width: 30px;
+							height: 30px;
+						}
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+						}
         }
         img {            
             cursor: pointer;
@@ -229,18 +268,23 @@
                 width: 100%;
                 max-width: 42px;
             }
-        } 
+        }
+				
         .optional_wrapp {
             @media screen and (max-width: 992px) {
                 display: none;
             }
-        } 
+        }				
         .optional-title {
             font-size: 11px;
             font-weight: normal;
             text-transform: uppercase;
             text-align: center;
             margin-top: 40px;
+						font-weight: 600;
+						@media screen and (max-width: 576px) {
+							margin-top: 20px;
+						}
         } 
         .optional-desc {
             font-size: 11px;
@@ -248,8 +292,13 @@
             padding: 53px 40px;
             border: 1px solid #353535;
             margin-top: 15px;
+            @media screen and (max-width: 1300px) {
+                padding: 40px 30px;
+            }
             @media screen and (max-width: 576px) {
                 padding: 25px 15px;
+								height: 40vh;
+								overflow-y: scroll;
             }
             p {
                 line-height: 2em;
@@ -284,6 +333,9 @@
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e45ae9', endColorstr='#9b47e5', GradientType=1 );
             @media screen and (max-width: 992px) {
                 opacity: 1;
+            }
+            @media screen and (max-width: 576px) {
+                margin-top: 15px;
             }
             .more {
                 position: relative;
@@ -321,3 +373,4 @@
         }    
     }
 }
+

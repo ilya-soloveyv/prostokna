@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Material = sequelize.define('material', {
     iMaterialID: { allowNull: false, type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    sMaterialTitle: { type: DataTypes.STRING, allowNull: false }
+    sMaterialTitle: { type: DataTypes.STRING, allowNull: false },
+    iActive: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 }
   }, {
     timestamps: false,
     freezeTableName: true,
@@ -13,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'iMaterialID'
     })
     Material.hasMany(models.product, {
+      foreignKey: 'iMaterialID'
+    })
+    Material.hasMany(models.material_category, {
       foreignKey: 'iMaterialID'
     })
   };

@@ -1,34 +1,64 @@
+mixin desktopList(list)
+    if list
+        ol
+            each item in list
+                li
+                    a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+                        span.bg
+
+                    +desktopList(item.list)
+
+mixin mobList(list, type, ico, title, index)
+    if list
+        if type
+            div(class=`slide s2-list-${index}`)
+                ol.slide-wrap
+                    p.s2-title= title
+                    each item in list
+                        li.s2-first-level
+                            a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+
+                            +mobList(item.list, false, false, title)
+
+                    svg.card-icon(aria-hidden='true')
+                        use(xlink:href=`#index-${ico}`)
+        else
+            ol
+                p.s2-title= title
+                each item in list
+                    li
+                        a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
+
+                        +mobList(item.list, false, false, title)
+
 .section.s2
-    .fp_bg
-        ul.level1
+    .desktop
+        ul.s2-main-list
             each item in s2_menu
-                li(class='level1')
-                    .front
-                        .img
-                            img(src="/images/index/s2/"+item.img, alt= item.title)
-                        .title= item.title
-                    .back
-                        .bg
-                        .title= item.title
-                        i.material-icons.material-icons-clear clear
-                        i.material-icons.material-icons-arrow_left arrow_left
-                        if item.list
-                            .list
-                                ul
-                                    each item2 in item.list
-                                        li
-                                            if !item2.list
-                                                a(href= item2.uri)= item2.title
-                                            else
-                                                a.more(href= item2.uri)= item2.title
-                                                ul
-                                                    each item3 in item2.list
-                                                        li
-                                                            if !item3.list
-                                                                a(href= item3.uri)= item3.title
-                                                            else
-                                                                a.more(href= item3.uri)= item3.title
-                                                                ul
-                                                                    each item4 in item3.list
-                                                                        li
-                                                                            a(href= item4.uri)= item4.title
+                li.s2-card
+                    .s2-front-card
+                        div
+                            button.card-back(aria-label='Назад')
+                                svg(width='15px' height='15px')
+                                    use(xlink:href='#back')
+                            button.card-close(aria-label='Закрыть')
+                                svg(width='15px' height='15px')
+                                    use(xlink:href='#cross')
+                        svg.card-icon(aria-hidden='true')
+                            use(xlink:href=`#index-${item.ico}`)
+                        p= item.title
+                    .s2-back-card
+                        +desktopList(item.list)
+                    svg.s2-mouse(width="34" height="81")
+                        use(xlink:href='#mouse')
+                    
+    .mob
+        button.s2-close MENU
+        .s2-cards
+            each item in s2_menu
+                .s2-front-card
+                    svg.card-icon(aria-hidden='true')
+                        use(xlink:href=`#index-${item.ico}`)
+                    p= item.title
+        each item, index in s2_menu
+            +mobList(item.list, 1, item.ico, item.title, index)

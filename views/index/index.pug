@@ -1,13 +1,13 @@
 extends ../layouts/app
 
 block content
-    #fullpage_welcome
+    #fullpage_welcome.ppage
         include s1
         include s2
         include s3
         include s4
         include s5
-        include s6
+        // include s6
         include s7
         include s8
         include s9
@@ -20,7 +20,21 @@ block content
             li Как выбрать окно
             li Алгоритм заказа
             li Сравнение профилей
-            li Калькулятор
+            // li Калькулятор
             li Наши клиенты
             li Связаться с нами
             li Контакты
+        ul.contacts
+            li
+                a(href="#",data-toggle="modal",data-target="#modal_mobile_contact")
+                    svg.icon--speech-bubble(width='13px',height='13px')
+                        use(xlink:href='#speech-bubble')
+            li
+                a(href='tel:+74993912221',data-toggle='modal',data-target='#zay_modal',data-class='zay_modal_white')
+                    svg.icon--phone(width='14px',height='14px')
+                        use(xlink:href='#phone-1')
+            li
+                a(href='mailto:prosto@prostokna.ru')
+                    svg.icon--letter(width='13px',height='11px')
+                        use(xlink:href='#letter')
+            

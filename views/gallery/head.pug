@@ -1,0 +1,39 @@
+.head
+    .title Галлерея
+    ul
+        li(class={active: !gallery_group_active})
+            a(href="/gallery")
+                .bg
+                    img(src="/images/gallery/all.svg", alt="")
+                span Все
+        each group in gallery_group
+            li(class={active: gallery_group_active == group.sGalleryGroupUri})
+                a(href="/gallery/" + group.sGalleryGroupUri)
+                    .bg
+                        img(src="/images/gallery/" + group.sGalleryGroupUri + ".svg", alt="")
+                    span= group.sGalleryGroupTitle
+
+//- .head
+//-     .title Галлерея
+//-     ul
+//-         li(class={active: !gallery_group_active})
+//-             a(href="/gallery")
+//-                 img(src="/images/gallery/all.svg", alt="")
+//-                 span Все
+//-         each group in gallery_group
+//-             li(class={active: gallery_group_active == group.sGalleryGroupUri})
+//-                 a(href="/gallery/" + group.sGalleryGroupUri)
+//-                     img(src="/images/gallery/" + group.sGalleryGroupUri + ".svg", alt="")
+//-                     span= group.sGalleryGroupTitle
+        //- li
+        //-     a(href="#")
+        //-         img(src="/images/gallery/gallery.svg", alt="")
+        //-         span Гараж
+        //- li.active
+        //-     a(href="#")
+        //-         img(src="/images/gallery/gallery.svg", alt="")
+        //-         span Коммерческая недвижимость
+        //- li
+        //-     a(href="#")
+        //-         img(src="/images/gallery/gallery.svg", alt="")
+        //-         span Все

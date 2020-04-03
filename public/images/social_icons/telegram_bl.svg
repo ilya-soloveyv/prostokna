@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <clipPath id="clip-Telegram_White">
+      <rect width="42" height="42"/>
+    </clipPath>
+  </defs>
+  <g id="Telegram_White" data-name="Telegram White" clip-path="url(#clip-Telegram_White)">
+    <g id="XMLID_496_" transform="translate(2 -15.401)">
+      <path id="XMLID_497_" d="M.671,35.265l8.756,3.268,3.389,10.9a1.031,1.031,0,0,0,1.637.493l4.881-3.979a1.456,1.456,0,0,1,1.775-.05l8.8,6.391a1.032,1.032,0,0,0,1.617-.624l6.449-31.02A1.032,1.032,0,0,0,36.6,19.472L.661,33.334A1.033,1.033,0,0,0,.671,35.265Zm11.6,1.528,17.112-10.54a.3.3,0,0,1,.36.472L15.62,39.853a2.928,2.928,0,0,0-.907,1.752l-.481,3.565a.442.442,0,0,1-.864.063l-1.85-6.5A1.723,1.723,0,0,1,12.27,36.793Z" transform="translate(0)" fill="#161616"/>
+    </g>
+  </g>
+</svg>

@@ -13,6 +13,7 @@ const rimraf        = require('rimraf')
 const revOutdated   = require('gulp-rev-outdated')
 const path          = require('path')
 const through       = require('through2')
+const autoprefixer = require('gulp-autoprefixer');
 // const runSequence   = require('run-sequence')
 
 function cleaner() {
@@ -35,17 +36,27 @@ gulp.task('js_min', (done) => {
             'public/src/js/jquery-ui.min.js',
             'public/src/js/jquery.ui.touch-punch.min.js',
             'public/src/js/popper.js',
+            'public/src/js/jquery.loupe.min.js',
             'public/src/js/tooltip.min.js',
             'public/src/js/bootstrap.js',
-            'public/src/js/jquery.fullpage.min.js',
+            'public/src/js/swiped-events.js',
+            'public/src/js/scrolloverflow.min.js',
+            'public/src/js/fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
+            'public/src/js/jquery.touchSwipe.min.js',
+            'node_modules/jquery-mousewheel/jquery.mousewheel.js',
+            'node_modules/slick-carousel/slick/slick.min.js',
+            'node_modules/minibarjs/dist/minibar.min.js',
             'public/src/js/rangeslider.min.js',
             'public/src/js/jquery.scrollbar.min.js',
             'public/src/js/jquery.inputmask.bundle.js',
             'public/src/js/jquery.knob.min.js',
+            'public/src/js/html2canvas.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
+            'public/src/js/index/s1.js',
             'public/src/js/index/s2.js',
+            'public/src/js/index/s3.js',
             'public/src/js/index/s5.js',
             'public/src/js/index/s6.js',
             'public/src/js/app/calc.js',
@@ -55,6 +66,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/contact/contact.js',
             'public/src/js/pay/pay.js',
             'public/src/js/gager/gager.js',
+            'public/src/js/product/products.js',
             'public/src/js/product/product.js',
             'public/src/js/palette/palette.js',
             'public/src/js/options/options.js',
@@ -63,12 +75,21 @@ gulp.task('js_min', (done) => {
             'public/src/js/instruction/instruction.js',
             'public/src/js/instruction/video.js',
             'public/src/js/company/company.js',
+            'public/src/js/company/news/news.js',
+            'public/src/js/company/news/news-tape.js',
+            'public/src/js/favorites/favorites.js',
             'public/src/js/company/innovation/cheaper-together.js',
             'public/src/js/corporate/corporate.js',
             'public/src/js/regulation_window/regulation_window.js',
             'public/src/js/optional_service/optional_service.js',
             'public/src/js/intuitive/intuitive.js',
             'public/src/js/app/compare.js',
+            'public/src/js/gallery.js',
+            'public/src/js/work/work.js',
+            'public/src/js/calculation.js',
+            'public/src/js/page-brand/page-brand.js',
+            'public/src/js/best-cost/best-cost.js',
+			'public/src/js/accessories/accessories.js',						
         ],{
             allowEmpty: true 
         })
@@ -93,6 +114,8 @@ gulp.task('css_min', (done) => {
             'public/src/css_static/jquery.fullpage.min.css',
             'public/src/css_static/owl.carousel.min.css',
             'public/src/css_static/owl.theme.default.min.css',
+            'node_modules/slick-carousel/slick/slick.css',
+            'node_modules/minibarjs/dist/minibar.min.css',
             'public/src/css_static/animate.css',
             'public/src/css_static/circle.css',
             'public/src/css_static/jquery.scrollbar.css',
@@ -112,8 +135,12 @@ gulp.task('css_min', (done) => {
             'public/src/css/index/s9.css',
             'public/src/css/contact/contact.css',
             'public/src/css/gager/gager.css',
+            'public/src/css/product/products.css',
             'public/src/css/product/product.css',
             'public/src/css/company/company.css',
+            'public/src/css/company/news/news.css',
+            'public/src/css/company/news/news-tape.css',
+            'public/src/css/favorites/favorites.css',
             'public/src/css/company/innovation/cheaper-together.css',
             'public/src/css/pay/pay.css',
             'public/src/css/palette/palette.css',
@@ -126,6 +153,12 @@ gulp.task('css_min', (done) => {
             'public/src/css/optional_service/optional_service.css',
             'public/src/css/intuitive/intuitive.css',
             'public/src/css/corporate/corporate.css',
+            'public/src/css/gallery.css',
+            'public/src/css/work.css',
+            'public/src/css/calculation.css',
+            'public/src/css/page-brand/page-brand.css',
+            'public/src/css/best-cost/best-cost.css',
+					'public/src/css/accessories/accessories.css',
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
@@ -178,6 +211,7 @@ gulp.task('sass', function () {
             'public/src/sass/**/*.scss'
         ])
         .pipe(sass())
+        .pipe(autoprefixer(['last 3 versions']))
         .pipe(gulp.dest('public/src/css'))
 });
 
@@ -192,12 +226,15 @@ gulp.task('sass_admin', function () {
 
 gulp.task('watch', () => {
     gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
+})
+
+gulp.task('watch_admin', () => {
     gulp.watch('public/src/admin/sass/**/*.scss', gulp.series('sass_admin'))
 })
 
 gulp.task('bs', /* ['nodemon'], */ function() {
 	browserSync.init(null, {
-		proxy: "http://localhost:3000",
+		proxy: "http://localhost:4000",
         files: [
             'views/**/*.*',
             'public/src/css/**/*.*',

@@ -1,0 +1,71 @@
+#top
+    div
+        .logo
+            a(href='/')
+                svg.icon.icon--logo(width='96px' height="36px")
+                    defs
+                        linearGradient(id='a',gradientUnits='userSpaceOnUse',x1='8.5',y1='0',x2='8.5',y2='17')
+                            stop(stop-color='#d75be7',offset='0')
+                            stop(stop-color='#bd86ee',offset='1')
+                    use(xlink:href='#logo')
+        .bginput
+            button(type='submit')
+                svg.icon.icon--magnifier(viewBox='0 0 52.966 52.966')
+                    use(xlink:href='#magnifier')
+            input(type='text' placeholder='Введите поисковый запрос...' id='search')
+    div
+        button.top-search-btn(data-toggle="modal" data-target="#searchModal")
+            svg.icon.icon--magnifier(viewBox='0 0 52.966 52.966')
+                use(xlink:href='#magnifier')
+        a.callall(href="#" data-toggle="modal" data-target="#modal_mobile_contact")
+            svg.icon.icon--phone
+                use(xlink:href='#phone-1')
+            svg.icon.icon--letter
+                use(xlink:href='#letter')
+            svg.icon.icon--whats-app
+                use(xlink:href='#whats-app')
+        a.tel.lptracker_phone(href='tel:+74993912221')
+            span +7 499 391 22 21
+            svg.icon.icon--phone(width='16px' height='16px')
+                use(xlink:href='#phone-1')
+        .favorites
+            svg.icon.icon--favorites(width='32px' height='32px')
+                use(xlink:href='#favorites')
+            span.count 2
+
+    .l
+        #toggleBasicMenu
+            svg.icon.icon--hamburger(width='36px' height='37px')
+                use(xlink:href='#hamburger')
+        .menu
+            ul
+                if left_menu
+                    each item, index in left_menu
+                        if (left_menu_active || left_menu_active === 0) && index == left_menu_active
+                            - var active_class = 'active'
+                        else
+                            - var active_class = ''
+                        li(class= active_class)
+                            a(href= item.uri)
+                                svg(class=`icon icon--${item.ico}` viewBox='0 0 32 32')
+                                    use(xlink:href=`#${item.ico}`)
+                                .title #{item.title}
+    .cal(data-toggle="modal" data-target="#calc_wait")
+        div
+            svg.icon.icon--calculator(width='32px' height='32px')
+                use(xlink:href='#calculator')
+            span.count 2
+
+.modal.fade#searchModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true")
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                h5.modal-title#searchModal Поиск
+                button.close(type="button" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+            .modal-body
+                label.bginput
+                    button(type='submit')
+                        svg.icon.icon--magnifier(viewBox='0 0 52.966 52.966')
+                            use(xlink:href='#magnifier')
+                    input(type='text' placeholder='Введите поисковый запрос...' id='search')

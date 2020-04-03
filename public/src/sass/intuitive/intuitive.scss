@@ -10,9 +10,9 @@
         flex-direction: column;
         justify-content: space-around;
         h1 {
-            font-family: 'MontserratSemiBold';
+            font-weight: 600;
             text-transform: uppercase;
-            font-size: 24px;
+            font-size: 22px;
             color: #fff;
             display: flex;
             justify-content: center;
@@ -30,7 +30,7 @@
             flex-direction: column;
             .desc {
                 flex-basis: 100px;
-                font-family: 'MontserratMedium';
+                font-weight: 500;
                 font-size: 14px;
                 color: white;
                 display: flex;
@@ -96,7 +96,7 @@
                     }
                     span {
                         flex-basis: 50px;
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         font-size: 14px;
                         color: white;        
                         @media (max-width: 1200px) {
@@ -152,11 +152,11 @@
                         opacity: .3;
                     }
                     .num {
-                        font-family: 'MontserratMedium';
+                        font-weight: 500;
                         color: white;
                         font-size: 24px;
                         @media (max-width: 750px) {
-                            font-family: 'Montserrat';
+                            
                             font-size: 14px;
                         }
                     }
@@ -168,9 +168,9 @@
                 flex-shrink: 0;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: center;
-                font-family: 'MontserratMedium';
+                font-weight: 500;
                 font-size: 18px;
                 margin: 0;
                 padding: 0;
@@ -180,7 +180,7 @@
                 }
                 .num {
                     font-size: 36px;
-                    font-family: 'MontserratSemiBold';
+                    font-weight: 600;
                     opacity: .5;
                     padding-bottom: 5px;
                     @media (max-width: 750px) {
@@ -196,7 +196,7 @@
                 align-items: center;
                 justify-content: left;
                 flex-wrap: wrap;
-                padding: 30px 0;
+                padding-bottom: 30px;
                 align-content: center;
                 max-width: 820px;
                 margin: 0 auto;
@@ -208,7 +208,7 @@
                     margin: 0;
                 }
                 li {
-                    font-family: 'Montserrat';
+                    
                     font-size: 14px;
                     line-height: 14px;
                     color: white;
@@ -232,6 +232,9 @@
                     &.active {
                         border: 1px solid rgba(255, 255, 255, 1);
                     }
+										&.dis {
+											opacity: 0.4;
+										}
                     label {
                         display: flex;
                         align-items: center;
@@ -258,7 +261,7 @@
                 }
             }
             .nextButton {
-                padding-bottom: 30px;
+                padding-bottom: 50px;
                 flex-basis: 70px;
                 display: flex;
                 justify-content: center;
@@ -268,7 +271,7 @@
                 }
                 button {
                     cursor: pointer;
-                    font-family: 'MontserratSemiBold';
+                    font-weight: 600;
                     // width: 170px;
                     padding: 13px 50px;
                     border-radius: 20px;
@@ -307,7 +310,7 @@
         flex-shrink: 0;
         background: #353535;
         color: white;
-        font-family: 'Montserrat';
+        
         font-size: 14px;
         position: relative;
         overflow: hidden;
@@ -519,7 +522,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                font-family: 'MontserratSemiBold';
+                font-weight: 600;
                 @media (max-width: 1000px) {
                     height: 50px;
                 }
@@ -558,7 +561,7 @@
             position: absolute;
             left: 70px;
             top: 70px;
-            font-family: 'MontserratSemiBold';
+            font-weight: 600;
             font-size: 14px;
             line-height: 14px;
             border: 1px solid white;

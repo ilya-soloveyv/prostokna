@@ -10,30 +10,30 @@ block content
                 p.regulation_windowall-text Для регулировки окон ПВХ вам понадобится шестигранный ключ на 4 мм, проникающая смазка WD-40 или машинное масло..
             ul.regulation_windowall__list
                 li.regulation_windowall__item
-                    .regulation-problem
+                    a.regulation-problem(href="#one", data-pb="1")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/down.png", alt="Свап")
                         h3.regulation-problem-title Створка провисла, ее низ задевает раму
-                    .regulation-problem
+                    a.regulation-problem(href="#four", data-pb="4")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/wind.png", alt="Свап")
                         h3.regulation-problem-title Из окна дует
-                    .regulation-problem
+                    a.regulation-problem(href="#seven", data-pb="7")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/notopen.png", alt="Свап")
                         h3.regulation-problem-title Ручку заклинило, окно не открывается
                 li.regulation_windowall__item
-                    .regulation-problem
+                    a.regulation-problem(href="#two", data-pb="2")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/petli.png", alt="Свап")
                         h3.regulation-problem-title Окно плохо закрывается из-за провисания средней части рамы
-                    .regulation-problem
+                    a.regulation-problem(href="#fifth", data-pb="5")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/bolt.png", alt="Свап")
                         h3.regulation-problem-title Недостаточный прижим петель
-                    .regulation-problem
+                    a.regulation-problem(href="#eight", data-pb="8")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/new.png", alt="Свап")
                         h3.regulation-problem-title Требуется установить ручку или установить "гребенки"
                 li.regulation_windowall__item
-                    .regulation-problem
+                    a.regulation-problem(href="#three", data-pb="3")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/pokosak.png", alt="Свап")
                         h3.regulation-problem-title Рама перекосилась
-                    .regulation-problem
+                    a.regulation-problem(href="#six", data-pb="6")
                         img.regulation-problem_img(src="/images/regulation_window/first-page/rovno.png", alt="Свап")
                         h3.regulation-problem-title Ручка разболталась     
     #regulation_window.ppage
@@ -51,23 +51,87 @@ block content
                 button.btn-desc <span>Описание</span>
 
         .regulation_window-main
-            ul.regulation_window-chekclist
-                li.regulation_window-checkitem
+            ul.regulation_window-chekclist.owl-carousel
+                li.regulation_window-checkitem(data-tab = "1", data-hash = "one")
                     span
-                    img.swap-d(src="/images/regulation_window/petli.png", alt="Свап")
-                li.regulation_window-checkitem.active
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon1.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "2", data-hash = "two")
                     span
-                    img.swap-d(src="/images/regulation_window/bolt.png", alt="Свап")
-                li.regulation_window-checkitem
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon2.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "3", data-hash = "three")
                     span
-                    img.swap-d(src="/images/regulation_window/okosak.png", alt="Свап")
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon3.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "4", data-hash = "four")
+                    span
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon4.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "5", data-hash = "fifth")
+                    span
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon5.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "6", data-hash = "six")
+                    span
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon6.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "7", data-hash = "seven")
+                    span
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon7.svg", alt="icon")
+                li.regulation_window-checkitem(data-tab = "8", data-hash = "eight")
+                    span
+                    .icon-block
+                      img.icon(src="/images/regulation_window/icon8.svg", alt="icon")
             ul.regulation_window-infolist
-                li.regulation_window-infoitem.active
-                    h2.info-title Недостаточный режим петель
-                    p.info-text Регулировка прижима нижней петли осуществляется с помощью болта, расположенного перпендикулярно плоскости окна. Для этого необходимо снять с петли защитный колпачок и завернуть болт. Для того, чтобы подтянуть прижим на верхней петле, вам потребуется открыть окно и перевести поворотную ручку в режим проветривания. При этом рама будет удерживаться лишь на нижней петле, а вы получите доступ к регулировочному шестиграннику. Обязательно придерживайте створку во время работы, иначе вы рискуете получить более серьёзное повреждение окна, чем слабый прижим.
-                    .info-picture
-                li.regulation_window-infoitem
-                    h2.info-title Рама перекосилась
-                    p.info-text Устранить перекос рамы можно при помощи горизонтальных и вертикальных регуляторов, расположенных на нижней и верхней петле. Для того, чтобы регуляторы верхней петли стали доступны – откройте окно. Регуляторы на нижней петле доступны как при закрытом, так и при открытом окне. Поочерёдно подтягивайте или ослабляйте прижим створки к раме на нижней и верхней петле, тем самым устраняя перекос.
-                    .info-picture
+              li.regulation_window-infoitem(style="display: block")
+                h2.info-title Створка провисла, ее низ  задевает раму
+                p.info-text Устранение провисания путём подъёма рамы. Для этого необходимо открыть регулировочный шестигранник на нижней петле, убрав защитный колпачок. Вращая шестигранник ключом по часовой стрелке, вы сможете поднять раму, а поворачивая ключ в обратную сторону – опустить. Ход регулировки, в среднем, составляет 2мм.
+                .info-picture
+                  img(src="/images/regulation_window/petli-bg.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title Окно плохо закрывается из-за провисания средней части рамы
+                p.info-text Устранить провисание можно при помощи горизонтального регулятора, притянув оконную раму к петле, и, тем самым, подняв низ окна с противоположной стороны. Чтобы добиться такого результата поверните шестигранник по часовой стрелке. Проведя обратную операцию можно опустить нижний угол рамы.
+                p.info-text Такой дефект возникает при смещении створки окна по горизонтали или вертикали. Вращая шестигранным ключом вертикальные и горизонтальные регуляторы, верните раму в нормальное положение.
+                .info-picture
+                  img(src="/images/regulation_window/Mask Group 111.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title Рама перекосилась
+                p.info-text Устранить перекос рамы можно при помощи горизонтальных и вертикальных регуляторов, расположенных на нижней и верхней петле. Для того, чтобы регуляторы верхней петли стали доступны – откройте окно. Регуляторы на нижней петле доступны как при закрытом, так и при открытом окне. Поочерёдно подтягивайте или ослабляйте прижим створки к раме на нижней и верхней петле, тем самым устраняя перекос.
+                .info-picture
+                  img(src="/images/regulation_window/Mask Group 110.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title Из окна дует
+                p.info-text Возможная причина – створка неплотно прижимается к раме. Для устранения сквозняков необходимо усилить прижим створки, для чего нужно произвести регулировку эксцентриков (запорных цапф) по всему периметру окна.
+                p.info-text Когда вы поворачиваете оконную ручку для того, чтобы закрыть окно, цапфы заходят за прижимные площадки и фиксируют створку. Ваша задача – увеличить прижим створки к раме. Для этого нужно повернуть эксцентрик с помощью шестигранного ключа по часовой стрелке. Таким образом, вы переводите окно в «зимний режим». Но не стоит слишком сильно затягивать регуляторы, иначе резиновые уплотнители быстро выйдут из строя. По этой же причине, с наступлением тепла, не забудьте перевести окно на «летний режим» повернув эксцентрики против часовой стрелки.
+                p.info-text Обратите внимание, для облегчения регулировки на цапфах установлены риски, которые помогают оценить уровень прижима. Если риска расположена ближе к улице – прижим ослаблен, если она направлена внутрь помещения – усилен.
+                p.info-text Другой причиной поддувания могут стать износившиеся уплотнители. В этом случае без вызова специалиста не обойтись.
+                .info-picture
+                  img(src="/images/regulation_window/Mask Group 108.png", alt="regulation")
+                  img(src="/images/regulation_window/Mask Group 109.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title НЕДОСТАТОЧНЫЙ РЕЖИМ ПЕТЕЛЬ
+                p.info-text Регулировка прижима нижней петли осуществляется с помощью болта, расположенного перпендикулярно плоскости окна. Для этого необходимо снять с петли защитный колпачок и завернуть болт. Для того, чтобы подтянуть прижим на верхней петле, вам потребуется открыть окно и перевести поворотную ручку в режим проветривания. При этом рама будет удерживаться лишь на нижней петле, а вы получите доступ к регулировочному шестиграннику. Обязательно придерживайте створку во время работы, иначе вы рискуете получить более серьёзное повреждение окна, чем слабый прижим.
+                .info-picture
+                  img(src="/images/regulation_window/petli-bg.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title РУЧКА РАЗБОЛТАЛАСЬ
+                p.info-text Чтобы открыть винты и закрепить ручку, необходимо повернуть пластину в её основании. Далее вам останется только подтянуть винты.
+                .info-picture
+                  img(src="/images/regulation_window/Mask Group 116.png", alt="regulation")
+                  img(src="/images/regulation_window/Mask Group 115.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title РУЧКУ ЗАКЛИНИЛО, ОКНО НЕ ЗАКРЫВАЕТСЯ
+                p.info-text Самая распространённая причина заклинивания ручки – сработал защитный механизм на створке. Для разблокировки ручки отожмите язычок блокиратора. Он находится ниже ручки, а его пластина будет направлена в сторону рамы. Как только вы прижмёте язычок так, чтобы он расположился параллельно резиновому уплотнителю, аккуратно поверните ручку в нужный режим.
+                .info-picture
+                  img(src="/images/regulation_window/Mask Group 107.png", alt="regulation")
+                  img(src="/images/regulation_window/Mask Group 106.png", alt="regulation")
+              li.regulation_window-infoitem
+                h2.info-title ТРЕБУЕТСЯ ПОМЕНЯТЬ РУЧКУ ИЛИ УСТАНОВИТЬ «ГРЕБЕНКИ»
+                p.info-text Эта работа не потребует много времени. Просто поверните декоративную заглушку на ручке, отверните оба винта и снимите ручку. На её место вставьте новую, а под основание ручки установите пластину регулятора режима проветривания – «гребёнки». Зафиксируйте ручку шурупами и поставьте декоративную панель на место.
+                p.info-text В этой статье мы рассмотрели самые распространённые проблемы с окнами ПВХ, с которыми каждому под силу справиться самостоятельно. Надеемся, наши рекомендации помогут вам сэкономить время и деньги.
+                .info-picture
+                  img(src="/images/regulation_window/Mask Group 117.png", alt="regulation")
+                  img(src="/images/regulation_window/Mask Group 118.png", alt="regulation")
             

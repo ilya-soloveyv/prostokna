@@ -12,7 +12,8 @@
                     v-model="windows[current_window].material"
                     v-on:change="resetBrand" )
                     option(
-                        v-for="(material, index) in materials",
+                        v-for="(material, index) in materials"
+                        v-if="material.brands && material.brands.length"
                         v-bind:value="index") {{ material.title }}
         .grid-col-2
             p
@@ -24,6 +25,7 @@
                         v-on:change="resetModel" )
                         option(
                             v-for="(brand, index) in materials[windows[current_window].material].brands"
+                            v-if="brand.models && brand.models.length"
                             v-bind:value="index" ) {{ brand.title }}
             p
                 label модель
@@ -34,6 +36,7 @@
                         v-on:change="resetGlazing" )
                         option(
                             v-for="(model, index) in materials[windows[current_window].material].brands[windows[current_window].brand].models"
+                            v-if="model.glazings && model.glazings.length"
                             v-bind:value="index" ) {{ model.title }}
         .grid-col-2
             //- p

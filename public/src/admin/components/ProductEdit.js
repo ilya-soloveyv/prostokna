@@ -1,17 +1,40 @@
+// {/* <picture-input
+//                                                             ref="planImage"
+//                                                             @change="uploadPlan"
+//                                                             :crop="false"
+//                                                             accept="image/jpeg,image/png,image/svg+xml,image/svg"
+//                                                             size="10"
+//                                                             buttonClass="btn btn-primary btn-sm"
+//                                                             :hideChangeButton='true'
+//                                                             v-bind:prefill="(image.sProductImageBackName) ? '/images/product/gallery/'+image.sProductImageBackName : ''"
+//                                                             :customStrings="{
+//                                                                 drag: 'Перетащите изображение или нажмите для выбора файла'
+//                                                             }"></picture-input> */}
+
 export default {
     name: 'ProductEdit',
+    components: {
+        'picture-input': PictureInput,
+    },
     props: [
         'iProductID'
     ],
     data () {
         return {
             brand: [],
+            brus: [],
             material: [],
+            material_category: [],
+            producttypes: [],
             color: [],
+            products: [],
             product: {
-                product_images: []
+                product_images: [],
+                iActive: 1
             },
-            attachment: {}
+            product_link: [],
+            attachment: {},
+            product_links: 0
         }
     },
     created: function () {
@@ -23,8 +46,12 @@ export default {
                 iProductID: this.iProductID
             }).then((responce) => {
                 this.brand = responce.data.brand
+                this.brus = responce.data.brus
                 this.material = responce.data.material
+                this.material_category = responce.data.material_category
+                this.producttypes = responce.data.producttype
                 this.color = responce.data.color
+                this.products = responce.data.products
                 if (responce.data.product) {
                     this.product = responce.data.product
                 }                
@@ -55,7 +82,9 @@ export default {
             })
         },
         addImage: function () {
-            this.product.product_images.push({})
+            this.product.product_images.push({
+                iOrder: 99
+            })
         },
         addImageColor: function () {
             this.product.product_colors.push({})
@@ -92,6 +121,47 @@ export default {
             }).then( (response) => {
                 Vue.set(this.product.product_colors[index], 'sProductColorFilename', response.data.filename)
             })
+        },
+        useProductLink: function () {
+            this.product.product_links.push({
+                iProductLinkID: false,
+                iProductIDFrom: this.product.iProductID,
+                iProductIDTo: this.product_links.iProductID,
+                product: {
+                    sProductTitle: this.product_links.sProductTitle,
+                    iGenerateUriMaterial: this.product_links.iGenerateUriMaterial,
+                    iGenerateUriBrus: this.product_links.iGenerateUriBrus,
+                    brand: {
+                        sBrandTitle: this.product_links.brand.sBrandTitle,
+                    },
+                    material: {
+                        sMaterialTitle: this.product_links.material.sMaterialTitle,
+                    },
+                    bru: {
+                        sBrusTitle: (this.product_links.bru !== null) ? this.product_links.bru.sBrusTitle : false,
+                    },
+                }
+            })
+            Vue.set(this, 'product_links', 0)
+        },
+        delProductLink: function (index) {
+            Vue.set(this.product.product_links[index], 'del', true)
+        },
+        uploadPlan: function () {
+
+        },
+        changeMaterial: function () {
+            Vue.set(this.product, 'iMaterialCategoryID', null)
+        },
+        imageColorIndex: function (photo) {
+            this.product.product_colors.forEach((element) => {
+                let i = 0
+                if (photo.iProductColorID == element.iProductColorID) {
+                    i = 1
+                }
+                Vue.set(element, 'iIndex', i)
+            })
+            // console.log(photo)
         }
     },
     template: `
@@ -109,10 +179,18 @@ export default {
                                             <div v-for="(image, index) in product.product_images" v-if="image.del !== true" class="mb-3">
                                                 <div class="row mb-1">
                                                     <div class="col">
-                                                        <label class="file_upload">
-                                                            <input type="file" :name="'front[' + index + ']'" :image_type="'sProductImageFrontName'" :image_index="index" :index="index" @change="upload" />
-                                                            <img v-if="image.sProductImageFrontName" :src="'/images/product/gallery/' + image.sProductImageFrontName" />
-                                                        </label>
+                                                        <picture-input
+                                                            ref="planImage"
+                                                            @change="uploadPlan"
+                                                            :crop="false"
+                                                            accept="image/jpeg,image/png,image/svg+xml,image/svg"
+                                                            size="10"
+                                                            buttonClass="btn btn-primary btn-sm"
+                                                            :hideChangeButton='true'
+                                                            v-bind:prefill="(image.sProductImageFrontName) ? '/images/product/gallery/'+image.sProductImageFrontName : ''"
+                                                            :customStrings="{
+                                                                drag: 'Перетащите изображение или нажмите для выбора файла'
+                                                            }"></picture-input>
                                                     </div>
                                                     <div class="col">
                                                         <label class="file_upload">
@@ -121,7 +199,7 @@ export default {
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row pb-1">
                                                     <div class="col">
                                                         <div class="custom-control custom-switch">
                                                             <input type="checkbox" class="custom-control-input" :id="'iPhotoInDescOnPage' + index" v-model="image.iPhotoInDescOnPage" v-on:change="changeImageOnPage(index)">
@@ -130,6 +208,16 @@ export default {
                                                     </div>
                                                     <div class="col-auto">
                                                         <button type="button" class="btn btn-sm bg-light" v-on:click="removeImage(index)">del</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 label col-form-label col-form-label-sm">Сортировка</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control form-control-sm" v-model="image.iOrder">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,20 +240,122 @@ export default {
                                                     <input type="text" class="form-control" v-model="product.sProductTitle" required>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label class="label" for="">URI:</label>
                                                     <input type="text" class="form-control" v-model="product.sProductURI" disabled>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="label" for="">Материал:</label>
-                                                    <select v-model.number="product.iMaterialID" class="form-control" required>
+                                                    <label class="float-right text-muted">URI <input type="checkbox" v-model="product.iGenerateUriMaterial" :disabled="!product.iMaterialID"></label>
+                                                    <select v-model.number="product.iMaterialID" class="form-control" @change="changeMaterial" required>
                                                         <option v-for="(material, index) in material" :key="material.iMaterialID" :value="material.iMaterialID">{{ material.sMaterialTitle }}</option>
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Вид материала:</label>
+                                                    <select v-model.number="product.iMaterialCategoryID" class="form-control">
+                                                        <option :value='null' value=0>Не выбрано...</option>
+                                                        <option
+                                                            v-for="(category, index) in material_category"
+                                                            :disabled="category.iMaterialID != product.iMaterialID"
+                                                            :key="category.iMaterialCategoryID"
+                                                            :value="category.iMaterialCategoryID">{{ category.sMaterialCategoryTitle }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Выбор бруса:</label>
+                                                    <label class="float-right text-muted">URI <input type="checkbox" v-model="product.iGenerateUriBrus" :disabled="!product.iBrusID"></label>
+                                                    <select v-model.number="product.iBrusID" class="form-control">
+                                                        <option :value="null">...</option>
+                                                        <option v-for="(brus, index) in brus" :key="brus.iBrusID" :value="brus.iBrusID">{{ brus.sBrusTitle }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Цена от:</label>
+                                                    <input type="text" class="form-control" v-model="product.iPrice">
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Публикация:</label>
+                                                    <div class="custom-control custom-switch custom-switch-iActive">
+                                                        <input type="checkbox" id="iActive" class="custom-control-input" v-model="product.iActive">
+                                                        <label for="iActive" class="custom-control-label">
+                                                            <template v-if="product.iActive == 1">Опубликовано</template>
+                                                            <template v-else>Скрыто</template>                                                            
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">                                                
+                                                <label class="label" for="" style="color:#ADB5BD">Перелинковка по материалу и брусу:</label>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <template v-for="(item, index) in product.product_links">
+                                                            <span v-if="!item.del" class="badge badge-product-link-item badge-pill badge-primary p-2 pl-3 mb-2 mr-2">
+                                                                {{ item.product.brand.sBrandTitle }} {{ item.product.sProductTitle }}
+                                                                <template v-if="item.product.iGenerateUriMaterial">
+                                                                    {{ item.product.material.sMaterialTitle }}
+                                                                </template>
+                                                                <template v-if="item.product.iGenerateUriBrus">
+                                                                    {{ item.product.bru.sBrusTitle }}
+                                                                </template>
+                                                                <i class="material-icons" v-on:click="delProductLink(index)">clear</i>
+                                                            </span>
+                                                        </template>
+                                                        <select v-on:change="useProductLink" v-model="product_links" class="badge badge-product-link-item badge-pill badge-light mb-3 mr-2" title="Выбрать товар" width="200px">
+                                                            <option value=0>Выбрать товар</option>
+                                                            <option v-for="(item, index) in products" :value="item">
+                                                                {{ item.brand.sBrandTitle }} {{ item.sProductTitle }}
+                                                                <template v-if="item.iGenerateUriMaterial">
+                                                                    {{ item.material.sMaterialTitle }}
+                                                                </template>
+                                                                <template v-if="item.iGenerateUriBrus">
+                                                                    {{ item.bru.sBrusTitle }}
+                                                                </template>
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="label" for="" style="color:#ADB5BD">Привязка продуктов к категориям:</label>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="producttypes">
+                                                            <template v-for="(producttype, key) in producttypes">
+                                                                <div class="item">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        name="producttypes[]"
+                                                                        :id="'producttype_' + producttype.iProductTypeID"
+                                                                        v-model="product.product_producttype"
+                                                                        :value="producttype.iProductTypeID">
+                                                                    <label
+                                                                        :for="'producttype_' + producttype.iProductTypeID">{{ producttype.sProductTypeTitle }}</label>
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="label" for="">Теплоизоляция:</label>
@@ -280,11 +470,14 @@ export default {
                                                     <input type="file" :name="index" @change="uploadColor" />
                                                     <img v-if="item.sProductColorFilename" :src="'/images/product/color/' + item.sProductColorFilename" />
                                                     <button type="button" class="btn btn-sm bg-light" v-on:click="removeImageColor(index)">del</button>
+                                                    <button type="button" class="btn btn-sm bg-light iIndex" v-on:click="imageColorIndex(item)" :class="{ active: item.iIndex }">
+                                                        <i class="material-icons">done</i>
+                                                    </button>
                                                 </label>
                                             </div>
                                             <div class="col">
                                                 <select v-model="item.iColorID" class="form-control form-control-sm">
-                                                    <option v-for="(color, index) in color" :value="color.iColorID">{{ color.sColorTitleCode }} - {{ color.sColorTitle }}</option>
+                                                    <option v-for="(color, index) in color" :value="color.iColorID" v-show="product.iMaterialID == color.iMaterialID">{{ color.sColorTitleCode }} - {{ color.sColorTitle }}</option>
                                                 </select>
                                             </div>
                                         </div>

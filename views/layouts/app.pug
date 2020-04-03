@@ -4,18 +4,21 @@ html(lang="ru")
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no")
         meta(name="format-detection", content="telephone=no")
+        meta(name="yandex-verification" content="e875e54a1150ded5")
         title= title
+        meta(name="description" content= description)
         link(rel="shortcut icon" href="/images/favicon.png")
         if env.NODE_ENV == 'development'
             link(rel="stylesheet", href="/src/css_static/bootstrap.css")
             link(rel="stylesheet", href="/src/css_static/jquery.fullpage.min.css")
             link(rel="stylesheet", href="/src/css_static/owl.carousel.min.css")
             link(rel="stylesheet", href="/src/css_static/owl.theme.default.min.css")
-            //- link(rel="stylesheet", href="/src/css_static/slick.css")            
+            link(rel="stylesheet", href="/slick/slick.css")
             link(rel="stylesheet", href="/src/css_static/animate.css")
             link(rel="stylesheet", href="/src/css_static/circle.css")
             link(rel="stylesheet", href="/src/css_static/rangeslider.css")
             link(rel="stylesheet", href="/src/css_static/jquery.scrollbar.css")
+            link(rel="stylesheet", href="/minibarjs/minibar.min.css")            
             link(rel="stylesheet", href="/src/css_static/hamburgers.css")
             link(rel="stylesheet", href="/src/css/hamburglar.css")            
             link(rel="stylesheet", href="/src/css/app.css")
@@ -31,8 +34,12 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/index/s9.css")
             link(rel="stylesheet", href="/src/css/contact/contact.css")
             link(rel="stylesheet", href="/src/css/gager/gager.css")
+            link(rel="stylesheet", href="/src/css/product/products.css")
             link(rel="stylesheet", href="/src/css/product/product.css")
             link(rel="stylesheet", href="/src/css/company/company.css")
+            link(rel="stylesheet", href="/src/css/company/news/news.css")
+            link(rel="stylesheet", href="/src/css/company/news/news-tape.css")
+            link(rel="stylesheet", href="/src/css/favorites/favorites.css")
             link(rel="stylesheet", href="/src/css/company/innovation/cheaper-together.css")
             link(rel="stylesheet", href="/src/css/pay/pay.css")
             link(rel="stylesheet", href="/src/css/palette/palette.css")
@@ -45,55 +52,19 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/regulation_window/regulation_window.css")
             link(rel="stylesheet", href="/src/css/optional_service/optional_service.css")
             link(rel="stylesheet", href="/src/css/intuitive/intuitive.css")
+            link(rel="stylesheet", href="/src/css/gallery.css")
+            link(rel="stylesheet", href="/src/css/work.css")
+            link(rel="stylesheet", href="/src/css/calculation.css")
+            link(rel="stylesheet", href="/src/css/page-brand/page-brand.css")
+            link(rel="stylesheet", href="/src/css/best-cost/best-cost.css")
+            link(rel="stylesheet", href="/src/css/accessories/accessories.css")
         else
-            link(rel="stylesheet", href="/app-ff3b20ef64.min.css")
+            link(rel="stylesheet", href="/app-fee86fee8a.min.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap&subset=cyrillic")
     body
-        #top
-            .logo
-                a(href='/')
-            .search
-                a(href='#').mbutton.grey.small Найти
-                .bginput
-                    input(type='text',placeholder='Введите поисковый запрос...').form-control.form-control-pokna.small.grey
-            .phone
-                a.tel(href='tel:+74993912221') +7 499 391 22 21
-                a.callme(href='#') Перезвоните мне
-                a.whatsapp(href='https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5')
-                    img(src='/images/top/whatsapp_top_bl.svg', alt='4')
-            .l
-                .handle
-                    #hamburger.hamburglar
-                        .burger-icon
-                            span.burger-bun-top
-                            span.burger-filling
-                            span.burger-bun-bot
-                        .burger-ring
-                            svg.svg-ring
-                                path.path(fill='none', stroke='#232323', stroke-miterlimit='10', stroke-width='4', d='M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2')
-                        svg(width='0', height='0')
-                            mask#mask
-                                path(xmlns='http://www.w3.org/2000/svg', fill='none', stroke='#ff0000', stroke-miterlimit='10', stroke-width='4', d='M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4')
-                        .path-burger
-                            .animate-path
-                                .path-rotation
-                .menu
-                    ul
-                        if left_menu
-                            each item, index in left_menu
-                                if (left_menu_active || left_menu_active === 0) && index == left_menu_active
-                                    - var active_class = 'active'
-                                else
-                                    - var active_class = ''
-                                li(class= active_class)
-                                    a(href= item.uri)
-                                        .b
-                                            img(src="/images/top/" + item.ico[0], alt="")
-                                        .h
-                                            img(src="/images/top/" + item.ico[1], alt="")
-            .cal
-                .img
-        block content
+        include ../include/top.pug
 
+        block content
         .modal#wiki_catalog_modal(tabindex="-1", role="dialog")
             .modal-dialog(role="document")
                 .modal-content
@@ -116,30 +87,178 @@ html(lang="ru")
                             a(href="/wiki") Стекло и стеклопакеты
                         li
                             a(href="/wiki") Двери 
+        .modal.fade#modal_mobile_contact(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    .list
+                        a.item(href="#" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
+                            img(src="/images/call2.svg", alt="")
+                            .title Заказать обратный<br> звонок
+                        a.item(href="https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5")
+                            img(src="/images/whatsapp.svg", alt="")
+                            .title Напишите нам в<br> WhatsApp
+                        a.item(href="viber://add?number=79779390290")
+                            img(src="/images/social_icons/viber_rgb.svg", alt="")
+                            .title Напишите нам в<br> Viber
+                        a.item(href="https://telegram.me/79779390290")
+                            img(src="/images/telegram.svg", alt="")
+                            .title Напишите нам в<br> Telegram
+                        a.item.item_5(href="tel:+74993912221")
+                            .title Или вы можете перезвонить нам сами по телефону
+                                span.lptracker_phone +7 (499) 391-22-21
+        .modal.fade#zay_modal(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    .title Закажите обратный звонок
+                    .desc Вам не придется долго ждать звонка, мы сразу вас проконсультируем
+                    form.form_contact(action="#" method="POST")
+                        input(type="hidden" name="subject" value="Закажите обратный звонок")
+                        input(type="hidden" name="metrika" value="zvonok")
+                        input(type="hidden" name="page_path" value= page_path)
+                        .row
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    input(type="text" name="name" class="form-control" placeholder="Ваше имя *")
+                                    .invalid-feedback Необходимо указать Ваше имя
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    input(type="text" name="tel" class="form-control" placeholder="Ваш номер телефона *")
+                                    .invalid-feedback Необходимо указать контактный номер
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    select(name="from" class="form-control")
+                                        each val in times
+                                            option= val
+                            .col-sm-6.mb-sm-3
+                                .form-group
+                                    select(name="to" class="form-control")
+                                        each val in times
+                                            option= val
+                        button.btn.btn-primary.btn-block.mb-4 Заказать обратный звонок
+                    .help * - Обязательные к заполнению поля
+        .modal#thanks_modal(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    .title Спасибо!
+                    .desc Ваша заявка отправлена
+        .modal#calc_wait(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    //- .title Калькулятор находится в разработке
+                    .desc Калькулятор находится в разработке. <br> Воспользуйтесь формой <br> <a href="/calculation">точного расчета</a>.
+        .modal#modal_development(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    .title Раздел не работает
+                    .desc К сожалению раздел находится в разработке.
+        .modal#modal_video(tabindex="-1", role="dialog")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .close-modal(data-dismiss="modal")
+                        i.material-icons close
+                    //- .title Калькулятор находится в разработке
+                    #video_vimeo
+        .modal#modal_gallery_owl(tabindex="-1", role="dialog")
+            .modal-dialog(role="document")
+                .modal-content
+                    .hamburger.hamburger--spin(data-dismiss="modal" aria-label="Close")
+                        .hamburger-box
+                            .hamburger-inner
+                    .wrap
+                        .owl-carousel
+        .modal#form_request(tabindex="-1", role="dialog")
+            .form-overlay
+            form.modal-main
+                .modal-title Отправьте ваш макет / эскиз на расчет
+                .modal-wrapp
+                    .modal-close &times
+                    .modal-block_load
+                        .modal-block_load-title Добавьте или перетащите файлы
+                        .modal-block_load-img
+                            //- img(src="/images/index/upload.svg" alt="upload")
+                            <svg xmlns="http://www.w3.org/2000/svg" width="89.734" height="67.479" viewBox="0 0 59.734 47.479">
+                              <g id="Group_12299" data-name="Group 12299" transform="translate(-608.25 5.921)">
+                                <path id="Path_11715" data-name="Path 11715" d="M655.174,10.893a16.282,16.282,0,0,0-32.217-3.122H622.8a13.8,13.8,0,1,0,0,27.6h9.639a1.242,1.242,0,1,0,0-2.484H622.8a11.317,11.317,0,1,1,0-22.634c.332,0,.684.018,1.075.055a1.243,1.243,0,0,0,1.347-1.069,13.8,13.8,0,0,1,27.469,1.88c0,.274-.02.557-.042.856l-.009.127A1.242,1.242,0,0,0,654,13.426a9.909,9.909,0,0,1,.99-.05,9.756,9.756,0,1,1,0,19.512H644.859a1.242,1.242,0,0,0,0,2.484h10.135a12.24,12.24,0,0,0,.18-24.479Z" fill="#fff" stroke="#313131" stroke-width="1.5"/>
+                                <path id="Path_11716" data-name="Path 11716" d="M791.091,48.632a1.242,1.242,0,1,0,0-2.484,10.476,10.476,0,0,0-10.341,9.027,1.242,1.242,0,0,0,1.063,1.4,1.259,1.259,0,0,0,.169.012,1.242,1.242,0,0,0,1.229-1.074A7.983,7.983,0,0,1,791.091,48.632Z" transform="translate(-152.205 -45.482)" fill="#fff" stroke="#313131" stroke-width="1.5"/>
+                                <path id="Path_11717" data-name="Path 11717" d="M825.656,227.663a1.242,1.242,0,0,0,.828-2.168l-4.517-4.035a2.049,2.049,0,0,0-2.733,0l-4.518,4.036a1.242,1.242,0,1,0,1.655,1.852l2.987-2.668v15.279a1.242,1.242,0,1,0,2.484,0V224.679l2.987,2.669A1.237,1.237,0,0,0,825.656,227.663Z" transform="translate(-181.951 -200.391)" fill="#fff" stroke="#313131" stroke-width="1.5"/>
+                              </g>
+                            </svg>
+                        label.modal-block_load-btn(for="load-input") Загрузить <span>+</span>
+                        input.modal-block_load-input#load-input(type="file", name="files", multiple)
+                        .modal-block_load-desc Перетащите в это поле файлы или<br> воспользуйтесь ручной<br> загрузкой
+                    .modal-block_checkload
+                        ul.modal-block_checkload-list
+                        button(type="button").modal-block_checkload-more Добавить еще
+                        .progress_bar
+                            .percent 0%
+                        button(type="button").modal-block_checkload-btn Далее
+                    .modal-block_form
+                        .input-wrapp
+                            input#name.modal-block_form-input(type="text", name="name", required)
+                            label(for="name") Ваше имя
+                        .input-wrapp
+                            input#email.modal-block_form-input(type="email", name="email", required)
+                            label(for="email") Ваш email
+                        .input-wrapp
+                            input#phone.modal-block_form-input(type="tel", name="phone", required)
+                            label(for="phone") Ваш номер телефона
+                        .modal-block_form-buttons
+                            button.modal-block_form-back(type="button") Назад
+                            button.modal-block_form-submit Отправить
+            .modal-progressbar
+                .count <span>0</span> %
+                .progress-line
+                    span.line
+            .modal-result
 
+        input(type="hidden" id="NODE_ENV" value= NODE_ENV)
+
+        script(src="/axios/axios.js")
         if env.NODE_ENV == 'development'
             script(src='/vue/vue.js')
             script(src='/src/js/jquery-3.3.1.js')
             script(src='/src/js/jquery-ui.min.js')
-            script(src='/src/js/jquery.ui.touch-punch.min.js')
+            script(src='/src/js/jquery.ui.touch-punch.min.js')            
             script(src='/src/js/popper.js')
             script(src='/src/js/tooltip.min.js')
             script(src='/src/js/bootstrap.js')
-            script(src='/src/js/jquery.fullpage.min.js')
+            script(src='/src/js/swiped-events.js')
+            script(src='/jquery-mousewheel/jquery.mousewheel.js')
+            script(src='/minibarjs/minibar.min.js')
+            script(src='/src/js/scrolloverflow.min.js')
+            script(src='/src/js/fullpage.min.js')
+            //- script(src='/src/js/jquery.fullpage.min.js')
             script(src='/src/js/owl.carousel.min.js')
+            script(src='/src/js/jquery.touchSwipe.min.js')
             script(src='/src/js/jquery.knob.min.js')
+            script(src='/src/js/html2canvas.min.js')
             //- script(src='/src/js/jquery.disablescroll.min.js')
-            //- script(src='/src/js/slick.js')            
+            //- script(src='/src/js/slick.js')
+            script(src='/slick/slick.min.js')
             script(src='/src/js/rangeslider.min.js')
+            script(src='/src/js/jquery.loupe.min.js')
             script(src='/src/js/jquery.scrollbar.min.js')
             script(src='/src/js/jquery.inputmask.bundle.js')
             script(src='/src/js/app/app.js')
             script(src='/src/js/app/compare.js')
             script(src='/src/js/app/index.js')
             script(src='/src/js/contact/contact.js')
+            script(src='/src/js/product/products.js')
             script(src='/src/js/product/product.js')
             script(src='/src/js/pay/pay.js')
+            script(src='/src/js/index/s1.js')
             script(src='/src/js/index/s2.js')
+            script(src='/src/js/index/s3.js')
             script(src='/src/js/index/s5.js')
             script(src='/src/js/index/s6.js')
             script(src='/src/js/app/calc.js')
@@ -154,11 +273,37 @@ html(lang="ru")
             script(src='/src/js/instruction/instruction.js')
             script(src='/src/js/instruction/video.js')
             script(src='/src/js/company/company.js')
+            script(src='/src/js/company/news/news.js')
+            script(src='/src/js/company/news/news-tape.js')
+            script(src='/src/js/favorites/favorites.js')
             script(src='/src/js/company/innovation/cheaper-together.js')
             script(src='/src/js/corporate/corporate.js')
             script(src='/src/js/regulation_window/regulation_window.js')
             script(src='/src/js/optional_service/optional_service.js')
             script(src='/src/js/intuitive/intuitive.js')
+            script(src='/src/js/gallery.js')
+            script(src='/src/js/work/work.js')
+            script(src='/src/js/calculation.js')
+            script(src='/src/js/page-brand/page-brand.js')
+            script(src='/src/js/best-cost/best-cost.js')
+            script(src='/src/js/accessories/accessories.js')            
         else
-            script(src='/app-0631367af1.min.js')
+            script(src='/app-e9db1db158.min.js')
 
+            script(src="https://www.googletagmanager.com/gtag/js?id=UA-140504195-1" async)
+            script.
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-140504195-1');
+
+            script(type="text/javascript").
+                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(21714754, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+            noscript
+                div
+                    img(src="https://mc.yandex.ru/watch/21714754" style="position:absolute; left:-9999px;" alt="")
+            script.
+                (function(w,d,u){
+                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                })(window,document,'https://cdn.bitrix24.ru/b11429196/crm/site_button/loader_3_iuwopd.js');

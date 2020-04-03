@@ -5,28 +5,42 @@
 			.contacts__info
 				.contacts__data
 					.container
-						p.number +7 (499) 391-22-21
+						p.number.lptracker_phone +7 (499) 391-22-21
 						p.week с 10:00 до 19:00 с Пн. по Пт.
-						p On-line заявки – круглосуточно
+						p.adress Москва, ул. Южнопортовая 5 с.1
+						p.park На территории БЦ доступна платная парковка
+						p.online On-line заявки – круглосуточно
 						p.email
 							a(href="mailto:prosto@prostokna.ru") PROSTO@PROSTOKNA.RU
 					ul.social_icons.white
 						include ../include/social_icons.pug
 				.contacts__reqvizits
 					.container
-						p ОГРН 1157746588449
-						p ИНН 7722332230
-						p Р/с 40702810038000143570
-						p ПАО СБЕРБАНК
-						p Кор/с 30101810400000000225
-						p БИК 044525205
+						p ООО "МИТ"
+						p ИНН 7722466587
+						p Р/с 40702810970010093253
+						p АО КБ "Модульбанк"
+						p Кор/с 30101810645250000092
+						p БИК 044525092
 			.contacts__form
-				img(src='/images/contact/Keyboard.svg')
-				form.form
+				form.form.form_contact
+					input(type="hidden" name="subject" value="Контакты")
+					input(type="hidden" name="metrika" value="zayavka")
+					input(type="hidden" name="page_path" value= page_path)
 					.left-block
-						input(placeholder='ИМЯ *')
-						input(placeholder='EMAIL')
-						input(placeholder='ТЕЛЕФОН *',name="phone")
+						.form-group.mb-0
+							input(name="name")
+							label.form-label Имя
+							.invalid-feedback Необходимо указать Ваше имя
+						.form-group.mb-0
+							input(name="email")
+							label.form-label Email
+						.form-group.mb-0
+							input(name="tel")
+							label.form-label Телефон
+							.invalid-feedback Необходимо указать контактный номер
 					.right-block
-						textarea(placeholder='СООБЩЕНИЕ')
+						.form-group.mb-0
+							textarea(name="message")
+							label.form-label Сообщение
 						button отправить

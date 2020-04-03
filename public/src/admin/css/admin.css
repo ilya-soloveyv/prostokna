@@ -39,6 +39,15 @@ body {
   font-family: 'Museo Sans Cyrl 300';
   font-size: 14px; }
 
+.custom-switch {
+  height: 1rem;
+  display: flex; }
+  .custom-switch label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #212529 !important; }
+
 #app {
   flex-grow: 1;
   flex-shrink: 1;
@@ -76,8 +85,14 @@ body {
           color: lime;
           text-decoration: none;
           padding: 6px 16px; }
-          #app .sidebar .fixed ul.menu li.router-link-exact-active > a {
+          #app .sidebar .fixed ul.menu li.router-link-active > a {
             font-family: 'Museo Sans Cyrl 700'; }
+          #app .sidebar .fixed ul.menu li ul {
+            margin: 0;
+            padding: 6px 0 0;
+            list-style: none; }
+            #app .sidebar .fixed ul.menu li ul li {
+              padding: 3px 16px; }
   #app .data {
     padding: 2rem;
     flex-grow: 1;
@@ -112,6 +127,15 @@ body {
       top: 7px; }
     .ProductEdit .custom-control label:after {
       top: 9px; }
+  .ProductEdit .custom-control.custom-switch-iActive {
+    height: 38px; }
+    .ProductEdit .custom-control.custom-switch-iActive label {
+      height: 38px;
+      line-height: 38px; }
+      .ProductEdit .custom-control.custom-switch-iActive label:before {
+        top: 10px; }
+      .ProductEdit .custom-control.custom-switch-iActive label:after {
+        top: 12px; }
 
 .ProductEdit .card {
   margin-bottom: 2rem; }
@@ -125,9 +149,62 @@ body {
     position: absolute;
     right: 3px;
     top: 3px; }
+  .ProductEdit .card-color label.file_upload button.iIndex {
+    top: 37px; }
+    .ProductEdit .card-color label.file_upload button.iIndex.active {
+      background: #28A745 !important; }
+      .ProductEdit .card-color label.file_upload button.iIndex.active i {
+        color: white; }
+    .ProductEdit .card-color label.file_upload button.iIndex i {
+      display: block;
+      font-size: 19px; }
 
 .ProductEdit textarea {
   height: 390px; }
+
+.ProductEdit .badge-product-link-item {
+  position: relative;
+  font-size: 12px;
+  padding-right: 30px !important;
+  padding-left: 10px !important;
+  font-family: 'Museo Sans Cyrl 300';
+  font-weight: normal; }
+  .ProductEdit .badge-product-link-item i {
+    font-size: 20px;
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    cursor: pointer; }
+
+.ProductEdit select.badge {
+  border: none;
+  width: 150px;
+  padding: 6px 0; }
+
+.ProductEdit .producttypes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px; }
+  .ProductEdit .producttypes .item {
+    display: flex;
+    flex-direction: column; }
+    .ProductEdit .producttypes .item input {
+      display: none; }
+      .ProductEdit .producttypes .item input:checked ~ label {
+        background: #007BFF;
+        color: white; }
+    .ProductEdit .producttypes .item label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 24px;
+      background: #F8F9FA;
+      border-radius: 12px;
+      font-size: 12px;
+      cursor: pointer;
+      margin: 0 5px 5px 0;
+      padding: 0 10px; }
 
 .ColorList td {
   padding: 5px; }
@@ -172,3 +249,312 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%; }
+
+.gallery .remove {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  color: white;
+  cursor: pointer; }
+
+.gallery .card-title {
+  height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.gallery .gallery_image_order_input {
+  position: absolute;
+  left: 12px;
+  bottom: 20px;
+  font-size: 12px;
+  border: none;
+  padding: 3px 5px;
+  height: 20px;
+  width: 103px;
+  text-align: center;
+  border-radius: 3px; }
+
+.picture-input {
+  z-index: 0 !important; }
+  .picture-input canvas {
+    border-radius: 4px !important;
+    background: none !important;
+    object-fit: cover !important;
+    z-index: 0 !important;
+    padding: 0 !important; }
+  .picture-input .preview-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    z-index: 0 !important;
+    background: #EDF2F9 !important;
+    background: grey !important;
+    border: 1px dashed #bcc9da !important;
+    border-radius: 4px !important; }
+  .picture-input .picture-inner {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: none !important; }
+    .picture-input .picture-inner .picture-inner-text {
+      padding: 20px !important;
+      font-size: 11px !important;
+      color: #9eaec5 !important; }
+
+#part {
+  display: grid;
+  grid-template-columns: repeat(3, 250px) 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  height: 100vh;
+  overflow: hidden;
+  margin: -2rem;
+  background-color: #DDDDDD;
+  grid-gap: 1px; }
+  @media (max-width: 1400px) {
+    #part {
+      grid-template-columns: repeat(2, 250px) 1fr; } }
+  @media (max-width: 1100px) {
+    #part {
+      grid-template-columns: 250px 1fr;
+      grid-template-rows: repeat(4, 1fr); } }
+  #part .myalert {
+    text-align: center;
+    display: block;
+    opacity: 0.5; }
+  #part .partBlock {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; }
+    #part .partBlock h2 {
+      padding: 0;
+      margin: 1rem;
+      flex-shrink: 0;
+      display: flex;
+      height: 30px; }
+      #part .partBlock h2 span {
+        font-size: 16px;
+        opacity: 0.85;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-grow: 1; }
+      #part .partBlock h2 a.add {
+        flex-basis: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0; }
+        #part .partBlock h2 a.add:hover {
+          opacity: 0.5; }
+    #part .partBlock .blockData {
+      flex-grow: 1;
+      overflow: auto; }
+  #part .partList {
+    grid-row: 1 / span 2;
+    background-color: #f0f0f0; }
+    @media (max-width: 1400px) {
+      #part .partList {
+        grid-row: 1 / span 1;
+        background-color: #F9F9F9; } }
+    @media (max-width: 1100px) {
+      #part .partList {
+        grid-row: 1 / span 1;
+        background-color: #F9F9F9; } }
+  #part .partBrandList {
+    grid-row: 1 / span 2;
+    overflow: auto;
+    background-color: #F9F9F9; }
+    @media (max-width: 1400px) {
+      #part .partBrandList {
+        grid-row: 2 / span 1;
+        background-color: #F9F9F9; } }
+    @media (max-width: 1100px) {
+      #part .partBrandList {
+        grid-row: 2 / span 1;
+        background-color: #F9F9F9; } }
+  #part .partModelList {
+    background-color: #f0f0f0; }
+    @media (max-width: 1400px) {
+      #part .partModelList {
+        grid-row: 1 / span 1; } }
+    @media (max-width: 1100px) {
+      #part .partModelList {
+        grid-row: 3 / span 1;
+        background-color: #F9F9F9; } }
+  #part .partModelEdit {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    background-color: #F9F9F9; }
+    @media (max-width: 1400px) {
+      #part .partModelEdit {
+        grid-column: 3; } }
+    @media (max-width: 1100px) {
+      #part .partModelEdit {
+        grid-column: 2;
+        grid-row: 1 / span 4; } }
+    #part .partModelEdit .sPartModelPart {
+      background-color: #EEF0F2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      border-radius: 0.25rem;
+      overflow: hidden;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      height: 206px; }
+      #part .partModelEdit .sPartModelPart input {
+        display: none;
+        visibility: hidden; }
+      #part .partModelEdit .sPartModelPart .img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        #part .partModelEdit .sPartModelPart .img img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain; }
+  #part .partModelColor {
+    grid-column: 3;
+    background-color: #f0f0f0; }
+    @media (max-width: 1400px) {
+      #part .partModelColor {
+        grid-column: 2; } }
+    @media (max-width: 1100px) {
+      #part .partModelColor {
+        grid-column: 1;
+        grid-row: 4 / span 1;
+        background-color: #F9F9F9; } }
+  #part ul {
+    margin: 0 0 0.5rem;
+    padding: 0;
+    list-style: none; }
+    #part ul li {
+      padding: 0 1rem;
+      line-height: 30px;
+      display: flex; }
+      #part ul li:hover .edit {
+        opacity: 0.5; }
+      #part ul li:hover .destroy {
+        opacity: 0.5; }
+      #part ul li.noActive .title {
+        text-decoration: line-through; }
+      #part ul li a.router-link-active {
+        font-weight: bold;
+        color: black;
+        text-decoration: none; }
+      #part ul li .color {
+        flex-basis: 24px;
+        flex-shrink: 0;
+        margin: 3px 5px 3px 0;
+        border-radius: 3px; }
+      #part ul li .emptyColor {
+        flex-basis: 24px;
+        margin-right: 5px; }
+      #part ul li .title {
+        flex-grow: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+      #part ul li .edit {
+        flex-basis: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.25;
+        flex-shrink: 0; }
+        #part ul li .edit:hover {
+          opacity: 0.75; }
+      #part ul li .destroy {
+        flex-basis: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.25;
+        flex-shrink: 0; }
+        #part ul li .destroy:hover {
+          opacity: 0.75; }
+          #part ul li .destroy:hover svg {
+            stroke: #DC3545; }
+  #part #PartModelEditForm {
+    padding: 0 1rem; }
+  #part .images {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem; }
+    #part .images .image {
+      padding-bottom: 100%;
+      position: relative;
+      background-color: #EEF0F2;
+      border-radius: 0.25rem;
+      overflow: hidden;
+      opacity: 1;
+      display: flex; }
+      #part .images .image .partModelEditImage {
+        display: flex; }
+      #part .images .image:hover label {
+        opacity: 0.5; }
+      #part .images .image:hover a.destroy {
+        opacity: 1; }
+      #part .images .image label {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25rem;
+        margin: 0;
+        cursor: pointer;
+        text-align: center; }
+        #part .images .image label input {
+          display: none; }
+        #part .images .image label img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain; }
+      #part .images .image a.destroy {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0; }
+      #part .images .image select {
+        position: absolute;
+        left: 0.25rem;
+        bottom: 0.25rem;
+        width: calc(50% - 0.375rem);
+        padding: 0 0.25rem;
+        height: 1.5rem;
+        font-size: 14px !important; }
+      #part .images .image input {
+        position: absolute;
+        right: 0.25rem;
+        bottom: 0.25rem;
+        width: calc(50% - 0.375rem);
+        padding: 0 0.25rem;
+        height: 1.5rem;
+        font-size: 14px !important; }

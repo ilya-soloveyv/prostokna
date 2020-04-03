@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     iProductID: { allowNull: false, type: DataTypes.INTEGER },
     iColorID: { allowNull: false, type: DataTypes.INTEGER },
     sProductColorFilename: { allowNull: false, type: DataTypes.STRING },
+    iIndex: { allowNull: true, type: DataTypes.INTEGER },
   }, {
     timestamps: false,
     freezeTableName: true,

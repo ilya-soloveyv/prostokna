@@ -1,0 +1,2026 @@
+/*-----------------------------------------------
+CSS Framework Lisena
+Author:   hmelii
+Web:      http://www.hmelii.ru
+Email:    anufry@inbox.ru
+Version:  5.62 28.04.13
+Num:      636
+----------------------------------------------- */
+/*---------------------- basic styles --------------------------------------*/
+@import url("bases.css");
+
+/*---------------------- end basic styles ----------------------------------*/
+/*---------------------- global --------------------------------------*/
+html {
+    height: 100%;
+    _overflow-y: scroll;
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    background: #fff;
+    height: 100%;
+    color: #000;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+input,
+button,
+select,
+textarea,
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: #508fca;
+    text-decoration: underline;
+}
+
+a:hover,
+a:hover:visited {
+    text-decoration: none;
+}
+
+.nu a:hover,
+a.nu:hover {
+    text-decoration: underline;
+}
+
+.nu a,
+a.nu {
+    text-decoration: none;
+}
+
+a.link_dashed,
+.link_dashed a {
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+
+a.link_dashed:hover,
+.link_dashed a:hover {
+    border: 0;
+    text-decoration: none;
+}
+
+.h1 {
+    font-size: 32px;
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin: 0 0 0.67em;
+}
+
+.h2 {
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 0 0 0.83em;
+}
+
+.h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin: 0 0 1em;
+}
+
+.h4 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0 0 1.33em;
+}
+
+.h5 {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 0 1.67em;
+}
+
+.h6 {
+    font-size: 11px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 2.33em;
+}
+
+/*colors*/
+.black {
+    color: #000;
+}
+
+.red {
+    color: #ff1b1b !important;
+}
+
+.gray {
+    color: #3e3e3e;
+}
+
+/*end colors*/
+/*fonts*/
+.verdana {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.f-10 {
+    font-size: 10px;
+    font-size: 1rem;
+}
+
+.f-11 {
+    font-size: 11px;
+    font-size: 1.1rem;
+}
+
+.f-12 {
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+.f-13 {
+    font-size: 13px;
+    font-size: 1.3rem;
+}
+
+.f-14 {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+.f-15 {
+    font-size: 15px;
+    font-size: 1.5rem;
+}
+
+.f-16 {
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+.f-17 {
+    font-size: 17px;
+    font-size: 1.7rem;
+}
+
+.f-18 {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+.f-20 {
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+.f-24 {
+    font-size: 24px;
+    font-size: 2.4rem;
+}
+
+.f-27 {
+    font-size: 27px;
+    font-size: 2.7rem;
+}
+
+.f-41 {
+    font-size: 41px;
+    font-size: 4.1rem;
+}
+
+/*end fonts*/
+/*forms fields*/
+.field {
+    border: 1px solid #959595;
+    padding: 6px 15px 7px;
+    font-size: 11px;
+    font-size: 1.1rem;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.field:focus {
+    border-color: #959595;
+    -webkit-box-shadow: #959595 0 0 5px;
+    -moz-box-shadow: #959595 0 0 5px;
+    box-shadow: #959595 0 0 5px;
+}
+
+.field:-moz-placeholder {
+    opacity: 1;
+    color: #8c8c8c;
+}
+
+.field::-moz-placeholder {
+    opacity: 1;
+    color: #8c8c8c;
+}
+
+.field::-webkit-input-placeholder {
+    opacity: 1;
+    color: #8c8c8c;
+}
+
+.field:-ms-input-placeholder {
+    opacity: 1;
+    color: #8c8c8c;
+}
+
+.field.placeholder {
+    color: #8c8c8c;
+}
+
+.field.error_field {
+    border-color: red;
+}
+
+label {
+    vertical-align: middle;
+}
+
+.parent_field {
+    display: inline-block;
+    padding: 0 1px;
+    vertical-align: top;
+}
+
+.error_message {
+    display: block;
+    color: #ff8f8f;
+    font-size: 11px;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.correct_message {
+    display: none;
+}
+
+/*end forms fields*/
+/*over blocks*/
+.o {
+    overflow: hidden;
+}
+
+.cx:before,
+.cx:after {
+    content: "";
+    display: table;
+}
+
+.cx:after {
+    clear: both;
+}
+
+.ct {
+    display: table;
+}
+
+.ct:after {
+    content: '. . . . . . . . . . .';
+    display: block;
+    word-spacing: 99in;
+    height: 0;
+    overflow: hidden;
+    font-size: 0.05em;
+    line-height: 0.05em;
+}
+
+/*end over blocks*/
+/*other*/
+hr {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 0;
+    margin: 0 0 10px;
+    height: 0;
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    border-top: 1px solid #a5b136;
+}
+
+::-moz-selection {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+    text-shadow: none;
+}
+
+img::-moz-selection {
+    background-color: transparent;
+    -moz-box-shadow: none;
+}
+
+img::selection {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.w-88 {
+    width: 88px;
+}
+
+.h-60 {
+    height: 60px;
+}
+
+.h-65 {
+    height: 65px;
+}
+
+.h-70 {
+    height: 70px;
+}
+
+.h-110 {
+    height: 110px;
+}
+
+.h-115 {
+    height: 115px;
+}
+
+.h-135 {
+    height: 135px;
+}
+
+.h-170 {
+    height: 170px;
+}
+
+/*end other*/
+/*---------------------- end global ----------------------------------*/
+/*---------------------- buttons ----------------------------------*/
+.btn_1 {
+    background-color: #dbe6f3;
+    border: 1px solid #999a9b;
+    display: inline-block;
+    padding: 8px 18px;
+    vertical-align: middle;
+    font-size: 11px;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/*---------------------- end buttons ----------------------------------*/
+/*---------------------- wrapper ------------------------------------*/
+.wrapper {
+    position: relative;
+    min-width: 1000px;
+    margin: auto;
+    min-height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.inner {
+    width: 1000px;
+    margin: 0px auto 425px;
+}
+
+.inner:before,
+.inner:after {
+    content: "";
+    display: table;
+}
+
+.inner:after {
+    clear: both;
+}
+
+/*---------------------- *** ----------------------------------------*/
+/*---------------------- header -------------------------------------*/
+.header {
+    height: 105px;
+    padding: 125px 0 0;
+    position: relative;
+    z-index: 2;
+}
+
+.header .contacts {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    z-index: 1;
+    text-align: right;
+}
+
+.ask-adfg {
+width: 956px;
+padding: 10px 20px;
+border: 2px solid #FF9090;
+background-color: #ffffff;
+position: absolute;
+top: 5px;
+}
+
+.ask-adfg .title {
+font-weight: bold;
+font-size: 14px;
+}
+
+.logo {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/logo.png") no-repeat 0 0.2em;
+    padding: 0 0 0 82px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    font-size: 4rem;
+    line-height: .8;
+}
+
+.logo .link {
+    color: #000;
+    text-decoration: none;
+}
+
+.logo2 {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    font-size: 4rem;
+    line-height: .8;
+}
+
+.logo2 .link {
+    color: #000;
+    text-decoration: none;
+    padding-left: 11px;
+    float: left;
+}
+
+.nav {
+    margin: 0 0 0 235px;
+    font-weight: bold;
+}
+
+.nav ul.list li.item {
+    width: 110px;
+    padding: 10px;
+    text-align: right;
+}
+
+.nav .link {
+    display: block;
+    margin: -10px;
+    padding: 10px;
+    color: #323232;
+    text-decoration: none;
+}
+
+.nav .link:hover {
+    text-decoration: underline;
+}
+
+.contacts {
+    line-height: 1;
+}
+
+.contacts p {
+    margin-bottom: 7px;
+}
+
+.contacts .code {
+    margin-right: 3px;
+    color: #353535;
+    font-size: 15px;
+    font-size: 1.5rem;
+}
+
+.contacts .number {
+    color: #353535;
+    font-size: 27px;
+    font-size: 2.3rem;
+}
+
+.contacts .work_time {
+    color: #6d6d6d;
+    font-size: 13px;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+ul.slogan {
+    position: absolute;
+    top: 90px;
+    left: 224px;
+    right: 0;
+    color: #282626;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+ul.slogan li.item {
+    width: 130px;
+    text-align: center;
+}
+
+ul.slogan li.item:before {
+    content: '';
+    background-color: #82ff7b;
+    width: 94px;
+    height: 62px;
+    position: absolute;
+    top: -23px;
+    right: 0;
+    z-index: -1;
+}
+
+ul.slogan li.item:after {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/slogan_corner_1.png") no-repeat;
+    width: 94px;
+    height: 8px;
+    position: absolute;
+    top: -31px;
+    right: 0;
+}
+
+ul.slogan li.item + li.item:before {
+    background-color: #85fcff;
+}
+
+ul.slogan li.item + li.item:after {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/slogan_corner_2.png") no-repeat;
+    width: 94px;
+    height: 8px;
+    position: absolute;
+    top: -31px;
+    right: 0;
+}
+
+ul.slogan li.item + li.item + li.item:before {
+    background-color: #fcc7ff;
+}
+
+ul.slogan li.item + li.item + li.item:after {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/slogan_corner_3.png") no-repeat;
+    width: 94px;
+    height: 8px;
+    position: absolute;
+    top: -31px;
+    right: 0;
+}
+
+ul.slogan li.item + li.item + li.item + li.item:before {
+    background-color: #ffa1a1;
+}
+
+ul.slogan li.item + li.item + li.item + li.item:after {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/slogan_corner_4.png") no-repeat;
+    width: 94px;
+    height: 8px;
+    position: absolute;
+    top: -31px;
+    right: 0;
+}
+
+.more_info {
+    position: absolute;
+    top: 165px;
+    left: 82px;
+    color: #6d6d6d;
+    font-style: italic;
+}
+
+.helper {
+    position: absolute;
+    top: 107px;
+    right: 0;
+    font-size: 15px;
+    font-size: 1.5rem;
+}
+
+.helper ul.list {
+    text-align: right;
+}
+
+.helper ul.list > li.item {
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 0;
+}
+
+.helper ul.list > li.active {
+    z-index: 1;
+}
+
+.helper ul.list > li.active div.bubl {
+    display: block;
+}
+
+.helper a.bubl {
+    border-bottom: 1px dotted;
+    position: relative;
+    z-index: 1;
+    color: #328d00;
+    text-decoration: none;
+}
+
+.helper div.bubl {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/feedback_bg.png") no-repeat;
+    background-size: 100% 100%;
+    display: none;
+    width: 183px;
+    height: 237px;
+    padding: 58px 42px 0;
+    position: absolute;
+    top: -25px;
+    right: -12px;
+    color: #6d6d6d;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 0;
+}
+
+/* .feedback .toggle {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/pic18.png") no-repeat;
+    width: 32px;
+    height: 252px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+} */
+
+/*---------------------- end header ----------------------------------*/
+/*---------------------- side ---------------------------------------*/
+.side_1,
+.side_2 {
+    width: 170px;
+    position: relative;
+    float: left;
+}
+
+.side_2 {
+    float: right;
+}
+
+/*---------------------- end side ------------------------------------*/
+/*---------------------- content -------------------------------------*/
+.content {
+    padding: 0 0 50px;
+    position: relative;
+}
+
+.content:before,
+.content:after {
+    content: "";
+    display: table;
+}
+
+.content:after {
+    clear: both;
+}
+
+.about {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/mbg.jpg") no-repeat;
+    height: 2930px;
+    width: 1280px;
+    margin: -260px -140px 65px;
+    position: relative;
+}
+
+.about .cheap {
+    width: 500px;
+    position: absolute;
+    top: 326px;
+    left: 650px;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.about .cheap-2 {
+    width: 200px;
+    position: absolute;
+    top: 293px;
+    left: 215px;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.about .cheap_arrow {
+    width: 130px;
+    height: 7px;
+    position: absolute;
+}
+
+.about .cheap_arrow.left-1 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    top: 406px;
+    left: 294px;
+}
+
+.about .cheap_arrow.left-2 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    top: 1386px;
+    left: 193px;
+    height: 6px;
+}
+
+.about .cheap_arrow.left-3 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    top: 1546px;
+    left: 479px;
+    height: 6px;
+}
+
+.about .cheap_arrow.left-4 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    top: 1754px;
+    left: 702px;
+    height: 6px;
+}
+
+.about .cheap_arrow.left-5 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    top: 1847px;
+    left: 257px;
+    height: 6px;
+}
+
+.about .cheap_arrow.left-6 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);   
+    top: 2096px;
+    left: 78px;
+    height: 6px;
+}
+
+.about .cheap_arrow.left-7 {
+    background-image: url(http://prostokna.ru/wp-content/uploads/2013/08/animated-arrow+.gif);
+    -webkit-transform: rotate(180deg);   
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg); 
+    top: 2343px;
+    left: 467px;
+    height: 6px;
+}
+
+.about .cheap .head {
+    margin-bottom: 12px;
+    color: #282626;
+    font-size: 33px;
+    font-size: 3.3rem;
+    font-family: 'Lobster', cursive;
+    font-style: normal;
+    line-height: .8;
+}
+
+.about .work {
+    position: absolute;
+    top: 340px;
+    left: 177px;
+    color: #525252;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.about .work .head {
+    margin-bottom: 155px;
+    padding-left: 100px;
+    color: #282626;
+    font-size: 26px;
+    font-size: 2.6rem;
+    font-family: 'Lobster', cursive;
+    font-style: normal;
+    line-height: 1;
+}
+
+.about .work ul.list {
+    width: 160px;
+    text-align: center;
+}
+
+.about .work ul.list > .item {
+    margin-bottom: 30px;
+}
+
+.about .work ul.list .item:nth-last-child(3) {
+    margin-bottom: 36px;
+}
+
+.about .work ul.list .item:nth-last-child(2) {
+    margin-bottom: 33px;
+}
+
+.about .work .title {
+    margin-bottom: 7px;
+    color: #ee2d24;
+    font-size: 17px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.about .work p {
+    margin: 0;
+}
+
+.about .earn {
+    width: 320px;
+    position: absolute;
+    top: 1620px;
+    left: 374px;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.about .earn p {
+    margin-bottom: 24px;
+}
+
+.about .earn .head {
+    margin-bottom: 18px;
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-family: 'Lobster', cursive;
+    font-style: normal;
+    line-height: 1;
+}
+
+.about .earn .btn {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/earn_btn.png") no-repeat;
+    display: inline-block;
+    width: 312px;
+    height: 48px;
+    color: #000;
+    font-size: 17px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 48px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.about .together {
+    width: 325px;
+    position: absolute;
+    top: 1715px;
+    left: 800px;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.about .together .head {
+    margin-bottom: 14px;
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-style: normal;
+    line-height: 1;
+}
+
+.about .together .link {
+    font-size: 17px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.about .together p {
+    margin-bottom: 16px;
+}
+
+.about .player {
+    position: absolute;
+    top: 1940px;
+    right: 180px;
+}
+
+.about .player .head {
+    position: absolute;
+    top: -65px;
+    left: 52px;
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-style: normal;
+    line-height: 1;
+}
+
+.about .selection_windows {
+    position: absolute;
+    top: 1870px;
+    left: 170px;
+}
+
+.about .selection_windows .head {
+    margin-bottom: 35px;
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-style: normal;
+    line-height: 1;
+}
+
+.about .selection_windows .cont {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/selection_windows_bg.png") no-repeat;
+    width: 208px;
+    height: 331px;
+    padding: 45px 40px 0;
+    position: relative;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+.about .selection_windows p {
+    margin-bottom: 10px;
+}
+
+.about .selection_windows .foot {
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.about .selection_windows .step {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    color: #676767;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-style: italic;
+    line-height: 1;
+    text-align: center;
+}
+
+.about .selection_windows .step .in {
+    background: #fff;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.about .selection_windows .title {
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.about .results {
+    font-family: 'Lobster', cursive;
+    padding: 16px 0 0 18px;
+}
+
+.about .results .graf {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/graf_bg.png") no-repeat;
+    width: 156px;
+    height: 28px;
+    padding: 1px 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.about .results .graf .in {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/graf_section.png") no-repeat;
+    height: 26px;
+    float: left;
+}
+
+.about .do_it_yourself {
+    width: 235px;
+    position: absolute;
+    top: 482px;
+    left: 395px;
+    color: #fff;
+}
+
+.about .do_it_yourself p {
+    margin: 0;
+}
+
+.about .do_it_yourself a {
+    color: #fed100;
+}
+
+.about .do_it_yourself .cont {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/pic7.jpg") no-repeat;
+    width: 235px;
+    height: 879px;
+    padding: 55px 0 0;
+}
+
+.about .do_it_yourself .head {
+    position: absolute;
+    top: -39px;
+    left: 0;
+    right: 0;
+    color: #000;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.about .do_it_yourself .foot {
+    color: #000;
+}
+
+.about .just_cheap {
+    width: 235px;
+    position: absolute;
+    top: 482px;
+    left: 650px;
+    color: #fff;
+}
+
+.about .just_cheap p {
+    margin: 0;
+}
+
+.about .just_cheap a {
+    color: #fed100;
+}
+
+.about .just_cheap .cont {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/pic7.jpg") no-repeat;
+    width: 235px;
+    height: 879px;
+    padding: 55px 0 0;
+}
+
+.about .just_cheap .head {
+    position: absolute;
+    top: -39px;
+    left: 0;
+    right: 0;
+    color: #000;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.about .just_cheap .foot {
+    color: #000;
+}
+
+.about .other_company {
+    width: 240px;
+    position: absolute;
+    left: 905px;
+    top: 482px;
+    color: #525252;
+}
+
+.about .other_company p {
+    margin: 0;
+}
+
+.about .other_company .cont {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/pic8.jpg") no-repeat;
+    width: 240px;
+    height: 879px;
+    padding: 55px 0 0;
+}
+
+.about .other_company .head {
+    position: absolute;
+    top: -39px;
+    left: 0;
+    right: 0;
+    color: #000;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.about .other_company .foot {
+    color: #000;
+}
+
+.about .calc {
+    background: #e42747 url("http://prostokna.ru/wp-content/themes/daisho/images/calc_bg.png");
+    width: 186px;
+    height: 455px;
+    padding: 20px 22px 0;
+    position: absolute;
+    top: 2440px;
+    right: 212px;
+    color: #fff;
+}
+
+.about .calc:before {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/calc_shadow.png") no-repeat;
+    width: 203px;
+    height: 4px;
+    margin-left: -102px;
+    position: absolute;
+    left: 50%;
+    bottom: -42px;
+}
+
+.about .calc .field {
+    border-color: #970d0d;
+}
+
+.about .calc .field:focus {
+    border-color: #970d0d;
+    -webkit-box-shadow: #970d0d 0 0 5px;
+    -moz-box-shadow: #970d0d 0 0 5px;
+    box-shadow: #970d0d 0 0 5px;
+}
+
+.about .calc .head {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    color: #000;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.about .calc a {
+    color: #fff;
+}
+
+.about .constructor {
+    background-color: #c9d3de;
+    background-image: -moz-radial-gradient(center center, circle, #e9eff5 0%, #e7eff8 100%);
+    background-image: -webkit-radial-gradient(center center, 100px 100px, #e9eff5 0%, #e7eff8 100%);
+    background-image: -o-radial-gradient(center center, 100px 100px, #e9eff5 0%, #e7eff8 100%);
+    background-image: radial-gradient(center center, 100px 100px, #e9eff5 0%, #e7eff8 100%);
+    border: 1px solid #cdd7e3;
+    width: 604px;
+    min-height: 479px;
+    padding: 26px 0 0 26px;
+    position: absolute;
+    top: 2425px;
+    left: 210px;
+}
+
+.about .constructor:before {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/constructor_shadow.png") no-repeat;
+    width: 564px;
+    height: 9px;
+    margin-left: -282px;
+    position: absolute;
+    left: 50%;
+    bottom: -32px;
+}
+
+.about .constructor ul.tabs {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    right: 0;
+}
+
+.about .constructor ul.tabs > li.item {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #cdd7e3;
+    border-bottom: 0;
+    height: 26px;
+    margin-left: 10px;
+    padding: 0 23px;
+    line-height: 26px;
+}
+
+.about .constructor ul.tabs > li.item:first-child {
+    margin: 0;
+}
+
+.about .constructor ul.tabs > li.active {
+    background-color: #f2f5f8;
+    border: 1px solid #cdd7e3;
+}
+
+.about .constructor ul.tabs > li.add {
+    background: #ffffff url("http://prostokna.ru/wp-content/themes/daisho/images/add.png") no-repeat 50% 50%;
+    width: 26px;
+    padding: 0;
+}
+
+.about .constructor ul.tabs .text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.about .constructor ul.tabs .remove {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/remove.png") no-repeat;
+    width: 14px;
+    height: 14px;
+    margin: 0 -18px 0 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.about .constructor .col_1 {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/constructor_col_shadow.png") no-repeat 100% 50%;
+    float: left;
+    width: 312px;
+    padding: 0 32px 0 0;
+}
+
+.about .constructor .col_2 {
+    float: left;
+    width: 230px;
+    padding: 0 0 0 18px;
+}
+
+.about .constructor ul.right_tabs {
+    text-align: right;
+}
+
+.about .constructor ul.right_tabs > li.item {
+    padding: 0 16px;
+}
+
+.about .constructor ul.right_tabs > li.active {
+    background-color: #e22545;
+    border-color: #dc1928;
+    color: #fff;
+}
+
+.about .constructor ul.list_1 {
+    margin-bottom: 30px;
+
+    position: relative;
+    z-index: 10;
+}
+
+.about .constructor ul.list_1 > li.item {
+
+    text-align: center;
+}
+
+.about .constructor ul.list_1 > li.item:hover {
+    background-color: #fff;
+
+    -moz-box-shadow: 1px 2px 10px rgba(117,117,117,.75);
+    -webkit-box-shadow: 1px 2px 10px rgba(117,117,117,.75);
+    box-shadow: 1px 2px 10px rgba(117,117,117,.75);
+
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+
+
+}
+
+.about .constructor ul.list_1 > li.item > .text {
+    padding: 9px;
+    position: relative;
+    z-index: 1;
+
+    cursor: pointer;
+}
+
+.about .constructor ul.list_1 > li.item:hover > .text {
+    background-color: #fff;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+
+.about .constructor ul.list_1 > li.item:hover .sub {
+    display: block;
+}
+
+.about .constructor ul.list_1 .img {
+    vertical-align: top;
+}
+
+.about .constructor ul.list_1 p {
+    margin-bottom: 10px;
+}
+
+.about .constructor ul.list_1 .sub {
+    background-color: #fff;
+    -moz-box-shadow: 1px 2px 10px rgba(117,117,117,.75);
+    -webkit-box-shadow: 1px 2px 10px rgba(117,117,117,.75);
+    box-shadow: 1px 2px 10px rgba(117,117,117,.75);
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    display: none;
+    margin-top: -20px;
+    padding: 24px 8px;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    font-size: 10px;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: left;
+
+}
+
+.about .constructor ul.list_1 .sub .fig {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about .constructor ul.list_1 .sub .text {
+    display: block;
+}
+
+.about .constructor ul.list_1 .sub .link {
+    color: #333;
+}
+
+.about .constructor ul.list_1 .sub table.s {
+    table-layout: fixed;
+}
+
+.about .constructor ul.list_1 .sub table.s td {
+    padding-left: 14px;
+    vertical-align: top;
+    position: relative;
+    width: 80px;
+}
+
+.about .constructor ul.list_1 .sub table.s tr td:first-child {
+    padding-left: 0;
+}
+
+.about .constructor .preview {
+    padding: 0 0 50px 50px;
+    position: relative;
+}
+
+.about .constructor .preview .img {
+    text-align: center;
+}
+
+.about .constructor .preview .img img {
+    vertical-align: top;
+}
+
+.about .constructor .preview p {
+    margin-bottom: 10px;
+}
+
+.about .tab {
+    display: none;
+}
+
+.about .tab.active {
+    display: block;
+}
+
+.about .window {
+    display: none;
+}
+
+.about .window.active {
+    display: block;
+}
+
+.about .graf_2 {
+    background-color: #d3d3d3;
+    -webkit-border-radius: 0 7px 7px 0;
+    -moz-border-radius: 0 7px 7px 0;
+    border-radius: 0 7px 7px 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(72, 72, 72, .75);
+    -moz-box-shadow: inset 0 1px 1px rgba(72, 72, 72, .75);
+    box-shadow: inset 0 1px 1px rgba(72, 72, 72, .75);
+    display: inline-block;
+    width: 147px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.about .mark {
+    display: none;
+}
+
+.about .model {
+    display: none;
+}
+
+.about .graf_2 .in {
+    background-color: #d3d3d3;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQtdWNnZy1nZW5lcmF0ZWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNDg0OCIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSI0OC4xOSUiIHN0b3AtY29sb3I9IiNmOGMyMzAiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI4ZGY0NiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPjwvc3ZnPg==);
+    background-image: -moz-linear-gradient(left, #ff4848 0%, #f8c230 48.19%, #28df46 100%);
+    background-image: -webkit-linear-gradient(left, #ff4848 0%, #f8c230 48.19%, #28df46 100%);
+    background-image: -o-linear-gradient(left, #ff4848 0%, #f8c230 48.19%, #28df46 100%);
+    background-image: linear-gradient(left, #ff4848 0%, #f8c230 48.19%, #28df46 100%);
+    -webkit-box-shadow: inset 0 1px 1px rgba(72, 72, 72, .75), inset 0 0 8px 2px rgba(230, 233, 214, .75);
+    -moz-box-shadow: inset 0 1px 1px rgba(72, 72, 72, .75), inset 0 0 8px 2px rgba(230, 233, 214, .75);
+    box-shadow: inset 0 1px 1px rgba(72, 72, 72, .75), inset 0 0 8px 2px rgba(230, 233, 214, .75);
+    -webkit-border-radius: 0 7px 7px 0;
+    -moz-border-radius: 0 7px 7px 0;
+    border-radius: 0 7px 7px 0;
+    float: left;
+    height: 15px;
+}
+
+.hint {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    color: #fcff00;
+    font-size: 17px;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.hint:hover .bubl {
+    display: block;
+}
+
+.hint .bubl {
+    background-color: #fff;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQtdWNnZy1nZW5lcmF0ZWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIxMDAlIiB4Mj0iMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NmY2ZjZiIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U3ZTdlNyIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIyNi41OSUiIHN0b3AtY29sb3I9IiNmMmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPjwvc3ZnPg==);
+    background-image: -moz-linear-gradient(bottom, #cfcfcf 0%, #e7e7e7 0%, #f2f2f2 26.59%, #fff 100%);
+    background-image: -webkit-linear-gradient(bottom, #cfcfcf 0%, #e7e7e7 0%, #f2f2f2 26.59%, #fff 100%);
+    background-image: -o-linear-gradient(bottom, #cfcfcf 0%, #e7e7e7 0%, #f2f2f2 26.59%, #fff 100%);
+    background-image: linear-gradient(bottom, #cfcfcf 0%, #e7e7e7 0%, #f2f2f2 26.59%, #fff 100%);
+    border: 2px solid #fff200;
+    display: none;
+    width: 188px;
+    margin-left: -156px;
+    padding: 16px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    z-index: 10;
+    color: #464646;
+    font-size: 12px;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.hint .bubl:before {
+    content: '';
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/pic17.png") no-repeat;
+    width: 17px;
+    height: 10px;
+    position: absolute;
+    bottom: -10px;
+    left: 146px;
+}
+
+ul.main_nav {
+    text-align: center;
+}
+
+ul.main_nav > li.item {
+    vertical-align: bottom;
+}
+
+ul.main_nav .img {
+    vertical-align: top;
+}
+
+.js-radio {
+    border: 1px solid #9da0a2;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    position: relative;
+    line-height: 1;
+}
+
+.js-radio input[type=radio] {
+    display: none;
+}
+
+.js-radio.checked:before {
+    content: '';
+    background: #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+}
+
+.slider_vertical {
+    height: 210px;
+    position: absolute;
+    top: 35px;
+    left: 8px;
+}
+
+.slider_vertical .slider_value {
+    position: absolute;
+    top: -68px;
+    right: -21px;
+    color: #8d8d8d;
+    font-size: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.slider_vertical .slider_value p {
+    margin: 3px !important;
+}
+
+.slider_vertical .slider_value .field {
+    border: 1px solid #c2d0e0;
+    width: 48px;
+    padding: 3px 7px;
+    color: #ea2121;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+.slider_horizontal {
+    width: 210px;
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+}
+
+.slider_horizontal .slider_value {
+    position: absolute;
+    top: -26px;
+    right: -55px;
+    color: #8d8d8d;
+    font-size: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.slider_horizontal .slider_value p {
+    margin: 3px !important;
+}
+
+.slider_horizontal .slider_value .field {
+    border: 1px solid #c2d0e0;
+    width: 48px;
+    padding: 3px 7px;
+    color: #ea2121;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+.modal {
+    overflow: hidden;
+    _overflow-y: scroll;
+    position: fixed;
+    z-index: 1000;
+}
+div .link {
+  cursor: pointer;
+  z-index: 10;
+}
+div .link:hover {
+  text-decoration: underline;
+}
+.modal,
+.modal__bg {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.modal__horisontal_inner {
+    display: table;
+    height: 100%;
+    margin: auto;
+}
+
+.modal__vertical_inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal__bg {
+    background: #000;
+    opacity: 0.5;
+    position: absolute;
+    z-index: -1;
+}
+
+.ie8 .modal__bg {
+    filter: alpha(opacity=50);
+}
+
+.modal__content {
+    background: #fff;
+    padding: 24px;
+    position: relative;
+}
+
+.modal_close_button {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    line-height: 24px;
+}
+
+/*---------------------- end content ----------------------------------*/
+/*---------------------- footer ---------------------------------------*/
+.footer {
+    background: #cee0f4 url("http://prostokna.ru/wp-content/themes/daisho/images/footer_xbg.jpg") repeat-x 50% 0;
+    height: 445px;
+    margin: -425px 0 0 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.footer > .in {
+    width: 1000px;
+    height: 385px;
+    padding: 40px 0 0;
+    margin: auto;
+    position: relative;
+}
+
+.footer .social {
+    float: left;
+    width: 255px;
+}
+
+.footer .cont {
+    overflow: hidden;
+}
+
+.footer .contacts {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/contacts_bg.jpg") no-repeat;
+    background-size: 100% 100%;
+    float: left;
+    width: 175px;
+    min-height: 198px;
+    margin-right: 21px;
+    padding: 22px 15px;
+    color: #3e3e3e;
+    font-size: 11px;
+    font-size: 1.1rem;
+}
+
+.footer .contacts .code {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+.footer .contacts .number {
+    font-size: 25px;
+    font-size: 2.5rem;
+}
+
+.footer .contacts .email {
+    margin-bottom: 22px;
+    font-size: 13px;
+    font-size: 1.3rem;
+}
+
+.footer .contacts .email .link {
+    text-decoration: none;
+}
+
+.design {
+    background: url("http://prostokna.ru/wp-content/themes/daisho/images/design.png") no-repeat;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+.design,
+.design a {
+    display: block;
+    width: 117px;
+    height: 56px;
+}
+
+.copyright {
+    position: absolute;
+    left: 0;
+    bottom: 48px;
+}
+
+.sub_nav {
+    color: #353535;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+.sub_nav ul.list > li.item {
+    width: 170px;
+    margin: 0 0 0 3px;
+}
+
+.sub_nav ul.list ul.s {
+    padding: 27px 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-size: 1.5rem;
+}
+
+.sub_nav ul.list ul.s > li.item {
+    margin-bottom: 7px;
+}
+
+.sub_nav .link {
+    color: #ee2d24;
+    text-decoration: none !important;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: arial, sans-serif;
+    text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.7);
+}
+
+.sub_nav .link:hover {
+text-decoration: underline !important;
+}
+
+/*---------------------- end footer -----------------------------------*/
+/* media queries */
+/* small screens (portrait and landscape) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+
+}
+
+/* small screens (landscape) */
+@media only screen and (min-width: 321px) {
+
+}
+
+/* small screens (portrait) */
+@media only screen and (max-width: 320px) {
+
+}
+
+/* medium small screens */
+@media only screen and (max-width: 480px) {
+
+}
+
+/* medium screens (excludes iPad & iPhone) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+
+}
+
+/* ipads (portrait and landscape) */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+}
+
+/* ipads (landscape) */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+}
+
+/* ipads (portrait) */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+
+}
+
+/* medium large screens */
+@media only screen and (min-width: 1444px) and (max-width: 1824px) {
+
+}
+
+/* large screens */
+@media only screen and (min-width: 1824px) and (max-width: 2224px) {
+
+}
+
+/* extra large screens */
+@media only screen and (min-width: 2224px) {
+
+}
+
+/* iphone 4 and high pixel ratio (1.5+) devices */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+
+}
+
+/* iphone 4 and higher pixel ratio (2+) devices (retina) */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+}
+
+/*CSS for serving the retina image to devices with a high "device-pixel-ratio":*/
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-devicepixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {
+
+}
+
+/* print media */
+@media print {
+    * {
+        color: black !important;
+        background: transparent !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        float: none !important;
+        clear: none !important;
+    }
+
+    html,
+    body,
+    article,
+    header,
+    section,
+    footer,
+    aside,
+    div {
+        width: 100% !important;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    abbr,
+    acronym {
+        text-decoration: none;
+        border-bottom: 0 none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        page-break-inside: avoid;
+        orphans: 3;
+        widows: 3;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+.f-radio{
+border: 1px solid #9da0a2;
+-webkit-border-radius: 7px;
+-moz-border-radius: 7px;
+border-radius: 7px;
+display: inline-block;
+vertical-align: middle;
+width: 13px;
+height: 13px;
+padding: 0;
+position: relative;
+line-height: 1;
+}
+.f-radio.checked:before {
+    content: '';
+    background: #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+}
+.f-checkbox{
+    border: 1px solid #9da0a2;
+    display: inline-block;
+    vertical-align: middle;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    position: relative;
+    line-height: 1;
+}
+.f-checkbox.checked:before {
+    content: '';
+    background: #000;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+}
+
+.f-radio input[type=radio],
+.f-checkbox input[type=checkbox]{
+    display: none;
+}
+
+.wiki.title {
+position: relative;
+}
+
+
+/* 2014 + */
+
+.about .constructor .col_2 {
+width: 291px !important;
+}
+.about .constructor {
+width: 669px !important;
+left: 180px !important;
+}
+.about .calc {
+width: 197px !important;
+right: 163px !important;
+}
