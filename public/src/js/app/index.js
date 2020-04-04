@@ -32,9 +32,6 @@ $('#fullpage_welcome').fullpage({
     scrollOverflowReset: true,
     scrollOverflowResetKey: '85F59DF5-C3C6429B-9D26694D-ED504778',
 
-    //Design
-    sectionsColor : ['#fff', '#363636'],
-
     onLeave: function (origin, destination, direction) {
         fullpage_welcome_color(destination);
         $("#fullpage_nav li").removeClass('active');
