@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     iPartModelID: { allowNull: false, type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     iPartBrandID: { type: DataTypes.INTEGER, allowNull: false },
     sPartModelTitle: { type: DataTypes.STRING, allowNull: false },
+    sPartModelURI: { type: DataTypes.STRING, allowNull: false },
     iPartModelPrice: { type: DataTypes.INTEGER },
     tPartModelDesc: { type: DataTypes.TEXT },
     iActive: { type: DataTypes.BOOLEAN, defaultValue: true },
@@ -16,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   PartModel.associate = function(models) {
     PartModel.belongsTo(models.partBrand, {
-      foreignKey: 'iPartBrandID'
+      foreignKey: 'iPartBrandID',
+      as: 'brand'
     })
     PartModel.hasMany(models.partImage, {
       foreignKey: 'iPartModelID',
@@ -36,7 +38,14 @@ module.exports = (sequelize, DataTypes) => {
               as: 'color'
             }
           ]
+        },
+        {
+          model: sequelize.models.partBrand,
+          as: 'brand'
         }
+      ],
+      order: [
+        [ 'images', 'color', 'iOrder', 'ASC' ]
       ]
     })
     return partModel

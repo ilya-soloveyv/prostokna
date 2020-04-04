@@ -23,6 +23,7 @@ if ($('#accessories').length) {
 	});
 
 	$('.select__item').on('click', function(){
+		console.log(111)
 		var opText = $(this).closest('.select__list').find('.select__item:first-child').text();	
 		var opData = $(this).closest('.select__list').find('.select__item:first-child').attr('data-option');
 		// var opText = $('.select__item:first-child').text();
@@ -37,9 +38,16 @@ if ($('#accessories').length) {
 
 	// COLORS
 
-	$('.colors__item').on('click', function () {		
+	$('.colors__item').on('click', function () {
+		const sPartImageFile = $(this).attr('data-sPartImageFile')
+		const iPartColorPrice = $(this).attr('iPartColorPrice')
+		const sPartColorTitle = $(this).attr('sPartColorTitle')
+		const sPartColorTitleCode = $(this).attr('sPartColorTitleCode')
+		console.log(sPartImageFile)
 		$(this).addClass('active').siblings().removeClass('active');
 	});
+
+	
 
 	// Carousell
 	function setActive(index) {
@@ -129,4 +137,102 @@ if ($('#accessories').length) {
 		var pos =	$(window).scrollTop();
 		$('html, body').animate({ scrollTop: pos + 200 }, "slow");
 	});
+
+
+
+
+	let rotate = 0
+	let rotateCheck = true
+	function resetRotateCheck() {
+		rotateCheck = true
+	}
+	$('.krugaly .ccircle').bind('mousewheel', function(e){
+		// if (rotateCheck) {
+		// 	var liCount = $('.krugaly .ccircle li').length
+		// 	var liActive = $('.krugaly .ccircle li.active')
+		// 	$('.krugaly .ccircle li').removeClass('active').removeClass('next').removeClass('prev')
+		// 	if(e.originalEvent.wheelDelta /120 > 0) {
+		// 		rotate += 45
+		// 		if (liActive.prev().length) {
+		// 			liActive.prev().addClass('active')
+		// 		} else {
+		// 			$('.krugaly .ccircle li').eq(liCount-1).addClass('active')
+		// 		}
+		// 	}
+		// 	else{
+		// 		rotate -= 45
+		// 		if (liActive.next().length) {
+		// 			liActive.next().addClass('active')
+		// 		} else {
+		// 			$('.krugaly .ccircle li').eq(0).addClass('active')
+		// 		}
+		// 	}
+		// 	$('.krugaly .ccircle').css({ transform: 'rotate(' + rotate + 'deg)'})
+		// 	$('.krugaly .ccircle li .item').css({ transform: 'rotate(' + (rotate * -1) + 'deg)'})
+
+		// 	if ($('.krugaly .ccircle li.active').next().length) {
+		// 		$('.krugaly .ccircle li.active').next().addClass('next')
+		// 	} else {
+		// 		$('.krugaly .ccircle li').eq(0).addClass('next')
+		// 	}
+
+		// 	if ($('.krugaly .ccircle li.active').prev().length) {
+		// 		$('.krugaly .ccircle li.active').prev().addClass('prev')
+		// 	} else {
+		// 		$('.krugaly .ccircle li').eq(liCount-1).addClass('prev')
+		// 	}
+
+		// 	rotateCheck = false
+		// 	setTimeout('resetRotateCheck()', 0)	
+		// }
+	})
+
+	function definitionPosition() {
+
+	}
+
+	function krugalyRotate(newIndex) {
+		const oldIndex = $('.krugaly .ccircle ul li.active').index()
+		$('.krugaly .ccircle ul li.active').removeClass('active')
+		$('.krugaly .ccircle ul li:eq(' + newIndex + ')').addClass('active')
+		console.log(oldIndex, newIndex)
+		const corner = 45
+		const iteration = oldIndex - newIndex
+		console.log(iteration)
+		const rotate = corner * iteration
+		$('.krugaly .ccircle').css({ transform: 'rotate(' + rotate + 'deg)'})
+		$('.krugaly .ccircle li .item').css({ transform: 'rotate(' + (rotate * -1) + 'deg)'})
+		// switch(newIndex) {
+		// 	case 0:
+		// 		break;
+		// 	case 1:
+		// 		break;
+		// 	case 2:
+		// 		break;
+		// 	case 3:
+		// 		break;
+		// 	case 4:
+		// 		break;
+		// }
+	}
+
+	$(document).ready(function() {
+		// const newIndex = $('.krugaly .ccircle ul li.active').index()
+		// krugalyRotate(newIndex)
+	}).on('click', '.krugaly .ccircle ul li', function() {
+		const newIndex = $(this).index()
+		krugalyRotate(newIndex)
+		// rotate -= 45
+		// $('.krugaly .ccircle').css({ transform: 'rotate(' + rotate + 'deg)'})
+		// $('.krugaly .ccircle li .item').css({ transform: 'rotate(' + (rotate * -1) + 'deg)'})
+	})
+
+
+
+
+
+
+
+
+
 }

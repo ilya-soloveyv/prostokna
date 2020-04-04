@@ -28,7 +28,7 @@
 		}
 		.select {				
 			position: relative;
-			width: 50%;
+			width: 75%;
 			height: 40px;
 			margin-right: 2px;
 			@media screen and (max-width: 992px){
@@ -67,6 +67,8 @@
 				&_brand {
 					border-top-left-radius: 19px;
 					border-bottom-left-radius: 19px;
+					border-radius: 20px;
+					overflow: hidden;
 					.select__item {
 						&:first-child {
 							border-radius: 0;
@@ -175,6 +177,8 @@
 				}
 				.colors__item {
 					width: 24%;
+					overflow: hidden;
+					box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.5);
 					@media screen and (max-width: 992px){
 						width: 40px;
 					}
@@ -184,6 +188,11 @@
 					@media screen and (max-width: 576px){
 						width: 24px;
 						height: 24px;
+					}
+					span {
+						display: block;
+						background-color: red;
+						padding-top: 100%;
 					}
 				}
 			}
@@ -233,12 +242,14 @@
 				}
 				.result__title {
 					font-size: 18px;
+					text-transform: uppercase;
 					@media screen and (max-width: 768px){
 						font-size: 16px;
 					}
 				}
 				.result__subtitle {
 					font-size: 12px;
+					text-transform: uppercase;
 					@media screen and (max-width: 768px){
 						font-size: 10px;
 					}

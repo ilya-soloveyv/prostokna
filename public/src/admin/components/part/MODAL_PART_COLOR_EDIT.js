@@ -7,7 +7,8 @@ export default {
     return {
       loading: false,
       partColor: {},
-      iPartColorID: null
+      iPartColorID: null,
+      uploading: false
     }
   },
   mounted() {
@@ -58,6 +59,9 @@ export default {
         this.$emit('reloadPartColorList')
         $('#MODAL_PART_COLOR_EDIT').modal('hide')
       })
+    },
+    upload() {
+      alert(1)
     }
   },
   template: `
@@ -70,23 +74,54 @@ export default {
           <div class="modal-body">
             <form @submit.prevent="update" id="modalPartColorEditForm">
               <div class="form-group">
-                <label for="sPartColorTitle">sPartColorTitle</label>
+                <label for="sPartColorTitle">Название цвета</label>
                 <input type="text" class="form-control" id="sPartColorTitle" ref="sPartColorTitle" v-model="partColor.sPartColorTitle" autocomplete="off" required>
               </div>
               <div class="form-group">
-                <label for="sPartColorCode">sPartColorCode</label>
+                <label for="sPartColorCode">RGB код цвета</label>
                 <input type="text" class="form-control" id="sPartColorCode" v-model="partColor.sPartColorCode" autocomplete="off">
               </div>
               <div class="form-group">
-                <label for="sPartColorTitleCode">sPartColorTitleCode</label>
+                <label for="sPartColorCode">Текстура цвета</label>
+                <label class="sPartModelPart">
+                  <input type="file" @change="upload" />
+                  <div class="img">
+                    <template v-if="!uploading">
+                      <template v-if="partColor.sPartColorFile">
+                        <img :src="'/images/part/' + partColor.sPartColorFile" />
+                      </template>
+                      <template v-else>
+                        Выбрать изображение
+                      </template>
+                    </template>
+                    <template v-else>
+                      <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </template>
+                  </div>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="partColor_iPartColorCheck">Цвет галочки</label>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="partColor_iPartColorCheck" v-model="partColor.iPartColorCheck">
+                  <label class="custom-control-label" for="partColor_iPartColorCheck">
+                    <template v-if="partColor.iPartColorCheck">Черный</template>
+                    <template v-else>Белый</template>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sPartColorTitleCode">Тех.название цвета</label>
                 <input type="text" class="form-control" id="sPartColorTitleCode" v-model="partColor.sPartColorTitleCode" autocomplete="off" required>
               </div>
               <div class="form-group">
-                <label for="partColor_iOrderInput">iOrder</label>
+                <label for="partColor_iOrderInput">Сортировка</label>
                 <input type="text" class="form-control" id="partColor_iOrderInput" v-model.number="partColor.iOrder" autocomplete="off" required>
               </div>
               <div class="form-group">
-                <label for="partColor_iActiveInput">iActive</label>
+                <label for="partColor_iActiveInput">Активность</label>
                 <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="partColor_iActiveInput" v-model="partColor.iActive">
                   <label class="custom-control-label" for="partColor_iActiveInput">

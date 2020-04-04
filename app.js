@@ -1074,6 +1074,7 @@ app.post('/admin/part/updatePartModel', async (req, res) => {
     let iPartModelID = req.body.iPartModelID || false
     const iPartBrandID = req.body.iPartBrandID || null
     const sPartModelTitle = req.body.sPartModelTitle || null
+    const sPartModelURI = req.body.sPartModelURI || cyrillicToTranslit().transform(sPartModelTitle, "_").toLowerCase()
     const iPartModelPrice = req.body.iPartModelPrice || 1
     const tPartModelDesc = req.body.tPartModelDesc || null
     const iActive = req.body.iActive || false
@@ -1081,6 +1082,7 @@ app.post('/admin/part/updatePartModel', async (req, res) => {
     if (iPartModelID) {
         response.update = await PartModel.update({
             sPartModelTitle,
+            sPartModelURI,
             iPartModelPrice,
             tPartModelDesc,
             iActive,
@@ -1094,6 +1096,7 @@ app.post('/admin/part/updatePartModel', async (req, res) => {
         response.create = await PartModel.create({
             iPartBrandID,
             sPartModelTitle,
+            sPartModelURI,
             iPartModelPrice,
             tPartModelDesc,
             iActive,
@@ -1146,6 +1149,7 @@ app.post('/admin/part/updatePartColor', async (req, res) => {
     const sPartColorCode = req.body.sPartColorCode || null
     const sPartColorTitleCode = req.body.sPartColorTitleCode || null
     const sPartColorFileName = req.body.sPartColorFileName || null
+    const iPartColorCheck = req.body.iPartColorCheck || false
     const iActive = req.body.iActive || false
     const iOrder = req.body.iOrder || 9999
     if (iPartColorID) {
@@ -1154,6 +1158,7 @@ app.post('/admin/part/updatePartColor', async (req, res) => {
             sPartColorCode,
             sPartColorTitleCode,
             sPartColorFileName,
+            iPartColorCheck,
             iActive,
             iOrder
         }, {
@@ -1168,6 +1173,7 @@ app.post('/admin/part/updatePartColor', async (req, res) => {
             sPartColorCode,
             sPartColorTitleCode,
             sPartColorFileName,
+            iPartColorCheck,
             iActive,
             iOrder
         })
@@ -1276,6 +1282,105 @@ app.post('/admin/part/updatePartModelImage', async (req, res) => {
         }
     )
     response.images = await PartImage.getList(iPartModelID)
+    res.json(response)
+})
+
+
+app.post('/admin/index/s1/left/get', async (req, res) => {
+    const response = {}
+    const IndexS1 = require('./models').index_s1
+    response.left = await IndexS1.findByPk(1)
+    res.json(response)
+})
+app.post('/admin/index/s1/left/update', async (req, res) => {
+    const response = {}
+    const IndexS1 = require('./models').index_s1
+    const s1Title = req.body.s1Title
+    const s1Desc = req.body.s1Desc
+    await IndexS1.update({
+        s1Title,
+        s1Desc
+    }, {
+        where: {
+            s1ID: 1
+        }
+    })
+    response.left = await IndexS1.findByPk(1)
+    res.json(response)
+})
+app.post('/admin/index/s1/actions/get', async (req, res) => {
+    const response = {}
+    const IndexS1Action = require('./models').index_s1_action
+    response.actions = await IndexS1Action.findAll({
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC'],
+            ['s1ActionID', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/index/s1/actions/upload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/actions')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        response.filename = filename
+        return res.json(response)
+    })
+})
+app.post('/admin/index/s1/actions/update', async (req, res) => {
+    const response = {}
+    const IndexS1Action = require('./models').index_s1_action
+
+    const actions = req.body.actions
+
+    for (const action of actions) {
+        const s1ActionID = action.s1ActionID || false
+        console.log(s1ActionID)
+        const s1ActionTitle = action.s1ActionTitle || null
+        const s1ActionURL = action.s1ActionURL || null
+        const s1ActionImage = action.s1ActionImage || null
+        const iActive = action.iActive || false
+        const iOrder = action.iOrder || 9999
+        console.log(action)
+        if (action.del === true && s1ActionID) {
+            await IndexS1Action.destroy({
+                where: {
+                    s1ActionID
+                }
+            })
+        } else if (!action.del && s1ActionID) {
+            await IndexS1Action.update({
+                s1ActionTitle,
+                s1ActionURL,
+                s1ActionImage,
+                iActive,
+                iOrder
+            }, {
+                where: {
+                    s1ActionID
+                }
+            })
+        } else if (!action.del) {
+            await IndexS1Action.create({
+                s1ActionTitle,
+                s1ActionURL,
+                s1ActionImage,
+                iActive,
+                iOrder
+            })
+        }
+    }
+
     res.json(response)
 })
 
@@ -2099,17 +2204,138 @@ app.get('/windowsill', async (req, res) => {
     res.render('accessories/windowsill.pug', data)
 })
 
+app.get('/part', async (req, res) => {
+    const Part = require('./models').part
+    var part = await Part.findOne({
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+    if (part) return res.redirect('/part/' + part.sPartURI)
+    res.sendStatus(404)
+})
 app.get('/part/:sPartURI', async (req, res) => {
     const sPartURI = req.params.sPartURI
-    // const part = 
-    res.json({ sPartURI })
+    const Part = require('./models').part
+    const part = await Part.findOne({
+        where: {
+            sPartURI
+        }
+    })
+    const iPartID = part.iPartID
+    const PartBrand = require('./models').partBrand
+    const partBrand = await PartBrand.findOne({
+        where: {
+            iPartID,
+            iActive: 1
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+    if (partBrand) return res.redirect('/part/' + part.sPartURI + '/' + partBrand.sPartBrandURI)
+    res.sendStatus(404)
 })
-
 app.get('/part/:sPartURI/:sPartBrandURI', async (req, res) => {
+    const Part = require('./models').part
+    const PartBrand = require('./models').partBrand
+    const PartModel = require('./models').partModel
+
     const sPartURI = req.params.sPartURI
     const sPartBrandURI = req.params.sPartBrandURI
-    // const part = 
-    res.json({ sPartURI, sPartBrandURI })
+
+    const partBrand = await PartBrand.findOne({
+        where: {
+            sPartBrandURI,
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+    const iPartBrandID = partBrand.iPartBrandID
+
+    const partModel = await PartModel.findOne({
+        where: {
+            iPartBrandID,
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+    if (partModel) return res.redirect('/part/' + sPartURI + '/' + sPartBrandURI + '/' + partModel.sPartModelURI)
+    res.sendStatus(404)
+})
+app.get('/part/:sPartURI/:sPartBrandURI/:sPartModelURI', async (req, res) => {
+    const Part = require('./models').part
+    const PartBrand = require('./models').partBrand
+    const PartModel = require('./models').partModel
+
+    const sPartURI = req.params.sPartURI
+    const sPartBrandURI = req.params.sPartBrandURI
+    const sPartModelURI = req.params.sPartModelURI
+
+    data.part = await Part.findOne({
+        where: {
+            sPartURI
+        }
+    })
+    const iPartID = data.part.iPartID
+
+    data.brands = await PartBrand.findAll({
+        where: {
+            iPartID,
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+    data.parts = await Part.findAll({
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+
+    const brand = await PartBrand.findOne({
+        where: {
+            sPartBrandURI,
+            iActive: true
+        }
+    })
+    const iPartBrandID = brand.iPartBrandID
+
+    const model = await PartModel.findOne({
+        where: {
+            sPartModelURI,
+            iActive: true
+        }
+    })
+    const iPartModelID = model.iPartModelID
+
+    data.model = await PartModel.get(iPartModelID)
+
+    data.models = await PartModel.findAll({
+        where: {
+            iPartBrandID,
+            iActive: true
+        }
+    })
+
+    // return res.json(data)
+    // res.render('part/handle.pug', data)
+    res.render('accessories/handle.pug', data)
 })
 
 

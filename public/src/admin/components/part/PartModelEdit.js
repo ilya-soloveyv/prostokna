@@ -81,6 +81,26 @@ export default {
               <div class="row">
                 <div class="col">
                   <div class="form-group">
+                    <label for="sPartModelURIInput">URI</label>
+                    <input type="text" class="form-control" id="sPartModelURIInput" ref="sPartModelURIInput" v-model="partModel.sPartModelURI" autocomplete="off">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="partModeliActiveInput">Публикация</label>
+                    <div class="custom-control custom-switch mt-1">
+                      <input type="checkbox" class="custom-control-input" id="partModeliActiveInput" v-model="partModel.iActive">
+                      <label class="custom-control-label" for="partModeliActiveInput">
+                        <template v-if="partModel.iActive">Опубликовано</template>
+                        <template v-else>Скрыто</template>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
                     <label for="iPartModelPriceInput">Цена</label>
                     <input type="text" class="form-control" id="iPartModelPriceInput" v-model.number="partModel.iPartModelPrice" autocomplete="off" required>
                   </div>
@@ -90,16 +110,6 @@ export default {
                     <label for="partModeliOrderInput">Сортировка</label>
                     <input type="text" class="form-control" id="partModeliOrderInput" v-model.number="partModel.iOrder" autocomplete="off" required>
                   </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="partModeliActiveInput">Публикация</label>
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="partModeliActiveInput" v-model="partModel.iActive">
-                  <label class="custom-control-label" for="partModeliActiveInput">
-                    <template v-if="partModel.iActive">Опубликовано</template>
-                    <template v-else>Скрыто</template>
-                  </label>
                 </div>
               </div>
             </div>

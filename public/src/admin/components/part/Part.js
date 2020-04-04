@@ -50,10 +50,10 @@ export default {
     },
     reloadPartColorList() {
       this.$refs.PartColor.get()
+      this.$refs.PartModelEdit.get()
     },
     reloadPartColorList2(partColorList) {
       Vue.set(this, 'partColorList', partColorList)
-      // console.log(partColorList)
     }
   },
   template: `
@@ -96,7 +96,7 @@ export default {
           <span>Карточка модели</span>
         </h2>
         <div class="blockData">
-          <PartModelEdit :iPartID="iPartID" :iPartBrandID="iPartBrandID" :iPartModelID="iPartModelID" :partColorList="partColorList" @reloadPartModelList="reloadPartModelList" />
+          <PartModelEdit ref="PartModelEdit" :iPartID="iPartID" :iPartBrandID="iPartBrandID" :iPartModelID="iPartModelID" :partColorList="partColorList" @reloadPartModelList="reloadPartModelList" />
         </div>
       </div>
       <div class="partBlock partModelColor">
