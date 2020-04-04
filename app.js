@@ -1405,6 +1405,22 @@ app.get('/', async (req, res) => {
     data.description = 'Просто Окна – замер, проектирование, изготовление и реализация светопрозрачных конструкций любых типов: пластиковые окна ПВХ, алюминиевые окна, деревянные окна из евробруса, витражи, фасады и стоечно-ригельные системы. Монтажные работы любой сложности. Окна от производителя по лучшим ценам в Москве, МО и России. Мы не занимаемся накруткой цены, вы точно знаете, за что платите. Просто Окна – с нами просто.'
     data.left_menu_active = 0
 
+    // Секция 1
+    const IndexS1 = require('./models').index_s1
+    const IndexS1Action = require('./models').index_s1_action
+    data.s1 = {}
+    data.s1.left = await IndexS1.findByPk(1)
+    data.s1.actions = await IndexS1Action.findAll({
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC'],
+            ['s1ActionID', 'ASC']
+        ]
+    })
+
+
     // Менюшка окон
     let MaterialBrandProductMenu = []
     let product = await Product.findAll({
@@ -1847,6 +1863,7 @@ app.get('/', async (req, res) => {
             ]
         },
     ]
+    // return res.json(data)
     res.render('index.pug', data)
 })
 
