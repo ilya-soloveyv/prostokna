@@ -1286,6 +1286,105 @@ app.post('/admin/part/updatePartModelImage', async (req, res) => {
 })
 
 
+app.post('/admin/index/s1/left/get', async (req, res) => {
+    const response = {}
+    const IndexS1 = require('./models').index_s1
+    response.left = await IndexS1.findByPk(1)
+    res.json(response)
+})
+app.post('/admin/index/s1/left/update', async (req, res) => {
+    const response = {}
+    const IndexS1 = require('./models').index_s1
+    const s1Title = req.body.s1Title
+    const s1Desc = req.body.s1Desc
+    await IndexS1.update({
+        s1Title,
+        s1Desc
+    }, {
+        where: {
+            s1ID: 1
+        }
+    })
+    response.left = await IndexS1.findByPk(1)
+    res.json(response)
+})
+app.post('/admin/index/s1/actions/get', async (req, res) => {
+    const response = {}
+    const IndexS1Action = require('./models').index_s1_action
+    response.actions = await IndexS1Action.findAll({
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC'],
+            ['s1ActionID', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/index/s1/actions/upload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/actions')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        response.filename = filename
+        return res.json(response)
+    })
+})
+app.post('/admin/index/s1/actions/update', async (req, res) => {
+    const response = {}
+    const IndexS1Action = require('./models').index_s1_action
+
+    const actions = req.body.actions
+
+    for (const action of actions) {
+        const s1ActionID = action.s1ActionID || false
+        console.log(s1ActionID)
+        const s1ActionTitle = action.s1ActionTitle || null
+        const s1ActionURL = action.s1ActionURL || null
+        const s1ActionImage = action.s1ActionImage || null
+        const iActive = action.iActive || false
+        const iOrder = action.iOrder || 9999
+        console.log(action)
+        if (action.del === true && s1ActionID) {
+            await IndexS1Action.destroy({
+                where: {
+                    s1ActionID
+                }
+            })
+        } else if (!action.del && s1ActionID) {
+            await IndexS1Action.update({
+                s1ActionTitle,
+                s1ActionURL,
+                s1ActionImage,
+                iActive,
+                iOrder
+            }, {
+                where: {
+                    s1ActionID
+                }
+            })
+        } else if (!action.del) {
+            await IndexS1Action.create({
+                s1ActionTitle,
+                s1ActionURL,
+                s1ActionImage,
+                iActive,
+                iOrder
+            })
+        }
+    }
+
+    res.json(response)
+})
+
+
 
 
 // cookie

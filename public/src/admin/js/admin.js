@@ -14,7 +14,7 @@ import Part from '../components/part/Part.js'
 // import PartGrid from '../components/PartGrid.js'
 // import PartSill from '../components/PartSill.js'
 // import PartValve from '../components/PartValve.js'
-import Index from '../components/Index.js'
+import Index from '../components/index/Index.js'
 
 const routes = [
     {
@@ -85,7 +85,21 @@ const routes = [
     {
         path: '/index',
         component: Index,
-        props: true
+        props: true,
+        children: [
+            {
+                path: ':section',
+                component: Index,
+                props: true,
+                children: [
+                    {
+                        path: ':part',
+                        component: Index,
+                        props: true,
+                    }
+                ]
+            }
+        ]
     }
 ]
 
