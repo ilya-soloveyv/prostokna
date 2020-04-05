@@ -286,6 +286,8 @@ textarea {
 		flex-basis: 60px;
 	}
 	a {
+		color: #363636;
+		
 		display: flex;
 		align-items: center;
 		height: 100%;
@@ -313,10 +315,6 @@ textarea {
 		font-weight: 500;
 
 		font-size: 14px;
-	}
-	a,
-	svg {
-		color: #363636;
 	}
 	svg {
 		width: 25px;
