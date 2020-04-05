@@ -4,6 +4,127 @@
             .info
                 .l Наши клиенты
                 .r Наша компания ведет все заказы от начала до самого конца, оказывает постоянную поддержку и никогда не отказывается от принятых на себя обязательств. Мы тепло встречаем всех наших клиентов и трепетно о них заботимся.
+
+            //- -
+            //-     var db_clients = [
+            //-         {
+            //-             src: '/images/index/s7/1.png',
+            //-             alt: 'МВД',
+            //-             name: 'МВД',
+            //-             descrip: 'Министерство внутренних дел России'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/2.png',
+            //-             alt: 'ФСБ',
+            //-             name: 'ФСБ',
+            //-             descrip: 'Федеральная служба безопасности России'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/3.png',
+            //-             alt: 'Азбука Вкуса',
+            //-             name: 'Азбука Вкуса',
+            //-             descrip: 'Сеть супермаркетов'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/4.png',
+            //-             alt: 'KFC',
+            //-             name: 'KFC',
+            //-             descrip: ' Cеть быстрого питания'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/5.png',
+            //-             alt: 'NIKE',
+            //-             name: 'NIKE',
+            //-             descrip: 'Сеть магазинов спортивной одежды'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/6.png',
+            //-             alt: 'FIFA',
+            //-             name: 'FIFA',
+            //-             descrip: 'Международная федерация футбола'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/7.png',
+            //-             alt: 'ЦУМ',
+            //-             name: 'ЦУМ',
+            //-             descrip: 'Торговый центр'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/8.png',
+            //-             alt: 'DoorHan',
+            //-             name: 'DoorHan',
+            //-             descrip: 'ГК Doorhan'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/9.png',
+            //-             alt: 'МКБ',
+            //-             name: 'МКБ',
+            //-             descrip: 'Московский Кредитный банк'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/10.png',
+            //-             alt: 'Billa',
+            //-             name: 'Billa',
+            //-             descrip: 'Сеть супермаркетов'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/11.png',
+            //-             alt: 'СИБУР',
+            //-             name: 'СИБУР',
+            //-             descrip: 'Нефтехимическая компания'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/12.png',
+            //-             alt: 'МИЦ',
+            //-             name: 'МИЦ',
+            //-             descrip: 'Инвестиционно-девелоперская компания'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/13.png',
+            //-             alt: 'Инвитро',
+            //-             name: 'Инвитро',
+            //-             descrip: 'Частная медицинская компания'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/14.png',
+            //-             alt: 'Гостиница Украина',
+            //-             name: 'Гостиница Украина',
+            //-             descrip: 'Гостиница Украина'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/15.png',
+            //-             alt: 'Моспромстрой',
+            //-             name: 'Моспромстрой',
+            //-             descrip: 'Российская строительная компания'
+            //-         },
+            //-         {
+            //-             src: '/images/index/s7/16.png',
+            //-             alt: 'Доктор Лодер',
+            //-             name: 'Доктор Лодер',
+            //-             descrip: 'Сеть фитнес-клубов'
+            //-         },
+            //-     ]
+
+            
+            //- .owl-carousel.owl-gird-s7.owl-theme
+            //-     each val, index in db_clients
+            //-         if index%3 === 0
+            //-             .item
+            //-                 .bg_flex
+            //-                     img(src=val.src, alt=val.alt)
+            //-                     .title
+            //-                         div
+            //-                             span=val.name
+            //-                             span=val.descrip
+            //-         else
+            //-             .bg_flex
+            //-                 img(src=val.src, alt=val.alt)
+            //-                 .title
+            //-                     div
+            //-                         span=val.name
+            //-                         span=val.descrip
+
+
             .owl-carousel.owl-gird-s7.owl-theme
                 .item
                     .bg_flex
@@ -24,13 +145,13 @@
                             div
                                 span Азбука Вкуса
                                 | Сеть супермаркетов
+                .item
                     .bg_flex
                         img(src='/images/index/s7/4.png', alt='KFC')
                         .title
                             div
                                 span KFC
                                 | Cеть быстрого питания
-                .item
                     .bg_flex
                         img(src='/images/index/s7/5.png', alt='NIKE')
                         .title
@@ -43,6 +164,7 @@
                             div
                                 span FIFA
                                 | Международная федерация футбола
+                .item
                     .bg_flex
                         img(src='/images/index/s7/7.png', alt='ЦУМ')
                         .title
@@ -55,13 +177,13 @@
                             div
                                 span DoorHan
                                 | ГК Doorhan
-                .item
                     .bg_flex
                         img(src='/images/index/s7/9.png', alt='МКБ')
                         .title
                             div
                                 span МКБ
                                 | Московский Кредитный банк
+                .item
                     .bg_flex
                         img(src='/images/index/s7/10.png', alt='Billa')
                         .title
@@ -93,6 +215,32 @@
                             div
                                 span Гостиница Украина
                                 | Гостиница Украина
+                    .bg_flex
+                        img(src='/images/index/s7/15.png', alt='Моспромстрой')
+                        .title
+                            div
+                                span Моспромстрой
+                                | Российская строительная компания
+                .item
+                    .bg_flex
+                        img(src='/images/index/s7/16.png', alt='Доктор Лодер')
+                        .title
+                            div
+                                span Доктор Лодер
+                                | Сеть фитнес-клубов
+                    .bg_flex
+                        img(src='/images/index/s7/13.png', alt='Инвитро')
+                        .title
+                            div
+                                span Инвитро
+                                | Частная медицинская компания
+                    .bg_flex
+                        img(src='/images/index/s7/14.png', alt='Гостиница Украина')
+                        .title
+                            div
+                                span Гостиница Украина
+                                | Гостиница Украина
+                .item
                     .bg_flex
                         img(src='/images/index/s7/15.png', alt='Моспромстрой')
                         .title
