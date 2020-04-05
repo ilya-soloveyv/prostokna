@@ -2,8 +2,8 @@ section.section.active.s1
     .fp-bg
         .l
             div
-                p= sodawdwa
-                h1= awdawd
+                p= s1.left.s1Desc
+                h1= s1.left.s1Title
                 ul.s1-advantages
                     li
                         span.title От 6 690 ₽
@@ -14,22 +14,15 @@ section.section.active.s1
                 a(href='/calculation').btn
                     span Заказать окно
         .r
-            .bg-image(style='background-image: url(/images/index/s1-bg-2.jpg);')
+            .bg-image
             div
                 ul.s1-items
-                    li
-                        a.is-hovered(href='#' data-img='/images/index/s1-bg-2.jpg')
-                            span.title DISCOUNT 15%
-                            span.s1-desc REHAU BLITZ NEW
-                    li
-                        a(href='#' data-img='/images/index/s1-bg-1.jpg')
-                            span.title DISCOUNT 15%
-                            span.s1-desc REHAU BLITZ NEW
-                    li
-                        a(href='#' data-img='/images/index/s1-bg-1.jpg')
-                            span.title DISCOUNT 15%
-                            span.s1-desc REHAU BLITZ NEW
-                    li
-                        a(href='#' data-img='/images/index/s1-bg-1.jpg')
-                            span.title DISCOUNT 15%
-                            span.s1-desc REHAU BLITZ NEW
+                    each val, index in s1.actions
+                        if index == 0
+                            li
+                                a.is-hovered(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage)
+                                    span.s1-desc= val.s1ActionTitle
+                        else 
+                            li
+                                a(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage)
+                                    span.s1-desc= val.s1ActionTitle
