@@ -5,6 +5,9 @@ $speed: 0.25s;
 	right: 0;
 	bottom: 0;
 	width: 60px;
+	@media (max-width: 1200px) {
+		display: none;
+	}
 	.lineprogress {
 		position: absolute;
 		top: 0;
@@ -42,9 +45,6 @@ $speed: 0.25s;
 		-moz-transition: all $speed linear;
 		-o-transition: all $speed linear;
 		transition: all $speed linear;
-		@media (max-width: 1200px) {
-			display: none;
-		}
 		li {
 			position: relative;
 			white-space: nowrap;

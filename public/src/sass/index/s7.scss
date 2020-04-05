@@ -1,15 +1,17 @@
 #fullpage_welcome {
     .section {
-        &.s7 { 
+        &.s7 {
+            .fp-tableCell {
+                .fp_bg {
+                    height: 100vh;
+                    padding-top: 60px;
+                }
+            }
             .data {
-                height: calc(100vh - 60px);
+                height: 100%;
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
-                margin-right: 60px;
-                @media (max-width: 1200px) {
-                    margin-right: 0px;
-                }
                 .info {
                     flex-shrink: 0;
                     display: flex;
@@ -56,13 +58,32 @@
                         }
                     }
                 }
-
                 .owl-carousel {     
                     height: 100%;
                     .owl-stage-outer {
                         height: 100%;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            width: 1px;
+                            height: 60px;
+                            background-color: white;
+                            margin-left: -1px;
+                            z-index: 19;
+                            @media (max-width: 1280px) {
+                                display: none;
+                            }
+                            @media (max-width: 768px) {
+                                display: block;
+                            }
+                        }
                         .owl-stage {
                             height: 100%;
+                            @media (max-width: 1280px) {
+                                height: calc(100% - 60px);
+                            }
                         }
                         .owl-item {
                             height: 100%;
@@ -123,92 +144,99 @@
                             }
                         }
                     }
-                                          
-                    .owl-dots {                        
-                        display: flex;
-                        background: none;
-                        margin: 0;
-                        padding: 0;
-                        border-radius: 0;
-                        height: auto;
-                        button {
-                            margin: 0 12px;
-                            border-radius: 0;
-                            background: none;
-                            position: relative;
-                            &.active {
-                                span {
-                                    background: #D165E9;
-                                }
-                            }
-                            &:hover {
-                                span {
-                                    background: none;
-                                }
-                            }
-
-                            &:before {
-                                counter-increment:dots;
-                                content: counter(dots);
-                                position: absolute;
-                                height: 100%;
-                                width: 100%;
-                                left: 0;
-                                top: 0;
-                                z-index: 2;
-                                color: black;
-                                background: none;
-                                border-radius: 50%;
-                                display: inline-block;  
-                                font-size: 13;
-                                font-weight: 500;
-                            }
-                            span {
-                                margin: 0;
-                                height: 20px;
-                                width: 20px;
-                                border: none;
-                            }
-                        }
-                        
-                    }                   
                     .owl-nav {
                         display: flex;
                         margin: 0 0 20px 0;
                         counter-reset: dots;
                         position: absolute;
-                      
                         left: 50%;
                         transform: translate(-50%, 0);
                         bottom: 0;
-                        &::before {
-                            content: '';
-                            position: absolute;
-                            left: 50%;
-                            margin-left: -1px;
-                            top: -20px;
-                            height: 60px;
-                            width: 2px;
-                            background: white;
+                        @media (max-width: 1280px) {
+                            left: 0;
+                            transform: translate(0, 0);
+                            background-color: #ececec;
+                            margin: 0;
+                            padding: 21px 0 20px;
+                            width: 100%;
+                            justify-content: center;
                         }
                         button.owl-prev, button.owl-next {
                             margin: 0;
                             svg {
                                 display: block;
                             }
-
+                            &:hover {
+                                background: none;
+                            }
                         }
                         button.owl-prev {
                             order: 0;
                             margin-right: 25px;
                         }
-                        .owl-dots {
-                            order: 1;
-                        }
                         button.owl-next {
                             order: 2;
                             margin-left: 25px;
                         }
+                        .owl-dots {
+                            order: 1;
+                            display: flex;
+                            background: none;
+                            margin: 0;
+                            padding: 0;
+                            border-radius: 0;
+                            height: auto;
+                            button {
+                                margin: 0 12px;
+                                border-radius: 0;
+                                background: none;
+                                position: relative;
+                                background-color: #ececec;
+                                border-radius: 50%;
+                                overflow: hidden;
+                                @media (max-width: 1280px) {
+                                    background-color: white;
+                                }
+                                &:hover {
+                                    span {
+                                        background: none;
+                                    }
+                                }
+                                &.active {
+                                    &:before {
+                                        color: white;
+                                    }
+                                    span {
+                                        background: #D165E9;
+                                    }
+                                }
+                                &:before {
+                                    counter-increment:dots;
+                                    content: counter(dots);
+                                    position: absolute;
+                                    height: 100%;
+                                    width: 100%;
+                                    left: 0;
+                                    top: 0;
+                                    z-index: 2;
+                                    color: white;
+                                    background: none;
+                                    display: inline-block;  
+                                    font-size: 13;
+                                    font-weight: 500;
+                                    @media (max-width: 1280px) {
+                                        color: #989898;
+                                    }
+                                }
+                                span {
+                                    margin: 0;
+                                    height: 20px;
+                                    width: 20px;
+                                    border: none;
+                                    background: none;
+                                }
+                            }
+                        }                   
                     }
                 }
             }
