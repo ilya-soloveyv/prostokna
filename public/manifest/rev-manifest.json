@@ -1,9 +1,14 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "app.min.css": "app-f632a989c4.min.css",
   "app.min.js": "app-b81d5d5fbd.min.js"
 =======
   "app.min.css": "app-03ad2f2aa6.min.css",
   "app.min.js": "app-25f0d581b5.min.js"
+>>>>>>> dev
+=======
+  "app.min.css": "app-9392c9fef4.min.css",
+  "app.min.js": "app-bb1b63ffd6.min.js"
 >>>>>>> dev
 }

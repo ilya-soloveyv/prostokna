@@ -13,8 +13,8 @@ const rimraf        = require('rimraf')
 const revOutdated   = require('gulp-rev-outdated')
 const path          = require('path')
 const through       = require('through2')
-const autoprefixer = require('gulp-autoprefixer');
-const pug = require('gulp-pug')
+const autoprefixer = require('gulp-autoprefixer')
+// const pug = require('gulp-pug')
 // const runSequence   = require('run-sequence')
 
 function cleaner() {
@@ -205,8 +205,6 @@ gulp.task('production', gulp.series(
     'rev_collector',
     'rev_clean',
 ))
-
-
 
 gulp.task('pug', function buildHTML() {
     return gulp.src('views/index/s4.pug')

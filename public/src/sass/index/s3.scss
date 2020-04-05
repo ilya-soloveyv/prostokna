@@ -1,7 +1,14 @@
 [class^="fp-viewing-s3"] {
-    #top,
-    #top .menu {
+    #top {
         background-color: transparent;
+    }
+
+    .l .menu {
+        background-color: transparent;
+        
+        &.opened {
+            background-color: #363636;
+        }
     }
 
     #top {
