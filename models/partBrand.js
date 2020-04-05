@@ -16,7 +16,30 @@ module.exports = (sequelize, DataTypes) => {
     PartBrand.belongsTo(models.part, {
       foreignKey: 'iPartID'
     })
+    PartBrand.hasMany(models.partModel, {
+      foreignKey: 'iPartBrandID'
+    })
   };
+
+  PartBrand.getItem = async function(sPartBrandURI = false) {
+    const partBrand = await PartBrand.findOne(
+      {
+        where: {
+          sPartBrandURI,
+          iActive: true
+        },
+        include: [
+          {
+            model: sequelize.models.partModel
+          }
+        ],
+        order: [
+          [sequelize.models.partModel, 'iOrder', 'ASC']
+        ]
+      }
+    )
+    return partBrand
+  }
 
   return PartBrand;
 };

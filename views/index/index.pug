@@ -1,40 +1,48 @@
 extends ../layouts/app
-
 block content
-    #fullpage_welcome.ppage
-        include s1
-        include s2
-        include s3
-        include s4
-        include s5
-        // include s6
-        include s7
-        include s8
-        include s9
-    #fullpage_nav
-        .lineprogress
-            .line
-        ul
-            li.active Заказать окно
-            li Основное меню
-            li Как выбрать окно
-            li Алгоритм заказа
-            li Сравнение профилей
-            // li Калькулятор
-            li Наши клиенты
-            li Связаться с нами
-            li Контакты
-        ul.contacts
-            li
-                a(href="#",data-toggle="modal",data-target="#modal_mobile_contact")
-                    svg.icon--speech-bubble(width='13px',height='13px')
-                        use(xlink:href='#speech-bubble')
-            li
-                a(href='tel:+74993912221',data-toggle='modal',data-target='#zay_modal',data-class='zay_modal_white')
-                    svg.icon--phone(width='14px',height='14px')
-                        use(xlink:href='#phone-1')
-            li
-                a(href='mailto:prosto@prostokna.ru')
-                    svg.icon--letter(width='13px',height='11px')
-                        use(xlink:href='#letter')
-            
+    main.layout-index
+        #fullpage_welcome.ppage
+            include s1
+            include s2
+            include s3
+            include s4
+            include s5
+            // include s6
+            include s7
+            include s8
+            include s9
+        #fullpage_nav
+            .lineprogress
+                .line
+            ul
+                li.active Заказать окно
+                li Основное меню
+                li Как выбрать окно
+                li Алгоритм заказа
+                li Сравнение профилей
+                // li Калькулятор
+                li Наши клиенты
+                li Связаться с нами
+                li Контакты
+            ul.contacts
+                li
+                    a(href="#",data-toggle="modal",data-target="#modal_mobile_contact")
+                        svg.icon--speech-bubble(width='13px',height='13px')
+                            use(xlink:href='#speech-bubble')
+                li
+                    a(href='tel:+74993912221',data-toggle='modal',data-target='#zay_modal',data-class='zay_modal_white')
+                        svg.icon--phone(width='14px',height='14px')
+                            use(xlink:href='#phone-1')
+                li
+                    a(href='mailto:prosto@prostokna.ru')
+                        svg.icon--letter(width='13px',height='11px')
+                            use(xlink:href='#letter')
+    #s3-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog.modal-lg(role="document")
+            .modal-content
+                .modal-header
+                    button.close(type="butto" data-dismiss="modal" aria-label="Закрыть")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    .embed-responsive.embed-responsive-16by9
+                        iframe.embed-responsive-item(data-src='https://player.vimeo.com/video/72915044?autoplay=1' allowfullscreen allow="autoplay; fullscreen")

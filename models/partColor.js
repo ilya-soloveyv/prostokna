@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     sPartColorCode: { type: DataTypes.STRING },
     sPartColorTitleCode: { type: DataTypes.STRING, allowNull: false },
     sPartColorFileName: { type: DataTypes.STRING },
+    iPartColorCheck: { type: DataTypes.BOOLEAN, defaultValue: false },
     iActive: { type: DataTypes.BOOLEAN, defaultValue: true },
     iOrder: { type: DataTypes.INTEGER, defaultValue: 9999, allowNull: false }
   }, {
@@ -17,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   PartModel.associate = function(models) {
     PartModel.belongsTo(models.partBrand, {
       foreignKey: 'iPartBrandID'
+    })
+    PartModel.hasMany(models.partImage, {
+      foreignKey: 'iPartColorID'
     })
   };
 

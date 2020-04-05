@@ -2,7 +2,7 @@ extends ../layouts/app
 
 block content
 		#accessories.ppage
-			.btn_call
+			//- .btn_call
 				img(src="/images/accessories/call.svg", alt="call")
 			.menu
 				.menu__icon
@@ -19,28 +19,41 @@ block content
 				.menu__title Ручки
 			.menu-overlay
 				ul.menu-list
-					li
-						a(href="/handle") Ручки
-					li
-						a(href="/accessories") Шторы
-					li
-						a(href="/jalousie") Жалюзи
-					li
-						a(href="/mesh") Москитные сетки
-					li
-						a(href="/windowsill") Подоконники
-					li
-						a(href="/flap") Клапаны
+					each part in parts
+						li
+							a(href="/part/" + part.sPartURI)= part.sPartTitle
 			.content
 				.content_block
 					.select_wrapp
 						.select
-							ul.select__list.select__list_brand
-								li.select__item(data-option = "color").active Brand
-								li.select__item(data-option = "texture") Texture	
-								li.select__item(data-option = "color") Color
-								li.select__item(data-option = "texture") Texture
-						.select
+							.dropdown.dropdown-brand
+								button.dropdown-toggle#dropdownMenuButton(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")= model.brand.sPartBrandTitle
+								.dropdown-menu(aria-labelledby="dropdownMenuButton")
+									each brand in brands
+										a.dropdown-item(
+											href='/part/' + part.sPartURI + '/' + brand.sPartBrandURI
+											class= brand.iPartBrandID == model.iPartBrandID ? 'active' : ''
+										)= brand.sPartBrandTitle
+							//- ul.part_brand
+							//- 	each brand in brands
+							//- 		li(
+							//- 			data-option = "texture"
+							//- 			class= brand.iPartBrandID == model.iPartBrandID ? 'active' : ''
+							//- 		)
+							//- 			a(href='/part/' + part.sPartURI + '/' + brand.sPartBrandURI)= brand.sPartBrandTitle
+
+							//- ul.select__list.select__list_brand
+							//- 	each brand in brands
+							//- 		li.select__item(
+							//- 			data-option = "texture"
+							//- 			class= brand.iPartBrandID == model.iPartBrandID ? 'active' : ''
+							//- 		)
+							//- 			a(href='/part/' + part.sPartURI + '/' + brand.sPartBrandURI)= brand.sPartBrandTitle
+									//- li.select__item(data-option = "color").active Brand
+									//- li.select__item(data-option = "texture") Texture	
+									//- li.select__item(data-option = "color") Color
+									//- li.select__item(data-option = "texture") Texture
+						//- .select
 							ul.select__list.select__list_model
 								li.select__item(data-option = "color").active Model
 								li.select__item(data-option = "texture") Texture	
@@ -49,30 +62,40 @@ block content
 					.settings.settings__handle
 						.settings__wrapp.settings__wrapp_handle
 							ul.colors.colors_handle
-								li.colors__item
-									img(src="/images/accessories/color1.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color2.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color3.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color4.svg", alt="sun")
-								li.colors__item.active
-									img(src="/images/accessories/color5.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color6.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color7.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color8.svg", alt="sun")
-								li.colors__item
-									img(src="/images/accessories/color9.svg", alt="sun")
+								each image, index in model.images
+									li.colors__item(
+										class= image.color.iPartColorCheck ? 'black' : ''
+										class= index == 0 ? 'active' : ''
+										data-sPartImageFile= image.sPartImageFile
+									)
+										if image.color.sPartColorCode
+											span(style="background-color: #" + image.color.sPartColorCode)
+										else
+											img(src="/images/accessories/color1.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color1.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color2.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color3.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color4.svg", alt="sun")
+								//- li.colors__item.active
+								//- 	img(src="/images/accessories/color5.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color6.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color7.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color8.svg", alt="sun")
+								//- li.colors__item
+								//- 	img(src="/images/accessories/color9.svg", alt="sun")
 					.result.result_handle
 						img.window.window_handle(src="/images/accessories/handle/New-window.svg", alt="window")
 						img.texture.texture_handle(src="/images/accessories/handle/handle.png", alt="handle")
 						.result__desc
-							.result__title CHRISTALLIT
-							.result__subtitle SIMPLY MODEL
+							.result__title= model.brand.sPartBrandTitle
+							.result__subtitle= model.sPartModelTitle
 							.result__num 4702
 							.result__color LIGHT SILVER
 				.choise.choise_handle

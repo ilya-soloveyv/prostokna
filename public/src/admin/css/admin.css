@@ -48,6 +48,10 @@ body {
     justify-content: center;
     color: #212529 !important; }
 
+button svg {
+  display: block;
+  margin: 0 auto; }
+
 #app {
   flex-grow: 1;
   flex-shrink: 1;
@@ -308,6 +312,89 @@ body {
       font-size: 11px !important;
       color: #9eaec5 !important; }
 
+.partBlock {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+  .partBlock h2 {
+    padding: 0;
+    margin: 1rem;
+    flex-shrink: 0;
+    display: flex;
+    height: 30px; }
+    .partBlock h2 span {
+      font-size: 16px;
+      opacity: 0.85;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-grow: 1; }
+    .partBlock h2 a.add {
+      flex-basis: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0; }
+      .partBlock h2 a.add:hover {
+        opacity: 0.5; }
+  .partBlock .blockData {
+    flex-grow: 1;
+    overflow: auto; }
+    .partBlock .blockData ul {
+      margin: 0 0 0.5rem;
+      padding: 0;
+      list-style: none; }
+      .partBlock .blockData ul li {
+        padding: 0 1rem;
+        line-height: 30px;
+        display: flex; }
+        .partBlock .blockData ul li:hover .edit {
+          opacity: 0.5; }
+        .partBlock .blockData ul li:hover .destroy {
+          opacity: 0.5; }
+        .partBlock .blockData ul li.noActive .title {
+          text-decoration: line-through; }
+        .partBlock .blockData ul li a.router-link-active {
+          font-weight: bold;
+          color: black;
+          text-decoration: none; }
+        .partBlock .blockData ul li .color {
+          flex-basis: 24px;
+          flex-shrink: 0;
+          margin: 3px 5px 3px 0;
+          border-radius: 3px; }
+        .partBlock .blockData ul li .emptyColor {
+          flex-basis: 24px;
+          margin-right: 5px; }
+        .partBlock .blockData ul li .title {
+          flex-grow: 1;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .partBlock .blockData ul li .edit {
+          flex-basis: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0.25;
+          flex-shrink: 0; }
+          .partBlock .blockData ul li .edit:hover {
+            opacity: 0.75; }
+        .partBlock .blockData ul li .destroy {
+          flex-basis: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          opacity: 0.25;
+          flex-shrink: 0; }
+          .partBlock .blockData ul li .destroy:hover {
+            opacity: 0.75; }
+            .partBlock .blockData ul li .destroy:hover svg {
+              stroke: #DC3545; }
+
 #part {
   display: grid;
   grid-template-columns: repeat(3, 250px) 1fr;
@@ -328,36 +415,6 @@ body {
     text-align: center;
     display: block;
     opacity: 0.5; }
-  #part .partBlock {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; }
-    #part .partBlock h2 {
-      padding: 0;
-      margin: 1rem;
-      flex-shrink: 0;
-      display: flex;
-      height: 30px; }
-      #part .partBlock h2 span {
-        font-size: 16px;
-        opacity: 0.85;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-grow: 1; }
-      #part .partBlock h2 a.add {
-        flex-basis: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        flex-shrink: 0; }
-        #part .partBlock h2 a.add:hover {
-          opacity: 0.5; }
-    #part .partBlock .blockData {
-      flex-grow: 1;
-      overflow: auto; }
   #part .partList {
     grid-row: 1 / span 2;
     background-color: #f0f0f0; }
@@ -441,58 +498,6 @@ body {
         grid-column: 1;
         grid-row: 4 / span 1;
         background-color: #F9F9F9; } }
-  #part ul {
-    margin: 0 0 0.5rem;
-    padding: 0;
-    list-style: none; }
-    #part ul li {
-      padding: 0 1rem;
-      line-height: 30px;
-      display: flex; }
-      #part ul li:hover .edit {
-        opacity: 0.5; }
-      #part ul li:hover .destroy {
-        opacity: 0.5; }
-      #part ul li.noActive .title {
-        text-decoration: line-through; }
-      #part ul li a.router-link-active {
-        font-weight: bold;
-        color: black;
-        text-decoration: none; }
-      #part ul li .color {
-        flex-basis: 24px;
-        flex-shrink: 0;
-        margin: 3px 5px 3px 0;
-        border-radius: 3px; }
-      #part ul li .emptyColor {
-        flex-basis: 24px;
-        margin-right: 5px; }
-      #part ul li .title {
-        flex-grow: 1;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-      #part ul li .edit {
-        flex-basis: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.25;
-        flex-shrink: 0; }
-        #part ul li .edit:hover {
-          opacity: 0.75; }
-      #part ul li .destroy {
-        flex-basis: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        opacity: 0.25;
-        flex-shrink: 0; }
-        #part ul li .destroy:hover {
-          opacity: 0.75; }
-          #part ul li .destroy:hover svg {
-            stroke: #DC3545; }
   #part #PartModelEditForm {
     padding: 0 1rem; }
   #part .images {
@@ -558,3 +563,65 @@ body {
         padding: 0 0.25rem;
         height: 1.5rem;
         font-size: 14px !important; }
+
+#indexPage {
+  display: grid;
+  margin: -2rem;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: repeat(2, 250px) 1fr;
+  grid-template-rows: repeat(1, 1fr);
+  background-color: #DDDDDD;
+  grid-gap: 1px; }
+  #indexPage h2 {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; }
+  #indexPage .sections {
+    background-color: #F9F9F9; }
+  #indexPage .parts {
+    background-color: #F9F9F9; }
+  #indexPage .partEdit {
+    background-color: #F9F9F9;
+    padding: 1rem;
+    overflow: auto;
+    height: 100vh;
+    overflow: hidden; }
+    #indexPage .partEdit .IndexS1Actions {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      height: 100vh;
+      margin: -1rem;
+      display: flex;
+      flex-direction: column; }
+      #indexPage .partEdit .IndexS1Actions #IndexS1ActionsForm {
+        overflow: auto;
+        padding: 1rem 1rem 0 1rem;
+        flex-grow: 1; }
+        #indexPage .partEdit .IndexS1Actions #IndexS1ActionsForm .card.destroy {
+          opacity: 0.25; }
+      #indexPage .partEdit .IndexS1Actions .buttons {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 1rem 2rem 1rem 1rem; }
+  #indexPage label.s1ActionImage {
+    display: block;
+    margin: 0;
+    height: 204px;
+    overflow: hidden;
+    border-radius: .25rem;
+    border: 1px solid #CED4DA;
+    cursor: pointer; }
+    #indexPage label.s1ActionImage input {
+      display: none; }
+    #indexPage label.s1ActionImage .img {
+      display: block;
+      background-color: #F9F9F9;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #indexPage label.s1ActionImage .img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; }

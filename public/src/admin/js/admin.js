@@ -14,6 +14,7 @@ import Part from '../components/part/Part.js'
 // import PartGrid from '../components/PartGrid.js'
 // import PartSill from '../components/PartSill.js'
 // import PartValve from '../components/PartValve.js'
+import Index from '../components/index/Index.js'
 
 const routes = [
     {
@@ -55,40 +56,6 @@ const routes = [
         path: '/gallery',
         component: Gallery
     },
-    // {
-    //     path: '/part',
-    //     component: Part,
-    //     children: [
-    //         {
-    //             path: '',
-    //             component: PartList
-    //         },
-    //         {
-    //             path: 'handle',
-    //             component: PartHandle
-    //         },
-    //         {
-    //             path: 'curtain',
-    //             component: PartCurtain,
-    //         },
-    //         {
-    //             path: 'jalousie',
-    //             component: PartJalousie,
-    //         },
-    //         {
-    //             path: 'grid',
-    //             component: PartGrid,
-    //         },
-    //         {
-    //             path: 'sill',
-    //             component: PartSill,
-    //         },
-    //         {
-    //             path: 'valve',
-    //             component: PartValve,
-    //         },
-    //     ]
-    // },
     {
         path: '/part',
         component: Part,
@@ -110,6 +77,25 @@ const routes = [
                                 props: true,
                             }
                         ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        path: '/index',
+        component: Index,
+        props: true,
+        children: [
+            {
+                path: ':section',
+                component: Index,
+                props: true,
+                children: [
+                    {
+                        path: ':part',
+                        component: Index,
+                        props: true,
                     }
                 ]
             }

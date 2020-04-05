@@ -44,6 +44,8 @@
 
 	color: #fff;
 
+	background-color: #363636;
+
 	@media (max-width: 1200px) {
 		padding-right: 0;
 	}
@@ -168,8 +170,6 @@
 		}
 
 		.fp-tableCell {
-			display: block;
-
 			position: relative;
 		}
 
@@ -277,7 +277,7 @@
 
 	.desktop {
 		padding-top: 60px;
-
+		
 		@media (max-width: 910px) {
 			display: none;
 		}
@@ -391,11 +391,6 @@
 
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.47);
 		}
-	}
-}
-.fp-tableCell {
-	@media (min-width: 910px) {
-		padding-top: 60px;
 	}
 }
 .s2-main-list {

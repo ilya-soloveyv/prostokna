@@ -23,7 +23,7 @@ $('#fullpage_welcome').fullpage({
 
     //Navigation
     anchors: ['s1','s2','s3','s4','s5','s6','s7','s8','s9'],
-    slidesNavigation: true,
+    // slidesNavigation: true,
 
     //Scrolling
     scrollingSpeed: 700,
@@ -31,9 +31,6 @@ $('#fullpage_welcome').fullpage({
     scrollOverflow: true,
     scrollOverflowReset: true,
     scrollOverflowResetKey: '85F59DF5-C3C6429B-9D26694D-ED504778',
-
-    //Design
-    sectionsColor : ['#fff', '#363636'],
 
     onLeave: function (origin, destination, direction) {
         fullpage_welcome_color(destination);

@@ -1,16 +1,14 @@
 .section.s3
-    .fp_bg
-        .l
-            .video
-                .hamburger.hamburger--spin
-                    .hamburger-box
-                        .hamburger-inner
-                .v
-            .play
-                .button
-                .info Смотреть видео<br />8:42
-        .r
-            .vopros ?
-            .desc
-                .title Как просто выбрать окна<span>?</span>
-                .text Данное видео подробно расскажет вам о том, на что обращать внимание при выборе материалов окон под различные помещения и условия. Вы сможете самостоятельно разобраться без помощи консультанта.
+    .fp-bg
+        .s3-wrap
+            .s3-play
+                button(type="button" data-toggle="modal" data-target="#s3-modal")
+                    svg
+                        title Запустить видео
+                        use(xlink:href='#play')
+            .s3-content
+                .s3-title КАК ПРОСТО ВЫБРАТЬ ОКНА
+                .s3-description Данное видео подробно расскажет вам о том, на что обращать внимание при выборе материалов окон под различные помещения и условия. Вы сможете самостоятельно разобраться без помощи консультанта.
+            div.s3-button
+                a(href='/calculation').btn
+                    span Выбрать окно

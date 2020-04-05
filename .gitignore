@@ -13,3 +13,8 @@ package-lock.json
 /public/images/gallery
 /public/images/part
 /encryption
+dist
+.firebase
+.firebaserc
+firebase.json
+/public/images/actions
