@@ -920,6 +920,472 @@ app.post('/admin/BrandUpdate', async (req, res) => {
 
 
 
+app.post('/admin/part/getPartList', async (req, res) => {
+    const response = {}
+    const Part = require('./models').part
+    response.partList = await Part.findAll({
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/part/getPartItem', async (req, res) => {
+    const response = {}
+    const iPartID = req.body.iPartID
+    const Part = require('./models').part
+    response.part = await Part.findByPk(iPartID)
+    res.json(response)
+})
+app.post('/admin/part/updatePart', async (req, res) => {
+    const Part = require('./models').part
+    const response = {}
+    let iPartID = req.body.iPartID || false
+    const sPartTitle = req.body.sPartTitle || null
+    const sPartURI = req.body.sPartURI || cyrillicToTranslit().transform(sPartTitle, "_").toLowerCase()
+    const iActive = req.body.iActive || false
+    const iOrder = req.body.iOrder || 9999
+    if (iPartID) {
+        response.update = await Part.update({
+            sPartTitle,
+            sPartURI,
+            iActive,
+            iOrder
+        }, {
+            where: {
+                iPartID
+            }
+        })
+    } else {
+        response.create = await Part.create({
+            sPartTitle,
+            sPartURI,
+            iActive,
+            iOrder
+        })
+        iPartID = response.create.iPartID
+    }
+    response.part = await Part.findByPk(iPartID)
+    res.json(response)
+})
+app.post('/admin/part/destroyPart', async (req, res) => {
+    const Part = require('./models').part
+    const response = {}
+    const iPartID = req.body.iPartID
+    response.destroy = await Part.destroy({
+        where: {
+            iPartID
+        }
+    })
+    res.json(response)
+})
+app.post('/admin/part/getBrandList', async (req, res) => {
+    const response = {}
+    const iPartID = req.body.iPartID
+    const PartBrand = require('./models').partBrand
+    response.partBrandList = await PartBrand.findAll({
+        where: {
+            iPartID
+        },
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/part/getPartBrandItem', async (req, res) => {
+    const response = {}
+    const iPartBrandID = req.body.iPartBrandID
+    const PartBrand = require('./models').partBrand
+    response.partBrand = await PartBrand.findByPk(iPartBrandID)
+    res.json(response)
+})
+app.post('/admin/part/updatePartBrand', async (req, res) => {
+    const PartBrand = require('./models').partBrand
+    const response = {}
+    let iPartBrandID = req.body.iPartBrandID || false
+    const iPartID = req.body.iPartID || null
+    const sPartBrandTitle = req.body.sPartBrandTitle || null
+    const sPartBrandURI = req.body.sPartBrandURI || cyrillicToTranslit().transform(sPartBrandTitle, "_").toLowerCase()
+    const iActive = req.body.iActive || false
+    const iOrder = req.body.iOrder || 9999
+    if (iPartBrandID) {
+        response.update = await PartBrand.update({
+            sPartBrandTitle,
+            sPartBrandURI,
+            iActive,
+            iOrder
+        }, {
+            where: {
+                iPartBrandID
+            }
+        })
+    } else {
+        response.create = await PartBrand.create({
+            sPartBrandTitle,
+            sPartBrandURI,
+            iPartID,
+            iActive,
+            iOrder
+        })
+        iPartBrandID = response.create.iPartBrandID
+    }
+    response.partBrand = await PartBrand.findByPk(iPartBrandID)
+    res.json(response)
+})
+app.post('/admin/part/destroyPartBrand', async (req, res) => {
+    const PartBrand = require('./models').partBrand
+    const response = {}
+    const iPartBrandID = req.body.iPartBrandID
+    response.destroy = await PartBrand.destroy({
+        where: {
+            iPartBrandID
+        }
+    })
+    res.json(response)
+})
+app.post('/admin/part/getPartModelList', async (req, res) => {
+    const response = {}
+    const iPartBrandID = req.body.iPartBrandID
+    const PartModel = require('./models').partModel
+    response.partModelList = await PartModel.findAll({
+        where: {
+            iPartBrandID
+        },
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/part/getPartModelItem', async (req, res) => {
+    const response = {}
+    const iPartModelID = req.body.iPartModelID
+    const PartModel = require('./models').partModel
+    response.partModel = await PartModel.get(iPartModelID)
+    res.json(response)
+})
+app.post('/admin/part/updatePartModel', async (req, res) => {
+    const PartModel = require('./models').partModel
+    const response = {}
+    let iPartModelID = req.body.iPartModelID || false
+    const iPartBrandID = req.body.iPartBrandID || null
+    const sPartModelTitle = req.body.sPartModelTitle || null
+    const sPartModelURI = req.body.sPartModelURI || cyrillicToTranslit().transform(sPartModelTitle, "_").toLowerCase()
+    const iPartModelPrice = req.body.iPartModelPrice || 1
+    const tPartModelDesc = req.body.tPartModelDesc || null
+    const iActive = req.body.iActive || false
+    const iOrder = req.body.iOrder || 9999
+    if (iPartModelID) {
+        response.update = await PartModel.update({
+            sPartModelTitle,
+            sPartModelURI,
+            iPartModelPrice,
+            tPartModelDesc,
+            iActive,
+            iOrder
+        }, {
+            where: {
+                iPartModelID
+            }
+        })
+    } else {
+        response.create = await PartModel.create({
+            iPartBrandID,
+            sPartModelTitle,
+            sPartModelURI,
+            iPartModelPrice,
+            tPartModelDesc,
+            iActive,
+            iOrder
+        })
+        iPartModelID = response.create.iPartModelID
+    }
+    response.partModel = await PartModel.get(iPartModelID)
+    res.json(response)
+})
+app.post('/admin/part/destroyPartModel', async (req, res) => {
+    const PartModel = require('./models').partModel
+    const response = {}
+    const iPartModelID = req.body.iPartModelID
+    response.destroy = await PartModel.destroy({
+        where: {
+            iPartModelID
+        }
+    })
+    res.json(response)
+})
+app.post('/admin/part/getPartColorList', async (req, res) => {
+    const response = {}
+    const iPartBrandID = req.body.iPartBrandID
+    const PartColor = require('./models').partColor
+    response.partColorList = await PartColor.findAll({
+        where: {
+            iPartBrandID
+        },
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/part/getPartColorItem', async (req, res) => {
+    const response = {}
+    const iPartColorID = req.body.iPartColorID
+    const PartColor = require('./models').partColor
+    response.partColor = await PartColor.findByPk(iPartColorID)
+    res.json(response)
+})
+app.post('/admin/part/updatePartColor', async (req, res) => {
+    const PartColor = require('./models').partColor
+    const response = {}
+    let iPartColorID = req.body.iPartColorID || false
+    const iPartBrandID = req.body.iPartBrandID || null
+    const sPartColorTitle = req.body.sPartColorTitle || null
+    const sPartColorCode = req.body.sPartColorCode || null
+    const sPartColorTitleCode = req.body.sPartColorTitleCode || null
+    const sPartColorFileName = req.body.sPartColorFileName || null
+    const iPartColorCheck = req.body.iPartColorCheck || false
+    const iActive = req.body.iActive || false
+    const iOrder = req.body.iOrder || 9999
+    if (iPartColorID) {
+        response.update = await PartColor.update({
+            sPartColorTitle,
+            sPartColorCode,
+            sPartColorTitleCode,
+            sPartColorFileName,
+            iPartColorCheck,
+            iActive,
+            iOrder
+        }, {
+            where: {
+                iPartColorID
+            }
+        })
+    } else {
+        response.create = await PartColor.create({
+            iPartBrandID,
+            sPartColorTitle,
+            sPartColorCode,
+            sPartColorTitleCode,
+            sPartColorFileName,
+            iPartColorCheck,
+            iActive,
+            iOrder
+        })
+        iPartColorID = response.create.iPartColorID
+    }
+    response.partModel = await PartColor.findByPk(iPartColorID)
+    res.json(response)
+})
+app.post('/admin/part/destroyPartColor', async (req, res) => {
+    const PartColor = require('./models').partColor
+    const response = {}
+    const iPartColorID = req.body.iPartColorID
+    response.destroy = await PartColor.destroy({
+        where: {
+            iPartColorID
+        }
+    })
+    res.json(response)
+})
+app.post('/admin/part/uploadPartModel', async (req, res) => {
+    const PartModel = require('./models').partModel
+    var filename = randomString() + '.' + req.headers.extension
+    const iPartModelID = req.headers.ipartmodelid
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/part')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        await PartModel.update(
+            {
+                sPartModelFile: req.file.filename
+            },
+            {
+                where: {
+                    iPartModelID
+                }
+            }
+        )
+        // response.file = file
+        // response.images = await PartImage.getList(iPartModelID)
+        res.json(response)
+    })
+})
+app.post('/admin/part/uploadPartColor', async (req, res) => {
+    const PartImage = require('./models').partImage
+    var filename = randomString() + '.' + req.headers.extension
+    const iPartModelID = req.headers.ipartmodelid
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/part')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        await PartImage.create({
+            iPartModelID,
+            sPartImageFile: req.file.filename,
+            iActive: true
+        })
+        // response.file = file
+        response.images = await PartImage.getList(iPartModelID)
+        res.json(response)
+    })  
+})
+app.post('/admin/part/destroyPartModelImage', async (req, res) => {
+    const fs = require('fs')
+    const PartImage = require('./models').partImage
+    const response = {}
+    const iPartImageID = req.body.iPartImageID
+    response.image = await PartImage.findByPk(iPartImageID)
+    fs.unlinkSync('./public/images/part/' + response.image.sPartImageFile)
+    await PartImage.destroy({
+        where: {
+            iPartImageID
+        }
+    })
+    response.images = await PartImage.getList(response.image.iPartModelID)
+    res.json(response)
+})
+app.post('/admin/part/updatePartModelImage', async (req, res) => {
+    const PartImage = require('./models').partImage
+    const response = {}
+    const iPartModelID = req.body.iPartModelID
+    const iPartImageID = req.body.iPartImageID
+    const iPartColorID = req.body.iPartColorID
+    const iPartColorPrice = req.body.iPartColorPrice || null
+    await PartImage.update(
+        {
+            iPartColorID,
+            iPartColorPrice
+        },
+        {
+            where: {
+                iPartImageID
+            }            
+        }
+    )
+    response.images = await PartImage.getList(iPartModelID)
+    res.json(response)
+})
+
+
+app.post('/admin/index/s1/left/get', async (req, res) => {
+    const response = {}
+    const IndexS1 = require('./models').index_s1
+    response.left = await IndexS1.findByPk(1)
+    res.json(response)
+})
+app.post('/admin/index/s1/left/update', async (req, res) => {
+    const response = {}
+    const IndexS1 = require('./models').index_s1
+    const s1Title = req.body.s1Title
+    const s1Desc = req.body.s1Desc
+    await IndexS1.update({
+        s1Title,
+        s1Desc
+    }, {
+        where: {
+            s1ID: 1
+        }
+    })
+    response.left = await IndexS1.findByPk(1)
+    res.json(response)
+})
+app.post('/admin/index/s1/actions/get', async (req, res) => {
+    const response = {}
+    const IndexS1Action = require('./models').index_s1_action
+    response.actions = await IndexS1Action.findAll({
+        order: [
+            ['iActive', 'DESC'],
+            ['iOrder', 'ASC'],
+            ['s1ActionID', 'ASC']
+        ]
+    })
+    res.json(response)
+})
+app.post('/admin/index/s1/actions/upload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/actions')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        response.filename = filename
+        return res.json(response)
+    })
+})
+app.post('/admin/index/s1/actions/update', async (req, res) => {
+    const response = {}
+    const IndexS1Action = require('./models').index_s1_action
+
+    const actions = req.body.actions
+
+    for (const action of actions) {
+        const s1ActionID = action.s1ActionID || false
+        console.log(s1ActionID)
+        const s1ActionTitle = action.s1ActionTitle || null
+        const s1ActionURL = action.s1ActionURL || null
+        const s1ActionImage = action.s1ActionImage || null
+        const iActive = action.iActive || false
+        const iOrder = action.iOrder || 9999
+        console.log(action)
+        if (action.del === true && s1ActionID) {
+            await IndexS1Action.destroy({
+                where: {
+                    s1ActionID
+                }
+            })
+        } else if (!action.del && s1ActionID) {
+            await IndexS1Action.update({
+                s1ActionTitle,
+                s1ActionURL,
+                s1ActionImage,
+                iActive,
+                iOrder
+            }, {
+                where: {
+                    s1ActionID
+                }
+            })
+        } else if (!action.del) {
+            await IndexS1Action.create({
+                s1ActionTitle,
+                s1ActionURL,
+                s1ActionImage,
+                iActive,
+                iOrder
+            })
+        }
+    }
+
+    res.json(response)
+})
+
+
+
 
 // cookie
 // app.use(function (req, res, next) {
@@ -938,6 +1404,22 @@ app.get('/', async (req, res) => {
     data.title = 'Просто окна'
     data.description = 'Просто Окна – замер, проектирование, изготовление и реализация светопрозрачных конструкций любых типов: пластиковые окна ПВХ, алюминиевые окна, деревянные окна из евробруса, витражи, фасады и стоечно-ригельные системы. Монтажные работы любой сложности. Окна от производителя по лучшим ценам в Москве, МО и России. Мы не занимаемся накруткой цены, вы точно знаете, за что платите. Просто Окна – с нами просто.'
     data.left_menu_active = 0
+
+    // Секция 1
+    const IndexS1 = require('./models').index_s1
+    const IndexS1Action = require('./models').index_s1_action
+    data.s1 = {}
+    data.s1.left = await IndexS1.findByPk(1)
+    data.s1.actions = await IndexS1Action.findAll({
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC'],
+            ['s1ActionID', 'ASC']
+        ]
+    })
+
 
     // Менюшка окон
     let MaterialBrandProductMenu = []
@@ -1063,6 +1545,27 @@ app.get('/', async (req, res) => {
     // res.json(MaterialBrandProductMenu)
     // return false
 
+    const Part = require('./models').part
+    const partList = await Part.findAll({
+        attributes: [
+            'sPartTitle',
+            'sPartURI'
+        ],
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+    const menuPartList = []
+    partList.forEach(part => {
+        menuPartList.push({
+            title: part.sPartTitle,
+            uri: '/part/' + part.sPartURI
+        })
+    })
+
     data.s2_menu = [
         {
             title: 'Окна',
@@ -1185,32 +1688,7 @@ app.get('/', async (req, res) => {
         {
             title: 'Комплектующие',
             ico: 'accessories',
-            list: [
-                {
-                    title: 'Подоконники',
-                    uri: '/options'
-                },
-                {
-                    title: 'Ручки',
-                    uri: '/options'
-                },
-                {
-                    title: 'Шторы',
-                    uri: '/options'
-                },
-                {
-                    title: 'Жалюзи',
-                    uri: '/options'
-                },
-                {
-                    title: 'Клапаны',
-                    uri: '/options'
-                },
-                {
-                    title: 'Москитные сетки',
-                    uri: '/options'
-                },
-            ]
+            list: menuPartList
         },
         {
             title: 'Цены',
@@ -1385,6 +1863,7 @@ app.get('/', async (req, res) => {
             ]
         },
     ]
+    // return res.json(data)
     res.render('index.pug', data)
 })
 
@@ -1740,6 +2219,140 @@ app.get('/windowsill', async (req, res) => {
     data.description = ''
     data.left_menu_active = null
     res.render('accessories/windowsill.pug', data)
+})
+
+app.get('/part', async (req, res) => {
+    const Part = require('./models').part
+    var part = await Part.findOne({
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+    if (part) return res.redirect('/part/' + part.sPartURI)
+    res.sendStatus(404)
+})
+app.get('/part/:sPartURI', async (req, res) => {
+    const sPartURI = req.params.sPartURI
+    const Part = require('./models').part
+    const part = await Part.findOne({
+        where: {
+            sPartURI
+        }
+    })
+    const iPartID = part.iPartID
+    const PartBrand = require('./models').partBrand
+    const partBrand = await PartBrand.findOne({
+        where: {
+            iPartID,
+            iActive: 1
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+    if (partBrand) return res.redirect('/part/' + part.sPartURI + '/' + partBrand.sPartBrandURI)
+    res.sendStatus(404)
+})
+app.get('/part/:sPartURI/:sPartBrandURI', async (req, res) => {
+    const Part = require('./models').part
+    const PartBrand = require('./models').partBrand
+    const PartModel = require('./models').partModel
+
+    const sPartURI = req.params.sPartURI
+    const sPartBrandURI = req.params.sPartBrandURI
+
+    const partBrand = await PartBrand.findOne({
+        where: {
+            sPartBrandURI,
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+    const iPartBrandID = partBrand.iPartBrandID
+
+    const partModel = await PartModel.findOne({
+        where: {
+            iPartBrandID,
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+    if (partModel) return res.redirect('/part/' + sPartURI + '/' + sPartBrandURI + '/' + partModel.sPartModelURI)
+    res.sendStatus(404)
+})
+app.get('/part/:sPartURI/:sPartBrandURI/:sPartModelURI', async (req, res) => {
+    const Part = require('./models').part
+    const PartBrand = require('./models').partBrand
+    const PartModel = require('./models').partModel
+
+    const sPartURI = req.params.sPartURI
+    const sPartBrandURI = req.params.sPartBrandURI
+    const sPartModelURI = req.params.sPartModelURI
+
+    data.part = await Part.findOne({
+        where: {
+            sPartURI
+        }
+    })
+    const iPartID = data.part.iPartID
+
+    data.brands = await PartBrand.findAll({
+        where: {
+            iPartID,
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+    data.parts = await Part.findAll({
+        where: {
+            iActive: true
+        },
+        order: [
+            ['iOrder', 'ASC']
+        ]
+    })
+
+
+    const brand = await PartBrand.findOne({
+        where: {
+            sPartBrandURI,
+            iActive: true
+        }
+    })
+    const iPartBrandID = brand.iPartBrandID
+
+    const model = await PartModel.findOne({
+        where: {
+            sPartModelURI,
+            iActive: true
+        }
+    })
+    const iPartModelID = model.iPartModelID
+
+    data.model = await PartModel.get(iPartModelID)
+
+    data.models = await PartModel.findAll({
+        where: {
+            iPartBrandID,
+            iActive: true
+        }
+    })
+
+    // return res.json(data)
+    // res.render('part/handle.pug', data)
+    res.render('accessories/handle.pug', data)
 })
 
 

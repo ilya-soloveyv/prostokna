@@ -7,10 +7,10 @@ export default {
                     title: 'Окна',
                     uri: '/product',
                 },
-                // {
-                //     title: 'Материалы',
-                //     uri: '/material',
-                // },
+                {
+                    title: 'Материалы',
+                    uri: '/material',
+                },
                 {
                     title: 'Бренды',
                     uri: '/brand',
@@ -22,6 +22,14 @@ export default {
                 {
                     title: 'Галлерея',
                     uri: '/gallery',
+                },
+                {
+                    title: 'Комплектующие',
+                    uri: '/part'
+                },
+                {
+                    title: 'Главная страница',
+                    uri: '/index'
                 },
             ]
         }
@@ -38,7 +46,7 @@ export default {
                         <img src="/images/logo_rgb.png" />
                     </router-link>
                     <ul class="menu">
-                        <router-link v-bind:to="menu.uri" v-for="(menu, index) in menu" :key="index" tag="li" exact>
+                        <router-link v-bind:to="menu.uri" v-for="(menu, index) in menu" :key="index" tag="li">
                             <a>{{ menu.title }}</a>
                         </router-link>
                     </ul>

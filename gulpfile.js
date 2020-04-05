@@ -40,8 +40,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/jquery.loupe.min.js',
             'public/src/js/tooltip.min.js',
             'public/src/js/bootstrap.js',
-            'public/src/js/swiped-events.js',            
-            'public/src/js/jquery.fullpage.min.js',
+            'public/src/js/swiped-events.js',
             'public/src/js/scrolloverflow.min.js',
             'public/src/js/fullpage.min.js',
             'public/src/js/owl.carousel.min.js',
@@ -239,6 +238,10 @@ gulp.task('sass_admin', function () {
 gulp.task('watch', () => {
     gulp.watch('public/src/sass/**/*.scss', gulp.series('sass', 'css_min'))
     gulp.watch('public/src/js/**/*.js', gulp.series('js_min'))
+})
+
+gulp.task('watch_admin', () => {
+    gulp.watch('public/src/admin/sass/**/*.scss', gulp.series('sass_admin'))
 })
 
 gulp.task('bs', /* ['nodemon'], */ function() {
