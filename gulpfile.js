@@ -14,6 +14,7 @@ const revOutdated   = require('gulp-rev-outdated')
 const path          = require('path')
 const through       = require('through2')
 const autoprefixer = require('gulp-autoprefixer');
+const pug = require('gulp-pug')
 // const runSequence   = require('run-sequence')
 
 function cleaner() {
@@ -40,8 +41,8 @@ gulp.task('js_min', (done) => {
             'public/src/js/tooltip.min.js',
             'public/src/js/bootstrap.js',
             'public/src/js/swiped-events.js',
-            'public/src/js/scrolloverflow.min.js',
             'public/src/js/fullpage.min.js',
+            'public/src/js/scrolloverflow.min.js',
             'public/src/js/owl.carousel.min.js',
             'public/src/js/jquery.touchSwipe.min.js',
             'node_modules/jquery-mousewheel/jquery.mousewheel.js',
@@ -57,6 +58,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/index/s1.js',
             'public/src/js/index/s2.js',
             'public/src/js/index/s3.js',
+            'public/src/js/index/s4.js',
             'public/src/js/index/s5.js',
             'public/src/js/index/s6.js',
             'public/src/js/app/calc.js',
@@ -121,7 +123,12 @@ gulp.task('css_min', (done) => {
             'public/src/css_static/jquery.scrollbar.css',
             'public/src/css_static/rangeslider.css',
             'public/src/css_static/hamburgers.css',
-            'public/src/css/hamburglar.css',            
+            'public/src/css/hamburglar.css',    
+            'public/src/css/common.css',
+            'public/src/css/components/btn.css',
+            'public/src/css/components/header.css',
+            'public/src/css/components/footer.css',
+            'public/src/css/components/modals.css', 
             'public/src/css/app.css',
             'public/src/css/index/index.css',
             'public/src/css/index/s1.css',
@@ -158,7 +165,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/calculation.css',
             'public/src/css/page-brand/page-brand.css',
             'public/src/css/best-cost/best-cost.css',
-					'public/src/css/accessories/accessories.css',
+			'public/src/css/accessories/accessories.css',
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())
@@ -201,7 +208,11 @@ gulp.task('production', gulp.series(
 
 
 
-
+gulp.task('pug', function buildHTML() {
+    return gulp.src('views/index/s4.pug')
+    .pipe(pug())
+    .pipe(gulp.dest('dist'));
+  });
 
 
 
@@ -211,7 +222,7 @@ gulp.task('sass', function () {
             'public/src/sass/**/*.scss'
         ])
         .pipe(sass())
-        .pipe(autoprefixer(['last 3 versions']))
+        .pipe(autoprefixer(['last 2 versions']))
         .pipe(gulp.dest('public/src/css'))
 });
 
@@ -225,7 +236,8 @@ gulp.task('sass_admin', function () {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
+    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass', 'css_min'))
+    gulp.watch('public/src/js/**/*.js', gulp.series('js_min'))
 })
 
 gulp.task('watch_admin', () => {

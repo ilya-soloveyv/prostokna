@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
   "app.min.css": "app-f632a989c4.min.css",
   "app.min.js": "app-b81d5d5fbd.min.js"
+=======
+  "app.min.css": "app-03ad2f2aa6.min.css",
+  "app.min.js": "app-25f0d581b5.min.js"
+>>>>>>> dev
 }
