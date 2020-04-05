@@ -140,7 +140,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/index/s7.css',
             'public/src/css/index/s8.css',
             'public/src/css/index/s9.css',
-            'public/src/css/contact/contact.css',git pu
+            'public/src/css/contact/contact.css',
             'public/src/css/gager/gager.css',
             'public/src/css/product/products.css',
             'public/src/css/product/product.css',
