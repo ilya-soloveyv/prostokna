@@ -1,158 +1,214 @@
 #fullpage_welcome {
     .section {
-        &.s7 {
+        &.s7 { 
             .data {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 80px;
-                width: 100%;
+                height: calc(100vh - 60px);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                margin-right: 60px;
+                @media (max-width: 1200px) {
+                    margin-right: 0px;
+                }
                 .info {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 25%;
-                    background: -moz-linear-gradient(0deg, rgba(42,0,164,1) 0%, rgba(22,94,211,1) 100%); /* ff3.6+ */
-                    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(42,0,164,1)), color-stop(100%, rgba(22,94,211,1))); /* safari4+,chrome */
-                    background: -webkit-linear-gradient(0deg, rgba(42,0,164,1) 0%, rgba(22,94,211,1) 100%); /* safari5.1+,chrome10+ */
-                    background: -o-linear-gradient(0deg, rgba(42,0,164,1) 0%, rgba(22,94,211,1) 100%); /* opera 11.10+ */
-                    background: -ms-linear-gradient(0deg, rgba(42,0,164,1) 0%, rgba(22,94,211,1) 100%); /* ie10+ */
-                    background: linear-gradient(90deg, rgba(42,0,164,1) 0%, rgba(22,94,211,1) 100%); /* w3c */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a00a4', endColorstr='#165ed3',GradientType=1 ); /* ie6-9 */
-                    .l {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 50%;
-                        height: 100%;
-                        font-weight: 600;
-                        font-size: 60px;
-                        line-height: 70px;
-                        text-transform: uppercase;
-                        color: #FFF;
-                        display: flex;
-                        align-items: center;
-                        padding: 0 80px;
-                        @media (max-width: 992px) {
-                            font-size: 50px;
-                            line-height: 60px;
-                        }
-                        @media (max-width: 768px) {
-                            font-size: 35px;
-                            line-height: 55px;
-                            padding: 0 50px;
-                        }
-                        @media (max-width: 576px) {
-                            width: 100%;
-                            line-height: 40px;
-                            justify-content: center;
-                            text-align: center;
-                        }
+                    flex-shrink: 0;
+                    display: flex;
+                    width: 100%;    
+                    height: 190px;
+                    background: linear-gradient(to top, #C07FEC, #D360E7);
+                    @media (max-width: 1280px) {
+                        flex-direction: column;
+                        height: auto;
                     }
-                    .r {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        width: 50%;
-                        height: 100%;
-                        
-                        font-size: 16px;
-                        line-height: 30px;
-                        color: #FFF;
+                    @media (max-width: 768px) {
+                        display: none;
+                    }                   
+                    .l {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        padding: 0 80px 0 0;
-                        @media (max-width: 1342px) {
-                            line-height: 26px;
+                        
+                        text-transform: uppercase;
+                        font-family: Montserrat;
+                        color: white;
+                        font-weight: normal;
+                        font-size: 24px;
+                        flex-shrink: 0;
+                        padding: 0 70px;                       
+                        @media (max-width: 1280px) {
+                            font-weight: 600;
+                            padding: 30px 70px 0;
                         }
-                         @media (max-width: 992px) {
-                            line-height: 20px;
-                            font-size: 15px;
-                        }
-                        @media (max-width: 768px) {
-                            line-height: 15px;
-                            font-size: 13px;
-                            padding-right: 50px;
-                        }
-                        @media (max-width: 576px) {
-                            display: none;
+                    }
+                    .r {
+                        flex-grow: 1;
+                        display: flex;
+                        align-items: center;
+                        font-family: Montserrat;
+                        color: white;
+                        font-weight: 500;
+                        font-size: 14px;
+                        padding-right: 70px;
+                        @media (max-width: 1280px) {
+                            justify-content: center;
+                            text-align: center;
+                            padding: 30px 100px;
                         }
                     }
                 }
-                .owl-carousel {
-                    position: absolute;
-                    top: 25%;
-                    left: 0;
-                    width: 100%;
-                    height: 75%;
+
+                .owl-carousel {     
+                    height: 100%;
                     .owl-stage-outer {
                         height: 100%;
                         .owl-stage {
                             height: 100%;
-                            .owl-item {
+                        }
+                        .owl-item {
+                            height: 100%;
+                            .item {
                                 height: 100%;
-                                .item {
-                                    width: 100%;
-                                    height: 100%;
+                                display: grid;
+                                grid-template-rows: repeat(3, 1fr);
+                                .bg_flex {
+                                    flex-grow: 1;
+                                    border-right: 1px solid #999999;
+                                    border-bottom: 1px solid #999999;
                                     display: flex;
-                                    justify-content: space-around;
-                                    flex-direction: column;
-                                    .bg_flex {
-                                        position: relative;
-                                        height: 33.3333333333%;
-                                        border-right: 1px solid #999999;
-                                        border-bottom: 1px solid #999999;
-                                        display: flex;
-                                        align-items: center;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: relative;
+                                    img {
+                                        width: 55%;
+                                        height: 55%;
+                                        object-fit: contain;
+                                        opacity: .75;
+                                        @media (max-width: 576px) {
+                                            max-width: 200px;
+                                            width: 75%;
+                                        }
+                                    }
+                                    .title {
+                                        display: none;
                                         justify-content: center;
-                                       
-                                        img {
-                                            width: 180px;
-                                            max-width: 45%;
-                                            opacity: .75;
-                                            @media (max-width: 576px) {
-                                                max-width: 200px;
-                                                width: 75%;
-                                            }
-                                        }
-                                        .title {
-                                            display: none;
-                                            justify-content: center;
-                                            align-items: center;
-                                            position: absolute;
+                                        align-items: center;
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background-color: rgba(22,94,212,.9);
+                                        
+                                        font-size: 10px;
+                                        line-height: 14px;
+                                        text-transform: uppercase;
+                                        color: #FFF;
+                                        text-align: center;
+                                        padding: 0 20px;
+                                        span {
+                                            font-weight: 600;
+                                            font-size: 16px;
+                                            line-height: 20px;
                                             width: 100%;
-                                            height: 100%;
-                                            background-color: rgba(22,94,212,.9);
-                                            
-                                            font-size: 10px;
-                                            line-height: 14px;
-                                            text-transform: uppercase;
-                                            color: #FFF;
-                                            text-align: center;
-                                            padding: 0 20px;
-                                            span {
-                                                font-weight: 600;
-                                                font-size: 16px;
-                                                line-height: 20px;
-                                                width: 100%;
-                                                padding-bottom: 10px;
-                                                display: block;
-                                            }
+                                            padding-bottom: 10px;
+                                            display: block;
                                         }
-                                        &:hover {
-                                            .title {
-                                                display: flex;
-                                            }
+                                    }
+                                    &:hover {
+                                        .title {
+                                            display: flex;
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                    .owl-dots {
-                        margin: 25px;
+                                          
+                    .owl-dots {                        
+                        display: flex;
+                        background: none;
+                        margin: 0;
+                        padding: 0;
+                        border-radius: 0;
+                        height: auto;
+                        button {
+                            margin: 0 12px;
+                            border-radius: 0;
+                            background: none;
+                            position: relative;
+                            &.active {
+                                span {
+                                    background: #D165E9;
+                                }
+                            }
+                            &:hover {
+                                span {
+                                    background: none;
+                                }
+                            }
+
+                            &:before {
+                                counter-increment:dots;
+                                content: counter(dots);
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                left: 0;
+                                top: 0;
+                                z-index: 2;
+                                color: black;
+                                background: none;
+                                border-radius: 50%;
+                                display: inline-block;  
+                                font-size: 13;
+                                font-weight: 500;
+                            }
+                            span {
+                                margin: 0;
+                                height: 20px;
+                                width: 20px;
+                                border: none;
+                            }
+                        }
+                        
+                    }                   
+                    .owl-nav {
+                        display: flex;
+                        margin: 0 0 20px 0;
+                        counter-reset: dots;
+                        position: absolute;
+                      
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        bottom: 0;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 50%;
+                            margin-left: -1px;
+                            top: -20px;
+                            height: 60px;
+                            width: 2px;
+                            background: white;
+                        }
+                        button.owl-prev, button.owl-next {
+                            margin: 0;
+                            svg {
+                                display: block;
+                            }
+
+                        }
+                        button.owl-prev {
+                            order: 0;
+                            margin-right: 25px;
+                        }
+                        .owl-dots {
+                            order: 1;
+                        }
+                        button.owl-next {
+                            order: 2;
+                            margin-left: 25px;
+                        }
                     }
                 }
             }
