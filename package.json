@@ -5,7 +5,8 @@
     "main": "app.js",
     "scripts": {
         "start": "NODE_ENV=development node app.js",
-        "sprite": "node svgsprite.js"
+        "sprite": "node svgsprite.js",
+        "pull": "git pull https://github.com/ilya-soloveyv/prostokna.git"
     },
     "repository": {
         "type": "git",

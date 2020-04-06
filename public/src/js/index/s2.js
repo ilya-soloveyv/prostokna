@@ -1,4 +1,4 @@
-if (screen.width > 910) {
+if (document.querySelector('.layout-index') && document.body.offsetWidth > 910) {
     const s2Cards = document.querySelectorAll('.s2-main-list > li');
     const s2CloseCardBtns = document.querySelectorAll('.s2-front-card .card-close');
     const s2BackCardBtns = document.querySelectorAll('.s2-front-card .card-back');
@@ -65,20 +65,6 @@ if (screen.width > 910) {
             if (shownList.length === 1) showLowerLevelsLists(false);
         })
     });
-
-    function showLowerLevelsLists(bool) {
-        let activeCard = document.querySelector('.s2-card.active');
-        let firstList = activeCard.querySelector('.s2-back-card > ol');
-        let backBtn = activeCard.querySelector('.card-back');
-
-        if (bool === true) {
-            firstList.classList.add('isActive');
-            backBtn.classList.add('show');
-        } else {
-            firstList.classList.remove('isActive');
-            backBtn.classList.remove('show');
-        }
-    }
 } else {
     const s2cards = document.querySelectorAll('.s2-cards .s2-front-card');
     const s2CloseBtn = document.querySelector('.s2-close');
@@ -113,6 +99,20 @@ if (screen.width > 910) {
 
         document.querySelector('.s2').classList.remove('isActive');
     });
+}
+
+function showLowerLevelsLists(bool) {
+    let activeCard = document.querySelector('.s2-card.active');
+    let firstList = activeCard.querySelector('.s2-back-card > ol');
+    let backBtn = activeCard.querySelector('.card-back');
+
+    if (bool === true) {
+        firstList.classList.add('isActive');
+        backBtn.classList.add('show');
+    } else {
+        firstList.classList.remove('isActive');
+        backBtn.classList.remove('show');
+    }
 }
 
 function hiddenCards() {
