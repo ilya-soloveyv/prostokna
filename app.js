@@ -1349,6 +1349,7 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
         const s1ActionTitle = action.s1ActionTitle || null
         const s1ActionURL = action.s1ActionURL || null
         const s1ActionImage = action.s1ActionImage || null
+        const s1ActionImageMobile = action.s1ActionImageMobile || null
         const iActive = action.iActive || false
         const iOrder = action.iOrder || 9999
         console.log(action)
@@ -1363,6 +1364,7 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
                 s1ActionTitle,
                 s1ActionURL,
                 s1ActionImage,
+                s1ActionImageMobile,
                 iActive,
                 iOrder
             }, {
@@ -1375,6 +1377,7 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
                 s1ActionTitle,
                 s1ActionURL,
                 s1ActionImage,
+                s1ActionImageMobile,
                 iActive,
                 iOrder
             })

@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     s1ActionTitle: { type: DataTypes.STRING },
     s1ActionURL: { type: DataTypes.STRING },
     s1ActionImage: { type: DataTypes.STRING },
+    s1ActionImageMobile: { type: DataTypes.STRING },
     iActive: { type: DataTypes.BOOLEAN, defaultValue: true },
     iOrder: { type: DataTypes.INTEGER, defaultValue: 9999 }
   }, {
