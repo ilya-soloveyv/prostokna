@@ -58,10 +58,15 @@
                         }
                     }
                 }
-                .owl-carousel {     
-                    height: 100%;
+                .owl-carousel {
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
                     .owl-stage-outer {
-                        height: 100%;
+                        flex-grow: 1;
+                        // background-color: yellow;
+                        display: flex;
+                        // height: 100%;
                         &::before {
                             content: '';
                             position: absolute;
@@ -80,64 +85,67 @@
                             }
                         }
                         .owl-stage {
-                            height: 100%;
+                            flex-grow: 1;
+                            display: flex;
+                            // height: 100%;
                             @media (max-width: 1280px) {
                                 height: calc(100% - 60px);
                             }
-                        }
-                        .owl-item {
-                            height: 100%;
-                            .item {
-                                height: 100%;
-                                display: grid;
-                                grid-template-rows: repeat(3, 1fr);
-                                .bg_flex {
-                                    flex-grow: 1;
-                                    border-right: 1px solid #999999;
-                                    border-bottom: 1px solid #999999;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    position: relative;
-                                    img {
-                                        width: 55%;
-                                        height: 55%;
-                                        object-fit: contain;
-                                        opacity: .75;
-                                        @media (max-width: 576px) {
-                                            max-width: 200px;
-                                            width: 75%;
-                                        }
-                                    }
-                                    .title {
-                                        display: none;
-                                        justify-content: center;
+                            .owl-item {
+                                flex: 1 1 100%;
+                                // height: 100%;
+                                .item {
+                                    height: 100%;
+                                    display: grid;
+                                    grid-template-rows: repeat(3, 1fr);
+                                    .bg_flex {
+                                        flex-grow: 1;
+                                        border-right: 1px solid #999999;
+                                        border-bottom: 1px solid #999999;
+                                        display: flex;
                                         align-items: center;
-                                        position: absolute;
-                                        left: 0;
-                                        top: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        background-color: rgba(22,94,212,.9);
-                                        
-                                        font-size: 10px;
-                                        line-height: 14px;
-                                        text-transform: uppercase;
-                                        color: #FFF;
-                                        text-align: center;
-                                        padding: 0 20px;
-                                        span {
-                                            font-weight: 600;
-                                            font-size: 16px;
-                                            line-height: 20px;
-                                            width: 100%;
-                                            padding-bottom: 10px;
-                                            display: block;
+                                        justify-content: center;
+                                        position: relative;
+                                        img {
+                                            width: 55%;
+                                            height: 55%;
+                                            object-fit: contain;
+                                            opacity: .75;
+                                            @media (max-width: 576px) {
+                                                max-width: 200px;
+                                                width: 75%;
+                                            }
                                         }
-                                    }
-                                    &:hover {
                                         .title {
-                                            display: flex;
+                                            display: none;
+                                            justify-content: center;
+                                            align-items: center;
+                                            position: absolute;
+                                            left: 0;
+                                            top: 0;
+                                            width: 100%;
+                                            height: 100%;
+                                            background-color: rgba(22,94,212,.9);
+                                            
+                                            font-size: 10px;
+                                            line-height: 14px;
+                                            text-transform: uppercase;
+                                            color: #FFF;
+                                            text-align: center;
+                                            padding: 0 20px;
+                                            span {
+                                                font-weight: 600;
+                                                font-size: 16px;
+                                                line-height: 20px;
+                                                width: 100%;
+                                                padding-bottom: 10px;
+                                                display: block;
+                                            }
+                                        }
+                                        &:hover {
+                                            .title {
+                                                display: flex;
+                                            }
                                         }
                                     }
                                 }
@@ -145,6 +153,9 @@
                         }
                     }
                     .owl-nav {
+                        flex-basis: 60px;
+                        flex-shrink: 0;
+                        // background-color: red;
                         display: flex;
                         margin: 0 0 20px 0;
                         counter-reset: dots;
