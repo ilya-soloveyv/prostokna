@@ -65,7 +65,7 @@ export default {
             </div>
             <div class="col-3">
               <div class="form-group mb-0">
-                <label>Изображение Mobile</label>
+                <label>Мобильный</label>
                 <label class="s1ActionImage">
                   <input type="file" @change="upload('s1ActionImageMobile')" />
                   <div class="img">
