@@ -20,9 +20,10 @@ section.section.active.s1
                     each val, index in s1.actions
                         if index == 0
                             li
-                                a.is-hovered(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage)
+                                a.isActive(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage data-img-phone='/images/actions/'+val.s1ActionImageMobile)
                                     span.s1-desc= val.s1ActionTitle
                         else 
                             li
-                                a(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage)
+                                a(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage data-img-phone='/images/actions/'+val.s1ActionImageMobile)
                                     span.s1-desc= val.s1ActionTitle
+                .s1-dots

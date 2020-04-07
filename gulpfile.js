@@ -234,8 +234,7 @@ gulp.task('sass_admin', function () {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass', 'css_min'))
-    gulp.watch('public/src/js/**/*.js', gulp.series('js_min'))
+    gulp.watch('public/src/sass/**/*.scss', gulp.series('sass'))
 })
 
 gulp.task('watch_admin', () => {

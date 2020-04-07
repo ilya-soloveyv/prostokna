@@ -1,35 +1,66 @@
 .section.s6
     .fp-bg
-        .slide(style="background-image: url(/images/index/s6/bg.jpg)")
-            h3.s6-title NIKE BOX
-            p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-            div
-                img(src="/images/index/s6/window.png" alt="MONTBLANC")
-            .s6-model
-                span MONTBLANC
-                span Nord 70
-        .slide(style="background-image: url(/images/index/s6/bg.jpg)")
-            h3.s6-title NIKE BOX
-            p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-            div
-                img(src="/images/index/s6/window.png" alt="MONTBLANC")
-            .s6-model
-                span MONTBLANC
-                span Nord 70
-        .slide(style="background-image: url(/images/index/s6/bg.jpg)")
-            h3.s6-title NIKE BOX
-            p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-            div
-                img(src="/images/index/s6/window.png" alt="MONTBLANC")
-            .s6-model
-                span MONTBLANC
-                span Nord 70
-        .slide(style="background-image: url(/images/index/s6/bg.jpg)")
-            h3.s6-title NIKE BOX
-            p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-            div
-                img(src="/images/index/s6/window.png" alt="MONTBLANC")
-            .s6-model
-                span MONTBLANC
-                span Nord 70
-    a.btn(href="#") Смотреть все работы
+        .s6-slider-imgs
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+        .s6-slider-wrap
+            button.s6-dropup
+                svg(aria-hidden="true")
+                    use(xlink:href='#arrow-up')
+            .s6-slider-windows
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+            .s6-slider-panel
+                button.slick-prev(aria-label="Предыдущий слайд")
+                    svg(aria-hidden="true")
+                        use(xlink:href='#arrow-prev-a')
+                .slick-pagination
+                button.slick-next(aria-label="Следующий слайд")
+                    svg(aria-hidden="true")
+                        use(xlink:href='#arrow-next-a')
+        a.btn(href="#")
+            span Смотреть все работы
