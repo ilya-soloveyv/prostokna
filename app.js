@@ -1345,14 +1345,12 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
 
     for (const action of actions) {
         const s1ActionID = action.s1ActionID || false
-        console.log(s1ActionID)
         const s1ActionTitle = action.s1ActionTitle || null
         const s1ActionURL = action.s1ActionURL || null
         const s1ActionImage = action.s1ActionImage || null
         const s1ActionImageMobile = action.s1ActionImageMobile || null
         const iActive = action.iActive || false
         const iOrder = action.iOrder || 9999
-        console.log(action)
         if (action.del === true && s1ActionID) {
             await IndexS1Action.destroy({
                 where: {
