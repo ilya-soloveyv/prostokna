@@ -1,35 +1,320 @@
-#fullpage_welcome {}
+[class^="fp-viewing-s6"] {
+    #top {
+        background-color: transparent;
+    }
 
+    .l .menu {
+        background-color: transparent;
 
-@import "import/s6-scrollbar";
-@import "import/s6-select";
-@import "import/s6-input-range";
-@import "import/s6-1";
+        &.opened {
+            background-color: #363636;
+        }
+    }
 
-@import "import/s6-vars";
-@import "import/s6-grid-col";
+    #top {
+        border-bottom: 1px solid #fff;
 
-@import "import/s6-button";
-@import "import/s6-input-color";
-@import "import/s6-input-number";
-@import "import/s6-input-checkbox-radio";
+        .l {
+            border-right: 1px solid #fff;
+        }
 
-@import "import/s6-circles";
+        .cal {
+            border-left: 1px solid #fff;
+        }
+    }
 
-@import "import/s6-nav-panel";
-@import "import/s6-module-result";
+    #fullpage_nav.white {
+        border-left: 1px solid #fff;
 
-@import "import/s6-list-colors";
-@import "import/s6-views";
-@import "import/s6-tabs-entry";
+        @media (max-width: 1200px) {
+            border-left: none;
+        }
+    }
 
-@import "import/s6-nav-tabs";
-@import "import/s6-body-welcome";
+    .icon {
+        color: #fff;
+    }
 
-@import "import/s6-modal-form";
+    .bginput {
+        color: #fff;
 
-@import "import/s6-advance-responsive";
-@import "import/s6-advance-responsive-2";
-@import "import/s6-1200-1500_x0";
-@import "import/s6-1200-1500_x1";
-@import "import/s6-1200-1500_x2";
+        border-color: #fff;
+        input {
+            color: #fff;
+        }
+        label {
+            border-color: #82dcee;
+        }
+
+        @media (max-width: 800px) {
+            color: #111;
+
+            border-color: #363636;
+
+            input {
+                color: #111;
+            }
+
+            svg {
+                color: #363636;
+            }
+        }
+    }
+
+    .menu {
+        a {
+            color: #fff;
+        }
+
+        a:hover,
+        a:focus {
+            color: #363636;
+            svg {
+                color: #363636;
+            }
+        }
+    }
+}
+
+.s6 {
+    color: #fff;
+
+    position: relative;
+
+    background-color: #323232;
+
+    .fp-bg {
+        // padding: 60px 0 80px 0;
+
+        padding: 60px 0 7vh 0;
+
+        @media (max-width: 800px) {
+            padding: 60px 0 0 0;
+
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+
+    .btn {
+        position: absolute;
+        right: 100px;
+        z-index: 4;
+
+        max-width: 300px;
+
+        @media (max-width: 1200px) {
+            bottom: inherit;
+            top: 100px;
+            right: 60px;
+        }
+
+        @media (max-width: 800px) {
+            width: 100%;
+        }
+    }
+
+    .btn,
+    .s6-slider-panel {
+        // bottom: 100px;
+        bottom: 10vh;
+        height: 50px;
+    }
+}
+
+.s6-slider-imgs {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    &:before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.33) 25%,
+            rgba(0, 0, 0, 0) 100%
+        );
+
+        z-index: 1;
+
+        @media (max-width: 800px) {
+            content: initial;
+        }
+    }
+
+    .s6-slide {
+        width: 100vw;
+        height: 100vh;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    }
+}
+
+.s6-slider-wrap,
+.s6-slider {
+    height: 100%;
+}
+
+.s6-slider-wrap {
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+
+    @media (max-width: 800px) {
+        height: calc(100% - 120px);
+
+        margin: 0 85px;
+
+        padding: 20px 100px 40px 140px;
+
+        background-color: hsla(0, 0%, 0%, 0.5);
+    } 
+}
+
+.s6-dropup {
+    display: none;
+
+    @media (max-width: 800px) {
+        display: block;
+
+        width: 18px;
+        height: 11px;
+
+        padding: 20px;
+    }
+}
+
+.s6-slider-windows {
+    width: 100%;
+
+    z-index: 2;
+
+    .s6-slide {
+        > div {
+            max-width: 500px;
+
+            padding-left: 50px;
+
+            @media (max-width: 800px) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    .s6-wrap {
+        @media (max-width: 800px) {
+            display: flex;
+        }
+    }
+}
+
+.s6-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.11px;
+    text-transform: uppercase;
+
+    // margin-bottom: 3em;
+    margin-bottom: 6vh;
+}
+
+.s6-description {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08px;
+}
+
+.s6-img {
+    // margin: 60px 0 40px 0;
+    margin: 6vh 0 3.5vh 0;
+}
+
+.s6-model {
+    font-size: 18px;
+    font-weight: 600;
+
+    span:first-child {
+        text-transform: uppercase;
+
+        display: block;
+    }
+}
+
+.s6-slider-panel {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08px;
+
+    position: absolute;
+    left: 50%;
+    z-index: 3;
+
+    transform: translateX(-50%);
+
+    border-radius: 25px;
+    background-color: hsla(0, 0%, 0%, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 400px;
+    width: 100%;
+
+    @media (max-width: 1200px) {
+        max-width: 350px;
+    }
+
+    @media (max-width: 800px) {
+        button {
+            display: none;
+        }
+    }
+
+    .slick-arrow {
+        background-color: transparent;
+        border: none;
+
+        padding: 15px 40px;
+
+        &.slick-disabled {
+            cursor: default;
+            opacity: 0;
+        }
+
+        svg {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    .slick-pagination {
+        li {
+            display: none;
+
+            &.slick-active {
+                display: block;
+            }
+        }
+    }
+}
