@@ -269,8 +269,6 @@
 .s1-items {
     width: 100%;
 
-    overflow: hidden;
-
     @media (max-width: 800px) {
         margin: 0 auto 0 auto;
         text-align: center;
@@ -287,6 +285,10 @@
                 display: block;
             }
         }
+    }
+
+    @media (max-width: 575px) {
+        overflow: hidden;
     }
 
     a {
