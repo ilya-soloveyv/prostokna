@@ -1421,7 +1421,6 @@ app.get('/', async (req, res) => {
         ]
     })
 
-
     // Менюшка окон
     let MaterialBrandProductMenu = []
     let product = await Product.findAll({

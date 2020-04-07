@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    upload() {
+    upload(image) {
       Vue.set(this, 'uploading', true)
       var form = new FormData();
       form.append('file', event.target.files[0]);
@@ -27,21 +27,7 @@ export default {
           'extension': event.target.files[0].name.split('.').pop()
         }
       }).then(({ data }) => {
-        Vue.set(this.action, 's1ActionImage', data.filename)
-        Vue.set(this, 'uploading', false)
-      })
-    },
-    uploadMobile() {
-      Vue.set(this, 'uploading', true)
-      var form = new FormData();
-      form.append('file', event.target.files[0]);
-      axios.post('/admin/index/s1/actions/upload', form, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'extension': event.target.files[0].name.split('.').pop()
-        }
-      }).then(({ data }) => {
-        Vue.set(this.action, 's1ActionImageMobile', data.filename)
+        Vue.set(this.action, image, data.filename)
         Vue.set(this, 'uploading', false)
       })
     },
@@ -58,7 +44,7 @@ export default {
               <div class="form-group mb-0">
                 <label>Изображение</label>
                 <label class="s1ActionImage">
-                  <input type="file" @change="upload" />
+                  <input type="file" @change="upload('s1ActionImage')" />
                   <div class="img">
                     <template v-if="!uploading">
                       <template v-if="action.s1ActionImage">
@@ -81,7 +67,7 @@ export default {
               <div class="form-group mb-0">
                 <label>Изображение Mobile</label>
                 <label class="s1ActionImage">
-                  <input type="file" @change="uploadMobile" />
+                  <input type="file" @change="upload('s1ActionImageMobile')" />
                   <div class="img">
                     <template v-if="!uploading">
                       <template v-if="action.s1ActionImageMobile">
@@ -103,7 +89,7 @@ export default {
             <div class="col-6">
               <div class="form-group">
                 <label :for="'s1ActionTitle_' + actionIndex">Название</label>
-                <input type="text" class="form-control" :id="'s1ActionTitle_' + actionIndex" v-model="action.s1ActionTitle" autocomplete="off" required>
+                <textarea rows="3" class="form-control" :id="'s1ActionTitle_' + actionIndex" v-model="action.s1ActionTitle" autocomplete="off" required></textarea>
               </div>
               <div class="form-group">
                 <label :for="'s1ActionURL_' + actionIndex">URL</label>
