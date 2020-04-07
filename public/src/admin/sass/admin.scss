@@ -479,7 +479,8 @@ button {
                     }
                 }
                 a {
-                    &.router-link-active {
+                    &.router-link-active,
+                    &.active {
                         font-weight: bold;
                         color: black;
                         text-decoration: none;
