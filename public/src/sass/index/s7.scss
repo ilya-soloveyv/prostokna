@@ -81,7 +81,7 @@
                                 display: none;
                             }
                             @media (max-width: 768px) {
-                                display: block;
+                                // display: block;
                             }
                         }
                         .owl-stage {
@@ -89,7 +89,7 @@
                             display: flex;
                             // height: 100%;
                             @media (max-width: 1280px) {
-                                height: calc(100% - 60px);
+                                // height: calc(100% - 60px);
                             }
                             .owl-item {
                                 flex: 1 1 100%;
@@ -164,13 +164,16 @@
                         transform: translate(-50%, 0);
                         bottom: 0;
                         @media (max-width: 1280px) {
-                            left: 0;
+                            position: relative;
+                            left: auto;
+                            bottom: auto;
                             transform: translate(0, 0);
                             background-color: #ececec;
                             margin: 0;
-                            padding: 21px 0 20px;
+                            padding: 20px 0;
                             width: 100%;
                             justify-content: center;
+                            // background-color: red;
                         }
                         button.owl-prev, button.owl-next {
                             margin: 0;
