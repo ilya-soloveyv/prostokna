@@ -16,10 +16,18 @@
 
         .l {
             border-right: 1px solid #fff;
+
+            @media (max-width: 1200px) {
+                border-right: none;
+            }
         }
 
         .cal {
             border-left: 1px solid #fff;
+
+            @media (max-width: 1200px) {
+                border-left: none;
+            }
         }
     }
 

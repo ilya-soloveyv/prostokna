@@ -30,4 +30,15 @@ if (document.querySelector('.layout-index')) {
 			}
 		]
 	})
+
+	if (clientWidth() < 800) {
+		const dropup = document.querySelector('.s6-dropup')
+
+		dropup.addEventListener('click', event => {
+			let target = event.currentTarget
+			let sliderWrap = document.querySelector('.s6-slider-wrap')
+
+			sliderWrap.classList.toggle('isOpen')
+		})
+	}
 }
