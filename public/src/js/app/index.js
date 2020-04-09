@@ -19,7 +19,7 @@ const toggleImg = (target) => {
 
 const s1CreateEventsForLinks = () => {
     let links = document.querySelectorAll('.s1-items a')
-
+    
     if (!links.length) return
 
     links.forEach(link => {
@@ -41,10 +41,10 @@ const upload = () => {
     var dropZone = $('.drop-wrap');
 
 	$('[type="file"]').focus(function() {
-		$('label').addClass('focus');
+		$('.drop-wrap label').addClass('focus');
 	})
 	.focusout(function() {
-		$('label').removeClass('focus');
+		$('.drop-wrap label').removeClass('focus');
 	});
 
 
@@ -66,13 +66,18 @@ const upload = () => {
 
 	dropZone.on('drop', function(e) {
 		dropZone.removeClass('dragover');
-		let files = e.originalEvent.dataTransfer.files;
-		sendFiles(files);
+        let files = e.originalEvent.dataTransfer.files;
+        
+        console.log(files)
+
+		// sendFiles(files);
 	});
 
 	$('[type="file"]').change(function() {
-		let files = this.files;
-		sendFiles(files);
+        let files = this.files
+        
+        console.log(files)
+		// sendFiles(files);
 	});
 
 
@@ -97,7 +102,6 @@ const upload = () => {
 		});
 	}
 }
-  
 
 function fullpage_welcome_color(i) {
     let index = i.index;

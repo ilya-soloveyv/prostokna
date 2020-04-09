@@ -74,7 +74,7 @@ block content
                             span ДОБАВЬТЕ ИЛИ ПЕРЕТАЩИТЕ ФАЙЛЫ
                             svg(width='59' height='47')
                                 use(xlink:href='#upload')
-                        input(type="file" accept=".jpg, .jpeg, .png, .word, .dwg, .ai, .docx, .pdf" multiple)
-                        label(for="file-input") Загрузить
+                        input#file-input(type="file" accept=".jpg, .jpeg, .png, .word, .dwg, .ai, .docx, .pdf" multiple)
+                        label.btn(for="file-input"): span Загрузить
                     
                     .drop-list
