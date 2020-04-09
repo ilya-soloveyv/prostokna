@@ -69,6 +69,12 @@ block content
                     button.close(type="button" data-dismiss="modal" aria-label="Закрыть")
                         span(aria-hidden="true") &times;
                 .modal-body
-                    p Вы можете прикрепить один или более файлов в любом удобном для вас формате - JPEG, PNG, WORD, DWG, AI, а также фото эскиза сделанного от руки 
-                    label.btn.file
-                        input(type="file")
+                    .drop-wrap
+                        .drop
+                            span ДОБАВЬТЕ ИЛИ ПЕРЕТАЩИТЕ ФАЙЛЫ
+                            svg(width='59' height='47')
+                                use(xlink:href='#upload')
+                        input(type="file" accept=".jpg, .jpeg, .png, .word, .dwg, .ai, .docx, .pdf" multiple)
+                        label(for="file-input") Загрузить
+                    
+                    .drop-list
