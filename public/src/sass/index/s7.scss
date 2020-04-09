@@ -2,256 +2,258 @@
     .section {
         &.s7 {
             .fp-tableCell {
-                .fp_bg {
+                .fp-bg {
                     height: 100vh;
                     padding-top: 60px;
-                }
-            }
-            .data {
-                height: 100%;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                .info {
-                    flex-shrink: 0;
-                    display: flex;
-                    width: 100%;    
-                    height: 190px;
-                    background: linear-gradient(to top, #C07FEC, #D360E7);
-                    @media (max-width: 1280px) {
-                        flex-direction: column;
-                        height: auto;
-                    }
-                    @media (max-width: 768px) {
-                        display: none;
-                    }                   
-                    .l {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        
-                        text-transform: uppercase;
-                        font-family: Montserrat;
-                        color: white;
-                        font-weight: normal;
-                        font-size: 24px;
-                        flex-shrink: 0;
-                        padding: 0 70px;                       
-                        @media (max-width: 1280px) {
-                            font-weight: 600;
-                            padding: 30px 70px 0;
-                        }
-                    }
-                    .r {
-                        flex-grow: 1;
-                        display: flex;
-                        align-items: center;
-                        font-family: Montserrat;
-                        color: white;
-                        font-weight: 500;
-                        font-size: 14px;
-                        padding-right: 70px;
-                        @media (max-width: 1280px) {
-                            justify-content: center;
-                            text-align: center;
-                            padding: 30px 100px;
-                        }
-                    }
-                }
-                .owl-carousel {
-                    flex-grow: 1;
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    .owl-stage-outer {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
+                    overflow: hidden;
+                    .data {
                         height: 100%;
-                        // background-color: yellow;                        
-                        // height: 100%;
-                        &::before {
-                            content: '';
-                            position: absolute;
-                            bottom: 0;
-                            left: 50%;
-                            width: 1px;
-                            height: 60px;
-                            background-color: white;
-                            margin-left: -1px;
-                            z-index: 19;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        .info {
+                            flex-shrink: 0;
+                            display: flex;
+                            width: 100%;    
+                            height: 190px;
+                            background: linear-gradient(to top, #C07FEC, #D360E7);
                             @media (max-width: 1280px) {
-                                display: none;
+                                flex-direction: column;
+                                height: auto;
                             }
                             @media (max-width: 768px) {
-                                // display: block;
+                                display: none;
+                            }                   
+                            .l {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                
+                                text-transform: uppercase;
+                                font-family: Montserrat;
+                                color: white;
+                                font-weight: normal;
+                                font-size: 24px;
+                                flex-shrink: 0;
+                                padding: 0 70px;                       
+                                @media (max-width: 1280px) {
+                                    font-weight: 600;
+                                    padding: 30px 70px 0;
+                                }
+                            }
+                            .r {
+                                flex-grow: 1;
+                                display: flex;
+                                align-items: center;
+                                font-family: Montserrat;
+                                color: white;
+                                font-weight: 500;
+                                font-size: 14px;
+                                padding-right: 70px;
+                                @media (max-width: 1280px) {
+                                    justify-content: center;
+                                    text-align: center;
+                                    padding: 30px 100px;
+                                }
                             }
                         }
-                        .owl-stage {
-                            height: 100%;
+                        .owl-carousel {
+                            flex-grow: 1;
+                            display: flex;
+                            flex-direction: column;
                             position: relative;
-                            @media (max-width: 1280px) {
-                                // height: calc(100% - 60px);
-                            }
-                            .owl-item {
+                            .owl-stage-outer {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
                                 height: 100%;
-                                .item {
+                                // background-color: yellow;                        
+                                // height: 100%;
+                                @media (max-width: 1280px) {
+                                    height: calc(100% - 60px);
+                                }
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 50%;
+                                    width: 1px;
+                                    height: 60px;
+                                    background-color: white;
+                                    margin-left: -1px;
+                                    z-index: 19;
+                                    @media (max-width: 1280px) {
+                                        display: none;
+                                    }
+                                    @media (max-width: 768px) {
+                                        // display: block;
+                                    }
+                                }
+                                .owl-stage {
                                     height: 100%;
-                                    display: grid;
-                                    grid-template-rows: repeat(3, 1fr);
-                                    .bg_flex {
-                                        flex-grow: 1;
-                                        border-right: 1px solid #999999;
-                                        border-bottom: 1px solid #999999;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        position: relative;
-                                        &:hover {
-                                            .title {
-                                                display: flex;
-                                            }
-                                        }
-                                        img {
-                                            width: 55%;
-                                            height: 55%;
-                                            object-fit: contain;
-                                            opacity: .75;
-                                            @media (max-width: 576px) {
-                                                max-width: 200px;
-                                                width: 75%;
-                                            }
-                                        }
-                                        .title {
-                                            display: none;
-                                            justify-content: center;
-                                            align-items: center;
-                                            position: absolute;
-                                            left: 0;
-                                            top: 0;
-                                            width: 100%;
+                                    position: relative;
+                                    @media (max-width: 1280px) {
+                                        // height: calc(100% - 60px);
+                                    }
+                                    .owl-item {
+                                        height: 100%;
+                                        .item {
                                             height: 100%;
-                                            background: linear-gradient(to top, #C07FEC, #D360E7);
-                                            font-size: 10px;
-                                            line-height: 14px;
-                                            text-transform: uppercase;
-                                            color: #FFF;
-                                            text-align: center;
-                                            padding: 0 20px;
-                                            span {
-                                                font-weight: 600;
-                                                font-size: 16px;
-                                                line-height: 20px;
-                                                width: 100%;
-                                                padding-bottom: 10px;
-                                                display: block;
+                                            display: grid;
+                                            grid-template-rows: repeat(3, 1fr);
+                                            .bg_flex {
+                                                flex-grow: 1;
+                                                border-right: 1px solid #999999;
+                                                border-bottom: 1px solid #999999;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                position: relative;
+                                                &:hover {
+                                                    .title {
+                                                        display: flex;
+                                                    }
+                                                }
+                                                img {
+                                                    width: 55%;
+                                                    height: 55%;
+                                                    object-fit: contain;
+                                                    opacity: .75;
+                                                    @media (max-width: 576px) {
+                                                        max-width: 200px;
+                                                        width: 75%;
+                                                    }
+                                                }
+                                                .title {
+                                                    display: none;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                    position: absolute;
+                                                    left: 0;
+                                                    top: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    background: linear-gradient(to top, #C07FEC, #D360E7);
+                                                    font-size: 10px;
+                                                    line-height: 14px;
+                                                    text-transform: uppercase;
+                                                    color: #FFF;
+                                                    text-align: center;
+                                                    padding: 0 20px;
+                                                    span {
+                                                        font-weight: 600;
+                                                        font-size: 16px;
+                                                        line-height: 20px;
+                                                        width: 100%;
+                                                        padding-bottom: 10px;
+                                                        display: block;
+                                                    }
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
-                        }
-                    }
-                    .owl-nav {
-                        flex-basis: 60px;
-                        flex-shrink: 0;
-                        // background-color: red;
-                        display: flex;
-                        margin: 0 0 20px 0;
-                        counter-reset: dots;
-                        position: absolute;
-                        left: 50%;
-                        transform: translate(-50%, 0);
-                        bottom: 0;
-                        @media (max-width: 1280px) {
-                            position: relative;
-                            left: auto;
-                            bottom: auto;
-                            transform: translate(0, 0);
-                            background-color: #ececec;
-                            margin: 0;
-                            padding: 20px 0;
-                            width: 100%;
-                            justify-content: center;
-                            // background-color: red;
-                        }
-                        button.owl-prev, button.owl-next {
-                            margin: 0;
-                            svg {
-                                display: block;
-                            }
-                            &:hover {
-                                background: none;
-                            }
-                        }
-                        button.owl-prev {
-                            order: 0;
-                            margin-right: 25px;
-                        }
-                        button.owl-next {
-                            order: 2;
-                            margin-left: 25px;
-                        }
-                        .owl-dots {
-                            order: 1;
-                            display: flex;
-                            background: none;
-                            margin: 0;
-                            padding: 0;
-                            border-radius: 0;
-                            height: auto;
-                            button {
-                                margin: 0 12px;
-                                border-radius: 0;
-                                background: none;
-                                position: relative;
-                                background-color: #ececec;
-                                border-radius: 50%;
-                                overflow: hidden;
+                            .owl-nav {
+                                flex-basis: 60px;
+                                flex-shrink: 0;
+                                // background-color: red;
+                                display: flex;
+                                margin: 0 0 20px 0;
+                                counter-reset: dots;
+                                position: absolute;
+                                left: 50%;
+                                transform: translate(-50%, 0);
+                                bottom: 0;
                                 @media (max-width: 1280px) {
-                                    background-color: white;
+                                    left: 0;
+                                    transform: translate(0, 0);
+                                    background-color: #ececec;
+                                    margin: 0;
+                                    padding: 21px 0 20px 0;
+                                    width: 100%;
+                                    justify-content: center;
+                                    // background-color: red;
                                 }
-                                &:hover {
-                                    span {
+                                button.owl-prev, button.owl-next {
+                                    margin: 0;
+                                    svg {
+                                        display: block;
+                                    }
+                                    &:hover {
                                         background: none;
                                     }
                                 }
-                                &.active {
-                                    &:before {
-                                        color: white;
-                                    }
-                                    span {
-                                        background: #D165E9;
-                                    }
+                                button.owl-prev {
+                                    order: 0;
+                                    margin-right: 25px;
                                 }
-                                &:before {
-                                    counter-increment:dots;
-                                    content: counter(dots);
-                                    position: absolute;
-                                    height: 100%;
-                                    width: 100%;
-                                    left: 0;
-                                    top: 0;
-                                    z-index: 2;
-                                    color: white;
+                                button.owl-next {
+                                    order: 2;
+                                    margin-left: 25px;
+                                }
+                                .owl-dots {
+                                    order: 1;
+                                    display: flex;
                                     background: none;
-                                    display: inline-block;  
-                                    font-size: 13;
-                                    font-weight: 500;
-                                    @media (max-width: 1280px) {
-                                        color: #989898;
-                                    }
-                                }
-                                span {
                                     margin: 0;
-                                    height: 20px;
-                                    width: 20px;
-                                    border: none;
-                                    background: none;
-                                }
+                                    padding: 0;
+                                    border-radius: 0;
+                                    height: auto;
+                                    button {
+                                        margin: 0 12px;
+                                        border-radius: 0;
+                                        background: none;
+                                        position: relative;
+                                        background-color: #ececec;
+                                        border-radius: 50%;
+                                        overflow: hidden;
+                                        @media (max-width: 1280px) {
+                                            background-color: white;
+                                        }
+                                        &:hover {
+                                            span {
+                                                background: none;
+                                            }
+                                        }
+                                        &.active {
+                                            &:before {
+                                                color: white;
+                                            }
+                                            span {
+                                                background: #D165E9;
+                                            }
+                                        }
+                                        &:before {
+                                            counter-increment:dots;
+                                            content: counter(dots);
+                                            position: absolute;
+                                            height: 100%;
+                                            width: 100%;
+                                            left: 0;
+                                            top: 0;
+                                            z-index: 2;
+                                            color: white;
+                                            background: none;
+                                            display: inline-block;  
+                                            font-size: 13;
+                                            font-weight: 500;
+                                            @media (max-width: 1280px) {
+                                                color: #989898;
+                                            }
+                                        }
+                                        span {
+                                            margin: 0;
+                                            height: 20px;
+                                            width: 20px;
+                                            border: none;
+                                            background: none;
+                                        }
+                                    }
+                                }                   
                             }
-                        }                   
+                        }
                     }
                 }
             }
