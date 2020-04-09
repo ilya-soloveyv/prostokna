@@ -71,7 +71,7 @@
                                 // background-color: yellow;                        
                                 // height: 100%;
                                 @media (max-width: 1280px) {
-                                    // height: 100% - 60px);
+                                    height: (100% - 60px);
                                 }
                                 &::before {
                                     content: '';
