@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    upload() {
+    upload(image) {
       Vue.set(this, 'uploading', true)
       var form = new FormData();
       form.append('file', event.target.files[0]);
@@ -27,7 +27,7 @@ export default {
           'extension': event.target.files[0].name.split('.').pop()
         }
       }).then(({ data }) => {
-        Vue.set(this.action, 's1ActionImage', data.filename)
+        Vue.set(this.action, image, data.filename)
         Vue.set(this, 'uploading', false)
       })
     },
@@ -40,11 +40,11 @@ export default {
       <div class="card mb-3" :class="{ destroy: action.del === true }">
         <div class="card-body">
           <div class="row">
-            <div class="col-5">
+            <div class="col-3">
               <div class="form-group mb-0">
                 <label>Изображение</label>
                 <label class="s1ActionImage">
-                  <input type="file" @change="upload" />
+                  <input type="file" @change="upload('s1ActionImage')" />
                   <div class="img">
                     <template v-if="!uploading">
                       <template v-if="action.s1ActionImage">
@@ -63,10 +63,33 @@ export default {
                 </label>
               </div>
             </div>
-            <div class="col-7">
+            <div class="col-3">
+              <div class="form-group mb-0">
+                <label>Мобильный</label>
+                <label class="s1ActionImage">
+                  <input type="file" @change="upload('s1ActionImageMobile')" />
+                  <div class="img">
+                    <template v-if="!uploading">
+                      <template v-if="action.s1ActionImageMobile">
+                        <img :src="'/images/actions/' + action.s1ActionImageMobile" />
+                      </template>
+                      <template v-else>
+                        Выбрать изображение
+                      </template>
+                    </template>
+                    <template v-else>
+                      <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </template>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="col-6">
               <div class="form-group">
                 <label :for="'s1ActionTitle_' + actionIndex">Название</label>
-                <input type="text" class="form-control" :id="'s1ActionTitle_' + actionIndex" v-model="action.s1ActionTitle" autocomplete="off" required>
+                <textarea rows="3" class="form-control" :id="'s1ActionTitle_' + actionIndex" v-model="action.s1ActionTitle" autocomplete="off" required></textarea>
               </div>
               <div class="form-group">
                 <label :for="'s1ActionURL_' + actionIndex">URL</label>

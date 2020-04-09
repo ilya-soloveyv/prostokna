@@ -7,13 +7,11 @@ block content
             include s3
             include s4
             include s5
-            // include s6
+            include s6
             include s7
             include s8
             include s9
         #fullpage_nav
-            .lineprogress
-                .line
             ul
                 li.active Заказать окно
                 li Основное меню
@@ -37,7 +35,7 @@ block content
                     a(href='mailto:prosto@prostokna.ru')
                         svg.icon--letter(width='13px',height='11px')
                             use(xlink:href='#letter')
-    #s3-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+    #s3-modal.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
         .modal-dialog.modal-lg(role="document")
             .modal-content
                 .modal-header
@@ -46,3 +44,31 @@ block content
                 .modal-body
                     .embed-responsive.embed-responsive-16by9
                         iframe.embed-responsive-item(data-src='https://player.vimeo.com/video/72915044?autoplay=1' allowfullscreen allow="autoplay; fullscreen")
+    #measurements.modal.fade(tabindex="-1" role="dialog" aria-labelledby="measurementsLabel" aria-hidden="true")
+        .modal-dialog.modal-dialog-centered(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title#measurementsLabel ОТПРАВЬТЕ ВАШ МАКЕТ / ЭСКИЗ НА РАСЧЕТ
+                    button.close(type="button" data-dismiss="modal" aria-label="Закрыть")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    .form-group
+                        input(type="text" class="form-control" placeholder="ВАШЕ ИМЯ")
+                    .form-group
+                        input(type="email" class="form-control" placeholder="ВАШ EMAIL")
+                    .form-group
+                        input(type="tel" class="form-control" placeholder="ВАШ НОМЕР ТЕЛЕФОНА")
+                .modal-footer
+                    button.close(type="button" data-dismiss="modal") Назад
+                    button(type="button") Отправить
+    #file-measurements.modal.fade(tabindex="-1" role="dialog" aria-labelledby="measurementsLabel" aria-hidden="true")
+        .modal-dialog.modal-dialog-centered(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title#measurementsLabel ОТПРАВЬТЕ ВАШ МАКЕТ / ЭСКИЗ НА РАСЧЕТ
+                    button.close(type="button" data-dismiss="modal" aria-label="Закрыть")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    p Вы можете прикрепить один или более файлов в любом удобном для вас формате - JPEG, PNG, WORD, DWG, AI, а также фото эскиза сделанного от руки 
+                    label.btn.file
+                        input(type="file")

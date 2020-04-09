@@ -73,9 +73,9 @@
         @media (max-width: 800px) {
             color: #fff;
 
-			z-index: 1;
-			
-			height: 100%;
+            z-index: 1;
+
+            height: 100%;
         }
 
         > div {
@@ -87,9 +87,9 @@
             }
 
             @media (max-width: 800px) {
-				max-width: 500px;
-				
-				transform: initial;
+                max-width: 500px;
+
+                transform: initial;
             }
         }
     }
@@ -104,11 +104,11 @@
             position: static;
 
             margin-bottom: 10vh;
-		}
-		
-		@media (max-width: 575px) {
+        }
+
+        @media (max-width: 575px) {
             margin-bottom: 11vh;
-		}		
+        }
 
         .bg-image {
             background-repeat: no-repeat;
@@ -139,7 +139,7 @@
 
             background-color: hsla(0, 0%, 0%, 0.5);
 
-            max-width: 300px;
+            max-width: 274px;
             height: 100%;
 
             margin: 0 0 0 85px;
@@ -150,14 +150,20 @@
             }
 
             @media (max-width: 800px) {
-                padding: 50px 0 30px 0;
+                padding: 0 0 30px 0;
                 margin: 0;
 
                 max-width: initial;
+
+                flex-direction: column;
             }
 
             @media (max-width: 575px) {
-                padding: 50px 0;
+                padding: 0px;
+
+                position: static;
+
+                background-color: hsla(0, 0%, 0%, 0.85);
             }
         }
     }
@@ -188,9 +194,9 @@
 
     p {
         font-size: 18px;
-		text-transform: uppercase;
-		
-		@media (max-width: 575px) {
+        text-transform: uppercase;
+
+        @media (max-width: 575px) {
             display: none;
         }
     }
@@ -198,51 +204,6 @@
     ul {
         padding: 0;
         list-style: none;
-    }
-
-    .slick-dots {
-        display: flex;
-        justify-content: center;
-
-        margin: 30px 0;
-
-        @media (max-width: 575px) {
-            position: absolute;
-            bottom: -17vh;
-            left: 50%;
-            margin: 0;
-            transform: translateX(-50%);
-        }
-
-        li {
-            margin: 0 10px;
-            &.slick-active button {
-                background-color: #cb70eb;
-            }
-        }
-
-        button {
-            font-size: 0;
-            line-height: 0;
-            display: block;
-            width: 8px;
-            height: 8px;
-            cursor: pointer;
-            color: transparent;
-            background-color: transparent;
-            border: 1px solid #cb70eb;
-            border-radius: 50%;
-            outline: none;
-            background: transparent;
-            padding: 0;
-
-            transition: 0.3s ease-out;
-
-            @media (max-width: 575px) {
-                background-color: rgba(255, 255, 255, 0.3);
-                border: none;
-            }
-        }
     }
 
     .s1-advantages,
@@ -256,14 +217,14 @@
 
     .btn {
         @media (max-width: 800px) {
-			position: absolute;
-			bottom: 10vh;
-			left: 50%;
-			
-			transform: translateX(-50%);
-		}
-		
-		@media (max-width: 575px) {
+            position: absolute;
+            bottom: 10vh;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 575px) {
             bottom: 11vh;
         }
     }
@@ -326,33 +287,37 @@
         }
     }
 
+    @media (max-width: 575px) {
+        overflow: hidden;
+    }
+
     a {
         color: #fff;
         display: block;
 
-        padding: 45px 0 30px 45px;
+        padding: 45px 0 45px 45px;
 
         position: relative;
         z-index: 1;
 
         @media (max-width: 800px) {
-			padding: 0;
-			
-			max-width: 400px;
+            padding: 0;
 
-			margin: auto;
-			padding: 0 15px;
-		}
-		
-		&:hover,
+            max-width: 400px;
+
+            margin: auto;
+            padding: 50px 15px 50px 15px;
+        }
+
+        &:hover,
         &:focus {
-			text-decoration: none;
-		}
+            text-decoration: none;
+        }
 
         &:hover,
         &:focus,
-        &.is-hovered {
-			color: #fff;
+        &.isActive {
+            color: #fff;
 
             &:after {
                 opacity: 1;
@@ -367,7 +332,7 @@
             top: 0;
             z-index: -1;
 
-            width: 390px;
+            width: 340px;
             height: 100%;
 
             border-radius: 15px;
@@ -411,6 +376,7 @@
     .title,
     .s1-desc {
         position: relative;
+        white-space: pre-line;
     }
 
     .title {
@@ -435,6 +401,59 @@
         @media (max-width: 575px) {
             font-size: 13px;
             display: inline-block;
+        }
+    }
+}
+
+.s1-dots {
+    @media (max-width: 575px) {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+
+        margin: 0;
+
+        transform: translateX(-50%);
+    }
+
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+
+        margin: 0 0 30px 0;
+
+        @media (max-width: 575px) {
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin: 0 10px;
+            &.slick-active button {
+                background-color: #cb70eb;
+            }
+        }
+
+        button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 8px;
+            height: 8px;
+            cursor: pointer;
+            color: transparent;
+            background-color: transparent;
+            border: 1px solid #cb70eb;
+            border-radius: 50%;
+            outline: none;
+            background: transparent;
+            padding: 0;
+
+            transition: 0.3s ease-out;
+
+            @media (max-width: 575px) {
+                background-color: rgba(255, 255, 255, 0.3);
+                border: none;
+            }
         }
     }
 }

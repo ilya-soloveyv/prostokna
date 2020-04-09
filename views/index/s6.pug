@@ -1,46 +1,70 @@
-.section.s6
-    .fp_bg#calc
-        include part/s6--modal-form.pug
-
-        .child-fullpage
-            include part/s6--module-result.pug
-
-            .wrap-container
-                include part/s6--nav-panel.pug
-
-                div(data-Module="body-tabs")
-                    include part/s6--nav-tabs.pug
-                    include part/s6--body-welcome.pug
-                                
-                    //- div(data-El="container-tabs", v-bind:class="{ hide: !selectedWindow.length }")#nav-tabContent.tab-content
-                    div(data-El="container-tabs")#nav-tabContent.tab-content
-                        #tab1.tab-pane.fade.show.active(role='tabpanel')
-                            .multi-group
-                                h2 Производитель и модель
-                                include part/s6--group-models.pug
-                                //- include part/s6--group-models2.pug
-                        #tab2.tab-pane.fade.show(role='tabpanel')
-                            .multi-group
-                                h2 Тип и размер окна
-                                div(data-grid="sizes-and-views")
-                                    include part/s6--group-view.pug
-                                    include part/s6--group-sizes.pug
-                                    //- include part/s6--group-view2.pug
-                                    //- include part/s6--group-sizes2.pug
-                        #tab3.tab-pane.fade.show(role='tabpanel')
-                            .multi-group
-                                h2 Дополнительно
-                                div(data-grid="extra")
-                                    //- include part/s6--group-extra.pug
-                                    //- include part/s6--group-extra2.pug
-                        #tab4.tab-pane.fade.show(role='tabpanel')
-                            .multi-group
-                                h2 Цвет материала
-                                div(data-grid="colors")
-                                        //- include part/s6--group-colors.pug
-                                        //- include part/s6--group-colors--x2_.pug
-                                        //- include part/s6--group-colors--x3.pug
-                                        //- include part/s6--group-colors--x4.pug
-                                        //- include part/s6--group-colors--x5.pug
-                                        //- include part/s6--group-colors2.pug
-                                        //- include part/s6--group-colors2--x2.pug
+section.section.s6
+    .fp-bg
+        .s6-swipe
+            svg(aria-hidden="true")
+                use(xlink:href='#swipe')
+        .s6-slider-imgs
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            .s6-slide
+                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+        .s6-slider-wrap
+            button.s6-dropup
+                svg(aria-hidden="true")
+                    use(xlink:href='#arrow-up')
+            .s6-slider-windows
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+                .s6-slide
+                    div
+                        h3.s6-title NIKE BOX
+                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                        .s6-wrap
+                            .s6-img
+                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
+                            .s6-model
+                                span MONTBLANC
+                                span Nord 70
+            .s6-slider-panel
+                button.slick-prev(aria-label="Предыдущий слайд")
+                    svg(aria-hidden="true")
+                        use(xlink:href='#arrow-prev-a')
+                .slick-pagination
+                button.slick-next(aria-label="Следующий слайд")
+                    svg(aria-hidden="true")
+                        use(xlink:href='#arrow-next-a')
+        .s6-btn-wrap
+            a.btn(href="#")
+                span Смотреть все работы

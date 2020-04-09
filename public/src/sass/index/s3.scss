@@ -16,10 +16,18 @@
 
         .l {
             border-right: 1px solid #fff;
+
+            @media (max-width: 1200px) {
+                border-right: none;
+            }
         }
 
         .cal {
             border-left: 1px solid #fff;
+
+            @media (max-width: 1200px) {
+                border-left: none;
+            }
         }
     }
 
@@ -74,10 +82,6 @@
             }
         }
     }
-
-    .s2 {
-        color: #fff;
-    }
 }
 
 .s3 {
@@ -86,7 +90,6 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    background-image: url(/images/index/s3-bg.jpg);
 
     position: relative;
 
@@ -117,10 +120,6 @@
 .s3-wrap {
     max-width: 750px;
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 
     display: grid;
     grid-template-columns: 1fr 580px;
