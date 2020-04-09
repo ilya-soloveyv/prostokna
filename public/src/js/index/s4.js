@@ -1,4 +1,6 @@
 if (document.querySelector('.layout-index')) {
+    upload()
+    
     if (clientWidth() < 900) {
         let items = document.querySelectorAll('.s4-list li')
 
