@@ -356,7 +356,7 @@ button svg {
           opacity: 0.5; }
         .partBlock .blockData ul li.noActive .title {
           text-decoration: line-through; }
-        .partBlock .blockData ul li a.router-link-active {
+        .partBlock .blockData ul li a.router-link-active, .partBlock .blockData ul li a.active {
           font-weight: bold;
           color: black;
           text-decoration: none; }
@@ -607,7 +607,7 @@ button svg {
   #indexPage label.s1ActionImage {
     display: block;
     margin: 0;
-    height: 204px;
+    height: 252px;
     overflow: hidden;
     border-radius: .25rem;
     border: 1px solid #CED4DA;

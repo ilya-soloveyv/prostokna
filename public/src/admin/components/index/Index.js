@@ -20,7 +20,7 @@ export default {
               link: 'left'
             },
             {
-              title: 'Акции',
+              title: 'Товары и акции',
               link: 'actions'
             }
           ]
