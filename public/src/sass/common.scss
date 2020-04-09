@@ -1,5 +1,6 @@
 ol,
 ul {
+    list-style: none;
 	margin: 0;
 	padding: 0;
 }
@@ -7,6 +8,7 @@ ul {
 .ppage {
     min-height: 100vh;
     padding-top: 60px;
+
     @media (max-width: 1200px) {
         padding-left: 0;
     }
@@ -15,128 +17,22 @@ ul {
     }
 }
 
-.social_icons {
-    margin: 0;
-    padding: 0;
-    margin-left: -6px;
-    list-style: none;
+.social {
     display: flex;
-    li {
+
+    a {
         display: block;
-        width: 32px;
-        height: 32px;
-        margin: 0 0 0 0;
-        border-radius: 0%;
-        overflow: hidden;
         padding: 5px;
-        a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
+
+        &:hover,
+        &:focus {
+            opacity: 0.5;
         }
     }
 
-    &.black {
-        li {
-            a {
-                &.whatsapp {
-                    background-image: url("/images/social_icons/whatsapp_bl.svg");
-                }
-                &.whatsapp:hover {
-                    background-image: url("/images/social_icons/whatsapp_rgb.svg");
-                }
-                &.viber {
-                    background-image: url("/images/social_icons/viber_bl.svg");
-                }
-                &.viber:hover {
-                    background-image: url("/images/social_icons/viber_rgb.svg");
-                }
-                &.telegram {
-                    background-image: url("/images/social_icons/telegram_bl.svg");
-                }
-                &.telegram:hover {
-                    background-image: url("/images/social_icons/telegram_rgb.svg");
-                }
-                &.facebook {
-                    background-image: url("/images/social_icons/facebook_bl.svg");
-                }
-                &.facebook:hover {
-                    background-image: url("/images/social_icons/facebook_rgb.svg");
-                }
-                &.instagram {
-                    background-image: url("/images/social_icons/instagram_bl.png");
-                }
-                &.instagram:hover {
-                    background-image: url("/images/social_icons/instagram_rgb.png");
-                }
-                &.youtube {
-                    background-image: url("/images/social_icons/youtube_bl.svg");
-                }
-                &.youtube:hover {
-                    background-image: url("/images/social_icons/youtube_rgb.svg");
-                }
-            }
-        }
-    }
-    &.white {
-        li {
-            a {
-                filter: invert(100%);
-                -webkit-filter: invert(100%);
-                -moz-filter: invert(100%);
-                -ms-filter: invert(100%);
-                -o-filter: invert(100%);
-                filter: url(desaturate.svg#invert);
-                filter: white;
-                -webkit-filter: invert(1);
-                &.whatsapp {
-                    background-image: url("/images/social_icons/whatsapp_bl.svg");
-                }
-                &.whatsapp:hover {
-                    background-image: url("/images/social_icons/whatsapp_rgb.svg");
-                }
-                &.viber {
-                    background-image: url("/images/social_icons/viber_bl.svg");
-                }
-                &.viber:hover {
-                    background-image: url("/images/social_icons/viber_rgb.svg");
-                }
-                &.telegram {
-                    background-image: url("/images/social_icons/telegram_bl.svg");
-                }
-                &.telegram:hover {
-                    background-image: url("/images/social_icons/telegram_rgb.svg");
-                }
-                &.facebook {
-                    background-image: url("/images/social_icons/facebook_bl.svg");
-                }
-                &.facebook:hover {
-                    background-image: url("/images/social_icons/facebook_rgb.svg");
-                }
-                &.instagram {
-                    background-image: url("/images/social_icons/instagram_bl.png");
-                }
-                &.instagram:hover {
-                    background-image: url("/images/social_icons/instagram_rgb.png");
-                }
-                &.youtube {
-                    background-image: url("/images/social_icons/youtube_bl.svg");
-                }
-                &.youtube:hover {
-                    background-image: url("/images/social_icons/youtube_rgb.svg");
-                }
-            }
-            a:hover {
-                -webkit-filter: invert(0%);
-                -moz-filter: invert(0%);
-                -ms-filter: invert(0%);
-                -o-filter: invert(0%);
-                filter: url(desaturate.svg#invert);
-                filter: white;
-                -webkit-filter: invert(0);
-            }
-        }
+    svg {
+        color: #fff;
+        width: 20px;
+        height: 20px;
     }
 }

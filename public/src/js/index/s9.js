@@ -1,3 +1,12 @@
+if (document.querySelector('.layout-index')) {
+	if (clientWidth() < 575) {
+		$('.s9-nav > ul').slick({
+			nextArrow: '<button type="button" class="slick-arrow slick-next" aria-label="Следующий"><svg aria-hidden="true"><use xlink:href="#arrow-next-a" /></svg></button>',
+			prevArrow: '<button type="button" class="slick-arrow slick-prev" aria-label="Предыдущий"><svg aria-hidden="true"><use xlink:href="#arrow-prev-a" /></svg></button>'
+		})
+	}
+}
+
 function initMap() {
 
 	var lat = 55.7067838;
