@@ -30,8 +30,6 @@ if (document.querySelector('.layout-index')) {
 			}
 		]
 	})
-<<<<<<< HEAD
-=======
 
 	if (clientWidth() < 800) {
 		const dropup = document.querySelector('.s6-dropup')
@@ -43,5 +41,4 @@ if (document.querySelector('.layout-index')) {
 			sliderWrap.classList.toggle('isOpen')
 		})
 	}
->>>>>>> 75b0d8e1c69a8cfab3f12bc9681ffbac8ae7cb90
 }
