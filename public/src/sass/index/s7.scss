@@ -3,13 +3,14 @@
         &.s7 {
             .fp-tableCell {
                 .fp-bg {
-                    height: 100vh;
-                    overflow: hidden;
+                    height: 100%;
+                    padding-top: 60px;
                     .data {
                         height: 100%;
                         overflow: hidden;
                         display: flex;
                         flex-direction: column;
+                        // display: none;
                         .info {
                             flex-shrink: 0;
                             display: flex;
@@ -70,7 +71,7 @@
                                 // background-color: yellow;                        
                                 // height: 100%;
                                 @media (max-width: 1280px) {
-                                    height: calc(100% - 60px);
+                                    // height: 100% - 60px);
                                 }
                                 &::before {
                                     content: '';
@@ -173,6 +174,7 @@
                                     padding: 21px 0 20px 0;
                                     width: 100%;
                                     justify-content: center;
+                                    display: none;
                                     // background-color: red;
                                 }
                                 button.owl-prev, button.owl-next {
