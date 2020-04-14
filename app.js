@@ -2343,12 +2343,7 @@ app.get('/part/:sPartURI/:sPartBrandURI/:sPartModelURI', async (req, res) => {
 
     data.model = await PartModel.get(iPartModelID)
 
-    data.models = await PartModel.findAll({
-        where: {
-            iPartBrandID,
-            iActive: true
-        }
-    })
+    data.models = await PartModel.list({ iPartBrandID })
 
     // return res.json(data)
     // res.render('part/handle.pug', data)
