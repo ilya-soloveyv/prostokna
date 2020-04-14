@@ -51,5 +51,33 @@ module.exports = (sequelize, DataTypes) => {
     return partModel
   }
 
+  PartModel.list = async function ({ iPartBrandID }) {
+    const partModel = await PartModel.findAll({
+      include: [
+        {
+          model: sequelize.models.partImage,
+          as: 'images',
+          include: [
+            {
+              model: sequelize.models.partColor,
+              as: 'color'
+            }
+          ]
+        },
+        {
+          model: sequelize.models.partBrand,
+          as: 'brand'
+        }
+      ],
+      where: {
+        iPartBrandID
+      },
+      order: [
+        [ 'images', 'color', 'iOrder', 'ASC' ]
+      ]
+    })
+    return partModel
+  }
+
   return PartModel;
 };
