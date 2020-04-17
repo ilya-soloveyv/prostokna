@@ -73,6 +73,8 @@
         display: grid;
         grid-template-columns: 400px 1fr;
 
+        height: 100%;
+
         @media (max-width: 1440px) {
             grid-template-columns: 300px 1fr;
 
@@ -85,7 +87,6 @@
             justify-content: space-between;
 
             max-height: initial;
-            height: 100%;
 
             padding: 80px 0 30px 0;
         }

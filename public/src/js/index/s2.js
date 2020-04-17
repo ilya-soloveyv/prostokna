@@ -1,5 +1,5 @@
 if (document.querySelector('.layout-index')) {
-    if (document.body.offsetWidth > 910) {
+    if (clientWidth() > 910) {
         const s2Cards = document.querySelectorAll('.s2-main-list > li');
         const s2CloseCardBtns = document.querySelectorAll('.s2-front-card .card-close');
         const s2BackCardBtns = document.querySelectorAll('.s2-front-card .card-back');
@@ -24,8 +24,6 @@ if (document.querySelector('.layout-index')) {
                 if (target.querySelector('.s2-back-card').offsetHeight != target.querySelector('.s2-back-card').scrollHeight) {
                     target.classList.add('isScroll')
                 }
-
-                console.log(target.querySelector('.s2-back-card').offsetHeight != target.querySelector('.s2-back-card').scrollHeight);
             })
         });
 
@@ -66,7 +64,7 @@ if (document.querySelector('.layout-index')) {
                 if (shownList.length === 1) showLowerLevelsLists(false);
             })
         });
-    } else {
+    } else if (clientWidth() < 910 && clientWidth() > 600) {
         const s2cards = document.querySelectorAll('.s2-cards .s2-front-card');
         const s2CloseBtn = document.querySelector('.s2-close');
         const s2CardLinks = document.querySelectorAll('.s2-first-level .more');
@@ -75,8 +73,43 @@ if (document.querySelector('.layout-index')) {
             card.addEventListener('click', event => {
                 let target = event.target.closest('.s2');
                 target.classList.add('isActive');
+                
+                fullpage_api.moveTo('s2', index);
+            })
+        })
 
-                console.log(document.querySelector(`.s2-list-${index}`));
+        s2CardLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                let target = event.target;
+
+                target.closest('.s2-first-level').classList.add('isActive');
+
+                target.nextElementSibling.classList.add('isShown');
+
+                event.preventDefault();
+                event.stopPropagation();
+            })
+        })
+
+        s2CloseBtn.addEventListener('click', () => {
+            hiddenCards();
+
+            document.querySelector('.s2').classList.remove('isActive');
+        });
+    } else {
+        $('.s2 .slick-slider').slick({
+            prevArrow: '.s2 .slick-prev',
+            nextArrow: '.s2 .slick-next',
+        })
+
+        const s2cards = document.querySelectorAll('.s2-cards .s2-front-card');
+        const s2CloseBtn = document.querySelector('.s2-close');
+        const s2CardLinks = document.querySelectorAll('.s2-first-level .more');
+
+        s2cards.forEach((card, index) => {
+            card.addEventListener('click', event => {
+                let target = event.target.closest('.s2');
+                target.classList.add('isActive');
                 
                 fullpage_api.moveTo('s2', index);
             })
