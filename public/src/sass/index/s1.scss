@@ -38,6 +38,10 @@
         background-color: #323232;
     }
 
+    @media (max-width: 600px) {
+        height: 650px;
+    }
+
     @media (max-width: 575px) {
         font-size: 13px;
     }
@@ -49,6 +53,7 @@
     .fp-bg {
         display: grid;
         grid-template-columns: 1fr 1.3fr;
+        height: 100%;
 
         @media (max-width: 1050px) {
             grid-template-columns: 1fr 1fr;
@@ -220,8 +225,8 @@
             transform: translateX(-50%);
         }
 
-        @media (max-width: 575px) {
-            bottom: 11vh;
+        @media (max-width: 600px) {
+            bottom: 17vh;
         }
     }
 }
@@ -402,9 +407,9 @@
 }
 
 .s1-dots {
-    @media (max-width: 575px) {
+    @media (max-width: 600px) {
         position: absolute;
-        bottom: 0;
+        bottom: 7vh;
         left: 50%;
 
         margin: 0;

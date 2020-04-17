@@ -53,12 +53,17 @@ section.section.s2
                         use(xlink:href='#mouse')
                     
     .mob
-        button.s2-close MENU
         .s2-cards
             each item in s2_menu
                 .s2-front-card
                     svg.card-icon(aria-hidden='true')
                         use(xlink:href=`#index-${item.ico}`)
                     p= item.title
-        each item, index in s2_menu
-            +mobList(item.list, 1, item.ico, item.title, index)
+        .slider-wrap
+            .nav-panel
+                button.slick-prev
+                button.s2-close MENU
+                button.slick-next
+            div.slick-slider
+                each item, index in s2_menu
+                    +mobList(item.list, 1, item.ico, item.title, index)
