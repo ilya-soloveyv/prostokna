@@ -436,9 +436,10 @@ $text: #353535;
 			.texture {
 				position: absolute;
 				top: 50%;
-				left: 67%;
-				transform: translate(-50%,-50%);
-				width: 50%;				
+				right: 0;
+				transform: translate(0, -50%);
+				width: auto;
+				// width: 50%;				
 				@media screen and (max-width: 992px){
 					width: 100%;
 					left: 55%;

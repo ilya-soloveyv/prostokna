@@ -38,14 +38,29 @@ if ($('#accessories').length) {
 
 	// COLORS
 
-	$('.colors__item').on('click', function () {
-		const sPartImageFile = $(this).attr('data-sPartImageFile')
-		const iPartColorPrice = $(this).attr('iPartColorPrice')
-		const sPartColorTitle = $(this).attr('sPartColorTitle')
-		const sPartColorTitleCode = $(this).attr('sPartColorTitleCode')
+	function changeColor() {
+		var active = $('.colors__item.active')
+		const sPartImageFile = active.attr('data-sPartImageFile')
+		const iPartColorPrice = active.attr('data-iPartColorPrice')
+		const sPartColorTitle = active.attr('data-sPartColorTitle')
+		const sPartColorTitleCode = active.attr('data-sPartColorTitleCode')
 		console.log(sPartImageFile)
+		// console.log(iPartColorPrice)
+		// console.log(sPartColorTitle)
+		// console.log(sPartColorTitleCode)
+		$('.result__num').html(sPartColorTitleCode)
+		$('.result__color').html(sPartColorTitle)
+		$('.texture_handle').attr('src', '/images/part/' + sPartImageFile)
+		
+	}
+
+	
+
+	$('.colors__item').on('click', function () {
+		// console.log(sPartImageFile)
 		$(this).addClass('active').siblings().removeClass('active');
-	});
+		changeColor()
+	})
 
 	
 

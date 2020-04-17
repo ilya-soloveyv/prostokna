@@ -114,6 +114,12 @@
         align-items: center;
 
         position: relative;
+
+        height: 100%;
+
+        @media (max-width: 600px) {
+            padding: 70px 0 100px 0;
+        }
     }
 }
 

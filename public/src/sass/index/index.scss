@@ -188,12 +188,6 @@ $speed: 0.25s;
     }
 }
 
-#fullpage_welcome {
-    .fp-bg {
-        height: 100%;
-    }
-}
-
 .layout-index {
     .section {
         padding: 0 60px;
@@ -216,9 +210,28 @@ $speed: 0.25s;
     display: block;
 }
 
-#measurements,
-#file-measurements {
+.modal {
     color: #2f2f2f;
+
+    &#measurements {
+        .modal-body,
+        .modal-footer {
+            max-width: 350px;
+            width: 100%;
+
+            margin: auto;
+        }
+    }
+
+    &#file-measurements {
+        .modal-body {
+            text-align: center;
+
+            max-width: 480px;
+
+            margin: auto;
+        }
+    }
 
     .modal-content {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -241,44 +254,98 @@ $speed: 0.25s;
 
         border: 1px solid #d8d8d8;
         border-radius: 20px;
-	}
-
-    .modal-body,
-    .modal-footer {
-        max-width: 350px;
-        width: 100%;
-
-        margin: auto;
-	}
+    }
 
     .modal-footer {
-		display: flex;
-		justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
 
         button {
             border-radius: 21px;
             color: #2f2f2f;
             font-size: 12px;
-			font-weight: 600;
+            font-weight: 600;
 
-			padding: 10px 0;
-			
-			flex: 0 0 50%;
+            padding: 10px 0;
 
+            flex: 0 0 50%;
 
             &.close {
                 background-color: #fff;
-			}
-			
-			&:not(.close) {
-				border: 1px solid #323232;
-			}
+            }
+
+            &:not(.close) {
+                border: 1px solid #323232;
+            }
         }
-	}
-	
-	.file {
-		&:before {
-			content: "Отправить замеры";
-		}
-	}
+    }
+}
+
+.drop-wrap {
+    text-align: center;
+
+    background-color: #fff;
+
+    border-radius: 20px;
+
+    min-height: 250px;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    label {
+        font-size: 12px;
+        font-weight: 500;
+
+        margin-bottom: 30px;
+    }
+
+    input {
+        position: absolute;
+
+        clip: rect(1px, 1px, 1px, 1px);
+
+        width: 1px;
+        height: 1px;
+
+        overflow: hidden;
+    }
+}
+
+.drop-list {
+    margin-top: 15px;
+
+    span {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.47);
+        border-radius: 100px;
+        background-color: #ffffff;
+
+        width: 160px;
+
+        padding: 5px 0;
+
+        font-size: 10px;
+        font-weight: 500;
+
+        display: inline-block;
+
+        position: relative;
+    }
+
+    button {
+        font-size: 15px;
+        line-height: 1;
+
+        background-color: transparent;
+        border: none;
+
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
