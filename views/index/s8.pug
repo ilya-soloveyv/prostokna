@@ -1,4 +1,4 @@
-.section.s8(style="background-image: url(/images/index/s8/s8-fullhd.jpg)")
+.section.s8
     .fp_bg.fp_bg_s8
         .flex-block
                 .top-block
@@ -22,9 +22,8 @@
                                 label
                                     input(type="radio" name="selectName")
                                     | Вы корпоративный клиент<i class="material-icons">keyboard_arrow_right</i>
-                    
                     .form-block
-                        form.form_contact
+                        form.form_contact#submitForm
                             .row
                                 .col.contacts
                                     .form-group
@@ -40,15 +39,19 @@
                                 .col.msg
                                     .form-group
                                         label(for='messageTextArea') Message
-                                        textarea(name="message" placeholder='Введите сообщение' id='messageTextArea').form-control.form-control-pokna.white  
-                                        .clip
-                                            input(type='file' id='chooseFile')
-                                            label(for='chooseFile') 
-                                                img(src='/images/index/s8/clip.svg' alt='clip')
-                                            .fileName                                       
+                                        .messageWrap
+                                            textarea(name="message" placeholder='Введите сообщение' id='messageTextArea').form-control.form-control-pokna.white  
+                                            .panelWrap
+                                                .clip(v-bind:style="{ display: isNone }")
+                                                    input(type='file' id='files' ref="files" multiple v-on:change="handleFilesUpload()")
+                                                    label(for='files') 
+                                                        img(src='/images/index/s8/clip.svg' alt='clip')
+                                                .fileListContainer
+                                                    .fileList(v-for="(file, key) in files") {{ makeShortName(file.name) }}
+                                                        span(class="removeFile" v-on:click="removeFile(key)")
                             .row
                                 .col.btn-send
-                                    button(type="submit") Отправить
+                                    button(v-on:click="submitFiles()") Отправить
 
                             
                                 
