@@ -2471,6 +2471,19 @@ app.get('/all_windows', async (req, res) => {
     // connection.end()
 })
 
+app.get('/compare', async (req, res) => {
+    const response = {}
+    response.material = await Material.findAll({
+        attributes: ['iMaterialID', 'sMaterialTitle'],
+        where: {
+            iActive: true
+        }
+    })
+    response.product = await Product.getProductForCompare()
+    
+    res.json(response)
+})
+
 
 
 if (process.env.NODE_ENV != 'development') {
