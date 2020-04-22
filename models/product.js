@@ -208,5 +208,50 @@ module.exports = (sequelize, DataTypes) => {
     return product
   }
 
+  Product.getProductForCompare = async function() {
+    const response = await Product.findAll({
+      attributes: [
+        'iProductID',
+        'iMaterialID',
+        'iBrandID',
+        'sProductTitle',
+        'sProductURI',
+        'MountingDepth',
+        'Profile',
+        'ProfileClass',
+        'DoubleGlazing',
+        'HeatTransferResistance',
+        'ShapikShapeOptions',
+        'DecorationOptions',
+        'FrameFeature'
+      ],
+      include: [
+        {
+          attributes: ['iBrandID', 'sBrandTitle', 'iCountryID', 'sBrandURI'],
+          model: sequelize.models.brand,
+          include: [
+            {
+              model: sequelize.models.country
+            }
+          ]
+        },
+        {
+          model: sequelize.models.product_color,
+          where: {
+            iIndex: true
+          }
+        },
+        {
+          model: sequelize.models.material
+        }
+      ],
+      where: {
+        iActive: true
+      }
+    })
+    
+    return response
+  }
+
   return Product;
 };
