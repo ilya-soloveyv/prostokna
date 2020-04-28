@@ -1385,6 +1385,13 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
     res.json(response)
 })
 
+app.post('/admin/index/s5/get', async (req, res) => {
+    const response = {}
+    const GalleryIndex = require('./models').gallery_index
+    response.gallery = await GalleryIndex.list()
+    res.json(response)
+})
+
 
 
 
