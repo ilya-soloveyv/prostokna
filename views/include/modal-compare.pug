@@ -1,0 +1,104 @@
+.modal.fade#compareModal(tabindex="-1" role="dialog" aria-labelledby="compareModalLabel" aria-hidden="true")
+    .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+              button.close(type="button" data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") &times;
+          .modal-body
+              .page-1(v-if="!comparePage")
+                .title Cравнение
+                .selection
+                  //- .item
+                  //-     label
+                  //-       input(type="radio" name="selectEntity")
+                  //-       .button-select
+                  //-         img(src='/images/compare/window.svg', alt='okno')
+                  //- .item 
+                  //-     label
+                  //-       input(type="radio" name="selectEntity")
+                  //-       .button-select
+                  //-         img(src='/images/compare/balcon.svg', alt='balcon')
+                  //- span {{ name }}
+                  //span {{ info.material[1].sMaterialTitle }}
+                  //span {{ materials }}
+                  //span {{ products }}
+                  
+
+                        
+                .add-model
+                  .add-model-button Добавить модели
+                    i.material-icons(class="button-windows_add") add
+                .bottom
+                  span ПОЖАЛУЙСТА, ВЫБЕРИТЕ КАТЕГОРИЮ  - ОКНА ИЛИ БАЛКОННЫЕ КОНСТРУКЦИИ,
+                       |А затем ДВЕ ИЛИ БОЛЕЕ МОДЕЛИ, ЧТОБЫ ПЕРЕЙТИ
+                       | К ТАБЛИЦЕ СРАВНЕНИЯ
+                .section-choose
+                  .panel-choose
+                    .selection-material
+                      .list-materials
+                        .item(v-for="material in materials")
+                          label {{ material.sMaterialTitle}}
+                            input(type="radio" v-bind:value="material.iMaterialID" v-model="iMaterialID")
+                        //- span(v-if="iMaterialID!==null") Выбрано: {{ iMaterialID }}
+                    .selection-model
+                      .list-products
+                        ul.brand
+                          li(v-for="brand in result")
+                            span.brand {{ brand.sBrandTitle }}
+                            ul.model
+                              li(v-for="product in brand.products")
+                                label
+                                  input(type="checkbox" :value="product.iProductID" v-model="selectedProducts")
+                                  span.model {{ brand.sBrandTitle}} {{ product.sProductTitle}}
+                                    template(v-if="product.iProductID === 7") Тарам 
+                  .button-compare
+                    button(@click="makeCompare") Сравнить
+                      //- .list(v-for="product in result")
+                        label {{ product.sBrandTitle }}
+                          input(type="checkbox")
+                      //- <pre>{{ result }}</pre>
+                      //- ul
+                        li(v-for="product in SelectedProducts") {{product.sProductTitle}} - {{product.iProductID}}
+              .page-compare(v-else)  
+                .content
+                  .button-selection
+                    button(@click="returnToSelection") Вернуться к выбору
+                  .table-wrapper
+                    table#table-compare
+                      thead.header
+                        tr
+                         th Col1
+                         th Col2
+                         th Col3
+                         th Col4
+                         th Col5
+                      tbody.results
+                       tr
+                        th Row1
+                        td Item1
+                        td Item2
+                        td Item3
+                        td Item4
+                       tr
+                        th Row2
+                        td Item1
+                        td Item2
+                        td Item3
+                        td Item4
+                       tr
+                        th Row3
+                        td Item1
+                        td Item2
+                        td Item3
+                        td Item4
+                       tr
+                        th Row4
+                        td Item1
+                        td Item2
+                        td Item3
+                        td Item4
+
+
+
+
+
