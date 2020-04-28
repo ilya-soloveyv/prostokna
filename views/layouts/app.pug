@@ -63,11 +63,13 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/page-brand/page-brand.css")
             link(rel="stylesheet", href="/src/css/best-cost/best-cost.css")
             link(rel="stylesheet", href="/src/css/accessories/accessories.css")
+            link(rel="stylesheet", href="/src/css/modal-compare.css")
         else
-            link(rel="stylesheet", href="/app-890e247289.min.css")
+            link(rel="stylesheet", href="/app-76d51d15af.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap&subset=cyrillic")
     body
         include ../include/top.pug
+        include ../include/modal-compare.pug
 
         block content
         .modal#wiki_catalog_modal(tabindex="-1", role="dialog")
@@ -293,8 +295,9 @@ html(lang="ru")
             script(src='/src/js/page-brand/page-brand.js')
             script(src='/src/js/best-cost/best-cost.js')
             script(src='/src/js/accessories/accessories.js')            
+            script(src='/src/js/modal-compare.js')            
         else
-            script(src='/app-3a20de00d6.min.js')
+            script(src='/app-5cfb617de1.min.js')
 
             script(src="https://www.googletagmanager.com/gtag/js?id=UA-140504195-1" async)
             script.
