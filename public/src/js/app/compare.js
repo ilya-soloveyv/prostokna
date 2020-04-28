@@ -27,6 +27,7 @@ if ($('#compare').length) {
           item["ProfileClass"] = `«${item["ProfileClass"]}»` 
         }) 
 
+        console.log('titleFromApi', products);
         return products
       },
       opacityClasses: function() {
