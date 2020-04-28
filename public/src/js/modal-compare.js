@@ -1,6 +1,12 @@
 $(document).ready(function(){
-  $("#openModalCompare").click();
+  // $("#openModalCompare").click();
 });
+
+const test = 111
+// const MiniBarSelectionModel = new MiniBar('.selection-model')
+// import Vuebar from 'vuebar';
+// Vue.use(Vuebar);
+console.log(Vuebar)
 
 vm = new Vue({
   el: '#compareModal',
@@ -9,44 +15,56 @@ vm = new Vue({
     info: null,
     materials: null,
     products: [],
-    iMaterialID: 3,
+    iMaterialID: 1,
     selectedProducts: [],
     comparePage: false
   },
-
+  created() {
+  },
   computed: {
     result: function() {
       const brands = []
-      console.log('beg', this.products);
+      // console.log('beg', this.products);
       const list = this.products.filter((product) => product.iMaterialID === this.iMaterialID)
-      console.log(list);
+      // console.log(list);
       list.forEach(product => {
         const check = brands.find(brand => brand.iBrandID === product.iBrandID)
-        console.log('list ');
-        console.log(check);
+        // console.log('list ');
+        // console.log(check);
         if (!check) {
           const brand = Object.assign({}, product.brand);
-          console.log('1', brand);
+          // console.log('1', brand);
           brand.products = [];
-          console.log('2', brand);
+          // console.log('2', brand);
           brands.push(brand);
-          console.log('3',brands);
+          // console.log('3',brands);
         }
         const productsList = brands.find(brand => brand.iBrandID === product.iBrandID)
-        console.log('pl', productsList)
+        // console.log('pl', productsList)
         productsList.products.push(product)
       })
-      console.log('br', brands);
+      // console.log('br', brands);
+
+      // Vue.nextTick(function(){
+      //   MiniBarSelectionModel.update();
+      // })
+
       return brands
     }
   },
-
   mounted() {
     axios.get('/compare').then(({data}) => {
       Vue.set(this, 'info', data);
       Vue.set(this,  'materials', data.material);
       Vue.set(this, 'products', data.product);
     });
+    // MiniBarSelectionModel.update();
+    Vue.nextTick(function(){
+      $('#compareModal').on('shown.bs.modal', function (e) {
+        // MiniBarSelectionModel.update();
+        // console.log(this.MiniBarSelectionModel)
+      })        
+    })
 
   },
   methods: {
@@ -56,9 +74,18 @@ vm = new Vue({
     },
     returnToSelection: function() {
       this.comparePage = false;
+    },
+    reloadMiniBar() {
+      console.log(test)
+      // Vue.nextTick(function(){
+      //   new MiniBar('.selection-model').update();
+      // })
     }
   }
 })
+
+
+
 
 $(document).on('click', '#compareModal ul.brand li span.brand', function() {
   $(this).parent().addClass('active').siblings().removeClass('active');
@@ -84,47 +111,6 @@ $(document).on('click', '#compareModal ul.brand li span.brand', function() {
 //   $(".selection-model ul.model").hide();
 // });
 
-new MiniBar('.selection-model', {
-  // barType: "default",
-  //minBarSize: 10,
-  hideBars: true, 
-  alwaysShowBars: true,
-  horizontalMouseScroll: false,
-
-  scrollX: false,
-  scrollY: true,
-
-  navButtons: false,
-  //scrollAmount: 10,
-
-  // mutationObserver: {
-  //     attributes: false,
-  //     childList: true,
-  //     subtree: true
-  // },
-
-  classes: {
-      container: "mb-container",
-      content: "mb-content",
-      track: "mb-track",
-      bar: "mb-bar",
-      visible: "mb-visible",
-      progress: "mb-progress",
-      hover: "mb-hover",
-      scrolling: "mb-scrolling",
-      textarea: "mb-textarea",
-      wrapper: "mb-wrapper",
-      nav: "mb-nav",
-      btn: "mb-button",
-      btns: "mb-buttons",
-      increase: "mb-increase",
-      decrease: "mb-decrease",
-      item: "mb-item",
-      itemVisible: "mb-item-visible", 
-      itemPartial: "mb-item-partial", 
-      itemHidden: "mb-item-hidden"
-  }
-});
 
 
 new MiniBar('#table-compare', {

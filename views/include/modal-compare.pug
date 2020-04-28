@@ -43,7 +43,11 @@
                     .selection-model
                       .list-products
                         ul.brand
-                          li(v-for="brand in result")
+                          li(
+                            v-for="brand in result"
+                            :class="{ active: brand.iBrandID == 5}"
+                            @click="reloadMiniBar"
+                          )
                             span.brand {{ brand.sBrandTitle }}
                             ul.model
                               li(v-for="product in brand.products")
