@@ -817,6 +817,34 @@ button {
         }
         .editButtons {
             flex-shrink: 0;
+            background-color: #DDDDDD;
+            padding: 1rem;
+        }
+    }
+    label.uploadImage {
+        width: 100%;
+        height: 193px;
+        background-color: #F9F9F9;
+        border: 1px solid #CED4DA;
+        border-radius: .25rem;
+        margin: 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        input {
+            display: none;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+    .card {
+        &.destroy {
+            opacity: 0.25;
         }
     }
 }

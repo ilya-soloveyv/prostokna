@@ -18,16 +18,35 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'iProductID'
     })
   };
-  GalleryIndex.list = async function () {
+  GalleryIndex.list = async function ({ iActive } = {}) {
+    let where = {}
+    if (iActive !== undefined) {
+      where = {
+        iActive: true
+      }
+    }
     const gallery = await GalleryIndex.findAll({
       include: [
         {
-          model: sequelize.models.product
+          model: sequelize.models.product,
+          include: [
+            {
+              model: sequelize.models.brand
+            },
+            {
+              model: sequelize.models.material_category
+            },
+            {
+              model: sequelize.models.brus
+            }
+          ] 
         }
       ],
       order: [
+        [ 'iActive', 'DESC' ],
         [ 'iOrder', 'ASC' ]
-      ]
+      ],
+      where
     })
     return gallery
   }

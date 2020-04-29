@@ -208,6 +208,34 @@ module.exports = (sequelize, DataTypes) => {
     return product
   }
 
+  Product.list = async function () {
+    const products = Product.findAll(
+      {
+        include: [
+          {
+            model: sequelize.models.brand
+          },
+          {
+            model: sequelize.models.material
+          },
+          {
+            model: sequelize.models.material_category
+          },
+          {
+            model: sequelize.models.brus
+          }
+        ],
+        where: {
+          iActive: true
+        },
+        order: [
+          [sequelize.models.brand, 'iBrandID', 'ASC']
+        ]
+      }
+    )
+    return products
+  }
+
   Product.getProductForCompare = async function() {
     const response = await Product.findAll({
       attributes: [
