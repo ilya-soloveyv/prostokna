@@ -62,6 +62,7 @@ const Product_link = require('./models').product_link
 const Gallery_group = require('./models').gallery_group
 const Gallery = require('./models').gallery
 const Gallery_image = require('./models').gallery_image
+const GalleryIndex = require('./models').gallery_index
 
 
 
@@ -1385,6 +1386,75 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
     res.json(response)
 })
 
+app.post('/admin/index/s5/get', async (req, res) => {
+    const response = {}
+    response.gallery = await GalleryIndex.list()
+    response.products = await Product.list()
+    res.json(response)
+})
+app.post('/admin/index/s5/upload', async (req, res) => {
+    var filename = randomString() + '.' + req.headers.extension
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/images/gallery')
+        },
+        filename: function (req, file, cb) {
+            cb(null, filename)
+        }
+    })
+    var upload = multer({ storage: storage }).single('file')
+    upload(req, res, async function (err, resp) {
+        const response = {}
+        response.filename = filename
+        return res.json(response)
+    })
+})
+app.post('/admin/index/s5/update', async (req, res) => {
+    const response = {}
+
+    const gallerys = req.body.gallery
+
+    for (const gallery of gallerys) {
+        const iGalleryIndexID = gallery.iGalleryIndexID || false
+        const iProductID = gallery.iProductID || null
+        const sGalleryIndexTitle = gallery.sGalleryIndexTitle || null
+        const tGalleryIndexText = gallery.tGalleryIndexText || null
+        const sGalleryIndexImage = gallery.sGalleryIndexImage || null
+        const iActive = gallery.iActive || false
+        const iOrder = gallery.iOrder || 9999
+        if (gallery.destroy === true && iGalleryIndexID) {
+            await GalleryIndex.destroy({
+                where: {
+                    iGalleryIndexID
+                }
+            })
+        } else if (!gallery.destroy && iGalleryIndexID) {
+            await GalleryIndex.update({
+                iProductID,
+                sGalleryIndexTitle,
+                tGalleryIndexText,
+                sGalleryIndexImage,
+                iActive,
+                iOrder
+            }, {
+                where: {
+                    iGalleryIndexID
+                }
+            })
+        } else if (!gallery.destroy) {
+            await GalleryIndex.create({
+                iProductID,
+                sGalleryIndexTitle,
+                tGalleryIndexText,
+                sGalleryIndexImage,
+                iActive,
+                iOrder
+            })
+        }
+    }
+
+    res.json(response)
+})
 
 
 
@@ -1863,6 +1933,9 @@ app.get('/', async (req, res) => {
             ]
         },
     ]
+
+    // Пятая секция / Галлерея
+    data.s5 = await GalleryIndex.list({ iActive: true })
     // return res.json(data)
     res.render('index.pug', data)
 })

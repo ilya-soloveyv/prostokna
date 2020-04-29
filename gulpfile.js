@@ -92,6 +92,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/page-brand/page-brand.js',
             'public/src/js/best-cost/best-cost.js',
 			'public/src/js/accessories/accessories.js',						
+			'public/src/js/modal-compare.js',						
         ],{
             allowEmpty: true 
         })
@@ -166,6 +167,7 @@ gulp.task('css_min', (done) => {
             'public/src/css/page-brand/page-brand.css',
             'public/src/css/best-cost/best-cost.css',
 			'public/src/css/accessories/accessories.css',
+			'public/src/css/modal-compare.css',
         ])
         .pipe(concat('app.min.css'))
         .pipe(cleanCSS())

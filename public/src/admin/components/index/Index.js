@@ -1,18 +1,20 @@
 import s1Left from '../../components/index/s1/Left.js'
 import s1Actions from '../../components/index/s1/Actions.js'
+import s5Gallery from '../../components/index/s5/Gallery.js'
 
 export default {
   name: 'Index',
   props: ['section', 'part'],
   components: {
     s1Left,
-    s1Actions
+    s1Actions,
+    s5Gallery
   },
   data() {
     return {
       sections: [
         {
-          title: 'Первый экран',
+          title: 'Приветственный экран',
           link: 's1',
           parts: [
             {
@@ -38,7 +40,7 @@ export default {
           link: 's4'
         },
         {
-          title: 'Пятый экран',
+          title: 'Галерея',
           link: 's5'
         },
         {
@@ -96,6 +98,7 @@ export default {
       <div class="partEdit">
         <s1Left v-if="section === 's1' && part === 'left'"></s1Left>
         <s1Actions v-if="section === 's1' && part === 'actions'"></s1Actions>
+        <s5Gallery v-if="section === 's5'"></s5Gallery>
       </div>
     </div>
   `,
