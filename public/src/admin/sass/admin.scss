@@ -804,4 +804,19 @@ button {
             }
         }
     }
+    .editBlock {
+        margin: -1rem;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        .editData {
+            padding: 1rem 1rem 0 1rem;
+            flex-grow: 1;
+            overflow: auto;
+        }
+        .editButtons {
+            flex-shrink: 0;
+        }
+    }
 }
