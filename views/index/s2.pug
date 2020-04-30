@@ -1,4 +1,4 @@
-mixin desktopList(list)
+mixin list(list)
     if list
         ol
             each item in list
@@ -6,64 +6,33 @@ mixin desktopList(list)
                     a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
                         span.bg
 
-                    +desktopList(item.list)
-
-mixin mobList(list, type, ico, title, index)
-    if list
-        if type
-            div(class=`slide s2-list-${index}`)
-                ol.slide-wrap
-                    p.s2-title= title
-                    each item in list
-                        li.s2-first-level
-                            a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
-
-                            +mobList(item.list, false, false, title)
-
-                    svg.card-icon(aria-hidden='true')
-                        use(xlink:href=`#index-${ico}`)
-        else
-            ol
-                p.s2-title= title
-                each item in list
-                    li
-                        a(href=item.uri class={ 'more': item.uri === '#', 'disabled': item.dev })= item.title
-
-                        +mobList(item.list, false, false, title)
+                    +list(item.list)
 
 section.section.s2
-    .desktop
-        ul.s2-main-list
-            each item in s2_menu
-                li.s2-card
-                    .s2-front-card
-                        div
-                            button.card-back(aria-label='Назад')
-                                svg(width='15px' height='15px')
-                                    use(xlink:href='#back')
-                            button.card-close(aria-label='Закрыть')
-                                svg(width='15px' height='15px')
-                                    use(xlink:href='#cross')
-                        svg.card-icon(aria-hidden='true')
-                            use(xlink:href=`#index-${item.ico}`)
-                        p= item.title
-                    .s2-back-card
-                        +desktopList(item.list)
-                    svg.s2-mouse(width="34" height="81")
-                        use(xlink:href='#mouse')
-                    
-    .mob
-        .s2-cards
-            each item in s2_menu
+    button.s2-close MENU
+    button.s2-back(aria-label='Назад')
+        svg(width='15px' height='15px')
+            use(xlink:href='#back')
+    
+    ul.s2-main-list
+        each item in s2_menu
+            li.s2-card
                 .s2-front-card
+                    div
+                        button.card-back(aria-label='Назад')
+                            svg(width='15px' height='15px')
+                                use(xlink:href='#back')
+                        button.card-close(aria-label='Закрыть')
+                            svg(width='15px' height='15px')
+                                use(xlink:href='#cross')
                     svg.card-icon(aria-hidden='true')
                         use(xlink:href=`#index-${item.ico}`)
                     p= item.title
-        .slider-wrap
-            .nav-panel
-                button.slick-prev
-                button.s2-close MENU
-                button.slick-next
-            div.slick-slider
-                each item, index in s2_menu
-                    +mobList(item.list, 1, item.ico, item.title, index)
+                    
+    ul.s2-secondary-list
+        each item in s2_menu
+            li.s2-back-card-wrap
+                .s2-back-card
+                    +list(item.list)
+                svg.s2-mouse(width="34" height="81")
+                    use(xlink:href='#mouse')
