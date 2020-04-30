@@ -67,42 +67,96 @@
                 .content
                   .button-selection
                     button(@click="returnToSelection") Вернуться к выбору
-                  .table-wrapper
-                    table#table-compare
-                      thead.header
-                        tr
-                         th Col1
-                         th Col2
-                         th Col3
-                         th Col4
-                         th Col5
-                      tbody.results
-                       tr
-                        th Row1
-                        td Item1
-                        td Item2
-                        td Item3
-                        td Item4
-                       tr
-                        th Row2
-                        td Item1
-                        td Item2
-                        td Item3
-                        td Item4
-                       tr
-                        th Row3
-                        td Item1
-                        td Item2
-                        td Item3
-                        td Item4
-                       tr
-                        th Row4
-                        td Item1
-                        td Item2
-                        td Item3
-                        td Item4
+                  .carousel-wrapper
+                    .parameter-column
+                      .main-parameter-header
+                        span Основные параметры
+                      .main-parameter
+                        div
+                          span Монтажная глубина
+                        div
+                          span Профиль
+                        div
+                          span Класс профиля
+                        div
+                          span Стеклопакет
+                        div
+                          span Сопротивление теплопередаче
+                        div
+                          span Родина бренда
+                      .additional-parameter-header
+                        span Дополнительные параметры
+                      .additional-parameter
+                        div
+                          span Варианты формы штапика
+                        div
+                          span Варианты декорирования
+                        div
+                          span Особенности рамы
 
-
+                    .caroosel
+                      .owl-carousel
+                        .item
+                          div {{ selectedListProducts[0].brand.sBrandTitle }}
+                          div {{ selectedListProducts[0].sProductTitle }}
+                          div {{ selectedListProducts[0].MountingDepth }}
+                          div {{ selectedListProducts[0].Profile }}
+                          div {{ selectedListProducts[0].ProfileClass }}
+                          div {{ selectedListProducts[0].DoubleGlazing }}
+                          div {{ selectedListProducts[0].HeatTransferResistance }}
+                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
+                          div {{ selectedListProducts[0].ShapikShapeOptions }}
+                          div {{ selectedListProducts[0].DecorationOptions }}
+                          div {{ selectedListProducts[0].FrameFeature }}
+                        .item
+                          div {{ selectedListProducts[0].brand.sBrandTitle }}
+                          div {{ selectedListProducts[0].sProductTitle }}
+                          div {{ selectedListProducts[0].MountingDepth }}
+                          div {{ selectedListProducts[0].Profile }}
+                          div {{ selectedListProducts[0].ProfileClass }}
+                          div {{ selectedListProducts[0].DoubleGlazing }}
+                          div {{ selectedListProducts[0].HeatTransferResistance }}
+                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
+                          div {{ selectedListProducts[0].ShapikShapeOptions }}
+                          div {{ selectedListProducts[0].DecorationOptions }}
+                          div {{ selectedListProducts[0].FrameFeature }}
+                        .item
+                          div {{ selectedListProducts[0].brand.sBrandTitle }}
+                          div {{ selectedListProducts[0].sProductTitle }}
+                          div {{ selectedListProducts[0].MountingDepth }}
+                          div {{ selectedListProducts[0].Profile }}
+                          div {{ selectedListProducts[0].ProfileClass }}
+                          div {{ selectedListProducts[0].DoubleGlazing }}
+                          div {{ selectedListProducts[0].HeatTransferResistance }}
+                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
+                          div {{ selectedListProducts[0].ShapikShapeOptions }}
+                          div {{ selectedListProducts[0].DecorationOptions }}
+                          div {{ selectedListProducts[0].FrameFeature }}
+                        .item
+                          div {{ selectedListProducts[0].brand.sBrandTitle }}
+                          div {{ selectedListProducts[0].sProductTitle }}
+                          div {{ selectedListProducts[0].MountingDepth }}
+                          div {{ selectedListProducts[0].Profile }}
+                          div {{ selectedListProducts[0].ProfileClass }}
+                          div {{ selectedListProducts[0].DoubleGlazing }}
+                          div {{ selectedListProducts[0].HeatTransferResistance }}
+                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
+                          div {{ selectedListProducts[0].ShapikShapeOptions }}
+                          div {{ selectedListProducts[0].DecorationOptions }}
+                          div {{ selectedListProducts[0].FrameFeature }}
+                        .item
+                          div {{ selectedListProducts[0].brand.sBrandTitle }}
+                          div {{ selectedListProducts[0].sProductTitle }}
+                          div {{ selectedListProducts[0].MountingDepth }}
+                          div {{ selectedListProducts[0].Profile }}
+                          div {{ selectedListProducts[0].ProfileClass }}
+                          div {{ selectedListProducts[0].DoubleGlazing }}
+                          div {{ selectedListProducts[0].HeatTransferResistance }}
+                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
+                          div {{ selectedListProducts[0].ShapikShapeOptions }}
+                          div {{ selectedListProducts[0].DecorationOptions }}
+                          div {{ selectedListProducts[0].FrameFeature }}
+                          
 
 
 

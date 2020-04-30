@@ -265,14 +265,49 @@
           }
         }
         .page-compare {
+          height: 100%;
+          width: 100%;
+          background: white;
           .content {
+            width: 100%;
             .button-selection {
               .button {
 
               }
             }
-            .table {
-              
+            .carousel-wrapper {
+              width: 100%;
+              display: flex;
+              .parameter-column {
+                background: green;
+                width: 270px;
+                flex-shrink: 0;
+              }
+              .caroosel {
+                background: red;
+                width: 100%;
+                .owl-carousel {
+                  height: 100%;
+                  .owl-stage-outer {
+                    height: 100%;
+                    .owl-stage {
+                      height: 100%;
+                      .owl-item {
+                        height: 100%;
+                        .item {
+                          //height: 150px;
+                        }
+                      }
+                    }
+                  }
+                  .owl-nav {
+
+                  }
+                  .owl-dots {
+
+                  }
+                }
+              }
 
             }
           }
