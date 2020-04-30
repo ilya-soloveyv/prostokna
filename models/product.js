@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     sProductDesc: DataTypes.TEXT,
     sProductText: DataTypes.TEXT,
     MountingDepth: DataTypes.INTEGER,
+    iGlassPane: DataTypes.STRING,
     Profile: DataTypes.STRING,
     ProfileClass: DataTypes.STRING,
     DoubleGlazing: DataTypes.INTEGER,
