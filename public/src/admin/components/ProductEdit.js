@@ -392,25 +392,31 @@ export default {
                                                     <input type="text" class="form-control" v-model.number="product.iProductParam6">
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="label" for="">Монтажная глубина:</label>
                                                     <input type="text" class="form-control" v-model.number="product.MountingDepth">
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="label" for="">Стеклопакет:</label>
+                                                    <input type="text" class="form-control" v-model="product.iGlassPane">
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="form-group">
+                                                    <label class="label" for="">Профиль:</label>
                                                     <input type="text" class="form-control" v-model="product.Profile">
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="label" for="">Класс профиля:</label>
                                                     <input type="text" class="form-control" v-model="product.ProfileClass">
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="label" for="">Кол-во камер:</label>
                                                     <input type="text" class="form-control" v-model.number="product.DoubleGlazing">
