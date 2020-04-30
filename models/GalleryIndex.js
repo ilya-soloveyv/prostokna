@@ -45,7 +45,8 @@ module.exports = (sequelize, DataTypes) => {
       ],
       order: [
         [ 'iActive', 'DESC' ],
-        [ 'iOrder', 'ASC' ]
+        [ 'iOrder', 'ASC' ],
+        [ sequelize.models.product, sequelize.models.product_image, 'iOrder', 'ASC' ]
       ],
       where
     })
