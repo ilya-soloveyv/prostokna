@@ -66,97 +66,122 @@
               .page-compare(v-else)  
                 .content
                   .button-selection
-                    button(@click="returnToSelection") Вернуться к выбору
+
+                    a.back(@click="returnToSelection")
+                      i.material-icons keyboard_arrow_left
+                      span Вернуться к выбору
                   .carousel-wrapper
                     .parameter-column
                       .main-parameter-header
-                        span Основные параметры
-                      .main-parameter
-                        div
-                          span Монтажная глубина
-                        div
-                          span Профиль
-                        div
-                          span Класс профиля
-                        div
-                          span Стеклопакет
-                        div
-                          span Сопротивление теплопередаче
-                        div
-                          span Родина бренда
-                      .additional-parameter-header
-                        span Дополнительные параметры
-                      .additional-parameter
-                        div
-                          span Варианты формы штапика
-                        div
-                          span Варианты декорирования
-                        div
-                          span Особенности рамы
+                        .row-h  
+                          label.switch
+                            input(type="checkbox")
+                            .slider
+                              .l
+                                  img.normal(src="/images/compare/window-small.svg", alt="")
+                                  span {{ itemsNumber }}
+                              .r
+                                img.normal(src="/images/compare/balcon-small.svg", alt="")
+                                span 0
+                          //- ul.nav.nav-tabs
+                          //-   .bg
+                          //-   li.nav-item
+                          //-       a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
+                          //-           img.normal(src="/images/compare/window-small.svg", alt="")
+                          //-           img.hover(src="/images/percent_hover.svg", alt="")
+                          //-           span {{ itemsNumber }}
+                          //-   li.nav-item
+                          //-       a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
+                          //-           img.normal(src="/images/compare/balcon-small.svg", alt="")
+                          //-           span 0
+                          //-           img.hover(src="/images/list_hover.svg", alt="")
+
+                          //- label(for="sameValues")
+                          //-   input(type="checkbox" id="sameValues" v-model="markHideSameValue")
+                          //-   span Скрыть одинаковые значения 
+                          //-   //{{ markHideSameValue }}
+
+                          .custom-control.custom-checkbox
+                            input(type="checkbox" id="customCheck1" v-model="markHideSameValue").custom-control-input
+                            label(for="customCheck1").custom-control-label Скрыть одинаковые значения
+      
+                        .header
+                          .desc-main
+                            span Основные параметры
+                          .row-i(v-if="isActive.mountingDepth")
+                            span Монтажная глубина
+                          .row-i(v-if="isActive.profile")
+                            span Профиль
+                          .row-i(v-if="isActive.profileClass")
+                            span Класс профиля
+                          .row-i(v-if="isActive.doubleGlazing")
+                            span Стеклопакет
+                          .row-i(v-if="isActive.heatTransferResistance")
+                            span Сопротивление теплопередаче
+                          .row-i(v-if="isActive.country")
+                            span Родина бренда
+                          .desc-add
+                            //(v-if="isActive.test")
+                            span Дополнительные параметры
+                          .row-i(v-if="isActive.shapikShapeOptions")
+                            span Варианты формы штапика
+                          .row-i(v-if="isActive.decorationOptions")
+                            span Варианты декорирования
+                          .row-i(v-if="isActive.frameFeature")
+                            span Особенности рамы
 
                     .caroosel
                       .owl-carousel
-                        .item
-                          div {{ selectedListProducts[0].brand.sBrandTitle }}
-                          div {{ selectedListProducts[0].sProductTitle }}
-                          div {{ selectedListProducts[0].MountingDepth }}
-                          div {{ selectedListProducts[0].Profile }}
-                          div {{ selectedListProducts[0].ProfileClass }}
-                          div {{ selectedListProducts[0].DoubleGlazing }}
-                          div {{ selectedListProducts[0].HeatTransferResistance }}
-                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
-                          div {{ selectedListProducts[0].ShapikShapeOptions }}
-                          div {{ selectedListProducts[0].DecorationOptions }}
-                          div {{ selectedListProducts[0].FrameFeature }}
-                        .item
-                          div {{ selectedListProducts[0].brand.sBrandTitle }}
-                          div {{ selectedListProducts[0].sProductTitle }}
-                          div {{ selectedListProducts[0].MountingDepth }}
-                          div {{ selectedListProducts[0].Profile }}
-                          div {{ selectedListProducts[0].ProfileClass }}
-                          div {{ selectedListProducts[0].DoubleGlazing }}
-                          div {{ selectedListProducts[0].HeatTransferResistance }}
-                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
-                          div {{ selectedListProducts[0].ShapikShapeOptions }}
-                          div {{ selectedListProducts[0].DecorationOptions }}
-                          div {{ selectedListProducts[0].FrameFeature }}
-                        .item
-                          div {{ selectedListProducts[0].brand.sBrandTitle }}
-                          div {{ selectedListProducts[0].sProductTitle }}
-                          div {{ selectedListProducts[0].MountingDepth }}
-                          div {{ selectedListProducts[0].Profile }}
-                          div {{ selectedListProducts[0].ProfileClass }}
-                          div {{ selectedListProducts[0].DoubleGlazing }}
-                          div {{ selectedListProducts[0].HeatTransferResistance }}
-                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
-                          div {{ selectedListProducts[0].ShapikShapeOptions }}
-                          div {{ selectedListProducts[0].DecorationOptions }}
-                          div {{ selectedListProducts[0].FrameFeature }}
-                        .item
-                          div {{ selectedListProducts[0].brand.sBrandTitle }}
-                          div {{ selectedListProducts[0].sProductTitle }}
-                          div {{ selectedListProducts[0].MountingDepth }}
-                          div {{ selectedListProducts[0].Profile }}
-                          div {{ selectedListProducts[0].ProfileClass }}
-                          div {{ selectedListProducts[0].DoubleGlazing }}
-                          div {{ selectedListProducts[0].HeatTransferResistance }}
-                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
-                          div {{ selectedListProducts[0].ShapikShapeOptions }}
-                          div {{ selectedListProducts[0].DecorationOptions }}
-                          div {{ selectedListProducts[0].FrameFeature }}
-                        .item
-                          div {{ selectedListProducts[0].brand.sBrandTitle }}
-                          div {{ selectedListProducts[0].sProductTitle }}
-                          div {{ selectedListProducts[0].MountingDepth }}
-                          div {{ selectedListProducts[0].Profile }}
-                          div {{ selectedListProducts[0].ProfileClass }}
-                          div {{ selectedListProducts[0].DoubleGlazing }}
-                          div {{ selectedListProducts[0].HeatTransferResistance }}
-                          div {{ selectedListProducts[0].brand.country.sCountryTitle }}
-                          div {{ selectedListProducts[0].ShapikShapeOptions }}
-                          div {{ selectedListProducts[0].DecorationOptions }}
-                          div {{ selectedListProducts[0].FrameFeature }}
-                          
+                        .owl-stage-outer
+                          .owl-stage
+                            .owl-item(v-for="(product, index) in selectedListProducts" :key="index")
+                              .item
+                                .row-h
+                                  .top
+                                    img.myimg(
+                                      v-bind:src="getImgLink(product.product_colors[0].sProductColorFilename)"
+                                      alt='test okno'
+                                      v-on:load="makeRows"
+                                    )
+                                    .markCr(@click="deleteProduct(index)")
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                  .bot
+                                    .l
+                                      .vendor
+                                        span {{ product.brand.sBrandTitle }} 
+                                      .model
+                                        span {{ product.sProductTitle }}
+                                    .r
+                                      .img-wrap
+                                        img
+                                        //.normal(src='/images/compare/addToCalc.svg', alt='add to calculator')
+                                        //img.hover(src='/images/compare/addToCalcHover.svg', alt='add to calculator')
+                                        span Добавить в калькулятор
+                                  .empty-item
+                                .meaning
+                                  .desc-main
+                                    span AAA
+                                  .row-i(v-if="isActive.mountingDepth")
+                                    span {{ product.MountingDepth }}
+                                  .row-i(v-if="isActive.profile")
+                                    span {{ product.Profile }}
+                                  .row-i(v-if="isActive.profileClass")
+                                    span {{ product.ProfileClass }}
+                                  .row-i(v-if="isActive.doubleGlazing")
+                                    span {{ product.DoubleGlazing }}
+                                  .row-i(v-if="isActive.heatTransferResistance")
+                                    span {{ product.HeatTransferResistance }}
+                                  .row-i(v-if="isActive.country")
+                                    span {{ product.brand.country.sCountryTitle }}
+                                  //- extra-par
+                                  //- (v-if="isActive.test")
+                                  .desc-add
+                                    span AAA
+                                  .row-i(v-if="isActive.shapikShapeOptions")
+                                    span {{ product.ShapikShapeOptions }}
+                                  .row-i(v-if="isActive.decorationOptions")
+                                    span {{ product.DecorationOptions }}
+                                  .row-i(v-if="isActive.frameFeature")
+                                    span {{ product.FrameFeature }}
 
-
-
+                            
