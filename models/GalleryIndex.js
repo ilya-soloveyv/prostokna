@@ -19,17 +19,18 @@ module.exports = (sequelize, DataTypes) => {
     })
   };
   GalleryIndex.list = async function ({ iActive } = {}) {
-    let where = {}
+    const where = {}
     if (iActive !== undefined) {
-      where = {
-        iActive: true
-      }
+      where.iActive = true
     }
     const gallery = await GalleryIndex.findAll({
       include: [
         {
           model: sequelize.models.product,
           include: [
+            {
+              model: sequelize.models.product_image
+            },
             {
               model: sequelize.models.brand
             },
@@ -44,7 +45,8 @@ module.exports = (sequelize, DataTypes) => {
       ],
       order: [
         [ 'iActive', 'DESC' ],
-        [ 'iOrder', 'ASC' ]
+        [ 'iOrder', 'ASC' ],
+        [ sequelize.models.product, sequelize.models.product_image, 'iOrder', 'ASC' ]
       ],
       where
     })

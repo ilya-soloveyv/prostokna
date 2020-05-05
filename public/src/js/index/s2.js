@@ -5,24 +5,27 @@ if (document.querySelector('.layout-index')) {
         const s2BackCardBtns = document.querySelectorAll('.s2-front-card .card-back');
         const s2CardLinks = document.querySelectorAll('.s2-back-card .more');
 
-        s2Cards.forEach(card => {
+        s2Cards.forEach((card, index) => {
             card.addEventListener('click', event => {
-                let target = event.target.closest('.s2-card');
+                let frontCardTarget = event.currentTarget
+                let backCardTarget = document.querySelectorAll('.s2-back-card-wrap')[index]
 
-                if (target.classList.contains('active')) return;
+                if (frontCardTarget.classList.contains('active')) return;
 
                 s2Cards.forEach(el => {
                     el.classList.add('inactive');
                     el.classList.remove('active');
                 });
 
-                target.classList.remove('inactive');
-                target.classList.add('active');
+                frontCardTarget.classList.remove('inactive');
+                frontCardTarget.classList.add('active');
                 
                 hiddenCards();
 
-                if (target.querySelector('.s2-back-card').offsetHeight != target.querySelector('.s2-back-card').scrollHeight) {
-                    target.classList.add('isScroll')
+                backCardTarget.classList.add('isActive');
+
+                if (backCardTarget.offsetHeight != backCardTarget.querySelector('.s2-back-card').scrollHeight) {
+                    backCardTarget.classList.add('isScroll')
                 }
             })
         });
@@ -64,62 +67,34 @@ if (document.querySelector('.layout-index')) {
                 if (shownList.length === 1) showLowerLevelsLists(false);
             })
         });
-    } else if (clientWidth() < 910 && clientWidth() > 600) {
-        const s2cards = document.querySelectorAll('.s2-cards .s2-front-card');
-        const s2CloseBtn = document.querySelector('.s2-close');
-        const s2CardLinks = document.querySelectorAll('.s2-first-level .more');
-
-        s2cards.forEach((card, index) => {
-            card.addEventListener('click', event => {
-                let target = event.target.closest('.s2');
-                target.classList.add('isActive');
-                
-                fullpage_api.moveTo('s2', index);
-            })
-        })
-
-        s2CardLinks.forEach(link => {
-            link.addEventListener('click', event => {
-                let target = event.target;
-
-                target.closest('.s2-first-level').classList.add('isActive');
-
-                target.nextElementSibling.classList.add('isShown');
-
-                event.preventDefault();
-                event.stopPropagation();
-            })
-        })
-
-        s2CloseBtn.addEventListener('click', () => {
-            hiddenCards();
-
-            document.querySelector('.s2').classList.remove('isActive');
-        });
     } else {
-        $('.s2 .slick-slider').slick({
-            prevArrow: '.s2 .slick-prev',
-            nextArrow: '.s2 .slick-next',
-        })
+        const s2Cards = document.querySelectorAll('.s2-main-list > li')
+        const s2CardLinks = document.querySelectorAll('.s2-back-card .more')
+        const closeBtn = document.querySelector('.s2-close')
+        const secondaryList = document.querySelector('.s2-secondary-list')
+        const backBtn = document.querySelector('.s2-back')
+        
+        $('.s2-secondary-list').slick()
 
-        const s2cards = document.querySelectorAll('.s2-cards .s2-front-card');
-        const s2CloseBtn = document.querySelector('.s2-close');
-        const s2CardLinks = document.querySelectorAll('.s2-first-level .more');
-
-        s2cards.forEach((card, index) => {
+        s2Cards.forEach((card, index) => {
             card.addEventListener('click', event => {
-                let target = event.target.closest('.s2');
-                target.classList.add('isActive');
-                
-                fullpage_api.moveTo('s2', index);
+                secondaryList.classList.add('isActive')
+                closeBtn.classList.add('isActive')
+
+                $('.s2-secondary-list').slick('slickGoTo', index)
             })
+        });
+
+        closeBtn.addEventListener('click', () => {
+            secondaryList.classList.remove('isActive')
+            closeBtn.classList.remove('isActive')
         })
 
         s2CardLinks.forEach(link => {
             link.addEventListener('click', event => {
                 let target = event.target;
 
-                target.closest('.s2-first-level').classList.add('isActive');
+                showLowerLevelsLists(true);
 
                 target.nextElementSibling.classList.add('isShown');
 
@@ -128,32 +103,38 @@ if (document.querySelector('.layout-index')) {
             })
         })
 
-        s2CloseBtn.addEventListener('click', () => {
-            hiddenCards();
+        backBtn.addEventListener('click', event => {
+            let shownList = document.querySelectorAll('.isShown');
 
-            document.querySelector('.s2').classList.remove('isActive');
-        });
+            if (!shownList.length) return;
+
+            shownList[shownList.length - 1].classList.remove('isShown');
+
+            if (shownList.length === 1) showLowerLevelsLists(false);
+        })
     }
 }
 
 function showLowerLevelsLists(bool) {
-    let activeCard = document.querySelector('.s2-card.active');
-    let firstList = activeCard.querySelector('.s2-back-card > ol');
-    let backBtn = activeCard.querySelector('.card-back');
+    let backBtn = document.querySelector('.s2-card.active .card-back') || document.querySelector('.s2-back');
+    let activeBackCard = document.querySelector('.s2-back-card-wrap.isActive') || document.querySelector('.s2-back-card-wrap.slick-current');
+    let firstList = activeBackCard.querySelector('.s2-back-card > ol');
 
     if (bool === true) {
-        firstList.classList.add('isActive');
-        backBtn.classList.add('show');
+        firstList.classList.add('isActive')
+        backBtn.classList.add('show')
     } else {
-        firstList.classList.remove('isActive');
-        backBtn.classList.remove('show');
+        firstList.classList.remove('isActive')
+        backBtn.classList.remove('show')
     }
 }
 
 function hiddenCards() {
     let shownCards = document.querySelectorAll('.s2 .isShown');
     let scrollCards = document.querySelectorAll('.s2 .isScroll');
+    let activeCards = document.querySelectorAll('.s2 .isActive');
 
     shownCards.forEach(el => el.classList.remove('isShown'));
     scrollCards.forEach(el => el.classList.remove('isScroll'));
+    activeCards.forEach(el => el.classList.remove('isActive'));
 }

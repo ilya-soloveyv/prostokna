@@ -4,59 +4,38 @@ section.section.s6
             svg(aria-hidden="true")
                 use(xlink:href='#swipe')
         .s6-slider-imgs
-            .s6-slide
-                img(data-lazy="/images/index/s6/bg.jpg" alt="")
-            .s6-slide
-                img(data-lazy="/images/index/s6/bg.jpg" alt="")
-            .s6-slide
-                img(data-lazy="/images/index/s6/bg.jpg" alt="")
-            .s6-slide
-                img(data-lazy="/images/index/s6/bg.jpg" alt="")
+            each gallery in s5
+                .s6-slide
+                    img(
+                        data-lazy="/images/gallery/" + gallery.sGalleryIndexImage
+                        alt=""
+                    )
         .s6-slider-wrap
             button.s6-dropup
                 svg(aria-hidden="true")
                     use(xlink:href='#arrow-up')
             .s6-slider-windows
-                .s6-slide
-                    div
-                        h3.s6-title NIKE BOX
-                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-                        .s6-wrap
-                            .s6-img
-                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
-                            .s6-model
-                                span MONTBLANC
-                                span Nord 70
-                .s6-slide
-                    div
-                        h3.s6-title NIKE BOX
-                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-                        .s6-wrap
-                            .s6-img
-                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
-                            .s6-model
-                                span MONTBLANC
-                                span Nord 70
-                .s6-slide
-                    div
-                        h3.s6-title NIKE BOX
-                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-                        .s6-wrap
-                            .s6-img
-                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
-                            .s6-model
-                                span MONTBLANC
-                                span Nord 70
-                .s6-slide
-                    div
-                        h3.s6-title NIKE BOX
-                        p.s6-description Lorem ipsum dolor sit amet, consectetur  adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-                        .s6-wrap
-                            .s6-img
-                                img(data-lazy="/images/index/s6/window.png" alt="MONTBLANC")
-                            .s6-model
-                                span MONTBLANC
-                                span Nord 70
+                each gallery in s5
+                    .s6-slide
+                        div
+                            h3.s6-title #{gallery.sGalleryIndexTitle}
+                            p.s6-description #{gallery.tGalleryIndexText}
+                            if gallery.product !== null
+                                .s6-wrap
+                                    if gallery.product.product_images !== null
+                                        .s6-img
+                                            img(
+                                                data-lazy="/images/product/gallery/" + gallery.product.product_images[0].sProductImageFrontName
+                                                alt=""
+                                            )
+                                    if gallery.brand !== null
+                                        .s6-model
+                                            span #{gallery.product.brand.sBrandTitle}
+                                            span #{gallery.product.sProductTitle}
+                                            if gallery.product.material_category !== null
+                                                span #{gallery.product.material_category.sMaterialCategoryTitle}
+                                            if gallery.product.bru !== null
+                                                span #{gallery.product.bru.sBrusTitle}
             .s6-slider-panel
                 button.slick-prev(aria-label="Предыдущий слайд")
                     svg(aria-hidden="true")

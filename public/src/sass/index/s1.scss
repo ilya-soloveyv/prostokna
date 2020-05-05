@@ -39,7 +39,7 @@
     }
 
     @media (max-width: 600px) {
-        height: 650px;
+        height: 600px;
     }
 
     @media (max-width: 575px) {
@@ -112,7 +112,8 @@
         }
 
         @media (max-width: 575px) {
-            margin-bottom: 11vh;
+            margin-bottom: 0;
+            padding-bottom: 75px;
         }
 
         .bg-image {
@@ -130,7 +131,7 @@
                 top: 0;
                 border-bottom: 0;
                 width: 100%;
-                height: 100%;
+                height: 105%;
 
                 opacity: 0.5;
             }
@@ -226,7 +227,7 @@
         }
 
         @media (max-width: 600px) {
-            bottom: 17vh;
+            bottom: 95px;
         }
     }
 }
@@ -409,7 +410,7 @@
 .s1-dots {
     @media (max-width: 600px) {
         position: absolute;
-        bottom: 7vh;
+        bottom: 25px;
         left: 50%;
 
         margin: 0;
