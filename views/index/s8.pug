@@ -24,34 +24,38 @@
                                     | Вы корпоративный клиент<i class="material-icons">keyboard_arrow_right</i>
                     .form-block
                         form.form_contact#submitForm
-                            .row
-                                .col.contacts
-                                    .form-group
-                                        label(for='nameInput') Name
-                                        input(type='text' name="name" placeholder='Ваше имя' id='nameInput').form-control.form-control-pokna.white
-                                        //.invalid-feedback Необходимо указать Ваше имя
-                    
-                                    .form-group.phone
-                                        label(for='phoneInput') Phone
-                                        input(type='text' name="tel" placeholder='Ваш телефон' id='phoneInput').form-control.form-control-pokna.white
-                                        //.invalid-feedback Необходимо указать контактный номер
-                            .row
-                                .col.msg
-                                    .form-group
-                                        label(for='messageTextArea') Message
-                                        .messageWrap
-                                            textarea(name="message" placeholder='Введите сообщение' id='messageTextArea').form-control.form-control-pokna.white  
-                                            .panelWrap
-                                                .clip(v-bind:style="{ display: isNone }")
-                                                    input(type='file' id='files' ref="files" multiple v-on:change="handleFilesUpload()")
-                                                    label(for='files') 
-                                                        img(src='/images/index/s8/clip.svg' alt='clip')
-                                                .fileListContainer
-                                                    .fileList(v-for="(file, key) in files") {{ makeShortName(file.name) }}
-                                                        span(class="removeFile" v-on:click="removeFile(key)")
+                            .mask
+                                .row
+                                    .col.contacts
+                                        .form-group
+                                            label(for='nameInput') Name
+                                            input(type='text' name="name" placeholder='Ваше имя' id='nameInput').form-control.form-control-pokna.white
+                                            //.invalid-feedback Необходимо указать Ваше имя
+                        
+                                        .form-group.phone
+                                            label(for='phoneInput') Phone
+                                            input(type='text' name="tel" placeholder='Ваш телефон' id='phoneInput').form-control.form-control-pokna.white
+                                            //.invalid-feedback Необходимо указать контактный номер
+                                .row
+                                    .col.msg
+                                        .form-group
+                                            label(for='messageTextArea') Message
+                                            .messageWrap
+                                                textarea(name="message" placeholder='Введите сообщение' id='messageTextArea').form-control.form-control-pokna.white  
+                                                .panelWrap
+                                                    .clip(v-bind:style="{ display: isNone }")
+                                                        input(type='file' id='files' ref="files" multiple v-on:change="handleFilesUpload()")
+                                                        label(for='files') 
+                                                            img(src='/images/index/s8/clip.svg' alt='clip')
+                                                    .fileListContainer
+                                                        .fileList(v-for="(file, key) in files") {{ makeShortName(file.name) }}
+                                                            span(class="removeFile" v-on:click="removeFile(key)")
+                                .status(v-bind:class="{hideStatus: !hideSubmit}")
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C07FEC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    span Отправлено
                             .row
                                 .col.btn-send
-                                    button(v-on:click="submitFiles()") Отправить
+                                    button(v-on:click="submitFiles()" v-bind:class="{hideButton: hideSubmit}") Отправить
 
                             
                                 
