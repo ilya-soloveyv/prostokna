@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  //$("#openModalCompare").click();
+  $("#openModalCompare").click();
 });
 
 
@@ -42,13 +42,14 @@ const test = 111
 vm = new Vue({
   el: '#compareModal',
   data: {
-    name: 'Vladimir',
+    isWindowChecked: true,
     info: null,
     materials: null,
     products: [],
     iMaterialID: 1,
     selectedProducts: [7, 13, 14, 15, 16],
     comparePage: false,
+    modelSelectPage: false,
     isActive: {},
     markHideSameValue: false
   },
@@ -192,6 +193,15 @@ vm = new Vue({
       })
     },
 
+    selectType: function() {
+      this.isWindowChecked = !this.isWindowChecked;
+      console.log('isWindowChecked', this.isWindowChecked);
+    },
+
+    selectModel:  function() {
+      this.modelSelectPage = true;
+      console.log('selectModel', this.modelSelectPage);
+    },
     makeCompare: function() {
       this.comparePage = true;
       console.log('makeCompare ', this.comparePage);
