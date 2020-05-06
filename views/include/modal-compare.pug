@@ -78,33 +78,14 @@
                             input(type="checkbox")
                             .slider
                               .l
-                                  img.normal(src="/images/compare/window-small.svg", alt="")
-                                  span {{ itemsNumber }}
+                                img.normal(src="/images/compare/window-small.svg", alt="")
+                                span {{ itemsNumber }}
                               .r
                                 img.normal(src="/images/compare/balcon-small.svg", alt="")
                                 span 0
-                          //- ul.nav.nav-tabs
-                          //-   .bg
-                          //-   li.nav-item
-                          //-       a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
-                          //-           img.normal(src="/images/compare/window-small.svg", alt="")
-                          //-           img.hover(src="/images/percent_hover.svg", alt="")
-                          //-           span {{ itemsNumber }}
-                          //-   li.nav-item
-                          //-       a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
-                          //-           img.normal(src="/images/compare/balcon-small.svg", alt="")
-                          //-           span 0
-                          //-           img.hover(src="/images/list_hover.svg", alt="")
-
-                          //- label(for="sameValues")
-                          //-   input(type="checkbox" id="sameValues" v-model="markHideSameValue")
-                          //-   span Скрыть одинаковые значения 
-                          //-   //{{ markHideSameValue }}
-
                           .custom-control.custom-checkbox
                             input(type="checkbox" id="customCheck1" v-model="markHideSameValue").custom-control-input
                             label(for="customCheck1").custom-control-label Скрыть одинаковые значения
-      
                         .header
                           .desc-main
                             span Основные параметры
@@ -153,14 +134,15 @@
                                         span {{ product.sProductTitle }}
                                     .r
                                       .img-wrap
+                                        span.choose Выбрать
                                         img
-                                        //.normal(src='/images/compare/addToCalc.svg', alt='add to calculator')
-                                        //img.hover(src='/images/compare/addToCalcHover.svg', alt='add to calculator')
-                                        span Добавить в калькулятор
+                                        //- (src='/images/compare/addToCalc.svg', alt='add to calculator')
+                                        //- img(src='/images/compare/addToCalcHover.svg', alt='add to calculator')
+                                        span.add Добавить в калькулятор
                                   .empty-item
                                 .meaning
                                   .desc-main
-                                    span AAA
+                                    //- span AAA
                                   .row-i(v-if="isActive.mountingDepth")
                                     span {{ product.MountingDepth }}
                                   .row-i(v-if="isActive.profile")
@@ -176,7 +158,7 @@
                                   //- extra-par
                                   //- (v-if="isActive.test")
                                   .desc-add
-                                    span AAA
+                                    //- span AAA
                                   .row-i(v-if="isActive.shapikShapeOptions")
                                     span {{ product.ShapikShapeOptions }}
                                   .row-i(v-if="isActive.decorationOptions")
