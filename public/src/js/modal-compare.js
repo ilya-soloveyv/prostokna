@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#openModalCompare").click();
+  //$("#openModalCompare").click();
 });
 
 
@@ -344,59 +344,59 @@ $(document).on('click', '#compareModal ul.brand li span.brand', function() {
 
 
 
-new MiniBar('#table-compare', {
-  barType: "default",
-  minBarSize: 10,
-  hideBars: false,  /* v0.4.0 and above */
-  alwaysShowBars: false,
-  horizontalMouseScroll: false,
+// new MiniBar('#table-compare', {
+//   barType: "default",
+//   minBarSize: 10,
+//   hideBars: false,  /* v0.4.0 and above */
+//   alwaysShowBars: false,
+//   horizontalMouseScroll: false,
 
-  scrollX: true,
-  scrollY: true,
+//   scrollX: true,
+//   scrollY: true,
 
-  navButtons: false,
-  scrollAmount: 10,
+//   navButtons: false,
+//   scrollAmount: 10,
 
-  mutationObserver: {
-      attributes: false,
-      childList: true,
-      subtree: true
-  },
+//   mutationObserver: {
+//       attributes: false,
+//       childList: true,
+//       subtree: true
+//   },
 
-   /* v0.4.0 and above */
-  onInit: function() {
-  /* do something on init */
-  },
+//    /* v0.4.0 and above */
+//   onInit: function() {
+//   /* do something on init */
+//   },
 
-   /* v0.4.0 and above */
-  onUpdate: function() {
-  /* do something on update */
-  },
+//    /* v0.4.0 and above */
+//   onUpdate: function() {
+//   /* do something on update */
+//   },
 
-   /* v0.4.0 and above */
-  onScroll: function() {
-  /* do something on init */
-  },
+//    /* v0.4.0 and above */
+//   onScroll: function() {
+//   /* do something on init */
+//   },
 
-  classes: {
-      container: "mb-container",
-      content: "mb-content",
-      track: "mb-track",
-      bar: "mb-bar",
-      visible: "mb-visible",
-      progress: "mb-progress",
-      hover: "mb-hover",
-      scrolling: "mb-scrolling",
-      textarea: "mb-textarea",
-      wrapper: "mb-wrapper",
-      nav: "mb-nav",
-      btn: "mb-button",
-      btns: "mb-buttons",
-      increase: "mb-increase",
-      decrease: "mb-decrease",
-      item: "mb-item", /* v0.4.0 and above */
-      itemVisible: "mb-item-visible", /* v0.4.0 and above */
-      itemPartial: "mb-item-partial", /* v0.4.0 and above */
-      itemHidden: "mb-item-hidden" /* v0.4.0 and above */
-  }
-});
+//   classes: {
+//       container: "mb-container",
+//       content: "mb-content",
+//       track: "mb-track",
+//       bar: "mb-bar",
+//       visible: "mb-visible",
+//       progress: "mb-progress",
+//       hover: "mb-hover",
+//       scrolling: "mb-scrolling",
+//       textarea: "mb-textarea",
+//       wrapper: "mb-wrapper",
+//       nav: "mb-nav",
+//       btn: "mb-button",
+//       btns: "mb-buttons",
+//       increase: "mb-increase",
+//       decrease: "mb-decrease",
+//       item: "mb-item", /* v0.4.0 and above */
+//       itemVisible: "mb-item-visible", /* v0.4.0 and above */
+//       itemPartial: "mb-item-partial", /* v0.4.0 and above */
+//       itemHidden: "mb-item-hidden" /* v0.4.0 and above */
+//   }
+// });

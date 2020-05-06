@@ -2,11 +2,19 @@ $(".section.s8 .fp_bg .flex-block .bottom-block .type-block ul li").on("click", 
     $(this).addClass('active').siblings().removeClass('active');
 });
 
+
+
 var app = new Vue({
     el: '#submitForm',
     data: {
       files: [],
-      isNone:  ''
+      isNone:  '',
+      hideSubmit: false
+    },
+    mounted() {
+      Vue.nextTick(function() {
+        $("#phoneInput").inputmask({"mask": "+7(999) 999-99-99"});
+      })
     },
     methods: {
       addFiles(){
@@ -14,6 +22,14 @@ var app = new Vue({
       },
 
       submitFiles(){
+        Vue.set(this, 'hideSubmit', true);
+        var v = this;
+        setTimeout(
+          function() { 
+            Vue.set(v, 'hideSubmit', false);
+          }, 
+          3000
+        );
         let formData = new FormData();
         for( var i = 0; i < this.files.length; i++ ){
           let file = this.files[i];
