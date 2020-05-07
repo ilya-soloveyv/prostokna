@@ -7,62 +7,59 @@
           .modal-body
               .page-1(v-if="!comparePage")
                 .title Cравнение
-                .selection
-                  //- .item
-                  //-     label
-                  //-       input(type="radio" name="selectEntity")
-                  //-       .button-select
-                  //-         img(src='/images/compare/window.svg', alt='okno')
-                  //- .item 
-                  //-     label
-                  //-       input(type="radio" name="selectEntity")
-                  //-       .button-select
-                  //-         img(src='/images/compare/balcon.svg', alt='balcon')
-                  //- span {{ name }}
-                  //span {{ info.material[1].sMaterialTitle }}
-                  //span {{ materials }}
-                  //span {{ products }}
-                  
+                .selection(v-if="!modelSelectPage")
+                  .wrap-top
+                    .select-wrap
+                      .item
+                          label(for="window" :class="{active: isWindowChecked}")
+                            input(type="radio" name="selectEntity" id="window" @click="selectType" checked)
+                            .button-select.window
+                              img(src='/images/compare/window-main.svg', alt='okno')
+                      .item 
+                          label(for="balcon" :class="{active: !isWindowChecked}")
+                            input(type="radio" name="selectEntity" id="balcon" @click="selectType")
+                            .button-select.balcon
+                              img(src='/images/compare/balcon-main.svg', alt='balcon')
+                    .add-model-btn
+                      button( @click="selectModel") Добавить модели
+                        i.material-icons(class="button-windows_add") add
 
-                        
-                .add-model
-                  .add-model-button Добавить модели
-                    i.material-icons(class="button-windows_add") add
-                .bottom
-                  span ПОЖАЛУЙСТА, ВЫБЕРИТЕ КАТЕГОРИЮ  - ОКНА ИЛИ БАЛКОННЫЕ КОНСТРУКЦИИ,
-                       |А затем ДВЕ ИЛИ БОЛЕЕ МОДЕЛИ, ЧТОБЫ ПЕРЕЙТИ
-                       | К ТАБЛИЦЕ СРАВНЕНИЯ
-                .section-choose
-                  .panel-choose
-                    .selection-material
-                      .list-materials
-                        .item(v-for="material in materials")
-                          label {{ material.sMaterialTitle}}
-                            input(type="radio" v-bind:value="material.iMaterialID" v-model="iMaterialID")
-                        //- span(v-if="iMaterialID!==null") Выбрано: {{ iMaterialID }}
-                    .selection-model
-                      .list-products
-                        ul.brand
-                          li(
-                            v-for="brand in result"
-                            :class="{ active: brand.iBrandID == 5}"
-                            @click="reloadMiniBar"
-                          )
-                            span.brand {{ brand.sBrandTitle }}
-                            ul.model
-                              li(v-for="product in brand.products")
-                                label
-                                  input(type="checkbox" :value="product.iProductID" v-model="selectedProducts")
-                                  span.model {{ brand.sBrandTitle}} {{ product.sProductTitle}}
-                                    template(v-if="product.iProductID === 7") Тарам 
-                  .button-compare
-                    button(@click="makeCompare") Сравнить
-                      //- .list(v-for="product in result")
-                        label {{ product.sBrandTitle }}
-                          input(type="checkbox")
-                      //- <pre>{{ result }}</pre>
-                      //- ul
-                        li(v-for="product in SelectedProducts") {{product.sProductTitle}} - {{product.iProductID}}
+                  .bottom
+                    span ПОЖАЛУЙСТА, ВЫБЕРИТЕ КАТЕГОРИЮ  - ОКНА ИЛИ БАЛКОННЫЕ КОНСТРУКЦИИ,
+                        |А затем ДВЕ ИЛИ БОЛЕЕ МОДЕЛИ, ЧТОБЫ ПЕРЕЙТИ
+                        | К ТАБЛИЦЕ СРАВНЕНИЯ
+                .section-choose(v-else)
+                  .wrap-tbl 
+                    .panel-choose
+                      .selection-material
+                        .list-materials
+                          .item(v-for="material in materials")
+                            label {{ material.sMaterialTitle}}
+                              input(type="radio" v-bind:value="material.iMaterialID" v-model="iMaterialID")
+                          //- span(v-if="iMaterialID!==null") Выбрано: {{ iMaterialID }}
+                      .selection-model
+                        .list-products
+                          ul.brand
+                            li(
+                              v-for="brand in result"
+                              :class="{ active: brand.iBrandID == 5}"
+                              @click="reloadMiniBar"
+                            )
+                              span.brand {{ brand.sBrandTitle }}
+                              ul.model
+                                li(v-for="product in brand.products")
+                                  label
+                                    input(type="checkbox" :value="product.iProductID" v-model="selectedProducts")
+                                    span.model {{ brand.sBrandTitle}} {{ product.sProductTitle}}
+                                      template(v-if="product.iProductID === 7") Тарам 
+                    .button-compare
+                      button(@click="makeCompare") Сравнить
+                        //- .list(v-for="product in result")
+                          label {{ product.sBrandTitle }}
+                            input(type="checkbox")
+                        //- <pre>{{ result }}</pre>
+                        //- ul
+                          li(v-for="product in SelectedProducts") {{product.sProductTitle}} - {{product.iProductID}}
               .page-compare(v-else)  
                 .content
                   .button-selection
@@ -78,33 +75,14 @@
                             input(type="checkbox")
                             .slider
                               .l
-                                  img.normal(src="/images/compare/window-small.svg", alt="")
-                                  span {{ itemsNumber }}
+                                img.normal(src="/images/compare/window-small.svg", alt="")
+                                span {{ itemsNumber }}
                               .r
                                 img.normal(src="/images/compare/balcon-small.svg", alt="")
                                 span 0
-                          //- ul.nav.nav-tabs
-                          //-   .bg
-                          //-   li.nav-item
-                          //-       a#home1-tab.nav-link.nav-item-1.active(data-toggle="tab" href="#home1" aria-selected="true")
-                          //-           img.normal(src="/images/compare/window-small.svg", alt="")
-                          //-           img.hover(src="/images/percent_hover.svg", alt="")
-                          //-           span {{ itemsNumber }}
-                          //-   li.nav-item
-                          //-       a#home2-tab.nav-link.nav-item-2(data-toggle="tab" href="#home2" aria-selected="true")
-                          //-           img.normal(src="/images/compare/balcon-small.svg", alt="")
-                          //-           span 0
-                          //-           img.hover(src="/images/list_hover.svg", alt="")
-
-                          //- label(for="sameValues")
-                          //-   input(type="checkbox" id="sameValues" v-model="markHideSameValue")
-                          //-   span Скрыть одинаковые значения 
-                          //-   //{{ markHideSameValue }}
-
                           .custom-control.custom-checkbox
                             input(type="checkbox" id="customCheck1" v-model="markHideSameValue").custom-control-input
                             label(for="customCheck1").custom-control-label Скрыть одинаковые значения
-      
                         .header
                           .desc-main
                             span Основные параметры
@@ -153,14 +131,15 @@
                                         span {{ product.sProductTitle }}
                                     .r
                                       .img-wrap
+                                        span.choose Выбрать
                                         img
-                                        //.normal(src='/images/compare/addToCalc.svg', alt='add to calculator')
-                                        //img.hover(src='/images/compare/addToCalcHover.svg', alt='add to calculator')
-                                        span Добавить в калькулятор
+                                        //- (src='/images/compare/addToCalc.svg', alt='add to calculator')
+                                        //- img(src='/images/compare/addToCalcHover.svg', alt='add to calculator')
+                                        span.add Добавить в калькулятор
                                   .empty-item
                                 .meaning
                                   .desc-main
-                                    span AAA
+                                    //- span AAA
                                   .row-i(v-if="isActive.mountingDepth")
                                     span {{ product.MountingDepth }}
                                   .row-i(v-if="isActive.profile")
@@ -176,7 +155,7 @@
                                   //- extra-par
                                   //- (v-if="isActive.test")
                                   .desc-add
-                                    span AAA
+                                    //- span AAA
                                   .row-i(v-if="isActive.shapikShapeOptions")
                                     span {{ product.ShapikShapeOptions }}
                                   .row-i(v-if="isActive.decorationOptions")
