@@ -32,11 +32,13 @@ section.section.s6
                                         .s6-model
                                             span #{gallery.product.brand.sBrandTitle}
                                             span #{gallery.product.sProductTitle}
-                                            if gallery.product.material_category !== null
-                                                span #{gallery.product.material_category.sMaterialCategoryTitle}
-                                            if gallery.product.bru !== null
-                                                span #{gallery.product.bru.sBrusTitle}
-            .s6-slider-panel
+                                            if gallery.product.material_category !== null || gallery.product.bru !== null
+                                                div
+                                                    if gallery.product.material_category !== null
+                                                        span #{gallery.product.material_category.sMaterialCategoryTitle}
+                                                    if gallery.product.bru !== null
+                                                        span &ensp; / #{gallery.product.bru.sBrusTitle}
+            .s6-slider-panel    
                 button.slick-prev(aria-label="Предыдущий слайд")
                     svg(aria-hidden="true")
                         use(xlink:href='#arrow-prev-a')
@@ -45,5 +47,7 @@ section.section.s6
                     svg(aria-hidden="true")
                         use(xlink:href='#arrow-next-a')
         .s6-btn-wrap
-            a.btn(href="#")
+            a.btn(href="/gallery")
                 span Смотреть все работы
+        .s6-progress-bar
+            div
