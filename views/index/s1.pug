@@ -14,16 +14,22 @@ section.section.active.s1
                 a(href='/calculation').btn
                     span Заказать окно
         .r
-            .bg-image
+            .s1-slider-imgs
+                each val, index in s1.actions
+                    .s1-slide
+                        img(
+                            data-lazy='/images/actions/'+val.s1ActionImage
+                            alt=""
+                        )
             div
                 ul.s1-items
                     each val, index in s1.actions
                         if index == 0
                             li
-                                a.isActive(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage data-img-phone='/images/actions/'+val.s1ActionImageMobile)
+                                a.isActive(href=val.s1ActionURL)
                                     span.s1-desc= val.s1ActionTitle
                         else 
                             li
-                                a(href=val.s1ActionURL data-img='/images/actions/'+val.s1ActionImage data-img-phone='/images/actions/'+val.s1ActionImageMobile)
+                                a(href=val.s1ActionURL)
                                     span.s1-desc= val.s1ActionTitle
                 .s1-dots

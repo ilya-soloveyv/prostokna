@@ -1,41 +1,11 @@
 const clientWidth = () => document.body.clientWidth
 
-const toggleImg = (target) => {
-    if (!target) return
-
-    const activeLinkData = target.dataset
-    let imgUrl
-
-    if (clientWidth() < 575) {
-        imgUrl = `url(${activeLinkData.img})`
-    } else {
-        imgUrl = `url(${activeLinkData.img})`
-    }
-
-    $(".s1 .bg-image").stop().animate({opacity: 0},300, function() {
-        $(this).css({'background-image': imgUrl}).animate({opacity: clientWidth() < 800 ? 0.5 : 1},{duration:300})
-    })
+const indexHeaderToggle = () => {
+    const sections = document.querySelector('#fullpage_welcome').childElementCount
+    console.log(sections);
 }
 
-const s1CreateEventsForLinks = () => {
-    let links = document.querySelectorAll('.s1-items a')
-    
-    if (!links.length) return
-
-    links.forEach(link => {
-        link.addEventListener('mouseover', event => {
-            let target = event.currentTarget
-
-            if (target.classList.contains('isActive')) return
-
-            links.forEach(el => el.classList.remove('isActive'))
-
-            target.classList.add('isActive')
-            
-            toggleImg(target)
-        })
-    })
-}
+indexHeaderToggle()
 
 const upload = () => {
     var dropZone = $('.drop-wrap');
@@ -201,6 +171,8 @@ if (window.FileReader) {
 } else { 
     document.getElementsByClassName('status')[0].innerHTML = 'Ваш браузер не поддерживает HTML5 FileReader.';
 }
+
+
 
 function addEventHandler(obj, evt, handler) {
     if(obj.addEventListener) {

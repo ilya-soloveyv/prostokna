@@ -141,8 +141,8 @@ $speed: 0.25s;
         }
 
         a {
-            width: 25px;
-            height: 25px;
+            width: 31px;
+            height: 31px;
 
             display: flex;
             justify-content: center;
@@ -313,6 +313,11 @@ $speed: 0.25s;
         height: 1px;
 
         overflow: hidden;
+    }
+
+    svg {
+        display: block;
+        margin: 10px auto;
     }
 }
 

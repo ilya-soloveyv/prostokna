@@ -12,7 +12,7 @@ section.section.s4
                     p Это означает, что специалист не заинтересован в обмане и не станет заниматься накруткой для личного обогащения.
                 div.s4-btns
                     button.btn(type="button" data-toggle="modal" data-target="#file-measurements"): span Отправить замеры
-                    button.btn(type="button" data-toggle="modal" data-target="#measurements"): span Вызвать замерщика
+                    a.btn(href="/gager"): span Вызвать замерщика
         div
             ol.s4-list
                 li
@@ -28,7 +28,7 @@ section.section.s4
                         svg(aria-hidden='true')
                             use(xlink:href='#specialist')
                         p
-                            a(href="#") Вызовите специалиста 
+                            a(href="#" data-toggle="modal" data-target="#zay_modal") Вызовите специалиста 
                             | для точных замеров и консультации
 
                 li
