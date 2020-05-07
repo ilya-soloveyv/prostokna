@@ -24,18 +24,17 @@
                 use(xlink:href='#letter')
             svg.icon.icon--whats-app
                 use(xlink:href='#whats-app')
-        a.tel.lptracker_phone(href='tel:+74993912221')
+        a.tel.lptracker_phone(href='#' data-toggle="modal" data-target="#modal_mobile_contact")
             span +7 499 391 22 21
             svg.icon.icon--phone(width='16px' height='16px')
                 use(xlink:href='#phone-1')
         //- a.tel.lptracker_phone#openModalCompare(href="#" data-toggle="modal" data-target="#compareModal")
         //-     span Сравнение
         //-     svg.icon.icon--magnifier(viewBox='0 0 52.966 52.966')
-        //-          use(xlink:href='#magnifier')
-        //- .favorites
-        //-     svg.icon.icon--favorites(width='32px' height='32px')
-        //-         use(xlink:href='#favorites')
-        //-     span.count 2
+        //-         use(xlink:href='#magnifier')
+        .favorites
+            svg.icon.icon--favorites(width='32px' height='32px')
+                use(xlink:href='#favorites')
 
     .l
         #toggleBasicMenu
@@ -55,10 +54,9 @@
                                     use(xlink:href=`#${item.ico}`)
                                 .title #{item.title}
     .cal(data-toggle="modal" data-target="#calc_wait")
-        //- div
-        //-     svg.icon.icon--calculator(width='32px' height='32px')
-        //-         use(xlink:href='#calculator')
-        //-     span.count 2
+        div
+            svg.icon.icon--calculator(width='32px' height='32px')
+                use(xlink:href='#calculator')
 
 .modal.fade#searchModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true")
     .modal-dialog(role="document")

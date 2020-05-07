@@ -259,6 +259,7 @@
         color: #fff;
         font-size: 14px;
         font-weight: 600;
+        text-transform: uppercase;
 
         padding: 0.7em 0 0.7em 5em;
 
@@ -270,12 +271,15 @@
 		position: relative;
 
 		@media (max-width: 910px) {
-			font-size: 13px;
+            font-size: 13px;
+            text-align: center;
+
 			padding: .7em 0;
-			text-transform: uppercase;
 
 			max-width: 200px;
-			margin: auto;
+            margin: auto;
+
+            justify-content: center;
 		}
 
         &:hover,
@@ -322,7 +326,13 @@
 				
 				@media (max-width: 910px) {
 					flex: initial;
-					padding: 0 0 0 0.5em;
+                    padding: 0 0 0 0.5em;
+                    
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+
+                    transform: translateY(-50%);
 				}
             }
         }
@@ -668,7 +678,7 @@
 }
 
 .s2-back-card-wrap {
-    margin: 13vh 0 0 0;
+    margin: 9vh 0 0 0;
     padding: 0 0 0 100px;
 	overflow: auto;
 	
