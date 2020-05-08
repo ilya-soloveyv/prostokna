@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#openModalCompare").click();
+  // $("#openModalCompare").click();
 });
 
 
@@ -127,7 +127,13 @@ vm = new Vue({
     });
     // MiniBarSelectionModel.update();
     Vue.nextTick(function(){
-      $('#compareModal').on('shown.bs.modal', function (e) {
+      $('#compareModal').on('show.bs.modal', function (e) {
+        $('body').addClass('modal-open-compare')
+        // MiniBarSelectionModel.update();
+        // console.log(this.MiniBarSelectionModel)
+      }) 
+      $('#compareModal').on('hidden.bs.modal', function (e) {
+        $('body').removeClass('modal-open-compare')
         // MiniBarSelectionModel.update();
         // console.log(this.MiniBarSelectionModel)
       }) 
