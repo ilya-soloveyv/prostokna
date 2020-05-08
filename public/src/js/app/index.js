@@ -1,11 +1,11 @@
 const clientWidth = () => document.body.clientWidth
 
-const indexHeaderToggle = () => {
-    const sections = document.querySelector('#fullpage_welcome').childElementCount
-    console.log(sections);
-}
+// const indexHeaderToggle = () => {
+//     const sections = document.querySelector('#fullpage_welcome').childElementCount
+//     console.log(sections);
+// }
 
-indexHeaderToggle()
+// indexHeaderToggle()
 
 const upload = () => {
     var dropZone = $('.drop-wrap');
