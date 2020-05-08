@@ -1,4 +1,8 @@
+.modal-open-compare .modal-backdrop {
+  top: 60px;
+}
 #compareModal {
+  top: 60px;
   .modal-dialog {
     height: 100%;
     width: 100vw;
@@ -14,6 +18,7 @@
       border: none;
       border-radius: 0;
       .modal-header {
+        display: none;
         .close {
           padding: 0;
         }
@@ -24,6 +29,12 @@
         justify-content: center;
         align-items: center;
         background-color: #363636;
+        position: relative;
+        .close {
+          position:absolute;
+          right: 5px;
+          top: 5px;
+        }
         .page-1 {
           height: 100%;
           display: flex;
@@ -31,6 +42,9 @@
           justify-content: space-evenly;
           align-items: center;
           font-family: Montserrat;
+          @media (min-width: 769px) and (max-width: 1200px) {
+            justify-content: center;
+          }
           .title {
             height: 1%;
             font-weight: 500;
@@ -38,12 +52,27 @@
             font-size: 36px;
             line-height: 44px;
             color: white;
+            @media (max-width: 1600px) {
+              font-size: 24px;
+              line-height: 29px;
+            }
+            @media (min-width: 769px) and (max-width: 1200px) {
+              margin-bottom: 30px;
+              height: auto;
+            }
+            @media (max-width: 768px) {
+              font-size: 17px;
+              line-height: 20px;
+            }
           }
           .selection {
             height: 70%;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            @media (min-width: 769px) and (max-width: 1200px) {
+              height: 570px;
+            }
             .wrap-top {
               height: 50%;
               display: flex;
@@ -60,10 +89,17 @@
                     width: 140px;
                     height: 140px;
                     border-radius: 10px;
-                    padding: 50px;
                     background-color: #2F2F2F;
                     //background-color:  rgba(255,255,255,.15);
                     position: relative;
+                    @media (max-width: 1600px) {
+                      width: 113px;
+                      height: 113px;
+                    }
+                    @media (max-width: 768px) {
+                      width: 83px;
+                      height: 83px;
+                    }
                     input {
                       display: none;
                     }
@@ -72,6 +108,16 @@
                       left: 50%;
                       top: 50%;
                       transform: translate(-50% , -50%);
+                      width: 45px;
+                      height: 45px;
+                      @media (max-width: 1600px) {
+                        width: 38px;
+                        height: 38px;
+                      }
+                      @media (max-width: 768px) {
+                        width: 32px;
+                        height: 32px;
+                      }
                     }
                     &.active {
                       background: linear-gradient(to bottom, #83D7EC, #CD68E9);
@@ -81,6 +127,14 @@
                       cursor: pointer;
                     }
                   }
+                }
+                @media (max-width: 1600px) {
+                  width: 245px;
+                  height: 113px;
+                }
+                @media (max-width: 768px) {
+                  width: 178px;
+                  height: 83px;
                 }
               }
               .add-model-btn {
@@ -108,6 +162,10 @@
                     transform: translate(0, -50%);
                     cursor: pointer;
                   }
+                  @media (max-width: 1600px) {
+                    width: 245px;
+                    height: 50px;
+                  }
                 }
               }
             }
@@ -121,6 +179,15 @@
               line-height: 20px;
               color: white;
               text-align: center;
+              @media(max-width: 1600px) {
+                width: 536px;
+              }
+              @media(max-width: 1200px) {
+                width: 370px;
+              }
+              @media(max-width: 768px) {
+                width: 262px;
+              }
             }
           }
           .section-choose {
@@ -128,6 +195,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            @media (min-width: 769px) and (max-width: 1200px) {
+              height: auto;
+            }
             .wrap-tbl {
               height: 100%;
               display: flex;
@@ -146,6 +216,13 @@
                 border-radius: 9px;
                 color: white;
                 position: relative;
+                @media(max-width: 1200px) {
+                  height: 500px;
+                }
+                @media(max-width: 768px) {
+                  height: 390px;
+                  width: 300px;
+                }
                 .selection-material {
                   flex-shrink: 0;
                   // width: 100%;
@@ -161,6 +238,11 @@
                       padding: 3px 20px;
                       margin-left: 10px;
                       margin-right: 10px;
+                      @media(max-width: 768px) {
+                        padding: 3px 10px;
+                        margin-left: 4px;
+                        margin-right: 4px;
+                      }
                       label {
                         font-weight: 600;
                         text-transform: uppercase;
@@ -171,6 +253,9 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        @media(max-width: 768px) {
+                          width: auto;
+                        }
                         input {
                           display: none;
                         }
@@ -205,6 +290,9 @@
                   }
                   &::-webkit-scrollbar-thumb:hover {
                     background-color: rgba(255,255,255,.95);
+                  }
+                  @media(max-width: 768px) {
+                    margin: 20px 10px;
                   }
                   .list-products {
                     overflow: auto;
@@ -254,6 +342,9 @@
                           visibility: hidden;
                           opacity: 0;
                           transition: visibility 0s, opacity 0.5s linear;
+                          @media(max-width: 768px) { 
+                            padding-left: 20px;
+                          }
                           li {
                             // padding-top: 10px;
                             padding-bottom: 10px;
@@ -263,6 +354,9 @@
                             label {
                               width: 320px;
                               position: relative;
+                              @media(max-width: 768px) {
+                                width: 230px;
+                              }
                               input {
                                 position: absolute;
                                 right: 5px;
@@ -290,6 +384,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                @media (min-width: 769px) and (max-width: 1200px) { 
+                  margin-top: 30px;
+                }
                 button {
                   height: 50px;
                   width: 320px;
@@ -302,19 +399,28 @@
                   font-size: 14px;
                   line-height: 18px;
                   color: white;
+                  @media(max-width: 1600px) {
+                    height: 40px;
+                    width: 240px;
+                  }
+                  @media(max-width: 768px) {
+                    height: 35px;
+                    width: 200px;
+                  }
                 }
               }
             }
           }
         }
         .page-compare {
-          height: 100%;
+          // height: 100%;
           width: 100%;
           background: #FFFFFF;
           padding: 0 40px 40px 40px;
           .content {
             width: 100%;
             .button-selection {
+              margin: 15px 0;
               a.back {
                 display: flex;
                 align-items: center;

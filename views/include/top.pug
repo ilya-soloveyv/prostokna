@@ -48,8 +48,11 @@
                             - var active_class = 'active'
                         else
                             - var active_class = ''
+                        - var attributes = {}
+                        if (item.attr)
+                            - var attributes = item.attr
                         li(class= active_class)
-                            a(href= item.uri)
+                            a(href= item.uri)&attributes(attributes)
                                 svg(class=`icon icon--${item.ico}` viewBox='0 0 32 32')
                                     use(xlink:href=`#${item.ico}`)
                                 .title #{item.title}

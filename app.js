@@ -393,8 +393,9 @@ data.left_menu = [
     },
     {
         title: 'Сравнение профильных систем',
-        uri: '/#s5',
+        uri: '#',
         ico: 'scales',
+        attr: { 'data-toggle': 'modal' , 'data-target': '#compareModal'}
     },
     {
         title: 'Контакты',
