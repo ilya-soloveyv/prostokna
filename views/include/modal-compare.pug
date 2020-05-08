@@ -1,10 +1,9 @@
 .modal.fade#compareModal(tabindex="-1" role="dialog" aria-labelledby="compareModalLabel" aria-hidden="true")
     .modal-dialog(role="document")
         .modal-content
-          .modal-header
+          .modal-body
               button.close(type="button" data-dismiss="modal" aria-label="Close")
                   span(aria-hidden="true") &times;
-          .modal-body
               .page-1(v-if="!comparePage")
                 .title Cравнение
                 .selection(v-if="!modelSelectPage")
