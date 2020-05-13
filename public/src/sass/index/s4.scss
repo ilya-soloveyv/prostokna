@@ -36,7 +36,9 @@
         }
         
         @media (max-width: 600px) {
-            padding: 60px 0 100px 0;
+            padding: 0 0 130px 0;
+
+            height: initial;
         }
 
         > div:last-child {
@@ -76,7 +78,7 @@
     }
 
     @media (max-width: 700px) {
-        padding: 40px 20px;
+        padding: 38px 20px;
     }
 
     > div {
@@ -170,7 +172,7 @@
     }
 
     @media (max-width: 600px) {
-        bottom: 60px;
+        bottom: 80px;
     }
 
     .btn {

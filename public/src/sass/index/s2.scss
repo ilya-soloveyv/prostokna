@@ -259,6 +259,7 @@
         color: #fff;
         font-size: 14px;
         font-weight: 600;
+        text-transform: uppercase;
 
         padding: 0.7em 0 0.7em 5em;
 
@@ -270,12 +271,15 @@
 		position: relative;
 
 		@media (max-width: 910px) {
-			font-size: 13px;
+            font-size: 13px;
+            text-align: center;
+
 			padding: .7em 0;
-			text-transform: uppercase;
 
 			max-width: 200px;
-			margin: auto;
+            margin: auto;
+
+            justify-content: center;
 		}
 
         &:hover,
@@ -318,11 +322,17 @@
 
                 text-align: right;
 
-				padding-right: 1em;
+                padding-right: 1em;
+                
+                align-self: flex-start;
 				
 				@media (max-width: 910px) {
 					flex: initial;
-					padding: 0 0 0 0.5em;
+                    padding: 0 0 0 0.5em;
+                    
+                    position: absolute;
+                    right: 0;
+                    top: 8px;
 				}
             }
         }
@@ -342,7 +352,7 @@
             top: 0;
             z-index: -1;
 
-            border-radius: 1.65em;
+            border-radius: 8px;
 
             opacity: 0;
 
@@ -580,7 +590,7 @@
         justify-content: space-between;
 
         div {
-            margin: 50px 40px 0 40px;
+            margin: 25px 40px 0 40px;
 
             display: flex;
             justify-content: space-between;
@@ -668,8 +678,8 @@
 }
 
 .s2-back-card-wrap {
-    margin: 13vh 0 0 0;
-    padding: 0 0 0 100px;
+    margin: 9vh 0 0 0;
+    padding: 0 0 0 40px;
 	overflow: auto;
 	
 	@media (max-width: 910px) {
@@ -702,7 +712,7 @@
         position: absolute;
         z-index: 2;
         top: 0;
-        left: 50px;
+        left: 3px;
     }
 
     @keyframes pulse {

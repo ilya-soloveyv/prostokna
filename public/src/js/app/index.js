@@ -1,41 +1,11 @@
 const clientWidth = () => document.body.clientWidth
 
-const toggleImg = (target) => {
-    if (!target) return
+// const indexHeaderToggle = () => {
+//     const sections = document.querySelector('#fullpage_welcome').childElementCount
+//     console.log(sections);
+// }
 
-    const activeLinkData = target.dataset
-    let imgUrl
-
-    if (clientWidth() < 575) {
-        imgUrl = `url(${activeLinkData.img})`
-    } else {
-        imgUrl = `url(${activeLinkData.img})`
-    }
-
-    $(".s1 .bg-image").stop().animate({opacity: 0},300, function() {
-        $(this).css({'background-image': imgUrl}).animate({opacity: clientWidth() < 800 ? 0.5 : 1},{duration:300})
-    })
-}
-
-const s1CreateEventsForLinks = () => {
-    let links = document.querySelectorAll('.s1-items a')
-    
-    if (!links.length) return
-
-    links.forEach(link => {
-        link.addEventListener('mouseover', event => {
-            let target = event.currentTarget
-
-            if (target.classList.contains('isActive')) return
-
-            links.forEach(el => el.classList.remove('isActive'))
-
-            target.classList.add('isActive')
-            
-            toggleImg(target)
-        })
-    })
-}
+// indexHeaderToggle()
 
 const upload = () => {
     var dropZone = $('.drop-wrap');
@@ -123,10 +93,7 @@ if (clientWidth() > 600) {
     
         //Scrolling
         scrollingSpeed: 700,
-        normalScrollElements: '#top, #fullpage_nav, #map, .pop_choice, .s2-back-card',
-        scrollOverflow: true,
-        scrollOverflowReset: true,
-        scrollOverflowResetKey: '85F59DF5-C3C6429B-9D26694D-ED504778',
+        normalScrollElements: '#top, #fullpage_nav, #map, .pop_choice, .s2-back-card, .s1-items',
     
         onLeave: function (origin, destination, direction) {
             fullpage_welcome_color(destination);
@@ -201,6 +168,8 @@ if (window.FileReader) {
 } else { 
     document.getElementsByClassName('status')[0].innerHTML = 'Ваш браузер не поддерживает HTML5 FileReader.';
 }
+
+
 
 function addEventHandler(obj, evt, handler) {
     if(obj.addEventListener) {
