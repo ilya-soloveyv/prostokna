@@ -24,7 +24,7 @@ if (document.querySelector('.layout-index')) {
 
                 backCardTarget.classList.add('isActive');
 
-                if (backCardTarget.offsetHeight != backCardTarget.querySelector('.s2-back-card').scrollHeight) {
+                if (backCardTarget.offsetHeight < backCardTarget.querySelector('.s2-back-card').scrollHeight) {
                     backCardTarget.classList.add('isScroll')
                 }
             })
