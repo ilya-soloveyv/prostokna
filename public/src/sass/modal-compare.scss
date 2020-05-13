@@ -417,6 +417,9 @@
           width: 100%;
           background: #FFFFFF;
           padding: 0 40px 40px 40px;
+          @media (max-width: 768px) {
+            padding: 0;
+          }
           .content {
             width: 100%;
             .button-selection {
