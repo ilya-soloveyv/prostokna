@@ -42,7 +42,6 @@ gulp.task('js_min', (done) => {
             'public/src/js/bootstrap.js',
             'public/src/js/swiped-events.js',
             'public/src/js/fullpage.min.js',
-            'public/src/js/scrolloverflow.min.js',
             'public/src/js/owl.carousel.min.js',
             'public/src/js/jquery.touchSwipe.min.js',
             'node_modules/jquery-mousewheel/jquery.mousewheel.js',

@@ -65,7 +65,7 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/accessories/accessories.css")
             link(rel="stylesheet", href="/src/css/modal-compare.css")
         else
-            link(rel="stylesheet", href="/app-1e0b70400e.min.css")
+            link(rel="stylesheet", href="/app-1fae9e186d.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap&subset=cyrillic")
     body
         include ../include/top.pug
@@ -126,15 +126,16 @@ html(lang="ru")
                         input(type="hidden" name="subject" value="Закажите обратный звонок")
                         input(type="hidden" name="metrika" value="zvonok")
                         input(type="hidden" name="page_path" value= page_path)
+                        .form-group
+                            label Имя
+                            input(type="text" name="name" class="form-control" placeholder="Ваше имя *")
+                            .invalid-feedback Необходимо указать Ваше имя
+                        .form-group
+                            label Телефон
+                            input(type="text" name="tel" class="form-control" placeholder="Ваш номер телефона *")
+                            .invalid-feedback Необходимо указать контактный номер
                         .row
-                            .col-sm-6.mb-sm-3
-                                .form-group
-                                    input(type="text" name="name" class="form-control" placeholder="Ваше имя *")
-                                    .invalid-feedback Необходимо указать Ваше имя
-                            .col-sm-6.mb-sm-3
-                                .form-group
-                                    input(type="text" name="tel" class="form-control" placeholder="Ваш номер телефона *")
-                                    .invalid-feedback Необходимо указать контактный номер
+                            label Удобный временной интервал для звонка
                             .col-sm-6.mb-sm-3
                                 .form-group
                                     select(name="from" class="form-control")
@@ -146,7 +147,6 @@ html(lang="ru")
                                         each val in times
                                             option= val
                         button.btn.btn-primary.btn-block.mb-4 Заказать обратный звонок
-                    .help * - Обязательные к заполнению поля
         .modal#thanks_modal(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
@@ -244,7 +244,6 @@ html(lang="ru")
             script(src='/jquery-mousewheel/jquery.mousewheel.js')
             script(src='/minibarjs/minibar.min.js')
             script(src='/src/js/fullpage.min.js')
-            script(src='/src/js/scrolloverflow.min.js')
             //- script(src='/src/js/jquery.fullpage.min.js')
             script(src='/src/js/owl.carousel.min.js')
             script(src='/src/js/jquery.touchSwipe.min.js')
@@ -298,7 +297,7 @@ html(lang="ru")
             script(src='/src/js/accessories/accessories.js')            
             script(src='/src/js/modal-compare.js')            
         else
-            script(src='/app-5938619e22.min.js')
+            script(src='/app-250d83e26e.min.js')
 
             script(src="https://www.googletagmanager.com/gtag/js?id=UA-140504195-1" async)
             script.

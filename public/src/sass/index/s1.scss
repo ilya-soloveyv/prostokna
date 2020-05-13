@@ -126,16 +126,14 @@
             display: flex;
             align-items: center;
 
-            background-color: hsla(0, 0%, 0%, 0.5);
-
             max-width: 255px;
             height: 100%;
 
-            margin: 0 0 0 85px;
+            margin: 0 0 0 35px;
             padding-top: 60px;
 
             @media (max-width: 800px) {
-                padding: 0 0 30px 0;
+                padding: 0 0 10px 0;
                 margin: 0;
 
                 max-width: initial;
@@ -149,6 +147,23 @@
                 position: static;
 
                 background-color: hsla(0, 0%, 0%, 1);
+            }
+
+            &:before {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                left: 50px;
+
+                height: 100%;
+                width: 255px;
+
+                background-color: rgba(0, 0, 0, 0.5);
+
+                @media (max-width: 800px) {
+                    content: initial;
+                }
             }
         }
     }
@@ -274,6 +289,10 @@
 .s1-slide {
     img {
         height: 100vh;
+        width: 100%;
+
+        object-fit: cover;
+        object-position: center;
 
         @media (max-width: 600px) {
             height: 670px;
@@ -319,7 +338,7 @@
             max-width: 400px;
 
             margin: auto;
-            padding: 40px 15px 40px 15px;
+            padding: 30px 15px 30px 15px;
         }
 
         &:hover,
@@ -416,9 +435,26 @@
             display: inline-block;
         }
     }
+
+    .slick-list {
+        padding: 0 100px 0 50px;
+        width: 405px;
+
+        @media (max-width: 800px) {
+            width: initial;
+            padding: initial;
+        }
+    }
 }
 
 .s1-dots {
+    @media (max-width: 600px) {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
     .slick-dots {
         display: flex;
         justify-content: center;
@@ -426,7 +462,7 @@
         margin: 0 0 30px 0;
 
         @media (max-width: 600px) {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         li {

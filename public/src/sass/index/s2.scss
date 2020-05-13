@@ -322,7 +322,9 @@
 
                 text-align: right;
 
-				padding-right: 1em;
+                padding-right: 1em;
+                
+                align-self: flex-start;
 				
 				@media (max-width: 910px) {
 					flex: initial;
@@ -330,9 +332,7 @@
                     
                     position: absolute;
                     right: 0;
-                    top: 50%;
-
-                    transform: translateY(-50%);
+                    top: 8px;
 				}
             }
         }
@@ -352,7 +352,7 @@
             top: 0;
             z-index: -1;
 
-            border-radius: 1.65em;
+            border-radius: 8px;
 
             opacity: 0;
 
@@ -590,7 +590,7 @@
         justify-content: space-between;
 
         div {
-            margin: 50px 40px 0 40px;
+            margin: 25px 40px 0 40px;
 
             display: flex;
             justify-content: space-between;
@@ -679,7 +679,7 @@
 
 .s2-back-card-wrap {
     margin: 9vh 0 0 0;
-    padding: 0 0 0 100px;
+    padding: 0 0 0 40px;
 	overflow: auto;
 	
 	@media (max-width: 910px) {
@@ -712,7 +712,7 @@
         position: absolute;
         z-index: 2;
         top: 0;
-        left: 50px;
+        left: 3px;
     }
 
     @keyframes pulse {
