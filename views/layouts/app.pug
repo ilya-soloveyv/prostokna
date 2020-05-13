@@ -126,15 +126,16 @@ html(lang="ru")
                         input(type="hidden" name="subject" value="Закажите обратный звонок")
                         input(type="hidden" name="metrika" value="zvonok")
                         input(type="hidden" name="page_path" value= page_path)
+                        .form-group
+                            label Имя
+                            input(type="text" name="name" class="form-control" placeholder="Ваше имя *")
+                            .invalid-feedback Необходимо указать Ваше имя
+                        .form-group
+                            label Телефон
+                            input(type="text" name="tel" class="form-control" placeholder="Ваш номер телефона *")
+                            .invalid-feedback Необходимо указать контактный номер
                         .row
-                            .col-sm-6.mb-sm-3
-                                .form-group
-                                    input(type="text" name="name" class="form-control" placeholder="Ваше имя *")
-                                    .invalid-feedback Необходимо указать Ваше имя
-                            .col-sm-6.mb-sm-3
-                                .form-group
-                                    input(type="text" name="tel" class="form-control" placeholder="Ваш номер телефона *")
-                                    .invalid-feedback Необходимо указать контактный номер
+                            label Удобный временной интервал для звонка
                             .col-sm-6.mb-sm-3
                                 .form-group
                                     select(name="from" class="form-control")
@@ -146,7 +147,6 @@ html(lang="ru")
                                         each val in times
                                             option= val
                         button.btn.btn-primary.btn-block.mb-4 Заказать обратный звонок
-                    .help * - Обязательные к заполнению поля
         .modal#thanks_modal(tabindex="-1", role="dialog")
             .modal-dialog.modal-dialog-centered(role="document")
                 .modal-content
@@ -244,7 +244,6 @@ html(lang="ru")
             script(src='/jquery-mousewheel/jquery.mousewheel.js')
             script(src='/minibarjs/minibar.min.js')
             script(src='/src/js/fullpage.min.js')
-            script(src='/src/js/scrolloverflow.min.js')
             //- script(src='/src/js/jquery.fullpage.min.js')
             script(src='/src/js/owl.carousel.min.js')
             script(src='/src/js/jquery.touchSwipe.min.js')

@@ -93,10 +93,7 @@ if (clientWidth() > 600) {
     
         //Scrolling
         scrollingSpeed: 700,
-        normalScrollElements: '#top, #fullpage_nav, #map, .pop_choice, .s2-back-card',
-        scrollOverflow: true,
-        scrollOverflowReset: true,
-        scrollOverflowResetKey: '85F59DF5-C3C6429B-9D26694D-ED504778',
+        normalScrollElements: '#top, #fullpage_nav, #map, .pop_choice, .s2-back-card, .s1-items',
     
         onLeave: function (origin, destination, direction) {
             fullpage_welcome_color(destination);
