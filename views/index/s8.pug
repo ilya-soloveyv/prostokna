@@ -34,8 +34,9 @@
                         
                                         .form-group.phone
                                             label(for='phoneInput') Телефон
-                                            input(type='text' name="tel" placeholder='Ваш телефон' id='phoneInput').form-control.form-control-pokna.white
+                                            input(type='tel' name="tel" id='phoneInput' v-model="phone" placeholder="7(___) __-__-__" autocomplete="tel" v-phone content="+7").form-control.form-control-pokna.white
                                             //.invalid-feedback Необходимо указать контактный номер
+                                            span(v-show="showMessage") Пожалуйста, введите номер полностью
                                 .row
                                     .col.msg
                                         .form-group
@@ -55,7 +56,7 @@
                                     span Отправлено
                             .row
                                 .col.btn-send
-                                    button(v-on:click="submitFiles()" v-bind:class="{hideButton: hideSubmit}") Отправить
+                                    button(v-on:click.prevent="submitFiles()" v-bind:class="{hideButton: hideSubmit}") Отправить
 
                             
                                 
