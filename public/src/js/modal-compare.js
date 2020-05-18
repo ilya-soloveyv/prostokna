@@ -39,7 +39,7 @@ const test = 111
 // Vue.use(Vuebar);
 //console.log(Vuebar)
 
-vm = new Vue({
+vueModalCompare = new Vue({
   el: '#compareModal',
   data: {
     isWindowChecked: true,
@@ -120,6 +120,7 @@ vm = new Vue({
     }
   },
   mounted() {
+    console.log('mounted');
     axios.get('/compare').then(({data}) => {
       Vue.set(this, 'info', data);
       Vue.set(this,  'materials', data.material);
@@ -131,9 +132,18 @@ vm = new Vue({
         $('body').addClass('modal-open-compare')
         // MiniBarSelectionModel.update();
         // console.log(this.MiniBarSelectionModel)
+
+        var button = $(e.relatedTarget) // Button that triggered the modal
+        var info = button.data('info');
+        if(info) {
+          console.log('info: ', info);
+          vueModalCompare.selectModel();
+        }
+        console.log('modelSelectPage: ', vueModalCompare.modelSelectPage);
       }) 
       $('#compareModal').on('hidden.bs.modal', function (e) {
         $('body').removeClass('modal-open-compare')
+        vueModalCompare.modelSelectPage = false;
         // MiniBarSelectionModel.update();
         // console.log(this.MiniBarSelectionModel)
       }) 
@@ -142,7 +152,12 @@ vm = new Vue({
   },
 
   updated() {
+    console.log('updated');
     this.makeRows();
+    // Vue.nextTick(function(){ 
+    //   $(".owl-carousel").trigger('refresh.owl.carousel');
+    // })
+    $(".owl-carousel").trigger('refresh.owl.carousel');
   },
 
   methods: {
@@ -209,6 +224,8 @@ vm = new Vue({
       console.log('selectModel', this.modelSelectPage);
     },
     makeCompare: function() {
+      if( this.selectedProducts.length < 2 )
+        return;
       this.comparePage = true;
       console.log('makeCompare ', this.comparePage);
       console.log('selectedListProducts', this.selectedListProducts);
@@ -235,11 +252,26 @@ vm = new Vue({
       return '/images/product/color/' +  fileName
     },
     deleteProduct: function(index) {
+      // this.selectedProducts.splice(index, 1);
+      // if(this.selectedProducts.length === 1) {
+      //   this.comparePage = false;
+      // }
+      // this.owlCarouselInit();
+      console.log('delete item: ', index);
+      // $(".owl-carousel").trigger('remove.owl.carousel', [index]).trigger('refresh.owl.carousel');
+      // $(".owl-carousel").trigger('update.owl.carousel');
+      // $(".owl-carousel").trigger('refresh.owl.carousel');
+
+      // $(".owl-carousel").trigger('prev.owl.carousel', 3000);
+      console.log('massive: ', this.selectedProducts)
       this.selectedProducts.splice(index, 1);
       if(this.selectedProducts.length === 1) {
         this.comparePage = false;
       }
-      this.owlCarouselInit();
+      console.log('massive: ', this.selectedProducts)
+      // Vue.nextTick(function(){ 
+      //   $(".owl-carousel").trigger('remove.owl.carousel', [index]).trigger('refresh.owl.carousel');
+      // })
     },
     hideSameValues: function() {
       console.log('hideSameValues');
@@ -341,6 +373,11 @@ $(document).on('click', '#compareModal ul.brand li span.brand', function() {
   // $("#compareModal .selection-model ul.model").slideToggle('fast');
 
 });
+
+// $('#compareModal').on('show.bs.modal', function (event) {
+//   var info = $('#compareModal').data('info') 
+//   alert('info: ', info);
+// })
 
 // $(document).on('click', '#compareModal ul.model li span.model', function() {
 //   $(this).parent().toggleClass('active');

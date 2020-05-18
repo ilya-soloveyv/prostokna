@@ -93,7 +93,7 @@ if (clientWidth() > 600) {
     
         //Scrolling
         scrollingSpeed: 700,
-        normalScrollElements: '#top, #fullpage_nav, #map, .pop_choice, .s2-back-card, .s1-items',
+        normalScrollElements: '#top, #fullpage_nav, #map, .pop_choice, .s2-back-card, .s1-items, #compareModal',
     
         onLeave: function (origin, destination, direction) {
             fullpage_welcome_color(destination);
