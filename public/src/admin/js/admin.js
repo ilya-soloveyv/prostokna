@@ -15,6 +15,7 @@ import Part from '../components/part/Part.js'
 // import PartSill from '../components/PartSill.js'
 // import PartValve from '../components/PartValve.js'
 import Index from '../components/index/Index.js'
+import Intuitive from '../components/Intuitive.js'
 
 const routes = [
     {
@@ -100,6 +101,11 @@ const routes = [
                 ]
             }
         ]
+    },
+    {
+        path: '/intuitive',
+        component: Intuitive,
+        props: true
     }
 ]
 

@@ -1457,6 +1457,8 @@ app.post('/admin/index/s5/update', async (req, res) => {
     res.json(response)
 })
 
+app.use('/admin/intuitive', require('./routes/admin/intuitive'))
+
 
 
 // cookie
