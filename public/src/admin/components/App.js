@@ -31,6 +31,10 @@ export default {
                     title: 'Главная страница',
                     uri: '/index'
                 },
+                {
+                    title: 'Интуйтивный подбор',
+                    uri: '/intuitive'
+                },
             ]
         }
     },
