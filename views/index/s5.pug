@@ -7,13 +7,13 @@
           .wrap-top
             .select-wrap
               .item
-                  label(for="window" :class="{active: isWindowChecked}")
-                    input(type="radio" name="selectEntity" id="window" @click="selectType" checked)
+                  label(for="window")
+                    input(type="radio" name="selectEntity" id="window" checked)
                     .button-select.window
                       img(src='/images/compare/window-main.svg', alt='okno')
               .item 
-                  label(for="balcon" :class="{active: !isWindowChecked}")
-                    input(type="radio" name="selectEntity" id="balcon" @click="selectType")
+                  label(for="balcon")
+                    input(type="radio" name="selectEntity" id="balcon")
                     .button-select.balcon
                       img(src='/images/compare/balcon-main.svg', alt='balcon')
             .add-model-btn
