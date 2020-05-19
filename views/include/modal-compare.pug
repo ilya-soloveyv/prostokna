@@ -3,7 +3,7 @@
         .modal-content
           .modal-body
               button.close(type="button" data-dismiss="modal" aria-label="Close")
-                  span(aria-hidden="true") &times;
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               .page-1(v-if="!comparePage")
                 .title Cравнение
                 .selection(v-if="!modelSelectPage")
@@ -22,7 +22,6 @@
                     .add-model-btn
                       button( @click="selectModel") Добавить модели
                         i.material-icons(class="button-windows_add") add
-
                   .bottom
                     span ПОЖАЛУЙСТА, ВЫБЕРИТЕ КАТЕГОРИЮ  - ОКНА ИЛИ БАЛКОННЫЕ КОНСТРУКЦИИ,
                         |А затем ДВЕ ИЛИ БОЛЕЕ МОДЕЛИ, ЧТОБЫ ПЕРЕЙТИ
@@ -49,20 +48,13 @@
                                 li(v-for="product in brand.products")
                                   label
                                     input(type="checkbox" :value="product.iProductID" v-model="selectedProducts")
+                                    .custom-checkbox
                                     span.model {{ brand.sBrandTitle}} {{ product.sProductTitle}}
-                                      template(v-if="product.iProductID === 7") Тарам 
                     .button-compare
                       button(@click="makeCompare") Сравнить
-                        //- .list(v-for="product in result")
-                          label {{ product.sBrandTitle }}
-                            input(type="checkbox")
-                        //- <pre>{{ result }}</pre>
-                        //- ul
-                          li(v-for="product in SelectedProducts") {{product.sProductTitle}} - {{product.iProductID}}
               .page-compare(v-else)  
                 .content
                   .button-selection
-
                     a.back(@click="returnToSelection")
                       i.material-icons keyboard_arrow_left
                       span Вернуться к выбору

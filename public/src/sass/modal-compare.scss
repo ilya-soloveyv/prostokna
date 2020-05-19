@@ -258,6 +258,9 @@
                         }
                         input {
                           display: none;
+                          // &:checked ~ label {
+                          //   background: #262525;
+                          // }
                         }
                         &:hover {
                           cursor: pointer;
@@ -354,19 +357,28 @@
                             label {
                               width: 320px;
                               position: relative;
+                              margin-bottom: 0;
                               @media(max-width: 768px) {
                                 width: 230px;
                               }
                               input {
+                                display: none;
+                                &:checked ~ .custom-checkbox {
+                                  background-color: #D165E9;
+                                }
+                                &:checked ~ span.model {
+                                    color: #D165E9;
+                                }
+                              }
+                              .custom-checkbox {
                                 position: absolute;
                                 right: 5px;
                                 top: 50%;
                                 transform: translate(0, -50%);
+                                height: 14px;
                                 width: 14px;
-                                &:hover {
-                                  background-color: #D165E9;
-                                  cursor: pointer;
-                                }
+                                border-radius: 3px;
+                                background-color: #1F1F1F;
                               }
                               &:hover {
                                 color: #D165E9;
@@ -413,7 +425,7 @@
           }
         }
         .page-compare {
-          // height: 100%;
+          height: 100%;
           width: 100%;
           background: #FFFFFF;
           padding: 0 40px 40px 40px;
@@ -625,7 +637,7 @@
                       }
                     }
                     .desc-add {
-                      height: 100px;
+                      min-height: 100px;
                       font-weight: 500;
                       font-size: 13px;
                       font-style: italic;
@@ -654,8 +666,8 @@
                       background: #FFFFFF;
                       display: flex;
                       align-items: center;
-                      padding-left: 20px;
-                      padding: 5px 0;
+                      // padding-left: 20px;
+                      padding: 5px 0 5px 20px;
                       &:nth-child(2n+1) {
                         background: #E4E4E4;
                       }
@@ -663,8 +675,11 @@
                         padding-bottom: 30px;
                         align-items: flex-start;
                         font-weight: 900;
+                        padding-left: 0;
                         span {
-                          padding-left: 20px ;
+                          width: 100%;
+                          display: flex;
+                          justify-content: center;
                         }
                       }
                     }
@@ -848,7 +863,7 @@
                               }
                             }
                             .desc-add {
-                              height: 100px;
+                              min-height: 100px;
                               font-weight: 500;
                               font-size: 13px;
                               font-style: italic;
