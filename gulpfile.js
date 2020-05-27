@@ -54,6 +54,7 @@ gulp.task('js_min', (done) => {
             'public/src/js/html2canvas.min.js',
             'public/src/js/app/app.js',
             'public/src/js/app/index.js',
+            'public/src/js/dropzone.js',
             'public/src/js/index/s1.js',
             'public/src/js/index/s2.js',
             'public/src/js/index/s3.js',

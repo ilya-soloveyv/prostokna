@@ -228,8 +228,42 @@ $speed: 0.25s;
             text-align: center;
 
             max-width: 480px;
+            width: 100%;
 
             margin: auto;
+        }
+
+        .dz-progress {
+            left: 65px;
+            width: 100px;
+        }
+
+        .dz-image {
+            height: initial;
+        }
+
+        .dz-size {
+            display: none;
+        }
+
+        .dz-preview {
+            margin: 4px;
+            min-height: initial;
+            height: 33px;
+            width: 100%;
+            max-width: 155px;
+        }
+
+        .dz-details {
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.47);
+            border-radius: 20px;
+            background-color: #fff;
+            max-width: 155px;
+            padding: 7px 30px 7px 20px;
+        }
+
+        .dz-drag-hover {
+            border-color: #d75be7;
         }
     }
 
@@ -296,6 +330,14 @@ $speed: 0.25s;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &.-uploaded {
+        align-items: initial;
+        justify-content: initial;
+        flex-flow: row wrap;
+        border: none;
+        background-color: transparent;
+    }
 
     label {
         font-size: 12px;
@@ -365,7 +407,7 @@ $speed: 0.25s;
 
     .l .menu {
         background-color: transparent;
-        
+
         &.opened {
             background-color: #363636;
         }

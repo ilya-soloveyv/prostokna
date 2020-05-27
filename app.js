@@ -359,7 +359,7 @@ data.left_menu = [
     {
         title: 'Окна',
         uri: '/product',
-        ico: 'window',
+        ico: 'icon-window',
     },
     {
         title: 'Как измерить окно',

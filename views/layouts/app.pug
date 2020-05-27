@@ -64,6 +64,8 @@ html(lang="ru")
             link(rel="stylesheet", href="/src/css/best-cost/best-cost.css")
             link(rel="stylesheet", href="/src/css/accessories/accessories.css")
             link(rel="stylesheet", href="/src/css/modal-compare.css")
+            link(rel="stylesheet", href="/src/css/basic.css")
+            link(rel="stylesheet", href="/src/css/dropzone.css")
         else
             link(rel="stylesheet", href="/app-7c172bddc2.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap&subset=cyrillic")
@@ -100,7 +102,7 @@ html(lang="ru")
                     .close-modal(data-dismiss="modal")
                         i.material-icons close
                     .list
-                        a.item(href="#" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_white")
+                        a.item(href="#" data-toggle="modal" data-target="#zay_modal" data-class="zay_modal_black")
                             img(src="/images/call2.svg", alt="")
                             .title Заказать обратный<br> звонок
                         a.item(href="https://api.whatsapp.com/send?phone=79779390290&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5")
@@ -232,6 +234,7 @@ html(lang="ru")
 
         script(src="/axios/axios.js")
         if env.NODE_ENV == 'development'
+            script(src='/src/js/dropzone.js')
             script(src='/vue/vue.js')
             script(src='https://unpkg.com/vuebar')
             script(src='/src/js/jquery-3.3.1.js')

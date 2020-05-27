@@ -34,7 +34,7 @@
                 height: 50%;
             }
         }
-        
+
         @media (max-width: 600px) {
             padding: 0 0 130px 0;
 
@@ -137,7 +137,7 @@
     }
 
     @media (max-width: 700px) {
-        font-size: 11px;
+        font-size: 13px;
     }
 
     p {
@@ -168,11 +168,11 @@
         right: 20px;
         bottom: 10px;
 
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     @media (max-width: 600px) {
-        bottom: 80px;
+        bottom: 70px;
     }
 
     .btn {
@@ -184,6 +184,12 @@
 
         @media (max-width: 700px) {
             width: 100%;
+
+            margin-bottom: 2em;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
         }
 
         &:first-child {
@@ -191,6 +197,21 @@
 
             @media (max-width: 700px) {
                 margin-right: 0;
+                background-image: initial;
+                border: 1px solid #424242;
+                box-shadow: none;
+                background-color: transparent;
+                color: #424242;
+            }
+        }
+
+        &:last-child {
+            @media (max-width: 700px) {
+                background-image: linear-gradient(
+                    to right,
+                    #d066e9 0%,
+                    #84daee 100%
+                );
             }
         }
     }

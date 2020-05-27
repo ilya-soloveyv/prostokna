@@ -69,12 +69,10 @@ block content
                     button.close(type="button" data-dismiss="modal" aria-label="Закрыть")
                         span(aria-hidden="true") &times;
                 .modal-body
-                    .drop-wrap
+                    form#my-awesome-dropzone.drop-wrap.dropzone(action="/file-upload")
                         .drop
                             span ДОБАВЬТЕ ИЛИ ПЕРЕТАЩИТЕ ФАЙЛЫ
                             svg(width='59' height='47')
                                 use(xlink:href='#upload')
-                        input#file-input(type="file" accept=".jpg, .jpeg, .png, .word, .dwg, .ai, .docx, .pdf" multiple)
-                        label.btn(for="file-input"): span Загрузить
-                    
-                    .drop-list
+                        .fallback
+                            input(name="file" type="file" accept=".jpg, .jpeg, .png, .word, .dwg, .ai, .docx, .pdf" multiple)

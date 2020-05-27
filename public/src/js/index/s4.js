@@ -1,6 +1,4 @@
 if (document.querySelector('.layout-index')) {
-    upload()
-    
     if (clientWidth() < 900) {
         let items = document.querySelectorAll('.s4-list li')
 
@@ -14,4 +12,31 @@ if (document.querySelector('.layout-index')) {
             })
         })
     }
+
+    // const myAwesomeDropzone = Dropzone.options.myAwesomeDropzone
+
+    Dropzone.options.myAwesomeDropzone = {
+        init: function(file) {
+            this.on("addedfile", function(file) { 
+                let dropWrap = document.querySelector('.drop-wrap')
+                let drop = document.querySelector('.drop')
+
+                dropWrap.classList.add('-uploaded')
+                drop.style.display = 'none'
+             })
+            // console.log('file: ', file)
+        },
+        // addedfile: function(file) {
+        //     console.log('file added: ', file)
+        // }
+        // addedfile: function(file) {
+        //     file.previewElement = Dropzone.createElement(this.options.previewTemplate);
+        //     // Now attach this new element some where in your page
+        //   },
+    }
+
+    // Dropzone.myAwesomeDropzone.on("addedfile", function(file, xhr, formData) {
+    //     // Will send the filesize along with the file as POST data.
+    //     console.log('file: ', file)
+    //   });
 }
