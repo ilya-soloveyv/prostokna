@@ -430,7 +430,8 @@
 		z-index: -1;
 
 		svg {
-			fill: #fff;
+            stroke: #fff;
+            fill: transparent;
 		}
 
 		&.show {
@@ -678,17 +679,14 @@
 }
 
 .s2-back-card-wrap {
-    margin: 9vh 0 0 0;
-    padding: 0 0 0 40px;
+    margin: 60px 0 0 0;
+    padding: 0 30px 0 40px;
 	overflow: auto;
 	
 	@media (max-width: 910px) {
-		padding: 0;
-	}
-
-	@media (max-width: 600px) {
+        padding: 0;
         margin-top: 110px;
-    }
+	}
 
     &::-webkit-scrollbar {
         width: 0px;
@@ -697,6 +695,8 @@
     &.isActive {
         position: relative;
         z-index: 2;
+
+        margin-right: -90px;
     }
 
     &.isScroll .s2-mouse {
@@ -712,7 +712,7 @@
         position: absolute;
         z-index: 2;
         top: 0;
-        left: 3px;
+        right: 0;
     }
 
     @keyframes pulse {
