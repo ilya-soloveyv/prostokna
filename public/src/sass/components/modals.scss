@@ -1,4 +1,11 @@
 #zay_modal {
+	select {
+		background-repeat: no-repeat;
+		background-size: 3%;
+		background-position: 95% 50%;
+
+		appearance: none;
+	}
 	label {
 		font-size: 14px;
 		font-weight: 500;
@@ -55,7 +62,7 @@
 			text-transform: uppercase;
 			padding-bottom: 0.5rem;
 			@media (max-width: 575px) {
-				font-size: 16px;
+				font-size: 17px;
 			}
 		}
 		.desc {
@@ -64,7 +71,7 @@
 			font-size: 14px;
 			padding-bottom: 3rem;
 			@media (max-width: 575px) {
-				font-size: 12px;
+				font-size: 13px;
 				padding-bottom: 2rem;
 			}
 		}
@@ -80,12 +87,19 @@
 
 			height: 2.75rem;
 			@media (max-width: 575px) {
-				height: 2rem;
+				font-size: 12px;
+				
+				height: 40px;
 				padding: 0.35rem 0.75rem;
 			}
 		}
 	}
 	&.zay_modal_white {
+		select {
+			select {
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 6'%3E%3Cpath fill='none' stroke='%23212529' stroke-miterlimit='20' d='M10.475 0v0L5.531 5.338v0L.696 0v0'/%3E%3C/svg%3E%0A");
+			}
+		}
 		label,
 		select {
 			color: hsla(0, 0%, 0%, 0.27);
@@ -106,6 +120,9 @@
 		}
 	}
 	&.zay_modal_black {
+		select {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 6'%3E%3Cpath fill='none' stroke='%23fff' stroke-miterlimit='20' d='M10.475 0v0L5.531 5.338v0L.696 0v0'/%3E%3C/svg%3E%0A");
+		}
 		label,
 		select {
 			color: hsla(0, 0%, 100%, 0.27);
@@ -127,13 +144,14 @@
 			
 			input,
 			select {
-				background: #363636;
+				color: #fff;
+
+				background-color: #292929;
 
 				border: 1px solid #ddd;
 			}
 			button {
 				background: linear-gradient(to right, #9b47e5 0%, #e45ae9 100%);
-				border: 1px solid #9b47e5;
 			}
 		}
 	}
