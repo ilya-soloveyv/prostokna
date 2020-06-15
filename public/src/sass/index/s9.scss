@@ -62,6 +62,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (max-width: 575px) {
+            padding-top: 13px;
+        }
     }
 
     .wrap {
