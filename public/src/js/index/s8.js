@@ -58,19 +58,21 @@ var app = new Vue({
         let file = this.files[i];
         formData.append('files[' + i + ']', file);
       }
-      // axios.post( '/select-files',
-      //   formData,
-      //   {
-      //     headers: {
-      //         'Content-Type': 'multipart/form-data'
-      //     }
-      //   }
-      // ).then(function(){
-      //   console.log('SUCCESS!!');
-      // })
-      // .catch(function(){
-      //   console.log('FAILURE!!');
-      // });
+      formData.append('phone', this.phone)
+      console.log(formData)
+      axios.post( '/send2',
+        formData,
+        {
+          headers: {
+              'Content-Type': 'multipart/form-data'
+          }
+        }
+      ).then(function(){
+        console.log('SUCCESS!!');
+      })
+      .catch(function(){
+        console.log('FAILURE!!');
+      });
     },
 
     handleFilesUpload(){

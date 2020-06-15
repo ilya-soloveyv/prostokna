@@ -2518,8 +2518,8 @@ app.post('/send', async (req, res) => {
 })
 
 app.post('/send2', async (req, res) => {
-    console.log(req.body)
-    res.json(req.body.name)
+    console.log(req.form)
+    res.json(req.form)
 })
 
 
