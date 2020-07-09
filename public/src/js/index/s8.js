@@ -49,7 +49,7 @@ var app = new Vue({
 
       let data = new FormData()
       data.append('name', this.name)
-      data.append('phone', this.phone)
+      data.append('tel', this.phone)
       data.append('message', this.message)
       var files = this.files
       for (var i = 0; i < files.length; i++) {
