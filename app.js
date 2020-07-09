@@ -2503,7 +2503,8 @@ app.post('/send', async (req, res) => {
 
         var data = {
             from: 'prostokna.ru <noreply@prostokna.ru>',
-            to: '<davydova.o@prostokna.ru>, <prosto.pochta2013@mail.ru>, <viki.z@prostokna.ru>',
+            // to: '<davydova.o@prostokna.ru>, <prosto.pochta2013@mail.ru>, <viki.z@prostokna.ru>',
+            to: '<ilya.soloveyv@gmail.com>',
             subject: 'Заявка: ' + subject,
             text: message_html,
             html: message_html,
@@ -2517,9 +2518,38 @@ app.post('/send', async (req, res) => {
     })
 })
 
-app.post('/send2', async (req, res) => {
-    console.log(req.form)
-    res.json(req.form)
+app.post('/send2', (req, res) => {
+    var dir_name = randomString()
+    var dir = './public/upload/' + dir_name;
+    var upload_files = []
+
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, dir)
+        },
+        filename: function (req, file, cb) {
+            upload_files.push(file.originalname)
+            cb(null, file.originalname)
+        }
+    })
+
+    var upload = multer({ storage: storage }).array('file[]')
+
+    upload(req, res, function (err, responce) {
+        console.log(req.body.name)
+
+        var path = require('path')
+        var filepath = [];
+        upload_files.forEach(file => {
+            filepath.push(path.join(dir, file))
+        })
+
+        res.json({})
+    })
 })
 
 

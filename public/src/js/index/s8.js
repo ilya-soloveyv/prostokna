@@ -26,8 +26,10 @@ var app = new Vue({
     files: [],
     isNone:  '',
     hideSubmit: false,
+    showMessage: false,
+    name: 'asdf',
     phone: '',
-    showMessage: false
+    message: ''
   },
   mounted() {
     Vue.nextTick(function() {
@@ -40,6 +42,42 @@ var app = new Vue({
     },
 
     submitFiles(){
+      // console.log(this.name)
+      // console.log(this.phone)
+      // console.log(this.message)
+      // console.log(this.files)
+
+      let data = new FormData()
+      data.append('name', this.name)
+      data.append('phone', this.phone)
+      data.append('message', this.message)
+      var files = this.files
+      for (var i = 0; i < files.length; i++) {
+        data.append('file[]', files[i])
+      }
+      // for( var i = 0; i < this.files.length; i++ ){
+      //   let file = this.files[i];
+      //   data.append('files[' + i + ']', file);
+      // }
+
+      // console.log(data)
+
+      axios.post( '/send',
+        data,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      ).then(function(){
+        console.log('SUCCESS!!');
+      })
+      .catch(function(){
+        console.log('FAILURE!!');
+      });
+
+      
+      return false
       if(this.phone.length<18) {
         this.showMessage = true;
         return
@@ -60,19 +98,6 @@ var app = new Vue({
       }
       formData.append('phone', this.phone)
       console.log(formData)
-      axios.post( '/send2',
-        formData,
-        {
-          headers: {
-              'Content-Type': 'multipart/form-data'
-          }
-        }
-      ).then(function(){
-        console.log('SUCCESS!!');
-      })
-      .catch(function(){
-        console.log('FAILURE!!');
-      });
     },
 
     handleFilesUpload(){
