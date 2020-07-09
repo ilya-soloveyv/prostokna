@@ -23,13 +23,13 @@
                                     input(type="radio" name="selectName")
                                     | Вы корпоративный клиент<i class="material-icons">keyboard_arrow_right</i>
                     .form-block
-                        form.form_contact#submitForm
+                        form.form_contact#submitForm(@submit.prevent="submitFiles()")
                             .mask
                                 .row
                                     .col.contacts
                                         .form-group
                                             label(for='nameInput') Имя
-                                            input(type='text' name="name" placeholder='Ваше имя' id='nameInput').form-control.form-control-pokna.white
+                                            input(type='text' name="name" placeholder='Ваше имя' id='nameInput' v-model="name").form-control.form-control-pokna.white
                                             //.invalid-feedback Необходимо указать Ваше имя
                         
                                         .form-group.phone
@@ -42,7 +42,7 @@
                                         .form-group
                                             label(for='messageTextArea') Сообщение
                                             .messageWrap
-                                                textarea(name="message" placeholder='Введите сообщение' id='messageTextArea').form-control.form-control-pokna.white  
+                                                textarea.form-control.form-control-pokna.white(name="message" placeholder='Введите сообщение' id='messageTextArea' v-model="message")
                                                 .panelWrap
                                                     .clip(v-bind:style="{ display: isNone }")
                                                         input(type='file' id='files' ref="files" multiple v-on:change="handleFilesUpload()")
@@ -56,7 +56,7 @@
                                     span Отправлено
                             .row
                                 .col.btn-send
-                                    button(v-on:click.prevent="submitFiles()" v-bind:class="{hideButton: hideSubmit}") Отправить
+                                    button(v-bind:class="{hideButton: hideSubmit}") Отправить
 
                             
                                 
