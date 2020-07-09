@@ -2503,8 +2503,8 @@ app.post('/send', async (req, res) => {
 
         var data = {
             from: 'prostokna.ru <noreply@prostokna.ru>',
-            // to: '<davydova.o@prostokna.ru>, <prosto.pochta2013@mail.ru>, <viki.z@prostokna.ru>',
-            to: '<ilya.soloveyv@gmail.com>',
+            to: '<davydova.o@prostokna.ru>, <prosto.pochta2013@mail.ru>, <viki.z@prostokna.ru>',
+            // to: '<ilya.soloveyv@gmail.com>',
             subject: 'Заявка: ' + subject,
             text: message_html,
             html: message_html,

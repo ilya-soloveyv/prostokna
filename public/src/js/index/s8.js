@@ -42,11 +42,10 @@ var app = new Vue({
     },
 
     submitFiles(){
-      // console.log(this.name)
-      // console.log(this.phone)
-      // console.log(this.message)
-      // console.log(this.files)
-
+      if(this.phone.length<18) {
+        this.showMessage = true;
+        return
+      }
       let data = new FormData()
       data.append('name', this.name)
       data.append('tel', this.phone)
@@ -55,13 +54,6 @@ var app = new Vue({
       for (var i = 0; i < files.length; i++) {
         data.append('file[]', files[i])
       }
-      // for( var i = 0; i < this.files.length; i++ ){
-      //   let file = this.files[i];
-      //   data.append('files[' + i + ']', file);
-      // }
-
-      // console.log(data)
-
       axios.post( '/send',
         data,
         {
@@ -76,12 +68,6 @@ var app = new Vue({
         console.log('FAILURE!!');
       });
 
-      
-      return false
-      if(this.phone.length<18) {
-        this.showMessage = true;
-        return
-      }
       Vue.set(this, 'hideSubmit', true);
       var v = this;
       setTimeout(
@@ -91,13 +77,7 @@ var app = new Vue({
         3000
       );
       this.showMessage = false;
-      let formData = new FormData();
-      for( var i = 0; i < this.files.length; i++ ){
-        let file = this.files[i];
-        formData.append('files[' + i + ']', file);
-      }
-      formData.append('phone', this.phone)
-      console.log(formData)
+
     },
 
     handleFilesUpload(){
