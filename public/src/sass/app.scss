@@ -367,3 +367,26 @@ textarea {
 		}
 	}
 }
+
+
+#modal_scammers {
+	.modal-content {
+		padding: 2rem;
+		.title {
+			font-size: 24px;
+			text-align: center;
+			color: #d165e9;
+			font-weight: 500;
+			padding-bottom: 1rem;
+		}
+		.desc {
+
+		}
+		.close-modal {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			cursor: pointer;
+		}
+	}
+}
