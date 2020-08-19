@@ -4,7 +4,7 @@ block content
     #gallery.ppage.gallery_list
         include head
         .list#gallery_scroll
-            .h1title Галлерея
+            .h1title Галерея
             .wrap
                 each item in gallery
                     a(href="/gallery/" + item.gallery_group.sGalleryGroupUri + '/' + item.iGalleryID id='gallery_item_' + item.iGalleryID)
