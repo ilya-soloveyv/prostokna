@@ -396,10 +396,25 @@ $speed: 0.25s;
         transform: translateY(-50%);
     }
 }
+.fp-viewing-s4,
+.fp-viewing-s7 {
+    #top,
+    .menu {
+        background-color: transparent;
+    }
+    .menu.opened {
+        background-color: #fff;
+    }
+    .icon--whats-app {
+        color: #fff;
 
+        @media (max-width: 575px) {
+            color: #363636;
+        }
+    }
+}
 .fp-viewing-s3,
 .fp-viewing-s6,
-.fp-viewing-s7,
 .fp-viewing-s8 {
     #top {
         background-color: transparent;
