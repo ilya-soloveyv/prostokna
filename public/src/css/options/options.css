@@ -1,0 +1,790 @@
+#options section {
+  height: calc(100vh - 80px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden; }
+  #options section .fittings__main {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    left: 100px;
+    border-bottom: 1px solid #707070; }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        left: 0; } }
+  #options section .fittings__window {
+    width: 60%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+    @media screen and (max-width: 1200px) {
+      #options section .fittings__window {
+        width: 70%; } }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__window {
+        width: 100%;
+        height: 60%;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center; } }
+  #options section .fittings__example {
+    width: 85%;
+    height: 100%;
+    position: relative; }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__example {
+        width: 75%; } }
+    @media screen and (max-width: 576px) {
+      #options section .fittings__example {
+        width: 45vh; } }
+    #options section .fittings__example img.window {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      right: 0; }
+    #options section .fittings__example img.handle {
+      width: 30%;
+      position: absolute;
+      bottom: 22%;
+      right: 2%; }
+  #options section .fittings__colors {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 20vh;
+    height: 20vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__colors {
+        left: 5%; } }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__colors {
+        width: 25vw;
+        height: 25vw; } }
+  #options section .fittings__color {
+    width: 30%;
+    height: 30%;
+    border-radius: 10px;
+    position: relative; }
+    #options section .fittings__color_1 {
+      background-color: #BC8B4F; }
+    #options section .fittings__color_2 {
+      background-color: #8D847C; }
+    #options section .fittings__color_3 {
+      background-color: #D8A25C; }
+    #options section .fittings__color_4 {
+      background-color: #554742; }
+    #options section .fittings__color_5 {
+      background-color: #808589; }
+    #options section .fittings__color_6 {
+      background-color: #ECECEC; }
+    #options section .fittings__color_7 {
+      background-color: #D3D4C8; }
+    #options section .fittings__color_8 {
+      background-color: #746457; }
+    #options section .fittings__color_9 {
+      background-color: #E0CB92; }
+    #options section .fittings__color:hover {
+      cursor: pointer; }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__color {
+        border-radius: 6px; } }
+  #options section .fittings__choise {
+    width: 40%;
+    padding: 0 2%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-left: 5%; }
+    @media screen and (max-width: 1200px) {
+      #options section .fittings__choise {
+        width: 30%;
+        padding-left: 0; } }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__choise {
+        width: 100%;
+        height: 40%;
+        position: relative; } }
+  #options section .fittings__circles {
+    position: absolute;
+    width: 130vh;
+    border-radius: 50%;
+    border: 1px solid #6B6B6B;
+    height: 130vh; }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__circles {
+        top: 30%;
+        left: calc(50% - 65vh); } }
+    #options section .fittings__circles .deg0 {
+      -webkit-transform: translate(-65vh);
+              transform: translate(-65vh);
+      background: #fff url(../../../images/options/choise/handle-2.png) no-repeat center center/contain; }
+      @media screen and (max-width: 992px) {
+        #options section .fittings__circles .deg0 {
+          -webkit-transform: rotate(270deg) translate(65vh) rotate(-270deg);
+                  transform: rotate(270deg) translate(65vh) rotate(-270deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .fittings__circles .deg0 {
+          -webkit-transform: rotate(270deg) translate(65vh) rotate(-270deg);
+                  transform: rotate(270deg) translate(65vh) rotate(-270deg); } }
+    #options section .fittings__circles .deg45 {
+      -webkit-transform: rotate(205deg) translate(65vh) rotate(-205deg);
+              transform: rotate(205deg) translate(65vh) rotate(-205deg);
+      background: #fff url(../../../images/options/choise/handle-1.png) no-repeat center center/contain; }
+      @media screen and (max-width: 992px) {
+        #options section .fittings__circles .deg45 {
+          -webkit-transform: rotate(245deg) translate(65vh) rotate(-245deg);
+                  transform: rotate(245deg) translate(65vh) rotate(-245deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .fittings__circles .deg45 {
+          -webkit-transform: rotate(252deg) translate(65vh) rotate(-252deg);
+                  transform: rotate(252deg) translate(65vh) rotate(-252deg); } }
+    #options section .fittings__circles .deg315 {
+      -webkit-transform: rotate(155deg) translate(65vh) rotate(-155deg);
+              transform: rotate(155deg) translate(65vh) rotate(-155deg);
+      background: #fff url(../../../images/options/choise/handle-3.png) no-repeat center center/contain; }
+      @media screen and (max-width: 992px) {
+        #options section .fittings__circles .deg315 {
+          -webkit-transform: rotate(295deg) translate(65vh) rotate(-295deg);
+                  transform: rotate(295deg) translate(65vh) rotate(-295deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .fittings__circles .deg315 {
+          -webkit-transform: rotate(288deg) translate(65vh) rotate(-288deg);
+                  transform: rotate(288deg) translate(65vh) rotate(-288deg); } }
+  #options section .fittings__circle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18vh;
+    height: 18vh;
+    margin: -9vh;
+    border: 1px solid #6B6B6B;
+    border-radius: 50%; }
+    @media screen and (max-width: 576px) {
+      #options section .fittings__circle {
+        width: 24vw;
+        height: 24vw;
+        margin: -12vw; } }
+  #options section .fittings__desc {
+    position: absolute;
+    top: 20%;
+    left: 110%;
+    width: 120%;
+    font-weight: 600;
+    color: #EDEDED; }
+    @media screen and (max-width: 992px) {
+      #options section .fittings__desc {
+        top: 110%;
+        left: 10%; } }
+    #options section .fittings__desc .name {
+      font-size: 20px;
+      display: block; }
+      @media screen and (max-width: 576px) {
+        #options section .fittings__desc .name {
+          font-size: 16px; } }
+    #options section .fittings__desc .price {
+      font-size: 14px; }
+      @media screen and (max-width: 576px) {
+        #options section .fittings__desc .price {
+          font-size: 12px; } }
+    #options section .fittings__desc .active {
+      font-size: 22px;
+      color: #353535; }
+      @media screen and (max-width: 576px) {
+        #options section .fittings__desc .active {
+          font-size: 16px; } }
+  #options section .check {
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    background: url(../../../images/options/check.png) no-repeat center center/contain;
+    width: 35%;
+    height: 35%; }
+  #options section .curtains__main {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    left: 100px;
+    border-bottom: 1px solid #707070; }
+    @media screen and (max-width: 992px) {
+      #options section .curtains__main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        left: 0; } }
+  #options section .curtains__window {
+    width: 60%;
+    height: 100%;
+    padding: 5% 0; }
+    @media screen and (max-width: 992px) {
+      #options section .curtains__window {
+        width: 100%;
+        height: 60%;
+        padding: 3% 5% 0; } }
+    @media screen and (max-width: 576px) {
+      #options section .curtains__window {
+        padding: 25% 5% 0; } }
+  #options section .curtains__example {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    position: relative;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media screen and (max-width: 992px) {
+      #options section .curtains__example {
+        width: 65%;
+        margin: 0 auto; } }
+    #options section .curtains__example img.window {
+      width: 100%;
+      height: 90%; }
+    #options section .curtains__example img.curtain {
+      position: absolute;
+      right: 20%;
+      height: 100%; }
+      @media screen and (max-width: 992px) {
+        #options section .curtains__example img.curtain {
+          right: 0; } }
+  #options section .curtains__choise {
+    width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media screen and (max-width: 1200px) {
+      #options section .curtains__choise {
+        width: 30%; } }
+    @media screen and (max-width: 992px) {
+      #options section .curtains__choise {
+        width: 100%;
+        height: 40%;
+        position: relative; } }
+  #options section .curtains__circles {
+    position: absolute;
+    width: 130vh;
+    border-radius: 50%;
+    border: 1px solid #6B6B6B;
+    height: 130vh; }
+    @media screen and (max-width: 992px) {
+      #options section .curtains__circles {
+        top: 30%;
+        left: calc(50% - 65vh); } }
+    #options section .curtains__circles .deg0 {
+      -webkit-transform: translate(-65vh);
+              transform: translate(-65vh);
+      background: #fff url(../../../images/options/choise/texture-3.png) no-repeat center center/cover; }
+      @media screen and (max-width: 992px) {
+        #options section .curtains__circles .deg0 {
+          -webkit-transform: rotate(270deg) translate(65vh) rotate(-270deg);
+                  transform: rotate(270deg) translate(65vh) rotate(-270deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__circles .deg0 {
+          -webkit-transform: rotate(270deg) translate(65vh) rotate(-270deg);
+                  transform: rotate(270deg) translate(65vh) rotate(-270deg); } }
+    #options section .curtains__circles .deg20 {
+      -webkit-transform: rotate(200deg) translate(65vh) rotate(-200deg);
+              transform: rotate(200deg) translate(65vh) rotate(-200deg);
+      background: #fff url(../../../images/options/choise/texture-2.png) no-repeat center center/cover; }
+      @media screen and (max-width: 992px) {
+        #options section .curtains__circles .deg20 {
+          -webkit-transform: rotate(290deg) translate(65vh) rotate(-290deg);
+                  transform: rotate(290deg) translate(65vh) rotate(-290deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__circles .deg20 {
+          -webkit-transform: rotate(280deg) translate(65vh) rotate(-280deg);
+                  transform: rotate(280deg) translate(65vh) rotate(-280deg); } }
+    #options section .curtains__circles .deg40 {
+      -webkit-transform: rotate(215deg) translate(65vh) rotate(-215deg);
+              transform: rotate(215deg) translate(65vh) rotate(-215deg);
+      background: #fff url(../../../images/options/choise/texture-1.png) no-repeat center center/cover; }
+      @media screen and (max-width: 992px) {
+        #options section .curtains__circles .deg40 {
+          -webkit-transform: rotate(305deg) translate(65vh) rotate(-305deg);
+                  transform: rotate(305deg) translate(65vh) rotate(-305deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__circles .deg40 {
+          -webkit-transform: rotate(290deg) translate(65vh) rotate(-290deg);
+                  transform: rotate(290deg) translate(65vh) rotate(-290deg); } }
+    #options section .curtains__circles .deg340 {
+      -webkit-transform: rotate(160deg) translate(65vh) rotate(-160deg);
+              transform: rotate(160deg) translate(65vh) rotate(-160deg);
+      background: #fff url(../../../images/options/choise/texture-4.png) no-repeat center center/cover; }
+      @media screen and (max-width: 992px) {
+        #options section .curtains__circles .deg340 {
+          -webkit-transform: rotate(250deg) translate(65vh) rotate(-250deg);
+                  transform: rotate(250deg) translate(65vh) rotate(-250deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__circles .deg340 {
+          -webkit-transform: rotate(260deg) translate(65vh) rotate(-260deg);
+                  transform: rotate(260deg) translate(65vh) rotate(-260deg); } }
+    #options section .curtains__circles .deg320 {
+      -webkit-transform: rotate(145deg) translate(65vh) rotate(-145deg);
+              transform: rotate(145deg) translate(65vh) rotate(-145deg);
+      background: #fff url(../../../images/options/choise/texture-5.png) no-repeat center center/cover; }
+      @media screen and (max-width: 992px) {
+        #options section .curtains__circles .deg320 {
+          -webkit-transform: rotate(235deg) translate(65vh) rotate(-235deg);
+                  transform: rotate(235deg) translate(65vh) rotate(-235deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__circles .deg320 {
+          -webkit-transform: rotate(250deg) translate(65vh) rotate(-250deg);
+                  transform: rotate(250deg) translate(65vh) rotate(-250deg); } }
+    #options section .curtains__circles .main {
+      width: 22vh;
+      height: 22vh;
+      margin: -11vh; }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__circles .main {
+          width: 18vw;
+          height: 18vw;
+          margin: -9vw; } }
+  #options section .curtains__circle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12vh;
+    height: 12vh;
+    background-color: #fff;
+    margin: -6vh;
+    border-radius: 50%; }
+    @media screen and (max-width: 576px) {
+      #options section .curtains__circle {
+        width: 12vw;
+        height: 12vw;
+        margin: -6vw; } }
+  #options section .curtains__desc {
+    position: absolute;
+    top: 20%;
+    left: 110%;
+    width: 200%;
+    font-weight: 600;
+    color: #EDEDED; }
+    @media screen and (max-width: 992px) {
+      #options section .curtains__desc {
+        top: 110%;
+        left: 10%; } }
+    @media screen and (max-width: 576px) {
+      #options section .curtains__desc {
+        width: 130%; } }
+    #options section .curtains__desc .name {
+      font-size: 16px;
+      display: block; }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__desc .name {
+          font-size: 13px; } }
+    #options section .curtains__desc .price {
+      font-size: 14px; }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__desc .price {
+          font-size: 11px; } }
+    #options section .curtains__desc .active {
+      font-size: 22px;
+      color: #353535; }
+      @media screen and (max-width: 576px) {
+        #options section .curtains__desc .active {
+          font-size: 13px; } }
+  #options section .jalousie__main {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    left: 100px; }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        left: 0; } }
+  #options section .jalousie__window {
+    width: 60%;
+    height: 100%;
+    position: relative; }
+    @media screen and (max-width: 1200px) {
+      #options section .jalousie__window {
+        width: 60%; } }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__window {
+        width: 100%;
+        height: 60%; } }
+    @media screen and (max-width: 576px) {
+      #options section .jalousie__window {
+        padding-top: 20%; } }
+  #options section .jalousie__textures {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 20vh;
+    height: 20vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__textures {
+        left: 5%; } }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__textures {
+        width: 25vw;
+        height: 25vw; } }
+  #options section .jalousie__texture {
+    width: 30%;
+    height: 30%;
+    border-radius: 10px; }
+    #options section .jalousie__texture_1 {
+      background: url(../../../images/options/texture-1.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_2 {
+      background: url(../../../images/options/texture-2.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_3 {
+      background: url(../../../images/options/texture-3.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_4 {
+      background: url(../../../images/options/texture-4.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_5 {
+      background: url(../../../images/options/texture-5.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_6 {
+      background: url(../../../images/options/texture-6.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_7 {
+      background: url(../../../images/options/texture-7.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_8 {
+      background: url(../../../images/options/texture-8.svg) no-repeat center center/cover; }
+    #options section .jalousie__texture_9 {
+      background: url(../../../images/options/texture-9.svg) no-repeat center center/cover; }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__texture {
+        border-radius: 6px; } }
+  #options section .jalousie__example {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+    padding: 5% 0; }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__example {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        padding: 5% 15% 0 25%; } }
+    @media screen and (max-width: 576px) {
+      #options section .jalousie__example {
+        position: relative;
+        padding: 5% 5% 0 25%; } }
+    #options section .jalousie__example .window {
+      height: 100%; }
+    #options section .jalousie__example .jalousie {
+      position: absolute;
+      height: 76%;
+      top: 0; }
+  #options section .jalousie__choise {
+    width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media screen and (max-width: 1200px) {
+      #options section .jalousie__choise {
+        width: 40%; } }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__choise {
+        width: 100%;
+        height: 40%;
+        position: relative; } }
+  #options section .jalousie__circles {
+    position: absolute;
+    width: 130vh;
+    border-radius: 50%;
+    border: 1px solid #6B6B6B;
+    height: 130vh; }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__circles {
+        top: 30%;
+        left: calc(50% - 65vh); } }
+    #options section .jalousie__circles .deg0 {
+      -webkit-transform: translate(-65vh);
+              transform: translate(-65vh);
+      background: #fff url(../../../images/options/choise/jalousie-2.png) no-repeat center center/contain; }
+      @media screen and (max-width: 992px) {
+        #options section .jalousie__circles .deg0 {
+          -webkit-transform: rotate(270deg) translate(65vh) rotate(-270deg);
+                  transform: rotate(270deg) translate(65vh) rotate(-270deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .jalousie__circles .deg0 {
+          -webkit-transform: rotate(270deg) translate(65vh) rotate(-270deg);
+                  transform: rotate(270deg) translate(65vh) rotate(-270deg); } }
+    #options section .jalousie__circles .deg45 {
+      -webkit-transform: rotate(205deg) translate(65vh) rotate(-205deg);
+              transform: rotate(205deg) translate(65vh) rotate(-205deg);
+      background: #fff url(../../../images/options/choise/jalousie-1.png) no-repeat center center/contain; }
+      @media screen and (max-width: 992px) {
+        #options section .jalousie__circles .deg45 {
+          -webkit-transform: rotate(245deg) translate(65vh) rotate(-245deg);
+                  transform: rotate(245deg) translate(65vh) rotate(-245deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .jalousie__circles .deg45 {
+          -webkit-transform: rotate(252deg) translate(65vh) rotate(-252deg);
+                  transform: rotate(252deg) translate(65vh) rotate(-252deg); } }
+    #options section .jalousie__circles .deg315 {
+      -webkit-transform: rotate(155deg) translate(65vh) rotate(-155deg);
+              transform: rotate(155deg) translate(65vh) rotate(-155deg);
+      background: #fff url(../../../images/options/choise/jalousie-3.png) no-repeat center center/contain; }
+      @media screen and (max-width: 992px) {
+        #options section .jalousie__circles .deg315 {
+          -webkit-transform: rotate(295deg) translate(65vh) rotate(-295deg);
+                  transform: rotate(295deg) translate(65vh) rotate(-295deg); } }
+      @media screen and (max-width: 576px) {
+        #options section .jalousie__circles .deg315 {
+          -webkit-transform: rotate(288deg) translate(65vh) rotate(-288deg);
+                  transform: rotate(288deg) translate(65vh) rotate(-288deg); } }
+  #options section .jalousie__circle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18vh;
+    height: 18vh;
+    margin: -9vh;
+    border: 1px solid #6B6B6B;
+    border-radius: 50%; }
+    @media screen and (max-width: 576px) {
+      #options section .jalousie__circle {
+        width: 24vw;
+        height: 24vw;
+        margin: -12vw; } }
+  #options section .jalousie__desc {
+    position: absolute;
+    top: 20%;
+    left: 110%;
+    width: 200%;
+    font-weight: 600;
+    color: #EDEDED; }
+    @media screen and (max-width: 992px) {
+      #options section .jalousie__desc {
+        top: 110%;
+        left: 10%; } }
+    #options section .jalousie__desc .name {
+      font-size: 16px;
+      display: block; }
+      @media screen and (max-width: 576px) {
+        #options section .jalousie__desc .name {
+          font-size: 11px; } }
+    #options section .jalousie__desc .price {
+      font-size: 14px; }
+      @media screen and (max-width: 576px) {
+        #options section .jalousie__desc .price {
+          font-size: 11px; } }
+    #options section .jalousie__desc .active {
+      font-size: 22px;
+      color: #353535; }
+      @media screen and (max-width: 576px) {
+        #options section .jalousie__desc .active {
+          font-size: 13px; } }
+  #options section .menu {
+    width: 200px;
+    min-width: 200px;
+    height: calc(100% - 80px);
+    position: fixed;
+    padding: 35px 30px;
+    z-index: 15; }
+    @media screen and (max-width: 1200px) {
+      #options section .menu {
+        width: 100px;
+        min-width: 100px; } }
+    @media screen and (max-width: 992px) {
+      #options section .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        height: auto;
+        width: auto; } }
+    @media screen and (max-width: 576px) {
+      #options section .menu {
+        width: 100%; } }
+    @media screen and (max-width: 576px) {
+      #options section .menu__head {
+        width: 20%;
+        margin: 0 auto; } }
+    #options section .menu__icons {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      #options section .menu__icons a {
+        margin-right: 7px; }
+        #options section .menu__icons a img {
+          width: 30px; }
+          @media screen and (max-width: 576px) {
+            #options section .menu__icons a img {
+              width: 20px; } }
+    #options section .menu__title {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 12px; }
+      @media screen and (max-width: 576px) {
+        #options section .menu__title {
+          font-size: 14px; } }
+  #options section .call_back {
+    position: absolute;
+    bottom: 5%;
+    left: 30px;
+    width: 54px;
+    height: 54px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 15px;
+    background: #fd568e;
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #fd568e), color-stop(100%, #f36e62));
+    background: -webkit-gradient(linear, left top, left bottom, from(#fd568e), to(#f36e62));
+    background: linear-gradient(to bottom, #fd568e 0%, #f36e62 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fd568e', endColorstr='#f36e62', GradientType=0 ); }
+    #options section .call_back img {
+      width: 60px;
+      height: 60px; }
+    @media screen and (max-width: 992px) {
+      #options section .call_back {
+        display: none; } }
+
+#options .blur {
+  -webkit-filter: blur(7px);
+          filter: blur(7px); }
+
+#options .upmenu {
+  position: fixed;
+  width: calc(100% - 80px);
+  height: 100vh;
+  background: rgba(53, 53, 53, 0.65);
+  display: none;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  z-index: 100;
+  padding: 1% 40px; }
+  @media screen and (max-width: 1200px) {
+    #options .upmenu {
+      width: 100%; } }
+  @media screen and (max-width: 576px) {
+    #options .upmenu {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  #options .upmenu__active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  #options .upmenu__icons {
+    width: 4vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    @media screen and (max-width: 1200px) {
+      #options .upmenu__icons {
+        width: 7vw; } }
+    @media screen and (max-width: 576px) {
+      #options .upmenu__icons {
+        width: 70px; } }
+    #options .upmenu__icons img {
+      width: 45%; }
+  #options .upmenu__categories {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    list-style: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 3vh;
+    text-transform: uppercase;
+    width: 75vw;
+    margin-top: 23vh; }
+    @media screen and (max-width: 1200px) {
+      #options .upmenu__categories {
+        font-size: 2vh; } }
+    @media screen and (max-width: 992px) {
+      #options .upmenu__categories {
+        font-size: 3vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; } }
+    @media screen and (max-width: 576px) {
+      #options .upmenu__categories {
+        text-align: center;
+        padding: 0;
+        margin-top: 10vh; } }
+  #options .upmenu__brands {
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 5vh;
+    margin-top: 10vh; }
+    @media screen and (max-width: 992px) {
+      #options .upmenu__brands {
+        display: none; } }

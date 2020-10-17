@@ -1,0 +1,1161 @@
+#palette {
+  height: 1px;
+  background-color: #353535; }
+  #palette .palette {
+    height: 100%;
+    max-height: 864px;
+    min-height: 864px;
+    width: 100%;
+    background-color: #353535;
+    position: relative;
+    padding-top: 73px;
+    padding-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    #palette .palette__book {
+      height: 100%;
+      width: 100%;
+      max-width: 1383px;
+      max-height: 751px;
+      border: 1px solid #707070;
+      position: absolute;
+      top: 73px;
+      left: 299px;
+      margin-right: 20px; }
+    #palette .palette .book__in {
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      position: absolute; }
+      #palette .palette .book__in .book__img {
+        width: 26px;
+        height: 21px;
+        margin: 30px 6px 30px; }
+      #palette .palette .book__in .book__img_right {
+        margin-top: 700px; }
+      #palette .palette .book__in .book__center {
+        width: 108px;
+        height: 100%;
+        border: 1px solid #4F4F4F;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        padding: 15px 0; }
+        #palette .palette .book__in .book__center .pereplet {
+          width: 76px;
+          height: 100%;
+          max-height: 723px;
+          border: 1px solid #4F4F4F;
+          border-radius: 10px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          padding: 10px 0;
+          position: relative; }
+          #palette .palette .book__in .book__center .pereplet .gaika {
+            width: 57px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center; }
+            #palette .palette .book__in .book__center .pereplet .gaika img {
+              width: 15px;
+              height: 13px; }
+          #palette .palette .book__in .book__center .pereplet .center-block {
+            width: 94px;
+            height: 258px;
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            top: calc(50% - 129px);
+            z-index: 20; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+                  -ms-flex-align: center;
+                      align-items: center; }
+              #palette .palette .book__in .book__center .pereplet .center-block .shov .krug {
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                border: 1px solid #707070; }
+              #palette .palette .book__in .book__center .pereplet .center-block .shov .left-krug {
+                margin-right: -9px; }
+              #palette .palette .book__in .book__center .pereplet .center-block .shov .right-krug {
+                margin-left: -9px; }
+              #palette .palette .book__in .book__center .pereplet .center-block .shov .line {
+                width: 76px;
+                height: 6px;
+                border: 1px solid #707070; }
+    #palette .palette .book .tab-menu {
+      height: 100%;
+      max-height: 665px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      position: relative;
+      margin-left: -183px;
+      z-index: 10; }
+      #palette .palette .book .tab-menu .tab {
+        width: 360px;
+        min-width: 360px;
+        height: 55px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+        margin-top: 40px; }
+        #palette .palette .book .tab-menu .tab button {
+          height: 55px;
+          width: 176px;
+          border: 1px solid #707070;
+          color: #fff;
+          font-size: 22px;
+          padding: 0 15px;
+          outline: none;
+          cursor: pointer;
+          -webkit-transition: 0.3s;
+          transition: 0.3s;
+          border-radius: 10px 10px 0 0;
+          text-align: left;
+          background-color: #353535; }
+        #palette .palette .book .tab-menu .tab button:hover {
+          color: #0071E8; }
+        #palette .palette .book .tab-menu .tab button.active {
+          color: #0071E8; }
+      #palette .palette .book .tab-menu .tabcontent {
+        width: 1333px;
+        height: 655px;
+        margin-left: -152px;
+        margin-top: 85px; }
+        #palette .palette .book .tab-menu .tabcontent .ral {
+          width: 100%;
+          height: 100%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; }
+          #palette .palette .book .tab-menu .tabcontent .ral__block {
+            width: 100%;
+            max-width: 660px;
+            height: auto;
+            max-height: 655px;
+            border: 1px solid #707070;
+            background-color: #353535;
+            border-radius: 7px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            -webkit-box-align: start;
+                -ms-flex-align: start;
+                    align-items: flex-start; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal {
+              width: 64px;
+              height: 48px;
+              border-radius: 3px;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+                  -ms-flex-align: center;
+                      align-items: center;
+              background-color: #fff;
+              padding-left: 6px;
+              margin-right: 4px;
+              margin-top: 3px;
+              cursor: pointer; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text {
+                height: 24px; }
+                #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text p {
+                  font-weight: 600;
+                  font-size: 8px;
+                  margin: 0; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block_left {
+              padding: 18px 85px 22px 25px;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+              max-height: 645px; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal1 {
+                background-color: #D6C794; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal2 {
+                background-color: #D9BA8C; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal3 {
+                background-color: #D7B075; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal4 {
+                background-color: #F3A902; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal5 {
+                background-color: #DDA103; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal6 {
+                background-color: #C89402; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal7 {
+                background-color: #E49402; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal8 {
+                background-color: #EB8B03; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal9 {
+                background-color: #C88720; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal10 {
+                background-color: #DDBB01; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal11 {
+                background-color: #F3E7D1; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal12 {
+                background-color: #E0CF99; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal13 {
+                background-color: #F0E6CB; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal14 {
+                background-color: #E4E700; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal15 {
+                background-color: #F1A73B; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal16 {
+                background-color: #F2D300; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal17 {
+                background-color: #A8967E; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal18 {
+                background-color: #A1985F; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal19 {
+                background-color: #EABF01; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal20 {
+                background-color: #F2C103; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal21 {
+                background-color: #B89338; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal22 {
+                background-color: #9B8204; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal23 {
+                background-color: #FE9B00; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal24 {
+                background-color: #D2A500; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal25 {
+                background-color: #F89901; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal26 {
+                background-color: #ED9F38; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal27 {
+                background-color: #FF9F02; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal28 {
+                background-color: #E56501; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal29 {
+                background-color: #CC3406; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal30 {
+                background-color: #D41502; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal31 {
+                background-color: #FA5708; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal32 {
+                background-color: #F81D01; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal33 {
+                background-color: #FC4B03; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal34 {
+                background-color: #F13700; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal35 {
+                background-color: #DF4302; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal36 {
+                background-color: #F26600; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal37 {
+                background-color: #EC5133; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal38 {
+                background-color: #BB0200;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal39 {
+                background-color: #C30100;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal40 {
+                background-color: #BB0301;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal41 {
+                background-color: #A20000;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal42 {
+                background-color: #7B0304;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal43 {
+                background-color: #690502;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal44 {
+                background-color: #310506;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal45 {
+                background-color: #771610;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal46 {
+                background-color: #930303;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal47 {
+                background-color: #D78A70; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal48 {
+                background-color: #B00D03;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal49 {
+                background-color: #DF6D79; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal50 {
+                background-color: #F1A1AF; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal51 {
+                background-color: #B91903;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal52 {
+                background-color: #E73E59;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal53 {
+                background-color: #EB2135;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal54 {
+                background-color: #B00D03;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal55 {
+                background-color: #DD6143;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal56 {
+                background-color: #D20121;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal57 {
+                background-color: #C11024;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal58 {
+                background-color: #A15988;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal59 {
+                background-color: #A3263E;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal60 {
+                background-color: #E84C97; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal61 {
+                background-color: #890F28;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal62 {
+                background-color: #9B5EA4; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal63 {
+                background-color: #B30479;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal64 {
+                background-color: #4E0929;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal65 {
+                background-color: #A72685;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal66 {
+                background-color: #A9889B;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal67 {
+                background-color: #8B3457;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal68 {
+                background-color: #223D75;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal69 {
+                background-color: #0E3964;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal70 {
+                background-color: #171B7F;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal71 {
+                background-color: #091954;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal72 {
+                background-color: #00020F;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal73 {
+                background-color: #06398C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal74 {
+                background-color: #3A6993;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal75 {
+                background-color: #212B35;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal76 {
+                background-color: #1A577B;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal77 {
+                background-color: #0A3882;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal78 {
+                background-color: #040E2A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal79 {
+                background-color: #3587BE;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal80 {
+                background-color: #101451;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal81 {
+                background-color: #6F7D9D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal82 {
+                background-color: #1E7BB6;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal83 {
+                background-color: #014B8B;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal84 {
+                background-color: #1F9A8F;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal85 {
+                background-color: #0E5988;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal86 {
+                background-color: #012F2D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal87 {
+                background-color: #038374;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal88 {
+                background-color: #018373;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal89 {
+                background-color: #456A96;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal90 {
+                background-color: #6E9AB3;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal91 {
+                background-color: #1D7F58;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal92 {
+                background-color: #017415;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal93 {
+                background-color: #076702;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal94 {
+                background-color: #3E4F22;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal95 {
+                background-color: #013E2E;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_left .card-pal96 {
+                background-color: #043517;
+                color: #fff; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block_right {
+              padding: 18px 23px 22px 88px;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+              max-height: 645px; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal1 {
+                background-color: #1E2216;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal2 {
+                background-color: #14240A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal3 {
+                background-color: #191708;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal4 {
+                background-color: #081E0A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal5 {
+                background-color: #13680E;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal6 {
+                background-color: #577E49;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal7 {
+                background-color: #152A24;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal8 {
+                background-color: #676C4C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal9 {
+                background-color: #2E2911;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal10 {
+                background-color: #1C2417;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal11 {
+                background-color: #03672D; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal12 {
+                background-color: #25811C; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal13 {
+                background-color: #1FA002; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal14 {
+                background-color: #A5D5A1; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal15 {
+                background-color: #1D3619;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal16 {
+                background-color: #759C6D; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal17 {
+                background-color: #2B2610;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal18 {
+                background-color: #038631; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal19 {
+                background-color: #436C1C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal20 {
+                background-color: #015926;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal21 {
+                background-color: #72BFAD; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal22 {
+                background-color: #164B2D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal23 {
+                background-color: #00750D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal24 {
+                background-color: #008429;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal25 {
+                background-color: #35846F; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal26 {
+                background-color: #6DACA3; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal27 {
+                background-color: #6A7D84; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal28 {
+                background-color: #868F96; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal29 {
+                background-color: #787356; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal30 {
+                background-color: #6D705B; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal31 {
+                background-color: #919096; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal32 {
+                background-color: #626961; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal33 {
+                background-color: #6B5F47;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal34 {
+                background-color: #6E581D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal35 {
+                background-color: #47503C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal36 {
+                background-color: #454C44;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal37 {
+                background-color: #414C50;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal38 {
+                background-color: #455054;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal39 {
+                background-color: #464029;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal40 {
+                background-color: #3A3E47;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal41 {
+                background-color: #1E292D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal42 {
+                background-color: #1A1B1C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal43 {
+                background-color: #31302B;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal44 {
+                background-color: #777569; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal45 {
+                background-color: #38373F;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal46 {
+                background-color: #1C292F;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal47 {
+                background-color: #838379; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal48 {
+                background-color: #536265;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal49 {
+                background-color: #B4B49C; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal50 {
+                background-color: #6C7968; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal51 {
+                background-color: #818262; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal52 {
+                background-color: #C1C6C0; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal53 {
+                background-color: #8B8A88; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal54 {
+                background-color: #6F7372; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal55 {
+                background-color: #AEB1A8; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal56 {
+                background-color: #5F5E5A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal57 {
+                background-color: #94999F; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal58 {
+                background-color: #858A8E; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal59 {
+                background-color: #374140;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal60 {
+                background-color: #B9B5A9; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal61 {
+                background-color: #858C92; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal62 {
+                background-color: #6F7372; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal63 {
+                background-color: #AEB1A8; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal64 {
+                background-color: #5F5E5A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal65 {
+                background-color: #925908;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal66 {
+                background-color: #70331E;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal67 {
+                background-color: #75380B;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal68 {
+                background-color: #84301C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal69 {
+                background-color: #652E07;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal70 {
+                background-color: #652E07;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal71 {
+                background-color: #4A1B09;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal72 {
+                background-color: #61170E;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal73 {
+                background-color: #35200A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal74 {
+                background-color: #54140B;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal75 {
+                background-color: #3D150C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal76 {
+                background-color: #2C120A;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal77 {
+                background-color: #241B19;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal78 {
+                background-color: #0A0502;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal79 {
+                background-color: #A5440D;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal80 {
+                background-color: #703E23;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal81 {
+                background-color: #66462F;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal82 {
+                background-color: #3C210C;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal83 {
+                background-color: #F3E8D5; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal84 {
+                background-color: #DBDCCC; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal85 {
+                background-color: #F6F1EB; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal86 {
+                background-color: #0B0A09;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal87 {
+                background-color: #050503;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal88 {
+                background-color: #FDF5E4; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal89 {
+                background-color: #070707;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal90 {
+                background-color: #F9F7EB; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal91 {
+                background-color: #040301;
+                color: #fff; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal92 {
+                background-color: #C7D3C7; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal93 {
+                background-color: #8F9392; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block_right .card-pal94 {
+                background-color: #677173; }
+    #palette .palette__sidebar {
+      height: 100%;
+      max-height: 751px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      margin-left: 39px;
+      padding: 9px 0 24px;
+      z-index: 10; }
+      #palette .palette__sidebar .search {
+        width: 217px;
+        height: 39px;
+        border: 1px solid #707070;
+        border-radius: 100px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        background: url("/images/palette/Group 695.svg") no-repeat 8px center;
+        background-size: 32px 27px; }
+        #palette .palette__sidebar .search input {
+          width: 100%;
+          height: 100%;
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-radius: 100px;
+          font-weight: 500;
+          font-size: 20px;
+          color: #fff;
+          padding: 0 15px; }
+        #palette .palette__sidebar .search input:focus {
+          outline: none;
+          background-color: #353535; }
+      #palette .palette__sidebar .ral {
+        width: 216px;
+        height: 359px;
+        border-radius: 10px;
+        background-color: #C88720; }
+      #palette .palette__sidebar .call {
+        cursor: pointer; }
+        #palette .palette__sidebar .call img {
+          width: 75px;
+          height: 75px; }
+
+@media (max-width: 1780px) {
+  #palette .palette {
+    padding-top: 163px;
+    min-height: 744px; }
+    #palette .palette__book {
+      top: 129px;
+      max-height: 557px;
+      max-width: 1025px; }
+    #palette .palette .book {
+      left: 20%; }
+      #palette .palette .book__in .book__img {
+        width: 19px;
+        height: 16px;
+        margin: 22px 5px 22px; }
+      #palette .palette .book__in .book__img_right {
+        margin-top: 520px; }
+      #palette .palette .book__in .book__center {
+        width: 80px;
+        padding: 15px 0; }
+        #palette .palette .book__in .book__center .pereplet {
+          width: 56px;
+          max-height: 536px;
+          padding: 5px 0; }
+          #palette .palette .book__in .book__center .pereplet .gaika {
+            width: 43px; }
+            #palette .palette .book__in .book__center .pereplet .gaika img {
+              width: 12px;
+              height: 10px; }
+          #palette .palette .book__in .book__center .pereplet .center-block {
+            width: 70px;
+            height: 189px;
+            top: calc(50% - 95px); }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .krug {
+              width: 14px;
+              height: 14px; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .left-krug {
+              margin-right: -7px; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .right-krug {
+              margin-left: -7px; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .line {
+              width: 56px;
+              height: 5px; }
+      #palette .palette .book .tab-menu {
+        max-height: 485px;
+        margin-left: -136px;
+        margin-top: -8px; }
+        #palette .palette .book .tab-menu .tab {
+          width: 266px;
+          min-width: 266px;
+          height: 40px; }
+          #palette .palette .book .tab-menu .tab button {
+            height: 40px;
+            width: 130px;
+            font-size: 13px;
+            padding: 0 11px;
+            border-radius: 8px 8px 0 0;
+            text-align: left;
+            background-color: #353535; }
+        #palette .palette .book .tab-menu .tabcontent {
+          margin-left: -113px;
+          height: 485px;
+          width: 989px; }
+          #palette .palette .book .tab-menu .tabcontent .ral__block {
+            max-width: 489px;
+            height: 485px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal {
+              width: 47px;
+              height: 36px;
+              margin-right: 3px;
+              margin-top: 2px;
+              padding-left: 4px; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text {
+                height: 22px; }
+                #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text p {
+                  font-weight: bold;
+                  font-size: 7px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block_left {
+              padding: 14px 65px 0 18px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block_right {
+              padding: 14px 16px 0 68px; }
+    #palette .palette__sidebar {
+      height: 0;
+      width: 0; }
+      #palette .palette__sidebar .search {
+        position: absolute;
+        top: 52px;
+        left: 20%; }
+      #palette .palette__sidebar .ral {
+        display: none; }
+      #palette .palette__sidebar .call {
+        position: absolute;
+        left: 27px;
+        bottom: 58px; }
+        #palette .palette__sidebar .call img {
+          width: 50px;
+          height: 50px; } }
+
+@media (max-width: 1500px) {
+  #palette .palette .book {
+    left: 150px; }
+  #palette .palette__sidebar .search {
+    left: 150px; } }
+
+@media (max-width: 1280px) {
+  #palette .palette .book {
+    left: 130px; }
+  #palette .palette__sidebar .search {
+    left: 130px; } }
+
+@media (max-width: 1260px) {
+  #palette .palette .book {
+    left: 90px; }
+  #palette .palette__sidebar .search {
+    left: 90px; } }
+
+@media (max-width: 1140px) {
+  #palette .palette {
+    min-height: 577px; }
+    #palette .palette__book {
+      top: 100px;
+      max-height: 432px;
+      max-width: 796px; }
+    #palette .palette .book {
+      left: 11%; }
+      #palette .palette .book__in .book__img {
+        margin: 17px 2px 17px; }
+      #palette .palette .book__in .book__img_right {
+        margin-top: 398px; }
+      #palette .palette .book__in .book__center {
+        width: 62px;
+        padding: 8px 0; }
+        #palette .palette .book__in .book__center .pereplet {
+          width: 44px;
+          max-height: 415px;
+          padding: 5px 0; }
+          #palette .palette .book__in .book__center .pereplet .gaika {
+            width: 31px; }
+            #palette .palette .book__in .book__center .pereplet .gaika img {
+              width: 9px;
+              height: 9px; }
+          #palette .palette .book__in .book__center .pereplet .center-block {
+            width: 53px;
+            height: 149px;
+            top: calc(50% - 74px); }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .krug {
+              width: 10px;
+              height: 10px; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .left-krug {
+              margin-right: -5px; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .right-krug {
+              margin-left: -5px; }
+            #palette .palette .book__in .book__center .pereplet .center-block .shov .line {
+              width: 43px;
+              height: 3px; }
+      #palette .palette .book .tab-menu {
+        max-height: 377px;
+        margin-left: -103px;
+        margin-top: -12px; }
+        #palette .palette .book .tab-menu .tab {
+          width: 206px;
+          min-width: 206px;
+          height: 32px;
+          margin-top: 70px; }
+          #palette .palette .book .tab-menu .tab button {
+            height: 32px;
+            width: 101px;
+            font-size: 8px;
+            padding: 0 11px;
+            border-radius: 8px 8px 0 0;
+            text-align: left;
+            background-color: #353535; }
+        #palette .palette .book .tab-menu .tabcontent {
+          margin-left: -88px;
+          height: 377px;
+          width: 764px; }
+          #palette .palette .book .tab-menu .tabcontent .ral__block {
+            max-width: 373px;
+            height: 370px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal {
+              width: 36px;
+              height: 27px;
+              margin-right: 2px;
+              margin-top: 2px;
+              padding-left: 4px; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text {
+                height: 14px; }
+                #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text p {
+                  font-size: 5px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block_left {
+              padding: 8px 48px 8px 12px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block_right {
+              padding: 8px 10px 8px 50px; }
+    #palette .palette__sidebar {
+      height: 0;
+      width: 0; }
+      #palette .palette__sidebar .search {
+        width: 168px;
+        height: 30px;
+        position: absolute;
+        top: 40px;
+        left: 11%;
+        background-size: 26px 23px; }
+      #palette .palette__sidebar .ral {
+        display: none; }
+      #palette .palette__sidebar .call {
+        position: absolute;
+        left: 20px;
+        bottom: 44px; }
+        #palette .palette__sidebar .call img {
+          width: 39px;
+          height: 39px; } }
+
+@media (max-width: 920px) {
+  #palette {
+    min-height: 2700px;
+    height: auto;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 0; }
+    #palette .palette {
+      min-height: 2700px;
+      max-height: none;
+      height: auto;
+      position: relative;
+      padding-top: 0;
+      padding-bottom: 20px;
+      margin-bottom: 0; }
+      #palette .palette__book {
+        max-height: none;
+        max-width: 628px;
+        border: none;
+        height: auto; }
+      #palette .palette .book {
+        top: 149px;
+        left: calc(50% - 314px); }
+        #palette .palette .book__in {
+          display: none; }
+        #palette .palette .book .tab-menu {
+          height: auto;
+          width: 100%;
+          max-height: none;
+          margin-left: 0;
+          margin-top: 0;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-align: start;
+              -ms-flex-align: start;
+                  align-items: flex-start; }
+          #palette .palette .book .tab-menu .tab {
+            width: 358px;
+            min-width: 358px;
+            height: 44px;
+            margin-top: 0;
+            margin-left: 23px;
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg); }
+            #palette .palette .book .tab-menu .tab #defaultOpen {
+              -webkit-box-ordinal-group: 2;
+                  -ms-flex-order: 1;
+                      order: 1; }
+            #palette .palette .book .tab-menu .tab .ren {
+              -webkit-box-ordinal-group: 3;
+                  -ms-flex-order: 2;
+                      order: 2; }
+            #palette .palette .book .tab-menu .tab button {
+              height: 44px;
+              width: 176px;
+              font-size: 22px;
+              padding: 0 16px;
+              border-radius: 8px 8px 0 0;
+              text-align: left;
+              background-color: #353535; }
+          #palette .palette .book .tab-menu .tabcontent {
+            margin-left: 0px;
+            height: auto;
+            width: 100%;
+            max-width: 628px;
+            margin-top: 0; }
+            #palette .palette .book .tab-menu .tabcontent .ral {
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+                  -ms-flex-direction: column;
+                      flex-direction: column; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block {
+                max-width: none;
+                height: auto;
+                border-radius: 0;
+                max-height: none; }
+                #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal {
+                  width: 92px;
+                  height: 69px;
+                  margin-right: 5px;
+                  margin-top: 6px;
+                  padding-left: 9px; }
+                  #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text {
+                    height: 28px; }
+                    #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text p {
+                      font-size: 12px; }
+                #palette .palette .book .tab-menu .tabcontent .ral__block_left {
+                  padding: 30px 17px 20px 25px;
+                  max-height: none; }
+                #palette .palette .book .tab-menu .tabcontent .ral__block_right {
+                  padding: 30px 17px 20px 25px;
+                  max-height: none; }
+      #palette .palette__sidebar {
+        margin-left: 23px;
+        height: 39px;
+        width: 100%;
+        max-width: 628px;
+        position: absolute;
+        top: 60px;
+        left: calc(50% - 314px); }
+        #palette .palette__sidebar .search {
+          width: 205px;
+          height: 39px;
+          position: absolute;
+          top: 0;
+          left: 0; }
+        #palette .palette__sidebar .call {
+          display: none; } }
+
+@media (max-width: 626px) {
+  #palette {
+    min-height: 2750px; }
+    #palette .palette {
+      min-height: 2750px; }
+      #palette .palette__book {
+        max-width: 307px;
+        height: auto; }
+      #palette .palette .book {
+        top: 102px;
+        left: calc(50% - 153px); }
+        #palette .palette .book .tab-menu .tab {
+          width: 175px;
+          min-width: 175px;
+          height: 22px;
+          margin-left: 12px; }
+          #palette .palette .book .tab-menu .tab button {
+            height: 22px;
+            width: 85px;
+            font-size: 10px;
+            padding: 0 8px; }
+        #palette .palette .book .tab-menu .tabcontent {
+          max-width: 307px; }
+          #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal {
+            width: 65px;
+            height: 49px;
+            margin-right: 4px;
+            margin-top: 4px;
+            padding-left: 6px; }
+            #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text {
+              height: 20px; }
+              #palette .palette .book .tab-menu .tabcontent .ral__block .card-pal .text p {
+                font-size: 8px; }
+          #palette .palette .book .tab-menu .tabcontent .ral__block_left {
+            padding: 18px 10px 20px 17px;
+            max-height: none; }
+          #palette .palette .book .tab-menu .tabcontent .ral__block_right {
+            padding: 18px 10px 20px 17px;
+            max-height: none; }
+      #palette .palette__sidebar {
+        margin-left: 12px;
+        height: 19px;
+        width: 100%;
+        max-width: 306px;
+        top: 52px;
+        left: calc(50% - 153px); }
+        #palette .palette__sidebar .search {
+          width: 100px;
+          height: 19px;
+          background-size: 17px 14px; } }
