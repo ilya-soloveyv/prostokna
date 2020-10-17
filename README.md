@@ -1,44 +1,82 @@
+# README
+
 # Установка и запуск проекта
-1. Необходимые зависимости:<br>
-  1.1 [**Node JS**](https://nodejs.org/en/download/)<br>
-  1.2 [**GIT**](https://git-scm.com/downloads)<br>
-2. **Задаем переменную среды**<br>
-В поиске Windows вводите "изменение переменных среды" и добавляете: `NODE_ENV = development` [Скрин](http://joxi.ru/krDgMojfEXZQqA)
-3. **Форкаем текущий репозиторий** [Скрин](http://joxi.ru/l2ZKkoltwQNK4A)<br>
-Таким образом в Вашем аккаунте появляется копия репозитория
-4. **Клонируем репозиторий на рабочую машину** (не скачиваем, а именно клонируем)<br>
-Для этого запускаем Git bash (ранее установленный), определяем папку где будет распологаться проект (к примеру на `C:/Project`)<br>
-Выполняем:<br>
-`cd C:/Project`<br>
-`git clone https://github.com/ [ Ваш аккаунт ] /prostokna.git`
-В выбранной папке появляется папка с названием `prostokna`<br>
-`cd prostokna`<br>
-5. **Создаем файлы**<br>
-5.1. `.htpasswd`<br>
-admin:password<br>
-5.2. `/config/config.json`<br>
-Берем данные из файла `/config/__config.json`<br>
-Меняем на свои доступы к MySQL, саму базу пока не создаем<br>
-5.3. `/config/default.json`<br>
-Берем данные из файла `/config/__default.json`<br>
-Меняем на свои доступы к MySQL, саму базу пока не создаем<br>
-5. **Установка Sequelize**<br>
-Запускаем:<br>
-`sequelize db:create`<br>
-`sequelize db:migrate`<br>
-6. **Установка зависимостей**<br>
-Выполняем<br>
-`npm i`
-7. **Создаем в корне файл `.env`**<br>
-Создаем файл в `.env` и вставляем туда<br>
-`PORT = 3000`<br>
-`MAILGUN_KEY = null`<br>
-`MAILGUN_DOMAIN = null`<br>
+
+1. **Необходимые зависимости:**
+
+   1.1 **[Node JS](https://nodejs.org/en/download/)** 12.x.x LTS
+
+   _На 14.x.x+ проект не собирается!_
+
+   1.3 [**Sequelize CLI**](https://github.com/sequelize/cli)
+
+   `npm i -g sequelize-cli`
+
+   1.2 **Bash** или совместимая с ним среда
+
+   В Windows можно использовать **[GIT Bash](https://git-scm.com/downloads)**
+
+2. **Форкаем текущий репозиторий** [Скрин](http://joxi.ru/l2ZKkoltwQNK4A)
+
+   Таким образом в Вашем аккаунте появляется копия репозитория
+
+3. **Клонируем репозиторий на рабочую машину** (не скачиваем, а именно клонируем)
+
+   Для этого запускаем Git bash (ранее установленный), определяем папку где будет распологаться проект (к примеру на `C:/Project`)  
+   Выполняем:  
+   `cd C:/Project`  
+   `git clone https://github.com/ [ Ваш аккаунт ] /prostokna.git`
+
+   В выбранной папке появляется папка с названием `prostokna`
+
+   `cd prostokna`
+
+4. **Создаем файлы**
+
+   5.1. `.htpasswd` с содержимым `admin:password`
+
+   5.1. `/config/config.json`
+
+   Берем данные из файла `/config/__config.json`
+
+   Меняем на свои доступы к MySQL, саму базу пока не создаем
+
+   5.2. `/config/default.json`
+
+   Берем данные из файла `/config/__default.json`
+
+   Меняем на свои доступы к MySQL, саму базу пока не создаем
+
+5. **Развертывание базы данных**
+
+   Запускаем: `sequelize db:create` `sequelize db:migrate`
+
+6. **Установка зависимостей**
+
+   Выполняем `npm i` или `yarn install`
+
+7. **Файл переменных окружения**
+
+   В корне проекта есть файл `.env.example`. Копируем его и переименовываем в `.env`
+
 8. **Запуск**
-Выполняем в Git bash в 3-х разных окнах<br>
-Gulp nodemon для запуска nodejs сервера <br>
-`gulp nodemon`<br>
-Gulp watch для запуска наблюдения за изменениями <br>
-`gulp watch`<br>
-Gulp bs для запуска BrowserSync (необязателен, можно заменить nodemon) <br>
-`gulp bs`
+
+   `npm run serve`
+
+# Доступные команды
+
+### **`npm run serve`**
+
+Запуск проекта в режиме разработки
+
+### **`npm run dev`**
+
+Сборка проекта в режиме разработки
+
+### **`npm run build`**
+
+Сборка проекта под продакшн
+
+### **`npm run pull`**
+
+Взять последние обновления из dev ветки основного репозитория
