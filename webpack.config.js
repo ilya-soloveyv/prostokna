@@ -31,7 +31,12 @@ const plugins = function getPluginsArray() {
     }),
 
     new CopyPlugin({
-      patterns: ['./images/**/*', './*.html', './assets/fonts/*']
+      patterns: [
+        './images/**/*',
+        './*.html',
+        './assets/fonts/*',
+        './admin/fonts/*'
+      ]
     }),
     new MiniCssExtractPlugin({ filename: '[name].[fullhash].css' }),
     new BuildHashPlugin({ filename: './static/build-hash.json' }),
@@ -50,7 +55,7 @@ const plugins = function getPluginsArray() {
   ];
 
   if (isDevelopment) base.push(new webpack.HotModuleReplacementPlugin());
-  if (isProduction) base.push(new BundleAnalyzerPlugin());
+  // if (isProduction) base.push(new BundleAnalyzerPlugin());
 
   return base;
 };
@@ -191,7 +196,7 @@ module.exports = {
   },
 
   optimization: {
-    minimizer: [new TerserPlugin({ cache: true, parallel: true })],
+    minimizer: [new TerserPlugin()],
 
     splitChunks: {
       cacheGroups: {
