@@ -1,5 +1,3 @@
-# README
-
 # Установка и запуск проекта
 
 1. **Необходимые зависимости:**
@@ -49,7 +47,10 @@
 
 5. **Развертывание базы данных**
 
-   Запускаем: `sequelize db:create` `sequelize db:migrate`
+   Выполняем следующие команды в консоле:  
+   `sequelize db:create`  
+   `sequelize db:migrate`  
+   `sequelize db:seed:all`
 
 6. **Установка зависимостей**
 
