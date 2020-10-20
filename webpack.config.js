@@ -8,10 +8,8 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const NodemonPlugin = require('nodemon-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = !isDevelopment;
@@ -41,20 +39,9 @@ const plugins = function getPluginsArray() {
     new MiniCssExtractPlugin({ filename: '[name].[fullhash].css' }),
     new BuildHashPlugin({ filename: './static/build-hash.json' }),
     new VueLoaderPlugin(),
-    new NodemonPlugin({
-      script: './app.js',
-      watch: [
-        path.resolve('./static/build-hash.json'),
-        path.resolve('./routes'),
-        path.resolve('./models'),
-        path.resolve('./app.js')
-      ],
-      delay: '1000'
-    }),
     new webpack.ProgressPlugin()
   ];
 
-  if (isDevelopment) base.push(new webpack.HotModuleReplacementPlugin());
   // if (isProduction) base.push(new BundleAnalyzerPlugin());
 
   return base;
@@ -157,24 +144,28 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
+          presets: ['@babel/preset-env'],
+          plugins: [
+            [
+              'component',
+              {
+                libraryName: 'element-ui',
+                styleLibraryName: 'theme-chalk'
+              }
+            ]
+          ]
         }
       },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDevelopment
-            }
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
 
             options: {
-              import: true,
-              sourceMap: isDevelopment
+              import: false,
+              sourceMap: false
             }
           },
           {
