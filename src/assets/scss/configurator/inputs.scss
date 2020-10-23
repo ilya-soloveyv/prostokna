@@ -1,0 +1,35 @@
+@import '@scss/variables';
+
+.selector1 {
+  padding: 22px 28px;
+  margin-bottom: 30px;
+  background: $gray-darker;
+  border: 1px $border-dark solid;
+  border-radius: 8px;
+
+  input[type='text'] {
+    color: $light !important;
+    &::placeholder {
+      color: $light;
+    }
+  }
+
+  .label {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba($light, 0.6);
+  }
+
+  .value {
+    margin-top: 22px;
+    font-size: 18px;
+    font-weight: 500;
+    color: $light;
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+  }
+}

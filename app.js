@@ -32,7 +32,7 @@ process.env.BUILD_HASH = require('./static/build-hash.json');
 
 var basic = auth.basic({
   realm: 'Admin',
-  file: __dirname + '/.htpasswd',
+  file: __dirname + '/.htpasswd'
 });
 
 const app = express();
@@ -46,7 +46,7 @@ app.use(express.static('wp')); // Удалить, и папку и строку 
 app.set('view engine', 'pug');
 
 if (process.env.NODE_ENV != 'development') {
-  app.use(function (req, res, next) {
+  app.use(function(req, res, next) {
     if (req.secure) {
       next();
     } else {
@@ -81,14 +81,14 @@ app.get('/getProductMenu', async (req, res) => {
 
   result.materials = await Material.findAll({
     where: {
-      iActive: 1,
+      iActive: 1
     },
     include: [
       {
-        model: Material_category,
-      },
+        model: Material_category
+      }
     ],
-    order: [['iMaterialID', 'ASC']],
+    order: [['iMaterialID', 'ASC']]
   });
   result.material_categorys = await Material_category.findAll();
   result.producttypes = await Producttype.findAll();
@@ -102,37 +102,37 @@ app.get('/getProductMenu', async (req, res) => {
       'sProductTitle',
       'sProductURI',
       'iGenerateUriMaterial',
-      'iGenerateUriBrus',
+      'iGenerateUriBrus'
     ],
     include: [
       {
         model: Brand,
-        attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI'],
+        attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI']
       },
       {
         model: Material,
-        attributes: ['iMaterialID', 'sMaterialTitle'],
+        attributes: ['iMaterialID', 'sMaterialTitle']
       },
       {
         model: Material_category,
         attributes: [
           'iMaterialCategoryID',
           'iMaterialID',
-          'sMaterialCategoryTitle',
-        ],
+          'sMaterialCategoryTitle'
+        ]
       },
       {
         model: Brus,
-        attributes: ['iBrusID', 'sBrusTitle'],
+        attributes: ['iBrusID', 'sBrusTitle']
       },
       {
         model: Product_producttype,
-        attributes: ['iProductProductTypeID', 'iProductID', 'iProductTypeID'],
-      },
+        attributes: ['iProductProductTypeID', 'iProductID', 'iProductTypeID']
+      }
     ],
     where: {
-      iActive: 1,
-    },
+      iActive: 1
+    }
   });
 
   res.json(result);
@@ -247,7 +247,7 @@ app.get('*', async (req, res, next) => {
       {
         model: Product,
         where: {
-          iActive: 1,
+          iActive: 1
         },
         attributes: [
           'iProductID',
@@ -255,21 +255,21 @@ app.get('*', async (req, res, next) => {
           'sProductURI',
           'iMaterialID',
           'iGenerateUriBrus',
-          'iGenerateUriMaterial',
+          'iGenerateUriMaterial'
         ],
         required: true,
         include: [
           {
             model: Material,
-            attributes: ['sMaterialTitle'],
+            attributes: ['sMaterialTitle']
           },
           {
             model: Brus,
-            attributes: ['sBrusTitle'],
-          },
-        ],
-      },
-    ],
+            attributes: ['sBrusTitle']
+          }
+        ]
+      }
+    ]
   });
 
   data.brandMenu = [];
@@ -281,8 +281,8 @@ app.get('*', async (req, res, next) => {
       iCountryID: brand.iCountryID,
       products: {
         list: [],
-        material: [],
-      },
+        material: []
+      }
     });
 
     brand.products.forEach((product, index2) => {
@@ -291,7 +291,7 @@ app.get('*', async (req, res, next) => {
         sProductTitle: product.sProductTitle,
         sProductURI: product.sProductURI,
         iGenerateUriBrus: product.iGenerateUriBrus,
-        iGenerateUriMaterial: product.iGenerateUriMaterial,
+        iGenerateUriMaterial: product.iGenerateUriMaterial
       };
       if (product.iGenerateUriBrus) {
         product_item.sBrusTitle = product.bru.sBrusTitle;
@@ -299,7 +299,7 @@ app.get('*', async (req, res, next) => {
 
       if (product.iGenerateUriMaterial == 1) {
         var material_index = data.brandMenu[index1].products.material.findIndex(
-          function (material, index) {
+          function(material, index) {
             return material.iMaterialID == product.iMaterialID;
           }
         );
@@ -308,7 +308,7 @@ app.get('*', async (req, res, next) => {
           data.brandMenu[index1].products.material.push({
             iMaterialID: product.iMaterialID,
             sMaterialTitle: product.material.sMaterialTitle,
-            list: [],
+            list: []
           });
           material_index = data.brandMenu[index1].products.material.length - 1;
         }
@@ -336,17 +336,17 @@ data.left_menu = [
   {
     title: 'Главная',
     uri: '/',
-    ico: 'home',
+    ico: 'home'
   },
   {
     title: 'Окна',
     uri: '/product',
-    ico: 'icon-window',
+    ico: 'icon-window'
   },
   {
     title: 'Как измерить окно',
     uri: '#',
-    ico: 'angle',
+    ico: 'angle'
   },
   // {
   //     title: 'Услуги',
@@ -356,34 +356,34 @@ data.left_menu = [
   {
     title: 'Галерея работ',
     uri: '/gallery',
-    ico: 'gallery',
+    ico: 'gallery'
   },
   {
     title: 'О компании',
     uri: '/company',
-    ico: 'handshake',
+    ico: 'handshake'
   },
   {
     title: 'Как мы работаем',
     uri: '/work',
-    ico: 'gear',
+    ico: 'gear'
   },
   {
     title: 'Словарь оконных терминов',
     uri: '/wiki',
-    ico: 'book',
+    ico: 'book'
   },
   {
     title: 'Сравнение профильных систем',
     uri: '#',
     ico: 'scales',
-    attr: { 'data-toggle': 'modal', 'data-target': '#compareModal' },
+    attr: { 'data-toggle': 'modal', 'data-target': '#compareModal' }
   },
   {
     title: 'Контакты',
     uri: '/contact',
-    ico: 'marker',
-  },
+    ico: 'marker'
+  }
 ];
 
 data.times = [
@@ -410,7 +410,7 @@ data.times = [
   '20:00',
   '21:00',
   '22:00',
-  '23:00',
+  '23:00'
 ];
 
 app.get('/admin', auth.connect(basic), (req, res) => {
@@ -420,7 +420,7 @@ app.post('/admin/ProductList', async (req, res) => {
   var responce = {};
   responce.product = await Product.findAll({
     order: [['iProductID', 'ASC']],
-    include: [Brand, Material, Brus],
+    include: [Brand, Material, Brus]
   });
   res.json(responce);
 });
@@ -434,14 +434,14 @@ app.post('/admin/ProductEdit', async (req, res) => {
   responce.color = await Color.findAll({
     order: [
       ['iOrder', 'ASC'],
-      ['iColorID', 'ASC'],
-    ],
+      ['iColorID', 'ASC']
+    ]
   });
   if (req.body.iProductID) {
     responce.product = await Product.getProduct(Number(req.body.iProductID));
   }
   responce.products = await Product.findAll({
-    include: [Brand, Material, Brus],
+    include: [Brand, Material, Brus]
   });
   res.json(responce);
 });
@@ -485,7 +485,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
 
   // Подготавливаем URI
   brand = await Brand.findByPk(req.body.product.iBrandID, {
-    attributes: ['sBrandTitle'],
+    attributes: ['sBrandTitle']
   });
   var uri_string = brand.sBrandTitle + ' ' + req.body.product.sProductTitle;
 
@@ -496,7 +496,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     material_category = await Material_category.findByPk(
       req.body.product.iMaterialCategoryID,
       {
-        attributes: ['sMaterialCategoryTitle'],
+        attributes: ['sMaterialCategoryTitle']
       }
     );
     uri_string += '_' + material_category.sMaterialCategoryTitle;
@@ -504,7 +504,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
 
   if (req.body.product.iGenerateUriBrus && req.body.product.iBrusID) {
     brus = await Brus.findByPk(req.body.product.iBrusID, {
-      attributes: ['sBrusTitle'],
+      attributes: ['sBrusTitle']
     });
     uri_string += '_' + brus.sBrusTitle;
   }
@@ -517,11 +517,11 @@ app.post('/admin/ProductUpdate', async (req, res) => {
   if (iProductID) {
     await Product.update(req.body.product, {
       where: {
-        iProductID: iProductID,
-      },
+        iProductID: iProductID
+      }
     });
   } else {
-    await Product.create(req.body.product).then((response) => {
+    await Product.create(req.body.product).then(response => {
       iProductID = response.iProductID;
     });
   }
@@ -533,8 +533,8 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         if (image.iProductImageID && image.del === true) {
           await Product_image.destroy({
             where: {
-              iProductImageID: image.iProductImageID,
-            },
+              iProductImageID: image.iProductImageID
+            }
           });
         } else if (image.iProductImageID) {
           await Product_image.update(
@@ -542,12 +542,12 @@ app.post('/admin/ProductUpdate', async (req, res) => {
               sProductImageFrontName: image.sProductImageFrontName,
               sProductImageBackName: image.sProductImageBackName,
               iPhotoInDescOnPage: image.iPhotoInDescOnPage,
-              iOrder: image.iOrder,
+              iOrder: image.iOrder
             },
             {
               where: {
-                iProductImageID: image.iProductImageID,
-              },
+                iProductImageID: image.iProductImageID
+              }
             }
           );
         } else if (image.del !== true) {
@@ -556,7 +556,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
             sProductImageFrontName: image.sProductImageFrontName,
             sProductImageBackName: image.sProductImageBackName,
             iPhotoInDescOnPage: image.iPhotoInDescOnPage,
-            iOrder: image.iOrder,
+            iOrder: image.iOrder
           });
         }
       }
@@ -570,20 +570,20 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         if (image.iProductColorID && image.del === true) {
           await Product_color.destroy({
             where: {
-              iProductColorID: image.iProductColorID,
-            },
+              iProductColorID: image.iProductColorID
+            }
           });
         } else if (image.iProductColorID) {
           await Product_color.update(
             {
               iColorID: image.iColorID,
               sProductColorFilename: image.sProductColorFilename,
-              iIndex: image.iIndex,
+              iIndex: image.iIndex
             },
             {
               where: {
-                iProductColorID: image.iProductColorID,
-              },
+                iProductColorID: image.iProductColorID
+              }
             }
           );
         } else if (image.del !== true) {
@@ -591,7 +591,7 @@ app.post('/admin/ProductUpdate', async (req, res) => {
             iProductID: iProductID,
             iColorID: image.iColorID,
             sProductColorFilename: image.sProductColorFilename,
-            iIndex: image.iIndex,
+            iIndex: image.iIndex
           });
         }
       }
@@ -605,25 +605,25 @@ app.post('/admin/ProductUpdate', async (req, res) => {
         if (item.iProductLinkID && item.del === true) {
           await Product_link.destroy({
             where: {
-              iProductLinkID: item.iProductLinkID,
-            },
+              iProductLinkID: item.iProductLinkID
+            }
           });
         } else if (item.iProductLinkID) {
           await Product_link.update(
             {
               iProductIDFrom: item.iProductIDFrom,
-              iProductIDTo: item.iProductIDTo,
+              iProductIDTo: item.iProductIDTo
             },
             {
               where: {
-                iProductLinkID: item.iProductLinkID,
-              },
+                iProductLinkID: item.iProductLinkID
+              }
             }
           );
         } else if (item.del !== true) {
           await Product_link.create({
             iProductIDFrom: item.iProductIDFrom,
-            iProductIDTo: item.iProductIDTo,
+            iProductIDTo: item.iProductIDTo
           });
         }
       }
@@ -635,13 +635,13 @@ app.post('/admin/ProductUpdate', async (req, res) => {
     if (req.body.product.product_producttype) {
       await Product_producttype.destroy({
         where: {
-          iProductID: iProductID,
-        },
+          iProductID: iProductID
+        }
       });
       for (const iProductTypeID of req.body.product.product_producttype) {
         await Product_producttype.create({
           iProductID: iProductID,
-          iProductTypeID: iProductTypeID,
+          iProductTypeID: iProductTypeID
         });
       }
     }
@@ -662,8 +662,8 @@ app.post('/admin/ProductDelete', async (req, res) => {
   if (iProductID) {
     await Product.destroy({
       where: {
-        iProductID: iProductID,
-      },
+        iProductID: iProductID
+      }
     });
   }
 
@@ -673,32 +673,32 @@ app.post('/admin/upload', (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
 
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/product/gallery');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
 
   var upload = multer({ storage: storage }).single('file');
 
-  upload(req, res, function (err, responce) {
+  upload(req, res, function(err, responce) {
     res.json(req.file);
   });
 });
 app.post('/admin/ProductUploadColor', (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/product/color');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
   var upload = multer({ storage: storage }).single('file');
-  upload(req, res, function (err, responce) {
+  upload(req, res, function(err, responce) {
     res.json(req.file);
   });
 });
@@ -709,14 +709,14 @@ app.post('/admin/ColorList', async (req, res) => {
   data.color = await Color.findAll({
     include: [
       {
-        model: Material,
-      },
+        model: Material
+      }
     ],
     order: [
       ['iMaterialID', 'ASC'],
       ['iOrder', 'ASC'],
-      ['iColorID', 'ASC'],
-    ],
+      ['iColorID', 'ASC']
+    ]
   });
   res.json(data);
 });
@@ -726,8 +726,8 @@ app.post('/admin/ColorUpdate', async (req, res) => {
   if (color.iColorID && color.del === true) {
     await Color.destroy({
       where: {
-        iColorID: color.iColorID,
-      },
+        iColorID: color.iColorID
+      }
     });
   } else if (color.iColorID) {
     await Color.update(
@@ -737,12 +737,12 @@ app.post('/admin/ColorUpdate', async (req, res) => {
         sColorTitle: color.sColorTitle,
         sColorTitleCode: color.sColorTitleCode,
         sColorTextureFileName: color.sColorTextureFileName,
-        iOrder: color.iOrder,
+        iOrder: color.iOrder
       },
       {
         where: {
-          iColorID: color.iColorID,
-        },
+          iColorID: color.iColorID
+        }
       }
     );
   } else if (color.del !== true) {
@@ -752,7 +752,7 @@ app.post('/admin/ColorUpdate', async (req, res) => {
       sColorTitle: color.sColorTitle,
       sColorTitleCode: color.sColorTitleCode,
       sColorTextureFileName: color.sColorTextureFileName,
-      iOrder: color.iOrder,
+      iOrder: color.iOrder
     });
   }
 
@@ -760,29 +760,29 @@ app.post('/admin/ColorUpdate', async (req, res) => {
   data.color = await Color.findAll({
     include: [
       {
-        model: Material,
-      },
+        model: Material
+      }
     ],
     order: [
       ['iMaterialID', 'ASC'],
       ['iOrder', 'ASC'],
-      ['iColorID', 'ASC'],
-    ],
+      ['iColorID', 'ASC']
+    ]
   });
   res.json(data);
 });
 app.post('/admin/ColorUpload', async (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/color');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
   var upload = multer({ storage: storage }).single('file');
-  upload(req, res, function (err, responce) {
+  upload(req, res, function(err, responce) {
     res.json(req.file);
   });
 });
@@ -796,22 +796,22 @@ app.post('/admin/GalleryList', async (req, res) => {
 app.post('/admin/GalleryUpload', async (req, res) => {
   var filesName = [];
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/gallery');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       var name = randomString() + '.' + file.originalname.split('.').pop();
       filesName.push(name);
       cb(null, 'temp_' + name);
-    },
+    }
   });
   var upload = multer({ storage: storage }).array('file');
-  upload(req, res, function (err, responce) {
+  upload(req, res, function(err, responce) {
     var check = 0;
-    filesName.forEach((name) => {
+    filesName.forEach(name => {
       sharp('./public/images/gallery/' + 'temp_' + name)
         .resize(900, 900)
-        .toFile('./public/images/gallery/' + name, function (err, response) {
+        .toFile('./public/images/gallery/' + name, function(err, response) {
           sharp.cache(false);
           check++;
           if (check == filesName.length) {
@@ -827,11 +827,11 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
   if (iGalleryID) {
     await Gallery.update(req.body.gallery, {
       where: {
-        iGalleryID: iGalleryID,
-      },
+        iGalleryID: iGalleryID
+      }
     });
   } else {
-    await Gallery.create(req.body.gallery).then((response) => {
+    await Gallery.create(req.body.gallery).then(response => {
       console.log(response.dataValues.iGalleryID);
       iGalleryID = response.dataValues.iGalleryID;
     });
@@ -843,26 +843,26 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
         if (image.iGalleryImageID && image.del === true) {
           await Gallery_image.destroy({
             where: {
-              iGalleryImageID: image.iGalleryImageID,
-            },
+              iGalleryImageID: image.iGalleryImageID
+            }
           });
         } else if (image.iGalleryImageID) {
           await Gallery_image.update(
             {
               sGalleryImageName: image.sGalleryImageName,
-              iGalleryImageOrder: image.iGalleryImageOrder,
+              iGalleryImageOrder: image.iGalleryImageOrder
             },
             {
               where: {
-                iGalleryImageID: image.iGalleryImageID,
-              },
+                iGalleryImageID: image.iGalleryImageID
+              }
             }
           );
         } else if (image.del !== true) {
           await Gallery_image.create({
             iGalleryID: iGalleryID,
             sGalleryImageName: image.sGalleryImageName,
-            iGalleryImageOrder: image.iGalleryImageOrder,
+            iGalleryImageOrder: image.iGalleryImageOrder
           });
         }
       }
@@ -877,8 +877,8 @@ app.post('/admin/GalleryUpdate', async (req, res) => {
 app.post('/admin/GalleryRemove', async (req, res) => {
   await Gallery.destroy({
     where: {
-      iGalleryID: req.body.iGalleryID,
-    },
+      iGalleryID: req.body.iGalleryID
+    }
   });
   var data = {};
   data.gallery = await Gallery.getList();
@@ -891,9 +891,9 @@ app.post('/admin/BrandList', async (req, res) => {
   request.brand = await Brand.findAll({
     include: [
       {
-        model: Country,
-      },
-    ],
+        model: Country
+      }
+    ]
   });
   request.country = await Country.findAll();
 
@@ -916,8 +916,8 @@ app.post('/admin/BrandUpdate', async (req, res) => {
   if (brand.iBrandID && brand.sBrandTitle && brand.iCountryID) {
     await Brand.update(brand, {
       where: {
-        iBrandID: brand.iBrandID,
-      },
+        iBrandID: brand.iBrandID
+      }
     });
   } else {
     var { dataValues, iBrandID } = await Brand.create(brand);
@@ -928,9 +928,9 @@ app.post('/admin/BrandUpdate', async (req, res) => {
     request.brand = await Brand.findByPk(brand.iBrandID, {
       include: [
         {
-          model: Country,
-        },
-      ],
+          model: Country
+        }
+      ]
     });
   }
 
@@ -943,8 +943,8 @@ app.post('/admin/part/getPartList', async (req, res) => {
   response.partList = await Part.findAll({
     order: [
       ['iActive', 'DESC'],
-      ['iOrder', 'ASC'],
-    ],
+      ['iOrder', 'ASC']
+    ]
   });
   res.json(response);
 });
@@ -962,7 +962,9 @@ app.post('/admin/part/updatePart', async (req, res) => {
   const sPartTitle = req.body.sPartTitle || null;
   const sPartURI =
     req.body.sPartURI ||
-    cyrillicToTranslit().transform(sPartTitle, '_').toLowerCase();
+    cyrillicToTranslit()
+      .transform(sPartTitle, '_')
+      .toLowerCase();
   const iActive = req.body.iActive || false;
   const iOrder = req.body.iOrder || 9999;
   if (iPartID) {
@@ -971,12 +973,12 @@ app.post('/admin/part/updatePart', async (req, res) => {
         sPartTitle,
         sPartURI,
         iActive,
-        iOrder,
+        iOrder
       },
       {
         where: {
-          iPartID,
-        },
+          iPartID
+        }
       }
     );
   } else {
@@ -984,7 +986,7 @@ app.post('/admin/part/updatePart', async (req, res) => {
       sPartTitle,
       sPartURI,
       iActive,
-      iOrder,
+      iOrder
     });
     iPartID = response.create.iPartID;
   }
@@ -997,8 +999,8 @@ app.post('/admin/part/destroyPart', async (req, res) => {
   const iPartID = req.body.iPartID;
   response.destroy = await Part.destroy({
     where: {
-      iPartID,
-    },
+      iPartID
+    }
   });
   res.json(response);
 });
@@ -1008,12 +1010,12 @@ app.post('/admin/part/getBrandList', async (req, res) => {
   const PartBrand = require('./models').partBrand;
   response.partBrandList = await PartBrand.findAll({
     where: {
-      iPartID,
+      iPartID
     },
     order: [
       ['iActive', 'DESC'],
-      ['iOrder', 'ASC'],
-    ],
+      ['iOrder', 'ASC']
+    ]
   });
   res.json(response);
 });
@@ -1032,7 +1034,9 @@ app.post('/admin/part/updatePartBrand', async (req, res) => {
   const sPartBrandTitle = req.body.sPartBrandTitle || null;
   const sPartBrandURI =
     req.body.sPartBrandURI ||
-    cyrillicToTranslit().transform(sPartBrandTitle, '_').toLowerCase();
+    cyrillicToTranslit()
+      .transform(sPartBrandTitle, '_')
+      .toLowerCase();
   const iActive = req.body.iActive || false;
   const iOrder = req.body.iOrder || 9999;
   if (iPartBrandID) {
@@ -1041,12 +1045,12 @@ app.post('/admin/part/updatePartBrand', async (req, res) => {
         sPartBrandTitle,
         sPartBrandURI,
         iActive,
-        iOrder,
+        iOrder
       },
       {
         where: {
-          iPartBrandID,
-        },
+          iPartBrandID
+        }
       }
     );
   } else {
@@ -1055,7 +1059,7 @@ app.post('/admin/part/updatePartBrand', async (req, res) => {
       sPartBrandURI,
       iPartID,
       iActive,
-      iOrder,
+      iOrder
     });
     iPartBrandID = response.create.iPartBrandID;
   }
@@ -1068,8 +1072,8 @@ app.post('/admin/part/destroyPartBrand', async (req, res) => {
   const iPartBrandID = req.body.iPartBrandID;
   response.destroy = await PartBrand.destroy({
     where: {
-      iPartBrandID,
-    },
+      iPartBrandID
+    }
   });
   res.json(response);
 });
@@ -1079,12 +1083,12 @@ app.post('/admin/part/getPartModelList', async (req, res) => {
   const PartModel = require('./models').partModel;
   response.partModelList = await PartModel.findAll({
     where: {
-      iPartBrandID,
+      iPartBrandID
     },
     order: [
       ['iActive', 'DESC'],
-      ['iOrder', 'ASC'],
-    ],
+      ['iOrder', 'ASC']
+    ]
   });
   res.json(response);
 });
@@ -1103,7 +1107,9 @@ app.post('/admin/part/updatePartModel', async (req, res) => {
   const sPartModelTitle = req.body.sPartModelTitle || null;
   const sPartModelURI =
     req.body.sPartModelURI ||
-    cyrillicToTranslit().transform(sPartModelTitle, '_').toLowerCase();
+    cyrillicToTranslit()
+      .transform(sPartModelTitle, '_')
+      .toLowerCase();
   const iPartModelPrice = req.body.iPartModelPrice || 1;
   const tPartModelDesc = req.body.tPartModelDesc || null;
   const iActive = req.body.iActive || false;
@@ -1116,12 +1122,12 @@ app.post('/admin/part/updatePartModel', async (req, res) => {
         iPartModelPrice,
         tPartModelDesc,
         iActive,
-        iOrder,
+        iOrder
       },
       {
         where: {
-          iPartModelID,
-        },
+          iPartModelID
+        }
       }
     );
   } else {
@@ -1132,7 +1138,7 @@ app.post('/admin/part/updatePartModel', async (req, res) => {
       iPartModelPrice,
       tPartModelDesc,
       iActive,
-      iOrder,
+      iOrder
     });
     iPartModelID = response.create.iPartModelID;
   }
@@ -1145,8 +1151,8 @@ app.post('/admin/part/destroyPartModel', async (req, res) => {
   const iPartModelID = req.body.iPartModelID;
   response.destroy = await PartModel.destroy({
     where: {
-      iPartModelID,
-    },
+      iPartModelID
+    }
   });
   res.json(response);
 });
@@ -1156,12 +1162,12 @@ app.post('/admin/part/getPartColorList', async (req, res) => {
   const PartColor = require('./models').partColor;
   response.partColorList = await PartColor.findAll({
     where: {
-      iPartBrandID,
+      iPartBrandID
     },
     order: [
       ['iActive', 'DESC'],
-      ['iOrder', 'ASC'],
-    ],
+      ['iOrder', 'ASC']
+    ]
   });
   res.json(response);
 });
@@ -1193,12 +1199,12 @@ app.post('/admin/part/updatePartColor', async (req, res) => {
         sPartColorFileName,
         iPartColorCheck,
         iActive,
-        iOrder,
+        iOrder
       },
       {
         where: {
-          iPartColorID,
-        },
+          iPartColorID
+        }
       }
     );
   } else {
@@ -1210,7 +1216,7 @@ app.post('/admin/part/updatePartColor', async (req, res) => {
       sPartColorFileName,
       iPartColorCheck,
       iActive,
-      iOrder,
+      iOrder
     });
     iPartColorID = response.create.iPartColorID;
   }
@@ -1223,8 +1229,8 @@ app.post('/admin/part/destroyPartColor', async (req, res) => {
   const iPartColorID = req.body.iPartColorID;
   response.destroy = await PartColor.destroy({
     where: {
-      iPartColorID,
-    },
+      iPartColorID
+    }
   });
   res.json(response);
 });
@@ -1233,24 +1239,24 @@ app.post('/admin/part/uploadPartModel', async (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
   const iPartModelID = req.headers.ipartmodelid;
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/part');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
   var upload = multer({ storage: storage }).single('file');
-  upload(req, res, async function (err, resp) {
+  upload(req, res, async function(err, resp) {
     const response = {};
     await PartModel.update(
       {
-        sPartModelFile: req.file.filename,
+        sPartModelFile: req.file.filename
       },
       {
         where: {
-          iPartModelID,
-        },
+          iPartModelID
+        }
       }
     );
     // response.file = file
@@ -1263,20 +1269,20 @@ app.post('/admin/part/uploadPartColor', async (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
   const iPartModelID = req.headers.ipartmodelid;
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/part');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
   var upload = multer({ storage: storage }).single('file');
-  upload(req, res, async function (err, resp) {
+  upload(req, res, async function(err, resp) {
     const response = {};
     await PartImage.create({
       iPartModelID,
       sPartImageFile: req.file.filename,
-      iActive: true,
+      iActive: true
     });
     // response.file = file
     response.images = await PartImage.getList(iPartModelID);
@@ -1292,8 +1298,8 @@ app.post('/admin/part/destroyPartModelImage', async (req, res) => {
   fs.unlinkSync('./public/images/part/' + response.image.sPartImageFile);
   await PartImage.destroy({
     where: {
-      iPartImageID,
-    },
+      iPartImageID
+    }
   });
   response.images = await PartImage.getList(response.image.iPartModelID);
   res.json(response);
@@ -1308,12 +1314,12 @@ app.post('/admin/part/updatePartModelImage', async (req, res) => {
   await PartImage.update(
     {
       iPartColorID,
-      iPartColorPrice,
+      iPartColorPrice
     },
     {
       where: {
-        iPartImageID,
-      },
+        iPartImageID
+      }
     }
   );
   response.images = await PartImage.getList(iPartModelID);
@@ -1334,12 +1340,12 @@ app.post('/admin/index/s1/left/update', async (req, res) => {
   await IndexS1.update(
     {
       s1Title,
-      s1Desc,
+      s1Desc
     },
     {
       where: {
-        s1ID: 1,
-      },
+        s1ID: 1
+      }
     }
   );
   response.left = await IndexS1.findByPk(1);
@@ -1352,23 +1358,23 @@ app.post('/admin/index/s1/actions/get', async (req, res) => {
     order: [
       ['iActive', 'DESC'],
       ['iOrder', 'ASC'],
-      ['s1ActionID', 'ASC'],
-    ],
+      ['s1ActionID', 'ASC']
+    ]
   });
   res.json(response);
 });
 app.post('/admin/index/s1/actions/upload', async (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/actions');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
   var upload = multer({ storage: storage }).single('file');
-  upload(req, res, async function (err, resp) {
+  upload(req, res, async function(err, resp) {
     const response = {};
     response.filename = filename;
     return res.json(response);
@@ -1391,8 +1397,8 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
     if (action.del === true && s1ActionID) {
       await IndexS1Action.destroy({
         where: {
-          s1ActionID,
-        },
+          s1ActionID
+        }
       });
     } else if (!action.del && s1ActionID) {
       await IndexS1Action.update(
@@ -1402,12 +1408,12 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
           s1ActionImage,
           s1ActionImageMobile,
           iActive,
-          iOrder,
+          iOrder
         },
         {
           where: {
-            s1ActionID,
-          },
+            s1ActionID
+          }
         }
       );
     } else if (!action.del) {
@@ -1417,7 +1423,7 @@ app.post('/admin/index/s1/actions/update', async (req, res) => {
         s1ActionImage,
         s1ActionImageMobile,
         iActive,
-        iOrder,
+        iOrder
       });
     }
   }
@@ -1434,15 +1440,15 @@ app.post('/admin/index/s5/get', async (req, res) => {
 app.post('/admin/index/s5/upload', async (req, res) => {
   var filename = randomString() + '.' + req.headers.extension;
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, './public/images/gallery');
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       cb(null, filename);
-    },
+    }
   });
   var upload = multer({ storage: storage }).single('file');
-  upload(req, res, async function (err, resp) {
+  upload(req, res, async function(err, resp) {
     const response = {};
     response.filename = filename;
     return res.json(response);
@@ -1464,8 +1470,8 @@ app.post('/admin/index/s5/update', async (req, res) => {
     if (gallery.destroy === true && iGalleryIndexID) {
       await GalleryIndex.destroy({
         where: {
-          iGalleryIndexID,
-        },
+          iGalleryIndexID
+        }
       });
     } else if (!gallery.destroy && iGalleryIndexID) {
       await GalleryIndex.update(
@@ -1475,12 +1481,12 @@ app.post('/admin/index/s5/update', async (req, res) => {
           tGalleryIndexText,
           sGalleryIndexImage,
           iActive,
-          iOrder,
+          iOrder
         },
         {
           where: {
-            iGalleryIndexID,
-          },
+            iGalleryIndexID
+          }
         }
       );
     } else if (!gallery.destroy) {
@@ -1490,7 +1496,7 @@ app.post('/admin/index/s5/update', async (req, res) => {
         tGalleryIndexText,
         sGalleryIndexImage,
         iActive,
-        iOrder,
+        iOrder
       });
     }
   }
@@ -1526,12 +1532,12 @@ app.get('/', async (req, res) => {
   data.s1.left = (await IndexS1.findByPk(1)) || { s1Desc: '', s1Title: '' };
   data.s1.actions = await IndexS1Action.findAll({
     where: {
-      iActive: true,
+      iActive: true
     },
     order: [
       ['iOrder', 'ASC'],
-      ['s1ActionID', 'ASC'],
-    ],
+      ['s1ActionID', 'ASC']
+    ]
   });
 
   // Менюшка окон
@@ -1542,38 +1548,38 @@ app.get('/', async (req, res) => {
       'iMaterialID',
       'iBrandID',
       'sProductTitle',
-      'sProductURI',
+      'sProductURI'
     ],
     include: [
       {
         model: Brand,
         attributes: ['iBrandID', 'sBrandTitle', 'sBrandURI'],
         where: {
-          iActive: 1,
-        },
+          iActive: 1
+        }
       },
       {
         model: Material,
         attributes: ['iMaterialID', 'sMaterialTitle'],
         where: {
-          iActive: 1,
-        },
+          iActive: 1
+        }
       },
       {
         model: Material_category,
         attributes: [
           'iMaterialCategoryID',
           'iMaterialID',
-          'sMaterialCategoryTitle',
-        ],
-      },
+          'sMaterialCategoryTitle'
+        ]
+      }
     ],
     where: {
-      iActive: 1,
-    },
+      iActive: 1
+    }
   });
-  product.forEach((p) => {
-    let checkMaterial = MaterialBrandProductMenu.find(function (material) {
+  product.forEach(p => {
+    let checkMaterial = MaterialBrandProductMenu.find(function(material) {
       return material.iMaterialID == p.iMaterialID;
     });
 
@@ -1585,16 +1591,16 @@ app.get('/', async (req, res) => {
           p.material.sMaterialTitle[0].toUpperCase() +
           p.material.sMaterialTitle.slice(1),
         uri: '#',
-        list: [],
+        list: []
       });
     }
 
     // material_category
     if (p.material_category) {
-      let material_item = MaterialBrandProductMenu.find(function (material) {
+      let material_item = MaterialBrandProductMenu.find(function(material) {
         return material.iMaterialID == p.iMaterialID;
       });
-      let material_category_item = material_item.list.find(function (
+      let material_category_item = material_item.list.find(function(
         material_category
       ) {
         return (
@@ -1609,32 +1615,32 @@ app.get('/', async (req, res) => {
             p.material_category.sMaterialCategoryTitle[0].toUpperCase() +
             p.material_category.sMaterialCategoryTitle.slice(1),
           uri: '#',
-          list: [],
+          list: []
         });
       }
     }
   });
 
-  product.forEach((p) => {
+  product.forEach(p => {
     var product_item = {
       title: p.brand.sBrandTitle + ' ' + p.sProductTitle,
-      uri: '/product/' + p.sProductURI,
+      uri: '/product/' + p.sProductURI
     };
     var material = MaterialBrandProductMenu.find(
-      (x) => x.iMaterialID == p.iMaterialID
+      x => x.iMaterialID == p.iMaterialID
     );
     if (p.material_category) {
       var material = material.list.find(
-        (x) => x.iMaterialCategoryID == p.material_category.iMaterialCategoryID
+        x => x.iMaterialCategoryID == p.material_category.iMaterialCategoryID
       );
     }
-    var brand = material.list.find((x) => x.iBrandID == p.brand.iBrandID);
+    var brand = material.list.find(x => x.iBrandID == p.brand.iBrandID);
     if (!brand) {
       material.list.push({
         iBrandID: p.brand.iBrandID,
         title: p.brand.sBrandTitle,
         uri: '#',
-        list: [product_item],
+        list: [product_item]
       });
     } else {
       brand.list.push(product_item);
@@ -1649,29 +1655,29 @@ app.get('/', async (req, res) => {
       list: [
         {
           title: 'Каталог ламинации',
-          dev: true,
+          dev: true
         },
         {
           title: 'Каталог RAL',
-          uri: '/palette',
-        },
-      ],
+          uri: '/palette'
+        }
+      ]
     },
     {
       title: 'Опции',
-      uri: '/options',
+      uri: '/options'
     },
     {
       title: 'Видео "Как просто выбрать окно"',
-      uri: '#s3',
+      uri: '#s3'
     },
     {
       title: 'Интуйтивный выбор окон',
-      uri: '/intuitive',
+      uri: '/intuitive'
     },
     {
       title: 'Избранное',
-      uri: '/favorites',
+      uri: '/favorites'
     }
   );
 
@@ -1683,15 +1689,15 @@ app.get('/', async (req, res) => {
   const partList = await Part.findAll({
     attributes: ['sPartTitle', 'sPartURI'],
     where: {
-      iActive: true,
+      iActive: true
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
   const menuPartList = [];
-  partList.forEach((part) => {
+  partList.forEach(part => {
     menuPartList.push({
       title: part.sPartTitle,
-      uri: '/part/' + part.sPartURI,
+      uri: '/part/' + part.sPartURI
     });
   });
 
@@ -1699,7 +1705,7 @@ app.get('/', async (req, res) => {
     {
       title: 'Окна',
       ico: 'windows',
-      list: MaterialBrandProductMenu,
+      list: MaterialBrandProductMenu
     },
     {
       title: 'Услуги',
@@ -1707,7 +1713,7 @@ app.get('/', async (req, res) => {
       list: [
         {
           title: 'Вызов замерщика',
-          uri: '/gager',
+          uri: '/gager'
         },
         {
           title: 'Своими руками',
@@ -1715,13 +1721,13 @@ app.get('/', async (req, res) => {
           list: [
             {
               title: 'Регулировка фурнитуры',
-              uri: '/regulation_window',
+              uri: '/regulation_window'
             },
             {
               title: 'Инструкция по самостоятельному замеру',
-              uri: '/optional_service',
-            },
-          ],
+              uri: '/optional_service'
+            }
+          ]
         },
         {
           title: 'Установка окон',
@@ -1734,24 +1740,24 @@ app.get('/', async (req, res) => {
               list: [
                 {
                   title: 'Премиум монтаж',
-                  uri: '#',
+                  uri: '#'
                 },
                 {
                   title: '10 плюсов монтажа от Просто Окна',
-                  uri: '#',
+                  uri: '#'
                 },
                 {
                   title: 'Гарантия',
-                  uri: '#',
-                },
-              ],
-            },
-          ],
+                  uri: '#'
+                }
+              ]
+            }
+          ]
         },
         {
           title: 'Установка откосов',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Установка подоконников',
@@ -1760,9 +1766,9 @@ app.get('/', async (req, res) => {
           list: [
             {
               title: 'Заделка шва под подоконником',
-              uri: '#',
-            },
-          ],
+              uri: '#'
+            }
+          ]
         },
         {
           title: 'Отделка балконов',
@@ -1771,53 +1777,53 @@ app.get('/', async (req, res) => {
           list: [
             {
               title: 'Построение крыши',
-              uri: '#',
+              uri: '#'
             },
             {
               title: 'Построение выноса',
-              uri: '#',
+              uri: '#'
             },
             {
               title: 'Обшивка балконов',
-              uri: '#',
+              uri: '#'
             },
             {
               title: 'Материалы для отделки',
-              uri: '#',
-            },
-          ],
+              uri: '#'
+            }
+          ]
         },
         {
           title: 'Окосячка',
           dev: true,
-          uri: '#',
+          uri: '#'
         },
         {
           title: 'Вывоз мусора',
           dev: true,
-          uri: '#',
+          uri: '#'
         },
         {
           title: 'Клининг после установки',
           dev: true,
-          uri: '#',
+          uri: '#'
         },
         {
           title: 'Доставка',
           dev: true,
-          uri: '#',
+          uri: '#'
         },
         {
           title: 'Сервисное обслуживание',
           dev: true,
-          uri: '#',
-        },
-      ],
+          uri: '#'
+        }
+      ]
     },
     {
       title: 'Комплектующие',
       ico: 'accessories',
-      list: menuPartList,
+      list: menuPartList
     },
     {
       title: 'Цены',
@@ -1826,32 +1832,32 @@ app.get('/', async (req, res) => {
         {
           title: 'Калькулятор',
           uri: '#s6',
-          dev: true,
+          dev: true
         },
         {
           title: 'Заказать точный расчёт',
-          uri: '/calculation',
+          uri: '/calculation'
         },
         {
           title: 'Лучшая цена',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Оплата',
-          uri: '/pay',
+          uri: '/pay'
         },
         {
           title: 'Цены по типу дома',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Рассрочка',
           uri: '#',
-          dev: true,
-        },
-      ],
+          dev: true
+        }
+      ]
     },
     {
       title: 'Wiki окна',
@@ -1860,49 +1866,49 @@ app.get('/', async (req, res) => {
         {
           title: 'Словарь оконных терминов',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'История',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Профили',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Сравнительные характеристики профильных систем',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Фурнитура',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Стекло и стеклопакеты',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Монтаж',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Балконы',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Двери',
           uri: '#',
-          dev: true,
-        },
-      ],
+          dev: true
+        }
+      ]
     },
     {
       title: 'Корпоративным клиентам',
@@ -1910,24 +1916,24 @@ app.get('/', async (req, res) => {
       list: [
         {
           title: 'Страница с описанием',
-          uri: '/corporate',
+          uri: '/corporate'
         },
         {
           title: 'PDF презентация для скачивания',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Услуги корпоративного монтажа',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Личный кабинет',
           uri: '#',
-          dev: true,
-        },
-      ],
+          dev: true
+        }
+      ]
     },
     {
       title: 'Акции/новое',
@@ -1935,9 +1941,9 @@ app.get('/', async (req, res) => {
       list: [
         {
           title: 'Акция "Найдите дешевле"',
-          uri: '/best-cost',
-        },
-      ],
+          uri: '/best-cost'
+        }
+      ]
     },
     {
       title: 'Компания',
@@ -1945,24 +1951,24 @@ app.get('/', async (req, res) => {
       list: [
         {
           title: 'Контакты',
-          uri: '/contact',
+          uri: '/contact'
         },
         {
           title: 'О компании',
-          uri: '/company',
+          uri: '/company'
         },
         {
           title: 'Как мы работаем',
-          uri: '/work',
+          uri: '/work'
         },
         {
           title: 'Гарантия',
           uri: '#',
-          dev: true,
+          dev: true
         },
         {
           title: 'Новости',
-          uri: '/news',
+          uri: '/news'
         },
         {
           title: 'Инновации',
@@ -1971,26 +1977,26 @@ app.get('/', async (req, res) => {
             {
               title: 'Заработайте с нами',
               uri: '#',
-              dev: true,
+              dev: true
             },
             {
               title: 'Вместе еще дешевле',
-              uri: '/cheaper-together',
+              uri: '/cheaper-together'
             },
             {
               title: 'Освященные окна',
               uri: '#',
-              dev: true,
+              dev: true
             },
             {
               title: 'Благотворительность',
               uri: '#',
-              dev: true,
-            },
-          ],
-        },
-      ],
-    },
+              dev: true
+            }
+          ]
+        }
+      ]
+    }
   ];
 
   // Пятая секция / Галлерея
@@ -2000,7 +2006,7 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/calc_data', (req, res) => {
-  fs.readFile('./public/calc_data.json', 'utf8', function (err, data) {
+  fs.readFile('./public/calc_data.json', 'utf8', function(err, data) {
     if (err) throw err;
     res.json(JSON.parse(data));
   });
@@ -2011,6 +2017,13 @@ app.get('/contact', (req, res) => {
   data.description = '';
   data.left_menu_active = null;
   res.render('contact.pug', data);
+});
+
+app.get('/configurator', (req, res) => {
+  data.title = 'Калькулятор';
+  data.description = '';
+  data.left_menu_active = null;
+  res.render('configurator.pug', data);
 });
 
 app.get('/gager', (req, res) => {
@@ -2048,16 +2061,16 @@ app.get('/product/:sProductURI', async (req, res) => {
     include: [
       {
         model: Brand,
-        attributes: ['sBrandTitle'],
+        attributes: ['sBrandTitle']
       },
       {
         model: Material,
-        attributes: ['sMaterialTitle'],
+        attributes: ['sMaterialTitle']
       },
       {
-        model: Brus,
-      },
-    ],
+        model: Brus
+      }
+    ]
   });
   data.material = await Material.findAll();
   data.brus = await Brus.findAll();
@@ -2093,7 +2106,7 @@ data.catalog = [];
 var catalog_item = {
   title: 'Особые стекла для пластиковых окон ПВХ',
   desc:
-    'Стеклопакет – важнейший элемент ПВХ окна. От его качества зависят ведущие свойства окна из пластика в целом – шумоизоляция, параметры сохранения тепла в жилище и даже безопасность проживающих в помещении. Чтобы пластиковые окна ПВХ',
+    'Стеклопакет – важнейший элемент ПВХ окна. От его качества зависят ведущие свойства окна из пластика в целом – шумоизоляция, параметры сохранения тепла в жилище и даже безопасность проживающих в помещении. Чтобы пластиковые окна ПВХ'
 };
 for (let index = 0; index < 10; index++) {
   data.catalog.push(catalog_item);
@@ -2172,50 +2185,50 @@ app.get('/favorites', (req, res) => {
 app.get('/brand/:sBrandURI', async (req, res) => {
   data.brands = await Brand.findAll({
     where: {
-      iActive: 1,
-    },
+      iActive: 1
+    }
   });
   var brand = await Brand.findAll({
     where: {
       sBrandURI: req.params.sBrandURI,
-      iActive: 1,
-    },
+      iActive: 1
+    }
   });
   if (brand[0]) {
     data.product = await Product.findAll({
       where: {
         iBrandID: brand[0].iBrandID,
-        iActive: 1,
+        iActive: 1
       },
       include: [
         {
-          model: Material,
+          model: Material
         },
         {
-          model: Material_category,
+          model: Material_category
         },
         {
-          model: Brus,
+          model: Brus
         },
         {
-          model: Product_image,
+          model: Product_image
         },
         {
           model: Product_color,
           required: false,
           where: {
-            iIndex: 1,
-          },
-        },
+            iIndex: 1
+          }
+        }
       ],
-      order: [[Product_image, 'iOrder', 'ASC']],
+      order: [[Product_image, 'iOrder', 'ASC']]
     });
     data.brand = brand[0];
     data.title = brand[0].sBrandTitle;
     data.description = '';
     data.left_menu_active = 1;
     // Делаем колхоз на заглавную букву для sMaterialCategoryTitle
-    data.product.forEach((x) => {
+    data.product.forEach(x => {
       if (x.material_category) {
         x.material_category.sMaterialCategoryTitle =
           x.material_category.sMaterialCategoryTitle[0].toUpperCase() +
@@ -2283,7 +2296,7 @@ app.get('/gallery/:sGalleryGroupUri', async (req, res) => {
   data.gallery_group = await Gallery_group.findAll();
   data.gallery_group_active = req.params.sGalleryGroupUri;
   data.gallery = await Gallery.getList({
-    sGalleryGroupUri: req.params.sGalleryGroupUri,
+    sGalleryGroupUri: req.params.sGalleryGroupUri
   });
   res.render('gallery', data);
 });
@@ -2294,10 +2307,10 @@ app.get('/gallery/:sGalleryGroupUri/:iGalleryID', async (req, res) => {
   data.gallery_group = await Gallery_group.findAll();
   data.gallery_group_active = req.params.sGalleryGroupUri;
   data.gallery_list = await Gallery.getList({
-    sGalleryGroupUri: req.params.sGalleryGroupUri,
+    sGalleryGroupUri: req.params.sGalleryGroupUri
   });
   data.gallery = await Gallery.getList({
-    iGalleryID: req.params.iGalleryID,
+    iGalleryID: req.params.iGalleryID
   });
   // res.json(data.gallery_list)
   res.render('gallery/item', data);
@@ -2355,9 +2368,9 @@ app.get('/part', async (req, res) => {
   const Part = require('./models').part;
   var part = await Part.findOne({
     where: {
-      iActive: true,
+      iActive: true
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
   if (part) return res.redirect('/part/' + part.sPartURI);
   res.sendStatus(404);
@@ -2367,17 +2380,17 @@ app.get('/part/:sPartURI', async (req, res) => {
   const Part = require('./models').part;
   const part = await Part.findOne({
     where: {
-      sPartURI,
-    },
+      sPartURI
+    }
   });
   const iPartID = part.iPartID;
   const PartBrand = require('./models').partBrand;
   const partBrand = await PartBrand.findOne({
     where: {
       iPartID,
-      iActive: 1,
+      iActive: 1
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
   if (partBrand)
     return res.redirect(
@@ -2396,9 +2409,9 @@ app.get('/part/:sPartURI/:sPartBrandURI', async (req, res) => {
   const partBrand = await PartBrand.findOne({
     where: {
       sPartBrandURI,
-      iActive: true,
+      iActive: true
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
 
   const iPartBrandID = partBrand.iPartBrandID;
@@ -2406,9 +2419,9 @@ app.get('/part/:sPartURI/:sPartBrandURI', async (req, res) => {
   const partModel = await PartModel.findOne({
     where: {
       iPartBrandID,
-      iActive: true,
+      iActive: true
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
 
   if (partModel)
@@ -2428,39 +2441,39 @@ app.get('/part/:sPartURI/:sPartBrandURI/:sPartModelURI', async (req, res) => {
 
   data.part = await Part.findOne({
     where: {
-      sPartURI,
-    },
+      sPartURI
+    }
   });
   const iPartID = data.part.iPartID;
 
   data.brands = await PartBrand.findAll({
     where: {
       iPartID,
-      iActive: true,
+      iActive: true
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
 
   data.parts = await Part.findAll({
     where: {
-      iActive: true,
+      iActive: true
     },
-    order: [['iOrder', 'ASC']],
+    order: [['iOrder', 'ASC']]
   });
 
   const brand = await PartBrand.findOne({
     where: {
       sPartBrandURI,
-      iActive: true,
-    },
+      iActive: true
+    }
   });
   const iPartBrandID = brand.iPartBrandID;
 
   const model = await PartModel.findOne({
     where: {
       sPartModelURI,
-      iActive: true,
-    },
+      iActive: true
+    }
   });
   const iPartModelID = model.iPartModelID;
 
@@ -2483,18 +2496,18 @@ app.post('/send', async (req, res) => {
   }
 
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, dir);
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       upload_files.push(file.originalname);
       cb(null, file.originalname);
-    },
+    }
   });
 
   var upload = multer({ storage: storage }).array('file[]');
 
-  upload(req, res, function (err, responce) {
+  upload(req, res, function(err, responce) {
     var message_html = '';
     var name =
       req.body.name && req.body.name != 'undefined' ? req.body.name : false;
@@ -2552,7 +2565,7 @@ app.post('/send', async (req, res) => {
 
     var path = require('path');
     var filepath = [];
-    upload_files.forEach((file) => {
+    upload_files.forEach(file => {
       filepath.push(path.join(dir, file));
     });
 
@@ -2564,14 +2577,14 @@ app.post('/send', async (req, res) => {
       subject: 'Заявка: ' + subject,
       text: message_html,
       html: message_html,
-      attachment: filepath,
+      attachment: filepath
     };
 
     var mailgun = require('mailgun-js')({
       apiKey: process.env.MAILGUN_KEY,
-      domain: process.env.MAILGUN_DOMAIN,
+      domain: process.env.MAILGUN_DOMAIN
     });
-    mailgun.messages().send(data, function (error, body) {
+    mailgun.messages().send(data, function(error, body) {
       res.json(200);
     });
   });
@@ -2587,23 +2600,23 @@ app.post('/send2', (req, res) => {
   }
 
   var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
       cb(null, dir);
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
       upload_files.push(file.originalname);
       cb(null, file.originalname);
-    },
+    }
   });
 
   var upload = multer({ storage: storage }).array('file[]');
 
-  upload(req, res, function (err, responce) {
+  upload(req, res, function(err, responce) {
     console.log(req.body.name);
 
     var path = require('path');
     var filepath = [];
-    upload_files.forEach((file) => {
+    upload_files.forEach(file => {
       filepath.push(path.join(dir, file));
     });
 
@@ -2616,9 +2629,9 @@ app.get('/all_windows', async (req, res) => {
   var result = await Product.findAll({
     include: [
       {
-        model: Brand,
-      },
-    ],
+        model: Brand
+      }
+    ]
   });
   res.json(result);
   // let connection = mysql.createConnection(config.get('db'))
@@ -2640,8 +2653,8 @@ app.get('/compare', async (req, res) => {
   response.material = await Material.findAll({
     attributes: ['iMaterialID', 'sMaterialTitle'],
     where: {
-      iActive: true,
-    },
+      iActive: true
+    }
   });
   response.product = await Product.getProductForCompare();
 
@@ -2652,7 +2665,7 @@ if (process.env.NODE_ENV != 'development') {
   var https_options = {
     key: fs.readFileSync('encryption/private.key'),
     cert: fs.readFileSync('encryption/server.crt'),
-    ca: [fs.readFileSync('encryption/mydomain.ca-bundle')],
+    ca: [fs.readFileSync('encryption/mydomain.ca-bundle')]
   };
 
   const https = require('https').createServer(https_options, app);

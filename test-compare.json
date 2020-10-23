@@ -1,0 +1,1649 @@
+{
+  "material": [
+    { "iMaterialID": 1, "sMaterialTitle": "пластик" },
+    { "iMaterialID": 3, "sMaterialTitle": "алюминий" },
+    { "iMaterialID": 7, "sMaterialTitle": "дерево" }
+  ],
+  "product": [
+    {
+      "iProductID": 7,
+      "iMaterialID": 1,
+      "iBrandID": 3,
+      "sProductTitle": "Eco",
+      "sProductURI": "montblanc_eco",
+      "MountingDepth": 60,
+      "Profile": "до 32 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,58 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "2 вида створки и рамы: скругленная, прямая",
+      "brand": {
+        "iBrandID": 3,
+        "sBrandTitle": "Montblanc",
+        "iCountryID": 1,
+        "sBrandURI": "montblanc",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 58,
+          "iProductID": 7,
+          "iColorID": 27,
+          "sProductColorFilename": "F7JjHJgaKwCl1rZxGi51AZPbaDwuq5GT.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 13,
+      "iMaterialID": 1,
+      "iBrandID": 3,
+      "sProductTitle": "Nord",
+      "sProductURI": "montblanc_nord",
+      "MountingDepth": 70,
+      "Profile": "до 42 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,77 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "2 вида створки и рамы: скругленная, прямая",
+      "brand": {
+        "iBrandID": 3,
+        "sBrandTitle": "Montblanc",
+        "iCountryID": 1,
+        "sBrandURI": "montblanc",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 95,
+          "iProductID": 13,
+          "iColorID": 39,
+          "sProductColorFilename": "SqSqQVDrTXfPjBcZMo7pgclChMhsoWVr.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 14,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Euro",
+      "sProductURI": "rehau_euro",
+      "MountingDepth": 60,
+      "Profile": "до 32 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,64 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 105,
+          "iProductID": 14,
+          "iColorID": 26,
+          "sProductColorFilename": "9YB3HjnRefBs1ZAdPTkd6ea7ot9fldKC.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 15,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Blitz New",
+      "sProductURI": "rehau_blitz_new",
+      "MountingDepth": 60,
+      "Profile": "до 32 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,70 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "Увеличенный световой проем",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 129,
+          "iProductID": 15,
+          "iColorID": 27,
+          "sProductColorFilename": "tKQHgOZ5aXjEh9DsjddC50cGBfwFINkp.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 16,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Delight",
+      "sProductURI": "rehau_delight",
+      "MountingDepth": 70,
+      "Profile": "до 41 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,80 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "Увеличенный световой проем. 3 вида створки и рамы: фигурная, скругленная, прямая",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 171,
+          "iProductID": 16,
+          "iColorID": 46,
+          "sProductColorFilename": "HHRGghxCuWMLjRgft6aeATJehHCcsbSN.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 17,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Grazio",
+      "sProductURI": "rehau_grazio",
+      "MountingDepth": 70,
+      "Profile": "до 41мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,85 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 190,
+          "iProductID": 17,
+          "iColorID": 42,
+          "sProductColorFilename": "cpxaQ4dfbP2V0VelggQLVOPXtZFJEO7m.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 18,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Intelio",
+      "sProductURI": "rehau_intelio",
+      "MountingDepth": 80,
+      "Profile": "32-44 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 6,
+      "HeatTransferResistance": "0,98 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 210,
+          "iProductID": 18,
+          "iColorID": 39,
+          "sProductColorFilename": "9ldePs74gbngW6ZjhnlByPr5kRCkSH0M.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 19,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Brillant",
+      "sProductURI": "rehau_brillant",
+      "MountingDepth": 70,
+      "Profile": "32-40 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,79 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 222,
+          "iProductID": 19,
+          "iColorID": 28,
+          "sProductColorFilename": "jnLqjCnZ13nc8Q9WnbyCB1PTizjH4xyt.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 20,
+      "iMaterialID": 1,
+      "iBrandID": 5,
+      "sProductTitle": "Geneo",
+      "sProductURI": "rehau_geneo",
+      "MountingDepth": 86,
+      "Profile": "до 54 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 6,
+      "HeatTransferResistance": "1,05 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 5,
+        "sBrandTitle": "Rehau",
+        "iCountryID": 1,
+        "sBrandURI": "rehau",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 253,
+          "iProductID": 20,
+          "iColorID": 36,
+          "sProductColorFilename": "WNKlk1Zz4QkDxdkHsn1YWso3EJbpoDp2.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 21,
+      "iMaterialID": 1,
+      "iBrandID": 4,
+      "sProductTitle": "Techno 58",
+      "sProductURI": "novotex_techno_58",
+      "MountingDepth": 58,
+      "Profile": "до 36 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,64 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "нет.",
+      "brand": {
+        "iBrandID": 4,
+        "sBrandTitle": "Novotex",
+        "iCountryID": 4,
+        "sBrandURI": "novotex",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 267,
+          "iProductID": 21,
+          "iColorID": 27,
+          "sProductColorFilename": "qif7hYhUlmt32l8hVoGSBUuocFBXsi8m.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 22,
+      "iMaterialID": 1,
+      "iBrandID": 4,
+      "sProductTitle": "Techno 70",
+      "sProductURI": "novotex_techno_70",
+      "MountingDepth": 70,
+      "Profile": "до 42 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,86 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 4,
+        "sBrandTitle": "Novotex",
+        "iCountryID": 4,
+        "sBrandURI": "novotex",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 302,
+          "iProductID": 22,
+          "iColorID": 39,
+          "sProductColorFilename": "WThtQEM87EljnvOXlrmVc5CQUyMmPB89.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 23,
+      "iMaterialID": 1,
+      "iBrandID": 2,
+      "sProductTitle": "Gut (Gutwerk 58)",
+      "sProductURI": "kbe_gut_(gutwerk_58)",
+      "MountingDepth": 58,
+      "Profile": "до 32 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,70 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 2,
+        "sBrandTitle": "KBE",
+        "iCountryID": 4,
+        "sBrandURI": "kbe",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 312,
+          "iProductID": 23,
+          "iColorID": 26,
+          "sProductColorFilename": "Mj6eEnSGHC9DCcAA0cOBcPVgx5UBiShu.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 24,
+      "iMaterialID": 1,
+      "iBrandID": 2,
+      "sProductTitle": "Master (Gutwerk 70)",
+      "sProductURI": "kbe_master_(gutwerk_70)",
+      "MountingDepth": 70,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "B",
+      "DoubleGlazing": 4,
+      "HeatTransferResistance": "0,80 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 2,
+        "sBrandTitle": "KBE",
+        "iCountryID": 4,
+        "sBrandURI": "kbe",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 336,
+          "iProductID": 24,
+          "iColorID": 27,
+          "sProductColorFilename": "YkgzokOFAlyh0fgttf4dYgdfS3x8Xj3y.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 25,
+      "iMaterialID": 1,
+      "iBrandID": 2,
+      "sProductTitle": "58",
+      "sProductURI": "kbe_58",
+      "MountingDepth": 58,
+      "Profile": "24-32 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,64 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 2,
+        "sBrandTitle": "KBE",
+        "iCountryID": 4,
+        "sBrandURI": "kbe",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 378,
+          "iProductID": 25,
+          "iColorID": 46,
+          "sProductColorFilename": "Q6GqRnuLvpO7FnYJDV3enOGhrQklpqls.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 26,
+      "iMaterialID": 1,
+      "iBrandID": 2,
+      "sProductTitle": "70 (Expert)",
+      "sProductURI": "kbe_70_(expert)",
+      "MountingDepth": 70,
+      "Profile": "24-42 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,75 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, ламинация в массе, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 2,
+        "sBrandTitle": "KBE",
+        "iCountryID": 4,
+        "sBrandURI": "kbe",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 397,
+          "iProductID": 26,
+          "iColorID": 42,
+          "sProductColorFilename": "QR6ES7srj2pwrfEJ9qIwqJFnx42H4a0f.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 27,
+      "iMaterialID": 1,
+      "iBrandID": 2,
+      "sProductTitle": "76",
+      "sProductURI": "kbe_76",
+      "MountingDepth": 76,
+      "Profile": "до 50 мм",
+      "ProfileClass": "A",
+      "DoubleGlazing": 5,
+      "HeatTransferResistance": "0,93 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 2,
+        "sBrandTitle": "KBE",
+        "iCountryID": 4,
+        "sBrandURI": "kbe",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 417,
+          "iProductID": 27,
+          "iColorID": 39,
+          "sProductColorFilename": "mlvvL7YmXe4G7pjBMW9fbPmmLPAJCFra.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 28,
+      "iMaterialID": 3,
+      "iBrandID": 1,
+      "sProductTitle": "ALT C48",
+      "sProductURI": "alutech_alt_c48",
+      "MountingDepth": 48,
+      "Profile": "4-30 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0,075 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 1,
+        "sBrandTitle": "Alutech",
+        "iCountryID": 2,
+        "sBrandURI": "alutech",
+        "country": { "iCountryID": 2, "sCountryTitle": "Белоруссия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 449,
+          "iProductID": 28,
+          "iColorID": 22,
+          "sProductColorFilename": "mshaVOhBw4ifAPtCRdg5M36PWek6vXOa.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 29,
+      "iMaterialID": 3,
+      "iBrandID": 1,
+      "sProductTitle": "ALT W62",
+      "sProductURI": "alutech_alt_w62",
+      "MountingDepth": 62,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0,61 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 1,
+        "sBrandTitle": "Alutech",
+        "iCountryID": 2,
+        "sBrandURI": "alutech",
+        "country": { "iCountryID": 2, "sCountryTitle": "Белоруссия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 463,
+          "iProductID": 29,
+          "iColorID": 12,
+          "sProductColorFilename": "5KmKLdm7ldBDYDhA8Q5qCOU1JG3Yr6Mz.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 30,
+      "iMaterialID": 3,
+      "iBrandID": 1,
+      "sProductTitle": "ALT F50",
+      "sProductURI": "alutech_alt_f50",
+      "MountingDepth": 50,
+      "Profile": "4-62 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0-0,50 м²x°С/Вт",
+      "ShapikShapeOptions": "нет",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 1,
+        "sBrandTitle": "Alutech",
+        "iCountryID": 2,
+        "sBrandURI": "alutech",
+        "country": { "iCountryID": 2, "sCountryTitle": "Белоруссия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 480,
+          "iProductID": 30,
+          "iColorID": 7,
+          "sProductColorFilename": "HQemnyuc9LrVnZd5WjATHquKWj5Llr6C.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 32,
+      "iMaterialID": 3,
+      "iBrandID": 6,
+      "sProductTitle": "КП 50",
+      "sProductURI": "sial_kp_50",
+      "MountingDepth": 50,
+      "Profile": "6-32 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0-0,50 м²x°С/Вт",
+      "ShapikShapeOptions": "нет",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 6,
+        "sBrandTitle": "СИАЛ",
+        "iCountryID": 4,
+        "sBrandURI": "sial",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 528,
+          "iProductID": 32,
+          "iColorID": 7,
+          "sProductColorFilename": "NqymO80rxqPC2ES03kslUG3rUNU2dUL0.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 33,
+      "iMaterialID": 3,
+      "iBrandID": 6,
+      "sProductTitle": "КПТ 74",
+      "sProductURI": "sial_kpt_74",
+      "MountingDepth": 74,
+      "Profile": "20-40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0,64 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 6,
+        "sBrandTitle": "СИАЛ",
+        "iCountryID": 4,
+        "sBrandURI": "sial",
+        "country": { "iCountryID": 4, "sCountryTitle": "Швейцария" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 559,
+          "iProductID": 33,
+          "iColorID": 12,
+          "sProductColorFilename": "LQx4CJDDS8NBiW1d3HJMl4VMpsJUqDCZ.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 36,
+      "iMaterialID": 1,
+      "iBrandID": 14,
+      "sProductTitle": "Basis",
+      "sProductURI": "proplex_basis",
+      "MountingDepth": 58,
+      "Profile": "до 34 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 3,
+      "HeatTransferResistance": "0,75 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 14,
+        "sBrandTitle": "Proplex",
+        "iCountryID": 1,
+        "sBrandURI": "proplex",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1389,
+          "iProductID": 36,
+          "iColorID": 27,
+          "sProductColorFilename": "iQzTRD8k4DUe49iPKDKEsN5tnx5JTzST.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 37,
+      "iMaterialID": 1,
+      "iBrandID": 14,
+      "sProductTitle": "Comfort",
+      "sProductURI": "proplex_comfort",
+      "MountingDepth": 70,
+      "Profile": "12 -42 мм",
+      "ProfileClass": "B",
+      "DoubleGlazing": 4,
+      "HeatTransferResistance": "0,79 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой",
+      "DecorationOptions": "ламинация, покраска по RAL",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 14,
+        "sBrandTitle": "Proplex",
+        "iCountryID": 1,
+        "sBrandURI": "proplex",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 632,
+          "iProductID": 37,
+          "iColorID": 39,
+          "sProductColorFilename": "XUTE5tp9TzFRNFkEo1Cij650rjsgNI0K.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 1,
+        "sMaterialTitle": "пластик",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 39,
+      "iMaterialID": 3,
+      "iBrandID": 13,
+      "sProductTitle": "SY50",
+      "sProductURI": "newtec_sy50",
+      "MountingDepth": 50,
+      "Profile": "4-22 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0,075 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 13,
+        "sBrandTitle": "Newtec",
+        "iCountryID": 1,
+        "sBrandURI": "newtec",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1337,
+          "iProductID": 39,
+          "iColorID": 21,
+          "sProductColorFilename": "FT3OLgDwffYtvor0QfnTZaO0NU3G94Nj.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 40,
+      "iMaterialID": 3,
+      "iBrandID": 13,
+      "sProductTitle": "SY60",
+      "sProductURI": "newtec_sy60",
+      "MountingDepth": 60,
+      "Profile": "4-32 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0,45 м²x°C/Вт",
+      "ShapikShapeOptions": "прямой, скругленный",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 13,
+        "sBrandTitle": "Newtec",
+        "iCountryID": 1,
+        "sBrandURI": "newtec",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1352,
+          "iProductID": 40,
+          "iColorID": 12,
+          "sProductColorFilename": "KLi0jkhegOV24joPam0ZwkmckKiU1zzC.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 41,
+      "iMaterialID": 3,
+      "iBrandID": 13,
+      "sProductTitle": "SY68",
+      "sProductURI": "newtec_sy68",
+      "MountingDepth": 68,
+      "Profile": "4-40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "0,49 м²x°C/Вт",
+      "ShapikShapeOptions": "прямой, скругленный",
+      "DecorationOptions": "покраска по RAL, структурированное покрытие Decoral",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 13,
+        "sBrandTitle": "Newtec",
+        "iCountryID": 1,
+        "sBrandURI": "newtec",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1369,
+          "iProductID": 41,
+          "iColorID": 7,
+          "sProductColorFilename": "yjs7PWtzCjUkblGBgXilgPigtnhD88FJ.png",
+          "iIndex": 1
+        }
+      ],
+      "material": {
+        "iMaterialID": 3,
+        "sMaterialTitle": "алюминий",
+        "iActive": 1
+      }
+    },
+    {
+      "iProductID": 44,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Манхэттен",
+      "sProductURI": "virtina_manhetten_listvennica_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "фигурная обработка створки и алюминиевой накладки",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 683,
+          "iProductID": 44,
+          "iColorID": 64,
+          "sProductColorFilename": "OURYx1G3xn7nNRYg5aiknZEZo4QGfSNp.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 45,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Манхэттен",
+      "sProductURI": "virtina_manhetten_sosna_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "фигурная обработка створки и алюминиевой накладки",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 701,
+          "iProductID": 45,
+          "iColorID": 58,
+          "sProductColorFilename": "ruMzHfGCccgbNIdm1jymg9Pa9rKYAVWr.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 46,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Манхэттен",
+      "sProductURI": "virtina_manhetten_sosna_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "фигурная обработка створки и алюминиевой накладки",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 722,
+          "iProductID": 46,
+          "iColorID": 79,
+          "sProductColorFilename": "AIuVCN4jse4MgAPhwNgTLVOtfKHIuatN.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 47,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Манхэттен",
+      "sProductURI": "virtina_manhetten_listvennica_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "фигурная обработка створки и алюминиевой накладки",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 762,
+          "iProductID": 47,
+          "iColorID": 95,
+          "sProductColorFilename": "XvbX5x5ZDXaTui4s1B4RTf1L12kXyiiz.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 48,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Манхэттен",
+      "sProductURI": "virtina_manhetten_dub_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "фигурная обработка створки и алюминиевой накладки",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 766,
+          "iProductID": 48,
+          "iColorID": 99,
+          "sProductColorFilename": "9shzYnyg4SrQMSWqOIKjnxlLfhceYULv.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 49,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Манхэттен",
+      "sProductURI": "virtina_manhetten_dub_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 44 мм ",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "фигурная обработка створки и алюминиевой накладки",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 789,
+          "iProductID": 49,
+          "iColorID": 98,
+          "sProductColorFilename": "LunK57G7iM6vVYgs6dCcqix6Y2RrvXct.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 50,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Монте-Карло",
+      "sProductURI": "virtina_monte-karlo_sosna_brus_celnolamelnii",
+      "MountingDepth": 78,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 826,
+          "iProductID": 50,
+          "iColorID": 63,
+          "sProductColorFilename": "QezdfU5U0XM4WtRsuxIAEQloUQHs8ddW.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 51,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Монте-Карло",
+      "sProductURI": "virtina_monte-karlo_sosna_brus_srash'enii",
+      "MountingDepth": 78,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 843,
+          "iProductID": 51,
+          "iColorID": 56,
+          "sProductColorFilename": "nIwOQdXgelZPY6cSQVjLFEyLog84jBVL.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 52,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Монте-Карло",
+      "sProductURI": "virtina_monte-karlo_listvennica_brus_celnolamelnii",
+      "MountingDepth": 78,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 868,
+          "iProductID": 52,
+          "iColorID": 81,
+          "sProductColorFilename": "VUHXeFt4hyCxFihTJllkugvE7gmO4YYc.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 53,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Монте-Карло",
+      "sProductURI": "virtina_monte-karlo_listvennica_brus_srash'enii",
+      "MountingDepth": 78,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 891,
+          "iProductID": 53,
+          "iColorID": 80,
+          "sProductColorFilename": "nEWt0UD16WUCWjvxkEYtvBzbwLJCyrz2.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 54,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Монте-Карло",
+      "sProductURI": "virtina_monte-karlo_dub_brus_celnolamelnii",
+      "MountingDepth": 78,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 926,
+          "iProductID": 54,
+          "iColorID": 115,
+          "sProductColorFilename": "nRM4rwkAn9R57P19Y67r97yzqDT3BUxZ.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 55,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Монте-Карло",
+      "sProductURI": "virtina_monte-karlo_dub_brus_srash'enii",
+      "MountingDepth": 78,
+      "Profile": "до 40 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "нет",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 942,
+          "iProductID": 55,
+          "iColorID": 107,
+          "sProductColorFilename": "hbyihbW8VlNXtrRP3oXGGT9DUtymPTUI.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 57,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Сохо",
+      "sProductURI": "virtina_soho_sosna_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 50 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "не подходит",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "цельная внутренняя сторона створки - без штапика",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1001,
+          "iProductID": 57,
+          "iColorID": 70,
+          "sProductColorFilename": "J8jBV3GJpICRrw9GMe1EzOuPLUyN9rR1.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 58,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Сохо",
+      "sProductURI": "virtina_soho_listvennica_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 50 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "не подходит",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "цельная внутренняя сторона створки - без штапика.",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1015,
+          "iProductID": 58,
+          "iColorID": 84,
+          "sProductColorFilename": "aHMSxOrUMgqIE3WXjNBlYIqLMiU8WEsa.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 59,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Сохо",
+      "sProductURI": "virtina_soho_listvennica_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 50 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "не подходит",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "цельная внутренняя сторона створки - без штапика",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1045,
+          "iProductID": 59,
+          "iColorID": 90,
+          "sProductColorFilename": "jSJEcCwVurJcxNdAjDexIZbfFulOi4Lr.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 60,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Сохо",
+      "sProductURI": "virtina_soho_dub_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 50 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "не подходит",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "цельная внутренняя сторона створки - без штапика.",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1100,
+          "iProductID": 60,
+          "iColorID": 121,
+          "sProductColorFilename": "dzVIOqBxkQ8gemeAqslKOR7vzqTfFs5Y.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 61,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Сохо",
+      "sProductURI": "virtina_soho_dub_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 50 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "не подходит",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "цельная внутренняя сторона створки - без штапика",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1116,
+          "iProductID": 61,
+          "iColorID": 113,
+          "sProductColorFilename": "Ws7jMgAbNewpmRu8adNCBwiqtHHMUCBU.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 62,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Лувр",
+      "sProductURI": "virtina_luvr_sosna_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 52 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "возможность установки жалюзи в пространство между спаренными створками",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1143,
+          "iProductID": 62,
+          "iColorID": 68,
+          "sProductColorFilename": "K2Hw1vAGIf2uUM2cXzR6WyOd1WFv5lnW.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 63,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Лувр",
+      "sProductURI": "virtina_luvr_sosna_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 52 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "возможность установки жалюзи в пространство между спаренными створками",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1168,
+          "iProductID": 63,
+          "iColorID": 69,
+          "sProductColorFilename": "4Y0HH9FUpnUdDvvANcu0eCx4zQQkX1AZ.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 64,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Лувр",
+      "sProductURI": "virtina_luvr_listvennica_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 52 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "возможность установки жалюзи в пространство между спаренными створками",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1184,
+          "iProductID": 64,
+          "iColorID": 85,
+          "sProductColorFilename": "PmM5qLS0YfyNbqbjgg6TkHkAIvKNMxNB.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 65,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Лувр",
+      "sProductURI": "virtina_luvr_listvennica_brus_srash'enii",
+      "MountingDepth": 98,
+      "Profile": "до 52 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "возможность установки жалюзи в пространство между спаренными створками",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1219,
+          "iProductID": 65,
+          "iColorID": 96,
+          "sProductColorFilename": "GPehu1xeC640ZoczI78K9xO6EeYOLHHV.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    },
+    {
+      "iProductID": 66,
+      "iMaterialID": 7,
+      "iBrandID": 17,
+      "sProductTitle": "Лувр",
+      "sProductURI": "virtina_luvr_dub_brus_celnolamelnii",
+      "MountingDepth": 98,
+      "Profile": "до 52 мм",
+      "ProfileClass": "не подходит",
+      "DoubleGlazing": 0,
+      "HeatTransferResistance": "1,03 м²x°С/Вт",
+      "ShapikShapeOptions": "прямой, скругленный, фигурный",
+      "DecorationOptions": "лессирующие покрытие; укрывная покраска",
+      "FrameFeature": "возможность установки жалюзи в пространство между спаренными створками",
+      "brand": {
+        "iBrandID": 17,
+        "sBrandTitle": "Virtina",
+        "iCountryID": 1,
+        "sBrandURI": "virtina",
+        "country": { "iCountryID": 1, "sCountryTitle": "Россия" }
+      },
+      "product_colors": [
+        {
+          "iProductColorID": 1223,
+          "iProductID": 66,
+          "iColorID": 100,
+          "sProductColorFilename": "ITZdNS7Az6FpdWyDyT7PuRHHaT0aA1ZC.png",
+          "iIndex": 1
+        }
+      ],
+      "material": { "iMaterialID": 7, "sMaterialTitle": "дерево", "iActive": 1 }
+    }
+  ]
+}
