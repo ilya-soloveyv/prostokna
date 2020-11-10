@@ -1,10 +1,12 @@
 extends ../layouts/app
 
 block head
-    link(rel="stylesheet", href='/configurator.' + env.BUILD_HASH + '.css')
-    
+    link(rel="stylesheet" href='/configurator.' + env.BUILD_HASH + '.css')
+
 block scripts
     script(src='/configurator.' + env.BUILD_HASH + '.js')
 
 block content
     include configurator
+    #fullpage_nav
+        include ../include/side-nav-contacts

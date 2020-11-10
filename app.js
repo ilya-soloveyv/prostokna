@@ -1505,6 +1505,7 @@ app.post('/admin/index/s5/update', async (req, res) => {
 });
 
 app.use('/admin/intuitive', require('./routes/admin/intuitive'));
+app.use('/api', require('./routes/api/index'));
 
 // cookie
 // app.use(function (req, res, next) {

@@ -1,68 +1,123 @@
 <template>
   <div id="configurator" class="ppage">
-    <section class="left column">
-      <TypeSelector />
-      <WindowsSlider />
-      <AddWindow />
-      <Price />
-      <SubmitButton text="ОТПРАВИТЬ НА РАСЧЕТ" />
+    <section class="left column" v-if="$mq === 'lg'">
+      <Summary />
     </section>
     <section class="column">
-      <Header />
-      <div class="row">
-        <div class="col-6"><SquareSelector /></div>
-        <div class="col-6">
-          <Selector label="test" />
-          <Slider label="Slider" />
-          <CheckBox />
-          <WindowDescription />
-          <div class="row">
-            <div class="col-4">
-              <CircleProgress />
-            </div>
+      <transition name="layout">
+        <div v-if="productsWithCurrentType.length">
+          <Header />
+          <div class="position-relative">
+            <transition name="layout">
+              <WindowShapeLayout
+                v-if="this.currentScreen === 'windows/shape'"
+              />
+              <WindowModelLayout
+                v-if="this.currentScreen === 'windows/model'"
+              />
+              <WindowOtherLayout
+                v-if="this.currentScreen === 'windows/other'"
+              />
+              <WindowColorLayout
+                v-if="this.currentScreen === 'windows/color'"
+              />
+            </transition>
           </div>
         </div>
-      </div>
+      </transition>
     </section>
   </div>
 </template>
 
 <script>
-import SquareSelector from './Configurator/SquareSelector.vue';
-import Selector from './Configurator/Selector.vue';
-import Slider from './Configurator/Slider.vue';
+import Summary from './Configurator/Summary.vue';
 import Header from './Configurator/Header.vue';
-import CheckBox from './Configurator/CheckBox.vue';
-import SubmitButton from './Configurator/SubmitButton.vue';
-import TypeSelector from './Configurator/TypeSelector.vue';
-import CircleProgress from './Configurator/CircleProgress.vue';
-import WindowsSlider from './Configurator/WindowsSlider.vue';
-import AddWindow from './Configurator/AddWindow.vue';
-import Price from './Configurator/Price.vue';
-import WindowDescription from './Configurator/WindowDescription.vue';
+import WindowShapeLayout from './Configurator/WindowShapeLayout.vue';
+import WindowModelLayout from './Configurator/WindowModelLayout.vue';
+import WindowOtherLayout from './Configurator/WindowOtherLayout.vue';
+import WindowColorLayout from './Configurator/WindowColorLayout.vue';
+
+import api from '../utils/api';
+
+import 'animate.css/source/fading_entrances/fadeIn.css';
 
 export default {
   el: '#configurator',
   name: 'Configurator',
   components: {
-    SquareSelector,
-    Selector,
-    Slider,
+    Summary,
     Header,
-    CheckBox,
-    SubmitButton,
-    CircleProgress,
-    TypeSelector,
-    WindowsSlider,
-    AddWindow,
-    Price,
-    WindowDescription
+    WindowShapeLayout,
+    WindowModelLayout,
+    WindowOtherLayout,
+    WindowColorLayout
+  },
+  data() {
+    return {
+      isInitialized: false
+    };
+  },
+  computed: {
+    currentScreen() {
+      return this.$store.getters['configurator/currentScreen'];
+    },
+    productsWithCurrentType() {
+      return this.$store.getters['configurator/productsWithCurrentType'];
+    }
+  },
+  methods: {
+    async init() {
+      await this.fetchRanges();
+    },
+    async fetchRanges() {
+      const ranges = await api.call('windowsRanges').then(res => res.payload);
+      this.$store.commit('configurator/setRanges', ranges);
+    }
+  },
+  mounted() {
+    this.init();
+    this.isInitialized = true;
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@scss/variables';
+
+#top,
+#top .menu {
+  background-color: #363636;
+}
+
+.icon {
+  color: #fff;
+}
+
+.bginput {
+  color: #fff;
+
+  border-color: #fff;
+  input {
+    color: #fff;
+  }
+  label {
+    border-color: #82dcee;
+  }
+}
+
+.menu {
+  a {
+    color: #fff !important;
+  }
+
+  a:hover,
+  a:focus {
+    color: #363636 !important;
+    svg {
+      color: #363636 !important;
+    }
+  }
+}
 
 #configurator {
   display: flex;
@@ -75,6 +130,7 @@ export default {
 }
 
 .column {
+  max-width: 814px;
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
@@ -86,5 +142,12 @@ export default {
     padding-right: 22px;
     border-right: 1px $border-dark solid;
   }
+}
+
+.layout-enter-active {
+  animation: fadeIn $transition-time * 3;
+}
+.layout-leave-active {
+  animation: fadeIn $transition-time * 3 reverse;
 }
 </style>

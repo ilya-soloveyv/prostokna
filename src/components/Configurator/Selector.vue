@@ -1,13 +1,15 @@
 <template>
-  <div class="selector">
+  <div class="selector" :class="{ disabled: disabled }">
     <label>{{ label }}</label>
-    <select>
+    <select @change="onChange" :tabindex="disabled ? '-1' : '0'">
       <option
         v-for="option of options"
-        v-bind:value="option.value"
-        v-bind:key="option.value"
-        >{{ option.text }}</option
+        :value="option.value"
+        :key="option.value"
+        :selected="option.value === selected"
       >
+        {{ option.text }}
+      </option>
     </select>
     <div class="arrow" />
   </div>
@@ -16,9 +18,24 @@
 <script>
 export default {
   name: 'Selector',
-  props: ['label'],
+  props: {
+    label: String,
+    options: {
+      type: Array,
+      required: true
+    },
+    selected: [Number, String],
+    disabled: Boolean
+  },
   data: () => {
-    return { options: [{ text: '123', value: 'test' }] };
+    return {};
+  },
+  methods: {
+    onChange(e) {
+      if (this.disabled) return;
+
+      this.$emit('change', e.currentTarget.value);
+    }
   }
 };
 </script>
@@ -31,6 +48,13 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  transition: opacity $transition;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 
   label {
     position: absolute;
@@ -43,7 +67,7 @@ export default {
   }
 
   select {
-    padding: 55px 28px 22px;
+    padding: 55px 28px 14px;
 
     background: $gray-darker;
     border: 1px solid;

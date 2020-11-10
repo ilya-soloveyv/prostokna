@@ -1,12 +1,17 @@
 <template>
-  <div class="add-window">
+  <div class="add-window" @click="addWindow">
     Добавить еще окно
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AddWindow'
+  name: 'AddWindow',
+  methods: {
+    addWindow() {
+      this.$store.dispatch('configurator/addProduct');
+    }
+  }
 };
 </script>
 

@@ -1,48 +1,54 @@
 <template>
   <div class="square-selector row">
-    <div v-for="key of [1, 2, 3]" v-bind:key="key" class="option col-4">
+    <div
+      v-for="(option, index) of options"
+      :key="index"
+      :data-test="index"
+      :class="{ selected: option.value === selected }"
+      @click="() => select(option.value)"
+      class="option col-4"
+    >
       <div class="option-body">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="15"
-          height="31"
-          viewBox="0 0 15 31"
-        >
-          <g
-            id="Иконка_копия_6"
-            data-name="Иконка копия 6"
-            transform="translate(-0.24 0.377)"
-          >
-            <g
-              id="Прямоугольник_730_копия_5"
-              data-name="Прямоугольник 730 копия 5"
-              transform="translate(0.24 -0.377)"
-              fill="none"
-              stroke="#fff"
-              stroke-width="1"
-            >
-              <rect width="15" height="31" stroke="none" />
-              <rect x="0.5" y="0.5" width="14" height="30" fill="none" />
-            </g>
-          </g>
-        </svg>
-        <div class="description">Описание</div>
+        <img :src="option.icon" alt="" />
+        <div class="description" v-if="option.text">
+          {{ option.text }}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default { name: 'SquareSelector' };
+export default {
+  name: 'SquareSelector',
+  props: {
+    options: Array,
+    selected: [Number, String],
+    flip: Boolean
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    select(value) {
+      this.$emit('change', value);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 @import '@scss/variables';
 
 .option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: -15px;
+  margin-bottom: 15px;
   padding-top: calc(100% / 3);
   position: relative;
+  transition: transform 0.2s;
 
   &::after {
     content: '';
@@ -58,7 +64,7 @@ export default { name: 'SquareSelector' };
     z-index: 1;
   }
 
-  .selected,
+  &.selected,
   &:hover {
     &::after {
       opacity: 1;
@@ -67,6 +73,10 @@ export default { name: 'SquareSelector' };
     .option-body {
       background: transparent;
     }
+  }
+
+  &:active {
+    transform: scale(0.8);
   }
 }
 
@@ -88,8 +98,14 @@ export default { name: 'SquareSelector' };
 
   svg,
   img {
-    width: 75%;
-    height: 40%;
+    max-width: 75%;
+    max-height: 75%;
+
+    transition: transform $transition;
+
+    .flipped & {
+      transform: rotateY(180deg);
+    }
   }
 }
 

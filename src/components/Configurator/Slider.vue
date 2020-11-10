@@ -1,12 +1,13 @@
 <template>
-  <div class="slider">
+  <div class="slider" :class="{ disabled: disabled }">
     <label>{{ label }}</label>
     <input
       type="number"
       class="value"
       v-bind:placeholder="placeholder"
-      v-model="value"
-      v-on:change="onChange"
+      v-model="internalValue"
+      @change="onChange"
+      :tabindex="disabled ? '-1' : '0'"
     />
     <div class="points" v-if="points">{{ points }}</div>
     <div class="slider__progress" ref="progress">
@@ -41,14 +42,36 @@ const getEventСoordinates = event => {
 
 export default {
   name: 'Slider',
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 100
+    },
+    value: {
+      type: Number,
+      default: 0
+    },
+    points: {
+      type: String,
+      default: null
+    },
+    placeholder: {
+      type: String,
+      default: 'Введите значение'
+    },
+    disabled: Boolean
+  },
   data: () => {
     return {
-      label: 'Label',
-      value: '',
-      placeholder: 'Placeholder',
-      points: 'mm',
-      min: 100,
-      max: 1000,
+      internalValue: 0,
       error: false,
       progressWidth: 0,
       initialСoordinates: { x: 0, y: 0 },
@@ -56,14 +79,26 @@ export default {
       isTouchEvent: false
     };
   },
+  watch: {
+    value(value) {
+      this._value = value;
+    },
+    thresholdsSum() {
+      this.internalValue = this.safeValue;
+      this.$emit('change', this.safeValue);
+    }
+  },
   computed: {
+    thresholdsSum() {
+      return this.min + this.max;
+    },
     lineStyle() {
       return {
         width: `${this.percent}%`
       };
     },
     safeValue() {
-      return this.protectValue(this.value);
+      return this.protectValue(this.internalValue);
     },
     percent() {
       return (
@@ -81,12 +116,17 @@ export default {
       return Math.round(value);
     },
     onChange() {
-      this.value = this.safeValue;
+      if (this.disabled) return;
+
+      this.internalValue = this.safeValue;
+      this.$emit('change', this.safeValue);
     },
     setProgressWidth() {
       this.progressWidth = this.$refs.progress.offsetWidth;
     },
     onPointerPress(e) {
+      if (this.disabled) return;
+
       const isMouseEvent = e instanceof MouseEvent;
       const coordinates = getEventСoordinates(e);
 
@@ -105,6 +145,8 @@ export default {
       );
     },
     onSlide(e) {
+      if (this.disabled) return;
+
       const coordinates = getEventСoordinates(e);
 
       const shiftX = coordinates.x - this.initialСoordinates.x;
@@ -113,12 +155,14 @@ export default {
       const horisontalShiftPoints =
         (100 / this.progressWidth) * shiftX * this.onePercentInPoints;
 
-      this.value = this.protectValue(
+      this.internalValue = this.protectValue(
         this.valueAtShiftStart + Math.round(horisontalShiftPoints)
       );
     },
     onRelease(e) {
       const isMouseEvent = e instanceof MouseEvent;
+
+      this.$emit('change', this.safeValue);
 
       window.removeEventListener(
         isMouseEvent ? 'mousemove' : 'touchmove',
@@ -129,6 +173,13 @@ export default {
         this.onRelease
       );
     }
+  },
+  mounted() {
+    this.internalValue = this.protectValue(this.value);
+    this.$emit('change', this.protectValue(this.value));
+  },
+  beforeUpdate() {
+    this.$emit('change', this.safeValue);
   }
 };
 </script>
@@ -141,11 +192,18 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  transition: opacity $transition;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 
   label {
     position: absolute;
     margin-bottom: 34px;
-    padding: 22px 28px 0;
+    padding: 22px 0 0 28px;
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
@@ -153,7 +211,7 @@ export default {
   }
 
   input {
-    padding: 55px 28px 22px;
+    padding: 55px 28px 14px;
 
     background: $gray-darker;
     border: 1px solid;
@@ -193,7 +251,7 @@ export default {
 
   .points {
     position: absolute;
-    bottom: 22px;
+    bottom: 16px;
     right: 28px;
     font-size: 16px;
     font-weight: 400;
@@ -238,7 +296,7 @@ export default {
 
       &:hover {
         transform: scale(1.25);
-        cursor: pointer;
+        cursor: col-resize;
       }
     }
   }

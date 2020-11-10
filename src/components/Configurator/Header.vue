@@ -1,22 +1,80 @@
 <template>
   <div class="header">
-    <div class="tiile">{{ tiile }}</div>
-    <div class="prev" />
-    <div class="next" />
+    <div
+      class="title"
+      v-for="(name, key) of currentTypeData.screensNames"
+      :key="key"
+    >
+      <transition name="change-header">
+        <div v-if="key === currentScreen.split('/')[1]">{{ name }}</div>
+      </transition>
+    </div>
+    <div class="prev" :class="{ disabled: !canGoBack }" @click="prev" />
+    <div class="next" :class="{ disabled: !canGoForward }" @click="next" />
     <div class="dots">
-      <div class="dot" />
-      <div class="dot selected" />
+      <div
+        class="dot"
+        :class="{ selected: currentScreen === screen }"
+        :key="screen"
+        @click="() => selectScreen(screen)"
+        v-for="screen of avaibleScreens"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import 'animate.css/source/fading_entrances/fadeIn.css';
+
 export default {
   name: 'Header',
   data: () => {
-    return {
-      tiile: 'ТИПЫ И РАЗМЕРЫ ОКОН'
-    };
+    return {};
+  },
+  computed: {
+    currentType() {
+      return this.$store.getters['configurator/selectedType'];
+    },
+    currentTypeData() {
+      const avaibleTypes = this.$store.state.configurator.avaibleTypes;
+
+      return avaibleTypes[this.currentType];
+    },
+    currentScreen() {
+      return this.$store.getters['configurator/currentScreen'];
+    },
+    avaibleScreens() {
+      const avaibleScreens = this.currentTypeData.screens;
+
+      return avaibleScreens.map(screen => `${this.currentType}/${screen}`);
+    },
+    currentIndex() {
+      return this.avaibleScreens.indexOf(this.currentScreen);
+    },
+    canGoForward() {
+      return this.currentIndex + 1 < this.avaibleScreens.length;
+    },
+    canGoBack() {
+      return this.currentIndex > 0;
+    }
+  },
+  methods: {
+    selectScreen(screenPath) {
+      this.$store.commit('configurator/currentScreen', screenPath);
+    },
+    next() {
+      if (this.canGoForward) {
+        this.selectScreen(this.avaibleScreens[this.currentIndex + 1]);
+      }
+    },
+    prev() {
+      if (this.canGoBack) {
+        this.selectScreen(this.avaibleScreens[this.currentIndex - 1]);
+      }
+    }
+  },
+  mounted() {
+    console.log(this.avaibleScreens);
   }
 };
 </script>
@@ -26,12 +84,16 @@ export default {
 
 .header {
   position: relative;
-  text-align: center;
+  height: 64px;
   padding-bottom: 25px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
-.tiile {
+.title {
+  position: absolute;
+  left: 0;
+  right: 0;
   font-size: 22px;
   font-weight: 500;
 }
@@ -47,12 +109,19 @@ export default {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAAAXNSR0IArs4c6QAAAH1JREFUKBWV01EKgDAIBmCpa3Sx6Ga9RkfpFJ0l7PdBGKJOBz8L5jdjbMTMG/IiF7IilEUWH0THjY8UCdiRTwXmFGn7o4oUyFxCIyghC6bIAymKQIgy4KFzoe7AcUZd3GNuFcvmHnB31j+xIC22HabFIygVK2hf7/YDaj3RH6h171WBt325AAAAAElFTkSuQmCC');
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.5;
   transition: opacity $transition;
-  cursor: pointer;
 
-  &:hover {
+  z-index: 10;
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.25 !important;
+  }
+
+  &:hover:not(.disabled) {
     opacity: 1;
+    cursor: pointer;
   }
 }
 
@@ -108,5 +177,12 @@ export default {
   &.selected {
     opacity: 1;
   }
+}
+
+.change-header-enter-active {
+  animation: fadeIn 0.5s;
+}
+.change-header-leave-active {
+  animation: fadeIn 0.5s reverse;
 }
 </style>

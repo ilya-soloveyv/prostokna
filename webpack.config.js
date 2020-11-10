@@ -142,19 +142,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          plugins: [
-            [
-              'component',
-              {
-                libraryName: 'element-ui',
-                styleLibraryName: 'theme-chalk'
-              }
-            ]
-          ]
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.(sa|sc|c)ss$/,

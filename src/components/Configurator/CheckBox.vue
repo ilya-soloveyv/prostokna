@@ -1,13 +1,44 @@
 <template>
-  <div class="checkbox">
-    <input type="checkbox" id="name" />
-    <label for="name">Label</label>
+  <div
+    class="checkbox"
+    :class="{ compact: compact, paragraph: paragraph, disabled: disabled }"
+  >
+    <input type="checkbox" :id="id" v-model="isChecked" />
+    <label :for="id" v-if="label">{{ label }}</label>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CheckBox'
+  name: 'CheckBox',
+  props: {
+    label: String,
+    compact: {
+      type: Boolean
+    },
+    paragraph: {
+      type: Boolean
+    },
+    checked: {
+      type: Boolean
+    },
+    disabled: Boolean
+  },
+  data() {
+    return {
+      id: null,
+      isChecked: this.checked
+    };
+  },
+  watch: {
+    isChecked() {
+      if (this.disabled) return;
+      this.$emit('change', this.isChecked);
+    }
+  },
+  mounted() {
+    this.id = this._uid;
+  }
 };
 </script>
 
@@ -15,7 +46,36 @@ export default {
 @import '@scss/variables';
 
 .checkbox {
-  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $gray-lighter;
+  transition: opacity $transition;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &:hover label {
+    color: lighten($gray-lighter, 20%);
+  }
+
+  &.compact {
+    height: 100px;
+    margin-top: -15px;
+    margin-bottom: 0;
+    padding-top: 2px !important;
+  }
+
+  &.paragraph {
+    padding-left: 28px;
+  }
 }
 
 input {
@@ -23,8 +83,15 @@ input {
   height: 0;
   opacity: 0;
 
+  &:focus ~ label {
+    color: lighten($gray-lighter, 20%);
+  }
+
   & ~ label {
+    position: relative;
     padding-left: 48px;
+    color: $gray-lighter;
+    transition: color $transition;
     cursor: pointer;
 
     &::before,

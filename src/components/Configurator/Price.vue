@@ -26,12 +26,52 @@ export default {
     };
   },
   computed: {
+    lastUpdate() {
+      return this.currentProduct ? this.currentProduct.lastUpdate : Date.now();
+    },
+    currentProduct() {
+      return this.$store.getters['configurator/currentProduct'];
+    },
+    avaibleTypes() {
+      return this.$store.state.configurator.avaibleTypes;
+    },
     fullPrice() {
       let price = 0;
 
-      this.items.map(item => (price = price + item.price));
+      this.items.forEach(item => (price = price + item.price));
 
       return price;
+    }
+  },
+  watch: {
+    lastUpdate() {
+      this.pricesByType();
+    }
+  },
+  methods: {
+    async pricesByType() {
+      const table = [];
+
+      for (const typeKey in this.avaibleTypes) {
+        const type = this.avaibleTypes[typeKey];
+        const productsForType = this.$store.getters[
+          'configurator/getProductsByType'
+        ](typeKey);
+        let price = 0;
+
+        for (const product of productsForType) {
+          price = price + (await product.calculatePrice());
+        }
+
+        if (productsForType.length) {
+          table.push({
+            name: type.name,
+            price
+          });
+        }
+      }
+
+      this.items = table;
     }
   }
 };
