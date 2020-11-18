@@ -1,6 +1,7 @@
 /**
  * Common scripts : legacy
  */
+import '@babel/polyfill';
 import 'owl.carousel';
 import 'jquery-ui';
 import 'jquery-ui-touch-punch';

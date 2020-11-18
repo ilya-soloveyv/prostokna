@@ -3,7 +3,10 @@ import '@scss/modal-compare.scss';
 
 function positionTabBg(_this) {
   var _this = _this
-    ? $(_this).parents('.nav-item').find('a').parent()
+    ? $(_this)
+        .parents('.nav-item')
+        .find('a')
+        .parent()
     : $(' ul.nav li.nav-item a.active').parent();
   var pos = _this.position();
   var left = pos.left;
@@ -11,7 +14,9 @@ function positionTabBg(_this) {
   var width = _this.width();
   var height = _this.height();
   var bg = _this.parents('ul.nav').find('.bg');
-  bg.width(width).height(height).css({ top: top, left: left });
+  bg.width(width)
+    .height(height)
+    .css({ top: top, left: left });
 }
 
 // function positionTabBg (_this) {
@@ -49,7 +54,7 @@ const vueModalCompare = new Vue({
     comparePage: false,
     modelSelectPage: false,
     isActive: {},
-    markHideSameValue: false,
+    markHideSameValue: false
   },
 
   created() {
@@ -68,22 +73,20 @@ const vueModalCompare = new Vue({
     Vue.set(this, 'isActive', flags);
   },
   watch: {
-    markHideSameValue: function () {
+    markHideSameValue: function() {
       this.hideSameValues();
-    },
+    }
   },
   computed: {
-    result: function () {
+    result: function() {
       const brands = [];
       // console.log('beg', this.products);
       const list = this.products.filter(
-        (product) => product.iMaterialID === this.iMaterialID
+        product => product.iMaterialID === this.iMaterialID
       );
       // console.log(list);
-      list.forEach((product) => {
-        const check = brands.find(
-          (brand) => brand.iBrandID === product.iBrandID
-        );
+      list.forEach(product => {
+        const check = brands.find(brand => brand.iBrandID === product.iBrandID);
         // console.log('list ');
         // console.log(check);
         if (!check) {
@@ -95,7 +98,7 @@ const vueModalCompare = new Vue({
           // console.log('3',brands);
         }
         const productsList = brands.find(
-          (brand) => brand.iBrandID === product.iBrandID
+          brand => brand.iBrandID === product.iBrandID
         );
         // console.log('pl', productsList)
         productsList.products.push(product);
@@ -109,21 +112,19 @@ const vueModalCompare = new Vue({
       return brands;
     },
 
-    selectedListProducts: function () {
+    selectedListProducts: function() {
       var list = [];
-      this.selectedProducts.forEach((selectedProduct) => {
+      this.selectedProducts.forEach(selectedProduct => {
         list.push(
-          this.products.find(
-            (product) => product.iProductID === selectedProduct
-          )
+          this.products.find(product => product.iProductID === selectedProduct)
         );
       });
       //console.log(list);
       return list;
     },
-    itemsNumber: function () {
+    itemsNumber: function() {
       return this.selectedProducts.length;
-    },
+    }
   },
   mounted() {
     console.log('mounted');
@@ -133,8 +134,8 @@ const vueModalCompare = new Vue({
       Vue.set(this, 'products', data.product);
     });
     // MiniBarSelectionModel.update();
-    Vue.nextTick(function () {
-      $('#compareModal').on('show.bs.modal', function (e) {
+    Vue.nextTick(function() {
+      $('#compareModal').on('show.bs.modal', function(e) {
         $('body').addClass('modal-open-compare');
         // MiniBarSelectionModel.update();
         // console.log(this.MiniBarSelectionModel)
@@ -147,7 +148,7 @@ const vueModalCompare = new Vue({
         }
         console.log('modelSelectPage: ', vueModalCompare.modelSelectPage);
       });
-      $('#compareModal').on('hidden.bs.modal', function (e) {
+      $('#compareModal').on('hidden.bs.modal', function(e) {
         $('body').removeClass('modal-open-compare');
         vueModalCompare.modelSelectPage = false;
         // MiniBarSelectionModel.update();
@@ -166,26 +167,26 @@ const vueModalCompare = new Vue({
   },
 
   methods: {
-    owlCarouselInit: function () {
-      Vue.nextTick(function () {
+    owlCarouselInit: function() {
+      Vue.nextTick(function() {
         $('.owl-carousel').owlCarousel({
           nav: true,
           navText: [
             '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#989898" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
-            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#989898" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#989898" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>'
           ],
           dots: false,
           responsive: {
             0: {
-              items: 2,
+              items: 2
             },
             768: {
-              items: 3,
+              items: 3
             },
             1280: {
-              items: 4,
-            },
-          },
+              items: 4
+            }
+          }
           // onInitialized: () => {
           //     $('.s7 .owl-nav').prepend($('.s7 .owl-dots'))
           // }
@@ -193,8 +194,8 @@ const vueModalCompare = new Vue({
       });
     },
 
-    makeRows: function () {
-      Vue.nextTick(function () {
+    makeRows: function() {
+      Vue.nextTick(function() {
         console.log($('.myimg').height());
         const h = {};
         $('.carousel-wrapper .row-i').each((index, row) => {
@@ -217,16 +218,16 @@ const vueModalCompare = new Vue({
       });
     },
 
-    selectType: function () {
+    selectType: function() {
       this.isWindowChecked = !this.isWindowChecked;
       console.log('isWindowChecked', this.isWindowChecked);
     },
 
-    selectModel: function () {
+    selectModel: function() {
       this.modelSelectPage = true;
       console.log('selectModel', this.modelSelectPage);
     },
-    makeCompare: function () {
+    makeCompare: function() {
       if (this.selectedProducts.length < 2) return;
       this.comparePage = true;
       console.log('makeCompare ', this.comparePage);
@@ -237,13 +238,13 @@ const vueModalCompare = new Vue({
       );
       this.owlCarouselInit();
 
-      Vue.nextTick(function () {
-        $('ul.nav li.nav-item').click(function (e) {
+      Vue.nextTick(function() {
+        $('ul.nav li.nav-item').click(function(e) {
           positionTabBg(e.target);
         });
       });
     },
-    returnToSelection: function () {
+    returnToSelection: function() {
       this.comparePage = false;
     },
     reloadMiniBar() {
@@ -252,10 +253,10 @@ const vueModalCompare = new Vue({
       //   new MiniBar('.selection-model').update();
       // })
     },
-    getImgLink: function (fileName) {
+    getImgLink: function(fileName) {
       return '/images/product/color/' + fileName;
     },
-    deleteProduct: function (index) {
+    deleteProduct: function(index) {
       // this.selectedProducts.splice(index, 1);
       // if(this.selectedProducts.length === 1) {
       //   this.comparePage = false;
@@ -277,7 +278,7 @@ const vueModalCompare = new Vue({
       //   $(".owl-carousel").trigger('remove.owl.carousel', [index]).trigger('refresh.owl.carousel');
       // })
     },
-    hideSameValues: function () {
+    hideSameValues: function() {
       console.log('hideSameValues');
       const length = this.selectedListProducts.length;
       const flagsArr = {};
@@ -293,7 +294,7 @@ const vueModalCompare = new Vue({
       const decorationOptionsArr = [];
       const frameFeatureArr = [];
       if (this.markHideSameValue) {
-        this.selectedListProducts.forEach((selectedProduct) => {
+        this.selectedListProducts.forEach(selectedProduct => {
           mountingDepthArr.push(selectedProduct.MountingDepth);
           profileArr.push(selectedProduct.Profile);
           profileClassArr.push(selectedProduct.ProfileClass);
@@ -317,24 +318,24 @@ const vueModalCompare = new Vue({
         flagsArr['shapikShapeOptions'] = shapikShapeOptionsArr;
         flagsArr['decorationOptions'] = decorationOptionsArr;
         flagsArr['frameFeature'] = frameFeatureArr;
-        flags['mountingDepth'] = !flagsArr.mountingDepth.every(function (
+        flags['mountingDepth'] = !flagsArr.mountingDepth.every(function(
           item,
           i,
           list
         ) {
           return item === list[0];
         });
-        flags['profile'] = !flagsArr.profile.every(function (item, i, list) {
+        flags['profile'] = !flagsArr.profile.every(function(item, i, list) {
           return item === list[0];
         });
-        flags['profileClass'] = !flagsArr.profileClass.every(function (
+        flags['profileClass'] = !flagsArr.profileClass.every(function(
           item,
           i,
           list
         ) {
           return item === list[0];
         });
-        flags['doubleGlazing'] = !flagsArr.doubleGlazing.every(function (
+        flags['doubleGlazing'] = !flagsArr.doubleGlazing.every(function(
           item,
           i,
           list
@@ -343,26 +344,28 @@ const vueModalCompare = new Vue({
         });
         flags[
           'heatTransferResistance'
-        ] = !flagsArr.heatTransferResistance.every(function (item, i, list) {
+        ] = !flagsArr.heatTransferResistance.every(function(item, i, list) {
           return item === list[0];
         });
-        flags['country'] = !flagsArr.country.every(function (item, i, list) {
+        flags['country'] = !flagsArr.country.every(function(item, i, list) {
           return item === list[0];
         });
-        flags['test'] = !flagsArr.test.every(function (item, i, list) {
+        flags['test'] = !flagsArr.test.every(function(item, i, list) {
           return item === list[0];
         });
         flags['shapikShapeOptions'] = !flagsArr.shapikShapeOptions.every(
-          function (item, i, list) {
+          function(item, i, list) {
             return item === list[0];
           }
         );
-        flags['decorationOptions'] = !flagsArr.decorationOptions.every(
-          function (item, i, list) {
-            return item === list[0];
-          }
-        );
-        flags['frameFeature'] = !flagsArr.frameFeature.every(function (
+        flags['decorationOptions'] = !flagsArr.decorationOptions.every(function(
+          item,
+          i,
+          list
+        ) {
+          return item === list[0];
+        });
+        flags['frameFeature'] = !flagsArr.frameFeature.every(function(
           item,
           i,
           list
@@ -383,14 +386,14 @@ const vueModalCompare = new Vue({
         flags['frameFeature'] = true;
         Vue.set(this, 'isActive', flags);
       }
-    },
-  },
+    }
+  }
 });
 
 $(document).on(
   'click',
   '#compareModal .modal-dialog .modal-content .modal-body .page-compare .stages__item',
-  function () {
+  function() {
     $(this)
       .addClass('active')
       .siblings()
@@ -421,8 +424,12 @@ $(document).on(
   }
 );
 
-$(document).on('click', '#compareModal ul.brand li span.brand', function () {
-  $(this).parent().addClass('active').siblings().removeClass('active');
+$(document).on('click', '#compareModal ul.brand li span.brand', function() {
+  $(this)
+    .parent()
+    .addClass('active')
+    .siblings()
+    .removeClass('active');
   // $(this).next().slideDown('fast').parent().siblings().find('ul.model').slideUp('fast');
 
   // $("#compareModal .selection-model ul.model").slideToggle('fast');

@@ -11,7 +11,9 @@
       "plugin:unicorn/recommended",
       "plugin:prettier/recommended",
       "prettier",
-      "prettier/@typescript-eslint"
+      "prettier/@typescript-eslint",
+      "plugin:vue/essential",
+      "@vue/standard"
     ],
     "parserOptions": {
       "ecmaVersion": 2020,
