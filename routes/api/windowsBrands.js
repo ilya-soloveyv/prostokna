@@ -4,54 +4,51 @@ const Product = require('../../models').product;
 
 const router = Router();
 
-const getBrandsByMaterial = async iMaterialID => {
-  const handledBrands = [];
-  const brandsByMaterial = [];
-  const productsByMaterial = await Product.findAll({
-    attributes: ['iBrandID'],
-    where: {
-      iMaterialID: iMaterialID
-    },
-    include: [
-      {
-        model: Brand,
-        attributes: ['sBrandTitle']
-        // where: {
-        //   iActive: 1
-        // }
-      }
-    ]
-  });
+// const getBrandsByMaterial = async iMaterialID => {
+//   const handledBrands = [];
+//   const brandsByMaterial = [];
+//   const productsByMaterial = await Product.findAll({
+//     attributes: ['iBrandID'],
+//     where: {
+//       iMaterialID: iMaterialID
+//     },
+//     include: [
+//       {
+//         model: Brand,
+//         attributes: ['sBrandTitle', 'sBrandDesc']
+//         // where: {
+//         //   iActive: 1
+//         // }
+//       }
+//     ]
+//   });
 
-  productsByMaterial.forEach(product => {
-    const iBrandID = product.iBrandID;
-    const sBrandTitle = product.brand.sBrandTitle;
+//   productsByMaterial.forEach(product => {
+//     const id = product.iBrandID;
+//     const title = product.brand.sBrandTitle;
+//     const description = product.brand.sBrandDesc;
 
-    if (handledBrands.indexOf(iBrandID) !== -1) return;
+//     console.log(product.brand);
 
-    handledBrands.push(iBrandID);
+//     if (handledBrands.indexOf(id) !== -1) return;
 
-    brandsByMaterial.push({
-      iBrandID: iBrandID,
-      sBrandTitle: sBrandTitle
-    });
-  });
+//     handledBrands.push(id);
 
-  return brandsByMaterial;
-};
+//     brandsByMaterial.push({
+//       id,
+//       title,
+//       description
+//     });
+//   });
+
+//   return brandsByMaterial;
+// };
 
 // router.get('/', async (req, res, next) => {
-//   let response = [];
-
-//   if (req.query.materialId) {
-//     response = await getBrandsByMaterial(req.query.materialId);
-//   } else {
-//     response = await Brand.findAll({
-//       attributes: ['iBrandID', 'sBrandTitle']
-//     });
-//   }
-
-//   res.json(response);
+//   res.json({
+//     status: 'OK',
+//     payload: await getBrandsByMaterial(req.query.materialId)
+//   });
 // });
 
 const brandDescription = `
@@ -67,7 +64,12 @@ const brandDescription = `
 </ul>
 `;
 
+/**
+ * Доступна фильтрация по id материала
+ */
 router.get('/', async (req, res, next) => {
+  const materialId = req.query.materialId;
+
   res.json({
     status: 'OK',
     payload: [

@@ -5,29 +5,37 @@ const s = require('../../src/utils/safeOpeningsSequence');
 const randomPercent = () => Math.round(Math.random() * 50) + 50;
 
 const priceTable = {
+  // однокамерный стеклопакет
   '1': [
-    [450, 500, 1293],
-    [450, 2000, 3318],
-    [1025, 1250, 3743],
-    [1600, 2000, 15767],
-    [1600, 500, 2887]
+    [450, 500, 1027],
+    [450, 2000, 2648],
+    [1025, 1250, 3057],
+    [1600, 500, 2310]
   ],
+  // двухкамерный стеклопакет
   '2': [
-    [450, 500, 1293],
-    [450, 2000, 3318],
-    [1025, 1250, 3743],
-    [1600, 2000, 15767],
-    [1600, 500, 2887]
+    [450, 500, 1144],
+    [450, 2000, 3018],
+    [1025, 1250, 3653],
+    [1600, 500, 2644],
+    [1600, 2000, 10109]
   ]
 };
 
+/**
+ * Вывод доподнительной информации о модели
+ * Переменная строки запроса `modelId` обязательна
+ */
 router.get('/', async (req, res, next) => {
+  const modelId = req.query.modelId;
+
   res.json({
     status: 'OK',
     payload: {
-      name: 'Brandname MODEL',
+      name: 'Brandname MODEL', // бренд + модель
       prices: {
         window: {
+          // подробнее о кодах конфигурации окна в `windowsRanges.js`
           '0': priceTable,
           '1': priceTable,
           '2': priceTable,
@@ -51,6 +59,7 @@ router.get('/', async (req, res, next) => {
           2: priceTable
         }
       },
+      // Профили опциональны. Например их не будет у деревянных окон
       profiles: [
         { id: 1, title: 'Трехкамерный' },
         { id: 2, title: 'Пятикамерный' }
@@ -59,10 +68,12 @@ router.get('/', async (req, res, next) => {
         { id: 1, title: 'Однокамерный стеклопакет' },
         { id: 2, title: 'Двухкамерный стеклопакет' }
       ],
+      // Описание модели. Допустима базовая HTML разметка
       description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
         aliquam atque corrupti id ratione. Ullam necessitatibus provident
         possimus, vel iusto fugit repellat consequatur reiciendis cumque
         vitae, doloribus aliquid quis sapiente?`,
+      // Характеристики модели выражаемые в процентах
       charts: {
         safety: randomPercent(),
         aesthetics: randomPercent(),

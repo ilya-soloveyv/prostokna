@@ -1,5 +1,13 @@
 <template>
-  <div class="selector" :class="{ disabled: disabled }">
+  <div
+    class="selector"
+    :class="{
+      disabled: disabled,
+      desktop: isDesktop,
+      tablet: isTablet,
+      mobile: isMobile
+    }"
+  >
     <label>{{ label }}</label>
     <select @change="onChange" :tabindex="disabled ? '-1' : '0'">
       <option
@@ -29,6 +37,17 @@ export default {
   },
   data: () => {
     return {};
+  },
+  computed: {
+    isDesktop() {
+      return ['xl'].includes(this.$mq);
+    },
+    isTablet() {
+      return ['sm', 'md', 'lg'].includes(this.$mq);
+    },
+    isMobile() {
+      return ['xs'].includes(this.$mq);
+    }
   },
   methods: {
     onChange(e) {
@@ -64,6 +83,10 @@ export default {
     font-weight: 400;
     text-transform: uppercase;
     color: rgba($light, 0.6);
+  }
+
+  &.tablet select {
+    padding: 47px 28px 14px;
   }
 
   select {

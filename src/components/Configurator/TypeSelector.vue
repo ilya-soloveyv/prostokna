@@ -1,5 +1,5 @@
 <template>
-  <div class="type-selector">
+  <div class="type-selector" ref="self" :class="{ compact: !isDesktop }">
     <div
       class="option"
       v-for="(type, key) in avaibleTypes"
@@ -12,6 +12,9 @@
       <img :src="type.icon" alt="" />
 
       <div class="badge">{{ getProductCountByType(key) }}</div>
+      <div class="price" v-if="!isDesktop">
+        120 300 ₽
+      </div>
     </div>
     <div class="backplate" v-bind:style="backplateStyle" />
   </div>
@@ -21,28 +24,26 @@
 export default {
   name: 'TypeSelector',
   data: () => {
-    return {};
+    return {
+      optionsElements: [],
+      backplateStyle: {},
+      _element: null
+    };
   },
   computed: {
+    isDesktop() {
+      return ['xl', 'lg', 'md'].includes(this.$mq);
+    },
     avaibleTypes() {
       return this.$store.state.configurator.avaibleTypes;
     },
     selectedType() {
       return this.$store.getters['configurator/selectedType'];
-    },
-    backplateStyle() {
-      const types = Object.keys(this.avaibleTypes);
-      const currentOption = this.selectedType;
-      const currentPosition = types.indexOf(currentOption) + 1;
-      const optionsCount = types.length;
-      const percentPerOption = 100 / optionsCount;
-      const left = percentPerOption * (currentPosition - 1);
-      const right = percentPerOption * (optionsCount - currentPosition);
-
-      return {
-        left: `calc(${left}% + 5px)`,
-        right: `calc(${right}% + 5px)`
-      };
+    }
+  },
+  watch: {
+    selectedType() {
+      this.calculateBackplateStyle();
     }
   },
   methods: {
@@ -51,7 +52,30 @@ export default {
     },
     getProductCountByType(type) {
       return this.$store.getters['configurator/getProductCountByType'](type);
+    },
+    calculateBackplateStyle() {
+      setTimeout(() => {
+        const types = Object.keys(this.avaibleTypes);
+        const currentIndex = types.indexOf(this.selectedType);
+        const optionsRect = this._element.getBoundingClientRect();
+        const selectedRect = this.optionsElements[
+          currentIndex
+        ].getBoundingClientRect();
+        const width = optionsRect.width;
+        const left = (optionsRect.left - selectedRect.left) * -1;
+        const right = (selectedRect.right - optionsRect.right) * -1;
+
+        this.backplateStyle = {
+          left: `calc(${left}px + 5px)`,
+          right: `calc(${right}px + 5px)`
+        };
+      }, 0);
     }
+  },
+  mounted() {
+    this._element = this.$refs.self;
+    this.optionsElements = this.$refs.self.querySelectorAll('.option');
+    this.calculateBackplateStyle();
   }
 };
 </script>
@@ -68,6 +92,25 @@ export default {
   margin-bottom: 40px;
   border-radius: 50px;
   background-color: $gray-600;
+
+  &.compact {
+    max-width: 50%;
+    margin: 0 auto 40px;
+  }
+}
+
+.price {
+  width: 0;
+  margin-left: 10px;
+  opacity: 0;
+  overflow: hidden;
+  font-size: 14px;
+  transition: width $transition, opacity $transition;
+}
+
+.selected .price {
+  width: auto;
+  opacity: 1;
 }
 
 .option {

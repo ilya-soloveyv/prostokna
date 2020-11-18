@@ -1,5 +1,13 @@
 <template>
-  <div class="slider" :class="{ disabled: disabled }">
+  <div
+    class="slider"
+    :class="{
+      disabled: disabled,
+      desktop: isDesktop,
+      tablet: isTablet,
+      mobile: isMobile
+    }"
+  >
     <label>{{ label }}</label>
     <input
       type="number"
@@ -89,6 +97,15 @@ export default {
     }
   },
   computed: {
+    isDesktop() {
+      return ['xl'].includes(this.$mq);
+    },
+    isTablet() {
+      return ['sm', 'md', 'lg'].includes(this.$mq);
+    },
+    isMobile() {
+      return ['xs'].includes(this.$mq);
+    },
     thresholdsSum() {
       return this.min + this.max;
     },
@@ -208,6 +225,10 @@ export default {
     font-weight: 400;
     text-transform: uppercase;
     color: rgba($light, 0.6);
+  }
+
+  &.tablet input {
+    padding: 47px 28px 14px;
   }
 
   input {

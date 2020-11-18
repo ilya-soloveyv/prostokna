@@ -1,7 +1,7 @@
 <template>
   <div class="price-component">
     <div class="per-type" v-for="item of items" :key="item.name">
-      {{ item.name }}
+      {{ item.title }}
       <span class="price">{{ priceFormatter(item.price) }} ₽</span>
     </div>
     <div class="full">
@@ -18,10 +18,7 @@ export default {
   name: 'Price',
   data() {
     return {
-      items: [
-        { name: 'Оконные рамы', price: 120500 },
-        { name: 'Балконные кострукции', price: 48300 }
-      ],
+      items: [],
       priceFormatter: priceFormatter
     };
   },
@@ -66,6 +63,7 @@ export default {
         if (productsForType.length) {
           table.push({
             name: type.name,
+            title: type.title,
             price
           });
         }

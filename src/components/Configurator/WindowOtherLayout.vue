@@ -35,18 +35,16 @@
           <CheckBox
             label="Отлив"
             compact
-            :checked="currentProduct.sillCasting"
-            :disabled="!currentProduct.windowSill"
-            @change="sillCastingChange"
+            :checked="currentProduct.outerSill"
+            @change="outerSill"
           />
         </div>
         <div class="col-6">
           <CheckBox
             label="Монтаж"
             compact
-            :checked="currentProduct.sillMounting"
-            :disabled="!currentProduct.windowSill"
-            @change="sillMountingChange"
+            :checked="$store.state.configurator.installation"
+            @change="installationChange"
           />
         </div>
       </div>
@@ -79,15 +77,15 @@
         @change="slopesDepthChange"
       />
       <CheckBox
-        label="Подъем на этаж"
-        :checked="currentProduct.liftingToFloor"
-        @change="liftingToFloorChange"
+        label="Есть лифт"
+        :checked="!$store.state.configurator.liftingToFloor"
+        @change="value => liftingToFloorChange(!value)"
       />
-      <Selector
+      <Slider
         label="ЭТАЖ"
-        :options="avaibleFloors"
-        :disabled="!currentProduct.liftingToFloor"
-        :selected="currentProduct.floor"
+        :max="100"
+        :value="$store.state.configurator.floor"
+        :disabled="!$store.state.configurator.liftingToFloor"
         @change="floorChange"
       />
     </div>
@@ -98,9 +96,9 @@
 /**
  * Components
  */
-import Selector from './Selector.vue';
-import Slider from './Slider.vue';
-import CheckBox from './CheckBox.vue';
+import Selector from './common/Selector.vue';
+import Slider from './common/Slider.vue';
+import CheckBox from './common/CheckBox.vue';
 
 /**
  * Utils
@@ -111,9 +109,7 @@ export default {
   name: 'WindowOtherLayout',
   components: { Selector, Slider, CheckBox },
   data() {
-    return {
-      testOptions: [{ value: 123, text: 'text' }]
-    };
+    return {};
   },
   computed: {
     currentProduct() {
@@ -136,11 +132,16 @@ export default {
     }
   },
   methods: {
-    floorChange(value) {
-      this.$store.commit('configurator/mutateCurrentProduct', p => {
-        p.floor = parseInt(value);
-      });
+    installationChange(value) {
+      this.$store.commit('configurator/setInstallation', value);
     },
+    liftingToFloorChange(value) {
+      this.$store.commit('configurator/setLifting', value);
+    },
+    floorChange(value) {
+      this.$store.commit('configurator/setFloor', value);
+    },
+
     sillBrandChange(value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
         p.sillBrand = parseInt(value);
@@ -151,11 +152,7 @@ export default {
         p.windowSill = value;
       });
     },
-    liftingToFloorChange(value) {
-      this.$store.commit('configurator/mutateCurrentProduct', p => {
-        p.liftingToFloor = value;
-      });
-    },
+
     slopesDepthChange(value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
         p.slopesDepth = value;
@@ -181,14 +178,9 @@ export default {
         p.sillLength = value;
       });
     },
-    sillCastingChange(value) {
+    outerSill(value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
-        p.sillCasting = value;
-      });
-    },
-    sillMountingChange(value) {
-      this.$store.commit('configurator/mutateCurrentProduct', p => {
-        p.sillMounting = value;
+        p.outerSill = value;
       });
     }
   }

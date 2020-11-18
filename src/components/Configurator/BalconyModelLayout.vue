@@ -1,31 +1,11 @@
 <template>
   <div class="row window-model-layout">
-    <div class="col-12  col-lg-6">
+    <div class="col-6">
       <Selector
         label="ПРОИЗВОДИТЕЛЬ"
         :options="brands"
         :selected="brandId"
         @change="selectBrand"
-      />
-      <Selector
-        label="МОДЕЛЬ"
-        :options="models"
-        :selected="modelId"
-        @change="selectModel"
-      />
-      <Slider
-        label="МОНТАЖНАЯ ГЛУБИНА"
-        :min="mountingDepth[0]"
-        :max="mountingDepth[1]"
-        :value="currentProduct.mountingDepth"
-        @change="setMountingDepth"
-      />
-      <Selector
-        label="КАМЕРНОСТЬ ПРОФИЛЯ"
-        v-if="profiles.length"
-        :options="profiles"
-        :selected="currentProduct.profile"
-        @change="setProfile"
       />
       <Selector
         label="СТЕКЛОПАКЕТ"
@@ -34,7 +14,9 @@
         @change="setGlazing"
       />
     </div>
-    <div class="col-12  col-lg-6"><WindowDescription /></div>
+    <div class="col-6">
+      <WindowDescription />
+    </div>
   </div>
 </template>
 
@@ -101,7 +83,7 @@ export default {
     },
     setGlazing(value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
-        p.glazing = value;
+        p.glazing = parseInt(value);
       });
     },
     selectBrand(id) {
