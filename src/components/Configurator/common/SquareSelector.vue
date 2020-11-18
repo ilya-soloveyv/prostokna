@@ -1,12 +1,13 @@
 <template>
-  <div class="square-selector row">
+  <div class="square-selector row" :style="maxWidthStyle">
     <div
       v-for="(option, index) of options"
       :key="index"
       :data-test="index"
-      :class="{ selected: option.value === selected }"
+      :class="{ selected: option.value === selected, [optionColClass]: true }"
+      :style="optionStyle"
       @click="() => select(option.value)"
-      class="option col-4"
+      class="option"
     >
       <div class="option-body">
         <img :src="option.icon" alt="" />
@@ -24,10 +25,31 @@ export default {
   props: {
     options: Array,
     selected: [Number, String],
-    flip: Boolean
+    flip: Boolean,
+    cols: {
+      type: Number,
+      default: 3
+    },
+    maxWidth: { type: [String], default: '' }
   },
   data() {
     return {};
+  },
+  computed: {
+    maxWidthStyle() {
+      if (!this.maxWidth) return {};
+      return {
+        maxWidth: this.maxWidth
+      };
+    },
+    optionColClass() {
+      return `col-${Math.round(12 / this.cols)}`;
+    },
+    optionStyle() {
+      return {
+        paddingTop: `calc(100% / ${this.cols})`
+      };
+    }
   },
   methods: {
     select(value) {

@@ -1,11 +1,11 @@
 <template>
   <transition name="slide">
-    <div class="windows-slider" v-if="products.length">
-      <div v-for="product of products" :key="product.id">
-        <transition name="slide">
-          <div class="window" v-if="product === currentProduct">
-            <div class="name">{{ name }}</div>
-            <div class="price">{{ price }}₽</div>
+    <div class="row">
+      <div class="col-6" v-for="product of products" :key="product.id">
+        <div class="windows-slider">
+          <div class="window">
+            <div class="name">{{ product.name }}</div>
+            <div class="price">{{ priceFormatter(product.price) }} ₽</div>
             <div class="actions">
               <img v-bind:src="editIcon" class="action edit" />
               <img
@@ -17,35 +17,26 @@
 
             <div class="options">
               <div class="type">
-                <img :src="shapeIcon" alt="" :style="shapeIconStyles" />
+                <img
+                  :src="product.shapeIcon"
+                  alt=""
+                  :style="shapeIconStyles(product)"
+                />
               </div>
               <div class="materials">
                 <div
                   class="material"
-                  v-if="frontFaceColor"
-                  :style="frontFaceColorStyles"
+                  v-if="product.frontFaceColor"
+                  :style="product.frontFaceColorStyles"
                 ></div>
                 <div
                   class="material"
-                  v-if="backFaceColor && currentProduct.paintingType === 2"
-                  :style="backFaceColorStyles"
+                  v-if="product.backFaceColor && product.paintingType === 2"
+                  :style="product.backFaceColorStyles"
                 ></div>
               </div>
             </div>
           </div>
-        </transition>
-      </div>
-      <div class="controls">
-        <div class="prev" @click="prevProduct" />
-        <div class="next" @click="nextProduct" />
-        <div class="dots">
-          <div
-            class="dot"
-            v-for="product of products"
-            :class="{ selected: product.id === currentProductId }"
-            :key="product.id"
-            @click="() => selectProduct(product)"
-          />
         </div>
       </div>
     </div>
@@ -64,7 +55,7 @@ import deleteIcon from '@images/configurator/delete-icon.svg';
 import editIcon from '@images/configurator/edit-icon.svg';
 
 export default {
-  name: 'WindowsSlider',
+  name: 'TouchWindowsSlider',
   data() {
     return {
       deleteIcon,
@@ -73,7 +64,9 @@ export default {
       name: '',
       frontFaceColor: null,
       backFaceColor: null,
-      price: 0
+      price: 0,
+      products: [],
+      priceFormatter
     };
   },
   computed: {
@@ -83,69 +76,76 @@ export default {
     lastUpdate() {
       return this.currentProduct ? this.currentProduct.lastUpdate : Date.now();
     },
-    frontFaceColorStyles() {
-      return {
-        background: 'initial',
-        backgroundPosition: 'center',
-        backgroundColor: this.frontFaceColor.hex || 'none',
-        backgroundImage: this.frontFaceColor.texture
-          ? `url('${this.frontFaceColor.texture}')`
-          : 'none'
-      };
-    },
-    backFaceColorStyles() {
-      return {
-        background: 'initial',
-        backgroundPosition: 'center',
-        backgroundColor: this.backFaceColor.hex || 'none',
-        backgroundImage: this.backFaceColor.texture
-          ? `url('${this.backFaceColor.texture}')`
-          : 'none'
-      };
-    },
-    shapeIconStyles() {
-      return {
-        transform: this.isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
-      };
-    },
-    products() {
+
+    productsWithCurrentType() {
       return this.$store.getters['configurator/productsWithCurrentType'];
     },
+
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
     },
     currentProductId() {
       return this.$store.getters['configurator/currentProductId'];
-    },
-    shapeIcon() {
-      return this.currentProduct.getSelectedShape().icon;
-    },
-    isFlipped() {
-      return this.currentProduct.isFlipped;
     }
   },
   watch: {
     lastUpdate() {
-      if (!this.currentProduct) return;
-      this.fetchSelectedColors();
-      this.calcPrice();
-      this.currentProduct.fetchModelData().then(data => {
-        this.name = data.name;
-      });
+      this.fetchProducts();
+    },
+    productsWithCurrentType() {
+      this.fetchProducts();
     }
   },
   methods: {
-    async fetchSelectedColors() {
-      if (!this.currentProduct) return;
+    async fetchProducts() {
+      const products = this.productsWithCurrentType;
+      const computedProducts = [];
 
-      const avaibleColors = await this.currentProduct.fetchAvaibleColors();
+      for await (let product of products) {
+        let { frontFace, backFace } = await product.fetchAvaibleColors();
 
-      this.frontFaceColor = avaibleColors.frontFace.find(
-        color => color.id === this.currentProduct.frontFaceColor
-      );
-      this.backFaceColor = avaibleColors.backFace.find(
-        color => color.id === this.currentProduct.backFaceColor
-      );
+        let newProduct = {
+          name: await product.fetchModelData().then(data => data.name),
+          price: await product.calculatePrice(),
+          frontFaceColor: frontFace.find(
+            color => color.id === product.frontFaceColor
+          ),
+          backFaceColor: backFace.find(
+            color => color.id === product.backFaceColor
+          ),
+          shapeIcon: product.getSelectedShape().icon,
+          get frontFaceColorStyles() {
+            return {
+              background: 'initial',
+              backgroundPosition: 'center',
+              backgroundColor: this.frontFaceColor.hex || 'none',
+              backgroundImage: this.frontFaceColor.texture
+                ? `url('${this.frontFaceColor.texture}')`
+                : 'none'
+            };
+          },
+
+          get backFaceColorStyles() {
+            return {
+              background: 'initial',
+              backgroundPosition: 'center',
+              backgroundColor: this.backFaceColor.hex || 'none',
+              backgroundImage: this.backFaceColor.texture
+                ? `url('${this.backFaceColor.texture}')`
+                : 'none'
+            };
+          }
+        };
+
+        computedProducts.push({ ...product, ...newProduct });
+      }
+
+      this.products = computedProducts;
+    },
+    shapeIconStyles(product) {
+      return {
+        transform: product.isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+      };
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
@@ -153,6 +153,7 @@ export default {
     removeProduct(product) {
       this.$store.dispatch('configurator/removeProduct', product);
     },
+
     prevProduct() {
       const selectedIndex = this.products.indexOf(this.currentProduct);
       const isFirst = selectedIndex === 0;
@@ -172,11 +173,10 @@ export default {
       } else {
         this.selectProduct(this.products[0]);
       }
-    },
-    calcPrice() {
-      if (!this.currentProduct) return;
-      this.currentProduct.calculatePrice().then(price => (this.price = price));
     }
+  },
+  mounted() {
+    this.fetchProducts();
   }
 };
 </script>

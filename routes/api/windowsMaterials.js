@@ -3,6 +3,9 @@ const Material = require('../../models').material;
 
 const router = Router();
 
+/**
+ * Вывод материалов доступных для оконных кострукций
+ */
 router.get('/', async (req, res, next) => {
   const materials = await Material.findAll({
     attributes: ['iMaterialID', 'sMaterialTitle'],

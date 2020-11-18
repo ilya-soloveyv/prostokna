@@ -1,163 +1,147 @@
 <template>
-  <transition name="fade">
-    <div class="row window-shape-layout" v-if="products.length">
-      <div
-        class="col-12 position-absolute"
-        v-for="product of products"
-        :key="product.id"
-      >
-        <transition name="fade">
-          <div class="row" v-if="product === currentProduct">
-            <div class="col-6" :class="{ flipped: currentProduct.isFlipped }">
-              <SquareSelector
-                :options="shapesGrid"
-                :selected="selectedShapeId"
-                @change="selectShape"
-              />
-            </div>
-            <div class="col-6">
-              <Selector
-                label="Материал"
-                :options="avaibleMaterilas"
-                :selected="currentProduct.materialId"
-                @change="selectMaterial"
-              />
+  <div class="row window-shape-layout">
+    <div class="col-12 col-lg-6" :class="{ flipped: currentProduct.isFlipped }">
+      <SquareSelector
+        :options="shapesGrid"
+        :selected="selectedShapeId"
+        @change="selectShape"
+      />
+    </div>
+    <div class="col-12  col-lg-6">
+      <Selector
+        label="Материал"
+        :options="avaibleMaterilas"
+        :selected="currentProduct.materialId"
+        @change="selectMaterial"
+      />
 
-              <!--
+      <!--
                 Выводится если было соблюдено условие isCompactSliders
               -->
-              <div class="row" v-if="isCompactSliders">
-                <div
-                  class="col-6 compact-slider"
-                  v-for="(size, key) of getAvaibleSizes()"
-                  :key="`sizeSlider_${key}`"
-                >
-                  <Slider
-                    :label="size.text"
-                    :max="size.max"
-                    :min="size.min"
-                    :value="size.value"
-                    @change="value => onSizeChange(size.name, value)"
-                    points="мм"
-                  />
-                </div>
-              </div>
-              <!--
+      <div class="row" v-if="isCompactSliders">
+        <div
+          class="col-12 col-lg-6 compact-slider"
+          v-for="(size, key) of getAvaibleSizes()"
+          :key="`sizeSlider_${key}`"
+        >
+          <Slider
+            :label="size.text"
+            :max="size.max"
+            :min="size.min"
+            :value="size.value"
+            @change="value => onSizeChange(size.name, value)"
+            points="мм"
+          />
+        </div>
+      </div>
+      <!--
                 Выводится если НЕ было соблюдено условие isCompactSliders
               -->
-              <div class="row" v-else>
-                <div
-                  class="col-12"
-                  v-for="(size, key) of firstTwoSizes"
-                  :key="`sizeSlider_${key}`"
-                >
-                  <Slider
-                    :label="size.text"
-                    :max="size.max"
-                    :min="size.min"
-                    :value="size.value"
-                    @change="value => onSizeChange(size.name, value)"
-                    points="мм"
-                  />
-                </div>
+      <div class="row" v-else>
+        <div
+          class="col-12"
+          v-for="(size, key) of firstTwoSizes"
+          :key="`sizeSlider_${key}`"
+        >
+          <Slider
+            :label="size.text"
+            :max="size.max"
+            :min="size.min"
+            :value="size.value"
+            @change="value => onSizeChange(size.name, value)"
+            points="мм"
+          />
+        </div>
 
-                <!--
+        <!--
                   Выводится если было соблюдено условие isOptionsNoWrap
                 -->
-                <div class="col-12" v-if="isOptionsNoWrap">
-                  <Selector
-                    v-for="(pane, index) of avaiblePanes.windowPanes"
-                    :key="`windowPanes_${index}`"
-                    :label="`Открывание створки ${index + 1}`"
-                    :options="avaiblePanes.openings.windows"
-                    :selected="
-                      currentProduct.getWindowPaneOpening(index) || null
-                    "
-                    @change="value => onWindowPaneChange(index, value)"
-                  />
-                  <Selector
-                    v-for="(pane, index) of avaiblePanes.doorPanes"
-                    :key="`doorPanes_${index}`"
-                    :label="`Открывание двери ${index + 1}`"
-                    :options="avaiblePanes.openings.doors"
-                    :selected="currentProduct.getDoorPaneOpening(index) || null"
-                    @change="value => onDoorPaneChange(index, value)"
-                  />
-                </div>
-                <!-- endif -->
-              </div>
-              <!-- endif -->
-            </div>
+        <div class="col-12" v-if="isOptionsNoWrap">
+          <Selector
+            v-for="(pane, index) of avaiblePanes.windowPanes"
+            :key="`windowPanes_${index}`"
+            :label="`Открывание створки ${index + 1}`"
+            :options="avaiblePanes.openings.windows"
+            :selected="currentProduct.getWindowPaneOpening(index) || null"
+            @change="value => onWindowPaneChange(index, value)"
+          />
+          <Selector
+            v-for="(pane, index) of avaiblePanes.doorPanes"
+            :key="`doorPanes_${index}`"
+            :label="`Открывание двери ${index + 1}`"
+            :options="avaiblePanes.openings.doors"
+            :selected="currentProduct.getDoorPaneOpening(index) || null"
+            @change="value => onDoorPaneChange(index, value)"
+          />
+        </div>
+        <!-- endif -->
+      </div>
+      <!-- endif -->
+    </div>
 
-            <!--
+    <!--
               Выводится если условие isOptionsNoWrap не действительно
             -->
-            <div class="col-12" v-if="!isOptionsNoWrap">
-              <div class="row">
-                <div
-                  class="col-6"
-                  v-for="(size, key) of allOtherSizes"
-                  :key="`sizeSlider_${key}`"
-                >
-                  <Slider
-                    v-if="!isCompactSliders"
-                    :label="size.text"
-                    :max="size.max"
-                    :min="size.min"
-                    :value="size.value"
-                    @change="value => onSizeChange(size.name, value)"
-                    points="мм"
-                  />
-                </div>
+    <div class="col-12" v-if="!isOptionsNoWrap">
+      <div class="row">
+        <div
+          class="col-12 col-lg-6"
+          v-for="(size, key) of allOtherSizes"
+          :key="`sizeSlider_${key}`"
+        >
+          <Slider
+            v-if="!isCompactSliders"
+            :label="size.text"
+            :max="size.max"
+            :min="size.min"
+            :value="size.value"
+            @change="value => onSizeChange(size.name, value)"
+            points="мм"
+          />
+        </div>
 
-                <div
-                  class="col-6"
-                  v-for="(pane, index) of avaiblePanes.windowPanes"
-                  :key="`windowPanes_${index}`"
-                >
-                  <Selector
-                    :key="`windowPanes_${index}`"
-                    :label="`Открывание створки ${index + 1}`"
-                    :options="avaiblePanes.openings.windows"
-                    :selected="
-                      currentProduct.getWindowPaneOpening(index) || null
-                    "
-                    @change="value => onWindowPaneChange(index, value)"
-                  />
-                </div>
+        <div
+          class="col-12 col-lg-6"
+          v-for="(pane, index) of avaiblePanes.windowPanes"
+          :key="`windowPanes_${index}`"
+        >
+          <Selector
+            :key="`windowPanes_${index}`"
+            :label="`Открывание створки ${index + 1}`"
+            :options="avaiblePanes.openings.windows"
+            :selected="currentProduct.getWindowPaneOpening(index) || null"
+            @change="value => onWindowPaneChange(index, value)"
+          />
+        </div>
 
-                <div
-                  class="col-6"
-                  v-for="(pane, index) of avaiblePanes.doorPanes"
-                  :key="`doorPanes_${index}`"
-                >
-                  <Selector
-                    :key="`doorPanes_${index}`"
-                    :label="`Открывание двери ${index + 1}`"
-                    :options="avaiblePanes.openings.doors"
-                    :selected="currentProduct.getDoorPaneOpening(index) || null"
-                    @change="value => onDoorPaneChange(index, value)"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- endif -->
-          </div>
-        </transition>
+        <div
+          class="col-12 col-lg-6"
+          v-for="(pane, index) of avaiblePanes.doorPanes"
+          :key="`doorPanes_${index}`"
+        >
+          <Selector
+            :key="`doorPanes_${index}`"
+            :label="`Открывание двери ${index + 1}`"
+            :options="avaiblePanes.openings.doors"
+            :selected="currentProduct.getDoorPaneOpening(index) || null"
+            @change="value => onDoorPaneChange(index, value)"
+          />
+        </div>
       </div>
     </div>
-  </transition>
+    <!-- endif -->
+  </div>
 </template>
 
 <script>
 /**
  * Components
  */
-import SquareSelector from './SquareSelector.vue';
-import Selector from './Selector.vue';
-import Slider from './Slider.vue';
-import CheckBox from './CheckBox.vue';
-import CircleProgress from './CircleProgress.vue';
+import SquareSelector from './common/SquareSelector.vue';
+import Selector from './common/Selector.vue';
+import Slider from './common/Slider.vue';
+import CheckBox from './common/CheckBox.vue';
+import CircleProgress from './common/CircleProgress.vue';
 import WindowDescription from './WindowDescription.vue';
 
 /**
@@ -230,7 +214,7 @@ export default {
     },
     shapesGrid() {
       const grid = this.currentProduct
-        ? this.currentProduct.getAvaibleShapes()
+        ? [...this.currentProduct.getAvaibleShapes()]
         : [];
 
       grid.push({

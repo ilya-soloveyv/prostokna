@@ -1,7 +1,19 @@
+// свойства по умолчанию для всех продуктов
+const coreDefaults = { selectedShapeId: null };
+
 const Product = class {
   constructor() {
     this.id = Date.now();
     this.lastUpdate = Date.now();
+
+    const combinedDefaults = {
+      ...coreDefaults,
+      ...this.defaults
+    };
+
+    Object.keys(combinedDefaults).forEach(key => {
+      this[key] = combinedDefaults[key];
+    });
 
     return new Proxy(this, {
       set(target, property, value) {
@@ -11,6 +23,62 @@ const Product = class {
       }
     });
   }
+
+  get defaults() {
+    return {};
+  }
+
+  /**
+   * Данный метод нужно реализовать в дочернем классе
+   */
+  calculatePrice() {
+    throw new Error('Не реализована логика рассчета цены');
+  }
+
+  /**
+   * Данный метод нужно реализовать в дочернем классе
+   *
+   * Данный метод вызывается для установки параметов, которые зависят от других параметров объекта
+   */
+  init() {
+    throw new Error('Не реализована логика инициализации продукта');
+  }
+
+  /**
+   * Экспорт свойств продукта для их последующего сохранения или передачи
+   */
+  export() {
+    const optionsToExport = {};
+    const combinedDefaults = {
+      ...coreDefaults,
+      ...this.defaults
+    };
+
+    Object.keys(combinedDefaults).forEach(key => {
+      optionsToExport[key] = this[key];
+    });
+
+    optionsToExport.constructorName = this.constructor.name;
+
+    return optionsToExport;
+  }
+
+  getSelectedShape() {
+    return this.getAvaibleShapes().find(
+      shape => shape.value === this.selectedShapeId
+    );
+  }
+
+  /**
+   * Допустимые формфакторы продукта
+   */
+  getAvaibleShapes() {
+    return [];
+  }
+
+  /**
+   * Сервисные методы
+   */
 
   _updated() {
     this.lastUpdate = Date.now();

@@ -103,7 +103,7 @@
 /**
  * Components
  */
-import CircleProgress from './CircleProgress.vue';
+import CircleProgress from './common/CircleProgress.vue';
 
 /**
  * Icons

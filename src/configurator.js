@@ -1,46 +1,43 @@
+// Основные библиотеки
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueMq from 'vue-mq';
 import localforage from 'localforage';
+
+// Вспомогательные утилиты
 import './utils/resizeEndEvent.js';
 
-/**
- * Продукты
- */
+// Продукты
 import WindowProduct from './entities/WindowProduct';
 import BalconyProduct from './entities/BalconyProduct';
 
-/**
- * Компоненты
- */
+// Компоненты
 import Configurator from './components/Configurator.vue';
 
-/**
- * Изображения
- */
-import windowIcon from '@images/configurator/window.png';
-import balconyIcon from '@images/configurator/balcony.svg';
-
-/**
- * Стили
- */
+// Стили
 import '@scss/common/fullpage-nav.scss';
 
-/**
- * Подключаем плагины Vue.js
- */
+// Подключаем плагины Vue.js
 Vue.use(Vuex);
 Vue.use(VueMq, {
   breakpoints: {
-    // default breakpoints - customize this
-    sm: 450,
-    md: 1250,
-    lg: Infinity
+    // Используются стандартные брейкпоинты бутстрапа
+    xs: 540,
+    sm: 768,
+    md: 992,
+    lg: 1200,
+    xl: Infinity
   }
 });
 
 /**
  * Хранение данных на стороне клиента
+ *
+ * @namespace `configurator`
+ * @item `products`
+ * @item `ui`
+ * @item `globalOptions`
+ * @item `files`
  */
 const db = localforage.createInstance({
   driver: [localforage.INDEXEDDB],
@@ -53,35 +50,19 @@ const saveProducts = products => {
     products.map(product => product.export())
   );
 };
-
-/**
- * Базовые настройки интерфейса конфигуратора
- */
-const avaibleProductTypes = {
-  windows: {
-    name: 'Оконные профили',
-    class: WindowProduct,
-    screens: ['shape', 'model', 'other', 'color'],
-    screensNames: {
-      shape: 'ТИПЫ И РАЗМЕРЫ ОКОН',
-      model: 'ПРОИЗВОДИТЕЛЬ И МОДЕЛЬ',
-      other: 'ДОПОЛНИТЕЛЬНО',
-      color: 'ЦВЕТ МАТЕРИАЛА'
-    },
-    icon: windowIcon
-  },
-  balcony: {
-    name: 'Балконные конструкции',
-    class: BalconyProduct,
-    screens: ['shape', 'model', 'other', 'color'],
-    screensNames: {
-      shape: 'ТИПЫ И РАЗМЕРЫ',
-      model: 'ПРОИЗВОДИТЕЛЬ И МОДЕЛЬ',
-      other: 'ДОПОЛНИТЕЛЬНО',
-      color: 'ЦВЕТ МАТЕРИАЛА'
-    },
-    icon: balconyIcon
-  }
+const saveUI = state => {
+  db.setItem('ui', {
+    selectedType: state._selectedType,
+    currentProduct: state._currentProduct,
+    currentScreen: state._currentScreen
+  });
+};
+const saveGlobalOptions = state => {
+  db.setItem('globalOptions', {
+    installation: state.installation,
+    liftingToFloor: state.liftingToFloor,
+    floor: state.floor
+  });
 };
 
 /**
@@ -94,7 +75,7 @@ const store = new Vuex.Store({
       namespaced: true, // <- Обрати внимание
       state: () => {
         return {
-          // Нельзя брать напрямую
+          // _нельзяБратьНапрямую
           _selectedType: null,
           _currentProduct: null,
           _currentScreen: null,
@@ -103,8 +84,15 @@ const store = new Vuex.Store({
           ranges: null,
           products: [],
           files: [],
+
+          installation: false,
+          liftingToFloor: false,
+          floor: null,
           // TODO: вынести за пределы сэйта то, что в итоге не будет изменяться
-          avaibleTypes: avaibleProductTypes
+          avaibleTypes: {
+            WindowProduct,
+            BalconyProduct
+          }
         };
       },
       getters: {
@@ -148,12 +136,12 @@ const store = new Vuex.Store({
           const selectedType = getters.selectedType;
 
           return state.products.filter(
-            product => product instanceof state.avaibleTypes[selectedType].class
+            product => product instanceof state.avaibleTypes[selectedType]
           );
         },
 
         getProductsByType: state => type => {
-          const typeClass = state.avaibleTypes[type].class;
+          const typeClass = state.avaibleTypes[type];
           const products = state.products.filter(
             product => product instanceof typeClass
           );
@@ -167,9 +155,34 @@ const store = new Vuex.Store({
         }
       },
       mutations: {
-        setFiles(state, files) {
-          state.files = files;
+        setFiles: (state, files) => (state.files = files),
+        setRanges: (state, ranges) => (state.ranges = ranges),
+        addProduct: (state, product) => state.products.push(product),
+        restoreUI(state, ui) {
+          state._selectedType = ui.selectedType;
+          state._currentProduct = ui.currentProduct;
+          state._currentScreen = ui.currentScreen;
         },
+
+        setInstallation: (state, value) => {
+          state.installation = value;
+          saveGlobalOptions(state);
+        },
+        setLifting: (state, value) => {
+          state.liftingToFloor = value;
+          saveGlobalOptions(state);
+        },
+        setFloor: (state, value) => {
+          state.floor = value;
+          saveGlobalOptions(state);
+        },
+
+        restoreGlobalOptions(state, options) {
+          for (const key in options) {
+            state[key] = options[key];
+          }
+        },
+
         addFile(state, file) {
           state.files.push(file);
           db.setItem('files', state.files);
@@ -178,9 +191,6 @@ const store = new Vuex.Store({
           state.files.splice(index, 1);
           db.setItem('files', state.files);
         },
-        setRanges(state, ranges) {
-          state.ranges = ranges;
-        },
         currentScreen(state, screenPath) {
           const [type, screen] = screenPath.split('/');
           const avaibleTypes = Object.keys(state.avaibleTypes);
@@ -188,6 +198,7 @@ const store = new Vuex.Store({
 
           if (avaibleTypes.includes(type) && avaibleScreens.includes(screen)) {
             state._currentScreen = screenPath;
+            saveUI(state);
           } else {
             console.error('Unavaible screen!');
           }
@@ -202,8 +213,7 @@ const store = new Vuex.Store({
 
           if (!currentProduct) {
             currentProduct = state.products.find(
-              product =>
-                product instanceof state.avaibleTypes[selectedType].class
+              product => product instanceof state.avaibleTypes[selectedType]
             );
           }
 
@@ -211,11 +221,10 @@ const store = new Vuex.Store({
           saveProducts(state.products);
         },
         selectType(state, type) {
-          state._selectedType = type;
+          state._currentScreen = null;
           state._currentProduct = null;
-        },
-        addProduct(state, product) {
-          state.products.push(product);
+          state._selectedType = type;
+          saveUI(state);
         },
         removeProduct(state, product) {
           const indexToRemove = state.products.indexOf(product);
@@ -224,6 +233,7 @@ const store = new Vuex.Store({
         },
         setCurrentProduct(state, product) {
           state._currentProduct = product;
+          saveUI(state);
         }
       },
       actions: {
@@ -238,7 +248,7 @@ const store = new Vuex.Store({
           const selectedType = getters.selectedType;
           const typeObject = state.avaibleTypes[selectedType];
           const ranges = state.ranges;
-          const newProduct = new typeObject.class();
+          const newProduct = new typeObject();
 
           newProduct.mountingDepth = ranges.mountingDepth[0];
           newProduct.sillLength = ranges.windowSill.x[0];
@@ -258,7 +268,6 @@ const store = new Vuex.Store({
               'glazing',
               'mountingDepth',
               'sillDepth',
-              'sillCasting',
               'sillMounting',
               'sillBrand',
               'slopes',
@@ -284,10 +293,8 @@ const store = new Vuex.Store({
           commit('addProduct', newProduct);
           dispatch('saveProducts');
         },
-        async restoreProduct({ state, getters, commit }, options = {}) {
-          const selectedType = getters.selectedType;
-          const typeObject = state.avaibleTypes[selectedType];
-          const product = new typeObject.class();
+        async restoreProduct({ state, commit }, options = {}) {
+          const product = new state.avaibleTypes[options.constructorName]();
 
           Object.keys(product.defaults).forEach(key => {
             if (options[key] !== undefined) {
@@ -318,6 +325,19 @@ db.getItem('products', (err, products) => {
     products.forEach(product => {
       store.dispatch('configurator/restoreProduct', product);
     });
+  }
+});
+
+db.getItem('globalOptions', (err, globalOptions) => {
+  if (!err && globalOptions) {
+    console.log('globalOptions', globalOptions);
+    store.commit('configurator/restoreGlobalOptions', globalOptions);
+  }
+});
+
+db.getItem('ui', (err, ui) => {
+  if (!err && ui) {
+    store.commit('configurator/restoreUI', ui);
   }
 });
 

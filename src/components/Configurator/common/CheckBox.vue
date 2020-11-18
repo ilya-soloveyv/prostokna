@@ -1,7 +1,14 @@
 <template>
   <div
     class="checkbox"
-    :class="{ compact: compact, paragraph: paragraph, disabled: disabled }"
+    :class="{
+      compact: compact,
+      paragraph: paragraph,
+      disabled: disabled,
+      desktop: isDesktop,
+      tablet: isTablet,
+      mobile: isMobile
+    }"
   >
     <input type="checkbox" :id="id" v-model="isChecked" />
     <label :for="id" v-if="label">{{ label }}</label>
@@ -30,6 +37,20 @@ export default {
       isChecked: this.checked
     };
   },
+  computed: {
+    isDesktop() {
+      return ['xl'].includes(this.$mq);
+    },
+    isTablet() {
+      return ['sm', 'md', 'lg'].includes(this.$mq);
+    },
+    isMobile() {
+      return ['xs'].includes(this.$mq);
+    },
+    thresholdsSum() {
+      return this.min + this.max;
+    }
+  },
   watch: {
     isChecked() {
       if (this.disabled) return;
@@ -55,6 +76,10 @@ export default {
   font-weight: 500;
   color: $gray-lighter;
   transition: opacity $transition;
+
+  &.tablet {
+    height: 90px;
+  }
 
   &.disabled {
     opacity: 0.5;
@@ -100,7 +125,8 @@ input {
       position: absolute;
       display: block;
       left: 0;
-      top: -1.5px;
+      top: 50%;
+      margin-top: -12.5px;
       width: 25px;
       height: 25px;
     }

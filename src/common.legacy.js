@@ -4,6 +4,7 @@
 import '@babel/polyfill';
 import 'owl.carousel';
 import 'jquery-ui';
+import 'jquery-ui/ui/widgets/mouse.js';
 import 'jquery-ui-touch-punch';
 import 'inputmask/dist/jquery.inputmask';
 import 'jquery-touchswipe';

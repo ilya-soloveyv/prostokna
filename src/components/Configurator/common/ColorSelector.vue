@@ -1,7 +1,12 @@
 <template>
   <div
     class="color-selector"
-    :class="{ inverted: darkText }"
+    :class="{
+      inverted: darkText,
+      desktop: isDesktop,
+      tablet: isTablet,
+      mobile: isMobile
+    }"
     :style="style"
     @click="toggle"
     ref="selector"
@@ -76,6 +81,15 @@ export default {
     };
   },
   computed: {
+    isDesktop() {
+      return ['xl'].includes(this.$mq);
+    },
+    isTablet() {
+      return ['sm', 'md', 'lg'].includes(this.$mq);
+    },
+    isMobile() {
+      return ['xs'].includes(this.$mq);
+    },
     darkText() {
       return this.internalSelected ? !!this.internalSelected.darkText : false;
     },
@@ -167,6 +181,11 @@ export default {
   height: 100px;
   margin-bottom: 30px;
   padding: 55px 28px 14px;
+
+  &.tablet {
+    padding: 47px 28px 14px;
+    height: 90px;
+  }
 
   background: $gray-darker;
   border: 1px solid;

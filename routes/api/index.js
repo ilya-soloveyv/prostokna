@@ -6,48 +6,21 @@ const router = Router();
  * Окна
  */
 
-/**
- * Материалы окон
- */
 router.use('/windowsMaterials', require('./windowsMaterials'));
-
-/**
- * Доступные бренды для окон
- * Возможна фильтрация по материалу
- * Возможна фильтрация по размерам
- * Возможна фиьльтрация по типу открытия створки
- */
 router.use('/windowsBrands', require('./windowsBrands'));
-
-/**
- * Доступные модели по материалу и бренду
- */
 router.use('/windowsModels', require('./windowsModels'));
-
-/**
- * Информация по модели
- * Доступная камерность профиля
- * Доступные стреклопакеты
- */
 router.use('/windowsModelData', require('./windowsModelData'));
-
-/**
- * Информация о подоконнике
- */
 router.use('/windowsSill', require('./windowsBrands'));
-
-/**
- * Доступные цвета
- */
 router.use('/windowsColors', require('./windowsColors'));
-
-/**
- * Диапозоны для слайдеров настроек окна, подоконника и откосов
- */
 router.use('/windowsRanges', require('./windowsRanges'));
 
 /**
  * Балконные кострукции
  */
+router.use('/balconyBrands', require('./balconyBrands'));
+router.use('/balconyModels', require('./balconyModels'));
+router.use('/balconyModelData', require('./balconyModelData'));
+router.use('/balconyColors', require('./balconyColors'));
+router.use('/balconyRanges', require('./balconyRanges'));
 
 module.exports = router;

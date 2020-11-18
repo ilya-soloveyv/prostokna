@@ -67,7 +67,7 @@ import RalColorInput from './common/RalColorInput.vue';
 import mapAsOptions from '@/utils/mapAsOptions';
 
 export default {
-  name: 'WindowColorLayout',
+  name: 'BalconyColorLayout',
   components: { Selector, Slider, CheckBox, ColorSelector, RalColorInput },
   data() {
     return {

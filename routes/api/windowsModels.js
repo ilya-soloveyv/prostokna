@@ -1,8 +1,15 @@
 const { Router } = require('express');
-
 const router = Router();
 
+/**
+ * Модели оконных кострукций
+ *
+ * Фильтруются по бренду и материалу
+ */
 router.get('/', async (req, res, next) => {
+  const brandId = req.query.brandId;
+  const materialId = req.query.materialId;
+
   res.json({
     status: 'OK',
     payload: [
