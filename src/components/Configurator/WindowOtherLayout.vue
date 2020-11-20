@@ -1,6 +1,6 @@
 <template>
   <div class="row window-other-layout">
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <CheckBox
         label="Подоконник"
         compact
@@ -49,9 +49,9 @@
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <div class="row">
-        <div class="col-5">
+        <div class="col-6 col-lg-5">
           <CheckBox
             label="Откосы"
             compact
@@ -59,7 +59,7 @@
             @change="slopesChange"
           />
         </div>
-        <div class="col-7">
+        <div class="col-6 col-lg-7">
           <CheckBox
             label="Детский замок"
             compact

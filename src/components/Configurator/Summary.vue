@@ -5,7 +5,10 @@
     <AddWindow />
     <Price />
     <Files />
-    <SubmitButton text="ОТПРАВИТЬ НА РАСЧЕТ" />
+    <SubmitButton
+      text="ОТПРАВИТЬ НА РАСЧЕТ"
+      @submit="e => $emit('submit', e)"
+    />
   </div>
 </template>
 

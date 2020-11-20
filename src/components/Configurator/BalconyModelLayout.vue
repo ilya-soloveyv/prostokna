@@ -1,6 +1,6 @@
 <template>
-  <div class="row window-model-layout">
-    <div class="col-6">
+  <div class="row balcony-model-layout" :class="{ dimmed }">
+    <div class="col-12 col-lg-6 order-2 order-lg-1">
       <Selector
         label="ПРОИЗВОДИТЕЛЬ"
         :options="brands"
@@ -14,8 +14,8 @@
         @change="setGlazing"
       />
     </div>
-    <div class="col-6">
-      <WindowDescription />
+    <div class="col-12 col-lg-6 order-1 order-lg-2">
+      <WindowDescription @setBgDimm="setDimmed" />
     </div>
   </div>
 </template>
@@ -34,13 +34,14 @@ import WindowDescription from './WindowDescription.vue';
 import mapAsOptions from '@/utils/mapAsOptions';
 
 export default {
-  name: 'WindowModelLayout',
+  name: 'BalconyModelLayout',
   components: { Selector, Slider, WindowDescription },
   data() {
     return {
       brands: [],
       models: [],
-      modelData: {}
+      modelData: {},
+      dimmed: false
     };
   },
   computed: {
@@ -76,6 +77,9 @@ export default {
     }
   },
   methods: {
+    setDimmed(value) {
+      this.dimmed = value;
+    },
     setProfile(value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
         p.profile = parseInt(value);
@@ -125,9 +129,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.window-model-layout {
+@import '@scss/variables';
+
+.balcony-model-layout {
   position: absolute;
   left: 0;
   right: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba($dark, 0.5);
+    z-index: 1;
+    transition: opacity $transition;
+  }
+
+  &.dimmed {
+    &::before {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  .not-desktop {
+    position: unset;
+  }
 }
 </style>

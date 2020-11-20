@@ -18,16 +18,21 @@
             <div class="col-12 col-lg-6">
               <Slider
                 label="Ширина"
+                :min="ranges.x[0]"
+                :max="ranges.x[1]"
                 :value="currentProduct.width"
                 @change="val => setProductOption('width', val)"
               />
               <Slider
                 label="Высота"
+                :min="ranges.y[0]"
+                :max="ranges.y[1]"
                 :value="currentProduct.height"
                 @change="val => setProductOption('height', val)"
               />
               <Counter
                 label="СТВОРОКИ"
+                :max="4"
                 :value="currentProduct.panesCount"
                 @change="val => setProductOption('panesCount', val)"
               />
@@ -81,6 +86,10 @@ export default {
     };
   },
   computed: {
+    ranges() {
+      const shapeId = this.currentProduct.selectedShapeId;
+      return this.$store.state.configurator.ranges?.balcony[shapeId];
+    },
     products() {
       return this.$store.getters['configurator/productsWithCurrentType'];
     },

@@ -10,7 +10,7 @@
     }"
   >
     <section class="left column" v-if="isDesktop">
-      <Summary />
+      <Summary @submit="showSumbitModal = true" />
     </section>
     <section class="main column" :style="mainComputedStyle">
       <transition name="layout">
@@ -53,15 +53,11 @@
             {{ addNew.text }}
           </div>
         </div>
-        <!-- <SquareSelector
-          v-else
-          :cols="2"
-          :options="addNewList"
-          max-width="500px"
-          @change="addNewProduct"
-        /> -->
       </transition>
     </section>
+    <transition name="submit-modal">
+      <SubmitModal v-if="showSumbitModal" @close="showSumbitModal = false" />
+    </transition>
   </div>
 </template>
 
@@ -83,6 +79,8 @@ import BalconyShapeLayout from './Configurator/BalconyShapeLayout.vue';
 import BalconyModelLayout from './Configurator/BalconyModelLayout.vue';
 import BalconyOtherLayout from './Configurator/BalconyOtherLayout.vue';
 import BalconyColorLayout from './Configurator/BalconyColorLayout.vue';
+
+import SubmitModal from './Configurator/SubmitModal.vue';
 
 import api from '../utils/api';
 
@@ -112,12 +110,14 @@ export default {
     WindowOtherLayout,
     WindowColorLayout,
     TouchWindowsSlider,
-    BalconyColorLayout
+    BalconyColorLayout,
+    SubmitModal
   },
   data() {
     return {
       isInitialized: false,
-      mobileShowSummary: true
+      mobileShowSummary: true,
+      showSumbitModal: false
     };
   },
   computed: {
@@ -165,7 +165,7 @@ export default {
     },
     async fetchRanges() {
       const ranges = await api.call('windowsRanges').then(res => res.payload);
-      this.$store.commit('configurator/setRanges', ranges);
+      this.$store.commit('configurator/setState', { ranges: ranges });
     },
     addNewProduct(type) {
       console.log(type);
@@ -309,6 +309,13 @@ export default {
 }
 .layout-leave-active {
   animation: fadeIn $transition-time * 3 reverse;
+}
+
+.submit-modal-enter-active {
+  animation: fadeIn $transition-time * 2;
+}
+.submit-modal-leave-active {
+  animation: fadeIn $transition-time reverse;
 }
 </style>
 

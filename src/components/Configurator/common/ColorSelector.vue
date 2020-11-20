@@ -133,7 +133,7 @@ export default {
     },
     open() {
       const rect = this.$refs.selector.getBoundingClientRect();
-      const parentRect = this.$refs.selector.parentNode.getBoundingClientRect();
+      const parentRect = this.$refs.selector.parentNode.parentNode.getBoundingClientRect();
 
       this.top = parentRect.y - rect.y - 5;
       this.minHeight = parentRect.bottom - parentRect.top + 10;

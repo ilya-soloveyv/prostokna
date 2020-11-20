@@ -1,5 +1,5 @@
 <template>
-  <div class="window-description">
+  <div class="window-description" :class="{ mobile: !isDesktop }">
     <div class="tabs">
       <div
         class="tab"
@@ -32,70 +32,83 @@
         <span>Описание</span>
       </div>
     </div>
-    <div class="content">
-      <transition name="fade">
+    <transition name="float-description-fade">
+      <div
+        class="content"
+        :class="{ float: !['xl', 'lg'].includes($mq) }"
+        v-if="isDesktop || (!isDesktop && active)"
+      >
         <div
-          class="brand"
-          v-if="active === 'brand'"
-          v-html="brandDescription"
-        ></div>
-        <div class="parameters" v-if="active === 'parameters'">
-          <div class="row">
-            <div class="col-4">
-              <CircleProgress
-                :value="8500"
-                :max="10000"
-                color="#d364e2"
-                text="ЦЕНА"
-              />
-            </div>
+          class="close-arrow"
+          @click="() => setActive(null)"
+          v-if="!isDesktop"
+        >
+          <img :src="arrowUp" />
+        </div>
+        <transition name="fade">
+          <div
+            class="brand"
+            v-if="active === 'brand'"
+            v-html="brandDescription"
+          ></div>
+          <div class="parameters" v-if="active === 'parameters'">
+            <div class="row">
+              <div class="col-4 col-lg-6 col-xl-4">
+                <CircleProgress
+                  :value="8500"
+                  :max="10000"
+                  color="#d364e2"
+                  text="ЦЕНА"
+                />
+              </div>
 
-            <div class="col-4">
-              <CircleProgress
-                :value="chartsData.insulation"
-                points="%"
-                text="ШУМОИЗОЛЯЦИЯ"
-              />
-            </div>
+              <div class="col-4 col-lg-6 col-xl-4">
+                <CircleProgress
+                  :value="chartsData.insulation"
+                  points="%"
+                  text="ШУМОИЗОЛЯЦИЯ"
+                />
+              </div>
 
-            <div class="col-4">
-              <CircleProgress
-                :value="chartsData.safety"
-                points="%"
-                text="БЕЗОПАСНОСТЬ"
-              />
-            </div>
+              <div class="col-4 col-lg-6 col-xl-4">
+                <CircleProgress
+                  :value="chartsData.safety"
+                  points="%"
+                  text="БЕЗОПАСНОСТЬ"
+                />
+              </div>
 
-            <div class="col-4">
-              <CircleProgress
-                :value="chartsData.aesthetics"
-                points="%"
-                text="ЭСТЕТИЧНОСТЬ"
-              />
-            </div>
+              <div class="col-4 col-lg-6 col-xl-4">
+                <CircleProgress
+                  :value="chartsData.aesthetics"
+                  points="%"
+                  text="ЭСТЕТИЧНОСТЬ"
+                />
+              </div>
 
-            <div class="col-4">
-              <CircleProgress
-                :value="chartsData.durability"
-                points="%"
-                text="НАДЕЖНОСТЬ"
-              />
-            </div>
+              <div class="col-4 col-lg-6 col-xl-4">
+                <CircleProgress
+                  :value="chartsData.durability"
+                  points="%"
+                  text="НАДЕЖНОСТЬ"
+                />
+              </div>
 
-            <div class="col-4">
-              <CircleProgress
-                :value="chartsData.ecology"
-                points="%"
-                text="ЭКОЛОГИЧНОСТЬ"
-              />
+              <div class="col-4 col-lg-6 col-xl-4">
+                <CircleProgress
+                  :value="chartsData.ecology"
+                  points="%"
+                  text="ЭКОЛОГИЧНОСТЬ"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="description" v-if="active === 'description'">
-          {{ modelData.description }}
-        </div>
-      </transition>
-    </div>
+          <div class="description" v-if="active === 'description'">
+            {{ modelData.description }}
+          </div>
+        </transition>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -111,6 +124,7 @@ import CircleProgress from './common/CircleProgress.vue';
 import aboutBrand from '@images/configurator/about-brand.svg';
 import parametersChart from '@images/configurator/parameters-chart.svg';
 import productDescription from '@images/configurator/product-description.svg';
+import arrowUp from '@images/configurator/arrow-up-md.png';
 
 /**
  * Styles
@@ -127,12 +141,17 @@ export default {
       aboutBrand,
       parametersChart,
       productDescription,
+      arrowUp,
       active: 'brand',
       modelData: {},
-      brandDescription: ''
+      brandDescription: '',
+      mobileShow: false
     };
   },
   computed: {
+    isDesktop() {
+      return ['xl', 'lg'].includes(this.$mq);
+    },
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
     },
@@ -151,7 +170,22 @@ export default {
   },
   methods: {
     setActive(value) {
+      if (!this.isDesktop) {
+        setTimeout(() => {
+          this.$emit('setBgDimm', this.active !== null);
+        }, 0);
+      }
+
+      if (this.active === value) return (this.active = null);
+
       this.active = value;
+    },
+    onResizeEnd() {
+      if (!this.isDesktop) {
+        return this.setActive(null);
+      }
+
+      if (!this.active) this.active = 'brand';
     },
     async getBrands() {
       const brandId = this.currentProduct.brandId;
@@ -167,6 +201,11 @@ export default {
   mounted() {
     this.getModelData();
     this.getBrands();
+    this.onResizeEnd();
+    window.addEventListener('resizeEnd', this.onResizeEnd);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resizeEnd', this.onResizeEnd);
   }
 };
 </script>
@@ -180,6 +219,15 @@ export default {
   border: solid 1px $border-dark;
   font-size: 14px;
   line-height: 1.5;
+
+  &.float {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    background: $dark;
+    z-index: 5;
+  }
 
   & ::v-deep p {
     margin-bottom: 2em;
@@ -203,6 +251,12 @@ export default {
       }
     }
   }
+}
+
+.close-arrow {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0 40px;
 }
 
 .tabs {
@@ -254,6 +308,26 @@ export default {
   }
   &-leave-active {
     animation: fadeIn $transition-time * 3 reverse;
+  }
+}
+
+.float-description-fade {
+  &-enter-active {
+    animation: description-fade $transition-time * 2 reverse;
+  }
+  &-leave-active {
+    animation: description-fade $transition-time * 2;
+  }
+}
+
+@keyframes description-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.75) translateY(-50%);
   }
 }
 </style>

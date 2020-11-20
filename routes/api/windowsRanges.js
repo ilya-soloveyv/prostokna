@@ -2,6 +2,8 @@ const { Router } = require('express');
 const router = Router();
 const s = require('../../src/utils/safeOpeningsSequence');
 
+const balconyRanges = { x: [450, 1600], y: [500, 2000] };
+
 /**
  * Допустимые диапозоны значений не зависящии от прочих параметров оконной кострукции
  */
@@ -43,6 +45,16 @@ router.get('/', async (req, res, next) => {
         doors: {
           1: { x: [450, 1600], y: [500, 2000] },
           2: { x: [450, 1600], y: [500, 2000] }
+        },
+        balcony: {
+          twoPanes: balconyRanges,
+          threePanes: balconyRanges,
+          fourPanes: balconyRanges,
+          cornerLeft: balconyRanges,
+          cornerRight: balconyRanges,
+          twoCorners: balconyRanges,
+          angleLeft: balconyRanges,
+          angleRight: balconyRanges
         },
         mountingDepth: [50, 1000], // Диапозон допустимой глубины монтажа
         slopesDepth: [50, 500], // Диапозон допустимой глубины откосов

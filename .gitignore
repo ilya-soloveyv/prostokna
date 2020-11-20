@@ -21,6 +21,8 @@ firebase.json
 /config/default.json
 /config/config.json
 
+/temp
+
 *.log
 
 # local env files

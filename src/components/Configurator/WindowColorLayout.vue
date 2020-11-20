@@ -1,6 +1,6 @@
 <template>
   <div class="row window-color-layout">
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <Selector
         label="ТИП ПОКРАСКИ"
         :options="paintingTypes"
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <ColorSelector
         label="ЦВЕТ УПЛОТНИТЕЛЯ"
         :colors="seal"
@@ -40,7 +40,7 @@
       />
       <ColorSelector
         label="ЦВЕТ ПОКРАСКИ ЛИЦЕВОЙ СТОРОНЫ"
-        v-if="paintingType === 1"
+        v-if="paintingType !== 2"
         :colors="frontFace"
         :selected="currentProduct.frontFaceColor"
         @change="setFrontFaceColor"

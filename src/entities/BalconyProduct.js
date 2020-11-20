@@ -88,7 +88,12 @@ const BalconyProduct = class extends Product {
     await this.fetchAvaibleBrands();
     await this.fetchAvaibleModels();
     await this.fetchModelData();
-    await this.fetchAvaibleColors();
+
+    const colors = await this.fetchAvaibleColors();
+
+    if (!this.frontFaceColor) this.frontFaceColor = colors.frontFace[0].id;
+    if (!this.backFaceColor) this.backFaceColor = colors.backFace[0].id;
+    if (!this.sealColor) this.sealColor = colors.seal[0].id;
   }
 
   async fetchAvaibleBrands() {
