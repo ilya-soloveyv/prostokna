@@ -2,17 +2,14 @@
 
 1. **Необходимые зависимости:**
 
-   1.1 **[Node JS](https://nodejs.org/en/download/)** 12.x.x LTS
+   1. **[Node JS](https://nodejs.org/en/download/)** 14.x.x LTS
 
-   _На 14.x.x+ проект не собирается!_
+   2. **Bash** или совместимая с ним среда
 
-   1.3 [**Sequelize CLI**](https://github.com/sequelize/cli)
+      В Windows можно использовать **[GIT Bash](https://git-scm.com/downloads)**
 
-   `npm i -g sequelize-cli`
-
-   1.2 **Bash** или совместимая с ним среда
-
-   В Windows можно использовать **[GIT Bash](https://git-scm.com/downloads)**
+   3. [**Sequelize CLI**](https://github.com/sequelize/cli)  
+      `npm i -g sequelize-cli`
 
 2. **Форкаем текущий репозиторий** [Скрин](http://joxi.ru/l2ZKkoltwQNK4A)
 
@@ -31,19 +28,19 @@
 
 4. **Создаем файлы**
 
-   5.1. `.htpasswd` с содержимым `admin:password`
+   1. `.htpasswd` с содержимым `admin:password`
 
-   5.1. `/config/config.json`
+   2. `/config/config.json`
 
-   Берем данные из файла `/config/__config.json`
+      Берем данные из файла `/config/__config.json`
 
-   Меняем на свои доступы к MySQL, саму базу пока не создаем
+      Меняем на свои доступы к MySQL, саму базу пока не создаем
 
-   5.2. `/config/default.json`
+   3. `/config/default.json`
 
-   Берем данные из файла `/config/__default.json`
+      Берем данные из файла `/config/__default.json`
 
-   Меняем на свои доступы к MySQL, саму базу пока не создаем
+      Меняем на свои доступы к MySQL, саму базу пока не создаем
 
 5. **Развертывание базы данных**
 
@@ -68,7 +65,11 @@
 
 ### **`npm run serve`**
 
-Запуск проекта в режиме разработки
+Запуск автосборки проекта в режиме разработки
+
+### **`npm run back`**
+
+Запуск бэкенда в режиме разработки
 
 ### **`npm run dev`**
 
