@@ -1,0 +1,387 @@
+#wiki_catalog {
+  padding: 0;
+  background-color: #353535;
+  color: white; }
+  #wiki_catalog .hamburger {
+    position: fixed;
+    left: 117px;
+    top: 117px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    z-index: 99; }
+    #wiki_catalog .hamburger .hamburger-box {
+      width: 100%;
+      height: 100%; }
+      #wiki_catalog .hamburger .hamburger-box .hamburger-inner,
+      #wiki_catalog .hamburger .hamburger-box .hamburger-inner::before,
+      #wiki_catalog .hamburger .hamburger-box .hamburger-inner::after {
+        width: 100%;
+        background: white; }
+    @media (max-width: 1500px) {
+      #wiki_catalog .hamburger {
+        left: 92px;
+        top: 92px; } }
+    @media (max-width: 1199px) {
+      #wiki_catalog .hamburger {
+        width: 24px;
+        height: 24px;
+        left: 25px;
+        top: 85px; } }
+    @media (max-width: 850px) {
+      #wiki_catalog .hamburger {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(53, 53, 53, 0.75);
+        padding: 15px 10px;
+        left: 50%;
+        top: 60px;
+        -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+        border-radius: 0 0 4px 4px; }
+        #wiki_catalog .hamburger.is-active {
+          background: none; } }
+    @media (max-width: 575px) {
+      #wiki_catalog .hamburger {
+        top: 50px; } }
+  #wiki_catalog .sidebar {
+    position: fixed;
+    left: 60px;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0; }
+    #wiki_catalog .sidebar.open {
+      visibility: visible;
+      opacity: 1; }
+    @media (max-width: 1199px) {
+      #wiki_catalog .sidebar {
+        left: 0; } }
+    @media (max-width: 575px) {
+      #wiki_catalog .sidebar {
+        top: 50px; } }
+  #wiki_catalog ul.catalog_list {
+    margin: 0;
+    padding: 150px 0 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative; }
+    #wiki_catalog ul.catalog_list.disabled {
+      -webkit-filter: blur(6px);
+      filter: blur(6px); }
+    #wiki_catalog ul.catalog_list::before, #wiki_catalog ul.catalog_list::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15); }
+    #wiki_catalog ul.catalog_list::before {
+      left: 150px; }
+      @media (max-width: 1500px) {
+        #wiki_catalog ul.catalog_list::before {
+          left: 100px; } }
+      @media (max-width: 1200px) {
+        #wiki_catalog ul.catalog_list::before {
+          left: 75px; } }
+      @media (max-width: 850px) {
+        #wiki_catalog ul.catalog_list::before {
+          left: 30px; } }
+    #wiki_catalog ul.catalog_list::after {
+      right: 150px; }
+      @media (max-width: 1500px) {
+        #wiki_catalog ul.catalog_list::after {
+          right: 100px; } }
+      @media (max-width: 1200px) {
+        #wiki_catalog ul.catalog_list::after {
+          right: 75px; } }
+      @media (max-width: 850px) {
+        #wiki_catalog ul.catalog_list::after {
+          right: 30px; } }
+    @media (max-width: 1500px) {
+      #wiki_catalog ul.catalog_list {
+        padding-top: 100px; } }
+    @media (max-width: 1200px) {
+      #wiki_catalog ul.catalog_list {
+        padding-top: 75px; } }
+    @media (max-width: 850px) {
+      #wiki_catalog ul.catalog_list {
+        padding-top: 50px; } }
+    #wiki_catalog ul.catalog_list li {
+      position: relative;
+      width: 50%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-right: 50px;
+      padding-left: 200px;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.15); }
+      @media (max-width: 1500px) {
+        #wiki_catalog ul.catalog_list li {
+          padding-left: 150px; } }
+      @media (max-width: 1200px) {
+        #wiki_catalog ul.catalog_list li {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-right: 20px;
+          padding-left: 95px; } }
+      @media (max-width: 850px) {
+        #wiki_catalog ul.catalog_list li {
+          width: 100%;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-right: 50px;
+          padding-left: 50px;
+          border-right: none; } }
+      #wiki_catalog ul.catalog_list li:nth-child(even) {
+        border-right: none;
+        padding-right: 200px;
+        padding-left: 50px; }
+        @media (max-width: 1500px) {
+          #wiki_catalog ul.catalog_list li:nth-child(even) {
+            padding-right: 150px; } }
+        @media (max-width: 1200px) {
+          #wiki_catalog ul.catalog_list li:nth-child(even) {
+            padding-left: 20px;
+            padding-right: 95px; } }
+        @media (max-width: 850px) {
+          #wiki_catalog ul.catalog_list li:nth-child(even) {
+            padding-right: 50px;
+            padding-left: 50px; } }
+      #wiki_catalog ul.catalog_list li .num {
+        font-weight: 500;
+        font-size: 115px;
+        line-height: 115px;
+        float: left;
+        width: 200px;
+        overflow: hidden; }
+        @media (max-width: 1500px) {
+          #wiki_catalog ul.catalog_list li .num {
+            font-size: 100px;
+            line-height: 100px;
+            width: 150px; } }
+        @media (max-width: 1200px) {
+          #wiki_catalog ul.catalog_list li .num {
+            font-size: 80px;
+            line-height: 80px;
+            width: 120px; } }
+        @media (max-width: 850px) {
+          #wiki_catalog ul.catalog_list li .num {
+            font-size: 30px;
+            line-height: 30px;
+            width: 50px; } }
+      #wiki_catalog ul.catalog_list li .item {
+        margin-left: 200px; }
+        @media (max-width: 1500px) {
+          #wiki_catalog ul.catalog_list li .item {
+            margin-left: 150px; } }
+        @media (max-width: 1200px) {
+          #wiki_catalog ul.catalog_list li .item {
+            margin-left: 120px; } }
+        @media (max-width: 850px) {
+          #wiki_catalog ul.catalog_list li .item {
+            margin-left: 50px; } }
+        #wiki_catalog ul.catalog_list li .item .title {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 32px;
+          height: 115px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          overflow: hidden; }
+          @media (max-width: 1500px) {
+            #wiki_catalog ul.catalog_list li .item .title {
+              font-size: 20px;
+              line-height: 25px;
+              height: 100px; } }
+          @media (max-width: 1200px) {
+            #wiki_catalog ul.catalog_list li .item .title {
+              font-size: 16px;
+              line-height: 20px;
+              height: 80px; } }
+          @media (max-width: 850px) {
+            #wiki_catalog ul.catalog_list li .item .title {
+              font-size: 14px;
+              line-height: 17px;
+              height: auto;
+              padding-bottom: 10px;
+              -webkit-box-align: start;
+                  -ms-flex-align: start;
+                      align-items: flex-start; } }
+        #wiki_catalog ul.catalog_list li .item .desc {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 21px;
+          padding-bottom: 50px;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+          @media (max-width: 1200px) {
+            #wiki_catalog ul.catalog_list li .item .desc {
+              font-size: 12px;
+              line-height: 17px;
+              padding-bottom: 20px; } }
+          @media (max-width: 850px) {
+            #wiki_catalog ul.catalog_list li .item .desc {
+              font-size: 10px;
+              line-height: 15px;
+              padding-bottom: 15px; } }
+        #wiki_catalog ul.catalog_list li .item a.open {
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 12px;
+          color: white;
+          padding: 0 58px;
+          border: 1px solid white;
+          border-radius: 17px;
+          float: left;
+          line-height: 34px;
+          text-decoration: none;
+          opacity: 0;
+          -webkit-transition: all .15s;
+          transition: all .15s; }
+          #wiki_catalog ul.catalog_list li .item a.open:hover {
+            background-color: #0071E8;
+            border: 1px solid #0071E8; }
+          @media (max-width: 1200px) {
+            #wiki_catalog ul.catalog_list li .item a.open {
+              font-size: 10px;
+              line-height: 24px;
+              padding: 0 25px; } }
+          @media (max-width: 850px) {
+            #wiki_catalog ul.catalog_list li .item a.open {
+              opacity: 1;
+              padding: 0 15px; } }
+      #wiki_catalog ul.catalog_list li:hover .item a.open {
+        opacity: 1; }
+  #wiki_catalog .more {
+    padding: 50px 0 150px;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0 150px;
+    text-align: center; }
+    @media (max-width: 1500px) {
+      #wiki_catalog .more {
+        margin: 0 100px; } }
+    @media (max-width: 1200px) {
+      #wiki_catalog .more {
+        margin: 0 75px; } }
+    @media (max-width: 850px) {
+      #wiki_catalog .more {
+        padding: 50px 0 50px;
+        margin: 0 30px; } }
+    #wiki_catalog .more a.load {
+      color: white;
+      background-color: #0071E8;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+      text-transform: uppercase;
+      padding: 15px 50px;
+      border-radius: 22px;
+      text-decoration: none;
+      display: inline-block; }
+      #wiki_catalog .more a.load.disabled {
+        -webkit-filter: blur(6px);
+        filter: blur(6px); }
+
+body.modal-backdrop-wiki {
+  background: #353535; }
+  body.modal-backdrop-wiki .modal-backdrop {
+    top: 60px;
+    left: 60px; }
+    @media (max-width: 1199px) {
+      body.modal-backdrop-wiki .modal-backdrop {
+        left: 0; } }
+    @media (max-width: 575px) {
+      body.modal-backdrop-wiki .modal-backdrop {
+        top: 50px; } }
+
+#wiki_catalog_modal {
+  top: 60px;
+  left: 60px;
+  padding-right: 0 !important;
+  z-index: 98; }
+  @media (max-width: 1199px) {
+    #wiki_catalog_modal {
+      left: 0; } }
+  @media (max-width: 575px) {
+    #wiki_catalog_modal {
+      top: 50px; } }
+  #wiki_catalog_modal .modal-dialog {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0; }
+    #wiki_catalog_modal .modal-dialog .modal-content {
+      background: none;
+      border: none;
+      border-radius: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0; }
+      #wiki_catalog_modal .modal-dialog .modal-content ul {
+        list-style: none;
+        padding: 100px 150px;
+        margin: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        width: 100%;
+        height: 100%; }
+        @media (max-width: 1500px) {
+          #wiki_catalog_modal .modal-dialog .modal-content ul {
+            padding: 100px; } }
+        @media (max-width: 1200px) {
+          #wiki_catalog_modal .modal-dialog .modal-content ul {
+            padding: 75px; } }
+        @media (max-width: 850px) {
+          #wiki_catalog_modal .modal-dialog .modal-content ul {
+            padding: 50px 15px 0 15px; } }
+        #wiki_catalog_modal .modal-dialog .modal-content ul li {
+          width: 33%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          text-align: center;
+          font-weight: 600;
+          font-size: 20px;
+          text-transform: uppercase;
+          padding: 10px; }
+          @media (max-width: 1200px) {
+            #wiki_catalog_modal .modal-dialog .modal-content ul li {
+              font-size: 16px; } }
+          @media (max-width: 850px) {
+            #wiki_catalog_modal .modal-dialog .modal-content ul li {
+              width: 50%;
+              height: auto;
+              font-size: 12px; } }
+          #wiki_catalog_modal .modal-dialog .modal-content ul li a {
+            color: white;
+            text-decoration: none;
+            -webkit-transition: opacity 500ms;
+            transition: opacity 500ms; }

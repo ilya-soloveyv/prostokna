@@ -49,418 +49,405 @@ if ($('#intuitive').length) {
   var vmIntuitive = new Vue({
     el: '#intuitive',
     data: {
-      subjects: [
-        {
-          title: 'Квартира',
-          ico: '/images/intuitive/subject_1.svg',
-          windows: [2, 3, 4, 8],
-        },
-        {
-          title: 'Загородный дом',
-          ico: '/images/intuitive/subject_2.svg',
-          windows: [2, 3, 4, 5],
-        },
-        {
-          title: 'Нежилое помещение',
-          ico: '/images/intuitive/subject_3.svg',
-          windows: [2, 3, 4, 5, 6, 7],
-        },
-      ],
-      questions: [
-        [
-          {
-            title: 'Тип дома?',
-            num: '01',
-            next: true,
-            answers: [
-              {
-                title: 'Панель',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Кирпичный',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Монолит',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Не знаю',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Средняя температура зимой?',
-            num: '02',
-            next: true,
-            answers: [
-              {
-                title: '1 - 5',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: '6 - 11',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'более 12',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Беспокоят?',
-            num: '03',
-            next: true,
-            answers: [
-              {
-                title: 'Холод',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Шум',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Ветер',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Солнце',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Ничего',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Внешний вид профиля?',
-            num: '04',
-            next: true,
-            answers: [
-              {
-                title: 'Обычный',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Красивый',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Не важно',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Ценовая категория?',
-            num: '05',
-            next: true,
-            answers: [
-              {
-                title: 'Подешевле',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Подороже',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-        ],
-        [
-          {
-            title: 'Тип дома?',
-            num: '01',
-            next: true,
-            answers: [
-              {
-                title: 'Дерево',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Кирпичный',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Монолитный',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Не знаю',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Средняя температура зимой?',
-            num: '02',
-            next: true,
-            answers: [
-              {
-                title: '0 - 10',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: '11 - 15',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: '16 - 30',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Беспокоят?',
-            num: '03',
-            next: true,
-            answers: [
-              {
-                title: 'Холод',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Шум',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Ветер',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Солнце',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Ничего',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Внешний вид профиля?',
-            num: '04',
-            next: true,
-            answers: [
-              {
-                title: 'Обычный',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Красивый',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Неважно',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Ценовая категория?',
-            num: '05',
-            next: true,
-            answers: [
-              {
-                title: 'Подешевле',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Подороже',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-        ],
-        [
-          {
-            title: 'Тип помещения?',
-            num: '01',
-            next: true,
-            answers: [
-              {
-                title: 'Панель',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Кирпич',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Монолит',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Другое',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Незнаю',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Вид помещения?',
-            num: '02',
-            next: true,
-            answers: [
-              {
-                title: 'Офис',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Склад',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Пройти комиссию',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Другое',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Внешний вид профиля?',
-            num: '03',
-            next: true,
-            answers: [
-              {
-                title: 'Обычный',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Красивый',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Не важно',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-          {
-            title: 'Ценовая категория?',
-            num: '04',
-            next: true,
-            answers: [
-              {
-                title: 'Подешевле',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-              {
-                title: 'Подороже',
-                ico: '/images/intuitive/snow.svg',
-                status: false,
-                windows: [],
-              },
-            ],
-          },
-        ],
-      ],
-      currentQuestion: 0,
+      types: [],
+      questions: [],
+      answers: [],
+      iIntuitiveTypeID: null,
+      // questions: [
+      //   [
+      //     {
+      //       title: 'Тип дома?',
+      //       num: '01',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Панель',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Кирпичный',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Монолит',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Не знаю',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Средняя температура зимой?',
+      //       num: '02',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: '1 - 5',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: '6 - 11',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'более 12',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Беспокоят?',
+      //       num: '03',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Холод',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Шум',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Ветер',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Солнце',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Ничего',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Внешний вид профиля?',
+      //       num: '04',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Обычный',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Красивый',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Не важно',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Ценовая категория?',
+      //       num: '05',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Подешевле',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Подороже',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   [
+      //     {
+      //       title: 'Тип дома?',
+      //       num: '01',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Дерево',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Кирпичный',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Монолитный',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Не знаю',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Средняя температура зимой?',
+      //       num: '02',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: '0 - 10',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: '11 - 15',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: '16 - 30',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Беспокоят?',
+      //       num: '03',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Холод',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Шум',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Ветер',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Солнце',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Ничего',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Внешний вид профиля?',
+      //       num: '04',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Обычный',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Красивый',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Неважно',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Ценовая категория?',
+      //       num: '05',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Подешевле',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Подороже',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   [
+      //     {
+      //       title: 'Тип помещения?',
+      //       num: '01',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Панель',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Кирпич',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Монолит',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Другое',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Незнаю',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Вид помещения?',
+      //       num: '02',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Офис',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Склад',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Пройти комиссию',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Другое',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Внешний вид профиля?',
+      //       num: '03',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Обычный',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Красивый',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Не важно',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Ценовая категория?',
+      //       num: '04',
+      //       next: true,
+      //       answers: [
+      //         {
+      //           title: 'Подешевле',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //         {
+      //           title: 'Подороже',
+      //           ico: '/images/intuitive/snow.svg',
+      //           status: false,
+      //           windows: [],
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // ],
+      currentQuestion: 0,      
       currentSubject: null,
       showResult: false,
       windows: [
@@ -516,6 +503,20 @@ if ($('#intuitive').length) {
         },
       ],
     },
+    created() {
+      axios.get('/admin/intuitive/list', {}).then(response => {
+        this.types = response.data.types;
+        this.questions = response.data.question;
+        // this.answer = response.data.answer;
+        // this.products = response.data.products;
+        // this.answer_products = response.data.answer_products;
+      });
+    },
+    computed: {
+      currentQuestions() {
+        return this.questions.filter(x => x.iIntuitiveTypeID === this.iIntuitiveTypeID)
+      }
+    },
     methods: {
       repeat: function () {
         Vue.set(vmIntuitive, 'currentQuestion', 0);
@@ -547,9 +548,10 @@ if ($('#intuitive').length) {
       selectionResult: function (array) {
         // Vue.set(vmIntuitive, 'windows', array)
       },
-      useSubject: function (index) {
-        Vue.set(vmIntuitive, 'currentSubject', index);
-        this.selectionResult(this.subjects[this.currentSubject].windows);
+      useType: function (iIntuitiveTypeID) {
+        this.iIntuitiveTypeID = iIntuitiveTypeID
+        // Vue.set(vmIntuitive, 'currentSubject', index);
+        // this.selectionResult(this.subjects[this.currentSubject].windows);
       },
       useQuestion: function (index) {
         if (
