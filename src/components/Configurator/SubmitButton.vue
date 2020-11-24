@@ -1,5 +1,5 @@
 <template>
-  <div class="submit-button">{{ text }}</div>
+  <div class="submit-button" @click="e => $emit('submit', e)">{{ text }}</div>
 </template>
 
 <script>
@@ -26,8 +26,17 @@ export default {
   transition: transform $transition-cubic-1;
   cursor: pointer;
 
+  .mobile & {
+    height: 40px;
+    margin-top: 15px;
+  }
+
   &:hover {
     transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   &::after {

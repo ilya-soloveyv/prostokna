@@ -1,7 +1,7 @@
 <template>
-  <div class="files">
-    <div class="title" v-if="files.length">Прикрепленные файлы:</div>
-    <ul class="file-list" v-if="files.length">
+  <div class="files" v-if="files.length">
+    <div class="title">Прикрепленные файлы:</div>
+    <ul class="file-list">
       <li v-for="(file, index) of files" :key="file.id">
         <span>{{ file.name }}</span>
         <img
@@ -12,16 +12,6 @@
         />
       </li>
     </ul>
-    <input
-      type="file"
-      name="uploadFile"
-      id="uploadFile"
-      ref="uploadFile"
-      @change="onFilesAdd"
-    />
-    <label for="uploadFile">
-      Добавить файл <img class="attached-icon" :src="attachedIcon" />
-    </label>
   </div>
 </template>
 
@@ -33,9 +23,9 @@ import deleteIcon from '@images/configurator/delete-icon.svg';
 import attachedIcon from '@images/configurator/attached-icon.svg';
 
 export default {
-  name: 'Files',
+  name: 'FileList',
   data() {
-    return { deleteIcon, attachedIcon };
+    return { deleteIcon };
   },
   computed: {
     files() {
@@ -43,19 +33,9 @@ export default {
     }
   },
   methods: {
-    storeFile(file) {
-      this.$store.commit('configurator/addFile', file);
-    },
     removeFile(index) {
       if (window.confirm('Удалить файл?')) {
         this.$store.commit('configurator/removeFile', index);
-      }
-    },
-    onFilesAdd() {
-      const files = this.$refs.uploadFile.files;
-
-      for (const file of files) {
-        this.storeFile(file);
       }
     }
   }
@@ -74,35 +54,6 @@ export default {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
-}
-
-input[type='file'] {
-  display: none;
-
-  & + label {
-    position: relative;
-    width: 175px;
-    height: 36px;
-    padding: 10px 28px;
-    border-radius: 18px;
-    background-color: #2f2f2f;
-    font-size: 12px;
-    font-weight: 500;
-    transition: transform $transition;
-    cursor: pointer;
-
-    .attached-icon {
-      position: absolute;
-      right: 28px;
-    }
-
-    &:hover {
-      transform: scale(1.05);
-    }
-    &:active {
-      transform: scale(0.95);
-    }
-  }
 }
 
 .file-list {
@@ -126,6 +77,10 @@ input[type='file'] {
       right: 0;
       height: 16px;
       cursor: pointer;
+
+      .mobile & {
+        right: 14px;
+      }
     }
   }
 }

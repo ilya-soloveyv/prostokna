@@ -44,26 +44,8 @@ const db = localforage.createInstance({
   storeName: 'configurator'
 });
 
-const saveProducts = products => {
-  db.setItem(
-    'products',
-    products.map(product => product.export())
-  );
-};
-const saveUI = state => {
-  db.setItem('ui', {
-    selectedType: state._selectedType,
-    currentProduct: state._currentProduct,
-    currentScreen: state._currentScreen
-  });
-};
-const saveGlobalOptions = state => {
-  db.setItem('globalOptions', {
-    installation: state.installation,
-    liftingToFloor: state.liftingToFloor,
-    floor: state.floor
-  });
-};
+// это нам пригодится позже
+let configuratorInitialState;
 
 /**
  * Управление состоянием
@@ -73,6 +55,10 @@ const store = new Vuex.Store({
   modules: {
     configurator: {
       namespaced: true, // <- Обрати внимание
+
+      /**
+       * Состояние
+       */
       state: () => {
         return {
           // _нельзяБратьНапрямую
@@ -88,13 +74,26 @@ const store = new Vuex.Store({
           installation: false,
           liftingToFloor: false,
           floor: null,
+
           // TODO: вынести за пределы сэйта то, что в итоге не будет изменяться
           avaibleTypes: {
             WindowProduct,
             BalconyProduct
-          }
+          },
+
+          name: '',
+          phone: '',
+          comment: '',
+          formData: null,
+
+          submitState: null,
+          requestId: null
         };
       },
+
+      /**
+       * Геттеры
+       */
       getters: {
         /**
          * Возвращает информацию о текущем экране в формате `выбранныйТипПродукта/выбранныйЭкран`
@@ -133,36 +132,43 @@ const store = new Vuex.Store({
         },
 
         productsWithCurrentType(state, getters) {
-          const selectedType = getters.selectedType;
-
-          return state.products.filter(
-            product => product instanceof state.avaibleTypes[selectedType]
-          );
+          return getters.getProductsByType(getters.selectedType);
         },
 
+        /**
+         * Возвращает функцию которая служит для получения продуктов
+         * принадлежащих к указаному типу
+         */
         getProductsByType: state => type => {
-          const typeClass = state.avaibleTypes[type];
-          const products = state.products.filter(
-            product => product instanceof typeClass
+          return state.products.filter(
+            product => product instanceof state.avaibleTypes[type]
           );
-
-          return products;
         },
 
+        /**
+         * Вовращает функцию которая служит для получения количества продуктов
+         * указанного типа
+         */
         getProductCountByType: (state, getters) => type => {
-          const products = getters.getProductsByType(type);
-          return products.length;
+          return getters.getProductsByType(type).length;
         }
       },
+
+      /**
+       * Мутации
+       */
       mutations: {
-        setFiles: (state, files) => (state.files = files),
-        setRanges: (state, ranges) => (state.ranges = ranges),
-        addProduct: (state, product) => state.products.push(product),
-        restoreUI(state, ui) {
-          state._selectedType = ui.selectedType;
-          state._currentProduct = ui.currentProduct;
-          state._currentScreen = ui.currentScreen;
+        setState(state, draft) {
+          state = Object.assign(state, draft);
         },
+        mutateCurrentProduct(state, cb) {
+          const currentProduct = storeGetters('configurator/currentProduct');
+
+          cb(currentProduct);
+          saveProducts(state.products);
+        },
+
+        addProduct: (state, product) => state.products.push(product),
 
         setInstallation: (state, value) => {
           state.installation = value;
@@ -177,12 +183,6 @@ const store = new Vuex.Store({
           saveGlobalOptions(state);
         },
 
-        restoreGlobalOptions(state, options) {
-          for (const key in options) {
-            state[key] = options[key];
-          }
-        },
-
         addFile(state, file) {
           state.files.push(file);
           db.setItem('files', state.files);
@@ -191,35 +191,12 @@ const store = new Vuex.Store({
           state.files.splice(index, 1);
           db.setItem('files', state.files);
         },
+
         currentScreen(state, screenPath) {
-          const [type, screen] = screenPath.split('/');
-          const avaibleTypes = Object.keys(state.avaibleTypes);
-          const avaibleScreens = state.avaibleTypes[type].screens;
-
-          if (avaibleTypes.includes(type) && avaibleScreens.includes(screen)) {
-            state._currentScreen = screenPath;
-            saveUI(state);
-          } else {
-            console.error('Unavaible screen!');
-          }
+          state._currentScreen = screenPath;
+          saveUI(state);
         },
-        mutateCurrentProduct(state, cb) {
-          let selectedType = state._selectedType;
-          let currentProduct = state._currentProduct;
 
-          if (!selectedType) {
-            selectedType = Object.keys(state.avaibleTypes)[0];
-          }
-
-          if (!currentProduct) {
-            currentProduct = state.products.find(
-              product => product instanceof state.avaibleTypes[selectedType]
-            );
-          }
-
-          cb(currentProduct);
-          saveProducts(state.products);
-        },
         selectType(state, type) {
           state._currentScreen = null;
           state._currentProduct = null;
@@ -227,8 +204,7 @@ const store = new Vuex.Store({
           saveUI(state);
         },
         removeProduct(state, product) {
-          const indexToRemove = state.products.indexOf(product);
-          state.products.splice(indexToRemove, 1);
+          state.products.splice(state.products.indexOf(product), 1);
           state._currentProduct = null;
         },
         setCurrentProduct(state, product) {
@@ -236,6 +212,10 @@ const store = new Vuex.Store({
           saveUI(state);
         }
       },
+
+      /**
+       * Действия
+       */
       actions: {
         saveProducts({ state }) {
           saveProducts(state.products);
@@ -244,22 +224,25 @@ const store = new Vuex.Store({
           commit('removeProduct', product);
           dispatch('saveProducts');
         },
+
         async addProduct({ state, getters, commit, dispatch }) {
           const selectedType = getters.selectedType;
           const typeObject = state.avaibleTypes[selectedType];
           const ranges = state.ranges;
           const newProduct = new typeObject();
+          const referenceProduct = getters.productsWithCurrentType.pop();
 
-          newProduct.mountingDepth = ranges.mountingDepth[0];
-          newProduct.sillLength = ranges.windowSill.x[0];
-          newProduct.sillDepth = ranges.windowSill.y[0];
-          newProduct.slopesDepth = ranges.windowSill.y[0];
-
-          const productsLikeThis = getters['productsWithCurrentType'];
+          if (selectedType === 'WindowProduct') {
+            newProduct.mountingDepth = ranges.mountingDepth[0];
+            newProduct.sillLength = ranges.windowSill.x[0];
+            newProduct.sillDepth = ranges.windowSill.y[0];
+            newProduct.slopesDepth = ranges.windowSill.y[0];
+          }
 
           // при добавлении нового продукта стараемся сделать его максимально похожим на предыдушщий того-же типа
-          if (productsLikeThis.length) {
-            const lastProductData = productsLikeThis.pop().export();
+          if (referenceProduct) {
+            let lastProductData = referenceProduct.export();
+
             [
               'materialId',
               'brandId',
@@ -306,39 +289,148 @@ const store = new Vuex.Store({
 
           commit('addProduct', product);
         },
-        setShape({ getters }, shape) {
-          getters.currentProduct.setSelectedShape(shape);
+
+        prepareFormData({ state, commit }) {
+          const formData = new FormData();
+
+          formData.append('name', state.name);
+          formData.append('phone', state.phone);
+          formData.append('comment', state.comment);
+
+          state.products.forEach(product => {
+            formData.append('products', JSON.stringify(product.export()));
+          });
+          state.files.forEach(file => formData.append('files', file));
+
+          commit('setState', { formData });
+        },
+
+        async submit({ state, dispatch, commit }) {
+          commit('setState', { submitState: 'pending' });
+          dispatch('prepareFormData');
+
+          fetch('/api/uploadCunfiguratorResult', {
+            method: 'POST',
+            body: state.formData
+          })
+            .then(res => res.json())
+            .then(res => {
+              commit('setState', {
+                submitState: 'resolved',
+                requestId: res.payload.requestId
+              });
+            })
+            .catch(error => {
+              console.error(error);
+              commit('setState', {
+                submitState: 'rejected'
+              });
+            });
+        },
+        reset({ commit }) {
+          // TODO: данный код не работает, нужно доделыть
+          commit('setState', configuratorInitialState);
         }
       }
     }
   }
 });
 
-db.getItem('files', (err, files) => {
-  if (!err && files) {
-    store.commit('configurator/setFiles', files);
-  }
-});
+configuratorInitialState = { ...store.state.configurator };
 
-db.getItem('products', (err, products) => {
-  if (!err && products) {
+restoreConfiguratorState({ db, store });
+
+new Vue({ ...Configurator, store });
+
+/**
+ * Да простят меня за это боги
+ */
+function storeGetters(getter) {
+  return store.getters[getter];
+}
+
+/* ------------------------------------------------------------------------- */
+/* --- Функции для работы с localForage ------------------------------------ */
+/* ------------------------------------------------------------------------- */
+
+/**
+ * Сохранение свойств отобранных продуктов
+ * @param {*} products
+ */
+function saveProducts(products) {
+  db.setItem(
+    'products',
+    products.map(product => product.export())
+  );
+}
+
+/**
+ * Сохранение настроек интерфейса
+ * @param {*} state
+ */
+function saveUI(state) {
+  db.setItem('ui', {
+    selectedType: state._selectedType,
+    currentScreen: state._currentScreen
+  });
+}
+
+/**
+ * Сохранение настроек конфигуратора устанавлеваемых глобально
+ * @param {*} state
+ */
+function saveGlobalOptions(state) {
+  db.setItem('globalOptions', {
+    name: state.name,
+    phone: state.phone,
+    comment: state.comment,
+    installation: state.installation,
+    liftingToFloor: state.liftingToFloor,
+    floor: state.floor
+  });
+}
+
+/**
+ * Восстановление параметров
+ * @param {object} context
+ */
+function restoreConfiguratorState({ db, store }) {
+  /**
+   * Файлы
+   */
+  db.getItem('files', (err, files) => {
+    if (err || !files) return;
+    store.commit('configurator/setState', { files });
+  });
+
+  /**
+   * Продукты
+   */
+  db.getItem('products', (err, products) => {
+    if (err || !products) return;
+
     products.forEach(product => {
       store.dispatch('configurator/restoreProduct', product);
     });
-  }
-});
+  });
 
-db.getItem('globalOptions', (err, globalOptions) => {
-  if (!err && globalOptions) {
-    console.log('globalOptions', globalOptions);
-    store.commit('configurator/restoreGlobalOptions', globalOptions);
-  }
-});
+  /**
+   * Глобальные опции необходимые для расчета
+   */
+  db.getItem('globalOptions', (err, globalOptions) => {
+    if (err || !globalOptions) return;
+    store.commit('configurator/setState', { globalOptions });
+  });
 
-db.getItem('ui', (err, ui) => {
-  if (!err && ui) {
-    store.commit('configurator/restoreUI', ui);
-  }
-});
+  /**
+   * Параметры интерфейса
+   */
+  db.getItem('ui', (err, ui) => {
+    if (err || !ui) return;
 
-new Vue({ ...Configurator, store });
+    store.commit('configurator/setState', {
+      _selectedType: ui.selectedType,
+      _currentScreen: ui.currentScreen
+    });
+  });
+}

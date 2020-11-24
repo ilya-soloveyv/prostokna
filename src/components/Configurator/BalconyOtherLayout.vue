@@ -94,6 +94,9 @@
         @change="floorChange"
       />
     </div>
+    <div class="col-12" v-if="isMobile">
+      <MobileNaigation @prev="prevScreen" @next="nextScreen" />
+    </div>
   </div>
 </template>
 
@@ -105,6 +108,7 @@ import CheckBox from './common/CheckBox.vue';
 import Selector from './common/Selector.vue';
 import Slider from './common/Slider.vue';
 import Counter from './common/Counter.vue';
+import MobileNaigation from './common/MobileNaigation.vue';
 
 /**
  * Utils
@@ -113,7 +117,8 @@ import mapAsOptions from '@/utils/mapAsOptions';
 
 export default {
   name: 'BalconyModelLayout',
-  components: { Selector, Slider, CheckBox, Counter },
+  components: { Selector, Slider, CheckBox, Counter, MobileNaigation },
+  inject: ['configuratorComponent'],
   data() {
     return {
       brands: [],
@@ -122,6 +127,16 @@ export default {
     };
   },
   computed: {
+    prevScreen() {
+      return this.configuratorComponent.prevScreen;
+    },
+    nextScreen() {
+      return this.configuratorComponent.nextScreen;
+    },
+    isMobile() {
+      return this.configuratorComponent.isMobile;
+    },
+
     products() {
       return this.$store.getters['configurator/productsWithCurrentType'];
     },

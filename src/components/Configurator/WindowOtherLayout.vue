@@ -1,6 +1,6 @@
 <template>
   <div class="row window-other-layout">
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <CheckBox
         label="Подоконник"
         compact
@@ -31,7 +31,7 @@
         @change="sillBrandChange"
       />
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <CheckBox
             label="Отлив"
             compact
@@ -39,7 +39,7 @@
             @change="outerSill"
           />
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <CheckBox
             label="Монтаж"
             compact
@@ -49,9 +49,9 @@
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <div class="row">
-        <div class="col-5">
+        <div class="col-12 col-sm-6 col-lg-5">
           <CheckBox
             label="Откосы"
             compact
@@ -59,7 +59,7 @@
             @change="slopesChange"
           />
         </div>
-        <div class="col-7">
+        <div class="col-12 col-sm-6 col-lg-7">
           <CheckBox
             label="Детский замок"
             compact
@@ -89,6 +89,9 @@
         @change="floorChange"
       />
     </div>
+    <div class="col-12" v-if="isMobile">
+      <MobileNaigation @prev="prevScreen" @next="nextScreen" />
+    </div>
   </div>
 </template>
 
@@ -99,6 +102,7 @@
 import Selector from './common/Selector.vue';
 import Slider from './common/Slider.vue';
 import CheckBox from './common/CheckBox.vue';
+import MobileNaigation from './common/MobileNaigation.vue';
 
 /**
  * Utils
@@ -107,11 +111,21 @@ import mapAsOptions from '@/utils/mapAsOptions';
 
 export default {
   name: 'WindowOtherLayout',
-  components: { Selector, Slider, CheckBox },
+  components: { Selector, Slider, CheckBox, MobileNaigation },
+  inject: ['configuratorComponent'],
   data() {
     return {};
   },
   computed: {
+    prevScreen() {
+      return this.configuratorComponent.prevScreen;
+    },
+    nextScreen() {
+      return this.configuratorComponent.nextScreen;
+    },
+    isMobile() {
+      return this.configuratorComponent.isMobile;
+    },
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
     },

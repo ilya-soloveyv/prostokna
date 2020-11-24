@@ -1,51 +1,30 @@
 <template>
   <transition name="slide">
-    <div class="windows-slider" v-if="products.length">
-      <div v-for="product of products" :key="product.id">
-        <transition name="slide">
-          <div class="window" v-if="product === currentProduct">
-            <div class="name">{{ name }}</div>
-            <div class="price">{{ price }}₽</div>
-            <div class="actions">
-              <img v-bind:src="editIcon" class="action edit" />
-              <img
-                v-bind:src="deleteIcon"
-                @click="() => removeProduct(product)"
-                class="action delete"
-              />
-            </div>
-
-            <div class="options">
-              <div class="type">
-                <img :src="shapeIcon" alt="" :style="shapeIconStyles" />
-              </div>
-              <div class="materials">
-                <div
-                  class="material"
-                  v-if="frontFaceColor"
-                  :style="frontFaceColorStyles"
-                ></div>
-                <div
-                  class="material"
-                  v-if="backFaceColor && currentProduct.paintingType === 2"
-                  :style="backFaceColorStyles"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </transition>
+    <div
+      class="windows-slider"
+      v-swiper:windowsSwiper="swiperOption"
+      v-if="showSlider"
+    >
+      <div class="swiper-wrapper">
+        <div
+          class="swiper-slide"
+          :key="index"
+          v-for="(product, index) of products"
+        >
+          <WindowsSlide :product="product" />
+        </div>
       </div>
       <div class="controls">
-        <div class="prev" @click="prevProduct" />
-        <div class="next" @click="nextProduct" />
-        <div class="dots">
+        <div class="next" @click="windowsSwiper.slideNext()"></div>
+        <div class="prev" @click="windowsSwiper.slidePrev()"></div>
+        <div class="dots" ref="dots">
           <div
             class="dot"
-            v-for="product of products"
-            :class="{ selected: product.id === currentProductId }"
-            :key="product.id"
-            @click="() => selectProduct(product)"
-          />
+            v-for="(product, index) of products"
+            :key="index"
+            :class="{ selected: product === currentProduct }"
+            @click="() => slideTo(index)"
+          ></div>
         </div>
       </div>
     </div>
@@ -53,131 +32,72 @@
 </template>
 
 <script>
-/**
- * Utils
- */
-import priceFormatter from '@/utils/priceFormatter';
-/**
- * Icons
- */
-import deleteIcon from '@images/configurator/delete-icon.svg';
-import editIcon from '@images/configurator/edit-icon.svg';
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+import 'swiper/swiper-bundle.css';
+
+import WindowsSlide from './WindowsSlide.vue';
 
 export default {
   name: 'WindowsSlider',
+  components: {
+    Swiper,
+    SwiperSlide,
+    WindowsSlide
+  },
+  directives: {
+    swiper: directive
+  },
   data() {
     return {
-      deleteIcon,
-      editIcon,
-      productPrice: 0,
-      name: '',
-      frontFaceColor: null,
-      backFaceColor: null,
-      price: 0
+      swiperOption: {
+        init: false,
+        loop: false,
+        autoplay: false,
+        on: {
+          slideChange: ({ activeIndex }) => {
+            this.selectProduct(this.products[activeIndex]);
+          }
+        }
+      }
     };
   },
+  watch: {
+    showSlider() {
+      this.showSlider ? this.initSwiper() : this.destroySwiper();
+    }
+  },
   computed: {
-    formatedPrice() {
-      return priceFormatter(this.price);
-    },
-    lastUpdate() {
-      return this.currentProduct ? this.currentProduct.lastUpdate : Date.now();
-    },
-    frontFaceColorStyles() {
-      return {
-        background: 'initial',
-        backgroundPosition: 'center',
-        backgroundColor: this.frontFaceColor.hex || 'none',
-        backgroundImage: this.frontFaceColor.texture
-          ? `url('${this.frontFaceColor.texture}')`
-          : 'none'
-      };
-    },
-    backFaceColorStyles() {
-      return {
-        background: 'initial',
-        backgroundPosition: 'center',
-        backgroundColor: this.backFaceColor.hex || 'none',
-        backgroundImage: this.backFaceColor.texture
-          ? `url('${this.backFaceColor.texture}')`
-          : 'none'
-      };
-    },
-    shapeIconStyles() {
-      return {
-        transform: this.isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
-      };
-    },
     products() {
       return this.$store.getters['configurator/productsWithCurrentType'];
     },
+    showSlider() {
+      return !!this.products.length;
+    },
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
-    },
-    currentProductId() {
-      return this.$store.getters['configurator/currentProductId'];
-    },
-    shapeIcon() {
-      return this.currentProduct.getSelectedShape().icon;
-    },
-    isFlipped() {
-      return this.currentProduct.isFlipped;
-    }
-  },
-  watch: {
-    lastUpdate() {
-      if (!this.currentProduct) return;
-      this.fetchSelectedColors();
-      this.calcPrice();
-      this.currentProduct.fetchModelData().then(data => {
-        this.name = data.name;
-      });
     }
   },
   methods: {
-    async fetchSelectedColors() {
-      if (!this.currentProduct) return;
-
-      const avaibleColors = await this.currentProduct.fetchAvaibleColors();
-
-      this.frontFaceColor = avaibleColors.frontFace.find(
-        color => color.id === this.currentProduct.frontFaceColor
-      );
-      this.backFaceColor = avaibleColors.backFace.find(
-        color => color.id === this.currentProduct.backFaceColor
-      );
+    slideTo(index) {
+      console.log(index);
+      this.windowsSwiper.slideTo(index);
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
     },
-    removeProduct(product) {
-      this.$store.dispatch('configurator/removeProduct', product);
-    },
-    prevProduct() {
-      const selectedIndex = this.products.indexOf(this.currentProduct);
-      const isFirst = selectedIndex === 0;
 
-      if (!isFirst) {
-        this.selectProduct(this.products[selectedIndex - 1]);
-      } else {
-        this.selectProduct(this.products[this.products.length - 1]);
-      }
+    initSwiper() {
+      setTimeout(() => {
+        this.windowsSwiper.init();
+      }, 0);
     },
-    nextProduct() {
-      const selectedIndex = this.products.indexOf(this.currentProduct);
-      const isLast = selectedIndex === this.products.length - 1;
-
-      if (!isLast) {
-        this.selectProduct(this.products[selectedIndex + 1]);
-      } else {
-        this.selectProduct(this.products[0]);
-      }
-    },
-    calcPrice() {
-      if (!this.currentProduct) return;
-      this.currentProduct.calculatePrice().then(price => (this.price = price));
+    destroySwiper() {
+      setTimeout(() => {
+        this.windowsSwiper.destroy();
+      }, 0);
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 
@@ -186,87 +106,28 @@ export default {
 
 .windows-slider {
   position: relative;
+  height: 200px;
   background: $gray-darker;
-  padding: 166px 26px 30px;
   margin-bottom: 14px;
   border-radius: 8px;
-}
+  overflow: hidden;
 
-.window {
-  position: absolute;
-  top: 30px;
-  bottom: 30px;
-  left: 26px;
-  right: 26px;
-}
-
-.name {
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.price {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.actions {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-}
-
-.action {
-  padding: 6px;
-  opacity: 0.75;
-  transition: opacity $transition;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 1;
+  .mobile & {
+    height: 165px;
   }
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.type {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid;
-  border-color: $border-dark;
-  background-color: $gray-600;
-
-  img {
-    max-width: 75%;
-    max-height: 55%;
-    transition: transform $transition;
-  }
-}
-
-.type,
-.material {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 2px rgba($dark, 0.15);
-}
-
-.material {
-  background: $gradient;
-  margin-left: 10px;
-}
-
-.materials {
-  display: flex;
 }
 
 .controls {
-  position: relative;
+  position: absolute;
+  bottom: 22px;
+  left: 26px;
+  right: 26px;
+  height: 20px;
+  z-index: 1;
+
+  .mobile & {
+    bottom: 10px;
+  }
 
   .prev,
   .next {

@@ -1,9 +1,12 @@
 <template>
   <div class="price-component">
-    <div class="per-type" v-for="item of items" :key="item.name">
-      {{ item.title }}
-      <span class="price">{{ priceFormatter(item.price) }} ₽</span>
-    </div>
+    <fragment v-if="!isMobile">
+      <div class="per-type" v-for="item of items" :key="item.name">
+        {{ item.title }}
+        <span class="price">{{ priceFormatter(item.price) }} ₽</span>
+      </div>
+    </fragment>
+
     <div class="full">
       ОБЩАЯ СТОИМОСТЬ:
       <span class="price">{{ priceFormatter(fullPrice) }} ₽</span>
@@ -12,10 +15,13 @@
 </template>
 
 <script>
+import { Fragment } from 'vue-fragment';
 import priceFormatter from '@/utils/priceFormatter';
 
 export default {
   name: 'Price',
+  components: { Fragment },
+  inject: ['configuratorComponent'],
   data() {
     return {
       items: [],
@@ -23,6 +29,9 @@ export default {
     };
   },
   computed: {
+    isMobile() {
+      return this.configuratorComponent.isMobile;
+    },
     lastUpdate() {
       return this.currentProduct ? this.currentProduct.lastUpdate : Date.now();
     },
@@ -80,6 +89,10 @@ export default {
 
 .price-component {
   margin-bottom: 40px;
+
+  .mobile & {
+    margin-bottom: 24px;
+  }
 }
 
 .per-type,

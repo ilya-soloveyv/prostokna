@@ -23,6 +23,15 @@
         }"
       >
         <div class="row">
+          <div class="col-12">
+            <div
+              class="close-arrow"
+              @click="() => setActive(null)"
+              v-if="!isDesktop"
+            >
+              <img :src="arrowUp" />
+            </div>
+          </div>
           <div
             class="col-6"
             v-for="color of colors"
@@ -50,6 +59,8 @@
 </template>
 
 <script>
+import arrowUp from '@images/configurator/arrow-up-md.png';
+
 import '@/utils/resizeEndEvent.js';
 
 export default {
@@ -77,7 +88,8 @@ export default {
       top: 0,
       minHeight: 0,
       maxHeight: 0,
-      showOptions: false
+      showOptions: false,
+      arrowUp
     };
   },
   computed: {
@@ -133,11 +145,11 @@ export default {
     },
     open() {
       const rect = this.$refs.selector.getBoundingClientRect();
-      const parentRect = this.$refs.selector.parentNode.getBoundingClientRect();
+      const parentRect = this.$refs.selector.parentNode.parentNode.getBoundingClientRect();
 
       this.top = parentRect.y - rect.y - 5;
       this.minHeight = parentRect.bottom - parentRect.top + 10;
-      this.maxHeight = window.innerHeight - parentRect.top - 20;
+      this.maxHeight = (window.innerHeight - parentRect.top - 20) / 2;
 
       this.showOptions = true;
 
@@ -181,6 +193,25 @@ export default {
   height: 100px;
   margin-bottom: 30px;
   padding: 55px 28px 14px;
+
+  .mobile & {
+    margin: 0 0 15px 0 !important;
+
+    .arrow {
+      bottom: 14px;
+    }
+
+    label {
+      font-size: 11px;
+      padding: 18px 28px 0;
+    }
+
+    & {
+      height: auto;
+      font-size: 13px;
+      padding: 40px 28px 14px;
+    }
+  }
 
   &.tablet {
     padding: 47px 28px 14px;
@@ -239,12 +270,23 @@ export default {
     top: -5px;
     left: -5px;
     right: -5px;
-    padding: 30px 22px;
+    padding: 40px 32px;
     overflow-x: hidden;
     overflow-y: scroll;
-    border: 10px $gray-darker solid;
     border-radius: 10px;
     z-index: 10;
+
+    .mobile & {
+      position: fixed;
+      top: 72px !important;
+      left: 15px !important;
+      right: 15px !important;
+      max-height: calc(100vh - 80px - 15px) !important;
+      min-height: auto !important;
+
+      background: rgba($gray-800, 0.8);
+      backdrop-filter: blur(5px);
+    }
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -260,6 +302,12 @@ export default {
       border-radius: 1em;
     }
   }
+}
+
+.close-arrow {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0 40px;
 }
 
 .color {

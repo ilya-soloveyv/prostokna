@@ -9,16 +9,29 @@
       mobile: isMobile
     }"
   >
-    <section class="left column" v-if="isDesktop">
-      <Summary />
+    <MobileTypeBar v-if="isMobile" />
+
+    <!-- Общие сведенья -->
+    <section class="left column" v-if="!isMobile || mobileLayout === 'summary'">
+      <Summary @submit="showSumbitModal = true" />
     </section>
-    <section class="main column" :style="mainComputedStyle">
+
+    <!-- Выбор этапа на мобильном -->
+    <section class="column" v-if="isMobile && mobileLayout === 'set-stage'">
+      <MobileSetStage />
+    </section>
+
+    <!-- Опции конструкций -->
+    <section
+      class="main column"
+      :style="mainComputedStyle"
+      v-if="!isMobile || mobileLayout === 'edit'"
+      ref="mainColumn"
+    >
       <transition name="layout">
         <div v-if="productsWithCurrentType.length">
-          <TypeSelector v-if="isTablet" />
-          <TouchWindowsSlider v-if="!isDesktop && mobileShowSummary" />
-          <Header v-if="isDesktop || !mobileShowSummary" />
-          <div class="position-relative" v-if="isDesktop || !mobileShowSummary">
+          <Header />
+          <div class="layouts">
             <transition name="layout">
               <WindowShapeLayout
                 v-if="currentScreen === 'WindowProduct/shape'"
@@ -53,15 +66,11 @@
             {{ addNew.text }}
           </div>
         </div>
-        <!-- <SquareSelector
-          v-else
-          :cols="2"
-          :options="addNewList"
-          max-width="500px"
-          @change="addNewProduct"
-        /> -->
       </transition>
     </section>
+    <transition name="submit-modal">
+      <SubmitModal v-if="showSumbitModal" @close="showSumbitModal = false" />
+    </transition>
   </div>
 </template>
 
@@ -70,9 +79,9 @@ import Summary from './Configurator/Summary.vue';
 import Header from './Configurator/Header.vue';
 import TypeSelector from './Configurator/TypeSelector.vue';
 
+import MobileTypeBar from './Configurator/MobileTypeBar.vue';
+import MobileSetStage from './Configurator/MobileSetStage.vue';
 import SquareSelector from './Configurator/common/SquareSelector.vue';
-
-import TouchWindowsSlider from './Configurator/TouchWindowsSlider.vue';
 
 import WindowShapeLayout from './Configurator/WindowShapeLayout.vue';
 import WindowModelLayout from './Configurator/WindowModelLayout.vue';
@@ -83,6 +92,8 @@ import BalconyShapeLayout from './Configurator/BalconyShapeLayout.vue';
 import BalconyModelLayout from './Configurator/BalconyModelLayout.vue';
 import BalconyOtherLayout from './Configurator/BalconyOtherLayout.vue';
 import BalconyColorLayout from './Configurator/BalconyColorLayout.vue';
+
+import SubmitModal from './Configurator/SubmitModal.vue';
 
 import api from '../utils/api';
 
@@ -111,13 +122,23 @@ export default {
     WindowModelLayout,
     WindowOtherLayout,
     WindowColorLayout,
-    TouchWindowsSlider,
-    BalconyColorLayout
+    BalconyColorLayout,
+    SubmitModal,
+    MobileSetStage,
+    MobileTypeBar
   },
   data() {
     return {
       isInitialized: false,
-      mobileShowSummary: true
+      mobileShowSummary: true,
+      showSumbitModal: false,
+      mobileLayout: null,
+      mobileLayoutPart: 1
+    };
+  },
+  provide() {
+    return {
+      configuratorComponent: this
     };
   },
   computed: {
@@ -136,10 +157,10 @@ export default {
       return ['xl', 'lg', 'md'].includes(this.$mq);
     },
     isTablet() {
-      return ['sm'].includes(this.$mq);
+      return false;
     },
     isMobile() {
-      return ['xs'].includes(this.$mq);
+      return ['xs', 'sm'].includes(this.$mq);
     },
     currentScreen() {
       return this.$store.getters['configurator/currentScreen'];
@@ -157,15 +178,67 @@ export default {
         text: typeClass.addNew,
         icon: typeClass.icon
       };
+    },
+
+    /**
+     * Работа с экранами настроек и все что для неё нужно
+     */
+    currentType() {
+      return this.$store.getters['configurator/selectedType'];
+    },
+    currentTypeData() {
+      const avaibleTypes = this.$store.state.configurator.avaibleTypes;
+
+      return avaibleTypes[this.currentType];
+    },
+    currentScreen() {
+      return this.$store.getters['configurator/currentScreen'];
+    },
+    avaibleScreens() {
+      const avaibleScreens = this.currentTypeData.screens;
+
+      return avaibleScreens.map(screen => `${this.currentType}/${screen}`);
+    },
+    currentIndex() {
+      return this.avaibleScreens.indexOf(this.currentScreen);
+    },
+    canGoForward() {
+      return this.currentIndex + 1 < this.avaibleScreens.length;
+    },
+    canGoBack() {
+      return this.currentIndex > 0;
+    }
+  },
+  watch: {
+    isMobile() {
+      this.mobileLayout = this.isMobile ? 'summary' : null;
+    },
+    currentScreen() {
+      if (this.$refs.mainColumn) {
+        this.$refs.mainColumn.scrollTop = 0;
+      }
     }
   },
   methods: {
+    selectScreen(screenPath) {
+      this.$store.commit('configurator/currentScreen', screenPath);
+    },
+    nextScreen() {
+      if (this.canGoForward) {
+        this.selectScreen(this.avaibleScreens[this.currentIndex + 1]);
+      }
+    },
+    prevScreen() {
+      if (this.canGoBack) {
+        this.selectScreen(this.avaibleScreens[this.currentIndex - 1]);
+      }
+    },
     async init() {
       await this.fetchRanges();
     },
     async fetchRanges() {
       const ranges = await api.call('windowsRanges').then(res => res.payload);
-      this.$store.commit('configurator/setRanges', ranges);
+      this.$store.commit('configurator/setState', { ranges: ranges });
     },
     addNewProduct(type) {
       console.log(type);
@@ -176,6 +249,14 @@ export default {
   mounted() {
     this.init();
     this.isInitialized = true;
+    this.mobileLayout = this.isMobile ? 'summary' : null;
+  },
+  created() {
+    this.$on('editProduct', () => {
+      if (this.isMobile) {
+        this.mobileLayout = 'set-stage';
+      }
+    });
   }
 };
 </script>
@@ -212,6 +293,12 @@ export default {
       }
     }
   }
+
+  &.mobile {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 60px;
+  }
 }
 
 .column {
@@ -224,6 +311,14 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   @include scrollbar;
+
+  .mobile & {
+    padding: 124px 0 26px !important;
+
+    & > div {
+      width: 100% !important;
+    }
+  }
 
   &.main {
     margin-right: 0;
@@ -241,6 +336,9 @@ export default {
       @media screen and (max-width: 1200px) {
         width: 690px;
       }
+      .mobile & {
+        width: 100% !important;
+      }
     }
   }
 
@@ -249,10 +347,34 @@ export default {
     max-width: 355px;
     padding-right: 22px;
     border-right: 1px $border-dark solid;
-    @media screen and (max-width: 992px) {
+
+    .tablet & {
       min-width: 325px;
       max-width: 325px;
     }
+
+    .mobile & {
+      min-width: 100%;
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      border: none;
+
+      & > div {
+        width: calc(100% - 30px) !important;
+        max-width: 320px;
+      }
+    }
+  }
+}
+
+.layouts {
+  position: relative;
+
+  .mobile & {
+    width: calc(100% - 30px);
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
 
@@ -306,14 +428,29 @@ export default {
 
 .layout-enter-active {
   animation: fadeIn $transition-time * 3;
+
+  .mobile & {
+    animation: none;
+  }
 }
 .layout-leave-active {
   animation: fadeIn $transition-time * 3 reverse;
+  .mobile & {
+    animation: none;
+  }
+}
+
+.submit-modal-enter-active {
+  animation: fadeIn $transition-time * 2;
+}
+.submit-modal-leave-active {
+  animation: fadeIn $transition-time reverse;
 }
 </style>
 
 <style lang="scss">
 // Фиксы для тёмной темы
+body,
 #top,
 #top .menu {
   background-color: #363636;
