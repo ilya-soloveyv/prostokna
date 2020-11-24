@@ -4,48 +4,48 @@ block content
     #intuitive.ppage
         .intuitive-bref(v-if="!showResult")
             h1 Интуитивный подбор окон
-            .subject(v-if="currentSubject == null")
+                button(@click="iIntuitiveTypeID = null") Заново
+            .subject(v-if="iIntuitiveTypeID == null")
                 .desc Куда вы хотите поставить окна?
                 ul
-                    li(v-for="(subject, index) in subjects" v-on:click="useSubject(index)")
-                        img(v-bind:src="subject.ico", alt="subject.title")
-                        span {{ subject.title }}
-            .question(v-if="currentSubject != null")
+                    li(v-for="(type, index) in types" :key="index" v-on:click="useType(type.iIntuitiveTypeID)")
+                        div.ico(v-html="type.tIntuitiveTypeSVGIco")
+                        span {{ type.sIntuitiveTypeTitle }}
+            .question(v-if="iIntuitiveTypeID != null")
+                pre {{ currentQuestions }}
                 ul.questions
-                    li(
-                        v-for="(question, index) in questions[currentSubject]"
-                        v-bind:class="{ disabled: currentQuestion < index, active: currentQuestion == index }"
-                        v-on:click="useQuestion(index)")
+                    //- для li v-bind:class="{ disabled: currentQuestion < index, active: currentQuestion == index }"
+                    li(v-for="(question, index) in currentQuestions" :key="index" v-on:click="useQuestion(index)")
                         //- img(
                             v-bind:src="question.ico"
                             v-bind:alt="question.title")
-                        .num {{ question.num }}
-                h2
-                    .num {{ questions[currentSubject][currentQuestion].num }}
-                    .title {{ questions[currentSubject][currentQuestion].title }}
-                ul.answers
-                    li(
-                        v-for="(answer, index) in questions[currentSubject][currentQuestion].answers"
-                        v-bind:class="{ active: answer.status, dis: !questions[currentSubject][currentQuestion].next && !answer.status }")
-                        label
-                            input(
-                                type="checkbox"
-                                v-model="answer.status"
-                                v-on:change="useAnswer(index)")
-                            .img
-                                img(
-                                    v-bind:src="answer.ico"
-                                    v-bind:alt="answer.title")
-                            .title {{ answer.title }}
-                .nextButton
-                    template(v-if="currentQuestion != (questions[currentSubject].length-1)")
-                        button(
-                            v-bind:class="{disabled: questions[currentSubject][currentQuestion].next}"
-                            v-on:click="nextQuestion") Далее
-                    template(v-else)
-                        button(
-                            v-bind:class="{disabled: questions[currentSubject][currentQuestion].next}"
-                            v-on:click="nextQuestion") Показать результаты
+                        .num {{ index }}
+                //- h2
+                //-     .num {{ questions[currentSubject][currentQuestion].num }}
+                //-     .title {{ questions[currentSubject][currentQuestion].title }}
+                //- ul.answers
+                //-     li(
+                //-         v-for="(answer, index) in questions[currentSubject][currentQuestion].answers"
+                //-         v-bind:class="{ active: answer.status, dis: !questions[currentSubject][currentQuestion].next && !answer.status }")
+                //-         label
+                //-             input(
+                //-                 type="checkbox"
+                //-                 v-model="answer.status"
+                //-                 v-on:change="useAnswer(index)")
+                //-             .img
+                //-                 img(
+                //-                     v-bind:src="answer.ico"
+                //-                     v-bind:alt="answer.title")
+                //-             .title {{ answer.title }}
+                //- .nextButton
+                //-     template(v-if="currentQuestion != (questions[currentSubject].length-1)")
+                //-         button(
+                //-             v-bind:class="{disabled: questions[currentSubject][currentQuestion].next}"
+                //-             v-on:click="nextQuestion") Далее
+                //-     template(v-else)
+                //-         button(
+                //-             v-bind:class="{disabled: questions[currentSubject][currentQuestion].next}"
+                //-             v-on:click="nextQuestion") Показать результаты
         .intuitive-wrap(v-if="showResult")
             .center
                 .circle

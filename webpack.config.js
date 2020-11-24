@@ -31,7 +31,7 @@ const plugins = function getPluginsArray() {
     }),
 
     new CopyPlugin({
-      patterns: ['./images/**/*', './*.html', './assets/fonts/*']
+      patterns: ['./images/**/*', './*.html', './assets/fonts/*', './admin/fonts/*']
     }),
     new MiniCssExtractPlugin({ filename: '[name].[fullhash].css' }),
     new BuildHashPlugin({ filename: './static/build-hash.json' }),
@@ -191,7 +191,7 @@ module.exports = {
   },
 
   optimization: {
-    minimizer: [new TerserPlugin({ cache: true, parallel: true })],
+    minimizer: [new TerserPlugin()],
 
     splitChunks: {
       cacheGroups: {
