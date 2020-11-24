@@ -69,6 +69,24 @@ export default {
   margin-bottom: 30px;
   transition: opacity $transition;
 
+  .mobile & {
+    margin: 0 0 15px 0 !important;
+
+    .arrow {
+      bottom: 14px;
+    }
+
+    label {
+      font-size: 11px;
+      padding: 18px 28px 0;
+    }
+
+    select {
+      font-size: 13px;
+      padding: 40px 28px 14px;
+    }
+  }
+
   &.disabled {
     opacity: 0.5;
     pointer-events: none;

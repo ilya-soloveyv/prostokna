@@ -46,6 +46,10 @@ router.get('/', async (req, res, next) => {
         possimus, vel iusto fugit repellat consequatur reiciendis cumque
         vitae, doloribus aliquid quis sapiente?`,
       charts: {
+        price: {
+          value: 8500,
+          max: 10000
+        },
         safety: randomPercent(),
         aesthetics: randomPercent(),
         ecology: randomPercent(),

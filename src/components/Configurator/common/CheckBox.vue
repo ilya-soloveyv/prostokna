@@ -77,6 +77,22 @@ export default {
   color: $gray-lighter;
   transition: opacity $transition;
 
+  .mobile & {
+    margin: 0 !important;
+    padding: 14px 28px !important;
+
+    label {
+      font-size: 13px;
+      padding: 0 38px;
+    }
+
+    & {
+      height: 75px !important;
+      font-size: 13px;
+      padding: 40px 28px 14px;
+    }
+  }
+
   &.tablet {
     height: 90px;
   }

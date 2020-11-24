@@ -12,9 +12,6 @@
       <img :src="type.icon" alt="" />
 
       <div class="badge">{{ getProductCountByType(key) }}</div>
-      <div class="price" v-if="!isDesktop">
-        120 300 ₽
-      </div>
     </div>
     <div class="backplate" v-bind:style="backplateStyle" />
   </div>
@@ -23,6 +20,7 @@
 <script>
 export default {
   name: 'TypeSelector',
+  inject: ['configuratorComponent'],
   data: () => {
     return {
       optionsElements: [],
@@ -32,7 +30,10 @@ export default {
   },
   computed: {
     isDesktop() {
-      return ['xl', 'lg', 'md'].includes(this.$mq);
+      return this.configuratorComponent.isDesktop;
+    },
+    isMobile() {
+      return this.configuratorComponent.isMobile;
     },
     avaibleTypes() {
       return this.$store.state.configurator.avaibleTypes;
@@ -48,6 +49,7 @@ export default {
   },
   methods: {
     select(selectedType) {
+      if (this.isMobile) this.configuratorComponent.mobileLayout = 'summary';
       this.$store.commit('configurator/selectType', selectedType);
     },
     getProductCountByType(type) {
@@ -94,8 +96,9 @@ export default {
   background-color: $gray-600;
 
   &.compact {
-    max-width: 50%;
-    margin: 0 auto 40px;
+    max-width: 75%;
+    height: 35px;
+    margin: 0 auto 25px;
   }
 }
 
@@ -128,6 +131,10 @@ export default {
     max-width: 25px;
     opacity: 0.5;
     transition: opacity $transition;
+
+    .compact & {
+      max-height: 15px;
+    }
   }
 
   &.selected,

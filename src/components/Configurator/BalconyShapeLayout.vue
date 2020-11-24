@@ -1,57 +1,50 @@
 <template>
-  <transition name="fade">
-    <div class="row window-shape-layout" v-if="products.length">
-      <div
-        class="col-12 position-absolute"
-        v-for="product of products"
-        :key="product.id"
-      >
-        <transition name="fade">
-          <div class="row" v-if="product === currentProduct">
-            <div class="col-12 col-lg-6">
-              <SquareSelector
-                :options="shapesGrid"
-                :selected="currentProduct.selectedShapeId"
-                @change="val => setProductOption('selectedShapeId', val)"
-              />
-            </div>
-            <div class="col-12 col-lg-6">
-              <Slider
-                label="Ширина"
-                :min="ranges.x[0]"
-                :max="ranges.x[1]"
-                :value="currentProduct.width"
-                @change="val => setProductOption('width', val)"
-              />
-              <Slider
-                label="Высота"
-                :min="ranges.y[0]"
-                :max="ranges.y[1]"
-                :value="currentProduct.height"
-                @change="val => setProductOption('height', val)"
-              />
-              <Counter
-                label="СТВОРОКИ"
-                :max="4"
-                :value="currentProduct.panesCount"
-                @change="val => setProductOption('panesCount', val)"
-              />
-              <Selector
-                label="ОТКРЫВАНИЕ СТВОРКИ"
-                :options="currentProduct.avaibleOpenings"
-                :selected="currentProduct.panesOpening"
-                :disabled="!currentProduct.panesCount"
-                @change="val => setProductOption('panesOpening', parseInt(val))"
-              />
-            </div>
-          </div>
-        </transition>
-      </div>
+  <div class="row window-shape-layout" v-if="products.length">
+    <div class="col-12 col-lg-6" v-if="!isMobile || mobileLayoutPart === 1">
+      <SquareSelector
+        :options="shapesGrid"
+        :selected="currentProduct.selectedShapeId"
+        @change="val => setProductOption('selectedShapeId', val)"
+      />
     </div>
-  </transition>
+    <div class="col-12 col-lg-6" v-if="!isMobile || mobileLayoutPart === 2">
+      <Slider
+        label="Ширина"
+        :min="ranges.x[0]"
+        :max="ranges.x[1]"
+        :value="currentProduct.width"
+        @change="val => setProductOption('width', val)"
+      />
+      <Slider
+        label="Высота"
+        :min="ranges.y[0]"
+        :max="ranges.y[1]"
+        :value="currentProduct.height"
+        @change="val => setProductOption('height', val)"
+      />
+      <Counter
+        label="СТВОРОКИ"
+        :max="4"
+        :value="currentProduct.panesCount"
+        @change="val => setProductOption('panesCount', val)"
+      />
+      <Selector
+        label="ОТКРЫВАНИЕ СТВОРКИ"
+        :options="currentProduct.avaibleOpenings"
+        :selected="currentProduct.panesOpening"
+        :disabled="!currentProduct.panesCount"
+        @change="val => setProductOption('panesOpening', parseInt(val))"
+      />
+    </div>
+
+    <div class="col-12" v-if="isMobile">
+      <MobileNaigation @prev="mobilePrev" @next="mobileNext" />
+    </div>
+  </div>
 </template>
 
 <script>
+import { Fragment } from 'vue-fragment';
 /**
  * Components
  */
@@ -60,8 +53,7 @@ import Selector from './common/Selector.vue';
 import Slider from './common/Slider.vue';
 import Counter from './common/Counter.vue';
 import CheckBox from './common/CheckBox.vue';
-import CircleProgress from './common/CircleProgress.vue';
-import WindowDescription from './WindowDescription.vue';
+import MobileNaigation from './common/MobileNaigation.vue';
 
 /**
  * Utils
@@ -77,15 +69,25 @@ export default {
     Slider,
     Counter,
     CheckBox,
-    CircleProgress,
-    WindowDescription
+    Fragment,
+    MobileNaigation
   },
+  inject: ['configuratorComponent'],
   data() {
     return {
-      testOptions: [{ value: 1, text: '123' }]
+      mobileLayoutPart: this.configuratorComponent.mobileLayoutPart
     };
   },
   computed: {
+    prevScreen() {
+      return this.configuratorComponent.prevScreen;
+    },
+    nextScreen() {
+      return this.configuratorComponent.nextScreen;
+    },
+    isMobile() {
+      return this.configuratorComponent.isMobile;
+    },
     ranges() {
       const shapeId = this.currentProduct.selectedShapeId;
       return this.$store.state.configurator.ranges?.balcony[shapeId];
@@ -105,6 +107,15 @@ export default {
     }
   },
   methods: {
+    mobilePrev() {
+      if (this.mobileLayoutPart === 2) return (this.mobileLayoutPart = 1);
+      this.configuratorComponent.mobileLayout = 'summary';
+    },
+    mobileNext() {
+      if (this.mobileLayoutPart === 1) return (this.mobileLayoutPart = 2);
+      this.nextScreen();
+    },
+
     setProductOption(key, value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
         p[key] = value;

@@ -17,6 +17,9 @@
     <div class="col-12 col-lg-6 order-1 order-lg-2">
       <WindowDescription @setBgDimm="setDimmed" />
     </div>
+    <div class="col-12 order-3" v-if="isMobile">
+      <MobileNaigation @prev="prevScreen" @next="nextScreen" />
+    </div>
   </div>
 </template>
 
@@ -27,6 +30,7 @@
 import Selector from './common/Selector.vue';
 import Slider from './common/Slider.vue';
 import WindowDescription from './WindowDescription.vue';
+import MobileNaigation from './common/MobileNaigation.vue';
 
 /**
  * Utils
@@ -35,7 +39,8 @@ import mapAsOptions from '@/utils/mapAsOptions';
 
 export default {
   name: 'BalconyModelLayout',
-  components: { Selector, Slider, WindowDescription },
+  components: { Selector, Slider, WindowDescription, MobileNaigation },
+  inject: ['configuratorComponent'],
   data() {
     return {
       brands: [],
@@ -45,6 +50,16 @@ export default {
     };
   },
   computed: {
+    prevScreen() {
+      return this.configuratorComponent.prevScreen;
+    },
+    nextScreen() {
+      return this.configuratorComponent.nextScreen;
+    },
+    isMobile() {
+      return this.configuratorComponent.isMobile;
+    },
+
     profiles() {
       return this.modelData.profiles
         ? mapAsOptions(this.modelData.profiles)

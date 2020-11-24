@@ -75,6 +75,10 @@ router.get('/', async (req, res, next) => {
         vitae, doloribus aliquid quis sapiente?`,
       // Характеристики модели выражаемые в процентах
       charts: {
+        price: {
+          value: 8500,
+          max: 10000
+        },
         safety: randomPercent(),
         aesthetics: randomPercent(),
         ecology: randomPercent(),

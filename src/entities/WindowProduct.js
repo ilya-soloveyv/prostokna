@@ -65,7 +65,7 @@ const WindowProduct = class extends Product {
 
       isFlipped: false,
       profile: null,
-      glazing: null,
+      glazing: 1,
       mountingDepth: null,
 
       /**
@@ -249,7 +249,7 @@ const WindowProduct = class extends Product {
 
     for (const element of elements) {
       const openingsCode = safeOpeningsSequence(element.panes.join(''));
-      const priceMatrix = priceTable[element.type][openingsCode]['2'];
+      const priceMatrix = priceTable[element.type][openingsCode][this.glazing];
       const calculationResult = priceCalculator(
         element.width,
         element.height,

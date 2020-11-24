@@ -26,6 +26,11 @@ export default {
   transition: transform $transition-cubic-1;
   cursor: pointer;
 
+  .mobile & {
+    height: 40px;
+    margin-top: 15px;
+  }
+
   &:hover {
     transform: scale(1.05);
   }

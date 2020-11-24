@@ -50,6 +50,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 100px;
+
+  .mobile & {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 label {
@@ -60,6 +65,16 @@ label {
   font-weight: 500;
   line-height: 1.29;
   color: $gray-lighter;
+
+  .mobile & {
+    width: 100%;
+    padding: 0 28px 10px;
+    font-size: 13px;
+
+    br:first-child {
+      display: none;
+    }
+  }
 }
 
 input {
@@ -75,6 +90,13 @@ input {
   font-weight: 500;
   color: lighten($gray-lighter, 5);
   transition: border-color $transition;
+
+  .mobile & {
+    width: 100%;
+    max-width: 100%;
+    font-size: 13px;
+    height: 3em;
+  }
 
   &:focus {
     border-color: $border-dark;

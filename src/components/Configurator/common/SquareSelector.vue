@@ -62,6 +62,13 @@ export default {
 <style lang="scss" scoped>
 @import '@scss/variables';
 
+.square-selector {
+  .mobile & {
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+  }
+}
+
 .option {
   display: flex;
   align-items: center;
@@ -71,6 +78,11 @@ export default {
   padding-top: calc(100% / 3);
   position: relative;
   transition: transform 0.2s;
+
+  .mobile & {
+    margin-top: -7.5px;
+    margin-bottom: 7.5px;
+  }
 
   &::after {
     content: '';
@@ -84,16 +96,40 @@ export default {
     opacity: 0;
     transition: opacity $transition;
     z-index: 1;
+
+    .mobile & {
+      top: 7.5px;
+      bottom: 7.5px;
+      left: 7.5px;
+      right: 7.5px;
+    }
   }
 
-  &.selected,
   &:hover {
     &::after {
       opacity: 1;
+
+      .mobile & {
+        opacity: 0;
+      }
     }
 
     .option-body {
       background: transparent;
+
+      .mobile & {
+        background: $gray-darker;
+      }
+    }
+  }
+
+  &.selected {
+    &::after {
+      opacity: 1 !important;
+    }
+
+    .option-body {
+      background: transparent !important;
     }
   }
 
@@ -117,6 +153,13 @@ export default {
   transition: background $transition;
   cursor: pointer;
   z-index: 2;
+
+  .mobile & {
+    top: 7.5px;
+    bottom: 7.5px;
+    left: 7.5px;
+    right: 7.5px;
+  }
 
   svg,
   img {

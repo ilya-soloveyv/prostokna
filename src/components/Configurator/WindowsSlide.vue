@@ -4,6 +4,11 @@
     <div class="price">{{ price }}₽</div>
     <div class="actions">
       <img
+        v-bind:src="editIcon"
+        @click="() => configuratorComponent.$emit('editProduct')"
+        class="action delete"
+      />
+      <img
         v-bind:src="deleteIcon"
         @click="() => removeProduct(product)"
         class="action delete"
@@ -51,6 +56,7 @@ export default {
       price: 0
     };
   },
+  inject: ['configuratorComponent'],
   computed: {
     formatedPrice() {
       return priceFormatter(this.price);
@@ -140,11 +146,20 @@ export default {
   bottom: 30px;
   left: 26px;
   right: 26px;
+
+  .mobile & {
+    top: 15px;
+    bottom: 15px;
+  }
 }
 
 .name {
   font-size: 14px;
   margin-bottom: 8px;
+
+  .mobile & {
+    margin-bottom: 4px;
+  }
 }
 
 .price {
@@ -173,6 +188,10 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+
+  .mobile & {
+    margin-top: 10px;
+  }
 }
 
 .type {

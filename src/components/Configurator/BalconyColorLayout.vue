@@ -53,6 +53,10 @@
         @change="setBackFaceColor"
       />
       <RalColorInput :value="currentProduct.ralColor" @change="setRalColor" />
+
+      <div class="col-12" v-if="isCompact">
+        <MobileNaigation @prev="prevScreen" @next="accept" next-text="Готово" />
+      </div>
     </div>
   </div>
 </template>
@@ -63,12 +67,21 @@ import ColorSelector from './common/ColorSelector.vue';
 import Slider from './common/Slider.vue';
 import CheckBox from './common/CheckBox.vue';
 import RalColorInput from './common/RalColorInput.vue';
+import MobileNaigation from './common/MobileNaigation.vue';
 
 import mapAsOptions from '@/utils/mapAsOptions';
 
 export default {
   name: 'BalconyColorLayout',
-  components: { Selector, Slider, CheckBox, ColorSelector, RalColorInput },
+  components: {
+    Selector,
+    Slider,
+    CheckBox,
+    ColorSelector,
+    RalColorInput,
+    MobileNaigation
+  },
+  inject: ['configuratorComponent'],
   data() {
     return {
       paintingTypes: [
@@ -79,6 +92,16 @@ export default {
     };
   },
   computed: {
+    isCompact() {
+      return ['sm', 'xs', 'md'].includes(this.$mq);
+    },
+    prevScreen() {
+      return this.configuratorComponent.prevScreen;
+    },
+    isMobile() {
+      return this.configuratorComponent.isMobile;
+    },
+
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
     },
@@ -104,6 +127,9 @@ export default {
     }
   },
   methods: {
+    accept() {
+      this.configuratorComponent.mobileLayout = 'summary';
+    },
     setRalColor(value) {
       this.$store.commit('configurator/mutateCurrentProduct', p => {
         p.ralColor = value;

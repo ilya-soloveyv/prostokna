@@ -9,9 +9,19 @@
         <div v-if="key === currentScreen.split('/')[1]">{{ name }}</div>
       </transition>
     </div>
-    <div class="prev" :class="{ disabled: !canGoBack }" @click="prev" />
-    <div class="next" :class="{ disabled: !canGoForward }" @click="next" />
-    <div class="dots">
+    <div
+      class="prev"
+      :class="{ disabled: !canGoBack }"
+      @click="prev"
+      v-if="!isMobile"
+    />
+    <div
+      class="next"
+      :class="{ disabled: !canGoForward }"
+      @click="next"
+      v-if="!isMobile"
+    />
+    <div class="dots" v-if="!isMobile">
       <div
         class="dot"
         :class="{ selected: currentScreen === screen }"
@@ -31,50 +41,35 @@ export default {
   data: () => {
     return {};
   },
+  inject: ['configuratorComponent'],
   computed: {
-    currentType() {
-      return this.$store.getters['configurator/selectedType'];
+    isMobile() {
+      return this.configuratorComponent.isMobile;
     },
     currentTypeData() {
-      const avaibleTypes = this.$store.state.configurator.avaibleTypes;
-
-      return avaibleTypes[this.currentType];
+      return this.configuratorComponent.currentTypeData;
     },
     currentScreen() {
-      return this.$store.getters['configurator/currentScreen'];
+      return this.configuratorComponent.currentScreen;
     },
     avaibleScreens() {
-      const avaibleScreens = this.currentTypeData.screens;
-
-      return avaibleScreens.map(screen => `${this.currentType}/${screen}`);
+      return this.configuratorComponent.avaibleScreens;
     },
     currentIndex() {
-      return this.avaibleScreens.indexOf(this.currentScreen);
+      return this.configuratorComponent.currentIndex;
     },
     canGoForward() {
-      return this.currentIndex + 1 < this.avaibleScreens.length;
+      return this.configuratorComponent.canGoForward;
     },
     canGoBack() {
-      return this.currentIndex > 0;
-    }
-  },
-  methods: {
-    selectScreen(screenPath) {
-      this.$store.commit('configurator/currentScreen', screenPath);
-    },
-    next() {
-      if (this.canGoForward) {
-        this.selectScreen(this.avaibleScreens[this.currentIndex + 1]);
-      }
+      return this.configuratorComponent.canGoBack;
     },
     prev() {
-      if (this.canGoBack) {
-        this.selectScreen(this.avaibleScreens[this.currentIndex - 1]);
-      }
+      return this.configuratorComponent.prevScreen;
+    },
+    next() {
+      return this.configuratorComponent.nextScreen;
     }
-  },
-  mounted() {
-    console.log(this.avaibleScreens);
   }
 };
 </script>
@@ -88,6 +83,11 @@ export default {
   padding-bottom: 25px;
   margin-bottom: 40px;
   text-align: center;
+
+  .mobile & {
+    height: 22px;
+    margin-bottom: 30px;
+  }
 }
 
 .title {
@@ -96,6 +96,11 @@ export default {
   right: 0;
   font-size: 22px;
   font-weight: 500;
+
+  .mobile & {
+    font-size: 13px;
+    font-weight: 600;
+  }
 }
 
 .prev,

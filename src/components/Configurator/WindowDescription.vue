@@ -1,5 +1,5 @@
 <template>
-  <div class="window-description" :class="{ mobile: !isDesktop }">
+  <div class="window-description" :class="{ compact: isCompact }">
     <div class="tabs">
       <div
         class="tab"
@@ -35,13 +35,13 @@
     <transition name="float-description-fade">
       <div
         class="content"
-        :class="{ float: !['xl', 'lg'].includes($mq) }"
-        v-if="isDesktop || (!isDesktop && active)"
+        :class="{ float: isCompact }"
+        v-if="!isCompact || (isCompact && active)"
       >
         <div
           class="close-arrow"
           @click="() => setActive(null)"
-          v-if="!isDesktop"
+          v-if="isCompact"
         >
           <img :src="arrowUp" />
         </div>
@@ -55,8 +55,8 @@
             <div class="row">
               <div class="col-4 col-lg-6 col-xl-4">
                 <CircleProgress
-                  :value="8500"
-                  :max="10000"
+                  :value="chartsData.price.value"
+                  :max="chartsData.price.max"
                   color="#d364e2"
                   text="ЦЕНА"
                 />
@@ -136,6 +136,7 @@ export default {
   components: {
     CircleProgress
   },
+  inject: ['configuratorComponent'],
   data() {
     return {
       aboutBrand,
@@ -149,8 +150,11 @@ export default {
     };
   },
   computed: {
+    isCompact() {
+      return !['xl', 'lg'].includes(this.$mq);
+    },
     isDesktop() {
-      return ['xl', 'lg'].includes(this.$mq);
+      return this.configuratorComponent.isDesktop;
     },
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
@@ -170,7 +174,7 @@ export default {
   },
   methods: {
     setActive(value) {
-      if (!this.isDesktop) {
+      if (this.isCompact) {
         setTimeout(() => {
           this.$emit('setBgDimm', this.active !== null);
         }, 0);
@@ -181,7 +185,7 @@ export default {
       this.active = value;
     },
     onResizeEnd() {
-      if (!this.isDesktop) {
+      if (this.isCompact) {
         return this.setActive(null);
       }
 
@@ -189,13 +193,22 @@ export default {
     },
     async getBrands() {
       const brandId = this.currentProduct.brandId;
-      this.brandDescription = await this.currentProduct
-        .fetchAvaibleBrands()
-        .then(brands => brands.find(brand => brand.id === brandId))
-        .then(brand => brand.description);
+
+      if (brandId) {
+        this.brandDescription = await this.currentProduct
+          .fetchAvaibleBrands()
+          .then(brands => brands.find(brand => brand.id === brandId))
+          .then(brand => brand.description);
+      } else {
+        this.brandDescription = await this.currentProduct
+          .fetchAvaibleBrands()
+          .then(brands => brands[0])
+          .then(brand => brand.description);
+      }
     },
     async getModelData() {
       this.modelData = await this.currentProduct.fetchModelData();
+      console.log(this.modelData);
     }
   },
   mounted() {
@@ -227,6 +240,16 @@ export default {
     right: 0;
     background: $dark;
     z-index: 5;
+
+    .mobile & {
+      position: fixed;
+      top: 72px;
+      left: 15px;
+      right: 15px;
+      border-color: transparent;
+      background: rgba($gray-800, 0.8);
+      backdrop-filter: blur(5px);
+    }
   }
 
   & ::v-deep p {

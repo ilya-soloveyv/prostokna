@@ -122,6 +122,31 @@ export default {
   margin-bottom: 30px;
   transition: opacity $transition;
 
+  .mobile & {
+    margin: 0 0 15px 0 !important;
+
+    label {
+      font-size: 11px;
+      padding: 18px 28px 0;
+    }
+
+    input {
+      font-size: 13px;
+      padding: 40px 28px 14px;
+    }
+
+    .points {
+      bottom: 14px;
+      font-size: 13px;
+    }
+
+    .increase,
+    .decrease {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
   &.disabled {
     opacity: 0.5;
     pointer-events: none;

@@ -110,6 +110,11 @@ export default {
   background: $gray-darker;
   margin-bottom: 14px;
   border-radius: 8px;
+  overflow: hidden;
+
+  .mobile & {
+    height: 165px;
+  }
 }
 
 .controls {
@@ -119,6 +124,10 @@ export default {
   right: 26px;
   height: 20px;
   z-index: 1;
+
+  .mobile & {
+    bottom: 10px;
+  }
 
   .prev,
   .next {

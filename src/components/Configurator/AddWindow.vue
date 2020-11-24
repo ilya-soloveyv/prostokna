@@ -1,12 +1,22 @@
 <template>
   <div class="add-window" @click="addWindow">
-    Добавить еще окно
+    {{ label || selectedType.addNew }}
   </div>
 </template>
 
 <script>
 export default {
   name: 'AddWindow',
+  props: {
+    label: String
+  },
+  computed: {
+    selectedType() {
+      const avaibleTypes = this.$store.state.configurator.avaibleTypes;
+      const typeKey = this.$store.getters['configurator/selectedType'];
+      return avaibleTypes[typeKey];
+    }
+  },
   methods: {
     addWindow() {
       this.$store.dispatch('configurator/addProduct');
