@@ -1,0 +1,35 @@
+// TODO: придумать нармальную систему переменных для цветов
+$light: #ffffff;
+$dark: #353535;
+$gray-lighter: #777777;
+$gray-darker: #454545;
+$gray-600: #2f2f2f;
+$gray-800: #222222;
+
+$border-dark: #707070;
+
+$accent-1: #c970ea;
+$accent-2: #82dcee;
+
+// http://davidjohnstone.net/pages/lch-lab-colour-gradient-picker#d360e8,85eefb
+$gradient: linear-gradient(
+  0deg,
+  rgba(211, 96, 232, 1) 0%,
+  rgba(201, 138, 237, 1) 25%,
+  rgba(186, 174, 242, 1) 50%,
+  rgba(165, 207, 247, 1) 75%,
+  rgba(133, 238, 251, 1) 100%
+);
+
+$gradient-90deg: linear-gradient(
+  90deg,
+  rgba(211, 96, 232, 1) 0%,
+  rgba(201, 138, 237, 1) 25%,
+  rgba(186, 174, 242, 1) 50%,
+  rgba(165, 207, 247, 1) 75%,
+  rgba(133, 238, 251, 1) 100%
+);
+
+$transition-time: 0.2s;
+$transition: $transition-time ease-in;
+$transition-cubic-1: $transition-time cubic-bezier(0.59, 0.49, 0.37, 1.37);

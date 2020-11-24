@@ -16,7 +16,7 @@ if ($('#productMenu').length) {
         iMaterialCategoryID: false,
         product: [],
         material: [],
-        material_category: [],
+        material_category: []
       },
       openFilter: false,
       filterResult: [],
@@ -25,13 +25,13 @@ if ($('#productMenu').length) {
       brands: [],
       products: [],
       mobile: {
-        iMaterialID: false,
-      },
+        iMaterialID: false
+      }
     },
-    created: function () {
+    created: function() {
       this.get();
     },
-    mounted: function () {
+    mounted: function() {
       Vue.set(
         this,
         'iProductID',
@@ -39,22 +39,22 @@ if ($('#productMenu').length) {
       );
     },
     watch: {
-      'filterParams.iProductTypeID': function (val) {
+      'filterParams.iProductTypeID': function(val) {
         this.getFilterResult();
       },
-      'mobile.iMaterialID': function (iMaterialID) {
+      'mobile.iMaterialID': function(iMaterialID) {
         var material = this.materials.find(
-          (x) => x.iMaterialID === this.mobile.iMaterialID
+          x => x.iMaterialID === this.mobile.iMaterialID
         );
         if (material.material_categories[0]) {
           material.material_categories[0].active = true;
         }
         Vue.set(this.mobile, 'material', material);
       },
-      'filterParams.iMaterialID': function (iMaterialID) {
+      'filterParams.iMaterialID': function(iMaterialID) {
         if (iMaterialID) {
           var material = this.filterParams.material.find(
-            (x) => x.iMaterialID === iMaterialID
+            x => x.iMaterialID === iMaterialID
           );
           console.log(material);
           if (material) {
@@ -64,10 +64,10 @@ if ($('#productMenu').length) {
           }
           Vue.set(this.filterParams, 'sMaterialTitle', sMaterialTitle);
         }
-      },
+      }
     },
     methods: {
-      clickBrand: function (brandItem) {
+      clickBrand: function(brandItem) {
         this.materials.forEach((material, key1) => {
           material.brand.forEach((brand, key2) => {
             var status = false;
@@ -81,7 +81,7 @@ if ($('#productMenu').length) {
           });
         });
       },
-      clickFilterBrand: function (brandItem) {
+      clickFilterBrand: function(brandItem) {
         this.filterResult.forEach((brand, key1) => {
           var status = false;
           if (
@@ -93,11 +93,12 @@ if ($('#productMenu').length) {
           Vue.set(brand, 'active', status);
         });
       },
-      get: function () {
-        axios.get('/getProductMenu').then((response) => {
+      get: function() {
+        axios.get('/getProductMenu').then(response => {
           this.products = response.data.products;
           this.materials = response.data.materials;
           this.producttypes = response.data.producttypes;
+          console.log(this.producttypes);
           if (this.producttypes[0].iProductTypeID) {
             Vue.set(
               this.filterParams,
@@ -105,7 +106,7 @@ if ($('#productMenu').length) {
               this.producttypes[0].iProductTypeID
             );
           }
-          this.materials.forEach((material) => {
+          this.materials.forEach(material => {
             if (material.material_categories[0]) {
               Vue.set(
                 material,
@@ -117,18 +118,18 @@ if ($('#productMenu').length) {
             }
             Vue.set(material, 'brand', []);
           });
-          this.products.forEach((product) => {
+          this.products.forEach(product => {
             var material = this.materials.find(
-              (x) => x.iMaterialID === product.iMaterialID
+              x => x.iMaterialID === product.iMaterialID
             );
             var materialKey = this.materials.findIndex(
-              (x) => x.iMaterialID === product.iMaterialID
+              x => x.iMaterialID === product.iMaterialID
             );
             var brand = material.brand.find(
-              (x) => x.iBrandID === product.brand.iBrandID
+              x => x.iBrandID === product.brand.iBrandID
             );
             var brandKey = material.brand.findIndex(
-              (x) => x.iBrandID === product.brand.iBrandID
+              x => x.iBrandID === product.brand.iBrandID
             );
             var product_item = {
               iProductID: product.iProductID,
@@ -141,7 +142,7 @@ if ($('#productMenu').length) {
               sMaterialTitle: product.material
                 ? product.material.sMaterialTitle
                 : false,
-              sBrusTitle: product.bru ? product.bru.sBrusTitle : false,
+              sBrusTitle: product.bru ? product.bru.sBrusTitle : false
             };
             if (brand) {
               this.materials[materialKey].brand[brandKey].models.push(
@@ -155,9 +156,9 @@ if ($('#productMenu').length) {
           });
           if (this.iProductID) {
             console.log(this.iProductID);
-            this.materials.forEach((material) => {
-              material.brand.forEach((brand) => {
-                brand.models.forEach((model) => {
+            this.materials.forEach(material => {
+              material.brand.forEach(brand => {
+                brand.models.forEach(model => {
                   if (model.iProductID == this.iProductID) {
                     Vue.set(brand, 'active', true);
                     Vue.set(model, 'active', true);
@@ -178,27 +179,27 @@ if ($('#productMenu').length) {
             Vue.set(this.mobile, 'iMaterialID', this.materials[0].iMaterialID);
           }
 
-          Vue.nextTick(function () {
+          Vue.nextTick(function() {
             $('[data-toggle="tooltip"]').tooltip({
               placement: 'left',
               template:
-                '<div class="tooltip tooltip-page-product" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
+                '<div class="tooltip tooltip-page-product" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
             });
           });
         });
       },
-      onlyUnique: function (value, index, self) {
+      onlyUnique: function(value, index, self) {
         return self.indexOf(value) === index;
       },
-      getFilterResult: function () {
+      getFilterResult: function() {
         Vue.set(this.filterParams, 'product', []);
         Vue.set(this.filterParams, 'material', []);
         Vue.set(this.filterParams, 'iMaterialID', false);
         Vue.set(this.filterParams, 'iMaterialCategoryID', false);
 
-        this.products.forEach((product) => {
+        this.products.forEach(product => {
           var check = product.product_producttypes.find(
-            (x) => x.iProductTypeID === this.filterParams.iProductTypeID
+            x => x.iProductTypeID === this.filterParams.iProductTypeID
           );
           if (check) {
             this.filterParams.product.push(product);
@@ -208,7 +209,7 @@ if ($('#productMenu').length) {
         var iMaterialID = [];
         var iMaterialCategoryID = [];
 
-        this.filterParams.product.forEach((product) => {
+        this.filterParams.product.forEach(product => {
           if (product.iMaterialID) {
             iMaterialID.push(product.iMaterialID);
           }
@@ -222,27 +223,27 @@ if ($('#productMenu').length) {
           this.onlyUnique
         );
 
-        this.materials.forEach((material) => {
-          var check = iMaterialIDUnique.find((x) => x === material.iMaterialID);
+        this.materials.forEach(material => {
+          var check = iMaterialIDUnique.find(x => x === material.iMaterialID);
           if (check) {
             this.filterParams.material.push({
               iMaterialID: material.iMaterialID,
               sMaterialTitle: material.sMaterialTitle,
-              material_categories: [],
+              material_categories: []
             });
           }
           if (material.material_categories) {
-            material.material_categories.forEach((category) => {
+            material.material_categories.forEach(category => {
               var check2 = iMaterialCategoryIDUnique.find(
-                (x) => x === category.iMaterialCategoryID
+                x => x === category.iMaterialCategoryID
               );
               if (check2) {
                 var material = this.filterParams.material.find(
-                  (x) => x.iMaterialID === category.iMaterialID
+                  x => x.iMaterialID === category.iMaterialID
                 );
                 material.material_categories.push({
                   iMaterialCategoryID: category.iMaterialCategoryID,
-                  sMaterialCategoryTitle: category.sMaterialCategoryTitle,
+                  sMaterialCategoryTitle: category.sMaterialCategoryTitle
                 });
               }
             });
@@ -266,16 +267,16 @@ if ($('#productMenu').length) {
         }
 
         let sProductTypeTitle = this.producttypes.find(
-          (x) => x.iProductTypeID === this.filterParams.iProductTypeID
+          x => x.iProductTypeID === this.filterParams.iProductTypeID
         ).sProductTypeTitle;
         Vue.set(this.filterParams, 'sProductTypeTitle', sProductTypeTitle);
 
         this.getResult();
       },
-      filterMaterialClick: function () {
+      filterMaterialClick: function() {
         var iMaterialID = this.filterParams.iMaterialID;
         var material = this.filterParams.material.find(
-          (x) => x.iMaterialID === iMaterialID
+          x => x.iMaterialID === iMaterialID
         );
         if (material.material_categories[0]) {
           Vue.set(
@@ -288,15 +289,15 @@ if ($('#productMenu').length) {
         }
         this.getResult();
       },
-      filterMaterialCategoryClick: function () {
+      filterMaterialCategoryClick: function() {
         this.getResult();
       },
-      getResult: function () {
+      getResult: function() {
         Vue.set(this, 'filterResult', []);
         var iMaterialID = this.filterParams.iMaterialID;
         var iMaterialCategoryID = this.filterParams.iMaterialCategoryID;
         if (iMaterialID && iMaterialCategoryID) {
-          this.filterParams.product.forEach((product) => {
+          this.filterParams.product.forEach(product => {
             if (
               product.iMaterialID == iMaterialID &&
               product.iMaterialCategoryID == iMaterialCategoryID
@@ -305,22 +306,22 @@ if ($('#productMenu').length) {
             }
           });
         } else if (iMaterialID) {
-          this.filterParams.product.forEach((product) => {
+          this.filterParams.product.forEach(product => {
             if (product.iMaterialID == iMaterialID) {
               this.addProductInResult(product);
             }
           });
         }
       },
-      addProductInResult: function (product) {
+      addProductInResult: function(product) {
         var brand = this.filterResult.find(
-          (x) => x.iBrandID === product.iBrandID
+          x => x.iBrandID === product.iBrandID
         );
         var product_temp = {
           iProductID: product.iProductID,
           sProductTitle: product.sProductTitle,
           sProductURI: product.sProductURI,
-          sBrusTitle: product.bru ? product.bru.sBrusTitle : false,
+          sBrusTitle: product.bru ? product.bru.sBrusTitle : false
         };
         if (brand) {
           brand.models.push(product_temp);
@@ -330,13 +331,13 @@ if ($('#productMenu').length) {
             sBrandTitle: product.brand.sBrandTitle,
             sBrandURI: product.brand.sBrandURI,
             models: [product_temp],
-            active: false,
+            active: false
           });
         }
       },
-      useFilterMobile: function () {
+      useFilterMobile: function() {
         Vue.set(this, 'openFilter', true);
-      },
-    },
+      }
+    }
   });
 }

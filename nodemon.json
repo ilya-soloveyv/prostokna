@@ -1,0 +1,5 @@
+{
+  "script": "./app.js",
+  "watch": ["./static/build-hash.json", "./routes", "./models", "./app.js"],
+  "delay": 1
+}
