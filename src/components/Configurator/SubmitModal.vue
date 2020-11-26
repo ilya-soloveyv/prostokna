@@ -196,6 +196,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 15px;
   z-index: 105;
 
   animation: 0.25s forwards scaleBody;
@@ -256,6 +257,10 @@ label {
   color: rgba($light, 0.25);
   transition: color $transition;
 
+  .mobile & {
+    font-size: 11px;
+  }
+
   &:focus-within {
     color: $light;
   }
@@ -280,6 +285,10 @@ textarea {
   box-shadow: none;
   transition: border-color $transition;
 
+  .mobile & {
+    font-size: 13px;
+  }
+
   &:hover,
   &:focus {
     border-color: rgba($light, 0.6);
@@ -297,8 +306,8 @@ textarea {
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  background: $accent-1;
-  background-image: linear-gradient(to left, #d165e9 100%, #bf87f0 0%);
+  background-color: $accent-1;
+  background-image: linear-gradient(to left, #bf87f0 0%, #d165e9 100%);
   border-radius: 45px;
   transition: transform $transition;
   cursor: pointer;

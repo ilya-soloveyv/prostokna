@@ -8,21 +8,28 @@
         @change="selectPaintingType"
       />
       <ColorSelector
-        label="ЦВЕТ ПОКРАСКИ ЛИЦЕВОЙ СТОРОНЫ"
+        label="ЦВЕТ УПЛОТНИТЕЛЯ"
+        v-if="isCompact"
+        :colors="seal"
+        :selected="currentProduct.sealColor"
+        @change="setSealColor"
+      />
+      <ColorSelector
+        label="ЦВЕТ ЛИЦЕВОЙ СТОРОНЫ"
         v-if="paintingType === 2"
         :colors="frontFace"
         :selected="currentProduct.frontFaceColor"
         @change="setFrontFaceColor"
       />
-      <div class="row">
-        <div class="col-5">
+      <div class="row" v-if="!isCompact">
+        <div class="col-12 col-sm-5">
           <CheckBox
             label="Цветные откосы"
             :checked="currentProduct.coloredSlopes"
             @change="setColoredSlopes"
           />
         </div>
-        <div class="col-7">
+        <div class="col-12 col-sm-7">
           <CheckBox
             label="Цветной подоконник"
             :checked="currentProduct.coloredSill"
@@ -34,29 +41,46 @@
     <div class="col-12 col-lg-6">
       <ColorSelector
         label="ЦВЕТ УПЛОТНИТЕЛЯ"
+        v-if="!isCompact"
         :colors="seal"
         :selected="currentProduct.sealColor"
         @change="setSealColor"
       />
       <ColorSelector
-        label="ЦВЕТ ПОКРАСКИ ЛИЦЕВОЙ СТОРОНЫ"
+        label="ЦВЕТ ЛИЦЕВОЙ СТОРОНЫ"
         v-if="paintingType !== 2"
         :colors="frontFace"
         :selected="currentProduct.frontFaceColor"
         @change="setFrontFaceColor"
       />
       <ColorSelector
-        label="ЦВЕТ ПОКРАСКИ ОБРАТНОЙ СТОРОНЫ"
+        label="ЦВЕТ ОБРАТНОЙ СТОРОНЫ"
         v-if="paintingType === 2"
         :colors="backFace"
         :selected="currentProduct.backFaceColor"
         @change="setBackFaceColor"
       />
-      <RalColorInput :value="currentProduct.ralColor" @change="setRalColor" />
-
-      <div class="col-12" v-if="isCompact">
-        <MobileNaigation @prev="prevScreen" @next="accept" next-text="Готово" />
+      <div class="row" v-if="isCompact">
+        <div class="col-12 col-sm-5">
+          <CheckBox
+            label="Цветные откосы"
+            :checked="currentProduct.coloredSlopes"
+            @change="setColoredSlopes"
+          />
+        </div>
+        <div class="col-12 col-sm-7">
+          <CheckBox
+            label="Цветной подоконник"
+            :checked="currentProduct.coloredSill"
+            @change="setColoredSill"
+          />
+        </div>
       </div>
+      <RalColorInput :value="currentProduct.ralColor" @change="setRalColor" />
+    </div>
+
+    <div class="col-12" v-if="isMobile">
+      <MobileNaigation @prev="prevScreen" @next="accept" next-text="Готово" />
     </div>
   </div>
 </template>
@@ -95,6 +119,7 @@ export default {
     isCompact() {
       return ['sm', 'xs', 'md'].includes(this.$mq);
     },
+
     prevScreen() {
       return this.configuratorComponent.prevScreen;
     },

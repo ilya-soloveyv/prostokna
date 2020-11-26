@@ -11,7 +11,7 @@
           :key="index"
           v-for="(product, index) of products"
         >
-          <WindowsSlide :product="product" />
+          <ProductsSlide :product="product" />
         </div>
       </div>
       <div class="controls">
@@ -35,18 +35,19 @@
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/swiper-bundle.css';
 
-import WindowsSlide from './WindowsSlide.vue';
+import ProductsSlide from './ProductsSlide.vue';
 
 export default {
-  name: 'WindowsSlider',
+  name: 'ProductsSlider',
   components: {
     Swiper,
     SwiperSlide,
-    WindowsSlide
+    ProductsSlide
   },
   directives: {
     swiper: directive
   },
+  inject: ['configuratorComponent'],
   data() {
     return {
       swiperOption: {
@@ -57,16 +58,28 @@ export default {
           slideChange: ({ activeIndex }) => {
             this.selectProduct(this.products[activeIndex]);
           }
-        }
+        },
+        unsubscribe: null
       }
     };
   },
   watch: {
     showSlider() {
       this.showSlider ? this.initSwiper() : this.destroySwiper();
+    },
+    mobileLayout() {
+      console.log('mobileLayout');
+      if (this.mobileLayout !== 'summary') {
+        this.destroySwiper();
+      } else {
+        this.initSwiper();
+      }
     }
   },
   computed: {
+    mobileLayout() {
+      this.configuratorComponent.mobileLayout;
+    },
     products() {
       return this.$store.getters['configurator/productsWithCurrentType'];
     },
@@ -79,8 +92,7 @@ export default {
   },
   methods: {
     slideTo(index) {
-      console.log(index);
-      this.windowsSwiper.slideTo(index);
+      this.windowsSwiper.slideTo(index, 250);
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
@@ -97,7 +109,18 @@ export default {
       }, 0);
     }
   },
-  mounted() {}
+  mounted() {
+    this.unsubscribe = this.$store.subscribeAction(action => {
+      if (action.type === 'configurator/addProduct') {
+        setTimeout(() => {
+          this.slideTo(this.products.length - 1);
+        }, 0);
+      }
+    });
+  },
+  beforeDestroy() {
+    if (this.unsubscribe) this.unsubscribe();
+  }
 };
 </script>
 

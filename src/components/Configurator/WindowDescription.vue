@@ -36,7 +36,7 @@
       <div
         class="content"
         :class="{ float: isCompact }"
-        v-if="!isCompact || (isCompact && active)"
+        v-if="!isCompact || (isInit && isCompact && active)"
       >
         <div
           class="close-arrow"
@@ -146,7 +146,7 @@ export default {
       active: 'brand',
       modelData: {},
       brandDescription: '',
-      mobileShow: false
+      isInit: false
     };
   },
   computed: {
@@ -215,6 +215,7 @@ export default {
     this.getModelData();
     this.getBrands();
     this.onResizeEnd();
+    this.isInit = true;
     window.addEventListener('resizeEnd', this.onResizeEnd);
   },
   beforeDestroy() {
@@ -247,8 +248,7 @@ export default {
       left: 15px;
       right: 15px;
       border-color: transparent;
-      background: rgba($gray-800, 0.8);
-      backdrop-filter: blur(5px);
+      background: rgba($gray-800, 1);
     }
   }
 

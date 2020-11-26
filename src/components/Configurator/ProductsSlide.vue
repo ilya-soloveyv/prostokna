@@ -6,6 +6,7 @@
       <img
         v-bind:src="editIcon"
         @click="() => configuratorComponent.$emit('editProduct')"
+        v-if="configuratorComponent.isMobile"
         class="action delete"
       />
       <img
@@ -41,7 +42,7 @@ import deleteIcon from '@images/configurator/delete-icon.svg';
 import editIcon from '@images/configurator/edit-icon.svg';
 
 export default {
-  name: 'WindowsSlide',
+  name: 'ProductsSlide',
   props: {
     product: { required: true }
   },

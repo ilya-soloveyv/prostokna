@@ -36,7 +36,6 @@ import 'slick-carousel/slick/slick.css';
 import 'minibarjs/dist/minibar.min.css';
 import 'animate.css/animate.css';
 import '@vendor/circle.css';
-import '@vendor/circle.css';
 import 'jquery.scrollbar/jquery.scrollbar.css';
 import 'rangeslider.js/dist/rangeslider.css';
 import 'hamburgers/dist/hamburgers.css';

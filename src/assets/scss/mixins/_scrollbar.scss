@@ -1,6 +1,7 @@
 @mixin scrollbar {
   &::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
     padding: 5px;
   }
 
@@ -10,6 +11,14 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: $border-dark;
-    border-radius: 1em;
+  }
+}
+
+@mixin scrollbar-rounded {
+  @include scrollbar;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $border-dark;
+    border-radius: 5px;
   }
 }

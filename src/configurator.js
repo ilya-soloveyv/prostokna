@@ -162,7 +162,7 @@ const store = new Vuex.Store({
           state = Object.assign(state, draft);
         },
         mutateCurrentProduct(state, cb) {
-          const currentProduct = storeGetters('configurator/currentProduct');
+          const currentProduct = useGetter('configurator/currentProduct');
 
           cb(currentProduct);
           saveProducts(state.products);
@@ -274,6 +274,7 @@ const store = new Vuex.Store({
           await newProduct.init();
 
           commit('addProduct', newProduct);
+          commit('setCurrentProduct', newProduct);
           dispatch('saveProducts');
         },
         async restoreProduct({ state, commit }, options = {}) {
@@ -345,8 +346,11 @@ new Vue({ ...Configurator, store });
 /**
  * Да простят меня за это боги
  */
-function storeGetters(getter) {
+function useGetter(getter) {
   return store.getters[getter];
+}
+function useCommit(mutation, payload) {
+  return store.commit(mutation, payload);
 }
 
 /* ------------------------------------------------------------------------- */
