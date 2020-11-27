@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import '@/utils/resizeEndEvent.js';
+
 export default {
   name: 'TypeSelector',
   inject: ['configuratorComponent'],
@@ -75,9 +77,13 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener('resizeEnd', this.calculateBackplateStyle);
     this._element = this.$refs.self;
     this.optionsElements = this.$refs.self.querySelectorAll('.option');
     this.calculateBackplateStyle();
+  },
+  beforeDestroy() {
+    window.removeEventListener('resizeEnd', this.calculateBackplateStyle);
   }
 };
 </script>

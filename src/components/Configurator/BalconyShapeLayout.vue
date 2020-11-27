@@ -1,13 +1,19 @@
 <template>
   <div class="row window-shape-layout" v-if="products.length">
-    <div class="col-12 col-lg-6" v-if="!isMobile || mobileLayoutPart === 1">
+    <div
+      class="col-12 col-lg-7 col-xl-6"
+      v-if="!isMobile || mobileLayoutPart === 1"
+    >
       <SquareSelector
         :options="shapesGrid"
         :selected="currentProduct.selectedShapeId"
         @change="val => setProductOption('selectedShapeId', val)"
       />
     </div>
-    <div class="col-12 col-lg-6" v-if="!isMobile || mobileLayoutPart === 2">
+    <div
+      class="col-12 col-lg-5 col-xl-6"
+      v-if="!isMobile || mobileLayoutPart === 2"
+    >
       <Slider
         label="Ширина"
         :min="ranges.x[0]"

@@ -1,7 +1,7 @@
 <template>
   <div class="row window-shape-layout">
     <div
-      class="col-12 col-lg-6"
+      class="col-12 col-lg-7 col-xl-6"
       :class="{ flipped: currentProduct.isFlipped }"
       v-if="!isMobile || mobileLayoutPart === 1"
     >
@@ -13,7 +13,7 @@
     </div>
 
     <fragment v-if="!isMobile || mobileLayoutPart === 2">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-5 col-xl-6">
         <Selector
           label="Материал"
           :options="avaibleMaterilas"
@@ -233,7 +233,9 @@ export default {
       const avaiblePanes = this.avaiblePanes;
       // При изменении логики необходимо изменить описание выше!!!
       return (
-        avaiblePanes.windowPanes.length > 0 && avaiblePanes.doorPanes.length > 0
+        false &&
+        avaiblePanes.windowPanes.length > 0 &&
+        avaiblePanes.doorPanes.length > 0
       );
     },
     shapesGrid() {

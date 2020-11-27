@@ -1,10 +1,6 @@
 <template>
   <transition name="slide">
-    <div
-      class="windows-slider"
-      v-swiper:windowsSwiper="swiperOption"
-      v-if="showSlider"
-    >
+    <div class="windows-slider" v-swiper="swiperOption" v-if="showSlider">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
@@ -15,8 +11,8 @@
         </div>
       </div>
       <div class="controls">
-        <div class="next" @click="windowsSwiper.slideNext()"></div>
-        <div class="prev" @click="windowsSwiper.slidePrev()"></div>
+        <div class="next" @click="$swiper.slideNext()"></div>
+        <div class="prev" @click="$swiper.slidePrev()"></div>
         <div class="dots" ref="dots">
           <div
             class="dot"
@@ -58,9 +54,9 @@ export default {
           slideChange: ({ activeIndex }) => {
             this.selectProduct(this.products[activeIndex]);
           }
-        },
-        unsubscribe: null
-      }
+        }
+      },
+      unsubscribe: null
     };
   },
   watch: {
@@ -68,7 +64,6 @@ export default {
       this.showSlider ? this.initSwiper() : this.destroySwiper();
     },
     mobileLayout() {
-      console.log('mobileLayout');
       if (this.mobileLayout !== 'summary') {
         this.destroySwiper();
       } else {
@@ -92,7 +87,7 @@ export default {
   },
   methods: {
     slideTo(index) {
-      this.windowsSwiper.slideTo(index, 250);
+      this.$swiper.slideTo(index, 250);
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
@@ -100,16 +95,18 @@ export default {
 
     initSwiper() {
       setTimeout(() => {
-        this.windowsSwiper.init();
+        this.$swiper.init();
+        window.sw = this.$swiper;
       }, 0);
     },
     destroySwiper() {
-      setTimeout(() => {
-        this.windowsSwiper.destroy();
-      }, 0);
+      // setTimeout(() => {
+      //   this.$swiper.destroy();
+      // }, 0);
     }
   },
   mounted() {
+    console.log('mounted');
     this.unsubscribe = this.$store.subscribeAction(action => {
       if (action.type === 'configurator/addProduct') {
         setTimeout(() => {

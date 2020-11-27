@@ -142,7 +142,8 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        exclude: /node_modules\/(?!(dom7|swiper)\/).*/
       },
       {
         test: /\.(sa|sc|c)ss$/,

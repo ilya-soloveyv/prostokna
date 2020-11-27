@@ -208,7 +208,6 @@ export default {
     },
     async getModelData() {
       this.modelData = await this.currentProduct.fetchModelData();
-      console.log(this.modelData);
     }
   },
   mounted() {
