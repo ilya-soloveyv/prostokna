@@ -1,13 +1,7 @@
 <template>
   <div class="header">
-    <div
-      class="title"
-      v-for="(name, key) of currentTypeData.screensNames"
-      :key="key"
-    >
-      <transition name="change-header">
-        <div v-if="key === currentScreen.split('/')[1]">{{ name }}</div>
-      </transition>
+    <div class="title">
+      {{ title }}
     </div>
     <div
       class="prev"
@@ -43,6 +37,12 @@ export default {
   },
   inject: ['configuratorComponent'],
   computed: {
+    title() {
+      const screens = this.currentTypeData.screensNames;
+      const selectedScreen = screens[this.currentScreen.split('/')[1]];
+
+      return selectedScreen;
+    },
     isMobile() {
       return this.configuratorComponent.isMobile;
     },
@@ -70,6 +70,11 @@ export default {
     next() {
       return this.configuratorComponent.nextScreen;
     }
+  },
+  methods: {
+    selectScreen(screenPath) {
+      this.$store.commit('configurator/currentScreen', screenPath);
+    }
   }
 };
 </script>
@@ -91,11 +96,12 @@ export default {
 }
 
 .title {
-  position: absolute;
-  left: 0;
-  right: 0;
+  //position: absolute;
+  //left: 0;
+  //right: 0;
   font-size: 22px;
   font-weight: 500;
+  padding: 2px 32px 5px;
 
   .mobile & {
     font-size: 13px;
@@ -137,14 +143,14 @@ export default {
 }
 
 .dots {
-  position: absolute;
+  // position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
   text-align: center;
 }
 

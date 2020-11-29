@@ -28,9 +28,11 @@ function getTriangle(shape, point) {
     return [shape[0], shape[1], shape[4]];
   }
 
+  return [shape[0], shape[1], shape[4]];
+
   // HACK: добавил исключение чтобы отслеживать когда что-то идет не так
   // TODO: нужно реализовать корректный вывод по умолчанию
-  throw new Error('Невозможно корректно вычислить цену');
+  //throw new Error('Невозможно корректно вычислить цену');
 }
 
 function isInTriangle(triangle, point) {

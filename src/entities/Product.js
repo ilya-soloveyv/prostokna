@@ -53,9 +53,17 @@ const Product = class {
       ...coreDefaults,
       ...this.defaults
     };
+    const exporters = this.exporters || {};
 
     Object.keys(combinedDefaults).forEach(key => {
-      optionsToExport[key] = this[key];
+      if (key[0] !== '_') {
+        optionsToExport[key] = this[key];
+      }
+    });
+
+    Object.keys(exporters).forEach(key => {
+      const exporter = exporters[key];
+      optionsToExport[key] = exporter();
     });
 
     optionsToExport.constructorName = this.constructor.name;

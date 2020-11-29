@@ -79,7 +79,7 @@
       <RalColorInput :value="currentProduct.ralColor" @change="setRalColor" />
     </div>
 
-    <div class="col-12" v-if="isCompact">
+    <div class="col-12" v-if="isMobile">
       <MobileNaigation @prev="prevScreen" @next="accept" next-text="Готово" />
     </div>
   </div>

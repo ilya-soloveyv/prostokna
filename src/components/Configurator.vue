@@ -312,6 +312,10 @@ export default {
   overflow-y: auto;
   @include scrollbar;
 
+  .mq-lg & > div {
+    max-width: 593px !important;
+  }
+
   .mobile & {
     padding: 124px 0 26px !important;
 
@@ -326,16 +330,18 @@ export default {
       margin-right: 60px;
     }
 
+    @media screen and (min-width: 1440px) {
+      align-items: center;
+      & > div {
+        margin: 0 0 0 -72px;
+      }
+    }
+
     & > div {
       width: 738px;
       max-width: 100%;
       margin: 0 auto;
-      @media screen and (min-width: 1440px) {
-        margin: 0 0 0 72px;
-      }
-      @media screen and (max-width: 1200px) {
-        width: 690px;
-      }
+
       .mobile & {
         width: 100% !important;
       }

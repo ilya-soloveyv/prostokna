@@ -1,7 +1,7 @@
 <template>
   <div>
     <TypeSelector v-if="!isMobile" />
-    <WindowsSlider />
+    <ProductsSlider />
     <AddWindow v-if="!isMobile" />
     <Price />
     <div class="row" v-if="isMobile">
@@ -25,7 +25,7 @@
 <script>
 import SubmitButton from './SubmitButton.vue';
 import TypeSelector from './TypeSelector.vue';
-import WindowsSlider from './WindowsSlider.vue';
+import ProductsSlider from './ProductsSlider.vue';
 import AddWindow from './AddWindow.vue';
 import Price from './Price.vue';
 import Files from './Files.vue';
@@ -37,7 +37,7 @@ export default {
   components: {
     SubmitButton,
     TypeSelector,
-    WindowsSlider,
+    ProductsSlider,
     AddWindow,
     Price,
     Files,

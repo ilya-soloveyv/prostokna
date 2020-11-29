@@ -1,22 +1,18 @@
 <template>
   <transition name="slide">
-    <div
-      class="windows-slider"
-      v-swiper:windowsSwiper="swiperOption"
-      v-if="showSlider"
-    >
+    <div class="windows-slider" v-swiper="swiperOption" v-if="showSlider">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
           :key="index"
           v-for="(product, index) of products"
         >
-          <WindowsSlide :product="product" />
+          <ProductsSlide :product="product" />
         </div>
       </div>
       <div class="controls">
-        <div class="next" @click="windowsSwiper.slideNext()"></div>
-        <div class="prev" @click="windowsSwiper.slidePrev()"></div>
+        <div class="next" @click="$swiper.slideNext()"></div>
+        <div class="prev" @click="$swiper.slidePrev()"></div>
         <div class="dots" ref="dots">
           <div
             class="dot"
@@ -35,18 +31,19 @@
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/swiper-bundle.css';
 
-import WindowsSlide from './WindowsSlide.vue';
+import ProductsSlide from './ProductsSlide.vue';
 
 export default {
-  name: 'WindowsSlider',
+  name: 'ProductsSlider',
   components: {
     Swiper,
     SwiperSlide,
-    WindowsSlide
+    ProductsSlide
   },
   directives: {
     swiper: directive
   },
+  inject: ['configuratorComponent'],
   data() {
     return {
       swiperOption: {
@@ -58,15 +55,26 @@ export default {
             this.selectProduct(this.products[activeIndex]);
           }
         }
-      }
+      },
+      unsubscribe: null
     };
   },
   watch: {
     showSlider() {
       this.showSlider ? this.initSwiper() : this.destroySwiper();
+    },
+    mobileLayout() {
+      if (this.mobileLayout !== 'summary') {
+        this.destroySwiper();
+      } else {
+        this.initSwiper();
+      }
     }
   },
   computed: {
+    mobileLayout() {
+      this.configuratorComponent.mobileLayout;
+    },
     products() {
       return this.$store.getters['configurator/productsWithCurrentType'];
     },
@@ -79,8 +87,7 @@ export default {
   },
   methods: {
     slideTo(index) {
-      console.log(index);
-      this.windowsSwiper.slideTo(index);
+      this.$swiper.slideTo(index, 250);
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
@@ -88,16 +95,29 @@ export default {
 
     initSwiper() {
       setTimeout(() => {
-        this.windowsSwiper.init();
+        this.$swiper.init();
+        window.sw = this.$swiper;
       }, 0);
     },
     destroySwiper() {
-      setTimeout(() => {
-        this.windowsSwiper.destroy();
-      }, 0);
+      // setTimeout(() => {
+      //   this.$swiper.destroy();
+      // }, 0);
     }
   },
-  mounted() {}
+  mounted() {
+    console.log('mounted');
+    this.unsubscribe = this.$store.subscribeAction(action => {
+      if (action.type === 'configurator/addProduct') {
+        setTimeout(() => {
+          this.slideTo(this.products.length - 1);
+        }, 0);
+      }
+    });
+  },
+  beforeDestroy() {
+    if (this.unsubscribe) this.unsubscribe();
+  }
 };
 </script>
 

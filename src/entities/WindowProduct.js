@@ -110,6 +110,12 @@ const WindowProduct = class extends Product {
     };
   }
 
+  get exporters() {
+    return {
+      openings: () => this.getElementsData()
+    };
+  }
+
   get priceMiddleware() {
     return {
       slopes: price => (this.slopes ? price + this.slopesDepth : price)
@@ -354,6 +360,15 @@ const WindowProduct = class extends Product {
     if (!this.frontFaceColor) this.frontFaceColor = colors.frontFace[0].id;
     if (!this.backFaceColor) this.backFaceColor = colors.backFace[0].id;
     if (!this.sealColor) this.sealColor = colors.seal[0].id;
+
+    // if (!this.doorHeight)
+    //   modelData({
+    //     outerSill: null,
+    //     paintingType: null,
+    //     profile: null,
+    //     ralColor: null,
+    //     sillBrand: null
+    //   });
   }
 };
 

@@ -13,42 +13,32 @@
   >
     <label>{{ label }}</label>
     <transition name="options">
-      <div
-        class="palette"
-        v-if="showOptions"
-        :style="{
-          minHeight: `${minHeight}px`,
-          maxHeight: `${maxHeight}px`,
-          top: `${top}px`
-        }"
-      >
-        <div class="row">
-          <div class="col-12">
-            <div
-              class="close-arrow"
-              @click="() => setActive(null)"
-              v-if="!isDesktop"
-            >
-              <img :src="arrowUp" />
-            </div>
-          </div>
+      <div class="palette" v-if="showOptions" :style="paletteStyle">
+        <div
+          class="close-arrow"
+          @click="() => setActive(null)"
+          v-if="!isDesktop"
+        >
+          <img :src="arrowUp" />
+        </div>
+        <div class="scroll" ref="scrollArea">
           <div
-            class="col-6"
+            class="color"
             v-for="color of colors"
             :key="color.id"
             @click="() => select(color)"
+            :class="{
+              inverted: color.darkText
+            }"
+            :style="{
+              backgroundColor: color.hex,
+              backgroundImage: color.texture
+                ? `url('${color.texture}')`
+                : 'none'
+            }"
           >
-            <div
-              class="color"
-              :class="{
-                inverted: color.darkText
-              }"
-              :style="{
-                background: color.hex
-              }"
-            >
-              {{ color.title }}
-            </div>
+            {{ color.title }}
+            <div class="ral">{{ color.ral }}</div>
           </div>
         </div>
       </div>
@@ -105,6 +95,19 @@ export default {
     darkText() {
       return this.internalSelected ? !!this.internalSelected.darkText : false;
     },
+    paletteStyle() {
+      let minHeight = this.minHeight;
+      let maxHeight = this.maxHeight;
+
+      if (500 < maxHeight && !this.isMobile) maxHeight = 500;
+      if (minHeight > maxHeight) minHeight = maxHeight;
+
+      return {
+        minHeight: `${minHeight}px`,
+        maxHeight: `${maxHeight}px`,
+        top: `${this.top}px`
+      };
+    },
     internalSelected() {
       return (
         this.colors.find(color => color.id === this.selected) ||
@@ -149,7 +152,7 @@ export default {
 
       this.top = parentRect.y - rect.y - 5;
       this.minHeight = parentRect.bottom - parentRect.top + 10;
-      this.maxHeight = (window.innerHeight - parentRect.top - 20) / 2;
+      this.maxHeight = window.innerHeight - parentRect.top - 20;
 
       this.showOptions = true;
 
@@ -185,6 +188,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@scss/variables';
+@import '@scss/mixins/scrollbar';
 
 .color-selector {
   position: relative;
@@ -271,35 +275,60 @@ export default {
     left: -5px;
     right: -5px;
     padding: 40px 32px;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
     border-radius: 10px;
     z-index: 10;
+
+    .scroll {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      right: 0;
+      padding: 40px 30px 20px 15px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      @include scrollbar-rounded;
+    }
 
     .mobile & {
       position: fixed;
       top: 72px !important;
       left: 15px !important;
       right: 15px !important;
+      bottom: 15px;
       max-height: calc(100vh - 80px - 15px) !important;
       min-height: auto !important;
+      padding-top: 72px;
 
-      background: rgba($gray-800, 0.8);
-      backdrop-filter: blur(5px);
-    }
+      background: $gray-800;
+      //backdrop-filter: blur(5px);
 
-    &::-webkit-scrollbar {
-      width: 5px;
-      padding: 5px;
-    }
+      .scroll {
+        padding-top: 72px;
+      }
 
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
+      &::before {
+        content: '';
+        position: fixed;
+        top: 72px !important;
+        left: 15px !important;
+        right: 15px !important;
+        height: 60px;
+        border-radius: 10px;
+        background-image: linear-gradient($gray-800, transparent);
+        z-index: 15;
+      }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: $border-dark;
-      border-radius: 1em;
+      .close-arrow {
+        position: fixed;
+        top: 72px !important;
+        left: 15px !important;
+        right: 15px !important;
+        padding: 35px 0 15px;
+        z-index: 20;
+      }
     }
   }
 }
@@ -312,6 +341,7 @@ export default {
 
 .color {
   display: flex;
+  flex-direction: column;
   height: 64px;
   margin: 0 -7.5px 15px;
   padding: 18px 28px;
@@ -320,6 +350,11 @@ export default {
   font-weight: 600;
   transition: transform $transition, box-shadow $transition;
   cursor: pointer;
+
+  .ral {
+    font-size: 10px;
+    font-weight: 500;
+  }
 
   &.inverted {
     color: $dark;
