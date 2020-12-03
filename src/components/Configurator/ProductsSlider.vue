@@ -1,13 +1,13 @@
 <template>
   <transition name="slide">
-    <div class="windows-slider" v-swiper="swiperOption" v-if="showSlider">
+    <div class="products-slider" v-swiper="swiperOption" v-if="showSlider">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
           :key="index"
           v-for="(product, index) of products"
         >
-          <ProductsSlide :product="product" />
+          <ProductCard :product="product" />
         </div>
       </div>
       <div class="controls">
@@ -31,14 +31,14 @@
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/swiper-bundle.css';
 
-import ProductsSlide from './ProductsSlide.vue';
+import ProductCard from './ProductCard.vue';
 
 export default {
   name: 'ProductsSlider',
   components: {
     Swiper,
     SwiperSlide,
-    ProductsSlide
+    ProductCard
   },
   directives: {
     swiper: directive
@@ -87,7 +87,9 @@ export default {
   },
   methods: {
     slideTo(index) {
-      this.$swiper.slideTo(index, 250);
+      if (!index) {
+        this.$swiper.slideTo(index, 250);
+      }
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
@@ -100,9 +102,9 @@ export default {
       }, 0);
     },
     destroySwiper() {
-      // setTimeout(() => {
-      //   this.$swiper.destroy();
-      // }, 0);
+      setTimeout(() => {
+        this.$swiper.destroy();
+      }, 0);
     }
   },
   mounted() {
@@ -124,7 +126,7 @@ export default {
 <style lang="scss" scoped>
 @import '@scss/variables';
 
-.windows-slider {
+.products-slider {
   position: relative;
   height: 200px;
   background: $gray-darker;

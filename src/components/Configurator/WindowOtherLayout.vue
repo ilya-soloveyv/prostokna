@@ -13,6 +13,7 @@
         :max="windowSillRanges.y[1]"
         :value="currentProduct.sillDepth"
         :disabled="!currentProduct.windowSill"
+        points="мм"
         @change="sillDepthChange"
       />
       <Slider
@@ -21,6 +22,7 @@
         :max="windowSillRanges.x[1]"
         :value="currentProduct.sillLength"
         :disabled="!currentProduct.windowSill"
+        points="мм"
         @change="sillLengthChange"
       />
       <Selector
@@ -74,6 +76,7 @@
         :max="slopesDepthRange[1]"
         :value="currentProduct.slopesDepth"
         :disabled="!currentProduct.slopes"
+        points="мм"
         @change="slopesDepthChange"
       />
       <CheckBox
@@ -129,20 +132,20 @@ export default {
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
     },
-    ranges() {
-      return this.$store.state.configurator.ranges;
+    baseValues() {
+      return this.$store.state.configurator.baseValues;
     },
     windowSillRanges() {
-      return this.ranges.windowSill;
+      return this.baseValues.windowSill;
     },
     slopesDepthRange() {
-      return this.ranges.slopesDepth;
+      return this.baseValues.slopesDepth;
     },
     sillsBrands() {
-      return mapAsOptions(this.ranges.sillsBrands);
+      return mapAsOptions(this.baseValues.sillsBrands);
     },
     avaibleFloors() {
-      return mapAsOptions(this.ranges.avaibleFloors);
+      return mapAsOptions(this.baseValues.avaibleFloors);
     }
   },
   methods: {

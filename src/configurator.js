@@ -44,8 +44,40 @@ const db = localforage.createInstance({
   storeName: 'configurator'
 });
 
-// это нам пригодится позже
-let configuratorInitialState;
+/**
+ * Начальное состояние конфигуратора
+ */
+const initialState = function() {
+  return {
+    // _нельзяБратьНапрямую
+    _selectedType: null,
+    _currentProduct: null,
+    _currentScreen: null,
+
+    // Можно брать напрямую
+    isInit: false,
+    baseValues: null,
+    products: [],
+    files: [],
+
+    installation: false,
+    liftingToFloor: false,
+    floor: null,
+
+    avaibleTypes: {
+      WindowProduct,
+      BalconyProduct
+    },
+
+    name: '',
+    phone: '',
+    comment: '',
+    formData: null,
+
+    submitState: null,
+    requestId: null
+  };
+};
 
 /**
  * Управление состоянием
@@ -58,38 +90,11 @@ const store = new Vuex.Store({
 
       /**
        * Состояние
+       *
+       * HACK: начальное состояние вынесено во вне для того,
+       * чтобы можно было легко сбросить все изменения стэйта.
        */
-      state: () => {
-        return {
-          // _нельзяБратьНапрямую
-          _selectedType: null,
-          _currentProduct: null,
-          _currentScreen: null,
-
-          // Можно брать напрямую
-          ranges: null,
-          products: [],
-          files: [],
-
-          installation: false,
-          liftingToFloor: false,
-          floor: null,
-
-          // TODO: вынести за пределы сэйта то, что в итоге не будет изменяться
-          avaibleTypes: {
-            WindowProduct,
-            BalconyProduct
-          },
-
-          name: '',
-          phone: '',
-          comment: '',
-          formData: null,
-
-          submitState: null,
-          requestId: null
-        };
-      },
+      state: initialState,
 
       /**
        * Геттеры
@@ -131,6 +136,9 @@ const store = new Vuex.Store({
           return state._selectedType || Object.keys(state.avaibleTypes)[0];
         },
 
+        /**
+         *
+         */
         productsWithCurrentType(state, getters) {
           return getters.getProductsByType(getters.selectedType);
         },
@@ -158,9 +166,17 @@ const store = new Vuex.Store({
        * Мутации
        */
       mutations: {
+        /**
+         * Изменения состояния
+         */
         setState(state, draft) {
           state = Object.assign(state, draft);
         },
+
+        /**
+         * Изменение продукта
+         * @param {Function} cb
+         */
         mutateCurrentProduct(state, cb) {
           const currentProduct = useGetter('configurator/currentProduct');
 
@@ -168,18 +184,28 @@ const store = new Vuex.Store({
           saveProducts(state.products);
         },
 
+        /**
+         * Принимает инициализированный продукт
+         * @param {Product} product
+         */
         addProduct: (state, product) => state.products.push(product),
 
         setInstallation: (state, value) => {
+          const currentProduct = useGetter('configurator/currentProduct');
           state.installation = value;
+          currentProduct.triggerUpdate();
           saveGlobalOptions(state);
         },
         setLifting: (state, value) => {
+          const currentProduct = useGetter('configurator/currentProduct');
           state.liftingToFloor = value;
+          currentProduct.triggerUpdate();
           saveGlobalOptions(state);
         },
         setFloor: (state, value) => {
+          const currentProduct = useGetter('configurator/currentProduct');
           state.floor = value;
+          currentProduct.triggerUpdate();
           saveGlobalOptions(state);
         },
 
@@ -207,6 +233,11 @@ const store = new Vuex.Store({
           state.products.splice(state.products.indexOf(product), 1);
           state._currentProduct = null;
         },
+
+        /**
+         *
+         * @param {Product} product
+         */
         setCurrentProduct(state, product) {
           state._currentProduct = product;
           saveUI(state);
@@ -228,15 +259,15 @@ const store = new Vuex.Store({
         async addProduct({ state, getters, commit, dispatch }) {
           const selectedType = getters.selectedType;
           const typeObject = state.avaibleTypes[selectedType];
-          const ranges = state.ranges;
+          const baseValues = state.baseValues;
           const newProduct = new typeObject();
           const referenceProduct = getters.productsWithCurrentType.pop();
 
           if (selectedType === 'WindowProduct') {
-            newProduct.mountingDepth = ranges.mountingDepth[0];
-            newProduct.sillLength = ranges.windowSill.x[0];
-            newProduct.sillDepth = ranges.windowSill.y[0];
-            newProduct.slopesDepth = ranges.windowSill.y[0];
+            newProduct.mountingDepth = baseValues.mountingDepth[0];
+            newProduct.sillLength = baseValues.windowSill.x[0];
+            newProduct.sillDepth = baseValues.windowSill.y[0];
+            newProduct.slopesDepth = baseValues.windowSill.y[0];
           }
 
           // при добавлении нового продукта стараемся сделать его максимально похожим на предыдушщий того-же типа
@@ -271,7 +302,7 @@ const store = new Vuex.Store({
             });
           }
 
-          await newProduct.init();
+          await newProduct.init(useState);
 
           commit('addProduct', newProduct);
           commit('setCurrentProduct', newProduct);
@@ -286,7 +317,7 @@ const store = new Vuex.Store({
             }
           });
 
-          await product.init();
+          await product.init(useState);
 
           commit('addProduct', product);
         },
@@ -328,24 +359,30 @@ const store = new Vuex.Store({
               });
             });
         },
-        reset({ commit }) {
-          // TODO: данный код не работает, нужно доделыть
-          commit('setState', configuratorInitialState);
+
+        reset({ commit, dispatch }) {
+          commit('setState', initialState());
+          saveProducts([]);
+          saveUI({});
+          saveGlobalOptions({});
         }
       }
     }
   }
 });
 
-configuratorInitialState = { ...store.state.configurator };
-
-restoreConfiguratorState({ db, store });
+restoreConfiguratorState({ db, store }).then(() =>
+  useCommit('configurator/setState', { isInit: true })
+);
 
 new Vue({ ...Configurator, store });
 
 /**
  * Да простят меня за это боги
  */
+function useState() {
+  return store.state;
+}
 function useGetter(getter) {
   return store.getters[getter];
 }
@@ -398,39 +435,43 @@ function saveGlobalOptions(state) {
  * Восстановление параметров
  * @param {object} context
  */
-function restoreConfiguratorState({ db, store }) {
+async function restoreConfiguratorState({ db, store }) {
   /**
    * Файлы
    */
-  db.getItem('files', (err, files) => {
-    if (err || !files) return;
+  await db.getItem('files').then(files => {
+    if (!files) return;
     store.commit('configurator/setState', { files });
   });
 
   /**
    * Продукты
    */
-  db.getItem('products', (err, products) => {
-    if (err || !products) return;
+  await db.getItem('products').then(products => {
+    if (!products) return;
 
-    products.forEach(product => {
-      store.dispatch('configurator/restoreProduct', product);
-    });
+    let promises = [];
+
+    for (const product of products) {
+      promises.push(store.dispatch('configurator/restoreProduct', product));
+    }
+
+    return Promise.all(promises);
   });
 
   /**
    * Глобальные опции необходимые для расчета
    */
-  db.getItem('globalOptions', (err, globalOptions) => {
-    if (err || !globalOptions) return;
-    store.commit('configurator/setState', { globalOptions });
+  await db.getItem('globalOptions').then(globalOptions => {
+    if (!globalOptions) return;
+    store.commit('configurator/setState', globalOptions);
   });
 
   /**
    * Параметры интерфейса
    */
-  db.getItem('ui', (err, ui) => {
-    if (err || !ui) return;
+  await db.getItem('ui').then(ui => {
+    if (!ui) return;
 
     store.commit('configurator/setState', {
       _selectedType: ui.selectedType,

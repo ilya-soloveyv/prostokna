@@ -16,15 +16,15 @@
     >
       <Slider
         label="Ширина"
-        :min="ranges.x[0]"
-        :max="ranges.x[1]"
+        :min="baseValues.x[0]"
+        :max="baseValues.x[1]"
         :value="currentProduct.width"
         @change="val => setProductOption('width', val)"
       />
       <Slider
         label="Высота"
-        :min="ranges.y[0]"
-        :max="ranges.y[1]"
+        :min="baseValues.y[0]"
+        :max="baseValues.y[1]"
         :value="currentProduct.height"
         @change="val => setProductOption('height', val)"
       />
@@ -94,9 +94,9 @@ export default {
     isMobile() {
       return this.configuratorComponent.isMobile;
     },
-    ranges() {
+    baseValues() {
       const shapeId = this.currentProduct.selectedShapeId;
-      return this.$store.state.configurator.ranges?.balcony[shapeId];
+      return this.$store.state.configurator.baseValues?.balcony[shapeId];
     },
     products() {
       return this.$store.getters['configurator/productsWithCurrentType'];

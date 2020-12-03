@@ -101,8 +101,9 @@ export default {
   border-radius: 50px;
   background-color: $gray-600;
 
-  &.compact {
-    max-width: 75%;
+  .mobile & {
+    width: 360px;
+    max-width: calc(100% - 30px);
     height: 35px;
     margin: 0 auto 25px;
   }

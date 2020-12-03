@@ -86,7 +86,7 @@ export default {
   position: relative;
   height: 64px;
   padding-bottom: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   text-align: center;
 
   .mobile & {

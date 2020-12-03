@@ -10,6 +10,8 @@
       <Slider
         label="ШИРИНА (ГЛУБИНА)"
         points="мм"
+        :min="sillRanges.y[0]"
+        :max="sillRanges.y[1]"
         :value="currentProduct.sillDepth"
         :disabled="!currentProduct.sill"
         @change="val => setProductOption('sillDepth', val)"
@@ -17,6 +19,8 @@
       <Slider
         label="ДЛИНА"
         points="мм"
+        :min="sillRanges.x[0]"
+        :max="sillRanges.x[1]"
         :value="currentProduct.sillLength"
         :disabled="!currentProduct.sill"
         @change="val => setProductOption('sillLength', val)"
@@ -33,17 +37,23 @@
         @change="val => setProductOption('parapetOuter', val)"
         compact
       />
-      <Slider
-        label="ОБШИВКА САЙДИНГОМ"
-        points="м²"
-        :value="currentProduct.siding"
-        @change="val => setProductOption('siding', val)"
-      />
+
       <Slider
         label="ОБШИВКА ПВХ-ПАНЕЛЯМИ"
         :value="currentProduct.pvcPanels"
+        :max="15"
+        :disabled="!currentProduct.parapetInner"
         @change="val => setProductOption('pvcPanels', val)"
         points="м²"
+      />
+
+      <Slider
+        label="ОБШИВКА САЙДИНГОМ"
+        points="м²"
+        :max="15"
+        :value="currentProduct.siding"
+        :disabled="!currentProduct.parapetOuter"
+        @change="val => setProductOption('siding', val)"
       />
     </div>
     <div class="col-12 col-lg-6">
@@ -137,15 +147,16 @@ export default {
       return this.configuratorComponent.isMobile;
     },
 
-    products() {
-      return this.$store.getters['configurator/productsWithCurrentType'];
+    baseValues() {
+      return this.$store.state.configurator.baseValues;
     },
+    sillRanges() {
+      return this.baseValues.windowSill;
+    },
+
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
     }
-  },
-  watch: {
-    currentProduct() {}
   },
   methods: {
     setProductOption(key, value) {

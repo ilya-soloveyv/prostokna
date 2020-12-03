@@ -1,6 +1,7 @@
 import Product from './Product';
 
 import api from '@/utils/api.js';
+import priceCalculator from '@/utils/priceCalculator.js';
 
 import cache from './BalconyProduct/cache.js';
 import avaibleShapes from './BalconyProduct/avaibleShapes.js';
@@ -74,6 +75,125 @@ const BalconyProduct = class extends Product {
     };
   }
 
+  get pricePipeline() {
+    return [
+      /**
+       * Цвет
+       */
+      async function colors(price) {
+        const byId = id => item => item.id === id;
+
+        const colors = await this.fetchAvaibleColors();
+        const paintingCoefficient = await this.fetchModelData().then(
+          data => data.paintingCoefficient
+        );
+        const frontFaceColor = colors.frontFace.find(byId(this.frontFaceColor));
+        const backFaceColor = colors.backFace.find(byId(this.backFaceColor));
+        const hasNonstandardColor =
+          frontFaceColor.nonstandard || backFaceColor.nonstandard;
+        const nonstandardAddition = hasNonstandardColor
+          ? paintingCoefficient.nonstandardAddition
+          : 0;
+
+        if (this.paintingType === 1 && !frontFaceColor.default) {
+          return price * (paintingCoefficient.oneSide + nonstandardAddition);
+        }
+
+        if (
+          this.paintingType === 2 &&
+          (!frontFaceColor.default || !backFaceColor.default)
+        ) {
+          return price * (paintingCoefficient.twoSides + nonstandardAddition);
+        }
+
+        return price;
+      },
+
+      /**
+       * Монтаж
+       */
+      async function installation(price) {
+        if (!this.globalStateHook().configurator.installation) {
+          return price;
+        }
+
+        const installationPrice = await this.fetchModelData().then(
+          data => data.installationPrice
+        );
+        const areaInSqareMeters = this.getArea() / 10 ** 6;
+
+        return price + areaInSqareMeters * installationPrice;
+      },
+
+      /**
+       * Отделка сайдингом
+       */
+      async function siding(price) {
+        if (!this.parapetOuter) return price;
+
+        const pricePerSquareMeter = this.baseValues.parapetPaneling.outer;
+
+        return price + pricePerSquareMeter * this.siding;
+      },
+
+      /**
+       * Отделка ПВХ панелями
+       */
+      async function pvcPanels(price) {
+        if (!this.parapetInner) return price;
+
+        const pricePerSquareMeter = this.baseValues.parapetPaneling.inner;
+
+        return price + pricePerSquareMeter * this.pvcPanels;
+      },
+
+      /**
+       * Подоконник
+       */
+      async function sill(price) {
+        if (!this.sill) return price;
+
+        const sillPrice = this.baseValues.sillPrice;
+        const sillDepth = Math.round(this.sillDepth / 50) * 50;
+        const pricePerCm = sillPrice[sillDepth][this.coloredSill ? 1 : 0];
+
+        return price + pricePerCm * (this.sillLength / 10);
+      },
+
+      /**
+       * Ручной подъём на этаж
+       */
+      async function lifting(price) {
+        const configuratorState = this.globalStateHook().configurator;
+        const liftingToFloor = configuratorState.liftingToFloor;
+        const floor = configuratorState.floor;
+
+        if (!liftingToFloor || floor < 2) return price;
+
+        const pricePerFloor = 26;
+        const areaInSqareMeters = this.getArea() / 10 ** 6;
+
+        return price + pricePerFloor * areaInSqareMeters * (floor - 1);
+      },
+
+      /**
+       * Козырёк
+       */
+      function visor(price) {
+        if (!this.visor) return price;
+        return price + (this.width / 1000) * this.baseValues.visor;
+      },
+
+      /**
+       * Отлив
+       */
+      function outerSill(price) {
+        if (!this.outerSill) return price;
+        return price + (this.width / 1000) * this.baseValues.outerSill;
+      }
+    ];
+  }
+
   getAvaibleShapes() {
     return avaibleShapes;
   }
@@ -81,19 +201,45 @@ const BalconyProduct = class extends Product {
   getElementsData() {}
 
   async calculatePrice() {
-    return 100;
+    const priceTable = await this.fetchModelData().then(data => data.prices);
+
+    let price = priceCalculator(
+      this.width,
+      this.height,
+      priceTable[this.selectedShapeId][this.glazing]
+    ).price;
+
+    for (const pipeFunction of this.pricePipeline) {
+      price = await pipeFunction.call(this, price);
+    }
+
+    return Math.ceil(price);
   }
 
-  async init() {
+  /**
+   * Вычисление площади проёма в мм²
+   */
+  getArea() {
+    return this.width * this.height;
+  }
+
+  async init(globalStateHook) {
+    this.globalStateHook = globalStateHook;
+
     await this.fetchAvaibleBrands();
     await this.fetchAvaibleModels();
-    await this.fetchModelData();
 
+    const modelData = await this.fetchModelData();
     const colors = await this.fetchAvaibleColors();
 
     if (!this.frontFaceColor) this.frontFaceColor = colors.frontFace[0].id;
     if (!this.backFaceColor) this.backFaceColor = colors.backFace[0].id;
     if (!this.sealColor) this.sealColor = colors.seal[0].id;
+
+    if (!this.glazing) this.glazing = modelData.glazings[0].id;
+
+    if (!this.sillDepth)
+      this.sillDepth = parseInt(Object.keys(this.baseValues.sillPrice)[0]);
   }
 
   async fetchAvaibleBrands() {

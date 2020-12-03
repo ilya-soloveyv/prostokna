@@ -8,6 +8,7 @@
       tablet: isTablet,
       mobile: isMobile
     }"
+    v-if="$store.state.configurator.isInit"
   >
     <MobileTypeBar v-if="isMobile" />
 
@@ -28,45 +29,32 @@
       v-if="!isMobile || mobileLayout === 'edit'"
       ref="mainColumn"
     >
-      <transition name="layout">
-        <div v-if="productsWithCurrentType.length">
+      <div class="layout-wrapper" v-if="productsWithCurrentType.length">
+        <transition name="layout">
           <Header />
-          <div class="layouts">
-            <transition name="layout">
-              <WindowShapeLayout
-                v-if="currentScreen === 'WindowProduct/shape'"
-              />
-              <WindowModelLayout
-                v-if="currentScreen === 'WindowProduct/model'"
-              />
-              <WindowOtherLayout
-                v-if="currentScreen === 'WindowProduct/other'"
-              />
-              <WindowColorLayout
-                v-if="currentScreen === 'WindowProduct/color'"
-              />
+        </transition>
 
-              <BalconyShapeLayout
-                v-if="currentScreen === 'BalconyProduct/shape'"
-              />
-              <BalconyModelLayout
-                v-if="currentScreen === 'BalconyProduct/model'"
-              />
-              <BalconyOtherLayout
-                v-if="currentScreen === 'BalconyProduct/other'"
-              />
-              <BalconyColorLayout
-                v-if="currentScreen === 'BalconyProduct/color'"
-              />
-            </transition>
+        <transition name="layout">
+          <WindowShapeLayout v-if="currentScreen === 'WindowProduct/shape'" />
+          <WindowModelLayout v-if="currentScreen === 'WindowProduct/model'" />
+          <WindowOtherLayout v-if="currentScreen === 'WindowProduct/other'" />
+          <WindowColorLayout v-if="currentScreen === 'WindowProduct/color'" />
+
+          <BalconyShapeLayout v-if="currentScreen === 'BalconyProduct/shape'" />
+          <BalconyModelLayout v-if="currentScreen === 'BalconyProduct/model'" />
+          <BalconyOtherLayout v-if="currentScreen === 'BalconyProduct/other'" />
+          <BalconyColorLayout v-if="currentScreen === 'BalconyProduct/color'" />
+        </transition>
+      </div>
+      <div class="layout-wrapper" v-else>
+        <transition name="layout">
+          <div class="add-new">
+            <div class="add-button" @click="() => addNewProduct(addNew.name)">
+              {{ addNew.text }}
+            </div>
           </div>
-        </div>
-        <div class="add-new" v-else>
-          <div class="add-button" @click="() => addNewProduct(addNew.name)">
-            {{ addNew.text }}
-          </div>
-        </div>
-      </transition>
+        </transition>
+      </div>
     </section>
     <transition name="submit-modal">
       <SubmitModal v-if="showSumbitModal" @close="showSumbitModal = false" />
@@ -152,7 +140,6 @@ export default {
         justifyContent: 'center'
       };
     },
-    // TODO: записывать данные о брейкпоинтах в глобальный стейт
     isDesktop() {
       return ['xl', 'lg', 'md'].includes(this.$mq);
     },
@@ -237,8 +224,12 @@ export default {
       await this.fetchRanges();
     },
     async fetchRanges() {
-      const ranges = await api.call('windowsRanges').then(res => res.payload);
-      this.$store.commit('configurator/setState', { ranges: ranges });
+      const baseValues = await api
+        .call('configuratorBaseData')
+        .then(res => res.payload);
+      this.$store.commit('configurator/setState', {
+        baseValues: baseValues
+      });
     },
     addNewProduct(type) {
       console.log(type);
@@ -287,7 +278,7 @@ export default {
       &.main {
         margin-right: 0;
       }
-      & > div {
+      & .layout-wrapper {
         width: 690px;
         margin: 0 auto;
       }
@@ -298,6 +289,19 @@ export default {
     width: 100%;
     overflow: hidden;
     padding-top: 60px;
+  }
+}
+
+.layout-wrapper {
+  position: relative;
+  width: 738px;
+  min-height: 100% !important;
+  max-width: 100%;
+  margin: 0 auto;
+
+  .mobile & {
+    width: calc(100% - 30px) !important;
+    max-width: 360px;
   }
 }
 
@@ -312,16 +316,12 @@ export default {
   overflow-y: auto;
   @include scrollbar;
 
-  .mq-lg & > div {
+  .mq-lg & .layout-wrapper {
     max-width: 593px !important;
   }
 
   .mobile & {
     padding: 124px 0 26px !important;
-
-    & > div {
-      width: 100% !important;
-    }
   }
 
   &.main {
@@ -332,18 +332,8 @@ export default {
 
     @media screen and (min-width: 1440px) {
       align-items: center;
-      & > div {
+      & .layout-wrapper {
         margin: 0 0 0 -72px;
-      }
-    }
-
-    & > div {
-      width: 738px;
-      max-width: 100%;
-      margin: 0 auto;
-
-      .mobile & {
-        width: 100% !important;
       }
     }
   }
@@ -365,22 +355,7 @@ export default {
       padding-left: 0;
       padding-right: 0;
       border: none;
-
-      & > div {
-        width: calc(100% - 30px) !important;
-        max-width: 320px;
-      }
     }
-  }
-}
-
-.layouts {
-  position: relative;
-
-  .mobile & {
-    width: calc(100% - 30px);
-    max-width: 320px;
-    margin: 0 auto;
   }
 }
 
@@ -431,6 +406,8 @@ export default {
     transition: transform $transition-cubic-1;
   }
 }
+
+// --- Анимации --- //
 
 .layout-enter-active {
   animation: fadeIn $transition-time * 3;

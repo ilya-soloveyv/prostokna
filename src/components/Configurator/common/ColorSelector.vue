@@ -4,7 +4,7 @@
     :class="{
       inverted: darkText,
       desktop: isDesktop,
-      tablet: isTablet,
+      compact: isCompact,
       mobile: isMobile
     }"
     :style="style"
@@ -14,11 +14,7 @@
     <label>{{ label }}</label>
     <transition name="options">
       <div class="palette" v-if="showOptions" :style="paletteStyle">
-        <div
-          class="close-arrow"
-          @click="() => setActive(null)"
-          v-if="!isDesktop"
-        >
+        <div class="close-arrow" @click="() => setActive(null)" v-if="isMobile">
           <img :src="arrowUp" />
         </div>
         <div class="scroll" ref="scrollArea">
@@ -86,11 +82,11 @@ export default {
     isDesktop() {
       return ['xl'].includes(this.$mq);
     },
-    isTablet() {
+    isCompact() {
       return ['sm', 'md', 'lg'].includes(this.$mq);
     },
     isMobile() {
-      return ['xs'].includes(this.$mq);
+      return ['xs', 'sm'].includes(this.$mq);
     },
     darkText() {
       return this.internalSelected ? !!this.internalSelected.darkText : false;
@@ -217,7 +213,7 @@ export default {
     }
   }
 
-  &.tablet {
+  &.compact {
     padding: 47px 28px 14px;
     height: 90px;
   }
@@ -283,9 +279,9 @@ export default {
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 15px;
+      left: 0;
       right: 0;
-      padding: 40px 30px 20px 15px;
+      padding: 40px 30px 20px;
       overflow-x: hidden;
       overflow-y: scroll;
 
@@ -349,6 +345,7 @@ export default {
   font-size: 12px;
   font-weight: 600;
   transition: transform $transition, box-shadow $transition;
+  background-size: cover;
   cursor: pointer;
 
   .ral {
