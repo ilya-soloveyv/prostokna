@@ -1,0 +1,27 @@
+// TODO: Разнести по разным энтрипоинтам
+import './legacy/contact/contact';
+import './legacy/pay/pay';
+import './legacy/gager/gager';
+import './legacy/product/product';
+import './legacy/product/products';
+import './legacy/palette/palette';
+import './legacy/options/options';
+import './legacy/wiki/catalog';
+import './legacy/wiki/article';
+import './legacy/instruction/instruction';
+import './legacy/instruction/video';
+import './legacy/company/company';
+import './legacy/company/news/news';
+import './legacy/company/news/news-tape';
+import './legacy/company/innovation/cheaper-together';
+import './legacy/corporate/corporate';
+import './legacy/regulation_window/regulation_window';
+import './legacy/optional_service/optional_service';
+import './legacy/intuitive/intuitive';
+import './legacy/page-brand/page-brand';
+import './legacy/best-cost/best-cost';
+import './legacy/accessories/accessories';
+import './legacy/work/work';
+import './legacy/modal-compare';
+import './legacy/gallery';
+import './legacy/calculation';

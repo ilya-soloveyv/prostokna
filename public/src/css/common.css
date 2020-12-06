@@ -1,0 +1,29 @@
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.ppage {
+  min-height: 100vh;
+  padding-top: 60px; }
+  @media (max-width: 1200px) {
+    .ppage {
+      padding-left: 0; } }
+  @media (max-width: 575px) {
+    .ppage {
+      padding-top: 0; } }
+
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .social a {
+    display: block;
+    padding: 5px; }
+    .social a:hover, .social a:focus {
+      opacity: 0.5; }
+  .social svg {
+    color: #fff;
+    width: 20px;
+    height: 20px; }

@@ -1,0 +1,411 @@
+@-webkit-keyframes gagerPreloader {
+  0% {
+    width: 0; }
+  100% {
+    width: 100%; } }
+
+@keyframes gagerPreloader {
+  0% {
+    width: 0; }
+  100% {
+    width: 100%; } }
+
+@-webkit-keyframes gagerPreloaderHide {
+  0% {
+    opacity: 1;
+    display: block;
+    z-index: 1; }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1; } }
+
+@keyframes gagerPreloaderHide {
+  0% {
+    opacity: 1;
+    display: block;
+    z-index: 1; }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1; } }
+
+#gager .preloader {
+  display: none;
+  position: fixed;
+  right: 0;
+  left: 80px;
+  top: 80px;
+  height: calc(100vh - 80px);
+  background-color: #353535;
+  -webkit-animation-name: gagerPreloaderHide;
+          animation-name: gagerPreloaderHide;
+  -webkit-animation-duration: .25s;
+          animation-duration: .25s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
+  @media (max-width: 1200px) {
+    #gager .preloader {
+      left: 0; } }
+  @media (max-width: 575px) {
+    #gager .preloader {
+      top: 50px;
+      min-height: calc(100vh - 50px); } }
+  #gager .preloader .empty {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    width: calc(100vw - 80px);
+    text-align: center; }
+    @media (max-width: 1200px) {
+      #gager .preloader .empty {
+        width: 100vw; } }
+    #gager .preloader .empty .title {
+      font-weight: 500;
+      font-size: 35px;
+      text-transform: uppercase;
+      color: #fff;
+      padding-bottom: 250px; }
+    #gager .preloader .empty ul {
+      height: 24px;
+      width: 96%;
+      font-weight: 500;
+      font-size: 22px;
+      list-style: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      color: #fff;
+      margin: 0 auto;
+      padding: 0 10px;
+      background: url("/images/gager/XDdegreeW.svg") repeat-x left bottom; }
+      #gager .preloader .empty ul li {
+        margin-top: -70px; }
+      #gager .preloader .empty ul .li-5,
+      #gager .preloader .empty ul .li-11 {
+        display: none; }
+    #gager .preloader .empty .load {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      overflow: hidden;
+      -webkit-animation-name: gagerPreloader;
+              animation-name: gagerPreloader;
+      -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+      -webkit-animation-delay: 1s;
+              animation-delay: 1s;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear; }
+      #gager .preloader .empty .load .full {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+        width: calc(100vw - 80px);
+        text-align: center;
+        color: white;
+        background-color: #353535; }
+        @media (max-width: 1200px) {
+          #gager .preloader .empty .load .full {
+            width: 100vw; } }
+        #gager .preloader .empty .load .full .title {
+          color: #0585FA;
+          padding-bottom: 250px; }
+        #gager .preloader .empty .load .full ul {
+          color: #0585FA;
+          background: url("/images/gager/XDdegreeB.svg") repeat-x left bottom; }
+          #gager .preloader .empty .load .full ul li {
+            margin-top: -70px; }
+
+#gager .gager {
+  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+  width: 100%;
+  background: #F5F5F5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  @media screen and (max-width: 992px) {
+    #gager .gager {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      height: auto; } }
+  #gager .gager-block {
+    width: 55%;
+    height: 100%;
+    padding: 7%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    font-weight: 500; }
+    @media screen and (max-width: 1400px) {
+      #gager .gager-block {
+        padding: 4%;
+        width: 50%; } }
+    @media screen and (max-width: 1200px) {
+      #gager .gager-block {
+        padding: 3%; } }
+    @media screen and (max-width: 992px) {
+      #gager .gager-block {
+        -webkit-box-ordinal-group: 2;
+            -ms-flex-order: 1;
+                order: 1;
+        width: 100%;
+        height: calc(100vh - 60px);
+        padding: 7%; } }
+    @media screen and (max-width: 576px) {
+      #gager .gager-block {
+        height: calc(100vh - 50px); } }
+    @media screen and (max-width: 340px) {
+      #gager .gager-block {
+        -webkit-box-ordinal-group: 2;
+            -ms-flex-order: 1;
+                order: 1;
+        width: 100%;
+        height: 100vh;
+        padding: 4%; } }
+    #gager .gager-block .gager-text {
+      font-size: 14px; }
+      @media screen and (max-width: 576px) {
+        #gager .gager-block .gager-text {
+          font-size: 11px; } }
+      #gager .gager-block .gager-text_big {
+        font-size: 17px; }
+        @media screen and (max-width: 576px) {
+          #gager .gager-block .gager-text_big {
+            font-size: 13px; } }
+  #gager .gager-form {
+    width: 45%;
+    height: 100%;
+    background: #323232;
+    position: relative;
+    overflow: hidden; }
+    @media screen and (max-width: 1400px) {
+      #gager .gager-form {
+        width: 50%; } }
+    @media screen and (max-width: 992px) {
+      #gager .gager-form {
+        -webkit-box-ordinal-group: 1;
+            -ms-flex-order: 0;
+                order: 0;
+        height: calc(100vh - 60px);
+        width: 100%; } }
+    @media screen and (max-width: 576px) {
+      #gager .gager-form {
+        height: calc(100vh - 50px); } }
+    #gager .gager-form .overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); }
+      @media screen and (max-width: 992px) {
+        #gager .gager-form .overlay {
+          background: rgba(0, 0, 0, 0.8); } }
+    #gager .gager-form .popup-thanks {
+      display: none;
+      width: 296px;
+      padding: 25px;
+      text-align: center;
+      color: #fff;
+      font-size: 13px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      z-index: 50;
+      font-weight: 500; }
+      #gager .gager-form .popup-thanks img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 25px; }
+    #gager .gager-form_main {
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      background: #2C2C2C;
+      border-radius: 15px;
+      padding: 15%;
+      width: 85%; }
+      @media screen and (max-width: 992px) {
+        #gager .gager-form_main {
+          background: transparent;
+          width: 65%;
+          padding: 10%; } }
+      @media screen and (max-width: 768px) {
+        #gager .gager-form_main {
+          width: 80%; } }
+      @media screen and (max-width: 576px) {
+        #gager .gager-form_main {
+          width: 90%; } }
+      #gager .gager-form_main .input-wrapp {
+        position: relative;
+        margin-bottom: 35px; }
+        #gager .gager-form_main .input-wrapp input {
+          border-radius: 50px;
+          display: block;
+          width: 100%;
+          background: #343434;
+          padding: 8px 20px;
+          border: 1px solid transparent;
+          -webkit-transition: .25s;
+          transition: .25s;
+          color: #fff;
+          font-size: 14px; }
+          #gager .gager-form_main .input-wrapp input:focus {
+            outline: none;
+            border: 1px solid #9b47e5; }
+            #gager .gager-form_main .input-wrapp input:focus + label {
+              -webkit-transform: translateY(-32px);
+                      transform: translateY(-32px); }
+        #gager .gager-form_main .input-wrapp label {
+          position: absolute;
+          top: 8px;
+          left: 20px;
+          color: #7A7A7A;
+          pointer-events: none;
+          font-size: 14px;
+          -webkit-transition: .25s;
+          transition: .25s; }
+      #gager .gager-form_main .form-submit {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 294px;
+        border-radius: 50px;
+        padding: 12px 20px;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 90px;
+        cursor: pointer;
+        -webkit-box-shadow: 4px 3px 6px rgba(0, 0, 0, 0.57);
+                box-shadow: 4px 3px 6px rgba(0, 0, 0, 0.57);
+        background: #9b47e5;
+        background: -webkit-gradient(left top, right top, color-stop(0%, #9b47e5), color-stop(100%, #e45ae9));
+        background: -webkit-gradient(linear, left top, right top, from(#9b47e5), to(#e45ae9));
+        background: linear-gradient(to right, #9b47e5 0%, #e45ae9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b47e5', endColorstr='#e45ae9', GradientType=1 ); }
+        @media screen and (max-width: 576px) {
+          #gager .gager-form_main .form-submit {
+            font-size: 12px; } }
+      #gager .gager-form_main .go-to {
+        display: none;
+        position: relative;
+        border-radius: 50px;
+        padding: 12px 20px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        background: #3C3C3C;
+        font-size: 11px;
+        font-weight: 500;
+        width: 175px;
+        margin: 0 auto;
+        margin-top: 60px; }
+        #gager .gager-form_main .go-to:after {
+          content: '';
+          background: url("/images/gager/i.svg") no-repeat center/contain;
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 10%;
+          -webkit-transform: translateY(-50%);
+                  transform: translateY(-50%);
+          width: 15px;
+          height: 15px; }
+        @media screen and (max-width: 992px) {
+          #gager .gager-form_main .go-to {
+            display: block;
+            cursor: pointer; } }
+    #gager .gager-form svg {
+      position: absolute;
+      top: 0;
+      right: 50%;
+      height: 126%;
+      -webkit-transform: translateX(36%);
+              transform: translateX(36%); }
+      @media screen and (max-width: 1200px) {
+        #gager .gager-form svg {
+          height: 115%; } }
+      @media screen and (max-width: 992px) {
+        #gager .gager-form svg {
+          height: 157%;
+          top: -6%; } }
+      @media screen and (max-width: 576px) {
+        #gager .gager-form svg {
+          height: 100%;
+          top: 0; } }
+      #gager .gager-form svg .ico path {
+        -webkit-transition: .25s;
+        transition: .25s;
+        fill: transparent; }
+      #gager .gager-form svg .ico.active path {
+        fill: #c872eb; }
+      #gager .gager-form svg .ellipse {
+        stroke-dasharray: 0, 1400;
+        -webkit-transition: stroke-dasharray 3s linear;
+        transition: stroke-dasharray 3s linear;
+        stroke-dashoffset: 195;
+        stroke-width: 3.5; }
+
+@media (max-width: 768px) {
+  #gager .preloader .empty .title {
+    font-size: 27px; }
+  #gager .preloader .empty ul {
+    height: 29px;
+    font-size: 18px; }
+    #gager .preloader .empty ul li {
+      display: none; }
+    #gager .preloader .empty ul .li-1, #gager .preloader .empty ul .li-5, #gager .preloader .empty ul .li-8, #gager .preloader .empty ul .li-11, #gager .preloader .empty ul .li-14 {
+      display: block; } }
+
+@media (max-width: 420px) {
+  #gager .preloader .empty .title {
+    font-size: 18px; }
+  #gager .preloader .empty ul {
+    height: 26px;
+    font-size: 16px; }
+    #gager .preloader .empty ul .li-5, #gager .preloader .empty ul .li-11 {
+      display: none; } }

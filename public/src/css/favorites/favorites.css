@@ -1,0 +1,354 @@
+#favorites {
+  overflow: hidden; }
+  #favorites section.favorites {
+    background-color: #424242;
+    -webkit-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    padding-bottom: 5rem;
+    overflow: hidden;
+    -webkit-transition: .7 all;
+    transition: .7 all; }
+    @media screen and (max-width: 1000px) {
+      #favorites section.favorites {
+        padding: 5rem 0; } }
+    #favorites section.favorites .header-container {
+      margin-top: 2em;
+      height: 150px; }
+      @media screen and (max-width: 426px) {
+        #favorites section.favorites .header-container {
+          margin: 0; } }
+    #favorites section.favorites .look-all {
+      width: 138px;
+      height: 25px;
+      border-radius: 100px;
+      background-color: #333232;
+      border: none;
+      color: #ffffff;
+      font-size: .5em;
+      font-weight: 500;
+      letter-spacing: 0.13px;
+      text-transform: uppercase;
+      display: none; }
+    #favorites section.favorites .tab-favorites {
+      margin: 0 .4rem; }
+    #favorites section.favorites .title-favorites {
+      font-size: 1.5em;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase; }
+    #favorites section.favorites .favorites-card-button, #favorites section.favorites .btn-view, #favorites section.favorites .tab-favorites, #favorites section.favorites .look-all {
+      cursor: pointer; }
+    #favorites section.favorites .lines-container {
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+    #favorites section.favorites .favorites-cards-container {
+      display: grid;
+      grid-template-columns: 19% 19% 19% 19% 19%;
+      grid-gap: 0 1.2%;
+      text-align: center;
+      color: white; }
+      @media screen and (max-width: 1300px) {
+        #favorites section.favorites .favorites-cards-container {
+          grid-gap: 0 1.3%;
+          grid-template-columns: 24% 24% 24% 24%; } }
+      @media screen and (max-width: 1000px) {
+        #favorites section.favorites .favorites-cards-container {
+          grid-template-columns: 32% 32% 32%; } }
+      @media screen and (max-width: 610px) {
+        #favorites section.favorites .favorites-cards-container {
+          grid-template-columns: 48% 48%;
+          grid-gap: 0 4%; }
+          #favorites section.favorites .favorites-cards-container .favorites-card-item {
+            margin: 15px 0; } }
+    #favorites section.favorites .favorites-card-item, #favorites section.favorites .favorites-card-body {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+    #favorites section.favorites .favorites-card-item {
+      width: 100%;
+      position: relative;
+      margin-top: 30px;
+      cursor: pointer; }
+      @media screen and (max-width: 426px) {
+        #favorites section.favorites .favorites-card-item .favorites-card-header {
+          width: 100%; } }
+      @media screen and (max-width: 426px) {
+        #favorites section.favorites .favorites-card-item a.favorites-card-button {
+          width: 30px;
+          height: 30px; } }
+      @media screen and (max-width: 426px) {
+        #favorites section.favorites .favorites-card-item a.favorites-card-button img {
+          width: 50%; } }
+      @media screen and (max-width: 400px) {
+        #favorites section.favorites .favorites-card-item {
+          width: 100%; } }
+      @media screen and (max-width: 980px) {
+        #favorites section.favorites .favorites-card-item .favorites-card-body:hover:nth-last-of-type(-n+3) .favorites {
+          padding-bottom: 500px; } }
+    #favorites section.favorites .favorites-card-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      display: none;
+      width: 70%; }
+      @media screen and (max-width: 1000px) {
+        #favorites section.favorites .favorites-card-header {
+          width: 80%; } }
+      @media screen and (max-width: 600px) {
+        #favorites section.favorites .favorites-card-header {
+          width: 70%; } }
+      #favorites section.favorites .favorites-card-header .favorites-card-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 9px; }
+        #favorites section.favorites .favorites-card-header .favorites-card-button.fre-qurty {
+          background-image: -webkit-gradient(linear, left bottom, left top, from(#e55ae9), to(#9c47e5));
+          background-image: linear-gradient(to top, #e55ae9 0%, #9c47e5 100%); }
+        #favorites section.favorites .favorites-card-header .favorites-card-button.eyes {
+          background-color: #535353; }
+        #favorites section.favorites .favorites-card-header .favorites-card-button.window {
+          background-color: #89e6fb; }
+        #favorites section.favorites .favorites-card-header .favorites-card-button.close {
+          background-color: #535353;
+          display: none; }
+          @media screen and (max-width: 768px) {
+            #favorites section.favorites .favorites-card-header .favorites-card-button.close {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex; } }
+          #favorites section.favorites .favorites-card-header .favorites-card-button.close img {
+            width: 25%; }
+    #favorites section.favorites .favorites-card-body {
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      border-radius: 20px;
+      border: 1px solid #95989a;
+      padding: 1rem 1rem;
+      width: 100%;
+      position: relative; }
+      @media screen and (max-width: 768px) {
+        #favorites section.favorites .favorites-card-body {
+          padding: 1rem 1.5rem; } }
+      @media screen and (max-width: 520px) {
+        #favorites section.favorites .favorites-card-body {
+          padding: 1rem 2rem; } }
+      @media screen and (max-width: 426px) {
+        #favorites section.favorites .favorites-card-body {
+          border-radius: 15px;
+          padding: 1rem 1rem; } }
+      #favorites section.favorites .favorites-card-body .card-title {
+        text-transform: uppercase; }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .favorites-card-body .card-title {
+            font-size: .7em; } }
+      #favorites section.favorites .favorites-card-body > div {
+        margin: .3rem 0; }
+      #favorites section.favorites .favorites-card-body div.card-color-border {
+        border-radius: 9px;
+        border: 1px solid #ffffff;
+        padding: 2px;
+        margin: 10px 0; }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .favorites-card-body div.card-color-border {
+            border-radius: 3px;
+            padding: 1px;
+            margin: 6px 0; } }
+        #favorites section.favorites .favorites-card-body div.card-color-border .card-color {
+          background: #9f9e9d;
+          width: 29px;
+          height: 29px;
+          border-radius: 6px; }
+          @media screen and (max-width: 426px) {
+            #favorites section.favorites .favorites-card-body div.card-color-border .card-color {
+              width: 15px;
+              height: 15px;
+              border-radius: 3px; } }
+          #favorites section.favorites .favorites-card-body div.card-color-border .card-color.backColorLight {
+            background: #ad966a; }
+          #favorites section.favorites .favorites-card-body div.card-color-border .card-color.backColorBrown {
+            background: #887561; }
+          #favorites section.favorites .favorites-card-body div.card-color-border .card-color.backColorGray {
+            background: #9f9e9d; }
+          #favorites section.favorites .favorites-card-body div.card-color-border .card-color.backColorGreen {
+            background: #8da418; }
+          #favorites section.favorites .favorites-card-body div.card-color-border .card-color.backColorOrange {
+            background: #c04b00; }
+      #favorites section.favorites .favorites-card-body .card-modals-view, #favorites section.favorites .favorites-card-body .btn-view {
+        display: none;
+        text-transform: uppercase;
+        color: #414141;
+        font-weight: 600; }
+      #favorites section.favorites .favorites-card-body .card-modals-view {
+        font-size: .7em; }
+        @media screen and (max-width: 750px) {
+          #favorites section.favorites .favorites-card-body .card-modals-view {
+            margin: 2rem 0; } }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .favorites-card-body .card-modals-view {
+            margin: 1rem 0; } }
+      #favorites section.favorites .favorites-card-body .btn-view {
+        font-size: 1em;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #414141;
+        margin-bottom: .3rem; }
+        @media screen and (max-width: 750px) {
+          #favorites section.favorites .favorites-card-body .btn-view {
+            width: 100%;
+            border: 1px solid white;
+            border-radius: 20px; } }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .favorites-card-body .btn-view {
+            padding: 3px 0; } }
+      #favorites section.favorites .favorites-card-body .favorites-card-body-text {
+        display: none;
+        color: #414141;
+        font-size: 12px;
+        letter-spacing: 0.22px;
+        line-height: 18px;
+        font-weight: 600;
+        margin-bottom: 20px; }
+  #favorites .card-modals {
+    font-size: .7em;
+    text-transform: uppercase; }
+    @media screen and (max-width: 426px) {
+      #favorites .card-modals {
+        font-size: .5em; } }
+  #favorites section.favorites .btn-view-mob.dots {
+    margin-top: 20px;
+    display: none; }
+    @media screen and (max-width: 768px) {
+      #favorites section.favorites .btn-view-mob.dots {
+        display: block; } }
+    @media screen and (max-width: 610px) {
+      #favorites section.favorites .btn-view-mob.dots {
+        display: block;
+        margin-top: 10px; } }
+  #favorites section.favorites .card-photo {
+    text-align: center;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%; }
+    @media screen and (min-width: 1000px) {
+      #favorites section.favorites .card-photo {
+        width: 70%;
+        height: 170px; } }
+    @media screen and (max-width: 426px) {
+      #favorites section.favorites .card-photo {
+        height: 100px;
+        width: 70%; } }
+    @media screen and (max-width: 350px) {
+      #favorites section.favorites .card-photo {
+        height: 100px;
+        width: 100%; } }
+    #favorites section.favorites .card-photo img {
+      width: 100%; }
+  #favorites section.favorites .active {
+    cursor: auto; }
+    #favorites section.favorites .active .favorites-card-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      @media screen and (max-width: 769px) {
+        #favorites section.favorites .active .favorites-card-header {
+          width: 100%; } }
+    #favorites section.favorites .active .favorites-card-body {
+      height: 100%;
+      margin-top: 30px;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      background-image: -webkit-gradient(linear, left bottom, left top, from(#83f2fc), color-stop(52%, #a3bbf9), to(#d957e7));
+      background-image: linear-gradient(to top, #83f2fc 0%, #a3bbf9 52%, #d957e7 100%);
+      -webkit-animation: toggle 1s ease;
+              animation: toggle 1s ease;
+      padding: 2em 3em;
+      position: absolute;
+      z-index: 10;
+      height: auto;
+      top: 15%; }
+      #favorites section.favorites .active .favorites-card-body div {
+        display: none; }
+      @media screen and (max-width: 980px) {
+        #favorites section.favorites .active .favorites-card-body {
+          z-index: 10;
+          padding: 2em 2em; } }
+      @media screen and (max-width: 426px) {
+        #favorites section.favorites .active .favorites-card-body {
+          padding: 1em 1em;
+          margin-top: 15px; } }
+      #favorites section.favorites .active .favorites-card-body .favorites-card-body-text {
+        width: 100%;
+        display: block;
+        text-align: left; }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .active .favorites-card-body .favorites-card-body-text {
+            font-size: .6em; } }
+        @media screen and (max-width: 350px) {
+          #favorites section.favorites .active .favorites-card-body .favorites-card-body-text {
+            font-size: .5em; } }
+      #favorites section.favorites .active .favorites-card-body #view.card-modals-view {
+        display: block;
+        margin-top: .7rem;
+        margin-bottom: 1.2rem;
+        font-weight: 600; }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .active .favorites-card-body #view.card-modals-view {
+            font-size: .6em;
+            padding-top: .7rem;
+            padding-bottom: 1rem;
+            margin: 0; } }
+        @media screen and (max-width: 350px) {
+          #favorites section.favorites .active .favorites-card-body #view.card-modals-view {
+            font-size: .5em; } }
+        #favorites section.favorites .active .favorites-card-body #view.card-modals-view div {
+          display: block; }
+      #favorites section.favorites .active .favorites-card-body .btn-view {
+        display: block; }
+        @media screen and (max-width: 1000px) {
+          #favorites section.favorites .active .favorites-card-body .btn-view {
+            padding: 3px 0; } }
+        @media screen and (max-width: 426px) {
+          #favorites section.favorites .active .favorites-card-body .btn-view {
+            font-size: .7em; } }
+        @media screen and (max-width: 330px) {
+          #favorites section.favorites .active .favorites-card-body .btn-view {
+            font-size: .6em; } }
+      #favorites section.favorites .active .favorites-card-body .btn-view-mob {
+        display: none; }

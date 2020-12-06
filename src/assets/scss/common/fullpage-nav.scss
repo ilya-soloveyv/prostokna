@@ -1,0 +1,72 @@
+@import '@scss/variables';
+
+#fullpage_nav {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  border-left: 1px solid $border-dark;
+  overflow: hidden;
+
+  @media (max-width: 1280px) {
+    display: none;
+  }
+
+  .contacts {
+    position: absolute;
+    bottom: 60px;
+
+    width: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      transition: 0.3s ease-out;
+
+      &:focus,
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    li {
+      margin-bottom: 10px;
+
+      &:first-child {
+        a {
+          background-color: #4caf50;
+        }
+      }
+
+      &:nth-child(2) {
+        a {
+          background-color: #cb6dea;
+        }
+      }
+
+      &:last-child {
+        a {
+          background-color: #a9b1f7;
+        }
+
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .icon--phone {
+    color: #fff;
+  }
+}
