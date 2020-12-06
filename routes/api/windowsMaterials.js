@@ -19,7 +19,21 @@ router.get('/', async (req, res, next) => {
     status: 'OK',
     payload: materials.map(material => ({
       id: material.iMaterialID,
-      title: material.sMaterialTitle
+      title: material.sMaterialTitle,
+      price: 2000,
+      paintingCoefficient: {
+        oneSide: 1.5,
+        twoSides: 1.6,
+        nonstandardAddition: 0.05
+      },
+      slopesPrice: {
+        default: 0.942,
+        colored: 5
+      },
+      slopesCornerPrice: {
+        default: 0.43,
+        colored: 2.4
+      }
     }))
   };
 

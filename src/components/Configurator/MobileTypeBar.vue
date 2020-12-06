@@ -27,7 +27,6 @@ export default {
   width: 100%;
   top: 60px;
   padding-top: 26px;
-
   background: linear-gradient(180deg, rgba($dark, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 

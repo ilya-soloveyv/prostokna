@@ -1,7 +1,7 @@
 <template>
-  <div class="window">
+  <div class="product">
     <div class="name">{{ name }}</div>
-    <div class="price">{{ price }}₽</div>
+    <div class="price">{{ formatedPrice }} ₽</div>
     <div class="actions">
       <img
         v-bind:src="editIcon"
@@ -42,7 +42,7 @@ import deleteIcon from '@images/configurator/delete-icon.svg';
 import editIcon from '@images/configurator/edit-icon.svg';
 
 export default {
-  name: 'ProductsSlide',
+  name: 'ProductCard',
   props: {
     product: { required: true }
   },
@@ -141,7 +141,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@scss/variables';
-.window {
+.product {
   position: absolute;
   top: 30px;
   bottom: 30px;

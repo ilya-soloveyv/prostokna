@@ -263,11 +263,11 @@ export default {
     },
 
     getAvaibleSizes() {
-      const ranges = this.$store.state.configurator.ranges;
+      const baseValues = this.$store.state.configurator.baseValues;
       const windows = this.currentProduct.getWindowsPanes();
       const doors = this.currentProduct.getDoorsPanes();
-      const windowsRange = ranges.windows[s(windows.join(''))];
-      const doorsRange = ranges.doors[s(doors.join(''))];
+      const windowsRange = baseValues.windows[s(windows.join(''))];
+      const doorsRange = baseValues.doors[s(doors.join(''))];
       const avaibleSizes = [];
 
       const elementsData = this.currentProduct.getElementsData();
