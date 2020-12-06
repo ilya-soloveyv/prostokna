@@ -3,6 +3,24 @@ const router = Router();
 const s = require('../../src/utils/safeOpeningsSequence');
 
 const balconyRanges = { x: [450, 1600], y: [500, 2000] };
+const sillPrice = {
+  150: [1.5, 3],
+  200: [2, 4],
+  250: [2.5, 5],
+  300: [3, 6],
+  350: [3.5, 7],
+  400: [4, 8],
+  450: [4.5, 9],
+  500: [5, 10],
+  550: [5.5, 11],
+  600: [6, 12],
+  650: [6.5, 13],
+  700: [7, 14],
+  750: [7.5, 15],
+  800: [8, 16],
+  850: [8.5, 17],
+  900: [9, 18]
+};
 
 /**
  * Допустимые диапозоны значений не зависящии от прочих параметров оконной кострукции
@@ -58,14 +76,44 @@ router.get('/', async (req, res, next) => {
         },
         mountingDepth: [50, 1000], // Диапозон допустимой глубины монтажа
         slopesDepth: [50, 500], // Диапозон допустимой глубины откосов
-        windowSill: { x: [450, 2000], y: [10, 500] }, // длинна и грубина подоконника
+        windowSill: { x: [200, 3000], y: [150, 900] }, // длинна и грубина подоконника
         // Бренды подоконников
         sillsBrands: [
-          { id: 1, title: 'Montblanc' },
-          { id: 2, title: 'Rehau' },
-          { id: 3, title: 'Wintech' },
-          { id: 4, title: 'Novotex' }
-        ]
+          { id: 1, title: 'Montblanc', price: sillPrice },
+          { id: 2, title: 'Rehau', price: sillPrice },
+          { id: 3, title: 'Wintech', price: sillPrice },
+          { id: 4, title: 'Novotex', price: sillPrice }
+        ],
+        // Цена на подоконник для балконов
+        sillPrice,
+
+        /**
+         * Ключ — длина в милиметрах с которой начинается цена
+         */
+        slopesInstallation: {
+          0: 460,
+          300: 540,
+          500: 640
+        },
+        parapetPaneling: {
+          outer: 2450,
+          inner: 1500
+        },
+
+        /**
+         * Стоимость подъема м² на этаж
+         */
+        pricePerFloor: 26,
+
+        /**
+         * Отлив
+         */
+        outerSill: 1.14,
+
+        /**
+         * Козырёк
+         */
+        visor: 2.84
       }
     },
     null,

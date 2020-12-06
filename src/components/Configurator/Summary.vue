@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="summary">
     <TypeSelector v-if="!isMobile" />
     <ProductsSlider />
     <AddWindow v-if="!isMobile" />
@@ -53,4 +53,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.summary {
+  .mobile & {
+    width: calc(100% - 30px);
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+</style>

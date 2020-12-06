@@ -5,6 +5,7 @@ const Product = class {
   constructor() {
     this.id = Date.now();
     this.lastUpdate = Date.now();
+    this.globalStateHook = null;
 
     const combinedDefaults = {
       ...coreDefaults,
@@ -18,7 +19,7 @@ const Product = class {
     return new Proxy(this, {
       set(target, property, value) {
         target[property] = value;
-        target._updated();
+        target.triggerUpdate();
         return true;
       }
     });
@@ -26,6 +27,10 @@ const Product = class {
 
   get defaults() {
     return {};
+  }
+
+  get baseValues() {
+    return this?.globalStateHook()?.configurator?.baseValues;
   }
 
   /**
@@ -40,7 +45,7 @@ const Product = class {
    *
    * Данный метод вызывается для установки параметов, которые зависят от других параметров объекта
    */
-  init() {
+  init(globalStore) {
     throw new Error('Не реализована логика инициализации продукта');
   }
 
@@ -56,9 +61,7 @@ const Product = class {
     const exporters = this.exporters || {};
 
     Object.keys(combinedDefaults).forEach(key => {
-      if (key[0] !== '_') {
-        optionsToExport[key] = this[key];
-      }
+      optionsToExport[key] = this[key];
     });
 
     Object.keys(exporters).forEach(key => {
@@ -88,7 +91,7 @@ const Product = class {
    * Сервисные методы
    */
 
-  _updated() {
+  triggerUpdate() {
     this.lastUpdate = Date.now();
   }
 

@@ -55,7 +55,15 @@ router.get('/', async (req, res, next) => {
         ecology: randomPercent(),
         insulation: randomPercent(),
         durability: 100
-      }
+      },
+
+      paintingCoefficient: {
+        oneSide: 1.5,
+        twoSides: 1.6,
+        nonstandardAddition: 0.05
+      },
+
+      installationPrice: 1500
     }
   });
 });

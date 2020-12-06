@@ -18,6 +18,7 @@
         :min="mountingDepth[0]"
         :max="mountingDepth[1]"
         :value="currentProduct.mountingDepth"
+        points="мм"
         @change="setMountingDepth"
       />
       <Selector
@@ -105,7 +106,7 @@ export default {
       return this.currentProduct.modelId;
     },
     mountingDepth() {
-      return this.$store.state.configurator.ranges.mountingDepth;
+      return this.$store.state.configurator.baseValues.mountingDepth;
     }
   },
   watch: {

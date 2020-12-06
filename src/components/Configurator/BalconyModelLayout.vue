@@ -83,7 +83,7 @@ export default {
       return this.currentProduct.modelId;
     },
     mountingDepth() {
-      return this.$store.state.configurator.ranges.mountingDepth;
+      return this.$store.state.configurator.baseValues.mountingDepth;
     }
   },
   watch: {
