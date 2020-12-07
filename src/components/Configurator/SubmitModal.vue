@@ -36,6 +36,7 @@
               id="submit-modal-phone"
               ref="inputPhone"
               v-model="phone"
+              v-mask="'+7 (###) ### ## ##'"
               @input="phoneHasError = false"
               @blur="phoneHasError = !isPhoneValid"
             />
@@ -87,9 +88,9 @@
 </template>
 
 <script>
-import Inputmask from 'inputmask';
 import copy from 'clipboard-copy';
 
+import { VueMaskDirective } from 'v-mask';
 import SubmitSpinner from './common/SubmitSpinner.vue';
 
 export default {
@@ -100,10 +101,12 @@ export default {
       name: this.$store.state.configurator.name,
       phone: this.$store.state.configurator.phone,
       comment: this.$store.state.configurator.comment,
-      phoneInputMask: null,
       nameHasError: false,
       phoneHasError: false
     };
+  },
+  directives: {
+    mask: VueMaskDirective
   },
   watch: {
     name() {
@@ -124,7 +127,7 @@ export default {
       return this.name.length > 0 && this.name.length < 200;
     },
     isPhoneValid() {
-      return this.phoneInputMask?.isComplete();
+      return /^\+7 \(\d{3,}\) \d{3,} \d{2,} \d{2,}$/.test(this.phone);
     },
     currentProduct() {
       return this.$store.getters['configurator/currentProduct'];
@@ -162,11 +165,6 @@ export default {
     closeEvent(event = {}) {
       this.$emit('close', event);
     }
-  },
-  mounted() {
-    this.phoneInputMask = new Inputmask({ mask: '+7 (999) 999-99-99' }).mask(
-      this.$refs.inputPhone
-    );
   }
 };
 </script>

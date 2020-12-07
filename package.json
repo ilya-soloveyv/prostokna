@@ -73,6 +73,7 @@
     "sharp": "^0.26.3",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.3.5",
+    "v-mask": "^2.2.3",
     "vue": "^2.5.19",
     "vue-awesome-swiper": "^4.1.1",
     "vue-circle-counter": "^3.0.0",
