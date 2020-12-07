@@ -38,6 +38,7 @@ const BalconyProduct = class extends Product {
       selectedShapeId: 'twoPanes',
       width: null,
       height: null,
+      depth: null,
       panesCount: 2,
       panesOpening: 0,
       //panesConfig: [],
@@ -190,6 +191,15 @@ const BalconyProduct = class extends Product {
       function outerSill(price) {
         if (!this.outerSill) return price;
         return price + (this.width / 1000) * this.baseValues.outerSill;
+      },
+
+      function mosquitoNet(price) {
+        if (!this.mosquitoNet) return price;
+
+        const netsArea =
+          (this.getArea() / this.panesCount) * this.mosquitoNetCount;
+
+        return price + (netsArea / 100) * this.baseValues.mosquitoNet;
       }
     ];
   }

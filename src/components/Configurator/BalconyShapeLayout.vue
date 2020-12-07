@@ -15,9 +15,9 @@
       v-if="!isMobile || mobileLayoutPart === 2"
     >
       <Slider
-        label="Ширина"
+        label="Длина"
         :min="baseValues.x[0]"
-        :max="baseValues.x[1]"
+        :max="maxWidth"
         :value="currentProduct.width"
         @change="val => setProductOption('width', val)"
       />
@@ -28,17 +28,27 @@
         :value="currentProduct.height"
         @change="val => setProductOption('height', val)"
       />
+      <Slider
+        label="Глубина"
+        v-if="baseValues.z"
+        :min="baseValues.z[0]"
+        :max="baseValues.z[1]"
+        :value="currentProduct.depth"
+        @change="val => setProductOption('depth', val)"
+      />
       <Counter
         label="СТВОРОКИ"
-        :max="4"
+        v-if="showPanesCount"
+        :min="baseValues.panes.min"
+        :max="baseValues.panes.max"
         :value="currentProduct.panesCount"
         @change="val => setProductOption('panesCount', val)"
       />
       <Selector
         label="ОТКРЫВАНИЕ СТВОРКИ"
+        v-if="baseValues.z"
         :options="currentProduct.avaibleOpenings"
         :selected="currentProduct.panesOpening"
-        :disabled="!currentProduct.panesCount"
         @change="val => setProductOption('panesOpening', parseInt(val))"
       />
     </div>
@@ -85,6 +95,17 @@ export default {
     };
   },
   computed: {
+    showPanesCount() {
+      return this.baseValues.panes.min !== this.baseValues.panes.max;
+    },
+    maxWidth() {
+      const maxPanes = this.baseValues.panes.max;
+      const maxPaneWidth = this.$store.state.configurator.baseValues
+        .balconyPaneWidth[1];
+      const maxWidth = maxPanes * maxPaneWidth;
+
+      return this.baseValues.x[1] > maxWidth ? maxWidth : this.baseValues.x[1];
+    },
     prevScreen() {
       return this.configuratorComponent.prevScreen;
     },

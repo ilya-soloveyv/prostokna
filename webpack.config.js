@@ -9,6 +9,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -42,7 +44,13 @@ const plugins = function getPluginsArray() {
     new webpack.ProgressPlugin()
   ];
 
-  // if (isProduction) base.push(new BundleAnalyzerPlugin());
+  if (isProduction)
+    base.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false
+      })
+    );
 
   return base;
 };
@@ -114,7 +122,7 @@ module.exports = {
       '@vendor': path.resolve(__dirname, 'src/vendor'),
       '@images': path.resolve(__dirname, 'src/images'),
       '@scss': path.resolve(__dirname, 'src/assets/scss'),
-      vue: 'vue/dist/vue.js'
+      vue: isProduction ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js'
     }
   },
 
@@ -176,7 +184,14 @@ module.exports = {
   },
 
   optimization: {
-    minimizer: [new TerserPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          keep_fnames: true,
+          keep_classnames: true
+        }
+      })
+    ],
 
     splitChunks: {
       cacheGroups: {

@@ -82,7 +82,10 @@
       />
       <Counter
         label="КОЛИЧЕСТВО СЕТОК"
+        :min="1"
+        :max="currentProduct.panesCount"
         :value="currentProduct.mosquitoNetCount"
+        :disabled="!currentProduct.mosquitoNet"
         @change="val => setProductOption('mosquitoNetCount', val)"
       />
       <CheckBox

@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const s = require('../../src/utils/safeOpeningsSequence');
 
-const balconyRanges = { x: [450, 1600], y: [500, 2000] };
+const balconyRanges = { x: [1000, 6500], y: [500, 2000], z: null };
 const sillPrice = {
   150: [1.5, 3],
   200: [2, 4],
@@ -65,15 +65,28 @@ router.get('/', async (req, res, next) => {
           2: { x: [450, 1600], y: [500, 2000] }
         },
         balcony: {
-          twoPanes: balconyRanges,
-          threePanes: balconyRanges,
-          fourPanes: balconyRanges,
-          cornerLeft: balconyRanges,
-          cornerRight: balconyRanges,
-          twoCorners: balconyRanges,
-          angleLeft: balconyRanges,
-          angleRight: balconyRanges
+          twoPanes: { ...balconyRanges, panes: { min: 2, max: 2 } },
+          threePanes: { ...balconyRanges, panes: { min: 3, max: 3 } },
+          fourPanes: { ...balconyRanges, panes: { min: 4, max: 10 } },
+          cornerLeft: {
+            ...balconyRanges,
+            z: [500, 1000],
+            panes: { min: 2, max: 5 }
+          },
+          cornerRight: {
+            ...balconyRanges,
+            z: [500, 1000],
+            panes: { min: 2, max: 5 }
+          },
+          twoCorners: {
+            ...balconyRanges,
+            z: [500, 1000],
+            panes: { min: 4, max: 10 }
+          },
+          angleLeft: { ...balconyRanges, panes: { min: 2, max: 10 } },
+          angleRight: { ...balconyRanges, panes: { min: 2, max: 10 } }
         },
+        balconyPaneWidth: [500, 1000],
         mountingDepth: [50, 1000], // Диапозон допустимой глубины монтажа
         slopesDepth: [50, 500], // Диапозон допустимой глубины откосов
         windowSill: { x: [200, 3000], y: [150, 900] }, // длинна и грубина подоконника
@@ -113,7 +126,9 @@ router.get('/', async (req, res, next) => {
         /**
          * Козырёк
          */
-        visor: 2.84
+        visor: 2.84,
+
+        mosquitoNet: 0.08
       }
     },
     null,
