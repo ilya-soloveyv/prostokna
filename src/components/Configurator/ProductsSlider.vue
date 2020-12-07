@@ -1,18 +1,27 @@
 <template>
-  <transition name="slide">
-    <div class="products-slider" v-swiper="swiperOption" v-if="showSlider">
-      <div class="swiper-wrapper">
-        <div
-          class="swiper-slide"
+  <transition
+    name="slide"
+    @enter="transitionEnter"
+    @after-enter="transitionAfterEnter"
+  >
+    <div class="products-slider" v-if="showSlider">
+      <hooper
+        ref="carousel"
+        :wheelControl="false"
+        :keysControl="false"
+        @slide="afterSlide"
+      >
+        <slide
           :key="index"
           v-for="(product, index) of products"
+          :style="{ minWidth: slideMinWidth }"
         >
           <ProductCard :product="product" />
-        </div>
-      </div>
+        </slide>
+      </hooper>
       <div class="controls">
-        <div class="next" @click="$swiper.slideNext()"></div>
-        <div class="prev" @click="$swiper.slidePrev()"></div>
+        <div class="next" @click="$refs.carousel.slideNext()"></div>
+        <div class="prev" @click="$refs.carousel.slidePrev()"></div>
         <div class="dots" ref="dots">
           <div
             class="dot"
@@ -28,48 +37,24 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
-import 'swiper/swiper-bundle.css';
+import { Hooper, Slide } from 'hooper';
+import 'hooper/dist/hooper.css';
 
 import ProductCard from './ProductCard.vue';
 
 export default {
   name: 'ProductsSlider',
   components: {
-    Swiper,
-    SwiperSlide,
+    Hooper,
+    Slide,
     ProductCard
-  },
-  directives: {
-    swiper: directive
   },
   inject: ['configuratorComponent'],
   data() {
     return {
-      swiperOption: {
-        init: false,
-        loop: false,
-        autoplay: false,
-        on: {
-          slideChange: ({ activeIndex }) => {
-            this.selectProduct(this.products[activeIndex]);
-          }
-        }
-      },
-      unsubscribe: null
+      unsubscribe: null,
+      slideMinWidth: 'auto'
     };
-  },
-  watch: {
-    showSlider() {
-      this.showSlider ? this.initSwiper() : this.destroySwiper();
-    },
-    mobileLayout() {
-      if (this.mobileLayout !== 'summary') {
-        this.destroySwiper();
-      } else {
-        this.initSwiper();
-      }
-    }
   },
   computed: {
     mobileLayout() {
@@ -86,34 +71,28 @@ export default {
     }
   },
   methods: {
+    transitionEnter() {
+      this.slideMinWidth = this.$refs.carousel.$el.offsetWidth + 'px';
+    },
+    transitionAfterEnter() {
+      this.$refs.carousel.update();
+      this.slideMinWidth = 'auto';
+    },
+
+    afterSlide({ currentSlide }) {
+      this.selectProduct(this.products[currentSlide]);
+    },
     slideTo(index) {
-      if (!index) {
-        this.$swiper.slideTo(index, 250);
-      }
+      this.$refs.carousel.slideTo(index);
     },
     selectProduct(product) {
       this.$store.commit('configurator/setCurrentProduct', product);
-    },
-
-    initSwiper() {
-      setTimeout(() => {
-        this.$swiper.init();
-        window.sw = this.$swiper;
-      }, 0);
-    },
-    destroySwiper() {
-      setTimeout(() => {
-        this.$swiper.destroy();
-      }, 0);
     }
   },
   mounted() {
-    console.log('mounted');
     this.unsubscribe = this.$store.subscribeAction(action => {
-      if (action.type === 'configurator/addProduct') {
-        setTimeout(() => {
-          this.slideTo(this.products.length - 1);
-        }, 0);
+      if (action.type === 'configurator/addProduct' && this.$refs.carousel) {
+        this.$refs.carousel(this.products.length - 1);
       }
     });
   },

@@ -142,15 +142,12 @@ export default {
 <style lang="scss" scoped>
 @import '@scss/variables';
 .product {
-  position: absolute;
-  top: 30px;
-  bottom: 30px;
-  left: 26px;
-  right: 26px;
+  position: relative;
+  padding: 30px 26px;
 
   .mobile & {
-    top: 15px;
-    bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
@@ -170,8 +167,11 @@ export default {
 
 .actions {
   position: absolute;
-  top: -6px;
-  right: -6px;
+  top: 24px;
+  right: 20px;
+  .mobile & {
+    top: 11px;
+  }
 }
 
 .action {
