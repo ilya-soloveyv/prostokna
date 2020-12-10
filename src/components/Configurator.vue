@@ -33,18 +33,59 @@
         <transition name="layout">
           <Header />
         </transition>
+        <div v-for="porduct of productsWithCurrentType" :key="porduct.id">
+          <transition name="layout">
+            <WindowShapeLayout
+              v-if="
+                currentScreen === 'WindowProduct/shape' &&
+                  porduct === currentProduct
+              "
+            />
+            <WindowModelLayout
+              v-if="
+                currentScreen === 'WindowProduct/model' &&
+                  porduct === currentProduct
+              "
+            />
+            <WindowOtherLayout
+              v-if="
+                currentScreen === 'WindowProduct/other' &&
+                  porduct === currentProduct
+              "
+            />
+            <WindowColorLayout
+              v-if="
+                currentScreen === 'WindowProduct/color' &&
+                  porduct === currentProduct
+              "
+            />
 
-        <transition name="layout">
-          <WindowShapeLayout v-if="currentScreen === 'WindowProduct/shape'" />
-          <WindowModelLayout v-if="currentScreen === 'WindowProduct/model'" />
-          <WindowOtherLayout v-if="currentScreen === 'WindowProduct/other'" />
-          <WindowColorLayout v-if="currentScreen === 'WindowProduct/color'" />
-
-          <BalconyShapeLayout v-if="currentScreen === 'BalconyProduct/shape'" />
-          <BalconyModelLayout v-if="currentScreen === 'BalconyProduct/model'" />
-          <BalconyOtherLayout v-if="currentScreen === 'BalconyProduct/other'" />
-          <BalconyColorLayout v-if="currentScreen === 'BalconyProduct/color'" />
-        </transition>
+            <BalconyShapeLayout
+              v-if="
+                currentScreen === 'BalconyProduct/shape' &&
+                  porduct === currentProduct
+              "
+            />
+            <BalconyModelLayout
+              v-if="
+                currentScreen === 'BalconyProduct/model' &&
+                  porduct === currentProduct
+              "
+            />
+            <BalconyOtherLayout
+              v-if="
+                currentScreen === 'BalconyProduct/other' &&
+                  porduct === currentProduct
+              "
+            />
+            <BalconyColorLayout
+              v-if="
+                currentScreen === 'BalconyProduct/color' &&
+                  porduct === currentProduct
+              "
+            />
+          </transition>
+        </div>
       </div>
       <div class="layout-wrapper" v-else>
         <transition name="layout">
@@ -63,6 +104,8 @@
 </template>
 
 <script>
+import { Fragment } from 'vue-fragment';
+
 import Summary from './Configurator/Summary.vue';
 import Header from './Configurator/Header.vue';
 import TypeSelector from './Configurator/TypeSelector.vue';
@@ -99,6 +142,7 @@ export default {
   el: '#configurator',
   name: 'Configurator',
   components: {
+    Fragment,
     Summary,
     Header,
     SquareSelector,
@@ -148,6 +192,9 @@ export default {
     },
     isMobile() {
       return ['xs', 'sm'].includes(this.$mq);
+    },
+    currentProduct() {
+      return this.$store.getters['configurator/currentProduct'];
     },
     currentScreen() {
       return this.$store.getters['configurator/currentScreen'];
