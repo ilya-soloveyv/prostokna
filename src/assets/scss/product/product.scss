@@ -491,6 +491,10 @@
               // background: green;
               .slick-track {
                 .slick-slide {
+                  div {
+                    height: 100%;
+                  }
+
                   height: 175px;
                   padding: 15px;
                   cursor: pointer;
